@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { LayoutCodeExample } from "@/components/web-layout/LayoutCodeExample";
-import { LayoutPreview } from "@/components/web-layout/LayoutPreview";
+import { LayoutStagePreview } from "@/components/web-layout/LayoutStagePreview";
 import { RelatedLayouts } from "@/components/web-layout/RelatedLayouts";
 import { webLayouts, getLayoutBySlug, type WebLayout } from "@/data/webLayouts";
 import { complexityTone, formatComplexity } from "@/lib/utils";
@@ -52,7 +52,15 @@ export default async function LayoutDetailPage({ params }: LayoutDetailPageProps
           목록으로 돌아가기
         </Link>
 
-        <section className="mt-8 grid gap-6 xl:grid-cols-[360px_minmax(0,1fr)] xl:items-start">
+        <section
+          aria-label={`${layout.nameKo} 실제 웹 프리뷰`}
+          className="relative mt-8 h-[calc(100vh-230px)] min-h-[560px] max-h-[760px] overflow-hidden rounded-lg border border-zinc-900 bg-zinc-950 shadow-sm"
+          data-testid="layout-stage"
+        >
+          <LayoutStagePreview layout={layout} />
+        </section>
+
+        <section className="mt-6 grid gap-6 lg:grid-cols-[360px_minmax(0,1fr)] lg:items-start">
           <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
             <div className="flex flex-wrap gap-2">
               <Badge>{layout.category}</Badge>
@@ -79,11 +87,10 @@ export default async function LayoutDetailPage({ params }: LayoutDetailPageProps
             </div>
           </div>
 
-          <LayoutPreview layout={layout} />
+          <DetailCard title="구조 설명" items={layout.structure} />
         </section>
 
         <section className="mt-8 grid gap-6 lg:grid-cols-2">
-          <DetailCard title="구조 설명" items={layout.structure} />
           <DetailCard title="반응형 동작 설명" items={layout.responsiveBehavior} />
           <DetailCard title="장점" items={layout.pros} />
           <DetailCard title="단점" items={layout.cons} />
