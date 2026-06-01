@@ -18,11 +18,20 @@ openlayout은 디자인을 시작하기 전에 페이지 구조를 빠르게 고
 ## 주요 기능
 
 - **Layout explorer**: 검색어, 카테고리, 사용 목적, 복잡도로 레이아웃을 필터링합니다.
-- **Live preview**: 상세 페이지에서 데스크톱, 태블릿, 모바일 크기를 전환하며 와이어프레임을 확인합니다.
-- **Preview controls**: grid, label, dense content 토글로 구조와 콘텐츠 내구성을 점검합니다.
+- **Full-stage preview**: 상세 페이지와 비교 페이지에서 레이아웃을 실제 웹페이지 배경처럼 크게 확인합니다.
+- **Floating detail panel**: 기본 화면에는 작은 요약 박스만 두고, 클릭하면 구조 설명과 장단점이 패널로 떠오릅니다.
 - **Compare view**: 최대 3개의 레이아웃을 선택해 추천 용도, 모바일 대응, 밀도, 난이도를 나란히 비교합니다.
-- **Large structure viewer**: 비교 페이지에서 이전/다음 버튼으로 선택한 레이아웃 구조를 크게 확인합니다.
+- **SVG controls**: 비교 화살표와 설명/닫기/상세 아이콘은 inline SVG로 관리합니다.
 - **Implementation hints**: previewType별 Tailwind 코드 예시와 구현 팁을 제공합니다.
+- **Project skill**: `skills/layout-recommender/SKILL.md`가 목적별 레이아웃 추천 방식을 안내합니다.
+
+## 바이브 코딩에 도움되는 점
+
+- 시작 전에 페이지 목적을 말하면 레이아웃 후보를 빠르게 좁힐 수 있습니다. 예: "SaaS 대시보드 랜딩", "브랜드 캠페인", "문서형 지식 베이스".
+- 각 레이아웃은 추천 용도, 피해야 할 상황, 반응형 동작, 접근성 체크포인트를 함께 갖고 있어 프롬프트에 넣을 설계 조건을 바로 뽑아낼 수 있습니다.
+- 비교 페이지의 큰 프리뷰와 플로팅 설명 패널을 보면서 "이 구조로 가자", "이건 모바일에서 약하다" 같은 결정을 짧은 피드백으로 반복하기 좋습니다.
+- `previewType`은 구현 방향의 압축어처럼 쓸 수 있습니다. 예: `hero`, `card-grid`, `dashboard`, `docs`, `comparison`.
+- 새 화면을 만들 때는 먼저 이 레이아웃 사전에서 구조를 고르고, 그 다음 색상, 카피, 컴포넌트 디테일을 코딩 에이전트에게 맡기는 흐름이 가장 안정적입니다.
 
 ## 빠른 시작
 
@@ -86,6 +95,7 @@ src/app/web-layouts/compare/page.tsx      # Compare page shell
 src/data/webLayouts.ts                    # Layout catalog and generated metadata
 src/components/web-layout/                # Explorer, cards, previews, compare UI
 src/components/ui/                        # Small shared UI primitives
+skills/layout-recommender/SKILL.md        # Purpose-based layout recommendation skill
 ```
 
 주요 컴포넌트:
@@ -95,11 +105,24 @@ src/components/ui/                        # Small shared UI primitives
 | `WebLayoutExplorer.tsx` | 레이아웃 목록의 검색과 필터 상태 |
 | `WebLayoutFilters.tsx` | 검색어, 카테고리, 목적, 복잡도 필터 UI |
 | `WebLayoutCard.tsx` | 레이아웃 카드와 썸네일 |
-| `LayoutPreview.tsx` | 브라우저 형태의 프리뷰 프레임과 뷰포트 컨트롤 |
+| `LayoutStagePreview.tsx` | 전체 배경형 프리뷰, 플로팅 요약, 클릭형 설명 패널 |
+| `LayoutPreview.tsx` | 뷰포트 전환이 필요한 브라우저형 프리뷰 유틸 |
 | `LayoutPreviewRenderer.tsx` | previewType별 큰 라이브 프리뷰 템플릿 |
 | `WireframeThumbnail.tsx` | 카드와 비교 화면에 쓰이는 구조 썸네일 |
 | `LayoutCodeExample.tsx` | 복사 가능한 Tailwind 구현 예시 |
-| `WebLayoutCompare.tsx` | 비교 페이지 선택, 접힌 설명, 구조 탐색 |
+| `WebLayoutCompare.tsx` | 비교 페이지 선택, SVG 화살표 탐색, 큰 프리뷰 표시 |
+
+## 프로젝트 스킬
+
+`skills/layout-recommender/SKILL.md`는 코딩 에이전트가 사용 목적에 맞는 레이아웃을 추천할 때 읽는 내부 스킬입니다.
+
+추천 요청 예시:
+
+```text
+이 서비스는 B2B SaaS 온보딩 페이지야. 신뢰와 기능 설명이 중요하고 모바일도 챙겨야 해. 어떤 레이아웃이 좋아?
+```
+
+스킬은 `src/data/webLayouts.ts`의 카테고리, `bestFor`, `notGoodFor`, `tags`, `previewType`을 먼저 확인하고 1순위 후보, 대안, 피해야 할 구조를 짧게 제안하도록 설계되어 있습니다.
 
 ## 레이아웃 추가
 
