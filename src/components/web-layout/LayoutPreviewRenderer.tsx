@@ -41,26 +41,30 @@ function PreviewHeader({
 }) {
   return (
     <AnnotatedRegion
-      className="flex min-h-12 items-center justify-between gap-3 bg-white px-4 py-3"
+      className="flex min-h-10 items-center justify-between gap-3 bg-white px-3 py-2"
+      data-preview-header="compact"
       label="Header"
       showLabel={showLabels}
     >
       <div className="flex items-center gap-2">
-        <span className="h-7 w-7 rounded-md bg-zinc-950" />
-        <span className="text-xs font-bold text-zinc-950">Layout Co.</span>
+        <span className="h-6 w-6 rounded-md bg-zinc-950" />
+        <span className="text-[11px] font-bold text-zinc-950">Layout Co.</span>
       </div>
       {compact ? (
-        <button className="rounded-md border border-zinc-200 px-2 py-1 text-[10px] font-semibold text-zinc-700">
-          Menu
+        <button
+          aria-label="Menu"
+          className="h-6 w-7 shrink-0 rounded-md border border-zinc-200 text-[13px] font-semibold leading-none text-zinc-700"
+        >
+          ≡
         </button>
       ) : (
-        <nav aria-label="Preview navigation" className="flex items-center gap-4">
+        <nav aria-label="Preview navigation" className="flex items-center gap-3">
           {["Structure", "Cases", "Tips"].map((item) => (
             <span key={item} className="text-[11px] font-medium text-zinc-500">
               {item}
             </span>
           ))}
-          <span className="rounded-md bg-emerald-100 px-2 py-1 text-[11px] font-semibold text-emerald-700">
+          <span className="rounded-md bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
             {layout.category.split(" ")[0]}
           </span>
         </nav>

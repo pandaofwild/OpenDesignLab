@@ -2,41 +2,15 @@
 
 import { useMemo, useState } from "react";
 import { webLayouts, type WebLayout } from "@/data/webLayouts";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { WireframeThumbnail } from "@/components/web-layout/WireframeThumbnail";
-import { cn, complexityTone, formatComplexity } from "@/lib/utils";
+import { LayoutStagePreview } from "@/components/web-layout/LayoutStagePreview";
+import { cn } from "@/lib/utils";
 
 const defaultSelection = webLayouts.slice(0, 3).map((layout) => layout.slug);
 
-function densityFor(layout: WebLayout) {
-  if (["dashboard", "docs", "comparison", "feed"].includes(layout.previewType)) {
-    return "높음";
-  }
-
-  if (["single-column", "hero", "split-screen"].includes(layout.previewType)) {
-    return "낮음";
-  }
-
-  return "보통";
-}
-
-function mobileFitFor(layout: WebLayout) {
-  if (layout.previewType === "three-column" || layout.previewType === "dashboard") {
-    return "재구성 필요";
-  }
-
-  if (layout.previewType === "feed" || layout.previewType === "single-column") {
-    return "강함";
-  }
-
-  return "규칙 필요";
-}
-
 export function WebLayoutCompare() {
   const [selectedSlugs, setSelectedSlugs] = useState(defaultSelection);
-  const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
-  const [activeStructureIndex, setActiveStructureIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const selectedLayouts = useMemo(
     () =>
@@ -46,15 +20,16 @@ export function WebLayoutCompare() {
     [selectedSlugs],
   );
 
-  const activeStructureLayout =
-    selectedLayouts[Math.min(activeStructureIndex, selectedLayouts.length - 1)];
+  const boundedActiveIndex = selectedLayouts.length
+    ? Math.min(activeIndex, selectedLayouts.length - 1)
+    : 0;
+  const activeLayout = selectedLayouts[boundedActiveIndex];
 
   function toggleLayout(slug: string) {
     if (selectedSlugs.includes(slug)) {
       const next = selectedSlugs.filter((item) => item !== slug);
       setSelectedSlugs(next);
-      setActiveStructureIndex((index) => Math.min(index, Math.max(next.length - 1, 0)));
-      setExpandedSlug((expanded) => (expanded === slug ? next[0] ?? null : expanded));
+      setActiveIndex((index) => Math.min(index, Math.max(next.length - 1, 0)));
       return;
     }
 
@@ -64,44 +39,104 @@ export function WebLayoutCompare() {
 
     const next = [...selectedSlugs, slug];
     setSelectedSlugs(next);
-    setActiveStructureIndex(next.length - 1);
+    setActiveIndex(next.length - 1);
   }
 
   function clearSelection() {
     setSelectedSlugs([]);
-    setActiveStructureIndex(0);
-    setExpandedSlug(null);
+    setActiveIndex(0);
   }
 
-  function showPreviousStructure() {
-    setActiveStructureIndex((current) =>
+  function showPreviousLayout() {
+    setActiveIndex((current) =>
       current === 0 ? Math.max(selectedLayouts.length - 1, 0) : current - 1,
     );
   }
 
-  function showNextStructure() {
-    setActiveStructureIndex((current) =>
+  function showNextLayout() {
+    setActiveIndex((current) =>
       current >= selectedLayouts.length - 1 ? 0 : current + 1,
     );
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-5">
+      {selectedLayouts.length === 0 ? (
+        <div className="rounded-lg border border-dashed border-zinc-300 bg-white p-12 text-center">
+          <h2 className="text-lg font-semibold text-zinc-950">
+            비교할 레이아웃을 선택하세요.
+          </h2>
+          <p className="mt-2 text-sm text-zinc-600">
+            목록에서 최대 3개의 레이아웃을 선택하면 큰 프리뷰가 표시됩니다.
+          </p>
+        </div>
+      ) : activeLayout ? (
+        <section
+          aria-label="레이아웃 비교 결과"
+          className="relative h-[calc(100vh-300px)] min-h-[470px] max-h-[760px] overflow-hidden rounded-lg border border-zinc-900 bg-zinc-950 shadow-sm md:h-[calc(100vh-230px)] md:min-h-[560px]"
+          data-testid="layout-stage"
+        >
+          <LayoutStagePreview
+            detailHref={`/web-layouts/${activeLayout.slug}`}
+            indexLabel={`${boundedActiveIndex + 1} / ${selectedLayouts.length}`}
+            layout={activeLayout}
+          />
+
+          <button
+            aria-label="이전 레이아웃 보기"
+            className="absolute left-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/50 bg-white/90 text-2xl font-semibold text-zinc-950 shadow-lg transition hover:scale-105 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:left-6 md:h-14 md:w-14"
+            disabled={selectedLayouts.length <= 1}
+            onClick={showPreviousLayout}
+            type="button"
+          >
+            ←
+          </button>
+          <button
+            aria-label="다음 레이아웃 보기"
+            className="absolute right-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/50 bg-white/90 text-2xl font-semibold text-zinc-950 shadow-lg transition hover:scale-105 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:right-6 md:h-14 md:w-14"
+            disabled={selectedLayouts.length <= 1}
+            onClick={showNextLayout}
+            type="button"
+          >
+            →
+          </button>
+
+          <div className="absolute left-1/2 top-4 z-20 hidden -translate-x-1/2 gap-2 rounded-full border border-white/20 bg-zinc-950/65 px-3 py-2 backdrop-blur md:flex">
+            {selectedLayouts.map((layout, index) => (
+              <button
+                aria-label={`${layout.nameKo} 프리뷰 보기`}
+                className={cn(
+                  "h-2.5 rounded-full transition-all",
+                  index === boundedActiveIndex
+                    ? "w-8 bg-white"
+                    : "w-2.5 bg-white/40 hover:bg-white/70",
+                )}
+                key={layout.slug}
+                onClick={() => setActiveIndex(index)}
+                type="button"
+              />
+            ))}
+          </div>
+
+        </section>
+      ) : null}
+
       <section className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <h2 className="text-lg font-semibold text-zinc-950">
               비교할 레이아웃 선택
             </h2>
             <p className="mt-1 text-sm text-zinc-600">
-              최대 3개까지 선택할 수 있습니다. 현재 {selectedLayouts.length}개 선택됨.
+              최대 3개까지 고른 뒤, 위 큰 프리뷰를 좌우 화살표로 넘겨 비교합니다.
+              현재 {selectedLayouts.length}개 선택됨.
             </p>
           </div>
           <Button onClick={clearSelection} variant="secondary">
             선택 해제
           </Button>
         </div>
-        <div className="mt-5 grid max-h-[360px] gap-2 overflow-auto pr-2 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-5 flex gap-2 overflow-x-auto pb-2">
           {webLayouts.map((layout) => {
             const checked = selectedSlugs.includes(layout.slug);
             const disabled = !checked && selectedSlugs.length >= 3;
@@ -109,7 +144,7 @@ export function WebLayoutCompare() {
             return (
               <label
                 className={cn(
-                  "flex cursor-pointer items-center gap-3 rounded-md border p-3 transition",
+                  "flex min-w-[240px] cursor-pointer items-center gap-3 rounded-md border p-3 transition",
                   checked
                     ? "border-zinc-950 bg-zinc-950 text-white"
                     : "border-zinc-200 bg-white text-zinc-800 hover:border-zinc-300",
@@ -135,214 +170,6 @@ export function WebLayoutCompare() {
           })}
         </div>
       </section>
-
-      {selectedLayouts.length === 0 ? (
-        <div className="rounded-lg border border-dashed border-zinc-300 bg-white p-12 text-center">
-          <h2 className="text-lg font-semibold text-zinc-950">
-            비교할 레이아웃을 선택하세요.
-          </h2>
-          <p className="mt-2 text-sm text-zinc-600">
-            목록에서 최대 3개의 레이아웃을 선택하면 비교표가 표시됩니다.
-          </p>
-        </div>
-      ) : (
-        <section aria-label="레이아웃 비교 결과" className="space-y-5">
-          {activeStructureLayout ? (
-            <StructureViewer
-              currentIndex={Math.min(activeStructureIndex, selectedLayouts.length - 1)}
-              layout={activeStructureLayout}
-              onNext={showNextStructure}
-              onPrevious={showPreviousStructure}
-              total={selectedLayouts.length}
-            />
-          ) : null}
-
-          <div
-            className={cn(
-              "grid gap-5",
-              selectedLayouts.length === 1
-                ? "lg:grid-cols-1"
-                : selectedLayouts.length === 2
-                  ? "lg:grid-cols-2"
-                  : "lg:grid-cols-3",
-            )}
-          >
-            {selectedLayouts.map((layout) => (
-              <article
-                className="overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm"
-                key={layout.slug}
-              >
-                <div className="border-b border-zinc-200 bg-zinc-50 p-4">
-                  <div className="h-32 rounded-md border border-zinc-200 bg-white p-2">
-                    <WireframeThumbnail previewType={layout.previewType} />
-                  </div>
-                </div>
-                <div className="space-y-4 p-5">
-                  <div>
-                    <h2 className="text-lg font-semibold text-zinc-950">
-                      {layout.nameKo}
-                    </h2>
-                    <p className="text-sm text-zinc-500">{layout.nameEn}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge>{layout.category}</Badge>
-                    <Badge className={complexityTone(layout.complexity)}>
-                      {formatComplexity(layout.complexity)}
-                    </Badge>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <Metric label="추천 용도" value={layout.bestFor[0]} />
-                    <Metric label="모바일" value={mobileFitFor(layout)} />
-                    <Metric label="밀도" value={densityFor(layout)} />
-                    <Metric
-                      label="난이도"
-                      value={`${formatComplexity(layout.complexity)}`}
-                    />
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    <Button
-                      aria-expanded={expandedSlug === layout.slug}
-                      aria-controls={`layout-details-${layout.slug}`}
-                      onClick={() =>
-                        setExpandedSlug((current) =>
-                          current === layout.slug ? null : layout.slug,
-                        )
-                      }
-                      variant={expandedSlug === layout.slug ? "primary" : "secondary"}
-                    >
-                      {expandedSlug === layout.slug ? "설명 닫기" : "설명 보기"}
-                    </Button>
-                    <Button
-                      onClick={() =>
-                        setActiveStructureIndex(
-                          Math.max(
-                            selectedLayouts.findIndex((item) => item.slug === layout.slug),
-                            0,
-                          ),
-                        )
-                      }
-                      variant="secondary"
-                    >
-                      구조 크게 보기
-                    </Button>
-                  </div>
-                  {expandedSlug === layout.slug ? (
-                    <div
-                      className="rounded-md border border-zinc-200 bg-zinc-50 p-4"
-                      id={`layout-details-${layout.slug}`}
-                    >
-                      <ComparisonRow label="추천 용도" value={layout.bestFor.join(", ")} />
-                      <ComparisonRow label="장점" value={layout.pros.slice(0, 2).join(" ")} />
-                      <ComparisonRow label="단점" value={layout.cons.slice(0, 2).join(" ")} />
-                      <ComparisonRow
-                        label="모바일 대응"
-                        value={`${mobileFitFor(layout)} - ${layout.responsiveBehavior[0]}`}
-                      />
-                      <ComparisonRow
-                        label="구현 난이도"
-                        value={`${formatComplexity(layout.complexity)} / ${layout.previewType}`}
-                      />
-                    </div>
-                  ) : null}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
-    </div>
-  );
-}
-
-function StructureViewer({
-  currentIndex,
-  layout,
-  onNext,
-  onPrevious,
-  total,
-}: {
-  currentIndex: number;
-  layout: WebLayout;
-  onNext: () => void;
-  onPrevious: () => void;
-  total: number;
-}) {
-  return (
-    <section className="overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm">
-      <div className="flex flex-col gap-4 border-b border-zinc-200 p-5 lg:flex-row lg:items-center lg:justify-between">
-        <div>
-          <p className="text-sm font-semibold text-zinc-500">
-            구조 크게 보기 {currentIndex + 1} / {total}
-          </p>
-          <h2 className="mt-1 text-2xl font-bold tracking-normal text-zinc-950">
-            {layout.nameKo}
-          </h2>
-          <p className="mt-1 text-sm text-zinc-500">{layout.previewType}</p>
-        </div>
-        <div className="flex gap-2">
-          <Button
-            aria-label="이전 레이아웃 구조 보기"
-            disabled={total <= 1}
-            onClick={onPrevious}
-            variant="secondary"
-          >
-            ← 이전
-          </Button>
-          <Button
-            aria-label="다음 레이아웃 구조 보기"
-            disabled={total <= 1}
-            onClick={onNext}
-            variant="secondary"
-          >
-            다음 →
-          </Button>
-        </div>
-      </div>
-      <div className="grid gap-5 p-5 xl:grid-cols-[1.15fr_0.85fr]">
-        <div className="min-h-[340px] rounded-lg border border-zinc-200 bg-zinc-50 p-4">
-          <div className="h-[320px] rounded-md border border-zinc-200 bg-white p-4">
-            <WireframeThumbnail previewType={layout.previewType} />
-          </div>
-        </div>
-        <div className="space-y-3">
-          <p className="text-sm leading-6 text-zinc-600">{layout.summary}</p>
-          <div className="grid gap-3">
-            {layout.structure.map((item, index) => (
-              <article
-                className="rounded-md border border-zinc-200 bg-zinc-50 p-4"
-                key={item}
-              >
-                <p className="text-xs font-bold uppercase tracking-normal text-emerald-700">
-                  Structure {index + 1}
-                </p>
-                <p className="mt-2 text-sm leading-6 text-zinc-700">{item}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Metric({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-md border border-zinc-200 bg-zinc-50 p-3">
-      <p className="text-xs font-bold uppercase tracking-normal text-zinc-500">
-        {label}
-      </p>
-      <p className="mt-1 text-sm font-semibold text-zinc-950">{value}</p>
-    </div>
-  );
-}
-
-function ComparisonRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="mb-4 last:mb-0">
-      <p className="text-xs font-bold uppercase tracking-normal text-zinc-500">
-        {label}
-      </p>
-      <p className="mt-1 text-sm leading-6 text-zinc-700">{value}</p>
     </div>
   );
 }
