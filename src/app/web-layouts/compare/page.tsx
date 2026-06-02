@@ -9,19 +9,19 @@ export const metadata: Metadata = {
 
 export default function ComparePage() {
   return (
-    <main className="min-h-screen bg-background">
-      <div className="mx-auto max-w-7xl px-5 py-6 lg:px-8">
+    <main className="min-h-screen overflow-x-hidden bg-background pt-24 text-[#1E1E1E]">
+      <div className="mx-auto max-w-[1720px] px-5 py-6 lg:px-8">
         <Link
-          className="text-sm font-semibold text-zinc-600 underline-offset-4 hover:text-zinc-950 hover:underline"
+          className="raw-label text-[#DB4A2B] underline-offset-4 hover:underline"
           href="/web-layouts"
         >
           목록으로 돌아가기
         </Link>
         <header className="mt-5 max-w-3xl">
-          <h1 className="text-3xl font-bold tracking-normal text-zinc-950">
-            레이아웃 비교
+          <h1 className="font-display text-6xl font-bold uppercase leading-[0.8] tracking-[-0.05em] text-[#1E1E1E] md:text-8xl">
+            Compare
           </h1>
-          <p className="mt-2 text-sm leading-6 text-zinc-600">
+          <p className="mt-4 max-w-md text-sm leading-6 text-[#1E1E1E]/65">
             큰 프리뷰를 좌우로 넘기며 핵심 차이만 빠르게 확인합니다.
           </p>
         </header>

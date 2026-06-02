@@ -16,7 +16,7 @@ function TextLine({ className }: { className?: string }) {
 
 function PrimaryButton({ children }: { children: React.ReactNode }) {
   return (
-    <button className="h-8 rounded-md bg-zinc-950 px-3 text-[11px] font-semibold text-white">
+    <button className="h-8 bg-[#1E1E1E] px-3 text-[11px] font-bold uppercase tracking-[0.08em] text-[#E4E2DD]">
       {children}
     </button>
   );
@@ -24,7 +24,7 @@ function PrimaryButton({ children }: { children: React.ReactNode }) {
 
 function SecondaryButton({ children }: { children: React.ReactNode }) {
   return (
-    <button className="h-8 rounded-md border border-zinc-300 bg-white px-3 text-[11px] font-semibold text-zinc-700">
+    <button className="h-8 border border-[#1E1E1E]/30 bg-[#E4E2DD] px-3 text-[11px] font-bold uppercase tracking-[0.08em] text-[#1E1E1E]">
       {children}
     </button>
   );
@@ -41,19 +41,19 @@ function PreviewHeader({
 }) {
   return (
     <AnnotatedRegion
-      className="flex min-h-10 items-center justify-between gap-3 bg-white px-3 py-2"
+      className="flex min-h-10 items-center justify-between gap-3 bg-[#E4E2DD] px-3 py-2"
       data-preview-header="compact"
       label="Header"
       showLabel={showLabels}
     >
       <div className="flex items-center gap-2">
-        <span className="h-6 w-6 rounded-md bg-zinc-950" />
-        <span className="text-[11px] font-bold text-zinc-950">Layout Co.</span>
+        <span className="h-6 w-6 bg-[#1E1E1E]" />
+        <span className="text-[11px] font-bold text-[#1E1E1E]">Layout Co.</span>
       </div>
       {compact ? (
         <button
           aria-label="Menu"
-          className="h-6 w-7 shrink-0 rounded-md border border-zinc-200 text-[13px] font-semibold leading-none text-zinc-700"
+          className="h-6 w-7 shrink-0 border border-[#1E1E1E]/25 text-[13px] font-bold leading-none text-[#1E1E1E]"
         >
           ≡
         </button>
@@ -64,7 +64,7 @@ function PreviewHeader({
               {item}
             </span>
           ))}
-          <span className="rounded-md bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
+          <span className="bg-[#F8A348]/35 px-2 py-0.5 text-[11px] font-bold text-[#1E1E1E]">
             {layout.category.split(" ")[0]}
           </span>
         </nav>

@@ -11,14 +11,14 @@ type WebLayoutCardProps = {
 
 export function WebLayoutCard({ layout, compact = false }: WebLayoutCardProps) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-      <div className="border-b border-zinc-200 bg-zinc-50 p-3">
-        <div className="h-28 rounded-md border border-zinc-200 bg-white p-2">
+    <article className="group flex h-full flex-col">
+      <div className="aspect-[3/4] overflow-hidden bg-[#D9D6D0] p-3">
+        <div className="h-full bg-[#E4E2DD] p-3 transition duration-500 ease-out group-hover:scale-105">
           <WireframeThumbnail previewType={layout.previewType} />
         </div>
       </div>
-      <div className="flex flex-1 flex-col gap-4 p-5">
-        <div className="space-y-2">
+      <div className="flex flex-1 flex-col gap-4 pt-4">
+        <div className="space-y-3">
           <div className="flex flex-wrap gap-2">
             <Badge>{layout.category}</Badge>
             <Badge className={cn("border", complexityTone(layout.complexity))}>
@@ -26,14 +26,14 @@ export function WebLayoutCard({ layout, compact = false }: WebLayoutCardProps) {
             </Badge>
           </div>
           <div>
-            <h2 className="text-lg font-semibold tracking-normal text-zinc-950">
+            <h2 className="text-sm font-bold uppercase tracking-[0.15em] text-[#1E1E1E] transition group-hover:text-[#FF89A9]">
               {layout.nameKo}
             </h2>
-            <p className="text-sm font-medium text-zinc-500">{layout.nameEn}</p>
+            <p className="mt-1 text-sm font-medium text-[#444444]">{layout.nameEn}</p>
           </div>
           <p
             className={cn(
-              "text-sm leading-6 text-zinc-600",
+              "text-sm leading-6 text-[#1E1E1E]/68",
               compact ? "line-clamp-2" : "line-clamp-3",
             )}
           >
@@ -45,7 +45,7 @@ export function WebLayoutCard({ layout, compact = false }: WebLayoutCardProps) {
             {layout.bestFor.slice(0, 3).map((purpose) => (
               <span
                 key={purpose}
-                className="rounded-sm bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600"
+                className="bg-[#F8A348]/25 px-2 py-1 text-xs font-bold uppercase tracking-[0.1em] text-[#1E1E1E]/70"
               >
                 {purpose}
               </span>
@@ -53,7 +53,7 @@ export function WebLayoutCard({ layout, compact = false }: WebLayoutCardProps) {
           </div>
           <Link
             href={`/web-layouts/${layout.slug}`}
-            className="inline-flex h-10 items-center justify-center rounded-md border border-zinc-950 bg-zinc-950 px-4 text-sm font-semibold text-white transition-colors hover:bg-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
+            className="raw-button inline-flex h-10 items-center justify-center border border-[#1E1E1E] bg-[#1E1E1E] px-4 text-sm font-bold uppercase tracking-[0.1em] text-[#E4E2DD] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E]"
           >
             상세 보기
           </Link>

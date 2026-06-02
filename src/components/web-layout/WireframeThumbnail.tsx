@@ -48,7 +48,7 @@ function Label({ children, dark = false }: { children: React.ReactNode; dark?: b
     <span
       className={cn(
         "inline-flex w-fit rounded-sm px-1 py-0.5 text-[7px] font-bold uppercase tracking-normal",
-        dark ? "bg-white/15 text-white" : "bg-emerald-100 text-emerald-800",
+        dark ? "bg-white/15 text-white" : "bg-[#F8A348]/35 text-[#1E1E1E]",
       )}
     >
       {children}
@@ -74,9 +74,9 @@ function MiniButton({ className }: { className?: string }) {
 function Dots() {
   return (
     <div className="flex gap-1">
-      <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
-      <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+      <span className="h-1.5 w-1.5 rounded-full bg-[#DB4A2B]" />
+      <span className="h-1.5 w-1.5 rounded-full bg-[#F8A348]" />
+      <span className="h-1.5 w-1.5 rounded-full bg-[#FF89A9]" />
     </div>
   );
 }
@@ -119,15 +119,15 @@ function MetricCards() {
   return (
     <div className="grid grid-cols-3 gap-1.5">
       <Panel className="space-y-1 bg-white p-1.5">
-        <Line className="w-5 bg-emerald-400" />
+        <Line className="w-5 bg-[#DB4A2B]" />
         <Line className="h-2 w-8 bg-zinc-900" />
       </Panel>
       <Panel className="space-y-1 bg-white p-1.5">
-        <Line className="w-5 bg-sky-400" />
+        <Line className="w-5 bg-[#FF89A9]" />
         <Line className="h-2 w-8 bg-zinc-900" />
       </Panel>
       <Panel className="space-y-1 bg-white p-1.5">
-        <Line className="w-5 bg-amber-400" />
+        <Line className="w-5 bg-[#F8A348]" />
         <Line className="h-2 w-8 bg-zinc-900" />
       </Panel>
     </div>
@@ -141,7 +141,7 @@ function Chart() {
         <span
           className={cn(
             "flex-1 rounded-t-sm",
-            index % 2 === 0 ? "bg-emerald-300" : "bg-zinc-800",
+            index % 2 === 0 ? "bg-[#DB4A2B]" : "bg-zinc-800",
           )}
           key={index}
           style={{ height: `${height}%` }}
@@ -153,9 +153,9 @@ function Chart() {
 
 function Card({ accent = "zinc" }: { accent?: "zinc" | "emerald" | "amber" | "sky" }) {
   const accentClass = {
-    amber: "bg-amber-200",
-    emerald: "bg-emerald-200",
-    sky: "bg-sky-200",
+    amber: "bg-[#F8A348]/45",
+    emerald: "bg-[#DB4A2B]/35",
+    sky: "bg-[#FF89A9]/45",
     zinc: "bg-zinc-900",
   }[accent];
 
@@ -179,12 +179,12 @@ function HeroDiagram() {
           <Line className="h-2.5 w-4/5 bg-white" />
           <Line className="w-full bg-white/35" />
           <Line className="w-10/12 bg-white/35" />
-          <MiniButton className="bg-emerald-300" />
+          <MiniButton className="bg-[#DB4A2B]" />
         </Panel>
         <Panel className="grid grid-cols-3 gap-1 bg-zinc-100 p-2">
           <span className="col-span-2 row-span-2 rounded-sm bg-zinc-900" />
-          <span className="rounded-sm bg-emerald-300" />
-          <span className="rounded-sm bg-amber-200" />
+          <span className="rounded-sm bg-[#DB4A2B]" />
+          <span className="rounded-sm bg-[#F8A348]/45" />
           <span className="col-span-2 rounded-sm bg-white" />
         </Panel>
       </div>
@@ -215,7 +215,7 @@ function TwoColumnDiagram() {
           <Label>Aside</Label>
           <Line className="w-full bg-zinc-800" />
           <Line className="w-4/5" />
-          <MiniButton className="w-10 bg-emerald-300" />
+          <MiniButton className="w-10 bg-[#DB4A2B]" />
           <Line className="w-full" />
         </Panel>
       </div>
@@ -232,7 +232,7 @@ function ThreeColumnDiagram() {
           <Label dark>Nav</Label>
           <Line className="w-full bg-white/35" />
           <Line className="w-4/5 bg-white/35" />
-          <Line className="w-full bg-emerald-300" />
+          <Line className="w-full bg-[#DB4A2B]" />
         </Panel>
         <ArticleContent />
         <Panel className="space-y-1.5 bg-zinc-50 p-1.5">
@@ -258,9 +258,9 @@ function SplitScreenDiagram() {
       </Panel>
       <Panel className="relative bg-zinc-950 p-2">
         <Label dark>Visual</Label>
-        <span className="absolute bottom-2 left-2 h-10 w-12 rounded-sm bg-emerald-300" />
+        <span className="absolute bottom-2 left-2 h-10 w-12 rounded-sm bg-[#DB4A2B]" />
         <span className="absolute right-2 top-6 h-16 w-14 rounded-sm bg-white/20" />
-        <span className="absolute bottom-5 right-6 h-9 w-16 rounded-sm bg-amber-200" />
+        <span className="absolute bottom-5 right-6 h-9 w-16 rounded-sm bg-[#F8A348]/55" />
       </Panel>
     </Shell>
   );
@@ -295,9 +295,9 @@ function BentoDiagram() {
         <Label dark>Feature</Label>
         <Line className="h-2.5 w-4/5 bg-white" />
         <Line className="w-full bg-white/35" />
-        <MiniButton className="bg-emerald-300" />
+        <MiniButton className="bg-[#DB4A2B]" />
       </Panel>
-      <Panel className="col-span-2 space-y-1 bg-emerald-50 p-1.5">
+      <Panel className="col-span-2 space-y-1 bg-[#F8A348]/15 p-1.5">
         <Label>Insight</Label>
         <Line className="w-full" />
       </Panel>
@@ -305,19 +305,19 @@ function BentoDiagram() {
         <Label>Stat</Label>
         <Line className="h-2 w-7 bg-zinc-900" />
       </Panel>
-      <Panel className="space-y-1 bg-amber-50 p-1.5">
+      <Panel className="space-y-1 bg-[#F8A348]/15 p-1.5">
         <Label>Note</Label>
         <Line className="w-full" />
       </Panel>
       <Panel className="col-span-2 flex items-center gap-1.5 bg-white p-1.5">
-        <span className="h-5 w-5 rounded-sm bg-sky-200" />
+        <span className="h-5 w-5 rounded-sm bg-[#FF89A9]/45" />
         <div className="flex-1 space-y-1">
           <Line className="w-full" />
           <Line className="w-2/3" />
         </div>
       </Panel>
-      <Panel className="col-span-2 flex items-center gap-1.5 bg-rose-50 p-1.5">
-        <span className="h-5 w-5 rounded-sm bg-rose-200" />
+      <Panel className="col-span-2 flex items-center gap-1.5 bg-[#FF89A9]/12 p-1.5">
+        <span className="h-5 w-5 rounded-sm bg-[#FF89A9]/55" />
         <div className="flex-1 space-y-1">
           <Line className="w-full" />
           <Line className="w-3/4" />
@@ -333,7 +333,7 @@ function DashboardDiagram() {
       <Panel className="space-y-2 bg-zinc-950 p-2 text-white">
         <Label dark>App nav</Label>
         <Line className="w-full bg-white/35" />
-        <Line className="w-4/5 bg-emerald-300" />
+        <Line className="w-4/5 bg-[#DB4A2B]" />
         <Line className="w-full bg-white/25" />
         <Line className="w-3/4 bg-white/25" />
       </Panel>
@@ -364,13 +364,13 @@ function EditorialDiagram() {
         <Label>Headline</Label>
         <Line className="h-3 w-full bg-zinc-900" />
         <Line className="h-3 w-4/5 bg-zinc-900" />
-        <Line className="w-2/3 bg-rose-300" />
+        <Line className="w-2/3 bg-[#FF89A9]" />
       </Panel>
       <Panel className="space-y-2 bg-zinc-50 p-2">
         <Label>Story</Label>
         <Line className="w-full" />
         <Line className="w-11/12" />
-        <Panel className="border-l-4 border-emerald-300 bg-white p-1.5">
+            <Panel className="border-l-4 border-[#DB4A2B] bg-white p-1.5">
           <Line className="w-4/5 bg-zinc-500" />
         </Panel>
         <Line className="w-10/12" />
@@ -385,8 +385,8 @@ function CommerceDiagram() {
       <Panel className="grid grid-cols-2 gap-1.5 bg-zinc-50 p-2">
         <Label>Media</Label>
         <span className="col-span-2 h-12 rounded-sm bg-zinc-950" />
-        <span className="rounded-sm bg-emerald-200" />
-        <span className="rounded-sm bg-amber-200" />
+        <span className="rounded-sm bg-[#DB4A2B]/35" />
+        <span className="rounded-sm bg-[#F8A348]/45" />
       </Panel>
       <Panel className="space-y-1.5 bg-white p-2">
         <Label>Product</Label>
@@ -421,8 +421,8 @@ function DocsDiagram() {
           <Line className="h-2.5 w-4/5 bg-zinc-900" />
           <Line className="w-full" />
           <Panel className="space-y-1 bg-zinc-950 p-1.5">
-            <Line className="w-full bg-emerald-300" />
-            <Line className="w-4/5 bg-emerald-200" />
+            <Line className="w-full bg-[#DB4A2B]" />
+            <Line className="w-4/5 bg-[#F8A348]" />
           </Panel>
         </Panel>
         <Panel className="space-y-1.5 bg-zinc-50 p-1.5">
@@ -441,7 +441,7 @@ function FeedDiagram() {
     <Shell className="mx-auto max-w-[70%] space-y-1.5">
       <Panel className="flex items-center justify-between bg-white p-1.5">
         <Label>Feed</Label>
-        <MiniButton className="h-3 w-8 bg-emerald-300" />
+        <MiniButton className="h-3 w-8 bg-[#DB4A2B]" />
       </Panel>
       {[0, 1, 2].map((item) => (
         <Panel className="space-y-1.5 bg-zinc-50 p-1.5" key={item}>
@@ -463,8 +463,8 @@ function FeedDiagram() {
 function MapListDiagram() {
   return (
     <Shell className="grid grid-cols-[1fr_34%] gap-1.5">
-      <Panel className="relative bg-emerald-50">
-        <div className="absolute inset-1 rounded-sm bg-[linear-gradient(90deg,rgba(16,185,129,0.24)_1px,transparent_1px),linear-gradient(rgba(16,185,129,0.24)_1px,transparent_1px)] bg-[length:16px_16px]" />
+      <Panel className="relative bg-[#F8A348]/15">
+        <div className="absolute inset-1 rounded-sm bg-[linear-gradient(90deg,rgba(219,74,43,0.22)_1px,transparent_1px),linear-gradient(rgba(219,74,43,0.22)_1px,transparent_1px)] bg-[length:16px_16px]" />
         <Label>Map</Label>
         {[22, 44, 66, 78].map((left, index) => (
           <span
@@ -505,14 +505,14 @@ function ComparisonDiagram() {
           >
             <Label dark={index === 1}>{name}</Label>
             <Line className={cn("w-full", index === 1 ? "bg-white/45" : "")} />
-            <Line className={cn("w-4/5", index === 1 ? "bg-emerald-300" : "")} />
+            <Line className={cn("w-4/5", index === 1 ? "bg-[#DB4A2B]" : "")} />
             <Line className={cn("w-full", index === 1 ? "bg-white/45" : "")} />
           </Panel>
         ))}
       </div>
       <Panel className="grid grid-cols-3 gap-1 bg-white p-1.5">
         <Line className="w-full" />
-        <Line className="w-full bg-emerald-300" />
+        <Line className="w-full bg-[#DB4A2B]" />
         <Line className="w-full" />
       </Panel>
     </Shell>
@@ -528,7 +528,7 @@ function TimelineDiagram() {
           <span
             className={cn(
               "absolute -left-[22px] top-2 h-2.5 w-2.5 rounded-full border border-white",
-              item < 2 ? "bg-zinc-950" : "bg-emerald-300",
+              item < 2 ? "bg-zinc-950" : "bg-[#DB4A2B]",
             )}
           />
           <Panel className="space-y-1 bg-white p-1.5">
@@ -549,7 +549,7 @@ function ScrollStoryDiagram() {
         <Label dark>Sticky scene</Label>
         <Line className="h-2.5 w-4/5 bg-white" />
         <Line className="w-full bg-white/35" />
-        <span className="block h-16 rounded-sm bg-emerald-300" />
+        <span className="block h-16 rounded-sm bg-[#DB4A2B]" />
       </Panel>
       <div className="space-y-1.5">
         {[1, 2, 3, 4].map((item) => (

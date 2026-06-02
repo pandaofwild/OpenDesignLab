@@ -62,18 +62,18 @@ export function WebLayoutCompare() {
   return (
     <div className="space-y-5">
       {selectedLayouts.length === 0 ? (
-        <div className="rounded-lg border border-dashed border-zinc-300 bg-white p-12 text-center">
-          <h2 className="text-lg font-semibold text-zinc-950">
+        <div className="border border-dashed border-[#1E1E1E]/35 bg-[#D9D6D0] p-12 text-center">
+          <h2 className="font-display text-5xl font-bold uppercase leading-none tracking-[-0.05em] text-[#1E1E1E]">
             비교할 레이아웃을 선택하세요.
           </h2>
-          <p className="mt-2 text-sm text-zinc-600">
+          <p className="mt-4 text-sm text-[#1E1E1E]/65">
             목록에서 최대 3개의 레이아웃을 선택하면 큰 프리뷰가 표시됩니다.
           </p>
         </div>
       ) : activeLayout ? (
         <section
           aria-label="레이아웃 비교 결과"
-          className="relative h-[calc(100vh-300px)] min-h-[470px] max-h-[760px] overflow-hidden rounded-lg bg-zinc-100 shadow-sm ring-1 ring-zinc-900/10 md:h-[calc(100vh-230px)] md:min-h-[560px]"
+          className="relative h-[calc(100vh-300px)] min-h-[470px] max-h-[760px] overflow-hidden bg-[#D9D6D0] ring-1 ring-[#1E1E1E]/20 md:h-[calc(100vh-230px)] md:min-h-[560px]"
           data-testid="layout-stage"
         >
           <LayoutStagePreview
@@ -84,7 +84,7 @@ export function WebLayoutCompare() {
 
           <button
             aria-label="이전 레이아웃 보기"
-            className="absolute left-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/60 bg-white/90 text-zinc-950 shadow-lg transition hover:scale-105 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:left-6 md:h-14 md:w-14"
+            className="absolute left-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[#1E1E1E] bg-[#E4E2DD]/92 text-[#1E1E1E] shadow-lg transition hover:scale-105 hover:bg-[#FF89A9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E] md:left-6 md:h-14 md:w-14"
             disabled={selectedLayouts.length <= 1}
             onClick={showPreviousLayout}
             type="button"
@@ -93,7 +93,7 @@ export function WebLayoutCompare() {
           </button>
           <button
             aria-label="다음 레이아웃 보기"
-            className="absolute right-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/60 bg-white/90 text-zinc-950 shadow-lg transition hover:scale-105 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:right-6 md:h-14 md:w-14"
+            className="absolute right-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[#1E1E1E] bg-[#E4E2DD]/92 text-[#1E1E1E] shadow-lg transition hover:scale-105 hover:bg-[#FF89A9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E] md:right-6 md:h-14 md:w-14"
             disabled={selectedLayouts.length <= 1}
             onClick={showNextLayout}
             type="button"
@@ -101,15 +101,15 @@ export function WebLayoutCompare() {
             <ArrowRightIcon />
           </button>
 
-          <div className="absolute left-1/2 top-4 z-20 hidden -translate-x-1/2 gap-2 rounded-full border border-white/20 bg-zinc-950/65 px-3 py-2 backdrop-blur md:flex">
+          <div className="absolute left-1/2 top-4 z-20 hidden -translate-x-1/2 gap-2 rounded-full border border-[#1E1E1E]/20 bg-[#1E1E1E]/72 px-3 py-2 backdrop-blur md:flex">
             {selectedLayouts.map((layout, index) => (
               <button
                 aria-label={`${layout.nameKo} 프리뷰 보기`}
                 className={cn(
                   "h-2.5 rounded-full transition-all",
                   index === boundedActiveIndex
-                    ? "w-8 bg-white"
-                    : "w-2.5 bg-white/40 hover:bg-white/70",
+                    ? "w-8 bg-[#F8A348]"
+                    : "w-2.5 bg-[#E4E2DD]/40 hover:bg-[#E4E2DD]/70",
                 )}
                 key={layout.slug}
                 onClick={() => setActiveIndex(index)}
@@ -121,13 +121,13 @@ export function WebLayoutCompare() {
         </section>
       ) : null}
 
-      <section className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
+      <section className="bg-[#D9D6D0] p-4">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <h2 className="text-lg font-semibold text-zinc-950">
+            <h2 className="raw-label text-[#1E1E1E]">
               비교할 레이아웃 선택
             </h2>
-            <p className="mt-1 text-sm text-zinc-600">
+            <p className="mt-2 text-sm text-[#1E1E1E]/65">
               최대 3개까지 고른 뒤, 위 큰 프리뷰를 좌우 화살표로 넘겨 비교합니다.
               현재 {selectedLayouts.length}개 선택됨.
             </p>
@@ -144,10 +144,10 @@ export function WebLayoutCompare() {
             return (
               <label
                 className={cn(
-                  "flex min-w-[240px] cursor-pointer items-center gap-3 rounded-md border p-3 transition",
+                  "flex min-w-[240px] cursor-pointer items-center gap-3 border p-3 transition",
                   checked
-                    ? "border-zinc-950 bg-zinc-950 text-white"
-                    : "border-zinc-200 bg-white text-zinc-800 hover:border-zinc-300",
+                    ? "border-[#1E1E1E] bg-[#1E1E1E] text-[#E4E2DD]"
+                    : "border-[#1E1E1E]/25 bg-[#E4E2DD] text-[#1E1E1E] hover:border-[#1E1E1E]",
                   disabled ? "cursor-not-allowed opacity-50" : "",
                 )}
                 key={layout.slug}
@@ -161,7 +161,7 @@ export function WebLayoutCompare() {
                 />
                 <span>
                   <span className="block text-sm font-semibold">{layout.nameKo}</span>
-                  <span className={cn("block text-xs", checked ? "text-zinc-300" : "text-zinc-500")}>
+                  <span className={cn("block text-xs", checked ? "text-[#E4E2DD]/70" : "text-[#1E1E1E]/55")}>
                     {layout.nameEn}
                   </span>
                 </span>

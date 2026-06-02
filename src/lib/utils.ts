@@ -16,9 +16,9 @@ export function formatComplexity(complexity: "easy" | "medium" | "hard") {
 
 export function complexityTone(complexity: "easy" | "medium" | "hard") {
   const tones = {
-    easy: "border-emerald-200 bg-emerald-50 text-emerald-700",
-    medium: "border-amber-200 bg-amber-50 text-amber-700",
-    hard: "border-rose-200 bg-rose-50 text-rose-700",
+    easy: "border-[#1E1E1E]/35 bg-[#E4E2DD] text-[#1E1E1E]",
+    medium: "border-[#F8A348] bg-[#F8A348]/35 text-[#1E1E1E]",
+    hard: "border-[#DB4A2B] bg-[#DB4A2B]/18 text-[#1E1E1E]",
   };
 
   return tones[complexity];
