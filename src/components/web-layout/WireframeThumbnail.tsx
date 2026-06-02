@@ -588,5 +588,5 @@ export function WireframeThumbnail({
     return <SingleColumnDiagram />;
   })();
 
-  return <div className={cn("h-full w-full", className)}>{diagram}</div>;
+  return <div className={cn("raw-wireframe h-full w-full", className)}>{diagram}</div>;
 }

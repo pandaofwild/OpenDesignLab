@@ -652,8 +652,8 @@ function MapListPreview({
     <div className="space-y-3">
       <PreviewHeader layout={layout} showLabels={showLabels} compact={compact} />
       <div className={cn("grid gap-3", compact ? "grid-cols-1" : "grid-cols-[1fr_310px]")}>
-        <AnnotatedRegion className="relative min-h-80 bg-emerald-50 p-4" label="Map" showLabel={showLabels}>
-          <div className="absolute inset-4 rounded-md border border-emerald-200 bg-[linear-gradient(90deg,rgba(16,185,129,0.16)_1px,transparent_1px),linear-gradient(rgba(16,185,129,0.16)_1px,transparent_1px)] bg-[length:36px_36px]" />
+        <AnnotatedRegion className="relative min-h-80 bg-[#F8A348]/15 p-4" label="Map" showLabel={showLabels}>
+          <div className="absolute inset-4 border border-[#DB4A2B]/25 bg-[linear-gradient(90deg,rgba(219,74,43,0.18)_1px,transparent_1px),linear-gradient(rgba(219,74,43,0.18)_1px,transparent_1px)] bg-[length:36px_36px]" />
           {[20, 44, 66, 78].map((left, index) => (
             <span
               key={left}
@@ -783,7 +783,7 @@ function ScrollStoryPreview({
   );
 }
 
-export function LayoutPreviewRenderer({
+function LayoutPreviewContent({
   layout,
   viewport,
   showLabels,
@@ -910,5 +910,20 @@ export function LayoutPreviewRenderer({
       layout={layout}
       showLabels={showLabels}
     />
+  );
+}
+
+export function LayoutPreviewRenderer(props: LayoutPreviewRendererProps) {
+  const compact = props.viewport !== "desktop";
+
+  return (
+    <div
+      className={cn(
+        "raw-preview-canvas min-w-0",
+        compact ? "raw-preview-canvas-mobile" : "raw-preview-canvas-desktop",
+      )}
+    >
+      <LayoutPreviewContent {...props} />
+    </div>
   );
 }

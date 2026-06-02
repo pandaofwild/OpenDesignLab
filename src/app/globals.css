@@ -188,6 +188,211 @@ main header {
   animation-delay: -7s;
 }
 
+.raw-preview-canvas,
+.raw-wireframe {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 18%, rgb(219 74 43 / 0.28), transparent 36%),
+    radial-gradient(circle at 82% 28%, rgb(248 163 72 / 0.24), transparent 38%),
+    radial-gradient(circle at 48% 92%, rgb(255 137 169 / 0.22), transparent 34%),
+    #e4e2dd;
+  color: #1e1e1e;
+}
+
+.raw-preview-canvas::before,
+.raw-wireframe::before,
+.raw-preview-canvas::after,
+.raw-wireframe::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 58%;
+  height: 58%;
+  min-width: 180px;
+  min-height: 180px;
+  filter: blur(72px);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.raw-preview-canvas::before,
+.raw-wireframe::before {
+  left: -18%;
+  top: -16%;
+  background: rgb(219 74 43 / 0.36);
+}
+
+.raw-preview-canvas::after,
+.raw-wireframe::after {
+  bottom: -22%;
+  right: -18%;
+  background: rgb(248 163 72 / 0.34);
+}
+
+.raw-preview-canvas > *,
+.raw-wireframe > * {
+  position: relative;
+  z-index: 1;
+}
+
+.raw-preview-canvas :where(h3),
+.raw-wireframe :where(h3) {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+}
+
+.raw-preview-canvas [class*="rounded"],
+.raw-wireframe [class*="rounded"] {
+  border-radius: 0 !important;
+}
+
+.raw-preview-canvas :where(.bg-white),
+.raw-wireframe :where(.bg-white) {
+  background-color: rgb(240 238 232 / 0.82) !important;
+  backdrop-filter: blur(8px);
+}
+
+.raw-preview-canvas [class*="bg-white/"],
+.raw-wireframe [class*="bg-white/"] {
+  background-color: rgb(228 226 221 / 0.18) !important;
+}
+
+.raw-preview-canvas [class*="bg-zinc-9"],
+.raw-preview-canvas [class*="bg-zinc-8"],
+.raw-wireframe [class*="bg-zinc-9"],
+.raw-wireframe [class*="bg-zinc-8"] {
+  background-color: #1e1e1e !important;
+}
+
+.raw-preview-canvas [class*="bg-zinc-0"],
+.raw-preview-canvas [class*="bg-zinc-1"],
+.raw-preview-canvas [class*="bg-zinc-2"],
+.raw-preview-canvas [class*="bg-zinc-3"],
+.raw-wireframe [class*="bg-zinc-0"],
+.raw-wireframe [class*="bg-zinc-1"],
+.raw-wireframe [class*="bg-zinc-2"],
+.raw-wireframe [class*="bg-zinc-3"] {
+  background-color: rgb(217 214 208 / 0.72) !important;
+}
+
+.raw-preview-canvas [class*="bg-emerald"],
+.raw-wireframe [class*="bg-emerald"] {
+  background-color: rgb(219 74 43 / 0.42) !important;
+}
+
+.raw-preview-canvas [class*="bg-amber"],
+.raw-wireframe [class*="bg-amber"] {
+  background-color: rgb(248 163 72 / 0.48) !important;
+}
+
+.raw-preview-canvas [class*="bg-sky"],
+.raw-preview-canvas [class*="bg-rose"],
+.raw-wireframe [class*="bg-sky"],
+.raw-wireframe [class*="bg-rose"] {
+  background-color: rgb(255 137 169 / 0.48) !important;
+}
+
+.raw-preview-canvas [class*="text-emerald"],
+.raw-preview-canvas [class*="text-rose"],
+.raw-preview-canvas [class*="text-sky"],
+.raw-wireframe [class*="text-emerald"],
+.raw-wireframe [class*="text-rose"],
+.raw-wireframe [class*="text-sky"] {
+  color: #db4a2b !important;
+}
+
+.raw-preview-canvas [class*="text-amber"],
+.raw-wireframe [class*="text-amber"] {
+  color: #f8a348 !important;
+}
+
+.raw-preview-canvas [class*="text-zinc-9"],
+.raw-preview-canvas [class*="text-zinc-8"],
+.raw-preview-canvas [class*="text-zinc-7"],
+.raw-wireframe [class*="text-zinc-9"],
+.raw-wireframe [class*="text-zinc-8"],
+.raw-wireframe [class*="text-zinc-7"] {
+  color: #1e1e1e !important;
+}
+
+.raw-preview-canvas [class*="text-zinc-6"],
+.raw-preview-canvas [class*="text-zinc-5"],
+.raw-preview-canvas [class*="text-zinc-4"],
+.raw-preview-canvas [class*="text-zinc-3"],
+.raw-wireframe [class*="text-zinc-6"],
+.raw-wireframe [class*="text-zinc-5"],
+.raw-wireframe [class*="text-zinc-4"],
+.raw-wireframe [class*="text-zinc-3"] {
+  color: rgb(30 30 30 / 0.62) !important;
+}
+
+.raw-preview-canvas [class*="text-white"],
+.raw-wireframe [class*="text-white"] {
+  color: #e4e2dd !important;
+}
+
+.raw-preview-canvas [class*="border-zinc"],
+.raw-preview-canvas [class*="border-emerald"],
+.raw-preview-canvas [class*="border-amber"],
+.raw-preview-canvas [class*="border-rose"],
+.raw-wireframe [class*="border-zinc"],
+.raw-wireframe [class*="border-emerald"],
+.raw-wireframe [class*="border-amber"],
+.raw-wireframe [class*="border-rose"] {
+  border-color: rgb(30 30 30 / 0.18) !important;
+}
+
+.raw-preview-canvas button,
+.raw-wireframe button {
+  border-radius: 0 !important;
+}
+
+.raw-wireframe > div {
+  background:
+    radial-gradient(circle at 18% 18%, rgb(219 74 43 / 0.36), transparent 38%),
+    radial-gradient(circle at 86% 20%, rgb(248 163 72 / 0.32), transparent 40%),
+    radial-gradient(circle at 50% 88%, rgb(255 137 169 / 0.26), transparent 36%),
+    #e4e2dd !important;
+}
+
+.raw-wireframe div[class*="bg-zinc-0"],
+.raw-wireframe div[class*="bg-zinc-1"],
+.raw-wireframe div[class*="bg-zinc-2"],
+.raw-wireframe div[class*="bg-zinc-3"],
+.raw-wireframe div.bg-white {
+  background-color: rgb(240 238 232 / 0.68) !important;
+  backdrop-filter: blur(8px);
+}
+
+.raw-wireframe span[class*="bg-zinc-0"],
+.raw-wireframe span[class*="bg-zinc-1"],
+.raw-wireframe span[class*="bg-zinc-2"],
+.raw-wireframe span[class*="bg-zinc-3"] {
+  background-color: rgb(30 30 30 / 0.13) !important;
+}
+
+.raw-wireframe span[class*="bg-zinc-8"],
+.raw-wireframe span[class*="bg-zinc-9"] {
+  background-color: #1e1e1e !important;
+}
+
+.raw-wireframe span[class*="bg-emerald"] {
+  background-color: rgb(219 74 43 / 0.72) !important;
+}
+
+.raw-wireframe span[class*="bg-amber"] {
+  background-color: rgb(248 163 72 / 0.72) !important;
+}
+
+.raw-wireframe span[class*="bg-sky"],
+.raw-wireframe span[class*="bg-rose"] {
+  background-color: rgb(255 137 169 / 0.72) !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
