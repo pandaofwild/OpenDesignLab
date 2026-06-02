@@ -14,7 +14,7 @@ export function WebLayoutCard({ layout, compact = false }: WebLayoutCardProps) {
     <article className="group flex h-full flex-col">
       <div className="aspect-[3/4] overflow-hidden bg-[#D9D6D0] p-3">
         <div className="h-full bg-[#E4E2DD] p-3 transition duration-500 ease-out group-hover:scale-105">
-          <WireframeThumbnail previewType={layout.previewType} />
+          <WireframeThumbnail layout={layout} />
         </div>
       </div>
       <div className="flex flex-1 flex-col gap-4 pt-4">
