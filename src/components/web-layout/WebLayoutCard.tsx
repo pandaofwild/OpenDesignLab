@@ -12,8 +12,13 @@ type WebLayoutCardProps = {
 export function WebLayoutCard({ layout, compact = false }: WebLayoutCardProps) {
   return (
     <article className="group flex h-full flex-col">
-      <div className="aspect-[3/4] overflow-hidden bg-[#D9D6D0] p-3">
-        <div className="h-full bg-[#E4E2DD] p-3 transition duration-500 ease-out group-hover:scale-105">
+      <div
+        className={cn(
+          "overflow-hidden bg-[#D9D6D0] p-2",
+          compact ? "aspect-[16/10]" : "aspect-[4/3]",
+        )}
+      >
+        <div className="h-full bg-[#E4E2DD] p-2 transition duration-500 ease-out group-hover:scale-[1.03]">
           <WireframeThumbnail layout={layout} />
         </div>
       </div>

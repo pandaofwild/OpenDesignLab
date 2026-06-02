@@ -16,7 +16,7 @@ export function WireframeThumbnail({ layout, className }: WireframeThumbnailProp
         className,
       )}
     >
-      <div className="pointer-events-none absolute left-1/2 top-2 w-[760px] origin-top -translate-x-1/2 scale-[0.42] sm:scale-[0.5] xl:scale-[0.54]">
+      <div className="pointer-events-none absolute left-1/2 top-2 w-[760px] origin-top -translate-x-1/2 scale-[0.44] sm:scale-[0.58] md:scale-[0.46] lg:scale-[0.54] xl:scale-[0.6]">
         <LayoutPreviewRenderer
           denseContent={false}
           layout={layout}
