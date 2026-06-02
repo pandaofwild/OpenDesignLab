@@ -29,12 +29,12 @@ export function WebLayoutFilters({
   return (
     <section
       aria-label="레이아웃 필터"
-      className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm"
+      className="bg-[#D9D6D0] p-4"
     >
       <div className="grid gap-4 lg:grid-cols-[1.3fr_1fr_1fr_0.7fr_auto] lg:items-end">
         <Field label="검색" htmlFor="layout-query">
           <input
-            className="h-10 w-full rounded-md border border-zinc-300 bg-white px-3 text-sm text-zinc-950 outline-none transition focus:border-zinc-950 focus:ring-2 focus:ring-zinc-950/10"
+            className="raw-field h-11 w-full px-3 text-sm font-medium outline-none transition"
             id="layout-query"
             onChange={(event) => onQueryChange(event.target.value)}
             placeholder="레이아웃명, 목적, 태그 검색"
@@ -45,7 +45,7 @@ export function WebLayoutFilters({
 
         <Field label="카테고리" htmlFor="layout-category">
           <select
-            className="h-10 w-full rounded-md border border-zinc-300 bg-white px-3 text-sm text-zinc-950 outline-none transition focus:border-zinc-950 focus:ring-2 focus:ring-zinc-950/10"
+            className="raw-field h-11 w-full px-3 text-sm font-medium outline-none transition"
             id="layout-category"
             onChange={(event) => onCategoryChange(event.target.value)}
             value={category}
@@ -61,7 +61,7 @@ export function WebLayoutFilters({
 
         <Field label="사용 목적" htmlFor="layout-purpose">
           <select
-            className="h-10 w-full rounded-md border border-zinc-300 bg-white px-3 text-sm text-zinc-950 outline-none transition focus:border-zinc-950 focus:ring-2 focus:ring-zinc-950/10"
+            className="raw-field h-11 w-full px-3 text-sm font-medium outline-none transition"
             id="layout-purpose"
             onChange={(event) => onPurposeChange(event.target.value)}
             value={purpose}
@@ -77,7 +77,7 @@ export function WebLayoutFilters({
 
         <Field label="복잡도" htmlFor="layout-complexity">
           <select
-            className="h-10 w-full rounded-md border border-zinc-300 bg-white px-3 text-sm text-zinc-950 outline-none transition focus:border-zinc-950 focus:ring-2 focus:ring-zinc-950/10"
+            className="raw-field h-11 w-full px-3 text-sm font-medium outline-none transition"
             id="layout-complexity"
             onChange={(event) => onComplexityChange(event.target.value)}
             value={complexity}
@@ -108,7 +108,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-sm font-semibold text-zinc-800" htmlFor={htmlFor}>
+      <label className="raw-label mb-2 block text-[#1E1E1E]/70" htmlFor={htmlFor}>
         {label}
       </label>
       {children}

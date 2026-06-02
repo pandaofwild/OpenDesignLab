@@ -122,25 +122,25 @@ export function LayoutCodeExample({ layout }: LayoutCodeExampleProps) {
   }
 
   return (
-    <section className="rounded-lg border border-zinc-200 bg-zinc-950 p-4 text-white shadow-sm">
+    <section className="bg-[#1E1E1E] p-4 text-[#E4E2DD]">
       <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="text-base font-semibold tracking-normal">
+          <h2 className="raw-label text-[#E4E2DD]">
             Tailwind 기반 예시 코드
           </h2>
-          <p className="mt-1 text-sm text-zinc-400">
+          <p className="mt-2 text-sm text-[#E4E2DD]/60">
             구조를 시작하기 위한 복사 가능한 React/Tailwind 조각입니다.
           </p>
         </div>
         <Button
-          className="border-zinc-700 bg-zinc-900 text-white hover:bg-zinc-800"
+          className="border-[#E4E2DD] bg-[#E4E2DD] text-[#1E1E1E]"
           onClick={copyCode}
           variant="secondary"
         >
           {copied ? "복사됨" : "코드 복사"}
         </Button>
       </div>
-      <pre className="max-h-[520px] overflow-auto rounded-md border border-zinc-800 bg-black p-4 text-sm leading-6 text-emerald-100">
+      <pre className="max-h-[520px] overflow-auto border border-[#E4E2DD]/20 bg-black/35 p-4 text-sm leading-6 text-[#F8A348]">
         <code>{code}</code>
       </pre>
     </section>

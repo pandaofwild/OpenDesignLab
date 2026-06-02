@@ -43,10 +43,10 @@ export default async function LayoutDetailPage({ params }: LayoutDetailPageProps
   }
 
   return (
-    <main className="min-h-screen bg-background">
-      <div className="mx-auto max-w-7xl px-5 py-10 lg:px-8">
+    <main className="min-h-screen bg-background pt-24 text-[#1E1E1E]">
+      <div className="mx-auto max-w-[1720px] px-5 py-10 lg:px-8">
         <Link
-          className="text-sm font-semibold text-zinc-600 underline-offset-4 hover:text-zinc-950 hover:underline"
+          className="raw-label text-[#DB4A2B] underline-offset-4 hover:underline"
           href="/web-layouts"
         >
           목록으로 돌아가기
@@ -54,14 +54,14 @@ export default async function LayoutDetailPage({ params }: LayoutDetailPageProps
 
         <section
           aria-label={`${layout.nameKo} 실제 웹 프리뷰`}
-          className="relative mt-8 h-[calc(100vh-230px)] min-h-[560px] max-h-[760px] overflow-hidden rounded-lg bg-zinc-100 shadow-sm ring-1 ring-zinc-900/10"
+          className="relative mt-8 h-[calc(100vh-230px)] min-h-[560px] max-h-[760px] overflow-hidden bg-[#D9D6D0] ring-1 ring-[#1E1E1E]/20"
           data-testid="layout-stage"
         >
           <LayoutStagePreview layout={layout} />
         </section>
 
         <section className="mt-6 grid gap-6 lg:grid-cols-[360px_minmax(0,1fr)] lg:items-start">
-          <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
+          <div className="bg-[#D9D6D0] p-6">
             <div className="flex flex-wrap gap-2">
               <Badge>{layout.category}</Badge>
               <Badge className={complexityTone(layout.complexity)}>
@@ -69,16 +69,16 @@ export default async function LayoutDetailPage({ params }: LayoutDetailPageProps
               </Badge>
               <Badge>{layout.previewType}</Badge>
             </div>
-            <h1 className="mt-5 text-4xl font-bold leading-tight tracking-normal text-zinc-950">
+            <h1 className="font-display mt-6 text-5xl font-bold uppercase leading-[0.82] tracking-[-0.05em] text-[#1E1E1E]">
               {layout.nameKo}
             </h1>
-            <p className="mt-2 text-lg font-medium text-zinc-500">
+            <p className="mt-3 text-lg font-medium text-[#1E1E1E]/60">
               {layout.nameEn}
             </p>
-            <p className="mt-5 text-base leading-7 text-zinc-700">
+            <p className="mt-6 text-base leading-7 text-[#1E1E1E]/80">
               {layout.summary}
             </p>
-            <p className="mt-4 text-sm leading-7 text-zinc-600">
+            <p className="mt-4 text-sm leading-7 text-[#1E1E1E]/62">
               {layout.description}
             </p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -116,11 +116,11 @@ export default async function LayoutDetailPage({ params }: LayoutDetailPageProps
 
 function InfoList({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="rounded-md border border-zinc-200 bg-zinc-50 p-4">
-      <h2 className="text-sm font-semibold text-zinc-950">{title}</h2>
+    <div className="border-t border-[#1E1E1E]/25 pt-4">
+      <h2 className="raw-label text-[#1E1E1E]">{title}</h2>
       <ul className="mt-3 space-y-2">
         {items.map((item) => (
-          <li className="text-sm leading-6 text-zinc-600" key={item}>
+          <li className="text-sm leading-6 text-[#1E1E1E]/66" key={item}>
             {item}
           </li>
         ))}
@@ -131,14 +131,14 @@ function InfoList({ title, items }: { title: string; items: string[] }) {
 
 function DetailCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <section className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
-      <h2 className="text-xl font-semibold tracking-normal text-zinc-950">
+    <section className="bg-[#F0EEE8] p-6 ring-1 ring-[#1E1E1E]/12">
+      <h2 className="font-display text-4xl font-bold uppercase leading-[0.9] tracking-[-0.05em] text-[#1E1E1E]">
         {title}
       </h2>
       <ul className="mt-4 space-y-3">
         {items.map((item) => (
-          <li className="flex gap-3 text-sm leading-6 text-zinc-600" key={item}>
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+          <li className="flex gap-3 text-sm leading-6 text-[#1E1E1E]/68" key={item}>
+            <span className="mt-2 h-2 w-2 shrink-0 bg-[#DB4A2B]" />
             <span>{item}</span>
           </li>
         ))}

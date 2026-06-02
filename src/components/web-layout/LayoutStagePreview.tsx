@@ -53,12 +53,12 @@ export function LayoutStagePreview({
 
   return (
     <div
-      className={cn("absolute inset-0 overflow-hidden bg-zinc-100", className)}
+      className={cn("absolute inset-0 overflow-hidden bg-[#E4E2DD]", className)}
       data-testid="layout-stage-preview"
     >
-      <div className="absolute inset-0 bg-zinc-100" data-testid="layout-preview-background">
+      <div className="absolute inset-0 bg-[#E4E2DD]" data-testid="layout-preview-background">
         <div className="h-full overflow-hidden md:hidden">
-          <div className="min-h-full bg-zinc-50 p-3">
+          <div className="min-h-full bg-[#F0EEE8] p-3">
             <LayoutPreviewRenderer
               denseContent
               layout={layout}
@@ -68,7 +68,7 @@ export function LayoutStagePreview({
           </div>
         </div>
         <div className="hidden h-full overflow-hidden md:block">
-          <div className="min-h-full bg-zinc-50 p-6">
+          <div className="min-h-full bg-[#F0EEE8] p-6">
             <LayoutPreviewRenderer
               denseContent
               layout={layout}
@@ -79,10 +79,10 @@ export function LayoutStagePreview({
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-zinc-950/50 via-zinc-950/20 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#1E1E1E]/50 via-[#1E1E1E]/20 to-transparent" />
 
       {indexLabel ? (
-        <div className="absolute right-3 top-3 z-20 flex items-center gap-2 rounded-full border border-zinc-950/10 bg-white/90 px-3 py-2 text-xs font-semibold text-zinc-950 shadow-lg backdrop-blur md:right-5 md:top-5">
+        <div className="absolute right-3 top-3 z-20 flex items-center gap-2 rounded-full border border-[#1E1E1E]/20 bg-[#E4E2DD]/90 px-3 py-2 text-xs font-bold text-[#1E1E1E] shadow-lg backdrop-blur md:right-5 md:top-5">
           <span>{indexLabel}</span>
           <span className="hidden h-1 w-1 rounded-full bg-zinc-400 sm:block" />
           <span className="hidden sm:inline">{layout.previewType}</span>
@@ -91,7 +91,7 @@ export function LayoutStagePreview({
 
       <div className="absolute bottom-3 left-3 right-3 z-30 sm:right-auto sm:w-[min(440px,calc(100%-1.5rem))] md:bottom-5 md:left-5">
         <div
-          className="rounded-lg border border-white/60 bg-white/90 p-3 text-zinc-950 shadow-2xl backdrop-blur-xl"
+          className="border border-[#1E1E1E]/20 bg-[#E4E2DD]/92 p-3 text-[#1E1E1E] shadow-2xl backdrop-blur-xl"
           data-testid="layout-floating-summary"
         >
           <div className="flex items-start gap-3">
@@ -99,7 +99,7 @@ export function LayoutStagePreview({
               aria-label="설명 열기"
               aria-controls={detailPanelId}
               aria-expanded={isDetailOpen}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-zinc-950 text-white transition hover:bg-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
+              className="flex h-9 w-9 shrink-0 items-center justify-center bg-[#1E1E1E] text-[#E4E2DD] transition hover:bg-[#DB4A2B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E]"
               onClick={() => setIsDetailOpen(true)}
               type="button"
             >
@@ -109,12 +109,12 @@ export function LayoutStagePreview({
             <button
               aria-controls={detailPanelId}
               aria-expanded={isDetailOpen}
-              className="min-w-0 flex-1 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-950"
+              className="min-w-0 flex-1 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1E1E1E]"
               onClick={() => setIsDetailOpen(true)}
               type="button"
             >
               <span className="block truncate text-sm font-bold">{layout.nameKo}</span>
-              <span className="mt-1 block truncate text-xs leading-5 text-zinc-600">
+              <span className="mt-1 block truncate text-xs leading-5 text-[#1E1E1E]/62">
                 {layout.summary}
               </span>
             </button>
@@ -122,7 +122,7 @@ export function LayoutStagePreview({
               {detailHref ? (
                 <Link
                   aria-label={`${layout.nameKo} 상세 페이지로 이동`}
-                  className="flex h-9 w-9 items-center justify-center rounded-md border border-zinc-200 bg-white text-zinc-800 transition hover:border-zinc-300 hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
+                  className="hidden h-9 w-9 items-center justify-center border border-[#1E1E1E]/25 bg-[#F0EEE8] text-[#1E1E1E] transition hover:bg-[#FF89A9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E] sm:flex"
                   href={detailHref}
                 >
                   <ExternalLinkIcon />
@@ -131,12 +131,12 @@ export function LayoutStagePreview({
               <button
                 aria-controls={detailPanelId}
                 aria-expanded={isDetailOpen}
-                className="flex h-9 items-center gap-1.5 rounded-md border border-zinc-200 bg-white px-2.5 text-xs font-semibold text-zinc-800 transition hover:border-zinc-300 hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
+                className="flex h-9 w-9 items-center justify-center border border-[#1E1E1E]/25 bg-[#F0EEE8] text-xs font-bold uppercase tracking-[0.1em] text-[#1E1E1E] transition hover:bg-[#F8A348] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E] sm:w-auto sm:gap-1.5 sm:px-2.5"
                 onClick={() => setIsDetailOpen(true)}
                 type="button"
               >
                 <ChevronUpIcon />
-                설명
+                <span className="hidden sm:inline">설명</span>
               </button>
             </div>
           </div>
@@ -147,14 +147,14 @@ export function LayoutStagePreview({
         <>
           <button
             aria-label="설명 닫기"
-            className="absolute inset-0 z-40 bg-zinc-950/40 backdrop-blur-[2px]"
+            className="absolute inset-0 z-40 bg-[#1E1E1E]/40 backdrop-blur-[2px]"
             onClick={() => setIsDetailOpen(false)}
             type="button"
           />
           <div
             aria-label={`${layout.nameKo} 전체 설명`}
             aria-modal="true"
-            className="absolute bottom-3 left-3 right-3 z-50 max-h-[calc(100%-1.5rem)] overflow-y-auto rounded-lg border border-white/70 bg-white/95 p-4 text-zinc-950 shadow-2xl backdrop-blur-xl md:bottom-5 md:left-5 md:right-auto md:max-h-[calc(100%-2.5rem)] md:w-[min(720px,calc(100%-2.5rem))] md:p-5"
+            className="absolute bottom-3 left-3 right-3 z-50 max-h-[calc(100%-1.5rem)] overflow-y-auto border border-[#1E1E1E]/20 bg-[#E4E2DD]/96 p-4 text-[#1E1E1E] shadow-2xl backdrop-blur-xl md:bottom-5 md:left-5 md:right-auto md:max-h-[calc(100%-2.5rem)] md:w-[min(720px,calc(100%-2.5rem))] md:p-5"
             data-testid="layout-detail-panel"
             id={detailPanelId}
             role="dialog"
@@ -171,13 +171,13 @@ export function LayoutStagePreview({
                 <h2 className="mt-4 text-2xl font-bold tracking-normal md:text-3xl">
                   {layout.nameKo}
                 </h2>
-                <p className="mt-1 text-sm font-medium text-zinc-500">
+                <p className="mt-1 text-sm font-medium text-[#1E1E1E]/55">
                   {layout.nameEn}
                 </p>
               </div>
               <button
                 aria-label="설명 패널 닫기"
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-zinc-200 bg-white text-zinc-700 transition hover:border-zinc-300 hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
+                className="flex h-9 w-9 shrink-0 items-center justify-center border border-[#1E1E1E]/25 bg-[#F0EEE8] text-[#1E1E1E] transition hover:bg-[#FF89A9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E]"
                 onClick={() => setIsDetailOpen(false)}
                 type="button"
               >
@@ -185,11 +185,11 @@ export function LayoutStagePreview({
               </button>
             </div>
 
-            <div className="mt-5 rounded-md border border-zinc-200 bg-zinc-50 p-4">
-              <p className="text-sm font-semibold leading-6 text-zinc-800">
+            <div className="mt-5 border border-[#1E1E1E]/20 bg-[#F0EEE8] p-4">
+              <p className="text-sm font-bold leading-6 text-[#1E1E1E]">
                 {layout.summary}
               </p>
-              <p className="mt-3 text-sm leading-6 text-zinc-600">
+              <p className="mt-3 text-sm leading-6 text-[#1E1E1E]/64">
                 {layout.description}
               </p>
             </div>
@@ -221,7 +221,7 @@ export function LayoutStagePreview({
             {detailHref ? (
               <div className="mt-5 flex justify-end">
                 <Link
-                  className="inline-flex h-10 items-center gap-2 rounded-md bg-zinc-950 px-4 text-sm font-semibold text-white transition hover:bg-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
+                  className="raw-button inline-flex h-10 items-center gap-2 border border-[#1E1E1E] bg-[#1E1E1E] px-4 text-sm font-bold uppercase tracking-[0.1em] text-[#E4E2DD] transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E]"
                   href={detailHref}
                 >
                   {detailLabel}
@@ -246,11 +246,11 @@ function DetailBlock({
   className?: string;
 }) {
   return (
-    <section className={cn("rounded-md border border-zinc-200 bg-white p-4", className)}>
-      <h3 className="text-sm font-bold text-zinc-950">{title}</h3>
+    <section className={cn("border border-[#1E1E1E]/18 bg-[#F0EEE8] p-4", className)}>
+      <h3 className="raw-label text-[#1E1E1E]">{title}</h3>
       <ul className="mt-3 space-y-2">
         {items.map((item) => (
-          <li className="flex gap-2 text-sm leading-6 text-zinc-600" key={`${title}-${item}`}>
+          <li className="flex gap-2 text-sm leading-6 text-[#1E1E1E]/65" key={`${title}-${item}`}>
             <CheckIcon />
             <span>{item}</span>
           </li>
@@ -262,11 +262,11 @@ function DetailBlock({
 
 function Metric({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-md border border-zinc-200 bg-white p-3">
-      <p className="text-[11px] font-bold uppercase tracking-normal text-zinc-500">
+    <div className="border border-[#1E1E1E]/18 bg-[#F0EEE8] p-3">
+      <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#1E1E1E]/45">
         {label}
       </p>
-      <p className="mt-1 truncate text-sm font-semibold text-zinc-950">{value}</p>
+      <p className="mt-1 truncate text-sm font-bold text-[#1E1E1E]">{value}</p>
     </div>
   );
 }
@@ -355,7 +355,7 @@ function CheckIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="mt-1.5 h-3.5 w-3.5 shrink-0 text-emerald-600"
+      className="mt-1.5 h-3.5 w-3.5 shrink-0 text-[#DB4A2B]"
       fill="none"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
