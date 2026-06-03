@@ -67,7 +67,7 @@ export function WebLayoutExplorer() {
         </p>
         <Link
           className="inline-flex h-11 items-center justify-center border border-[#1E1E1E] bg-transparent px-4 text-sm font-bold uppercase tracking-[0.1em] text-[#1E1E1E] transition hover:bg-[#1E1E1E] hover:text-[#E4E2DD] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E]"
-          href="/web-layouts/compare"
+          href="/layouts/compare"
         >
           레이아웃 비교하기
         </Link>

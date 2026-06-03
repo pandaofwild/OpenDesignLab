@@ -12,7 +12,7 @@ Use this skill inside the openlayout project to recommend layouts that match a p
 - Layout data lives in `src/data/webLayouts.ts`.
 - Prefer existing `webLayouts` entries before inventing a new layout.
 - Match by `category`, `bestFor`, `notGoodFor`, `tags`, `previewType`, and `complexity`.
-- When recommending a concrete item, include its route: `/web-layouts/{slug}`.
+- When recommending a concrete item, include its route: `/layouts/{slug}`.
 
 ## Recommendation Workflow
 
@@ -39,7 +39,7 @@ Ask a short clarification only when the page goal is unclear. Otherwise infer co
 Use this format unless the user asks otherwise:
 
 ```markdown
-추천: [layout.nameKo] (`/web-layouts/{slug}`)
+추천: [layout.nameKo] (`/layouts/{slug}`)
 
 왜 맞는지:
 - ...

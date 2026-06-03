@@ -57,7 +57,7 @@ export function WebLayoutCard({ layout, compact = false }: WebLayoutCardProps) {
             ))}
           </div>
           <Link
-            href={`/web-layouts/${layout.slug}`}
+            href={`/layouts/${layout.slug}`}
             className="raw-button inline-flex h-10 items-center justify-center border border-[#1E1E1E] bg-[#1E1E1E] px-4 text-sm font-bold uppercase tracking-[0.1em] text-[#E4E2DD] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E]"
           >
             상세 보기

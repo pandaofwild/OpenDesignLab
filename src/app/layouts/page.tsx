@@ -43,7 +43,7 @@ export default function WebLayoutsPage() {
                 </Link>
                 <Link
                   className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-[#DB4A2B] transition hover:text-[#1E1E1E]"
-                  href="/web-layouts/compare"
+                  href="/layouts/compare"
                 >
                   Compare now
                   <ArrowUpRightIcon />
@@ -97,7 +97,7 @@ export default function WebLayoutsPage() {
             ].map(([index, label]) => (
               <Link
                 className="flex items-center justify-between border-t border-[#1E1E1E]/20 py-5 text-sm font-bold uppercase tracking-[0.12em] transition hover:text-[#DB4A2B]"
-                href={index === "04" ? "#layout-library" : "/web-layouts/compare"}
+                href={index === "04" ? "#layout-library" : "/layouts/compare"}
                 key={index}
               >
                 <span className="text-[#1E1E1E]/45">{index}</span>
