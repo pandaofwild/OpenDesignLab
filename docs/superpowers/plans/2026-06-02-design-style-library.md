@@ -301,7 +301,7 @@ export type DesignStyle = {
 
 ## Milestone Checklist
 
-- [ ] **M0: Plan Document**
+- [x] **M0: Plan Document**
   - [x] Create this plan.
   - [x] Keep this document updated after each completed task.
 
@@ -1080,7 +1080,7 @@ Expected:
 - Modify: `src/app/globals.css`
 - Modify: `src/components/web-layout/LayoutPreviewRenderer.tsx`
 
-- [ ] **Step 1: Use selected `DesignStyle` for CSS variables**
+- [x] **Step 1: Use selected `DesignStyle` for CSS variables**
 
 Provider must write:
 
@@ -1096,7 +1096,7 @@ Provider must write:
 --style-border
 ```
 
-- [ ] **Step 2: Confirm localStorage persistence**
+- [x] **Step 2: Confirm localStorage persistence**
 
 Manual test:
 
@@ -1110,7 +1110,7 @@ Expected:
 - Applied style strip shows `사이버펑크`.
 - Layout preview cards use dark neon colors.
 
-- [ ] **Step 3: Confirm compare page**
+- [x] **Step 3: Confirm compare page**
 
 Manual test:
 
@@ -1207,7 +1207,7 @@ IMAGE_QUALITY=medium
 - [x] `/web-layouts/compare` still loads.
 - [x] Mobile width 390px has no horizontal page overflow.
 - [x] Design style cards look like real style samples, not plain wireframes.
-- [ ] Layout preview cards still look like real webpages.
+- [x] Layout preview cards still look like real webpages.
 - [x] Search filters update instantly.
 - [x] Category filters update instantly.
 - [x] Selected style persists after reload.
@@ -1234,3 +1234,4 @@ IMAGE_QUALITY=medium
 - [x] 2026-06-02: M6 image generation complete: added `/api/design-style-images`, `/design-styles/generate`, local save path, and verified missing `OPENAI_API_KEY` returns 503 with a clear error.
 - [x] M7 complete.
 - [x] 2026-06-02: M7 release complete: README and project skill updated, `npm run lint` and `npm run build` pass on `0.1.4`, visual checks captured, and release is prepared for GitHub tag `v0.1.4`.
+- [x] 2026-06-03: LayoutPreviewRenderer rewritten to use `--style-*` CSS variables directly (removing hardcoded hex colors), fixing pseudo-element color override bugs in globals.css. All Task 5 verification steps confirmed complete. Plan document fully checked off.
