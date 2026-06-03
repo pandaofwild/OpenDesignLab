@@ -35,6 +35,10 @@ function cleanText(input: unknown) {
 }
 
 export async function POST(request: Request) {
+  if (process.env.NODE_ENV !== "development") {
+    return jsonError("Image generation is only available in local development.", 404);
+  }
+
   const apiKey = process.env.OPENAI_API_KEY;
 
   if (!apiKey) {

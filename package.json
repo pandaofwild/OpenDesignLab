@@ -1,17 +1,33 @@
 {
-  "name": "design_pan",
+  "name": "openlayout",
   "version": "0.1.4",
-  "private": true,
+  "private": false,
+  "description": "A web layout and design style library for choosing, comparing, and previewing website structures.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pandaofwild/openlayout.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pandaofwild/openlayout/issues"
+  },
+  "homepage": "https://github.com/pandaofwild/openlayout#readme",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
+  "engines": {
+    "node": ">=22"
+  },
   "dependencies": {
-    "next": "16.2.6",
+    "next": "16.2.7",
     "react": "19.2.4",
     "react-dom": "19.2.4"
+  },
+  "overrides": {
+    "postcss": "8.5.15"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
