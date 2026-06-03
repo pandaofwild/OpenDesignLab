@@ -36,11 +36,12 @@ function Region({
   return (
     <AnnotatedRegion
       className={cn(
-        "min-w-0 max-w-full border-[rgb(var(--style-border-rgb)_/_0.18)] bg-[rgb(var(--style-surface-rgb)_/_0.72)]",
+        "min-w-0 max-w-full border-[rgb(var(--st-border-rgb)_/_0.18)] bg-[rgb(var(--st-surface-rgb)_/_0.72)]",
         className,
       )}
       label={label}
       showLabel={showLabels}
+      style={{ borderRadius: "var(--st-radius)" }}
     >
       {children}
     </AnnotatedRegion>
@@ -49,23 +50,26 @@ function Region({
 
 function SampleHeader({ compact = false }: { compact?: boolean }) {
   return (
-    <header className="flex min-h-11 items-center justify-between border border-[rgb(var(--style-border-rgb)_/_0.18)] bg-[rgb(var(--style-base-rgb)_/_0.78)] px-3 py-2">
+    <header
+      className="flex min-h-11 items-center justify-between border border-[rgb(var(--st-border-rgb)_/_0.18)] bg-[rgb(var(--st-base-rgb)_/_0.78)] px-3 py-2"
+      style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }}
+    >
       <div className="flex items-center gap-2">
-        <span className="h-6 w-6 bg-[var(--style-primary)]" />
+        <span className="h-6 w-6 bg-[var(--st-primary)]" />
         <span className="font-display text-sm font-bold uppercase leading-none tracking-[-0.05em]">
           Raw Co.
         </span>
       </div>
       {compact ? (
-        <span className="border border-[rgb(var(--style-border-rgb)_/_0.25)] px-2 py-1 text-[11px] font-bold uppercase tracking-[0.12em]">
+        <span className="border border-[rgb(var(--st-border-rgb)_/_0.25)] px-2 py-1 text-[11px] font-bold uppercase tracking-[0.12em]">
           Menu
         </span>
       ) : (
-        <nav className="flex items-center gap-4 text-[11px] font-bold uppercase tracking-[0.12em] text-[rgb(var(--style-text-rgb)_/_0.62)]">
+        <nav className="flex items-center gap-4 text-[11px] font-bold uppercase tracking-[0.12em] text-[rgb(var(--st-text-rgb)_/_0.62)]">
           {navItems.map((item) => (
             <span key={item}>{item}</span>
           ))}
-          <span className="bg-[rgb(var(--style-accent-2-rgb)_/_0.45)] px-2 py-1 text-[var(--style-text)]">Bag 02</span>
+          <span className="bg-[rgb(var(--st-accent-2-rgb)_/_0.45)] px-2 py-1 text-[var(--st-text)]">Bag 02</span>
         </nav>
       )}
     </header>
@@ -74,7 +78,7 @@ function SampleHeader({ compact = false }: { compact?: boolean }) {
 
 function RawLabel({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <p className={cn("text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--style-accent)]", className)}>
+    <p className={cn("text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--st-accent)]", className)}>
       {children}
     </p>
   );
@@ -92,10 +96,16 @@ function RawHeading({
   return (
     <h3
       className={cn(
-        "max-w-full break-words font-display font-bold uppercase leading-[0.78] tracking-[-0.05em] text-[var(--style-text)]",
+        "max-w-full break-words uppercase leading-[0.78]",
         compact ? "text-[2.35rem] leading-[0.86]" : "text-7xl",
         className,
       )}
+      style={{
+        color: "var(--st-text)",
+        fontFamily: "var(--st-font-display)",
+        fontWeight: "var(--st-weight-display)",
+        letterSpacing: "var(--st-tracking)",
+      }}
     >
       {children}
     </h3>
@@ -108,9 +118,10 @@ function RawButton({ children, tone = "dark" }: { children: ReactNode; tone?: "d
       className={cn(
         "h-9 border px-4 text-[11px] font-bold uppercase tracking-[0.12em]",
         tone === "dark"
-          ? "border-[var(--style-primary)] bg-[var(--style-primary)] text-[var(--style-surface)]"
-          : "border-[rgb(var(--style-border-rgb)_/_0.28)] bg-[rgb(var(--style-surface-rgb)_/_0.80)] text-[var(--style-text)]",
+          ? "border-[var(--st-primary)] bg-[var(--st-primary)] text-[var(--st-surface)]"
+          : "border-[rgb(var(--st-border-rgb)_/_0.28)] bg-[rgb(var(--st-surface-rgb)_/_0.80)] text-[var(--st-text)]",
       )}
+      style={{ borderRadius: "var(--st-radius)", borderWidth: "var(--st-border-width)" }}
       type="button"
     >
       {children}
@@ -122,11 +133,12 @@ function SoftScene({ className, children }: { className?: string; children?: Rea
   return (
     <div
       className={cn(
-        "relative overflow-hidden border border-[rgb(var(--style-border-rgb)_/_0.16)] bg-[var(--style-base)] p-4",
-        "before:absolute before:left-[-20%] before:top-[-20%] before:h-56 before:w-56 before:bg-[rgb(var(--style-accent-rgb)_/_0.42)] before:blur-[70px] before:content-['']",
-        "after:absolute after:bottom-[-22%] after:right-[-15%] after:h-56 after:w-56 after:bg-[rgb(var(--style-accent-2-rgb)_/_0.42)] after:blur-[70px] after:content-['']",
+        "relative overflow-hidden border border-[rgb(var(--st-border-rgb)_/_0.16)] bg-[var(--st-base)] p-4",
+        "before:absolute before:left-[-20%] before:top-[-20%] before:h-56 before:w-56 before:bg-[rgb(var(--st-accent-rgb)_/_0.42)] before:blur-[70px] before:content-['']",
+        "after:absolute after:bottom-[-22%] after:right-[-15%] after:h-56 after:w-56 after:bg-[rgb(var(--st-accent-2-rgb)_/_0.42)] after:blur-[70px] after:content-['']",
         className,
       )}
+      style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }}
     >
       <div className="relative z-10">{children}</div>
     </div>
@@ -135,21 +147,24 @@ function SoftScene({ className, children }: { className?: string; children?: Rea
 
 function ProductTile({ name, index }: { name: string; index: number }) {
   return (
-    <article className="group">
-      <div className="relative aspect-[3/4] overflow-hidden border border-[rgb(var(--style-border-rgb)_/_0.16)] bg-[var(--style-base)]">
+    <article className="group" style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }}>
+      <div
+        className="relative aspect-[3/4] overflow-hidden border border-[rgb(var(--st-border-rgb)_/_0.16)] bg-[var(--st-base)]"
+        style={{ borderRadius: "var(--st-radius)" }}
+      >
         <span
           className={cn(
             "absolute inset-x-5 top-5 h-1/2",
-            index % 3 === 0 && "bg-[var(--style-primary)]",
-            index % 3 === 1 && "bg-[rgb(var(--style-accent-rgb)_/_0.55)]",
-            index % 3 === 2 && "bg-[rgb(var(--style-accent-2-rgb)_/_0.58)]",
+            index % 3 === 0 && "bg-[var(--st-primary)]",
+            index % 3 === 1 && "bg-[rgb(var(--st-accent-rgb)_/_0.55)]",
+            index % 3 === 2 && "bg-[rgb(var(--st-accent-2-rgb)_/_0.58)]",
           )}
         />
-        <span className="absolute bottom-5 left-5 h-20 w-20 bg-[rgb(var(--style-accent-3-rgb)_/_0.55)]" />
+        <span className="absolute bottom-5 left-5 h-20 w-20 bg-[rgb(var(--st-accent-3-rgb)_/_0.55)]" />
       </div>
       <div className="mt-2 flex items-center justify-between gap-3">
         <p className="truncate text-[11px] font-bold uppercase tracking-[0.15em]">{name}</p>
-        <p className="shrink-0 text-[11px] font-medium text-[rgb(var(--style-text-rgb)_/_0.55)]">₩{128 + index * 17}</p>
+        <p className="shrink-0 text-[11px] font-medium text-[rgb(var(--st-text-rgb)_/_0.55)]">₩{128 + index * 17}</p>
       </div>
     </article>
   );
@@ -157,9 +172,17 @@ function ProductTile({ name, index }: { name: string; index: number }) {
 
 function MetricCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border border-[rgb(var(--style-border-rgb)_/_0.16)] bg-[rgb(var(--style-surface-rgb)_/_0.78)] p-3">
-      <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[rgb(var(--style-text-rgb)_/_0.50)]">{label}</p>
-      <p className="mt-2 font-display text-4xl font-bold leading-none tracking-[-0.05em]">{value}</p>
+    <div
+      className="border border-[rgb(var(--st-border-rgb)_/_0.16)] bg-[rgb(var(--st-surface-rgb)_/_0.78)] p-3"
+      style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }}
+    >
+      <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[rgb(var(--st-text-rgb)_/_0.50)]">{label}</p>
+      <p
+        className="mt-2 text-4xl font-bold leading-none"
+        style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+      >
+        {value}
+      </p>
     </div>
   );
 }
@@ -181,14 +204,23 @@ function SingleColumnSample({ layout, compact, showLabels }: SampleProps) {
           <RawHeading className={cn("mt-4", compact && "max-w-[14rem]")} compact={compact}>
             One clear read
           </RawHeading>
-          <p className={cn("mt-5 max-w-xl text-sm leading-6 text-[rgb(var(--style-text-rgb)_/_0.68)]", compact && "text-xs leading-5")}>
+          <p
+            className={cn("mt-5 max-w-xl text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.68)]", compact && "text-xs leading-5")}
+            style={{ fontFamily: "var(--st-font-body)" }}
+          >
             {layout.summary}
           </p>
-          <div className={cn("mt-8 border-y border-[rgb(var(--style-border-rgb)_/_0.18)] py-5", compact && "mt-5 py-4")}>
-            <p className={cn("break-words font-display text-3xl font-bold uppercase leading-[0.9] tracking-[-0.05em]", compact && "text-2xl")}>
+          <div className={cn("mt-8 border-y border-[rgb(var(--st-border-rgb)_/_0.18)] py-5", compact && "mt-5 py-4")}>
+            <p
+              className={cn("break-words text-3xl font-bold uppercase leading-[0.9]", compact && "text-2xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
               {layout.nameKo}
             </p>
-            <p className={cn("mt-3 text-sm leading-6 text-[rgb(var(--style-text-rgb)_/_0.68)]", compact && "text-xs leading-5")}>
+            <p
+              className={cn("mt-3 text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.68)]", compact && "text-xs leading-5")}
+              style={{ fontFamily: "var(--st-font-body)" }}
+            >
               본문 폭을 제한하고 큰 제목, 짧은 설명, 반복 CTA를 같은 흐름 안에 둔 실제
               읽기형 페이지입니다.
             </p>
@@ -218,16 +250,21 @@ function TwoColumnSample({ layout, compact, showLabels }: SampleProps) {
               <br />
               method
             </RawHeading>
-            <p className="mt-5 max-w-md text-sm leading-6 text-[rgb(var(--style-text-rgb)_/_0.68)]">{layout.summary}</p>
+            <p
+              className="mt-5 max-w-md text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.68)]"
+              style={{ fontFamily: "var(--st-font-body)" }}
+            >
+              {layout.summary}
+            </p>
           </SoftScene>
           <aside className="space-y-3">
             {layout.bestFor.slice(0, 3).map((item, index) => (
-              <div className="border-t border-[rgb(var(--style-border-rgb)_/_0.20)] py-4" key={item}>
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--style-accent)]">
+              <div className="border-t border-[rgb(var(--st-border-rgb)_/_0.20)] py-4" key={item}>
+                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--st-accent)]">
                   0{index + 1}
                 </p>
                 <p className="mt-2 text-sm font-bold">{item}</p>
-                <p className="mt-2 text-xs leading-5 text-[rgb(var(--style-text-rgb)_/_0.60)]">
+                <p className="mt-2 text-xs leading-5 text-[rgb(var(--st-text-rgb)_/_0.60)]" style={{ fontFamily: "var(--st-font-body)" }}>
                   보조 정보가 주 메시지 옆에서 바로 결정을 돕습니다.
                 </p>
               </div>
@@ -250,31 +287,41 @@ function ThreeColumnSample({ layout, compact, showLabels }: SampleProps) {
       </Region>
       <div className="grid grid-cols-[180px_1fr_210px] gap-3">
         <AnnotatedRegion
-          className="min-w-0 max-w-full bg-[var(--style-primary)] p-4 text-[var(--style-surface)]"
+          className="min-w-0 max-w-full bg-[var(--st-primary)] p-4 text-[var(--st-surface)]"
           label="Nav"
           showLabel={showLabels}
+          style={{ borderRadius: "var(--st-radius)" }}
         >
-          <RawLabel className="text-[var(--style-accent-2)]">Index</RawLabel>
+          <RawLabel className="text-[var(--st-accent-2)]">Index</RawLabel>
           <div className="mt-5 space-y-3 text-xs font-bold uppercase tracking-[0.12em]">
             {["Overview", "Blocks", "Rules", "Cases"].map((item) => (
-              <p className="border-t border-[rgb(var(--style-surface-rgb)_/_0.18)] pt-3" key={item}>{item}</p>
+              <p className="border-t border-[rgb(var(--st-surface-rgb)_/_0.18)] pt-3" key={item}>{item}</p>
             ))}
           </div>
         </AnnotatedRegion>
         <Region className="p-6" label="Main Story" showLabels={showLabels}>
           <RawLabel>{layout.nameEn}</RawLabel>
           <RawHeading className="mt-4">Center voice</RawHeading>
-          <p className="mt-5 max-w-xl text-sm leading-6 text-[rgb(var(--style-text-rgb)_/_0.68)]">{layout.summary}</p>
+          <p
+            className="mt-5 max-w-xl text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.68)]"
+            style={{ fontFamily: "var(--st-font-body)" }}
+          >
+            {layout.summary}
+          </p>
           <div className="mt-8 grid grid-cols-2 gap-3">
             <SoftScene className="min-h-32" />
-            <SoftScene className="min-h-32 before:bg-[rgb(var(--style-accent-3-rgb)_/_0.38)]" />
+            <SoftScene className="min-h-32 before:bg-[rgb(var(--st-accent-3-rgb)_/_0.38)]" />
           </div>
         </Region>
         <Region className="p-4" label="TOC" showLabels={showLabels}>
           <RawLabel>On page</RawLabel>
           <div className="mt-4 space-y-3">
             {layout.structure.slice(0, 4).map((item) => (
-              <p className="border-t border-[rgb(var(--style-border-rgb)_/_0.18)] pt-3 text-xs leading-5 text-[rgb(var(--style-text-rgb)_/_0.68)]" key={item}>
+              <p
+                className="border-t border-[rgb(var(--st-border-rgb)_/_0.18)] pt-3 text-xs leading-5 text-[rgb(var(--st-text-rgb)_/_0.68)]"
+                key={item}
+                style={{ fontFamily: "var(--st-font-body)" }}
+              >
                 {item}
               </p>
             ))}
@@ -306,7 +353,12 @@ function HeroSample({ layout, compact, showLabels }: SampleProps) {
               </RawHeading>
             </div>
             <div className="max-w-sm">
-              <p className="text-sm leading-6 text-[rgb(var(--style-text-rgb)_/_0.70)]">{layout.summary}</p>
+              <p
+                className="text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.70)]"
+                style={{ fontFamily: "var(--st-font-body)" }}
+              >
+                {layout.summary}
+              </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <RawButton>Shop now</RawButton>
                 <RawButton tone="light">Campaign</RawButton>
@@ -318,7 +370,7 @@ function HeroSample({ layout, compact, showLabels }: SampleProps) {
       <Region className="p-4" label="Next Section" showLabels={showLabels}>
         <div className="grid gap-3 sm:grid-cols-3">
           {layout.bestFor.slice(0, 3).map((item) => (
-            <p className="border-t border-[rgb(var(--style-border-rgb)_/_0.18)] pt-3 text-xs font-bold uppercase tracking-[0.1em]" key={item}>
+            <p className="border-t border-[rgb(var(--st-border-rgb)_/_0.18)] pt-3 text-xs font-bold uppercase tracking-[0.1em]" key={item}>
               {item}
             </p>
           ))}
@@ -339,7 +391,10 @@ function SplitScreenSample({ layout, compact, showLabels }: SampleProps) {
             <br />
             sides
           </RawHeading>
-          <p className={cn("mt-5 max-w-md text-sm leading-6 text-[rgb(var(--style-text-rgb)_/_0.68)]", compact && "text-xs leading-5")}>
+          <p
+            className={cn("mt-5 max-w-md text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.68)]", compact && "text-xs leading-5")}
+            style={{ fontFamily: "var(--st-font-body)" }}
+          >
             {layout.summary}
           </p>
           <div className="mt-6"><RawButton>Open side</RawButton></div>
@@ -347,9 +402,9 @@ function SplitScreenSample({ layout, compact, showLabels }: SampleProps) {
       </Region>
       <Region className="p-0" label="Visual" showLabels={showLabels}>
         <SoftScene className={cn("h-full min-h-80 border-0", compact && "min-h-52")}>
-          <div className="absolute left-8 top-8 h-32 w-36 bg-[rgb(var(--style-accent-rgb)_/_0.72)]" />
-          <div className="absolute bottom-12 right-10 h-40 w-52 bg-[rgb(var(--style-accent-2-rgb)_/_0.62)]" />
-          <div className="absolute bottom-24 left-20 h-28 w-44 bg-[rgb(var(--style-accent-3-rgb)_/_0.55)]" />
+          <div className="absolute left-8 top-8 h-32 w-36 bg-[rgb(var(--st-accent-rgb)_/_0.72)]" />
+          <div className="absolute bottom-12 right-10 h-40 w-52 bg-[rgb(var(--st-accent-2-rgb)_/_0.62)]" />
+          <div className="absolute bottom-24 left-20 h-28 w-44 bg-[rgb(var(--st-accent-3-rgb)_/_0.55)]" />
         </SoftScene>
       </Region>
     </div>
@@ -366,7 +421,10 @@ function CardGridSample({ layout, compact, showLabels, denseContent }: SamplePro
             <RawLabel>{layout.category}</RawLabel>
             <RawHeading className="mt-3" compact={compact}>Studio goods</RawHeading>
           </div>
-          <p className={cn("max-w-xs text-sm leading-6 text-[rgb(var(--style-text-rgb)_/_0.68)]", compact && "text-xs leading-5")}>
+          <p
+            className={cn("max-w-xs text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.68)]", compact && "text-xs leading-5")}
+            style={{ fontFamily: "var(--st-font-body)" }}
+          >
             {layout.summary}
           </p>
         </div>
@@ -388,25 +446,41 @@ function BentoSample({ layout, compact, showLabels }: SampleProps) {
       <Region className={cn("p-5", compact ? "p-4" : "col-span-2 row-span-2")} label="Feature" showLabels={showLabels}>
         <RawLabel>{layout.nameEn}</RawLabel>
         <RawHeading className="mt-4" compact={compact}>Bento signal</RawHeading>
-        <p className="mt-5 text-sm leading-6 text-[rgb(var(--style-text-rgb)_/_0.68)]">{layout.summary}</p>
+        <p
+          className="mt-5 text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.68)]"
+          style={{ fontFamily: "var(--st-font-body)" }}
+        >
+          {layout.summary}
+        </p>
       </Region>
-      <Region className="bg-[rgb(var(--style-accent-rgb)_/_0.28)] p-4" label="Drop" showLabels={showLabels}>
-        <p className={cn("font-display font-bold leading-none tracking-[-0.05em]", compact ? "text-4xl" : "text-5xl")}>47</p>
+      <Region className="bg-[rgb(var(--st-accent-rgb)_/_0.28)] p-4" label="Drop" showLabels={showLabels}>
+        <p
+          className={cn("font-bold leading-none", compact ? "text-4xl" : "text-5xl")}
+          style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+        >
+          47
+        </p>
         <p className="mt-3 text-xs font-bold uppercase tracking-[0.12em]">Live blocks</p>
       </Region>
-      <Region className="bg-[rgb(var(--style-accent-2-rgb)_/_0.30)] p-4" label="Note" showLabels={showLabels}>
+      <Region className="bg-[rgb(var(--st-accent-2-rgb)_/_0.30)] p-4" label="Note" showLabels={showLabels}>
         <p className="text-sm font-bold">{layout.bestFor[0]}</p>
       </Region>
       <Region className={cn("p-4", compact ? "" : "col-span-2")} label="Strip" showLabels={showLabels}>
         <div className="flex h-full items-center gap-4">
-          <span className="h-20 w-20 bg-[rgb(var(--style-accent-3-rgb)_/_0.58)]" />
-          <p className="text-sm leading-6 text-[rgb(var(--style-text-rgb)_/_0.68)]">서로 다른 크기의 모듈이 실제 콘텐츠 허브처럼 조합됩니다.</p>
+          <span className="h-20 w-20 bg-[rgb(var(--st-accent-3-rgb)_/_0.58)]" />
+          <p
+            className="text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.68)]"
+            style={{ fontFamily: "var(--st-font-body)" }}
+          >
+            서로 다른 크기의 모듈이 실제 콘텐츠 허브처럼 조합됩니다.
+          </p>
         </div>
       </Region>
       <AnnotatedRegion
-        className="min-w-0 max-w-full bg-[var(--style-primary)] p-4 text-[var(--style-surface)]"
+        className="min-w-0 max-w-full bg-[var(--st-primary)] p-4 text-[var(--st-surface)]"
         label="Action"
         showLabel={showLabels}
+        style={{ borderRadius: "var(--st-radius)" }}
       >
         <p className="text-sm font-bold">Open layout</p>
       </AnnotatedRegion>
@@ -436,14 +510,20 @@ function DashboardSample({ layout, compact, showLabels, denseContent }: SamplePr
   return (
     <div className="grid grid-cols-[210px_1fr] gap-3">
       <AnnotatedRegion
-        className="min-w-0 max-w-full bg-[var(--style-primary)] p-4 text-[var(--style-surface)]"
+        className="min-w-0 max-w-full bg-[var(--st-primary)] p-4 text-[var(--st-surface)]"
         label="Sidebar"
         showLabel={showLabels}
+        style={{ borderRadius: "var(--st-radius)" }}
       >
-        <p className="font-display text-3xl font-bold uppercase leading-none tracking-[-0.05em]">Raw Ops</p>
+        <p
+          className="text-3xl font-bold uppercase leading-none"
+          style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+        >
+          Raw Ops
+        </p>
         <div className="mt-8 space-y-3 text-xs font-bold uppercase tracking-[0.12em]">
           {["Queue", "Orders", "Stock", "Studio"].map((item) => (
-            <p className="border-t border-[rgb(var(--style-surface-rgb)_/_0.16)] pt-3" key={item}>{item}</p>
+            <p className="border-t border-[rgb(var(--st-surface-rgb)_/_0.16)] pt-3" key={item}>{item}</p>
           ))}
         </div>
       </AnnotatedRegion>
@@ -465,10 +545,13 @@ function DashboardSample({ layout, compact, showLabels, denseContent }: SamplePr
             <MetricCard label="Drops" value="12" />
           </div>
           <div className="mt-4 grid grid-cols-[1fr_260px] gap-3">
-            <div className="flex h-44 items-end gap-2 border border-[rgb(var(--style-border-rgb)_/_0.16)] bg-[rgb(var(--style-surface-rgb)_/_0.78)] p-4">
+            <div
+              className="flex h-44 items-end gap-2 border border-[rgb(var(--st-border-rgb)_/_0.16)] bg-[rgb(var(--st-surface-rgb)_/_0.78)] p-4"
+              style={{ borderRadius: "var(--st-radius)" }}
+            >
               {[34, 68, 42, 80, 58, 92, 64].map((height, index) => (
                 <span
-                  className={cn("flex-1", index % 2 ? "bg-[var(--style-accent)]" : "bg-[var(--style-primary)]")}
+                  className={cn("flex-1", index % 2 ? "bg-[var(--st-accent)]" : "bg-[var(--st-primary)]")}
                   key={index}
                   style={{ height: `${height}%` }}
                 />
@@ -487,13 +570,14 @@ function TaskList({ count }: { count: number }) {
     <div className="space-y-2">
       {Array.from({ length: count }).map((_, index) => (
         <div
-          className="flex items-center gap-3 border border-[rgb(var(--style-border-rgb)_/_0.14)] bg-[rgb(var(--style-surface-rgb)_/_0.78)] p-3"
+          className="flex items-center gap-3 border border-[rgb(var(--st-border-rgb)_/_0.14)] bg-[rgb(var(--st-surface-rgb)_/_0.78)] p-3"
           key={index}
+          style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }}
         >
-          <span className={cn("h-8 w-8", index % 2 ? "bg-[rgb(var(--style-accent-2-rgb)_/_0.60)]" : "bg-[rgb(var(--style-accent-rgb)_/_0.60)]")} />
+          <span className={cn("h-8 w-8", index % 2 ? "bg-[rgb(var(--st-accent-2-rgb)_/_0.60)]" : "bg-[rgb(var(--st-accent-rgb)_/_0.60)]")} />
           <div>
             <p className="text-xs font-bold">Batch {index + 1}</p>
-            <p className="mt-1 text-[11px] text-[rgb(var(--style-text-rgb)_/_0.55)]">Ready for review</p>
+            <p className="mt-1 text-[11px] text-[rgb(var(--st-text-rgb)_/_0.55)]">Ready for review</p>
           </div>
         </div>
       ))}
@@ -510,9 +594,9 @@ function EditorialSample({ layout, compact, showLabels }: SampleProps) {
             <RawLabel>{layout.category}</RawLabel>
             <RawHeading className={cn("mt-4", compact && "max-w-[15rem]")} compact={compact}>Printed web</RawHeading>
           </div>
-          <div className="space-y-5 text-sm leading-6 text-[rgb(var(--style-text-rgb)_/_0.68)]">
+          <div className="space-y-5 text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.68)]" style={{ fontFamily: "var(--st-font-body)" }}>
             <p>{layout.summary}</p>
-            <blockquote className="border-l-4 border-[var(--style-accent)] bg-[rgb(var(--style-accent-2-rgb)_/_0.18)] p-4 font-bold text-[var(--style-text)]">
+            <blockquote className="border-l-4 border-[var(--st-accent)] bg-[rgb(var(--st-accent-2-rgb)_/_0.18)] p-4 font-bold text-[var(--st-text)]">
               {layout.bestFor.join(" / ")}
             </blockquote>
             <p>큰 제목과 짧은 본문, 강조 인용을 실제 매거진 페이지처럼 배치합니다.</p>
@@ -529,23 +613,42 @@ function CommerceSample({ layout, compact, showLabels }: SampleProps) {
       <Region className="p-4" label="Product Media" showLabels={showLabels}>
         <div className={cn("grid min-h-80 grid-cols-2 gap-3", compact && "min-h-60")}>
           <SoftScene className="col-span-2 min-h-44" />
-          <SoftScene className="min-h-28 before:bg-[rgb(var(--style-accent-3-rgb)_/_0.42)]" />
-          <SoftScene className="min-h-28 after:bg-[rgb(var(--style-accent-rgb)_/_0.36)]" />
+          <SoftScene className="min-h-28 before:bg-[rgb(var(--st-accent-3-rgb)_/_0.42)]" />
+          <SoftScene className="min-h-28 after:bg-[rgb(var(--st-accent-rgb)_/_0.36)]" />
         </div>
       </Region>
       <Region className="p-5" label="Purchase Panel" showLabels={showLabels}>
         <RawLabel>{layout.nameEn}</RawLabel>
         <RawHeading className="mt-3" compact={compact}>Raw object</RawHeading>
-        <p className="mt-4 text-sm leading-6 text-[rgb(var(--style-text-rgb)_/_0.68)]">{layout.summary}</p>
-        <p className={cn("mt-6 font-display font-bold leading-none tracking-[-0.05em]", compact ? "text-3xl" : "text-5xl")}>₩129,000</p>
+        <p
+          className="mt-4 text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.68)]"
+          style={{ fontFamily: "var(--st-font-body)" }}
+        >
+          {layout.summary}
+        </p>
+        <p
+          className={cn("mt-6 font-bold leading-none", compact ? "text-3xl" : "text-5xl")}
+          style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+        >
+          ₩129,000
+        </p>
         <div className="mt-5 grid grid-cols-3 gap-2">
           {["S", "M", "L"].map((size) => (
-            <button className="h-10 border border-[rgb(var(--style-border-rgb)_/_0.25)] text-xs font-bold" key={size} type="button">
+            <button
+              className="h-10 border border-[rgb(var(--st-border-rgb)_/_0.25)] text-xs font-bold"
+              key={size}
+              style={{ borderRadius: "var(--st-radius)", borderWidth: "var(--st-border-width)" }}
+              type="button"
+            >
               {size}
             </button>
           ))}
         </div>
-        <button className="mt-4 h-11 w-full bg-[var(--style-primary)] text-sm font-bold text-[var(--style-surface)]" type="button">
+        <button
+          className="mt-4 h-11 w-full bg-[var(--st-primary)] text-sm font-bold text-[var(--st-surface)]"
+          style={{ borderRadius: "var(--st-radius)" }}
+          type="button"
+        >
           장바구니 담기
         </button>
       </Region>
@@ -562,21 +665,29 @@ function DocsSample({ layout, compact, showLabels }: SampleProps) {
         <RawLabel>Docs</RawLabel>
         <div className="mt-4 space-y-2 text-xs font-bold">
           {["Start", "Structure", "Patterns", "Code"].map((item) => (
-            <p className="border-t border-[rgb(var(--style-border-rgb)_/_0.18)] pt-3" key={item}>{item}</p>
+            <p className="border-t border-[rgb(var(--st-border-rgb)_/_0.18)] pt-3" key={item}>{item}</p>
           ))}
         </div>
       </Region>
       <Region className="p-5" label="Docs Main" showLabels={showLabels}>
         <RawLabel>{layout.nameEn}</RawLabel>
         <RawHeading className="mt-3">Build notes</RawHeading>
-        <p className="mt-4 text-sm leading-6 text-[rgb(var(--style-text-rgb)_/_0.68)]">{layout.summary}</p>
-        <pre className="mt-6 overflow-hidden bg-[var(--style-primary)] p-4 font-mono text-[11px] leading-5 text-[var(--style-accent-2)]">
+        <p
+          className="mt-4 text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.68)]"
+          style={{ fontFamily: "var(--st-font-body)" }}
+        >
+          {layout.summary}
+        </p>
+        <pre
+          className="mt-6 overflow-hidden bg-[var(--st-primary)] p-4 font-mono text-[11px] leading-5 text-[var(--st-accent-2)]"
+          style={{ borderRadius: "var(--st-radius)" }}
+        >
           {`<section class="raw-display">\n  ${layout.previewType}\n</section>`}
         </pre>
       </Region>
       <Region className="p-4" label="On Page" showLabels={showLabels}>
         <RawLabel>Index</RawLabel>
-        <div className="mt-4 space-y-3 text-xs text-[rgb(var(--style-text-rgb)_/_0.65)]">
+        <div className="mt-4 space-y-3 text-xs text-[rgb(var(--st-text-rgb)_/_0.65)]" style={{ fontFamily: "var(--st-font-body)" }}>
           {layout.structure.slice(0, 4).map((item) => <p key={item}>{item}</p>)}
         </div>
       </Region>
@@ -594,15 +705,24 @@ function FeedSample({ layout, compact, showLabels, denseContent }: SampleProps) 
       <Region className="p-4" label="Feed" showLabels={showLabels}>
         <div className="space-y-3">
           {Array.from({ length: denseContent ? 6 : 4 }).map((_, index) => (
-            <article className="border border-[rgb(var(--style-border-rgb)_/_0.16)] bg-[rgb(var(--style-surface-rgb)_/_0.78)] p-4" key={index}>
+            <article
+              className="border border-[rgb(var(--st-border-rgb)_/_0.16)] bg-[rgb(var(--st-surface-rgb)_/_0.78)] p-4"
+              key={index}
+              style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }}
+            >
               <div className="flex items-center gap-3">
-                <span className={cn("h-9 w-9", index % 2 ? "bg-[rgb(var(--style-accent-rgb)_/_0.60)]" : "bg-[var(--style-primary)]")} />
+                <span className={cn("h-9 w-9", index % 2 ? "bg-[rgb(var(--st-accent-rgb)_/_0.60)]" : "bg-[var(--st-primary)]")} />
                 <div>
                   <p className="text-xs font-bold">Layout note {index + 1}</p>
-                  <p className="mt-1 text-[11px] text-[rgb(var(--style-text-rgb)_/_0.55)]">{layout.nameEn}</p>
+                  <p className="mt-1 text-[11px] text-[rgb(var(--st-text-rgb)_/_0.55)]">{layout.nameEn}</p>
                 </div>
               </div>
-              <p className="mt-3 text-xs leading-5 text-[rgb(var(--style-text-rgb)_/_0.68)]">{layout.summary}</p>
+              <p
+                className="mt-3 text-xs leading-5 text-[rgb(var(--st-text-rgb)_/_0.68)]"
+                style={{ fontFamily: "var(--st-font-body)" }}
+              >
+                {layout.summary}
+              </p>
             </article>
           ))}
         </div>
@@ -615,21 +735,21 @@ function MapListSample({ layout, compact, showLabels }: SampleProps) {
   return (
     <div className={cn("grid gap-3", compact ? "grid-cols-1" : "grid-cols-[1fr_320px]")}>
       <Region
-        className="relative min-h-96 bg-[rgb(var(--style-accent-2-rgb)_/_0.18)] p-4"
+        className="relative min-h-96 bg-[rgb(var(--st-accent-2-rgb)_/_0.18)] p-4"
         label="Map"
         showLabels={showLabels}
       >
         <div
-          className="absolute inset-5 border border-[rgb(var(--style-accent-rgb)_/_0.28)]"
+          className="absolute inset-5 border border-[rgb(var(--st-accent-rgb)_/_0.28)]"
           style={{
             backgroundImage:
-              "linear-gradient(90deg, rgb(var(--style-accent-rgb) / 0.18) 1px, transparent 1px), linear-gradient(rgb(var(--style-accent-rgb) / 0.18) 1px, transparent 1px)",
+              "linear-gradient(90deg, rgb(var(--st-accent-rgb) / 0.18) 1px, transparent 1px), linear-gradient(rgb(var(--st-accent-rgb) / 0.18) 1px, transparent 1px)",
             backgroundSize: "36px 36px",
           }}
         />
         {[20, 44, 66, 78].map((left, index) => (
           <span
-            className="absolute h-5 w-5 border-2 border-[var(--style-surface)] bg-[var(--style-primary)]"
+            className="absolute h-5 w-5 border-2 border-[var(--st-surface)] bg-[var(--st-primary)]"
             key={left}
             style={{ left: `${left}%`, top: `${24 + index * 13}%` }}
           />
@@ -639,9 +759,13 @@ function MapListSample({ layout, compact, showLabels }: SampleProps) {
         <RawLabel>{layout.nameEn}</RawLabel>
         <div className="mt-4 space-y-3">
           {layout.bestFor.slice(0, 4).map((item, index) => (
-            <div className="border border-[rgb(var(--style-border-rgb)_/_0.16)] bg-[rgb(var(--style-surface-rgb)_/_0.78)] p-3" key={item}>
+            <div
+              className="border border-[rgb(var(--st-border-rgb)_/_0.16)] bg-[rgb(var(--st-surface-rgb)_/_0.78)] p-3"
+              key={item}
+              style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }}
+            >
               <p className="text-xs font-bold">{item}</p>
-              <p className="mt-2 text-[11px] text-[rgb(var(--style-text-rgb)_/_0.55)]">Zone 0{index + 1}</p>
+              <p className="mt-2 text-[11px] text-[rgb(var(--st-text-rgb)_/_0.55)]">Zone 0{index + 1}</p>
             </div>
           ))}
         </div>
@@ -664,16 +788,20 @@ function ComparisonSample({ layout, compact, showLabels }: SampleProps) {
               className={cn(
                 "border p-4",
                 index === 1
-                  ? "border-[var(--style-primary)] bg-[var(--style-primary)] text-[var(--style-surface)]"
-                  : "border-[rgb(var(--style-border-rgb)_/_0.16)] bg-[rgb(var(--style-surface-rgb)_/_0.78)] text-[var(--style-text)]",
+                  ? "border-[var(--st-primary)] bg-[var(--st-primary)] text-[var(--st-surface)]"
+                  : "border-[rgb(var(--st-border-rgb)_/_0.16)] bg-[rgb(var(--st-surface-rgb)_/_0.78)] text-[var(--st-text)]",
               )}
               key={item}
+              style={{ borderRadius: "var(--st-radius)", borderWidth: "var(--st-border-width)", boxShadow: "var(--st-shadow)" }}
             >
               <p className="text-xs font-bold uppercase tracking-[0.14em]">{item}</p>
-              <p className={cn("mt-4 font-display font-bold leading-none tracking-[-0.05em]", compact ? "text-4xl" : "text-5xl")}>
+              <p
+                className={cn("mt-4 font-bold leading-none", compact ? "text-4xl" : "text-5xl")}
+                style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+              >
                 {index === 1 ? "Fit" : "Raw"}
               </p>
-              <div className="mt-5 space-y-2 text-[11px] opacity-80">
+              <div className="mt-5 space-y-2 text-[11px] opacity-80" style={{ fontFamily: "var(--st-font-body)" }}>
                 {layout.bestFor.slice(0, 3).map((purpose) => <p key={purpose}>{purpose}</p>)}
               </div>
             </article>
@@ -689,17 +817,20 @@ function TimelineSample({ layout, compact, showLabels }: SampleProps) {
     <Region className={cn("p-6", compact && "p-4")} label="Timeline" showLabels={showLabels}>
       <RawLabel>{layout.nameEn}</RawLabel>
       <RawHeading className={cn("mt-3", compact && "max-w-[14rem]")} compact={compact}>Process line</RawHeading>
-      <ol className={cn("relative mt-8 space-y-5 border-l border-[rgb(var(--style-border-rgb)_/_0.22)] pl-7", compact && "mt-6 space-y-4 pl-6")}>
+      <ol className={cn("relative mt-8 space-y-5 border-l border-[rgb(var(--st-border-rgb)_/_0.22)] pl-7", compact && "mt-6 space-y-4 pl-6")}>
         {stepNames.map((item, index) => (
           <li className="relative" key={item}>
             <span
               className={cn(
-                "absolute -left-[34px] top-1 h-4 w-4 border-2 border-[var(--style-surface)]",
-                index < 2 ? "bg-[var(--style-primary)]" : "bg-[var(--style-accent)]",
+                "absolute -left-[34px] top-1 h-4 w-4 border-2 border-[var(--st-surface)]",
+                index < 2 ? "bg-[var(--st-primary)]" : "bg-[var(--st-accent)]",
               )}
             />
             <p className="text-xs font-bold uppercase tracking-[0.12em]">{item}</p>
-            <p className="mt-2 text-xs leading-5 text-[rgb(var(--style-text-rgb)_/_0.66)]">
+            <p
+              className="mt-2 text-xs leading-5 text-[rgb(var(--st-text-rgb)_/_0.66)]"
+              style={{ fontFamily: "var(--st-font-body)" }}
+            >
               {index === 0 ? layout.summary : layout.responsiveBehavior[index - 1]}
             </p>
           </li>
@@ -713,25 +844,47 @@ function ScrollStorySample({ layout, compact, showLabels }: SampleProps) {
   return (
     <div className={cn("grid gap-3", compact ? "grid-cols-1" : "grid-cols-[0.85fr_1.15fr]")}>
       <AnnotatedRegion
-        className={cn("min-w-0 max-w-full bg-[var(--style-primary)] p-6 text-[var(--style-surface)]", compact && "p-4")}
+        className={cn("min-w-0 max-w-full bg-[var(--st-primary)] p-6 text-[var(--st-surface)]", compact && "p-4")}
         label="Sticky Scene"
         showLabel={showLabels}
+        style={{ borderRadius: "var(--st-radius)" }}
       >
-        <RawLabel className="text-[var(--style-accent-2)]">Scene 01</RawLabel>
-        <h3 className={cn("mt-4 break-words font-display font-bold uppercase leading-[0.78] tracking-[-0.05em]", compact ? "text-[2.75rem] leading-[0.84]" : "text-6xl")}>
+        <RawLabel className="text-[var(--st-accent-2)]">Scene 01</RawLabel>
+        <h3
+          className={cn("mt-4 break-words uppercase leading-[0.78]", compact ? "text-[2.75rem] leading-[0.84]" : "text-6xl")}
+          style={{
+            fontFamily: "var(--st-font-display)",
+            fontWeight: "var(--st-weight-display)",
+            letterSpacing: "var(--st-tracking)",
+          }}
+        >
           Scroll
           <br />
           story
         </h3>
-        <p className="mt-5 text-sm leading-6 text-[rgb(var(--style-surface-rgb)_/_0.70)]">{layout.summary}</p>
-        <div className={cn("mt-8 h-32 bg-[var(--style-accent)]", compact && "mt-6 h-24")} />
+        <p
+          className="mt-5 text-sm leading-6 text-[rgb(var(--st-surface-rgb)_/_0.70)]"
+          style={{ fontFamily: "var(--st-font-body)" }}
+        >
+          {layout.summary}
+        </p>
+        <div className={cn("mt-8 h-32 bg-[var(--st-accent)]", compact && "mt-6 h-24")} />
       </AnnotatedRegion>
       <Region className="p-4" label="Story Steps" showLabels={showLabels}>
         <div className="space-y-3">
           {layout.structure.slice(0, 4).map((item, index) => (
-            <article className="border border-[rgb(var(--style-border-rgb)_/_0.16)] bg-[rgb(var(--style-surface-rgb)_/_0.78)] p-4" key={item}>
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--style-accent)]">0{index + 1}</p>
-              <p className="mt-2 text-xs leading-5 text-[rgb(var(--style-text-rgb)_/_0.68)]">{item}</p>
+            <article
+              className="border border-[rgb(var(--st-border-rgb)_/_0.16)] bg-[rgb(var(--st-surface-rgb)_/_0.78)] p-4"
+              key={item}
+              style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }}
+            >
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--st-accent)]">0{index + 1}</p>
+              <p
+                className="mt-2 text-xs leading-5 text-[rgb(var(--st-text-rgb)_/_0.68)]"
+                style={{ fontFamily: "var(--st-font-body)" }}
+              >
+                {item}
+              </p>
             </article>
           ))}
         </div>
