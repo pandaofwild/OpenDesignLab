@@ -16,7 +16,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:data": "node --experimental-strip-types scripts/check-data.mjs"
   },
   "engines": {
     "node": ">=22"
