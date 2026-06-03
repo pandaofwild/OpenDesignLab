@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { DesignStyle } from "@/data/designStyles";
+import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
   style: DesignStyle;
 };
 
-type SampleVariables = CSSProperties & Record<`--sample-${string}`, string>;
+type SampleVariables = CSSProperties & Record<`--sample-${string}`, string> & Record<`--st-${string}`, string>;
 
 function withAlpha(color: string, alpha: string) {
   return /^#[\da-f]{6}$/i.test(color) ? `${color}${alpha}` : color;
@@ -28,6 +29,7 @@ function sampleVariables(style: DesignStyle): SampleVariables {
     "--sample-primary": palette.primary,
     "--sample-surface": palette.surface,
     "--sample-text": palette.text,
+    ...styleTokenVars(style),
   };
 }
 
@@ -84,7 +86,10 @@ function MinimalEditorial({ compact = false, style }: Props) {
             <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[var(--sample-muted)]">
               {style.category}
             </p>
-            <h3 className={cn("mt-3 break-words font-display font-bold uppercase tracking-[-0.05em]", compact ? "text-5xl leading-[0.78]" : "text-5xl leading-[0.8] md:text-8xl md:leading-[0.75]")}>
+            <h3
+              className={cn("mt-3 break-words font-display font-bold uppercase tracking-[-0.05em]", compact ? "text-5xl leading-[0.78]" : "text-5xl leading-[0.8] md:text-8xl md:leading-[0.75]")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
               {style.nameEn}
             </h3>
           </div>
@@ -94,10 +99,10 @@ function MinimalEditorial({ compact = false, style }: Props) {
           </div>
         </div>
         <div className={cn("flex flex-col justify-between border-[var(--sample-border-soft)]", compact ? "border-l pl-4" : "border-t pt-4 md:border-l md:border-t-0 md:pl-4 md:pt-0")}>
-          <div className="aspect-[3/4] bg-[var(--sample-surface)] p-3">
+          <div className="aspect-[3/4] bg-[var(--sample-surface)] p-3" style={{ borderRadius: "var(--st-radius)" }}>
             <div className="h-full border border-[var(--sample-border-soft)] bg-[var(--sample-accent-2)]/40" />
           </div>
-          <p className="line-clamp-3 text-xs leading-5 text-[var(--sample-muted)]">
+          <p className="line-clamp-3 text-xs leading-5 text-[var(--sample-muted)]" style={{ fontFamily: "var(--st-font-body)" }}>
             {style.summary}
           </p>
         </div>
@@ -117,12 +122,15 @@ function BrutalistPoster({ compact = false, style }: Props) {
           <p className="mb-3 w-max bg-[var(--sample-accent)] px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--sample-base)]">
             Raw format
           </p>
-          <h3 className={cn("break-words font-display font-bold uppercase tracking-[-0.05em]", compact ? "text-6xl leading-[0.75]" : "text-5xl leading-[0.78] md:text-9xl md:leading-[0.7]")}>
+          <h3
+            className={cn("break-words font-display font-bold uppercase tracking-[-0.05em]", compact ? "text-6xl leading-[0.75]" : "text-5xl leading-[0.78] md:text-9xl md:leading-[0.7]")}
+            style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+          >
             {style.nameEn}
           </h3>
         </div>
         <div className="grid grid-cols-[1fr_auto] items-end gap-4 border-t-2 border-[var(--sample-border)] pt-3">
-          <p className="line-clamp-2 text-xs font-medium leading-5 text-[var(--sample-muted)]">
+          <p className="line-clamp-2 text-xs font-medium leading-5 text-[var(--sample-muted)]" style={{ fontFamily: "var(--st-font-body)" }}>
             {style.summary}
           </p>
           <span className="grid h-11 w-11 place-items-center rounded-full border-2 border-[var(--sample-border)] text-lg font-bold">
@@ -140,12 +148,15 @@ function RetroCommerce({ compact = false, style }: Props) {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--sample-border-soft)_1px,transparent_1px),linear-gradient(var(--sample-border-soft)_1px,transparent_1px)] bg-[size:24px_24px] opacity-40" />
       <div className="relative">
         <MiniNav compact={compact} />
-        <div className={cn("mt-5 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)] px-5 py-3 text-center font-display font-bold uppercase tracking-[-0.04em]", compact ? "text-3xl" : "text-4xl md:text-6xl")}>
+        <div
+          className={cn("mt-5 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)] px-5 py-3 text-center font-display font-bold uppercase tracking-[-0.04em]", compact ? "text-3xl" : "text-4xl md:text-6xl")}
+          style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+        >
           New Drop
         </div>
         <div className="mt-4 grid grid-cols-3 gap-2">
           {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((color, index) => (
-            <div className="border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-2" key={color}>
+            <div className="border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-2" key={color} style={{ borderRadius: "var(--st-radius)" }}>
               <span className="block aspect-square rounded-full" style={{ backgroundColor: color }} />
               <span className="mt-2 block h-2 bg-[var(--sample-text)]" />
               <span className="mt-1 block h-2 w-2/3 bg-[var(--sample-muted)]" />
@@ -175,8 +186,11 @@ function CyberDashboard({ compact = false, style }: Props) {
               </div>
             ))}
           </div>
-          <div className="relative overflow-hidden border border-[var(--sample-border-soft)] bg-[var(--sample-surface)]/45 p-4">
-            <h3 className={cn("break-words font-display font-bold uppercase leading-none tracking-[-0.04em]", compact ? "text-4xl" : "text-4xl md:text-7xl")}>
+          <div className="relative overflow-hidden border border-[var(--sample-border-soft)] bg-[var(--sample-surface)]/45 p-4" style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }}>
+            <h3
+              className={cn("break-words font-display font-bold uppercase leading-none tracking-[-0.04em]", compact ? "text-4xl" : "text-4xl md:text-7xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
               {style.nameEn}
             </h3>
             <div className="absolute bottom-4 left-4 right-4 flex items-end gap-2">
@@ -199,14 +213,17 @@ function LuxuryProduct({ compact = false, style }: Props) {
           <MiniNav compact={compact} />
           <div>
             <p className="text-[10px] uppercase tracking-[0.28em] text-[var(--sample-muted)]">Atelier edition</p>
-            <h3 className={cn("mt-3 break-words font-display font-bold uppercase tracking-[-0.04em]", compact ? "text-4xl leading-[0.86]" : "text-4xl leading-[0.86] md:text-7xl md:leading-[0.78]")}>
+            <h3
+              className={cn("mt-3 break-words font-display font-bold uppercase tracking-[-0.04em]", compact ? "text-4xl leading-[0.86]" : "text-4xl leading-[0.86] md:text-7xl md:leading-[0.78]")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
               {style.nameEn}
             </h3>
           </div>
           <span className="h-px w-full bg-[var(--sample-accent)]" />
         </div>
         <div className="grid place-items-center bg-[var(--sample-surface)]">
-          <div className="aspect-[3/4] w-2/3 border border-[var(--sample-border-soft)] bg-[linear-gradient(145deg,var(--sample-accent-2),var(--sample-surface)_55%,var(--sample-accent-3))]" />
+          <div className="aspect-[3/4] w-2/3 border border-[var(--sample-border-soft)] bg-[linear-gradient(145deg,var(--sample-accent-2),var(--sample-surface)_55%,var(--sample-accent-3))]" style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }} />
         </div>
       </div>
     </SampleFrame>
@@ -223,7 +240,10 @@ function OrganicBrand({ compact = false, style }: Props) {
         <div className={cn("mt-8 grid gap-4", compact ? "grid-cols-[1fr_0.75fr]" : "grid-cols-[1fr_0.9fr]")}>
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--sample-muted)]">Natural system</p>
-            <h3 className={cn("mt-3 break-words font-display font-bold uppercase tracking-[-0.04em]", compact ? "text-5xl leading-[0.82]" : "text-5xl leading-[0.82] md:text-8xl md:leading-[0.78]")}>
+            <h3
+              className={cn("mt-3 break-words font-display font-bold uppercase tracking-[-0.04em]", compact ? "text-5xl leading-[0.82]" : "text-5xl leading-[0.82] md:text-8xl md:leading-[0.78]")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
               {style.nameEn}
             </h3>
           </div>
@@ -245,11 +265,14 @@ function KawaiiApp({ compact = false, style }: Props) {
     <SampleFrame compact={compact} style={style}>
       <div className="grid h-full grid-rows-[auto_1fr] gap-4">
         <MiniNav compact={compact} />
-        <div className="rounded-[28px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-4">
+        <div className="rounded-[28px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-4" style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }}>
           <div className="flex items-center gap-3">
             <span className="grid h-12 w-12 place-items-center rounded-full bg-[var(--sample-accent)] text-lg font-bold text-[var(--sample-base)]">★</span>
             <div>
-              <h3 className={cn("break-words font-display font-bold uppercase leading-none tracking-[-0.04em]", compact ? "text-3xl" : "text-3xl md:text-5xl")}>
+              <h3
+                className={cn("break-words font-display font-bold uppercase leading-none tracking-[-0.04em]", compact ? "text-3xl" : "text-3xl md:text-5xl")}
+                style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+              >
                 {style.nameEn}
               </h3>
               <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--sample-muted)]">daily app</p>
@@ -273,8 +296,11 @@ function StreetCampaign({ compact = false, style }: Props) {
       <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_0_45%,var(--sample-accent)_45%_53%,transparent_53%)] opacity-35" />
       <div className="relative h-full">
         <MiniNav compact={compact} />
-        <div className="mt-5 rotate-[-3deg] border-2 border-[var(--sample-border)] bg-[var(--sample-accent)] p-3 text-[var(--sample-base)]">
-          <h3 className={cn("break-words font-display font-bold uppercase tracking-[-0.05em]", compact ? "text-5xl leading-[0.78]" : "text-5xl leading-[0.78] md:text-8xl md:leading-[0.72]")}>
+        <div className="mt-5 rotate-[-3deg] border-2 border-[var(--sample-border)] bg-[var(--sample-accent)] p-3 text-[var(--sample-base)]" style={{ borderRadius: "var(--st-radius)" }}>
+          <h3
+            className={cn("break-words font-display font-bold uppercase tracking-[-0.05em]", compact ? "text-5xl leading-[0.78]" : "text-5xl leading-[0.78] md:text-8xl md:leading-[0.72]")}
+            style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+          >
             {style.nameEn}
           </h3>
         </div>
@@ -293,7 +319,10 @@ function MagazineLayout({ compact = false, style }: Props) {
       <div className="grid h-full grid-cols-[0.85fr_1.15fr] gap-4">
         <div className="border-r border-[var(--sample-border-soft)] pr-3">
           <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--sample-muted)]">Issue 06</p>
-          <h3 className={cn("mt-3 break-words font-display font-bold uppercase tracking-[-0.05em]", compact ? "text-5xl leading-[0.78]" : "text-5xl leading-[0.78] md:text-8xl md:leading-[0.72]")}>
+          <h3
+            className={cn("mt-3 break-words font-display font-bold uppercase tracking-[-0.05em]", compact ? "text-5xl leading-[0.78]" : "text-5xl leading-[0.78] md:text-8xl md:leading-[0.72]")}
+            style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+          >
             {style.nameEn}
           </h3>
         </div>
@@ -321,14 +350,17 @@ function SaasLanding({ compact = false, style }: Props) {
         <div className="grid grid-cols-[1.2fr_0.8fr] gap-4">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--sample-accent)]">Product system</p>
-            <h3 className={cn("mt-3 break-words font-display font-bold uppercase tracking-[-0.05em]", compact ? "text-5xl leading-[0.82]" : "text-5xl leading-[0.82] md:text-8xl md:leading-[0.78]")}>
+            <h3
+              className={cn("mt-3 break-words font-display font-bold uppercase tracking-[-0.05em]", compact ? "text-5xl leading-[0.82]" : "text-5xl leading-[0.82] md:text-8xl md:leading-[0.78]")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
               {style.nameEn}
             </h3>
-            <div className="mt-5 h-9 w-32 bg-[var(--sample-primary)]" />
+            <div className="mt-5 h-9 w-32 bg-[var(--sample-primary)]" style={{ borderRadius: "var(--st-radius)" }} />
           </div>
           <div className="space-y-2">
             {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((color, index) => (
-              <div className="border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-3" key={color}>
+              <div className="border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-3" key={color} style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }}>
                 <span className="block h-2 w-1/2" style={{ backgroundColor: color }} />
                 <span className="mt-3 block text-2xl font-bold">0{index + 1}</span>
               </div>
