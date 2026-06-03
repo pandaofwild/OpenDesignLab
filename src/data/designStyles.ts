@@ -22,6 +22,43 @@ export type DesignStyleSampleType =
   | "magazine-layout"
   | "saas-landing";
 
+export type StyleDensity = "airy" | "normal" | "tight";
+export type StyleEffect = "none" | "glitch" | "scanline" | "grain" | "glow" | "gradient";
+
+export type StyleTokens = {
+  color: {
+    base: string; surface: string; text: string; muted: string;
+    primary: string; accent: string; accent2: string; accent3: string; border: string;
+  };
+  typography: {
+    displayFont: string;
+    bodyFont: string;
+    weightDisplay: number;
+    weightBody: number;
+    tracking: string;
+    headingScale: number;
+  };
+  shape: {
+    radius: string;
+    borderWidth: string;
+    borderStyle: "solid" | "dashed" | "double";
+  };
+  space: {
+    density: StyleDensity;
+    gap: string;
+    padScale: number;
+  };
+  decoration: {
+    shadow: string;
+    effect: StyleEffect;
+  };
+  layout: {
+    heroVariant: "left" | "center" | "split";
+    navStyle: "minimal" | "boxed" | "underline";
+    alignment: "left" | "center";
+  };
+};
+
 export type DesignStyle = {
   slug: string;
   nameKo: string;
@@ -41,6 +78,7 @@ export type DesignStyle = {
   palette: DesignStylePalette;
   imagePrompt: string;
   sampleType: DesignStyleSampleType;
+  tokens: StyleTokens;
 };
 
 type CategoryProfile = {
@@ -178,6 +216,89 @@ const categoryProfiles: Record<string, CategoryProfile> = {
     typography: ["실용적인 산세리프", "숫자와 상태 라벨", "명확한 버튼 텍스트"],
     useCases: ["제품 랜딩", "관리 도구", "앱 소개", "기능 비교"],
     visual: ["사용성 중심", "선명한 컴포넌트", "상태 표현", "반복 가능한 시스템"],
+  },
+};
+
+const categoryTokenDefaults: Record<string, StyleTokens> = {
+  "모던 / 미니멀": {
+    color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
+    typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 600, weightBody: 400, tracking: "-0.02em", headingScale: 1.0 },
+    shape: { radius: "2px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1rem", padScale: 1.2 },
+    decoration: { shadow: "none", effect: "none" },
+    layout: { heroVariant: "left", navStyle: "minimal", alignment: "left" },
+  },
+  "강렬 / 실험": {
+    color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
+    typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 800, weightBody: 500, tracking: "-0.05em", headingScale: 1.25 },
+    shape: { radius: "0px", borderWidth: "3px", borderStyle: "solid" },
+    space: { density: "tight", gap: "0.5rem", padScale: 0.9 },
+    decoration: { shadow: "6px 6px 0 var(--st-primary)", effect: "none" },
+    layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
+  },
+  "레트로 / 빈티지": {
+    color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
+    typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 700, weightBody: 400, tracking: "-0.01em", headingScale: 1.1 },
+    shape: { radius: "4px", borderWidth: "2px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.75rem", padScale: 1.0 },
+    decoration: { shadow: "3px 3px 0 var(--st-primary)", effect: "grain" },
+    layout: { heroVariant: "center", navStyle: "boxed", alignment: "center" },
+  },
+  "미래 / 디지털": {
+    color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
+    typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"SFMono-Regular", monospace', weightDisplay: 700, weightBody: 400, tracking: "0em", headingScale: 1.1 },
+    shape: { radius: "4px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.75rem", padScale: 1.0 },
+    decoration: { shadow: "0 0 18px rgb(var(--st-accent-rgb) / 0.5)", effect: "glow" },
+    layout: { heroVariant: "center", navStyle: "underline", alignment: "left" },
+  },
+  "럭셔리 / 클래식": {
+    color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 400, weightBody: 300, tracking: "0.08em", headingScale: 0.9 },
+    shape: { radius: "0px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.5rem", padScale: 1.5 },
+    decoration: { shadow: "none", effect: "none" },
+    layout: { heroVariant: "center", navStyle: "minimal", alignment: "center" },
+  },
+  "자연 / 수공예": {
+    color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
+    typography: { displayFont: '"Satoshi", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 600, weightBody: 400, tracking: "0.01em", headingScale: 1.0 },
+    shape: { radius: "8px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.25rem", padScale: 1.3 },
+    decoration: { shadow: "none", effect: "grain" },
+    layout: { heroVariant: "left", navStyle: "minimal", alignment: "left" },
+  },
+  "귀여움 / 캐주얼": {
+    color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
+    typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 700, weightBody: 400, tracking: "-0.01em", headingScale: 1.05 },
+    shape: { radius: "9999px", borderWidth: "2px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.75rem", padScale: 1.0 },
+    decoration: { shadow: "4px 4px 0 var(--st-accent)", effect: "none" },
+    layout: { heroVariant: "center", navStyle: "boxed", alignment: "center" },
+  },
+  "스트리트 / 서브컬처": {
+    color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
+    typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 900, weightBody: 500, tracking: "-0.04em", headingScale: 1.3 },
+    shape: { radius: "0px", borderWidth: "3px", borderStyle: "solid" },
+    space: { density: "tight", gap: "0.5rem", padScale: 0.85 },
+    decoration: { shadow: "4px 4px 0 var(--st-accent)", effect: "none" },
+    layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
+  },
+  "편집 / 타이포그래피": {
+    color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
+    typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 700, weightBody: 400, tracking: "-0.03em", headingScale: 1.15 },
+    shape: { radius: "0px", borderWidth: "2px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.75rem", padScale: 1.0 },
+    decoration: { shadow: "none", effect: "none" },
+    layout: { heroVariant: "left", navStyle: "underline", alignment: "left" },
+  },
+  "UI / 웹": {
+    color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
+    typography: { displayFont: '"Satoshi", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 700, weightBody: 400, tracking: "-0.01em", headingScale: 1.0 },
+    shape: { radius: "8px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.75rem", padScale: 1.0 },
+    decoration: { shadow: "0 2px 8px rgba(0,0,0,0.12)", effect: "none" },
+    layout: { heroVariant: "center", navStyle: "minimal", alignment: "left" },
   },
 };
 
@@ -443,6 +564,49 @@ function hashSlug(slug: string) {
   return slug.split("").reduce((hash, char) => hash + char.charCodeAt(0), 0);
 }
 
+type DeepPartial<T> = { [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]> : T[K] };
+
+const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">>> = {
+  // Representative styles — more will be added in Task 5
+  "minimalism": {
+    shape: { radius: "0px", borderWidth: "1px" },
+    decoration: { shadow: "none", effect: "none" },
+  },
+  "brutalism": {
+    typography: { weightDisplay: 900, tracking: "-0.05em" },
+    shape: { radius: "0px", borderWidth: "4px" },
+    decoration: { shadow: "6px 6px 0 var(--st-primary)", effect: "none" },
+  },
+  "cyberpunk": {
+    typography: { bodyFont: '"SFMono-Regular", monospace', tracking: "0.02em" },
+    shape: { radius: "2px", borderWidth: "1px" },
+    decoration: { shadow: "0 0 24px rgb(var(--st-accent-rgb) / 0.6)", effect: "glow" },
+  },
+  "kawaii": {
+    shape: { radius: "9999px", borderWidth: "2px" },
+    decoration: { shadow: "4px 4px 0 var(--st-accent)", effect: "none" },
+  },
+  "luxury": {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 300, weightBody: 300, tracking: "0.12em", headingScale: 0.85 },
+    shape: { radius: "0px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "2rem", padScale: 1.8 },
+    decoration: { shadow: "none", effect: "none" },
+  },
+};
+
+function mergeTokens(
+  base: StyleTokens,
+  over?: DeepPartial<Omit<StyleTokens, "color">>,
+): Omit<StyleTokens, "color"> {
+  return {
+    typography: { ...base.typography, ...over?.typography },
+    shape: { ...base.shape, ...over?.shape },
+    space: { ...base.space, ...over?.space },
+    decoration: { ...base.decoration, ...over?.decoration },
+    layout: { ...base.layout, ...over?.layout },
+  };
+}
+
 function buildStyle(seed: DesignStyleSeed, index: number): DesignStyle {
   const profile = categoryProfiles[seed.category];
   const categoryPeers = styleSeeds.filter((style) => style.category === seed.category);
@@ -452,6 +616,21 @@ function buildStyle(seed: DesignStyleSeed, index: number): DesignStyle {
     categoryPeers[(peerIndex + 2) % categoryPeers.length]?.slug,
     styleSeeds[(index + 11) % styleSeeds.length]?.slug,
   ].filter((slug): slug is string => Boolean(slug) && slug !== seed.slug);
+
+  const baseTokens = categoryTokenDefaults[seed.category];
+  const colorTokens = {
+    base: seed.palette.base,
+    surface: seed.palette.surface,
+    text: seed.palette.text,
+    muted: seed.palette.mutedText,
+    primary: seed.palette.primary,
+    accent: seed.palette.accent,
+    accent2: seed.palette.accent2,
+    accent3: seed.palette.accent3,
+    border: seed.palette.border,
+  };
+  const mergedNonColor = mergeTokens(baseTokens, styleTokenOverrides[seed.slug]);
+  const tokens: StyleTokens = { ...mergedNonColor, color: colorTokens };
 
   return {
     slug: seed.slug,
@@ -495,6 +674,7 @@ function buildStyle(seed: DesignStyleSeed, index: number): DesignStyle {
     palette: seed.palette,
     imagePrompt: `A square editorial poster representing ${seed.nameEn} design style, ${seed.tone}, ${profile.visual.join(", ")}, ${promptSuffix}`,
     sampleType: seed.sampleType ?? profile.sampleType,
+    tokens,
   };
 }
 

@@ -23,5 +23,12 @@ for (const s of designStyles) {
   assert(categorySet.has(s.category), `style ${s.slug}: unknown category "${s.category}"`);
 }
 
+for (const s of designStyles) {
+  assert(s.tokens !== undefined, `style ${s.slug} missing tokens`);
+  assert(["airy","normal","tight"].includes(s.tokens.space.density), `style ${s.slug} bad density: ${s.tokens.space.density}`);
+  assert(typeof s.tokens.typography.weightDisplay === "number", `style ${s.slug} bad weightDisplay`);
+  assert(s.tokens.color.base === s.palette.base, `style ${s.slug} tokens.color.base mismatch`);
+}
+
 if (errors.length) { console.error("DATA CHECK FAILED:\n" + errors.join("\n")); process.exit(1); }
 console.log(`data check passed: ${designStyles.length} styles, ${designStyleCategories.length} categories`);
