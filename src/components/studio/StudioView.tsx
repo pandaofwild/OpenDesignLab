@@ -1,0 +1,191 @@
+"use client";
+
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useMemo } from "react";
+import { designStyles } from "@/data/designStyles";
+import { webLayouts } from "@/data/webLayouts";
+import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
+import { LayoutPreviewRenderer } from "@/components/web-layout/LayoutPreviewRenderer";
+import type { PreviewViewport } from "@/components/web-layout/ViewportSwitcher";
+
+const DEFAULT_STYLE = "brutalism";
+const DEFAULT_LAYOUT = "hero-layout";
+
+function StudioViewInner() {
+  const router = useRouter();
+  const params = useSearchParams();
+
+  const selectedStyleSlug = params.get("style") ?? DEFAULT_STYLE;
+  const selectedLayoutSlug = params.get("layout") ?? DEFAULT_LAYOUT;
+  const viewport = (params.get("vp") ?? "desktop") as PreviewViewport;
+
+  const selectedStyle = useMemo(
+    () => designStyles.find((s) => s.slug === selectedStyleSlug) ?? designStyles[0],
+    [selectedStyleSlug],
+  );
+
+  const selectedLayout = useMemo(
+    () => webLayouts.find((l) => l.slug === selectedLayoutSlug) ?? webLayouts[0],
+    [selectedLayoutSlug],
+  );
+
+  function update(key: string, value: string) {
+    const next = new URLSearchParams(params.toString());
+    next.set(key, value);
+    router.replace(`/studio?${next.toString()}`);
+  }
+
+  const tokenVars = useMemo(() => styleTokenVars(selectedStyle), [selectedStyle]);
+
+  return (
+    <main className="min-h-screen bg-background pt-20 text-[#1E1E1E]">
+      <div className="mx-auto max-w-[1720px] px-5 py-8 lg:px-8">
+
+        {/* Header */}
+        <div className="mb-8">
+          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#DB4A2B]">Studio</p>
+          <h1 className="mt-2 font-display text-4xl font-bold uppercase leading-none tracking-[-0.05em]">
+            Style × Layout
+          </h1>
+          <p className="mt-3 text-sm text-[#1E1E1E]/62">
+            스타일과 레이아웃을 골라 조합된 웹을 미리 봅니다.
+          </p>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-[320px_1fr]">
+
+          {/* Left: Controls */}
+          <aside className="space-y-6">
+
+            {/* Style picker */}
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#1E1E1E]/50">Design Style</p>
+              <select
+                className="mt-2 h-11 w-full border border-[#1E1E1E]/25 bg-background px-3 text-sm outline-none focus:border-[#1E1E1E]"
+                onChange={(e) => update("style", e.target.value)}
+                value={selectedStyleSlug}
+              >
+                {designStyles.map((s) => (
+                  <option key={s.slug} value={s.slug}>
+                    {s.nameKo} ({s.nameEn})
+                  </option>
+                ))}
+              </select>
+              <p className="mt-2 text-xs text-[#1E1E1E]/50">{selectedStyle.category}</p>
+            </div>
+
+            {/* Layout picker */}
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#1E1E1E]/50">Layout</p>
+              <select
+                className="mt-2 h-11 w-full border border-[#1E1E1E]/25 bg-background px-3 text-sm outline-none focus:border-[#1E1E1E]"
+                onChange={(e) => update("layout", e.target.value)}
+                value={selectedLayoutSlug}
+              >
+                {webLayouts.map((l) => (
+                  <option key={l.slug} value={l.slug}>
+                    {l.nameKo} ({l.nameEn})
+                  </option>
+                ))}
+              </select>
+              <p className="mt-2 text-xs text-[#1E1E1E]/50">{selectedLayout.category}</p>
+            </div>
+
+            {/* Viewport toggle */}
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#1E1E1E]/50">Viewport</p>
+              <div className="mt-2 flex gap-2">
+                {(["desktop", "mobile"] as const).map((vp) => (
+                  <button
+                    className={`h-9 flex-1 border text-[11px] font-bold uppercase tracking-[0.1em] transition-colors ${
+                      viewport === vp
+                        ? "border-[#1E1E1E] bg-[#1E1E1E] text-[#E4E2DD]"
+                        : "border-[#1E1E1E]/25 text-[#1E1E1E]/62"
+                    }`}
+                    key={vp}
+                    onClick={() => update("vp", vp)}
+                    type="button"
+                  >
+                    {vp === "desktop" ? "데스크탑" : "모바일"}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Selected style token preview */}
+            <div className="space-y-3 border border-[#1E1E1E]/14 p-4">
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#1E1E1E]/50">Style Tokens</p>
+              <div className="grid grid-cols-5 gap-1">
+                {[
+                  selectedStyle.tokens.color.base,
+                  selectedStyle.tokens.color.surface,
+                  selectedStyle.tokens.color.primary,
+                  selectedStyle.tokens.color.accent,
+                  selectedStyle.tokens.color.accent2,
+                ].map((hex, i) => (
+                  <div key={i} className="h-8 border border-[#1E1E1E]/10" style={{ backgroundColor: hex }} title={hex} />
+                ))}
+              </div>
+              <p className="text-[11px] text-[#1E1E1E]/50">
+                {selectedStyle.tokens.typography.displayFont.split(",")[0].replace(/"/g, "")} ·{" "}
+                {selectedStyle.tokens.shape.radius} radius ·{" "}
+                {selectedStyle.tokens.space.density}
+              </p>
+            </div>
+
+            {/* Copy buttons (Phase 7 — disabled placeholder) */}
+            <div className="space-y-2">
+              <button
+                className="h-10 w-full cursor-not-allowed border border-[#1E1E1E]/25 text-[11px] font-bold uppercase tracking-[0.1em] text-[#1E1E1E]/35"
+                disabled
+                title="Phase 7에서 활성화됩니다"
+                type="button"
+              >
+                코드 복사 (준비 중)
+              </button>
+              <button
+                className="h-10 w-full cursor-not-allowed border border-[#1E1E1E]/25 text-[11px] font-bold uppercase tracking-[0.1em] text-[#1E1E1E]/35"
+                disabled
+                title="Phase 7에서 활성화됩니다"
+                type="button"
+              >
+                프롬프트 복사 (준비 중)
+              </button>
+            </div>
+
+          </aside>
+
+          {/* Right: Live preview */}
+          <div className="min-h-[600px]">
+            <div
+              className="style-preset-root relative overflow-hidden"
+              data-st-density={selectedStyle.tokens.space.density}
+              data-st-effect={selectedStyle.tokens.decoration.effect}
+              data-style-preset={selectedStyle.slug}
+              style={tokenVars}
+            >
+              <LayoutPreviewRenderer
+                denseContent={false}
+                layout={selectedLayout}
+                showLabels={false}
+                viewport={viewport}
+              />
+            </div>
+            <p className="mt-3 text-[11px] tracking-[0.1em] text-[#1E1E1E]/45">
+              {selectedStyle.nameKo} × {selectedLayout.nameKo} · URL로 공유 가능
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  );
+}
+
+export function StudioView() {
+  return (
+    <Suspense>
+      <StudioViewInner />
+    </Suspense>
+  );
+}

@@ -51,6 +51,7 @@ function RawNavigation() {
           {[
             ["Library", "/web-layouts"],
             ["Styles", "/design-styles"],
+            ["Studio", "/studio"],
             ["Compare", "/web-layouts/compare"],
             ["Skill", "/web-layouts#layout-skill"],
           ].map(([label, href]) => (
