@@ -7,7 +7,7 @@ openlayout은 디자인을 시작하기 전에 페이지 구조와 시각 언어
 | 항목 | 값 |
 | --- | --- |
 | Repository | https://github.com/pandaofwild/openlayout |
-| 마지막 검토일 | 2026-06-02 |
+| 마지막 검토일 | 2026-06-03 |
 
 ## 대상 사용자
 
@@ -42,7 +42,7 @@ openlayout은 디자인을 시작하기 전에 페이지 구조와 시각 언어
 
 요구 사항:
 
-- Node.js
+- Node.js 22 이상
 - npm
 
 의존성 설치:
@@ -89,6 +89,15 @@ OPENAI_IMAGE_MODEL=gpt-image-1.5
 - `OPENAI_IMAGE_MODEL`은 선택값이며 기본값은 `gpt-image-1.5`입니다.
 - 생성 결과는 `public/generated/design-styles/{slug}.webp`에 저장됩니다.
 - Vercel 같은 읽기 전용 배포 환경에서는 Blob/S3 같은 외부 저장소로 바꾸는 것이 안전합니다.
+
+## 오픈소스 사용
+
+이 프로젝트는 MIT 라이선스로 배포됩니다. 자세한 조건은 `LICENSE`를 확인하세요.
+
+- 기여 방법: `CONTRIBUTING.md`
+- 보안 제보: `SECURITY.md`
+- 로컬 환경 변수 예시: `.env.example`
+- CI: `.github/workflows/ci.yml`
 
 ## 품질 확인
 
