@@ -3,16 +3,16 @@
  *
  * Takes viewport screenshots of reference websites for each design style.
  * Screenshots are saved to public/references/[slug]/ and GITIGNORED.
+ * Captures both "sites" (real brand pages) and "galleries" (inspiration platforms).
  *
  * Usage:
- *   node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/capture-references.mjs
+ *   npm run capture:refs                        # all 12 styles
+ *   npm run capture:refs brutalism kawaii luxury # specific styles only
+ *   npm run capture:refs -- --sites-only        # skip galleries
  *
- * Requirements:
- *   npm install --save-dev playwright
+ * First-time setup:
+ *   npm install
  *   npx playwright install chromium
- *
- * Optional — capture only specific styles:
- *   node ... scripts/capture-references.mjs brutalism kawaii luxury
  */
 
 import { chromium } from "playwright";
@@ -25,8 +25,11 @@ import references from "./style-references.json" with { type: "json" };
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = join(__dirname, "..", "public", "references");
 
-// Parse CLI args — if slugs given, only capture those
-const targetSlugs = process.argv.slice(2);
+// Parse CLI args
+const rawArgs = process.argv.slice(2);
+const sitesOnly = rawArgs.includes("--sites-only");
+const targetSlugs = rawArgs.filter((a) => !a.startsWith("--"));
+
 const slugsToCapture = targetSlugs.length > 0
   ? targetSlugs
   : Object.keys(references).filter((k) => !k.startsWith("_"));
@@ -34,18 +37,70 @@ const slugsToCapture = targetSlugs.length > 0
 const VIEWPORT = { width: 1440, height: 900 };
 const TIMEOUT = 20_000;
 
+function makeFilename(url) {
+  return url
+    .replace(/^https?:\/\//, "")
+    .replace(/[^a-z0-9]/gi, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 60) + ".jpg";
+}
+
+async function capturePage(page, { url, title, note }, outDir, label) {
+  const filename = makeFilename(url);
+  const outPath = join(outDir, filename);
+
+  if (existsSync(outPath)) {
+    console.log(`    ⏭  ${label} — already exists, skipping`);
+    return { ok: true, skipped: true };
+  }
+
+  process.stdout.write(`    📷 ${label} (${title}) ... `);
+
+  try {
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout: TIMEOUT });
+    await page.waitForTimeout(2500);
+
+    const buf = await page.screenshot({
+      type: "jpeg",
+      quality: 88,
+      clip: { x: 0, y: 0, width: VIEWPORT.width, height: VIEWPORT.height },
+    });
+
+    await writeFile(outPath, buf);
+    console.log(`✓`);
+
+    // Write a sidecar .txt with metadata for token research reference
+    const meta = [
+      `url: ${url}`,
+      `title: ${title}`,
+      note ? `note: ${note}` : null,
+      `captured: ${new Date().toISOString()}`,
+    ].filter(Boolean).join("\n");
+    await writeFile(outPath.replace(".jpg", ".txt"), meta);
+
+    return { ok: true, skipped: false };
+  } catch (err) {
+    console.log(`✗  ${err.message.split("\n")[0]}`);
+    return { ok: false, skipped: false };
+  }
+}
+
 async function capture() {
-  console.log(`\n📸 Capturing reference screenshots for: ${slugsToCapture.join(", ")}\n`);
+  console.log(`\n📸 Capturing reference screenshots`);
+  console.log(`   Styles: ${slugsToCapture.join(", ")}`);
+  console.log(`   Mode: ${sitesOnly ? "sites only" : "sites + galleries"}\n`);
 
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: VIEWPORT });
 
   let total = 0;
   let failed = 0;
+  let skipped = 0;
 
   for (const slug of slugsToCapture) {
-    const sites = references[slug];
-    if (!sites) {
+    const entry = references[slug];
+    if (!entry) {
       console.warn(`⚠️  No references found for: ${slug}`);
       continue;
     }
@@ -53,52 +108,36 @@ async function capture() {
     const outDir = join(OUT_DIR, slug);
     await mkdir(outDir, { recursive: true });
 
-    for (const { url, title } of sites) {
-      const filename = url
-        .replace(/^https?:\/\//, "")
-        .replace(/[^a-z0-9]/gi, "-")
-        .replace(/-+/g, "-")
-        .replace(/^-|-$/g, "")
-        .slice(0, 60) + ".jpg";
+    console.log(`\n▸ ${slug}`);
 
-      const outPath = join(outDir, filename);
+    const sites = entry.sites ?? [];
+    const galleries = sitesOnly ? [] : (entry.galleries ?? []);
 
-      if (existsSync(outPath)) {
-        console.log(`  ⏭  ${slug}/${filename} — already exists, skipping`);
-        continue;
-      }
+    const page = await context.newPage();
 
-      process.stdout.write(`  📷 ${slug} — ${title} ... `);
-      const page = await context.newPage();
-
-      try {
-        await page.goto(url, { waitUntil: "domcontentloaded", timeout: TIMEOUT });
-        // Wait a moment for above-the-fold visuals to settle
-        await page.waitForTimeout(2000);
-
-        const buf = await page.screenshot({
-          type: "jpeg",
-          quality: 88,
-          clip: { x: 0, y: 0, width: VIEWPORT.width, height: VIEWPORT.height },
-        });
-
-        await writeFile(outPath, buf);
-        total++;
-        console.log(`✓  saved ${filename}`);
-      } catch (err) {
-        failed++;
-        console.log(`✗  failed — ${err.message.split("\n")[0]}`);
-      } finally {
-        await page.close();
-      }
+    for (const item of sites) {
+      const result = await capturePage(page, item, outDir, `site`);
+      if (result.ok && !result.skipped) total++;
+      else if (!result.ok) failed++;
+      else skipped++;
     }
+
+    for (const item of galleries) {
+      const result = await capturePage(page, item, outDir, `gallery`);
+      if (result.ok && !result.skipped) total++;
+      else if (!result.ok) failed++;
+      else skipped++;
+    }
+
+    await page.close();
   }
 
   await context.close();
   await browser.close();
 
-  console.log(`\n✅ Done — ${total} captured, ${failed} failed`);
-  console.log(`📁 Saved to: public/references/\n`);
+  console.log(`\n✅ Done`);
+  console.log(`   Captured: ${total}  Failed: ${failed}  Skipped (exists): ${skipped}`);
+  console.log(`   📁 public/references/\n`);
 }
 
 capture().catch((err) => {

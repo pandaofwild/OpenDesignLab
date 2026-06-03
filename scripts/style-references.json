@@ -1,51 +1,149 @@
 {
-  "_comment": "Reference websites for each design style. Used by capture-references.mjs to take local screenshots. DO NOT commit public/references/ — screenshots are local-only (copyright).",
-  "minimalism": [
-    { "url": "https://linear.app", "title": "Linear — product UI minimalism" },
-    { "url": "https://notion.so", "title": "Notion — content-first minimalism" }
-  ],
-  "brutalism": [
-    { "url": "https://www.balenciaga.com", "title": "Balenciaga — fashion brutalism" },
-    { "url": "https://www.bloomberg.com", "title": "Bloomberg — editorial brutalism" }
-  ],
-  "cyberpunk": [
-    { "url": "https://www.cyberpunk.net", "title": "Cyberpunk 2077 — neon/dark digital" },
-    { "url": "https://www.razer.com", "title": "Razer — green neon tech aesthetic" }
-  ],
-  "luxury": [
-    { "url": "https://www.loewe.com", "title": "Loewe — quiet luxury, serif, airy" },
-    { "url": "https://www.bottegaveneta.com", "title": "Bottega Veneta — understated luxury" }
-  ],
-  "organic-design": [
-    { "url": "https://www.aesop.com", "title": "Aesop — warm organic brand" },
-    { "url": "https://www.goop.com", "title": "Goop — wellness, earthy tones" }
-  ],
-  "kawaii": [
-    { "url": "https://www.sanrio.com", "title": "Sanrio — kawaii brand identity" },
-    { "url": "https://line.me", "title": "LINE — playful app aesthetic" }
-  ],
-  "streetwear": [
-    { "url": "https://www.supremenewyork.com", "title": "Supreme — raw street simplicity" },
-    { "url": "https://www.palace.ltd", "title": "Palace — skate brand graphic energy" }
-  ],
-  "editorial-design": [
-    { "url": "https://www.nytimes.com", "title": "New York Times — editorial hierarchy" },
-    { "url": "https://monocle.com", "title": "Monocle — magazine grid system" }
-  ],
-  "glassmorphism": [
-    { "url": "https://www.apple.com/ios", "title": "Apple iOS — frosted glass UI" },
-    { "url": "https://www.microsoft.com/en-us/windows", "title": "Windows 11 — Fluent Design glass" }
-  ],
-  "y2k": [
-    { "url": "https://web.archive.org/web/20020101000000*/myspace.com", "title": "MySpace archive — Y2K web nostalgia" },
-    { "url": "https://www.blingee.com", "title": "Blingee — chrome/glitter Y2K energy" }
-  ],
-  "maximalism": [
-    { "url": "https://www.gucci.com", "title": "Gucci — maximalist luxury brand" },
-    { "url": "https://www.versace.com", "title": "Versace — bold maximalist patterns" }
-  ],
-  "swiss-design": [
-    { "url": "https://www.swissinfo.ch", "title": "Swissinfo — grid-based editorial" },
-    { "url": "https://www.sbb.ch", "title": "SBB Swiss Railways — international style" }
-  ]
+  "_comment": "Reference websites per design style. Entries are split into 'sites' (real brand/product pages) and 'galleries' (curation/inspiration platforms). Used by capture-references.mjs — screenshots are local-only. DO NOT commit public/references/.",
+
+  "minimalism": {
+    "sites": [
+      { "url": "https://linear.app", "title": "Linear", "note": "타이포, 넓은 여백, 모노크롬 — 현대 SaaS 미니멀의 교과서" },
+      { "url": "https://stripe.com", "title": "Stripe", "note": "여백·그리드·타이포 비율이 매우 정교한 미니멀 B2B" },
+      { "url": "https://www.muji.com", "title": "Muji", "note": "일본식 절제 미니멀, 오프화이트 배경 + 로우 채도" }
+    ],
+    "galleries": [
+      { "url": "https://www.awwwards.com/websites/minimal/", "title": "Awwwards — Minimal", "note": "수상작 모음 — 타이포/여백 토큰 참고용" },
+      { "url": "https://dribbble.com/tags/minimalist-web-design", "title": "Dribbble — Minimalist Web Design" }
+    ]
+  },
+
+  "brutalism": {
+    "sites": [
+      { "url": "https://www.balenciaga.com", "title": "Balenciaga", "note": "패션 브루탈리즘 — 검정 배경, 굵은 산세리프, 각진 레이아웃" },
+      { "url": "https://brutalistwebsites.com", "title": "Brutalist Websites", "note": "브루탈리즘 전문 갤러리 사이트 — 실제 예시 풍부" },
+      { "url": "https://www.bloomberg.com", "title": "Bloomberg", "note": "에디토리얼 브루탈리즘 — 높은 정보 밀도, 굵은 타이포" }
+    ],
+    "galleries": [
+      { "url": "https://www.awwwards.com/awwwards/collections/brutalism/", "title": "Awwwards — Brutalism Collection" },
+      { "url": "https://dribbble.com/tags/neo-brutalism", "title": "Dribbble — Neo Brutalism" }
+    ]
+  },
+
+  "cyberpunk": {
+    "sites": [
+      { "url": "https://www.cyberpunk.net", "title": "Cyberpunk 2077 Official", "note": "네온, 글리치, 다크 배경 — 장르 정의 사이트" },
+      { "url": "https://www.razer.com", "title": "Razer", "note": "그린 네온 + 블랙 — 게이밍 사이버펑크 대표" }
+    ],
+    "galleries": [
+      { "url": "https://dribbble.com/search/cyberpunk-website", "title": "Dribbble — Cyberpunk Website", "note": "UI 패턴, 네온 컬러, 글리치 효과 참고" },
+      { "url": "https://www.behance.net/search/projects/cyberpunk%20website%20design", "title": "Behance — Cyberpunk Website Design" },
+      { "url": "https://webflow.com/made-in-webflow/cyberpunk", "title": "Webflow Made-in-Webflow — Cyberpunk" }
+    ]
+  },
+
+  "luxury": {
+    "sites": [
+      { "url": "https://www.loewe.com", "title": "Loewe", "note": "Quiet luxury 교과서 — 세리프, 아이보리, 극도의 여백" },
+      { "url": "https://www.bottegaveneta.com", "title": "Bottega Veneta", "note": "이미지 중심, 카피 최소화, 크래프트 고급감" },
+      { "url": "https://www.celine.com", "title": "Celine", "note": "감성적 미니멀 럭셔리 — 클로즈업 + 세리프 타이포" }
+    ],
+    "galleries": [
+      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards — Luxury", "note": "수상 럭셔리 사이트 — 폰트·여백·색 토큰 참고" },
+      { "url": "https://mediaboom.com/news/luxury-fashion-website-design/", "title": "Mediaboom — 50 Luxury Fashion Websites" }
+    ]
+  },
+
+  "organic-design": {
+    "sites": [
+      { "url": "https://www.aesop.com", "title": "Aesop", "note": "Awwwards 수상 — 흙빛 팔레트, 자연 질감, 넓은 여백" },
+      { "url": "https://www.kinfolk.com", "title": "Kinfolk", "note": "라이프스타일 매거진 — 따뜻한 사진 + 슬로우 리듬" }
+    ],
+    "galleries": [
+      { "url": "https://99designs.com/inspiration/websites/organic", "title": "99designs — Organic Websites", "note": "38개 이상 유기적 디자인 사례 — 색·여백 참고" },
+      { "url": "https://dribbble.com/tags/organic-design", "title": "Dribbble — Organic Design" },
+      { "url": "https://www.siteinspire.com/website/7284-aesop", "title": "Site Inspire — Aesop" }
+    ]
+  },
+
+  "kawaii": {
+    "sites": [
+      { "url": "https://www.sanrio.com", "title": "Sanrio", "note": "카와이 원조 — 핑크, 둥근 모서리, 캐릭터 아이콘" },
+      { "url": "https://www.supercutekawaii.com", "title": "Super Cute Kawaii", "note": "카와이 콘텐츠 사이트 — 파스텔, 버블 폰트, 스티커 UI" }
+    ],
+    "galleries": [
+      { "url": "https://dribbble.com/tags/kawaii-website", "title": "Dribbble — Kawaii Website", "note": "카와이 UI 패턴, 버튼 모양, 일러스트 스타일 참고" },
+      { "url": "https://dribbble.com/tags/kawaii-ui", "title": "Dribbble — Kawaii UI" },
+      { "url": "https://www.pinterest.com/wixcom/kawaii-japanese-websites/", "title": "Pinterest — Kawaii Japanese Websites (140개 핀)" }
+    ]
+  },
+
+  "streetwear": {
+    "sites": [
+      { "url": "https://www.supremenewyork.com", "title": "Supreme", "note": "스트리트웨어 원형 — 빨간 박스, 산세리프, 직접적 레이아웃" },
+      { "url": "https://www.palace.ltd", "title": "Palace Skateboards", "note": "UK 스케이트 에너지 — 그래픽, 타이포, 거친 밀도" },
+      { "url": "https://www.stussy.com", "title": "Stüssy", "note": "서프+스케이트 헤리티지 — 그래픽 중심, 레이어드 텍스처" }
+    ],
+    "galleries": [
+      { "url": "https://dribbble.com/tags/streetwear", "title": "Dribbble — Streetwear" },
+      { "url": "https://www.pinterest.com/ideas/supreme-clothing-streetwear/930480009757/", "title": "Pinterest — Supreme / Streetwear" }
+    ]
+  },
+
+  "editorial-design": {
+    "sites": [
+      { "url": "https://www.nytimes.com", "title": "New York Times", "note": "에디토리얼 위계의 정석 — 타이포 스케일, 그리드, 밀도" },
+      { "url": "https://monocle.com", "title": "Monocle", "note": "매거진 그리드 — 사진+캡션+세리프 조합 참고" },
+      { "url": "https://www.theguardian.com", "title": "The Guardian", "note": "대형 에디토리얼 그리드, 컬러 섹션 구분" }
+    ],
+    "galleries": [
+      { "url": "https://www.awwwards.com/inspiration/editorial-layout", "title": "Awwwards — Editorial Layout" },
+      { "url": "https://www.subframe.com/tips/editorial-website-design-examples", "title": "Subframe — 25 Editorial Website Examples" },
+      { "url": "https://www.pinterest.com/alisaaronson/typographic-spreads-publication-design/", "title": "Pinterest — Typographic Spreads" }
+    ]
+  },
+
+  "glassmorphism": {
+    "sites": [
+      { "url": "https://www.apple.com/ios", "title": "Apple iOS", "note": "iOS 26 glassmorphism — 현재 가장 강하게 적용된 실제 제품 UI" },
+      { "url": "https://reflect.app", "title": "Reflect", "note": "노트 앱 — 홈페이지 글래스모피즘 구현 잘 됨" }
+    ],
+    "galleries": [
+      { "url": "https://onepagelove.com/style/glassmorphism", "title": "One Page Love — Glassmorphism", "note": "큐레이션 갤러리 — blur/opacity/shadow 토큰 참고" },
+      { "url": "https://webflow.com/made-in-webflow/glassmorphism", "title": "Webflow — Glassmorphism" },
+      { "url": "https://dribbble.com/tags/glassmorphism", "title": "Dribbble — Glassmorphism" }
+    ]
+  },
+
+  "y2k": {
+    "sites": [
+      { "url": "https://www.webdesignmuseum.org/exhibitions/y2k-aesthetic-in-web-design", "title": "Web Design Museum — Y2K", "note": "실제 2000년대 초 웹디자인 아카이브 — 색·폰트·레이아웃 원형 확인" },
+      { "url": "https://www.blingee.com", "title": "Blingee", "note": "크롬·글리터·버블 Y2K 에너지 살아있는 실제 사이트" }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/ideas/y2k-website-design-inspiration/893524089634/", "title": "Pinterest — Y2K Website Design Inspiration", "note": "Y2K 웹디자인 무드보드 — 크롬, 그라디언트, 버블폰트 참고" },
+      { "url": "https://www.behance.net/search/projects/y2k%20website", "title": "Behance — Y2K Website Projects" },
+      { "url": "https://webflow.com/blog/y2k-aesthetic", "title": "Webflow Blog — Y2K Aesthetic Guide" }
+    ]
+  },
+
+  "maximalism": {
+    "sites": [
+      { "url": "https://www.gucci.com", "title": "Gucci", "note": "패션 맥시멀리즘 — 패턴 레이어, 에클렉틱 타이포, 강한 색" },
+      { "url": "https://www.versace.com", "title": "Versace", "note": "그리스 모티프 + 골드 + 볼드 패턴 — 과감한 장식성" },
+      { "url": "https://www.libertylondon.com", "title": "Liberty London", "note": "꽃무늬·패턴 맥시멀리즘 — 텍스타일 기반 밀도감" }
+    ],
+    "galleries": [
+      { "url": "https://onepagelove.com/tag/maximalist", "title": "One Page Love — Maximalist" },
+      { "url": "https://dribbble.com/tags/maximalism", "title": "Dribbble — Maximalism" }
+    ]
+  },
+
+  "swiss-design": {
+    "sites": [
+      { "url": "https://www.swissinfo.ch", "title": "Swissinfo", "note": "실제 스위스 정보 포털 — 그리드, 인터내셔널 타이포 시스템" },
+      { "url": "https://www.sbb.ch", "title": "SBB 스위스 철도", "note": "기능 중심 그리드 — 스위스 공공 디자인 언어" },
+      { "url": "https://www.muji.com", "title": "Muji", "note": "스위스 스타일 응용 — 그리드 질서, 산세리프, 오프화이트" }
+    ],
+    "galleries": [
+      { "url": "https://dribbble.com/tags/swiss-grid", "title": "Dribbble — Swiss Grid", "note": "그리드 시스템 + 타이포 구성 참고" },
+      { "url": "https://www.pinterest.com/ideas/swiss-design/", "title": "Pinterest — Swiss Design" },
+      { "url": "https://docs.mew.design/blog/swiss-design-style/", "title": "Mew Design — Swiss Style Guide" }
+    ]
+  }
 }
