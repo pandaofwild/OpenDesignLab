@@ -4,10 +4,24 @@ import { designStyles, designStyleCategories } from "../src/data/designStyles.ts
 const errors = [];
 function assert(cond, msg) { if (!cond) errors.push(msg); }
 
-assert(designStyles.length === 88, `expected 88 styles, got ${designStyles.length}`);
+// Minimum counts guard against accidental mass-deletion.
+// Raise these if new styles / categories are intentionally added.
+assert(designStyles.length >= 88, `expected at least 88 styles, got ${designStyles.length}`);
 const slugs = new Set(designStyles.map((s) => s.slug));
 assert(slugs.size === designStyles.length, "duplicate style slugs found");
-assert(designStyleCategories.length === 10, `expected 10 categories, got ${designStyleCategories.length}`);
+assert(designStyleCategories.length >= 10, `expected at least 10 categories, got ${designStyleCategories.length}`);
+
+const slugSet = new Set(designStyles.map((s) => s.slug));
+for (const s of designStyles) {
+  for (const rel of s.related) {
+    assert(slugSet.has(rel), `style ${s.slug}: related slug "${rel}" does not exist`);
+  }
+}
+
+const categorySet = new Set(designStyleCategories);
+for (const s of designStyles) {
+  assert(categorySet.has(s.category), `style ${s.slug}: unknown category "${s.category}"`);
+}
 
 if (errors.length) { console.error("DATA CHECK FAILED:\n" + errors.join("\n")); process.exit(1); }
 console.log(`data check passed: ${designStyles.length} styles, ${designStyleCategories.length} categories`);
