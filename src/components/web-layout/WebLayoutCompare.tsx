@@ -77,7 +77,7 @@ export function WebLayoutCompare() {
           data-testid="layout-stage"
         >
           <LayoutStagePreview
-            detailHref={`/web-layouts/${activeLayout.slug}`}
+            detailHref={`/layouts/${activeLayout.slug}`}
             indexLabel={`${boundedActiveIndex + 1} / ${selectedLayouts.length}`}
             layout={activeLayout}
           />

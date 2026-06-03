@@ -46,7 +46,7 @@ export default async function DesignStyleDetailPage({
   return (
     <main className="min-h-screen bg-background pt-28 text-[#1E1E1E]">
       <div className="mx-auto max-w-[1720px] px-5 py-8 lg:px-8">
-        <Link className="raw-label text-[#DB4A2B] underline-offset-4 hover:underline" href="/design-styles">
+        <Link className="raw-label text-[#DB4A2B] underline-offset-4 hover:underline" href="/styles">
           목록으로 돌아가기
         </Link>
 

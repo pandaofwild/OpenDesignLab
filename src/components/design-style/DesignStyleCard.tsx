@@ -84,7 +84,7 @@ export function DesignStyleCard({ isSelected, onSelect, style }: Props) {
                 ? "border-[#E4E2DD]/30 text-[#E4E2DD] hover:bg-[#E4E2DD] hover:text-[#1E1E1E]"
                 : "border-[#1E1E1E]/25 text-[#1E1E1E] hover:border-[#1E1E1E]",
             )}
-            href={`/design-styles/${style.slug}`}
+            href={`/styles/${style.slug}`}
           >
             자세히
           </Link>

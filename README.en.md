@@ -24,7 +24,7 @@ openlayout is a layout/style dictionary that helps you quickly pick page structu
 - **Floating detail panel**: The base screen shows only a small summary box; clicking floats up a panel with structure description and pros/cons.
 - **Compare view**: Select up to 3 layouts to compare recommended use, mobile support, density, and difficulty side by side.
 - **Design Style Library**: Explore 88 design styles by category, tag, and search term, and check color palettes and webpage-style samples on detail pages.
-- **Style application**: A design style chosen in `/design-styles` is applied to the preview tone of `/web-layouts` and `/web-layouts/compare`, and persisted in localStorage.
+- **Style application**: A design style chosen in `/styles` is applied to the preview tone of `/layouts` and `/layouts/compare`, and persisted in localStorage.
 - **Prompt palette**: Mix prompts to generate a custom color palette and apply it directly to the current layout preview.
 - **Image generation admin**: In a local environment with `OPENAI_API_KEY`, generate per-style reference images and save them to `public/generated/design-styles`.
 - **SVG controls**: Comparison arrows and the info/close/detail icons are managed as inline SVG.
@@ -62,25 +62,25 @@ npm run dev
 Open in your browser:
 
 ```text
-http://localhost:3000/web-layouts
+http://localhost:3000/layouts
 ```
 
-The root path (`/`) redirects to `/web-layouts`.
+The root path (`/`) redirects to `/layouts`.
 
 ## Main routes
 
 | Route | Contents |
 | --- | --- |
-| `/web-layouts` | Layout search, filters, and card list |
-| `/web-layouts/[slug]` | Structure description, pros/cons, responsive behavior, accessibility notes, live preview, code example |
-| `/web-layouts/compare` | Compare up to 3 layouts with large structure previews |
-| `/design-styles` | Design style search, category/tag filters, color palettes, webpage-style samples |
-| `/design-styles/[slug]` | Design style detail, color palette, typography/layout traits, related styles |
-| `/design-styles/generate` | Local reference image generation admin powered by the OpenAI Image API |
+| `/layouts` | Layout search, filters, and card list |
+| `/layouts/[slug]` | Structure description, pros/cons, responsive behavior, accessibility notes, live preview, code example |
+| `/layouts/compare` | Compare up to 3 layouts with large structure previews |
+| `/styles` | Design style search, category/tag filters, color palettes, webpage-style samples |
+| `/styles/[slug]` | Design style detail, color palette, typography/layout traits, related styles |
+| `/styles/generate` | Local reference image generation admin powered by the OpenAI Image API |
 
 ## Image generation environment variables
 
-`/design-styles/generate` and `/api/design-style-images` are local admin features.
+`/styles/generate` and `/api/design-style-images` are local admin features.
 
 ```bash
 OPENAI_API_KEY=sk-...
@@ -122,12 +122,12 @@ The layout catalog is static-data driven. No separate database or external API i
 ## Project structure
 
 ```text
-src/app/web-layouts/page.tsx              # Explorer page
-src/app/web-layouts/[slug]/page.tsx       # Layout detail page
-src/app/web-layouts/compare/page.tsx      # Compare page shell
-src/app/design-styles/page.tsx            # Design style library page
-src/app/design-styles/[slug]/page.tsx     # Design style detail page
-src/app/design-styles/generate/page.tsx   # Local image generation admin
+src/app/layouts/page.tsx              # Explorer page
+src/app/layouts/[slug]/page.tsx       # Layout detail page
+src/app/layouts/compare/page.tsx      # Compare page shell
+src/app/styles/page.tsx            # Design style library page
+src/app/styles/[slug]/page.tsx     # Design style detail page
+src/app/styles/generate/page.tsx   # Local image generation admin
 src/app/api/design-style-images/route.ts  # OpenAI Image API route
 src/data/webLayouts.ts                    # Layout catalog and generated metadata
 src/data/designStyles.ts                  # 88 design styles and generated metadata

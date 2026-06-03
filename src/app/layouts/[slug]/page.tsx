@@ -47,7 +47,7 @@ export default async function LayoutDetailPage({ params }: LayoutDetailPageProps
       <div className="mx-auto max-w-[1720px] px-5 py-10 lg:px-8">
         <Link
           className="raw-label text-[#DB4A2B] underline-offset-4 hover:underline"
-          href="/web-layouts"
+          href="/layouts"
         >
           목록으로 돌아가기
         </Link>
