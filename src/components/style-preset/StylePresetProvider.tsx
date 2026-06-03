@@ -16,8 +16,10 @@ import {
   getDesignStyleBySlug,
   type DesignStyle,
   type DesignStylePalette,
+  type StyleTokens,
 } from "@/data/designStyles";
 import { createPromptStylePreset } from "@/lib/paletteGenerator";
+import { styleTokenVars } from "./styleTokenVars";
 
 type StylePresetContextValue = {
   activePreset: DesignStyle;
@@ -29,6 +31,7 @@ type StylePresetContextValue = {
   selectedSlug: string;
   setPrompt: (prompt: string) => void;
   setSelectedSlug: (slug: string) => void;
+  tokens: StyleTokens;
 };
 
 type StyleVariables = CSSProperties & Record<`--style-${string}`, string>;
@@ -170,6 +173,7 @@ export function StylePresetProvider({ children }: { children: ReactNode }) {
       },
       palette: activePreset.palette,
       prompt,
+      tokens: activePreset.tokens,
       resetCustomPreset: () => {
         userChangedBeforeStorageReady.current = true;
         setStyleState((current) => ({
@@ -198,8 +202,10 @@ export function StylePresetProvider({ children }: { children: ReactNode }) {
     <StylePresetContext.Provider value={value}>
       <div
         className="style-preset-root flex min-h-full flex-1 flex-col"
+        data-st-density={activePreset.tokens.space.density}
+        data-st-effect={activePreset.tokens.decoration.effect}
         data-style-preset={activePreset.slug}
-        style={styleVariablesFor(activePreset.palette)}
+        style={{ ...styleVariablesFor(activePreset.palette), ...styleTokenVars(activePreset) }}
       >
         {children}
       </div>
@@ -215,6 +221,10 @@ export function useStylePreset() {
   }
 
   return value;
+}
+
+export function useStyleTokens() {
+  return useStylePreset().activePreset.tokens;
 }
 
 export { designStyles as stylePresets };
