@@ -592,6 +592,48 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     space: { density: "airy", gap: "2rem", padScale: 1.8 },
     decoration: { shadow: "none", effect: "none" },
   },
+  "organic-design": {
+    shape: { radius: "12px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.25rem", padScale: 1.3 },
+    decoration: { shadow: "none", effect: "grain" },
+  },
+  "streetwear": {
+    typography: { weightDisplay: 900, tracking: "-0.04em", headingScale: 1.2 },
+    shape: { radius: "0px", borderWidth: "4px" },
+    space: { density: "tight", gap: "0.4rem", padScale: 0.8 },
+    decoration: { shadow: "5px 5px 0 var(--st-accent)", effect: "none" },
+  },
+  "editorial-design": {
+    typography: { weightDisplay: 800, tracking: "-0.04em", headingScale: 1.2 },
+    shape: { radius: "0px", borderWidth: "2px" },
+    space: { density: "normal", gap: "1rem", padScale: 1.0 },
+    decoration: { shadow: "none", effect: "none" },
+  },
+  "glassmorphism": {
+    typography: { weightDisplay: 500, tracking: "-0.01em" },
+    shape: { radius: "16px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "normal", gap: "1rem", padScale: 1.1 },
+    decoration: { shadow: "0 8px 32px rgba(0,0,0,0.18)", effect: "none" },
+  },
+  "y2k": {
+    typography: { weightDisplay: 800, tracking: "-0.02em", headingScale: 1.15 },
+    shape: { radius: "12px", borderWidth: "2px" },
+    space: { density: "normal", gap: "0.75rem", padScale: 1.0 },
+    decoration: { shadow: "3px 3px 0 var(--st-accent)", effect: "gradient" },
+  },
+  "maximalism": {
+    typography: { weightDisplay: 800, tracking: "-0.03em", headingScale: 1.2 },
+    shape: { radius: "4px", borderWidth: "2px" },
+    space: { density: "tight", gap: "0.5rem", padScale: 0.9 },
+    decoration: { shadow: "4px 4px 0 var(--st-accent), -4px -4px 0 var(--st-accent2)", effect: "grain" },
+  },
+  "swiss-design": {
+    typography: { weightDisplay: 700, tracking: "-0.02em", headingScale: 1.05 },
+    shape: { radius: "0px", borderWidth: "1px" },
+    space: { density: "airy", gap: "1rem", padScale: 1.2 },
+    decoration: { shadow: "none", effect: "none" },
+    layout: { heroVariant: "left", navStyle: "underline", alignment: "left" },
+  },
 };
 
 function mergeTokens(
