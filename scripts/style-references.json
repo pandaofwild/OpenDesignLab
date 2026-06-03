@@ -1,0 +1,51 @@
+{
+  "_comment": "Reference websites for each design style. Used by capture-references.mjs to take local screenshots. DO NOT commit public/references/ — screenshots are local-only (copyright).",
+  "minimalism": [
+    { "url": "https://linear.app", "title": "Linear — product UI minimalism" },
+    { "url": "https://notion.so", "title": "Notion — content-first minimalism" }
+  ],
+  "brutalism": [
+    { "url": "https://www.balenciaga.com", "title": "Balenciaga — fashion brutalism" },
+    { "url": "https://www.bloomberg.com", "title": "Bloomberg — editorial brutalism" }
+  ],
+  "cyberpunk": [
+    { "url": "https://www.cyberpunk.net", "title": "Cyberpunk 2077 — neon/dark digital" },
+    { "url": "https://www.razer.com", "title": "Razer — green neon tech aesthetic" }
+  ],
+  "luxury": [
+    { "url": "https://www.loewe.com", "title": "Loewe — quiet luxury, serif, airy" },
+    { "url": "https://www.bottegaveneta.com", "title": "Bottega Veneta — understated luxury" }
+  ],
+  "organic-design": [
+    { "url": "https://www.aesop.com", "title": "Aesop — warm organic brand" },
+    { "url": "https://www.goop.com", "title": "Goop — wellness, earthy tones" }
+  ],
+  "kawaii": [
+    { "url": "https://www.sanrio.com", "title": "Sanrio — kawaii brand identity" },
+    { "url": "https://line.me", "title": "LINE — playful app aesthetic" }
+  ],
+  "streetwear": [
+    { "url": "https://www.supremenewyork.com", "title": "Supreme — raw street simplicity" },
+    { "url": "https://www.palace.ltd", "title": "Palace — skate brand graphic energy" }
+  ],
+  "editorial-design": [
+    { "url": "https://www.nytimes.com", "title": "New York Times — editorial hierarchy" },
+    { "url": "https://monocle.com", "title": "Monocle — magazine grid system" }
+  ],
+  "glassmorphism": [
+    { "url": "https://www.apple.com/ios", "title": "Apple iOS — frosted glass UI" },
+    { "url": "https://www.microsoft.com/en-us/windows", "title": "Windows 11 — Fluent Design glass" }
+  ],
+  "y2k": [
+    { "url": "https://web.archive.org/web/20020101000000*/myspace.com", "title": "MySpace archive — Y2K web nostalgia" },
+    { "url": "https://www.blingee.com", "title": "Blingee — chrome/glitter Y2K energy" }
+  ],
+  "maximalism": [
+    { "url": "https://www.gucci.com", "title": "Gucci — maximalist luxury brand" },
+    { "url": "https://www.versace.com", "title": "Versace — bold maximalist patterns" }
+  ],
+  "swiss-design": [
+    { "url": "https://www.swissinfo.ch", "title": "Swissinfo — grid-based editorial" },
+    { "url": "https://www.sbb.ch", "title": "SBB Swiss Railways — international style" }
+  ]
+}
