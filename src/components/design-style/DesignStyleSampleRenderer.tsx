@@ -822,91 +822,143 @@ function NeoBrutalistApp({ className, compact = false, style }: Props) {
 }
 
 function AntiDesignLanding({ className, compact = false, style }: Props) {
-  const links = ["wrong shop", "index?", "pay wall", "about now"];
+  const portalLinks = [
+    { label: "plain index", meta: "/start-here", tone: "bg-[var(--sample-accent-3)]" },
+    { label: "wrong shop", meta: "cart without cart", tone: "bg-[var(--sample-accent)]" },
+    { label: "pay wall?", meta: "please do not align", tone: "bg-[var(--sample-surface)]" },
+    { label: "about now", meta: "published sideways", tone: "bg-[var(--sample-accent-2)]" },
+  ];
 
   return (
     <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "linear-gradient(90deg, var(--sample-accent-3) 0 1px, transparent 1px), linear-gradient(0deg, var(--sample-accent) 0 1px, transparent 1px)", backgroundSize: "29px 17px" }} />
-      <div className="relative grid h-full grid-rows-[auto_1fr_auto]">
-        <div className="flex items-start justify-between">
-          <span className="rotate-[-2deg] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-1 text-xs font-black">This page refuses polish.</span>
-          <span className="translate-y-3 rotate-[4deg] border-2 border-[var(--sample-border)] bg-[var(--sample-accent)] px-2 py-1 text-[10px] font-black">menu?</span>
+      <div
+        className="absolute inset-0 opacity-35"
+        style={{
+          backgroundImage:
+            "linear-gradient(90deg, var(--sample-accent-3) 0 1px, transparent 1px), linear-gradient(0deg, var(--sample-accent) 0 1px, transparent 1px), repeating-linear-gradient(135deg, transparent 0 18px, var(--sample-surface) 19px 21px, transparent 22px 38px)",
+          backgroundSize: "29px 17px, 29px 17px, 100% 100%",
+        }}
+      />
+      <div className={cn("absolute right-5 top-16 border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)]", compact ? "h-16 w-20 rotate-[7deg]" : "h-24 w-36 rotate-[8deg]")} />
+      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-2">
+        <div className="flex items-start justify-between gap-3 text-[10px] font-black uppercase">
+          <span className="rotate-[-2deg] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-1">Anti-site / live wrong</span>
+          <span className="translate-y-2 rotate-[4deg] border-2 border-[var(--sample-border)] bg-[var(--sample-accent)] px-2 py-1">menu is lower</span>
         </div>
-        <div className={cn("grid min-h-0 gap-2", compact ? "grid-cols-[0.9fr_1.1fr]" : "grid-cols-1 md:grid-cols-[0.82fr_1.18fr]")}>
-          <div className="rotate-[-3deg] self-center border-4 border-[var(--sample-border)] bg-[var(--sample-accent-2)] p-3">
+        <div className={cn("grid min-h-0 gap-2", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[0.78fr_1.22fr]")}>
+          <div className="relative z-10 self-center border-4 border-[var(--sample-border)] bg-[var(--sample-accent-2)] p-3 shadow-none md:rotate-[-3deg]">
+            <span className="mb-2 inline-block border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-1 text-[10px] font-black uppercase">not a bug</span>
             <h3
               className={cn("break-words font-display leading-[0.9]", compact ? "text-3xl" : "text-5xl md:text-6xl")}
               style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
             >
-              Useful friction, visible links.
+              This layout argues back.
             </h3>
+            <p className={cn("mt-3 max-w-[19rem] border-2 border-[var(--sample-border)] bg-[var(--sample-base)] px-2 py-1 text-xs font-bold", compact ? "hidden" : "")}>
+              Links remain obvious while the page refuses the usual polish.
+            </p>
           </div>
-          <div className="grid content-center gap-2">
-            {links.map((link, index) => (
+          <div className="grid min-h-0 content-center gap-2 font-black">
+            {portalLinks.map((link, index) => (
               <span
-                className={cn("block border-2 border-[var(--sample-border)] px-3 py-2 text-xs font-black", index === 1 ? "translate-x-4 bg-[var(--sample-accent)]" : index === 2 ? "-translate-x-2 bg-[var(--sample-surface)]" : "bg-[var(--sample-accent-3)]")}
-                key={link}
+                className={cn(
+                  "block border-2 border-[var(--sample-border)] px-3 py-2 text-xs",
+                  link.tone,
+                  index === 0 ? "-translate-x-1 rotate-[1deg]" : "",
+                  index === 1 ? "translate-x-5 rotate-[-2deg]" : "",
+                  index === 2 ? "-translate-x-3 rotate-[3deg]" : "",
+                  index === 3 ? "translate-x-2 rotate-[-1deg]" : "",
+                  compact ? "translate-x-0 rotate-0" : "",
+                )}
+                key={link.label}
               >
-                {link}
+                <span className="block break-words underline decoration-[3px] underline-offset-2">{link.label}</span>
+                <span className="mt-1 block break-words font-mono text-[10px] font-bold">{link.meta}</span>
               </span>
             ))}
           </div>
         </div>
-        <p className={cn("w-3/4 border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-1 text-[10px]", compact ? "hidden" : "")}>
-          Still clickable. Still intentional.
-        </p>
+        <div className={cn("grid grid-cols-[1fr_auto] border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] text-[10px] font-black", compact ? "hidden" : "")}>
+          <span className="truncate px-2 py-1">newsletter that asks nothing</span>
+          <span className="border-l-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-1">send?</span>
+        </div>
       </div>
     </SampleFrame>
   );
 }
 
 function MaximalistPatternMarket({ className, compact = false, style }: Props) {
-  const items = ["Silk scarf", "Bloom coat", "Gold tote"];
+  const items = [
+    ["Silk scarf", "$88"],
+    ["Bloom coat", "$240"],
+    ["Gold tote", "$132"],
+  ];
+  const badges = ["print drop", "lookbook", "limited"];
 
   return (
     <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
       <div
-        className="absolute inset-0 opacity-45"
+        className="absolute inset-0 opacity-70"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 12px 12px, var(--sample-accent) 0 4px, transparent 5px), linear-gradient(135deg, transparent 0 42%, var(--sample-accent-2) 42% 58%, transparent 58%), radial-gradient(circle at 85% 18%, var(--sample-accent-3) 0 18px, transparent 19px)",
-          backgroundSize: "32px 32px, 44px 44px, 100% 100%",
+            "radial-gradient(circle at 12px 12px, var(--sample-accent) 0 4px, transparent 5px), radial-gradient(circle at 25px 25px, var(--sample-accent-3) 0 5px, transparent 6px), linear-gradient(135deg, transparent 0 42%, var(--sample-accent-2) 42% 58%, transparent 58%), repeating-linear-gradient(90deg, transparent 0 18px, var(--sample-surface) 19px 22px, transparent 23px 40px)",
+          backgroundSize: "34px 34px, 34px 34px, 46px 46px, 100% 100%",
         }}
       />
-      <div className="relative grid h-full grid-rows-[auto_1fr]">
-        <div className="flex items-center justify-between pb-3">
-          <span className="border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-1 text-xs font-bold text-[var(--sample-border)]">Pattern market</span>
-          <span className="border-2 border-[var(--sample-border)] bg-[var(--sample-accent)] px-3 py-1 text-[10px] font-bold text-[var(--sample-border)]">Cart 03</span>
+      <div className="absolute bottom-8 left-5 h-20 w-28 rotate-[-8deg] border-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)] opacity-85" />
+      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
+        <div className="flex items-center justify-between gap-3 pb-1">
+          <span className="border-2 border-[var(--sample-base)] bg-[var(--sample-surface)] px-3 py-1 text-xs font-bold text-[var(--sample-base)]">Pattern market</span>
+          <span className="border-2 border-[var(--sample-base)] bg-[var(--sample-accent)] px-3 py-1 text-[10px] font-bold text-[var(--sample-base)]">Cart 03</span>
         </div>
-        <div className={cn("grid gap-3", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[1fr_0.9fr]")}>
-          <div className="relative overflow-hidden border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-3 text-[var(--sample-border)]">
-            <span className="absolute right-3 top-3 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-1 text-[10px] font-bold">drop 18</span>
+        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[1fr_0.95fr]")}>
+          <div className="relative overflow-hidden border-2 border-[var(--sample-base)] bg-[var(--sample-surface)] p-3 text-[var(--sample-base)]">
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-0 top-0 h-16 opacity-55"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 14px 14px, var(--sample-accent) 0 7px, transparent 8px), linear-gradient(135deg, var(--sample-accent-2) 0 32%, transparent 33%)",
+                backgroundSize: "28px 28px, 48px 48px",
+              }}
+            />
+            <span className="relative mb-8 inline-block rounded-full border-2 border-[var(--sample-base)] bg-[var(--sample-accent-3)] px-2 py-1 text-[10px] font-bold">drop 18</span>
             <h3
-              className={cn("break-words font-display leading-[0.95]", compact ? "text-3xl" : "text-5xl")}
+              className={cn("relative break-words font-display leading-[0.95]", compact ? "text-3xl" : "text-5xl")}
               style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
             >
-              Pattern is the product.
+              A shop that refuses blank space.
             </h3>
-            <div className={cn("mt-4 grid grid-cols-3 gap-2", compact ? "hidden" : "")}>
-              {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((color, index) => (
-                <span className="h-9 border-2 border-[var(--sample-border)]" key={`${color}-${index}`} style={{ backgroundColor: color }} />
-              ))}
+            <div className={cn("relative mt-4 flex flex-wrap gap-2", compact ? "hidden" : "")}>
+              <span className="border-2 border-[var(--sample-base)] bg-[var(--sample-accent)] px-3 py-2 text-xs font-black">Shop prints</span>
+              <span className="border-2 border-[var(--sample-base)] bg-[var(--sample-base)] px-3 py-2 text-xs font-black text-[var(--sample-text)]">Open lookbook</span>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-2">
-            {items.map((item, index) => (
-              <div className="flex min-w-0 flex-col justify-between border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-2 text-[var(--sample-border)]" key={item}>
+          <div className={cn("grid gap-2", compact ? "grid-cols-3" : "grid-cols-3 md:grid-cols-1")}>
+            {items.map(([item, price], index) => (
+              <div className={cn("grid min-w-0 border-2 border-[var(--sample-base)] bg-[var(--sample-surface)] p-2 text-[var(--sample-base)]", compact ? "grid-rows-[auto_auto]" : "grid-cols-[3.5rem_1fr] gap-2")} key={item}>
                 <span
-                  className="block aspect-square border border-[var(--sample-border)]"
+                  className="block aspect-square border border-[var(--sample-base)]"
                   style={{
                     backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index],
-                    backgroundImage: "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.55) 0 14%, transparent 15%), linear-gradient(45deg, transparent 0 46%, rgba(0,0,0,0.25) 47% 53%, transparent 54%)",
+                    backgroundImage:
+                      "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.55) 0 14%, transparent 15%), linear-gradient(45deg, transparent 0 46%, rgba(0,0,0,0.25) 47% 53%, transparent 54%), repeating-linear-gradient(90deg, rgba(255,255,255,0.35) 0 4px, transparent 5px 9px)",
                   }}
                 />
-                <span className="mt-2 truncate text-xs font-bold">{item}</span>
+                <span className="mt-2 min-w-0 text-xs font-bold md:mt-0">
+                  <span className="block truncate">{item}</span>
+                  <span className="mt-1 block w-fit bg-[var(--sample-accent-3)] px-1 text-[10px]">{price}</span>
+                </span>
               </div>
             ))}
           </div>
+        </div>
+        <div className={cn("flex flex-wrap gap-2", compact ? "hidden" : "")}>
+          {badges.map((badge, index) => (
+            <span className="border-2 border-[var(--sample-base)] px-2 py-1 text-[10px] font-black text-[var(--sample-base)]" key={badge} style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index] }}>
+              {badge}
+            </span>
+          ))}
         </div>
       </div>
     </SampleFrame>
@@ -914,45 +966,70 @@ function MaximalistPatternMarket({ className, compact = false, style }: Props) {
 }
 
 function GlitchArtInterface({ className, compact = false, style }: Props) {
-  const nodes = [
-    ["Signal", "72%"],
-    ["Noise", "42%"],
-    ["Error", "91%"],
+  const meters = [
+    ["RGB drift", "84%", style.palette.accent],
+    ["Frame loss", "39%", style.palette.accent2],
+    ["Checksum", "91%", style.palette.accent3],
+  ];
+  const logs = [
+    "> buffer split at 00:17",
+    "> scanline memory: dirty",
+    "> image packet rejected",
   ];
 
   return (
     <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <div className="absolute inset-0 opacity-25" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent 0 8px, var(--sample-accent) 9px 10px), linear-gradient(90deg, transparent, var(--sample-accent-2), transparent)" }} />
+      <div
+        className="absolute inset-0 opacity-30"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(0deg, transparent 0 7px, var(--sample-accent) 8px 9px), repeating-linear-gradient(90deg, transparent 0 34px, var(--sample-accent-2) 35px 37px), linear-gradient(90deg, transparent, var(--sample-accent-2), transparent)",
+        }}
+      />
+      <div className="absolute left-0 top-20 h-4 w-2/3 bg-[var(--sample-accent-2)] opacity-55" />
+      <div className="absolute bottom-24 right-0 h-6 w-1/2 bg-[var(--sample-accent)] opacity-45" />
       <div className="relative grid h-full grid-rows-[auto_1fr]">
         <div className="flex items-center justify-between border border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2 font-mono text-[10px]">
-          <span>SYS://GLITCH</span>
+          <span>ERROR LAB // SIGNAL 04</span>
           <span className="text-[var(--sample-accent-2)]">REC 00:17</span>
         </div>
         <div className={cn("grid min-h-0 gap-3 pt-3", compact ? "grid-cols-[0.8fr_1.2fr]" : "grid-cols-1 md:grid-cols-[0.82fr_1.18fr]")}>
-          <div className="grid gap-2">
-            {nodes.map(([node, value]) => (
+          <div className="grid min-h-0 gap-2">
+            {meters.map(([node, value, color]) => (
               <div className="border border-[var(--sample-border)] bg-[var(--sample-surface)] p-3 font-mono" key={node}>
                 <p className="text-[10px] text-[var(--sample-muted)]">{node}</p>
-                <div className="mt-2 h-2 bg-[var(--sample-accent-2)]" style={{ width: value }} />
+                <div className="mt-2 h-2 bg-[var(--sample-base)]">
+                  <div className="h-full" style={{ width: value, backgroundColor: color }} />
+                </div>
               </div>
             ))}
+            <div className={cn("border border-[var(--sample-border)] bg-[var(--sample-base)] p-2 font-mono text-[10px] text-[var(--sample-accent-3)]", compact ? "hidden" : "")}>
+              {logs.map((log) => (
+                <p className="truncate" key={log}>{log}</p>
+              ))}
+            </div>
           </div>
           <div className="relative overflow-hidden border border-[var(--sample-border)] bg-[var(--sample-surface)] p-4" style={{ boxShadow: "var(--st-shadow)" }}>
-            <span aria-hidden="true" className="absolute left-3 top-5 font-display text-4xl leading-none text-[var(--sample-accent)] opacity-60 md:text-6xl">
-              signal
+            <div className="absolute right-3 top-3 grid grid-cols-4 gap-1">
+              {[style.palette.accent, style.palette.accent2, style.palette.accent3, style.palette.surface].map((color, index) => (
+                <span className="h-4 w-4 border border-[var(--sample-border)]" key={`${color}-${index}`} style={{ backgroundColor: color }} />
+              ))}
+            </div>
+            <span aria-hidden="true" className="absolute left-3 top-6 font-display text-4xl leading-none text-[var(--sample-accent)] opacity-65 md:text-6xl">
+              damage
             </span>
-            <span aria-hidden="true" className="absolute left-5 top-4 font-display text-4xl leading-none text-[var(--sample-accent-2)] opacity-60 md:text-6xl">
-              signal
+            <span aria-hidden="true" className="absolute left-6 top-4 font-display text-4xl leading-none text-[var(--sample-accent-2)] opacity-65 md:text-6xl">
+              damage
             </span>
             <h3
               className={cn("relative break-words font-display leading-[0.95] text-[var(--sample-text)]", compact ? "text-3xl" : "text-5xl md:text-6xl")}
               style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
             >
-              signal failed beautifully.
+              Signal damage is the interface.
             </h3>
-            <div className={cn("absolute bottom-4 left-4 right-4 grid grid-cols-5 gap-1", compact ? "hidden" : "")}>
-              {[48, 72, 38, 91, 56].map((height, index) => (
-                <span className="block bg-[var(--sample-accent)]" key={height + index} style={{ height: `${height / 5}px` }} />
+            <div className={cn("absolute bottom-4 left-4 right-4 grid grid-cols-6 items-end gap-1", compact ? "hidden" : "")}>
+              {[48, 72, 38, 91, 56, 80].map((height, index) => (
+                <span className="block" key={height + index} style={{ height: `${height / 4}px`, backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index % 3] }} />
               ))}
             </div>
           </div>
