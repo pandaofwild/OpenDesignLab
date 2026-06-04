@@ -25,6 +25,8 @@ openlayout은 디자인을 시작하기 전에 페이지 구조와 시각 언어
 - **Compare view**: 최대 3개의 레이아웃을 선택해 추천 용도, 모바일 대응, 밀도, 난이도를 나란히 비교합니다.
 - **Design Style Library**: 88개의 디자인 형식을 카테고리, 태그, 검색어로 탐색하고 상세 페이지에서 색상표와 웹페이지형 샘플을 확인합니다.
 - **Style application**: `/styles`에서 선택한 디자인 형식이 `/layouts`와 `/layouts/compare`의 프리뷰 톤에 적용되고 localStorage에 유지됩니다.
+- **Studio copy**: `/studio`에서 선택한 Style x Layout 조합의 프롬프트와 self-contained HTML/CSS 코드를 복사할 수 있습니다.
+- **Component dictionary**: `/components`에서 같은 스타일 토큰이 주요 UI 컴포넌트에 어떻게 적용되는지 확인할 수 있습니다.
 - **Prompt palette**: 프롬프트를 섞어 커스텀 색상표를 생성하고 현재 레이아웃 프리뷰에 바로 적용합니다.
 - **Image generation admin**: `OPENAI_API_KEY`가 있는 로컬 환경에서 스타일별 참조 이미지를 생성해 `public/generated/design-styles`에 저장할 수 있습니다.
 - **SVG controls**: 비교 화살표와 설명/닫기/상세 아이콘은 inline SVG로 관리합니다.
@@ -74,9 +76,11 @@ http://localhost:3000/layouts
 | `/layouts` | 레이아웃 검색, 필터, 카드 목록 |
 | `/layouts/[slug]` | 구조 설명, 장단점, 반응형 동작, 접근성 노트, 라이브 프리뷰, 코드 예시 |
 | `/layouts/compare` | 최대 3개 레이아웃 비교와 큰 구조 미리보기 |
+| `/studio` | 디자인 스타일과 레이아웃을 조합해 실제 웹 프리뷰를 보고 코드/프롬프트를 복사 |
 | `/styles` | 디자인 형식 검색, 카테고리/태그 필터, 색상표, 웹페이지형 스타일 샘플 |
 | `/styles/[slug]` | 디자인 형식 상세 설명, 색상표, 타이포/레이아웃 특징, 관련 스타일 |
 | `/styles/generate` | OpenAI Image API 기반 로컬 참조 이미지 생성 관리자 |
+| `/components` | 디자인 스타일 토큰을 버튼, 카드, 내비게이션, 입력 필드, 배지에 적용해 비교 |
 
 ## 이미지 생성 환경 변수
 

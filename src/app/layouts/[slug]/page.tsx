@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CopyTextButton } from "@/components/export/CopyTextButton";
 import { Badge } from "@/components/ui/badge";
 import { LayoutCodeExample } from "@/components/web-layout/LayoutCodeExample";
 import { LayoutStagePreview } from "@/components/web-layout/LayoutStagePreview";
 import { RelatedLayouts } from "@/components/web-layout/RelatedLayouts";
 import { webLayouts, getLayoutBySlug, type WebLayout } from "@/data/webLayouts";
+import { exportLayoutPrompt } from "@/lib/exportPrompt";
 import { complexityTone, formatComplexity } from "@/lib/utils";
 
 type LayoutDetailPageProps = {
@@ -81,6 +83,13 @@ export default async function LayoutDetailPage({ params }: LayoutDetailPageProps
             <p className="mt-4 text-sm leading-7 text-[#1E1E1E]/62">
               {layout.description}
             </p>
+            <div className="mt-5">
+              <CopyTextButton
+                copiedLabel="프롬프트 복사됨"
+                idleLabel="레이아웃 프롬프트 복사"
+                text={exportLayoutPrompt(layout)}
+              />
+            </div>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <InfoList title="어울리는 페이지 유형" items={layout.bestFor} />
               <InfoList title="피해야 할 상황" items={layout.notGoodFor} />

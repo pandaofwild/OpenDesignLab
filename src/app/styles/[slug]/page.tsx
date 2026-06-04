@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { designStyles, getDesignStyleBySlug } from "@/data/designStyles";
+import { CopyTextButton } from "@/components/export/CopyTextButton";
 import { ColorPaletteGrid } from "@/components/design-style/ColorPaletteGrid";
 import { DesignStyleDetailSection } from "@/components/design-style/DesignStyleDetailSection";
 import { DesignStyleSampleRenderer } from "@/components/design-style/DesignStyleSampleRenderer";
@@ -94,6 +95,13 @@ export default async function DesignStyleDetailPage({
 
         <div className="mt-4">
           <DesignStyleDetailSection title="이미지 생성 프롬프트">
+            <div className="mb-3 flex justify-end">
+              <CopyTextButton
+                copiedLabel="프롬프트 복사됨"
+                idleLabel="프롬프트 복사"
+                text={style.imagePrompt}
+              />
+            </div>
             <pre className="whitespace-pre-wrap bg-[#1E1E1E] p-4 font-mono text-xs leading-6 text-[#F8A348]">
               {style.imagePrompt}
             </pre>
