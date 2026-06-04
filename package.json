@@ -17,7 +17,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "check:data": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/check-data.mjs"
+    "check:data": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/check-data.mjs",
+    "capture:refs": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/capture-references.mjs"
   },
   "engines": {
     "node": ">=22"
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "playwright": "^1.49.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

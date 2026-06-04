@@ -24,7 +24,9 @@ openlayout은 디자인을 시작하기 전에 페이지 구조와 시각 언어
 - **Floating detail panel**: 기본 화면에는 작은 요약 박스만 두고, 클릭하면 구조 설명과 장단점이 패널로 떠오릅니다.
 - **Compare view**: 최대 3개의 레이아웃을 선택해 추천 용도, 모바일 대응, 밀도, 난이도를 나란히 비교합니다.
 - **Design Style Library**: 88개의 디자인 형식을 카테고리, 태그, 검색어로 탐색하고 상세 페이지에서 색상표와 웹페이지형 샘플을 확인합니다.
-- **Style application**: `/design-styles`에서 선택한 디자인 형식이 `/web-layouts`와 `/web-layouts/compare`의 프리뷰 톤에 적용되고 localStorage에 유지됩니다.
+- **Style application**: `/styles`에서 선택한 디자인 형식이 `/layouts`와 `/layouts/compare`의 프리뷰 톤에 적용되고 localStorage에 유지됩니다.
+- **Studio copy**: `/studio`에서 선택한 Style x Layout 조합의 프롬프트와 self-contained HTML/CSS 코드를 복사할 수 있습니다.
+- **Component dictionary**: `/components`에서 같은 스타일 토큰이 주요 UI 컴포넌트에 어떻게 적용되는지 확인할 수 있습니다.
 - **Prompt palette**: 프롬프트를 섞어 커스텀 색상표를 생성하고 현재 레이아웃 프리뷰에 바로 적용합니다.
 - **Image generation admin**: `OPENAI_API_KEY`가 있는 로컬 환경에서 스타일별 참조 이미지를 생성해 `public/generated/design-styles`에 저장할 수 있습니다.
 - **SVG controls**: 비교 화살표와 설명/닫기/상세 아이콘은 inline SVG로 관리합니다.
@@ -62,25 +64,27 @@ npm run dev
 브라우저에서 열기:
 
 ```text
-http://localhost:3000/web-layouts
+http://localhost:3000/layouts
 ```
 
-루트 경로(`/`)는 `/web-layouts`로 리다이렉트됩니다.
+루트 경로(`/`)는 `/layouts`로 리다이렉트됩니다.
 
 ## 주요 라우트
 
 | Route | 내용 |
 | --- | --- |
-| `/web-layouts` | 레이아웃 검색, 필터, 카드 목록 |
-| `/web-layouts/[slug]` | 구조 설명, 장단점, 반응형 동작, 접근성 노트, 라이브 프리뷰, 코드 예시 |
-| `/web-layouts/compare` | 최대 3개 레이아웃 비교와 큰 구조 미리보기 |
-| `/design-styles` | 디자인 형식 검색, 카테고리/태그 필터, 색상표, 웹페이지형 스타일 샘플 |
-| `/design-styles/[slug]` | 디자인 형식 상세 설명, 색상표, 타이포/레이아웃 특징, 관련 스타일 |
-| `/design-styles/generate` | OpenAI Image API 기반 로컬 참조 이미지 생성 관리자 |
+| `/layouts` | 레이아웃 검색, 필터, 카드 목록 |
+| `/layouts/[slug]` | 구조 설명, 장단점, 반응형 동작, 접근성 노트, 라이브 프리뷰, 코드 예시 |
+| `/layouts/compare` | 최대 3개 레이아웃 비교와 큰 구조 미리보기 |
+| `/studio` | 디자인 스타일과 레이아웃을 조합해 실제 웹 프리뷰를 보고 코드/프롬프트를 복사 |
+| `/styles` | 디자인 형식 검색, 카테고리/태그 필터, 색상표, 웹페이지형 스타일 샘플 |
+| `/styles/[slug]` | 디자인 형식 상세 설명, 색상표, 타이포/레이아웃 특징, 관련 스타일 |
+| `/styles/generate` | OpenAI Image API 기반 로컬 참조 이미지 생성 관리자 |
+| `/components` | 디자인 스타일 토큰을 버튼, 카드, 내비게이션, 입력 필드, 배지에 적용해 비교 |
 
 ## 이미지 생성 환경 변수
 
-`/design-styles/generate`와 `/api/design-style-images`는 로컬 관리자 기능입니다.
+`/styles/generate`와 `/api/design-style-images`는 로컬 관리자 기능입니다.
 
 ```bash
 OPENAI_API_KEY=sk-...
@@ -122,17 +126,21 @@ npm run build
 ## 프로젝트 구조
 
 ```text
-src/app/web-layouts/page.tsx              # Explorer page
-src/app/web-layouts/[slug]/page.tsx       # Layout detail page
-src/app/web-layouts/compare/page.tsx      # Compare page shell
-src/app/design-styles/page.tsx            # Design style library page
-src/app/design-styles/[slug]/page.tsx     # Design style detail page
-src/app/design-styles/generate/page.tsx   # Local image generation admin
+src/app/layouts/page.tsx              # Explorer page
+src/app/layouts/[slug]/page.tsx       # Layout detail page
+src/app/layouts/compare/page.tsx      # Compare page shell
+src/app/studio/page.tsx               # Style x Layout studio
+src/app/components/page.tsx           # Component dictionary
+src/app/styles/page.tsx            # Design style library page
+src/app/styles/[slug]/page.tsx     # Design style detail page
+src/app/styles/generate/page.tsx   # Local image generation admin
 src/app/api/design-style-images/route.ts  # OpenAI Image API route
 src/data/webLayouts.ts                    # Layout catalog and generated metadata
 src/data/designStyles.ts                  # 88 design styles and generated metadata
+src/data/componentSpecs.ts                # Tokenized component dictionary specs
 src/components/web-layout/                # Explorer, cards, previews, compare UI
 src/components/design-style/              # Style cards, filters, samples, generator UI
+src/components/component-dictionary/      # Component token previews and picker UI
 src/components/style-preset/              # Global selected style provider
 src/components/ui/                        # Small shared UI primitives
 skills/layout-recommender/SKILL.md        # Purpose-based layout recommendation skill

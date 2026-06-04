@@ -43,16 +43,18 @@ function RawNavigation() {
       <div className="mx-auto grid max-w-[1720px] grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[1fr_auto_1fr]">
         <Link
           className="min-w-0 truncate font-display text-2xl font-bold uppercase leading-none tracking-[-0.05em] text-white md:text-[#1E1E1E]"
-          href="/web-layouts"
+          href="/layouts"
         >
           Openlayout
         </Link>
         <div className="hidden items-center gap-8 md:flex">
           {[
-            ["Library", "/web-layouts"],
-            ["Styles", "/design-styles"],
-            ["Compare", "/web-layouts/compare"],
-            ["Skill", "/web-layouts#layout-skill"],
+            ["Library", "/layouts"],
+            ["Styles", "/styles"],
+            ["Studio", "/studio"],
+            ["Components", "/components"],
+            ["Compare", "/layouts/compare"],
+            ["Skill", "/layouts#layout-skill"],
           ].map(([label, href]) => (
             <Link
               className="text-sm font-medium uppercase tracking-[0.1em] text-[#1E1E1E] transition hover:text-[#DB4A2B]"
@@ -67,14 +69,14 @@ function RawNavigation() {
           <Link
             aria-label="레이아웃 검색"
             className="flex h-10 w-10 items-center justify-center transition hover:text-[#DB4A2B]"
-            href="/web-layouts"
+            href="/layouts"
           >
             <SearchIcon />
           </Link>
           <Link
             aria-label="비교 보관함"
             className="flex h-10 w-10 items-center justify-center transition hover:text-[#DB4A2B]"
-            href="/web-layouts/compare"
+            href="/layouts/compare"
           >
             <BagIcon />
           </Link>
@@ -107,18 +109,20 @@ function RawFooter() {
         </div>
         <FooterLinks
           items={[
-            ["Library", "/web-layouts"],
-            ["Styles", "/design-styles"],
-            ["Compare", "/web-layouts/compare"],
+            ["Library", "/layouts"],
+            ["Styles", "/styles"],
+            ["Studio", "/studio"],
+            ["Components", "/components"],
+            ["Compare", "/layouts/compare"],
             ["GitHub", "https://github.com/pandaofwild/openlayout"],
           ]}
           title="Navigate"
         />
         <FooterLinks
           items={[
-            ["Layout skill", "/web-layouts#layout-skill"],
-            ["Preview types", "/web-layouts#preview-types"],
-            ["Quality checks", "/web-layouts#quality"],
+            ["Layout skill", "/layouts#layout-skill"],
+            ["Preview types", "/layouts#preview-types"],
+            ["Quality checks", "/layouts#quality"],
           ]}
           title="System"
         />

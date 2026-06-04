@@ -40,6 +40,7 @@ export type StyleTokens = {
   };
   shape: {
     radius: string;
+    radiusPill: string;
     borderWidth: string;
     borderStyle: "solid" | "dashed" | "double";
   };
@@ -223,7 +224,7 @@ const categoryTokenDefaults: Record<string, StyleTokens> = {
   "모던 / 미니멀": {
     color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
     typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 600, weightBody: 400, tracking: "-0.02em", headingScale: 1.0 },
-    shape: { radius: "2px", borderWidth: "1px", borderStyle: "solid" },
+    shape: { radius: "2px", radiusPill: "2px", borderWidth: "1px", borderStyle: "solid" },
     space: { density: "airy", gap: "1rem", padScale: 1.2 },
     decoration: { shadow: "none", effect: "none" },
     layout: { heroVariant: "left", navStyle: "minimal", alignment: "left" },
@@ -231,7 +232,7 @@ const categoryTokenDefaults: Record<string, StyleTokens> = {
   "강렬 / 실험": {
     color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
     typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 800, weightBody: 500, tracking: "-0.05em", headingScale: 1.25 },
-    shape: { radius: "0px", borderWidth: "3px", borderStyle: "solid" },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "3px", borderStyle: "solid" },
     space: { density: "tight", gap: "0.5rem", padScale: 0.9 },
     decoration: { shadow: "6px 6px 0 var(--st-primary)", effect: "none" },
     layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
@@ -239,7 +240,7 @@ const categoryTokenDefaults: Record<string, StyleTokens> = {
   "레트로 / 빈티지": {
     color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
     typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 700, weightBody: 400, tracking: "-0.01em", headingScale: 1.1 },
-    shape: { radius: "4px", borderWidth: "2px", borderStyle: "solid" },
+    shape: { radius: "4px", radiusPill: "4px", borderWidth: "2px", borderStyle: "solid" },
     space: { density: "normal", gap: "0.75rem", padScale: 1.0 },
     decoration: { shadow: "3px 3px 0 var(--st-primary)", effect: "grain" },
     layout: { heroVariant: "center", navStyle: "boxed", alignment: "center" },
@@ -247,7 +248,7 @@ const categoryTokenDefaults: Record<string, StyleTokens> = {
   "미래 / 디지털": {
     color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
     typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"SFMono-Regular", monospace', weightDisplay: 700, weightBody: 400, tracking: "0em", headingScale: 1.1 },
-    shape: { radius: "4px", borderWidth: "1px", borderStyle: "solid" },
+    shape: { radius: "4px", radiusPill: "4px", borderWidth: "1px", borderStyle: "solid" },
     space: { density: "normal", gap: "0.75rem", padScale: 1.0 },
     decoration: { shadow: "0 0 18px rgb(var(--st-accent-rgb) / 0.5)", effect: "glow" },
     layout: { heroVariant: "center", navStyle: "underline", alignment: "left" },
@@ -255,7 +256,7 @@ const categoryTokenDefaults: Record<string, StyleTokens> = {
   "럭셔리 / 클래식": {
     color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
     typography: { displayFont: '"Georgia", "Times New Roman", serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 400, weightBody: 300, tracking: "0.08em", headingScale: 0.9 },
-    shape: { radius: "0px", borderWidth: "1px", borderStyle: "solid" },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "solid" },
     space: { density: "airy", gap: "1.5rem", padScale: 1.5 },
     decoration: { shadow: "none", effect: "none" },
     layout: { heroVariant: "center", navStyle: "minimal", alignment: "center" },
@@ -263,7 +264,7 @@ const categoryTokenDefaults: Record<string, StyleTokens> = {
   "자연 / 수공예": {
     color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
     typography: { displayFont: '"Satoshi", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 600, weightBody: 400, tracking: "0.01em", headingScale: 1.0 },
-    shape: { radius: "8px", borderWidth: "1px", borderStyle: "solid" },
+    shape: { radius: "8px", radiusPill: "8px", borderWidth: "1px", borderStyle: "solid" },
     space: { density: "airy", gap: "1.25rem", padScale: 1.3 },
     decoration: { shadow: "none", effect: "grain" },
     layout: { heroVariant: "left", navStyle: "minimal", alignment: "left" },
@@ -271,7 +272,7 @@ const categoryTokenDefaults: Record<string, StyleTokens> = {
   "귀여움 / 캐주얼": {
     color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
     typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 700, weightBody: 400, tracking: "-0.01em", headingScale: 1.05 },
-    shape: { radius: "9999px", borderWidth: "2px", borderStyle: "solid" },
+    shape: { radius: "20px", radiusPill: "9999px", borderWidth: "2px", borderStyle: "solid" },
     space: { density: "normal", gap: "0.75rem", padScale: 1.0 },
     decoration: { shadow: "4px 4px 0 var(--st-accent)", effect: "none" },
     layout: { heroVariant: "center", navStyle: "boxed", alignment: "center" },
@@ -279,7 +280,7 @@ const categoryTokenDefaults: Record<string, StyleTokens> = {
   "스트리트 / 서브컬처": {
     color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
     typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 900, weightBody: 500, tracking: "-0.04em", headingScale: 1.3 },
-    shape: { radius: "0px", borderWidth: "3px", borderStyle: "solid" },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "3px", borderStyle: "solid" },
     space: { density: "tight", gap: "0.5rem", padScale: 0.85 },
     decoration: { shadow: "4px 4px 0 var(--st-accent)", effect: "none" },
     layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
@@ -287,7 +288,7 @@ const categoryTokenDefaults: Record<string, StyleTokens> = {
   "편집 / 타이포그래피": {
     color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
     typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 700, weightBody: 400, tracking: "-0.03em", headingScale: 1.15 },
-    shape: { radius: "0px", borderWidth: "2px", borderStyle: "solid" },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "2px", borderStyle: "solid" },
     space: { density: "normal", gap: "0.75rem", padScale: 1.0 },
     decoration: { shadow: "none", effect: "none" },
     layout: { heroVariant: "left", navStyle: "underline", alignment: "left" },
@@ -295,7 +296,7 @@ const categoryTokenDefaults: Record<string, StyleTokens> = {
   "UI / 웹": {
     color: { base: "", surface: "", text: "", muted: "", primary: "", accent: "", accent2: "", accent3: "", border: "" },
     typography: { displayFont: '"Satoshi", sans-serif', bodyFont: '"Satoshi", sans-serif', weightDisplay: 700, weightBody: 400, tracking: "-0.01em", headingScale: 1.0 },
-    shape: { radius: "8px", borderWidth: "1px", borderStyle: "solid" },
+    shape: { radius: "8px", radiusPill: "8px", borderWidth: "1px", borderStyle: "solid" },
     space: { density: "normal", gap: "0.75rem", padScale: 1.0 },
     decoration: { shadow: "0 2px 8px rgba(0,0,0,0.12)", effect: "none" },
     layout: { heroVariant: "center", navStyle: "minimal", alignment: "left" },
@@ -572,18 +573,54 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     shape: { radius: "0px", borderWidth: "1px" },
     decoration: { shadow: "none", effect: "none" },
   },
+  "modernism": {
+    typography: { weightDisplay: 700, tracking: "-0.03em", headingScale: 1.08 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px" },
+    space: { density: "airy", gap: "1.1rem", padScale: 1.25 },
+    layout: { heroVariant: "left", navStyle: "underline", alignment: "left" },
+  },
+  "warm-minimal": {
+    typography: { weightDisplay: 500, weightBody: 400, tracking: "-0.01em", headingScale: 0.96 },
+    shape: { radius: "10px", radiusPill: "9999px", borderWidth: "1px" },
+    space: { density: "airy", gap: "1.4rem", padScale: 1.45 },
+    decoration: { shadow: "0 10px 30px rgb(var(--st-text-rgb) / 0.08)", effect: "none" },
+  },
   "brutalism": {
     typography: { weightDisplay: 900, tracking: "-0.05em" },
     shape: { radius: "0px", borderWidth: "4px" },
     decoration: { shadow: "6px 6px 0 var(--st-primary)", effect: "none" },
+  },
+  "new-brutalism": {
+    typography: { weightDisplay: 900, weightBody: 600, tracking: "-0.06em", headingScale: 1.32 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "5px" },
+    space: { density: "tight", gap: "0.35rem", padScale: 0.78 },
+    decoration: { shadow: "8px 8px 0 var(--st-accent)", effect: "none" },
+  },
+  "glitch-art": {
+    typography: { bodyFont: '"SFMono-Regular", monospace', weightDisplay: 800, tracking: "0.02em", headingScale: 1.22 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "2px", borderStyle: "dashed" },
+    space: { density: "tight", gap: "0.45rem", padScale: 0.82 },
+    decoration: { shadow: "3px 0 0 var(--st-accent), -3px 0 0 var(--st-accent-2)", effect: "glitch" },
   },
   "cyberpunk": {
     typography: { bodyFont: '"SFMono-Regular", monospace', tracking: "0.02em" },
     shape: { radius: "2px", borderWidth: "1px" },
     decoration: { shadow: "0 0 24px rgb(var(--st-accent-rgb) / 0.6)", effect: "glow" },
   },
+  "retro-futurism": {
+    typography: { bodyFont: '"SFMono-Regular", monospace', weightDisplay: 800, tracking: "0.03em", headingScale: 1.12 },
+    shape: { radius: "14px", radiusPill: "9999px", borderWidth: "2px" },
+    space: { density: "normal", gap: "0.9rem", padScale: 1.08 },
+    decoration: { shadow: "0 0 22px rgb(var(--st-accent-rgb) / 0.45)", effect: "gradient" },
+  },
+  "neon-noir": {
+    typography: { bodyFont: '"SFMono-Regular", monospace', weightDisplay: 700, tracking: "0.04em", headingScale: 1.08 },
+    shape: { radius: "2px", radiusPill: "2px", borderWidth: "1px" },
+    space: { density: "tight", gap: "0.55rem", padScale: 0.9 },
+    decoration: { shadow: "0 0 28px rgb(var(--st-accent-rgb) / 0.7)", effect: "scanline" },
+  },
   "kawaii": {
-    shape: { radius: "9999px", borderWidth: "2px" },
+    shape: { radius: "20px", radiusPill: "9999px", borderWidth: "2px" },
     decoration: { shadow: "4px 4px 0 var(--st-accent)", effect: "none" },
   },
   "luxury": {
@@ -592,9 +629,21 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     space: { density: "airy", gap: "2rem", padScale: 1.8 },
     decoration: { shadow: "none", effect: "none" },
   },
+  "old-money": {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, weightBody: 300, tracking: "0.06em", headingScale: 0.92 },
+    shape: { radius: "2px", radiusPill: "2px", borderWidth: "1px" },
+    space: { density: "airy", gap: "1.8rem", padScale: 1.65 },
+    decoration: { shadow: "0 14px 36px rgb(var(--st-text-rgb) / 0.10)", effect: "none" },
+  },
   "organic-design": {
     shape: { radius: "12px", borderWidth: "1px", borderStyle: "solid" },
     space: { density: "airy", gap: "1.25rem", padScale: 1.3 },
+    decoration: { shadow: "none", effect: "grain" },
+  },
+  "wabi-sabi": {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, tracking: "0.02em", headingScale: 0.9 },
+    shape: { radius: "6px", radiusPill: "12px", borderWidth: "1px", borderStyle: "dashed" },
+    space: { density: "airy", gap: "1.6rem", padScale: 1.55 },
     decoration: { shadow: "none", effect: "grain" },
   },
   "streetwear": {
@@ -603,17 +652,41 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     space: { density: "tight", gap: "0.4rem", padScale: 0.8 },
     decoration: { shadow: "5px 5px 0 var(--st-accent)", effect: "none" },
   },
+  "dopamine-design": {
+    typography: { weightDisplay: 800, weightBody: 500, tracking: "-0.03em", headingScale: 1.18 },
+    shape: { radius: "24px", radiusPill: "9999px", borderWidth: "2px" },
+    space: { density: "normal", gap: "0.8rem", padScale: 1.05 },
+    decoration: { shadow: "5px 5px 0 var(--st-accent-2)", effect: "gradient" },
+  },
+  "graffiti": {
+    typography: { weightDisplay: 900, weightBody: 600, tracking: "-0.05em", headingScale: 1.28 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "3px", borderStyle: "dashed" },
+    space: { density: "tight", gap: "0.45rem", padScale: 0.85 },
+    decoration: { shadow: "6px 4px 0 var(--st-accent)", effect: "grain" },
+  },
   "editorial-design": {
     typography: { weightDisplay: 800, tracking: "-0.04em", headingScale: 1.2 },
     shape: { radius: "0px", borderWidth: "2px" },
     space: { density: "normal", gap: "1rem", padScale: 1.0 },
     decoration: { shadow: "none", effect: "none" },
   },
+  "posterism": {
+    typography: { weightDisplay: 900, weightBody: 500, tracking: "-0.06em", headingScale: 1.35 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "3px" },
+    space: { density: "tight", gap: "0.5rem", padScale: 0.82 },
+    layout: { heroVariant: "center", navStyle: "boxed", alignment: "center" },
+  },
   "glassmorphism": {
     typography: { weightDisplay: 500, tracking: "-0.01em" },
     shape: { radius: "16px", borderWidth: "1px", borderStyle: "solid" },
     space: { density: "normal", gap: "1rem", padScale: 1.1 },
     decoration: { shadow: "0 8px 32px rgba(0,0,0,0.18)", effect: "none" },
+  },
+  "neumorphism": {
+    typography: { weightDisplay: 600, weightBody: 400, tracking: "-0.02em", headingScale: 0.98 },
+    shape: { radius: "24px", radiusPill: "9999px", borderWidth: "1px" },
+    space: { density: "normal", gap: "1rem", padScale: 1.2 },
+    decoration: { shadow: "12px 12px 24px rgb(var(--st-text-rgb) / 0.12), -12px -12px 24px rgb(var(--st-surface-rgb) / 0.9)", effect: "none" },
   },
   "y2k": {
     typography: { weightDisplay: 800, tracking: "-0.02em", headingScale: 1.15 },
@@ -625,7 +698,7 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     typography: { weightDisplay: 800, tracking: "-0.03em", headingScale: 1.2 },
     shape: { radius: "4px", borderWidth: "2px" },
     space: { density: "tight", gap: "0.5rem", padScale: 0.9 },
-    decoration: { shadow: "4px 4px 0 var(--st-accent), -4px -4px 0 var(--st-accent2)", effect: "grain" },
+    decoration: { shadow: "4px 4px 0 var(--st-accent), -4px -4px 0 var(--st-accent-2)", effect: "grain" },
   },
   "swiss-design": {
     typography: { weightDisplay: 700, tracking: "-0.02em", headingScale: 1.05 },
@@ -635,6 +708,8 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     layout: { heroVariant: "left", navStyle: "underline", alignment: "left" },
   },
 };
+
+export const tunedStyleTokenSlugs = Object.keys(styleTokenOverrides).sort();
 
 function mergeTokens(
   base: StyleTokens,
