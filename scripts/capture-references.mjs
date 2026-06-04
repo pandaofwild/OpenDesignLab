@@ -20,6 +20,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { designStyles } from "../src/data/designStyles.ts";
 import references from "./style-references.json" with { type: "json" };
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -33,6 +34,24 @@ const targetSlugs = rawArgs.filter((a) => !a.startsWith("--"));
 const slugsToCapture = targetSlugs.length > 0
   ? targetSlugs
   : Object.keys(references).filter((k) => !k.startsWith("_"));
+
+const allStyleSlugs = designStyles.map((style) => style.slug);
+const knownStyleSlugs = new Set(allStyleSlugs);
+
+function printCoverageSummary() {
+  const referenceSlugs = Object.keys(references).filter((key) => !key.startsWith("_"));
+  const referenceSlugSet = new Set(referenceSlugs);
+  const missingSlugs = allStyleSlugs.filter((slug) => !referenceSlugSet.has(slug));
+  const unknownSlugs = referenceSlugs.filter((slug) => !knownStyleSlugs.has(slug));
+
+  console.log(`   Reference coverage: ${referenceSlugs.length}/${allStyleSlugs.length} styles`);
+  if (missingSlugs.length > 0) {
+    console.log(`   Missing style references: ${missingSlugs.join(", ")}`);
+  }
+  if (unknownSlugs.length > 0) {
+    console.log(`   Unknown reference slugs: ${unknownSlugs.join(", ")}`);
+  }
+}
 
 const VIEWPORT = { width: 1440, height: 900 };
 const TIMEOUT = 20_000;
@@ -90,6 +109,8 @@ async function capture() {
   console.log(`\n📸 Capturing reference screenshots`);
   console.log(`   Styles: ${slugsToCapture.join(", ")}`);
   console.log(`   Mode: ${sitesOnly ? "sites only" : "sites + galleries"}\n`);
+  printCoverageSummary();
+  console.log("");
 
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: VIEWPORT });
@@ -113,13 +134,18 @@ async function capture() {
     const sites = entry.sites ?? [];
     const galleries = sitesOnly ? [] : (entry.galleries ?? []);
 
-    const page = await context.newPage();
+    let page = await context.newPage();
 
     for (const item of sites) {
       const result = await capturePage(page, item, outDir, `site`);
       if (result.ok && !result.skipped) total++;
       else if (!result.ok) failed++;
       else skipped++;
+
+      if (!result.ok) {
+        await page.close().catch(() => {});
+        page = await context.newPage();
+      }
     }
 
     for (const item of galleries) {
@@ -127,6 +153,11 @@ async function capture() {
       if (result.ok && !result.skipped) total++;
       else if (!result.ok) failed++;
       else skipped++;
+
+      if (!result.ok) {
+        await page.close().catch(() => {});
+        page = await context.newPage();
+      }
     }
 
     await page.close();

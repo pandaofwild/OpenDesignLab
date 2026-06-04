@@ -18,6 +18,7 @@
     "start": "next start",
     "lint": "eslint",
     "check:data": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/check-data.mjs",
+    "check:style-refs": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/check-style-references.mjs",
     "capture:refs": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/capture-references.mjs"
   },
   "engines": {
