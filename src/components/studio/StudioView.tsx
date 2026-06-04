@@ -6,6 +6,7 @@ import { designStyles } from "@/data/designStyles";
 import { webLayouts } from "@/data/webLayouts";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
 import { LayoutPreviewRenderer } from "@/components/web-layout/LayoutPreviewRenderer";
+import { exportDesignCode } from "@/lib/exportCode";
 import { exportDesignPrompt } from "@/lib/exportPrompt";
 import type { PreviewViewport } from "@/components/web-layout/ViewportSwitcher";
 
@@ -73,6 +74,12 @@ function StudioViewInner() {
   async function copyPrompt() {
     await navigator.clipboard.writeText(exportDesignPrompt(selectedStyle, selectedLayout));
     setCopied("prompt");
+    window.setTimeout(() => setCopied(null), 1400);
+  }
+
+  async function copyCode() {
+    await navigator.clipboard.writeText(exportDesignCode(selectedStyle, selectedLayout));
+    setCopied("code");
     window.setTimeout(() => setCopied(null), 1400);
   }
 
@@ -175,12 +182,11 @@ function StudioViewInner() {
             {/* Copy buttons (Phase 7 — disabled placeholder) */}
             <div className="space-y-2">
               <button
-                className="h-10 w-full cursor-not-allowed border border-[#1E1E1E]/25 text-[11px] font-bold uppercase tracking-[0.1em] text-[#1E1E1E]/35"
-                disabled
-                title="Phase 7에서 활성화됩니다"
+                className="h-10 w-full border border-[#1E1E1E]/25 text-[11px] font-bold uppercase tracking-[0.1em] text-[#1E1E1E]/70 transition-colors hover:border-[#1E1E1E] hover:text-[#1E1E1E]"
+                onClick={copyCode}
                 type="button"
               >
-                코드 복사 (준비 중)
+                {copied === "code" ? "코드 복사됨" : "코드 복사"}
               </button>
               <button
                 className="h-10 w-full border border-[#1E1E1E]/25 text-[11px] font-bold uppercase tracking-[0.1em] text-[#1E1E1E]/70 transition-colors hover:border-[#1E1E1E] hover:text-[#1E1E1E]"
