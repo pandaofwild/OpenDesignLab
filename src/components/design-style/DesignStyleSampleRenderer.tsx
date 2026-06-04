@@ -318,14 +318,15 @@ function ModernismFunctionalGrid({ className, compact = false, style }: Props) {
 }
 
 function SwissInformationGrid({ className, compact = false, style }: Props) {
-  const rows = ["Politics", "Culture", "Economy"];
+  const rows = compact ? ["N", "C", "D"] : ["Politics", "Culture", "Economy"];
+  const headline = compact ? ["Public", "Briefing"] : ["Clear", "public", "information"];
 
   return (
     <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
       <div className="grid h-full grid-rows-[auto_1fr] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)]">
-        <div className="grid grid-cols-[auto_1fr_auto] border-b-2 border-[var(--sample-border)]">
+        <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] border-b-2 border-[var(--sample-border)]">
           <span className="bg-[var(--sample-accent)] px-3 py-2 text-[10px] font-bold text-white">CH</span>
-          <div className="flex items-center gap-4 px-3 text-[10px] font-bold text-[var(--sample-text)]">
+          <div className="flex min-w-0 items-center gap-3 px-3 text-[10px] font-bold text-[var(--sample-text)]">
             <span>World</span>
             <span>Briefing</span>
             <span className={compact ? "hidden" : ""}>Archive</span>
@@ -337,39 +338,43 @@ function SwissInformationGrid({ className, compact = false, style }: Props) {
             <div>
               <p className="text-[10px] font-bold uppercase text-[var(--sample-muted)]">Grid first / Type leads</p>
               <h3
-                className={cn("mt-4 break-words font-display leading-[0.86]", compact ? "text-3xl" : "text-5xl md:text-7xl")}
+                className={cn("mt-4 font-display leading-[0.86]", compact ? "text-3xl" : "text-5xl md:text-7xl")}
                 style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
               >
-                Clear public information.
+                {headline.map((line) => (
+                  <span className="block" key={line}>
+                    {line}
+                  </span>
+                ))}
               </h3>
             </div>
-            <div className="mt-4 grid grid-cols-[auto_1fr] border-y-2 border-[var(--sample-border)] text-[10px]">
+            <div className={cn("mt-4 grid grid-cols-[auto_1fr] border-y-2 border-[var(--sample-border)] text-[10px]", compact ? "hidden" : "")}>
               <span className="border-r-2 border-[var(--sample-border)] px-2 py-2 font-bold text-[var(--sample-accent)]">01</span>
               <span className="px-2 py-2 text-[var(--sample-muted)]">Multilingual editorial system</span>
             </div>
           </div>
-          <div className="grid min-h-0 grid-rows-[auto_1fr_auto]">
+          <div className="grid min-h-0 min-w-0 grid-rows-[auto_1fr_auto]">
             <div className="grid grid-cols-3 border-b-2 border-[var(--sample-border)]">
               {rows.map((row, index) => (
-                <div className="border-r-2 border-[var(--sample-border)] p-3 last:border-r-0" key={row}>
+                <div className="min-w-0 border-r-2 border-[var(--sample-border)] p-2 last:border-r-0" key={row}>
                   <p className="text-[10px] font-bold text-[var(--sample-muted)]">0{index + 2}</p>
-                  <p className="mt-2 text-xs font-bold text-[var(--sample-text)]">{row}</p>
+                  <p className="mt-2 truncate text-[11px] font-bold text-[var(--sample-text)]">{row}</p>
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-[0.72fr_1fr] gap-3 p-4">
-              <div className="bg-[var(--sample-accent)]" />
+            <div className={cn("grid gap-3", compact ? "grid-cols-[0.58fr_1fr] p-3" : "grid-cols-[0.72fr_1fr] p-4")}>
+              <div className="min-h-16 bg-[var(--sample-accent)]" />
               <div className="space-y-2">
                 {[84, 64, 92, 52].map((width) => (
                   <span className="block h-2 bg-[var(--sample-text)]" key={width} style={{ width: `${width}%` }} />
                 ))}
-                <div className="mt-5 grid grid-cols-2 gap-2">
-                  <span className="h-12 border-2 border-[var(--sample-border)]" />
-                  <span className="h-12 bg-[var(--sample-accent-2)]" />
+                <div className={cn("grid grid-cols-2 gap-2", compact ? "mt-3" : "mt-5")}>
+                  <span className={cn("border-2 border-[var(--sample-border)]", compact ? "h-8" : "h-12")} />
+                  <span className={cn("bg-[var(--sample-accent-2)]", compact ? "h-8" : "h-12")} />
                 </div>
               </div>
             </div>
-            <div className="border-t-2 border-[var(--sample-border)] px-3 py-2 text-[10px] font-bold text-[var(--sample-muted)]">
+            <div className={cn("truncate border-t-2 border-[var(--sample-border)] px-3 py-2 text-[10px] font-bold text-[var(--sample-muted)]", compact ? "hidden" : "")}>
               {style.nameEn} / legibility index
             </div>
           </div>
