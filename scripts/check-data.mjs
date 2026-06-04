@@ -1,5 +1,5 @@
 // scripts/check-data.mjs
-import { designStyles, designStyleCategories } from "../src/data/designStyles.ts";
+import { designStyles, designStyleCategories, tunedStyleTokenSlugs } from "../src/data/designStyles.ts";
 
 const errors = [];
 function assert(cond, msg) { if (!cond) errors.push(msg); }
@@ -12,6 +12,11 @@ assert(slugs.size === designStyles.length, "duplicate style slugs found");
 assert(designStyleCategories.length >= 10, `expected at least 10 categories, got ${designStyleCategories.length}`);
 
 const slugSet = new Set(designStyles.map((s) => s.slug));
+assert(tunedStyleTokenSlugs.length >= 24, `expected at least 24 tuned style token overrides, got ${tunedStyleTokenSlugs.length}`);
+for (const slug of tunedStyleTokenSlugs) {
+  assert(slugSet.has(slug), `tuned style slug "${slug}" does not exist`);
+}
+
 for (const s of designStyles) {
   for (const rel of s.related) {
     assert(slugSet.has(rel), `style ${s.slug}: related slug "${rel}" does not exist`);
