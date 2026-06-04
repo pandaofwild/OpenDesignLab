@@ -115,68 +115,103 @@ function MinimalEditorial({ compact = false, style }: Props) {
 }
 
 function MinimalismProductSystem({ className, compact = false, style }: Props) {
+  const metrics = [
+    ["MRR", "$48.2k", "+8%"],
+    ["Active", "1,284", "94%"],
+    ["Tasks", "32", "12 due"],
+  ];
+  const workItems = [
+    ["Launch page", "Ready"],
+    ["Billing flow", "Review"],
+    ["Docs update", "Live"],
+  ];
+
   return (
     <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
       <div className="flex h-full flex-col">
         <div className="flex items-center justify-between border-b border-[var(--sample-border-soft)] pb-4">
-          <div>
-            <p className="text-[10px] font-medium uppercase text-[var(--sample-muted)]">Index</p>
-            <p className="mt-1 text-xs text-[var(--sample-text)]">01 / {style.nameEn}</p>
+          <div className="flex items-center gap-3">
+            <span className="h-6 w-6 border border-[var(--sample-border-soft)] bg-[var(--sample-surface)]" />
+            <div>
+              <p className="text-xs font-semibold text-[var(--sample-text)]">Northstar</p>
+              <p className="text-[10px] text-[var(--sample-muted)]">Product workspace</p>
+            </div>
           </div>
           <div className="flex items-center gap-3 text-[10px] text-[var(--sample-muted)]">
-            <span>Work</span>
-            <span>System</span>
+            <span>Overview</span>
+            <span>Projects</span>
+            <span className={compact ? "hidden" : ""}>Billing</span>
             <span className="h-2 w-2 rounded-full bg-[var(--sample-accent)]" />
           </div>
         </div>
 
-        <div className={cn("grid flex-1 gap-5", compact ? "grid-cols-1 pt-5" : "grid-cols-1 pt-6 md:grid-cols-[0.95fr_1.05fr] md:pt-8")}>
+        <div className={cn("grid flex-1 gap-5", compact ? "grid-cols-[0.72fr_1fr] pt-4" : "grid-cols-1 pt-6 md:grid-cols-[0.95fr_1.05fr] md:pt-8")}>
           <div className="flex min-w-0 flex-col justify-between">
             <div>
-              <p className="text-xs text-[var(--sample-muted)]">{style.category}</p>
+              <p className="text-xs text-[var(--sample-muted)]">Design system / {style.nameEn}</p>
               <h3
-                className={cn("mt-4 max-w-full break-words font-display leading-[1]", compact ? "text-4xl" : "text-4xl md:text-5xl")}
+                className={cn("mt-4 max-w-full break-words font-display leading-[1]", compact ? "text-2xl" : "text-4xl md:text-5xl")}
                 style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
               >
-                {style.nameEn}
+                Calm product pages for focused teams.
               </h3>
             </div>
-            <p className={cn("max-w-sm text-[var(--sample-muted)]", compact ? "mt-4 line-clamp-2 text-[11px] leading-4" : "mt-8 text-sm leading-6")}>
+            <p className={cn("max-w-sm text-[var(--sample-muted)]", compact ? "hidden" : "mt-8 text-sm leading-6")}>
               {style.summary}
             </p>
+            <div className={cn("mt-5 flex gap-2", compact ? "hidden" : "flex")}>
+              <span className="inline-flex h-9 items-center border border-[var(--sample-text)] bg-[var(--sample-text)] px-4 text-xs font-medium text-[var(--sample-base)]">
+                Start project
+              </span>
+              <span className="inline-flex h-9 items-center border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] px-4 text-xs font-medium text-[var(--sample-text)]">
+                View docs
+              </span>
+            </div>
           </div>
 
-          <div className="grid min-h-0 grid-rows-[1fr_auto] gap-4">
+          <div className="grid min-h-0">
             <div className="border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-4">
-              <div className="flex items-center justify-between border-b border-[var(--sample-border-soft)] pb-3 text-[10px] text-[var(--sample-muted)]">
-                <span>Overview</span>
-                <span>Quiet state</span>
-              </div>
-              <div className={cn("grid h-[calc(100%-2.25rem)] gap-4 pt-4", compact ? "grid-cols-[0.72fr_1fr]" : "grid-cols-1 sm:grid-cols-[0.72fr_1fr]")}>
-                <div className="flex flex-col justify-between">
-                  <div className="space-y-2">
-                    <span className="block h-2 w-16 bg-[var(--sample-text)]" />
-                    <span className="block h-2 w-24 bg-[var(--sample-border)]" />
-                    <span className="block h-2 w-12 bg-[var(--sample-border)]" />
-                  </div>
-                  <span className="h-16 border border-[var(--sample-border-soft)] bg-[var(--sample-base)]" />
+              <div className="flex items-center justify-between border-b border-[var(--sample-border-soft)] pb-3">
+                <div>
+                  <p className="text-xs font-semibold text-[var(--sample-text)]">Workspace overview</p>
+                  <p className="mt-1 text-[10px] text-[var(--sample-muted)]">June release</p>
                 </div>
-                <div className="grid grid-rows-[1fr_auto] gap-3">
-                  <div className="border border-[var(--sample-border-soft)] bg-[linear-gradient(180deg,var(--sample-surface),var(--sample-base))]" />
-                  <div className="grid grid-cols-3 gap-2">
-                    {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((color) => (
-                      <span className="h-7 border border-[var(--sample-border-soft)]" key={color} style={{ backgroundColor: color }} />
-                    ))}
+                <span className="border border-[var(--sample-border-soft)] px-2 py-1 text-[10px] text-[var(--sample-muted)]">On track</span>
+              </div>
+
+              <div className="grid grid-cols-3 gap-2 pt-4">
+                {metrics.map(([label, value, meta]) => (
+                  <div className="border border-[var(--sample-border-soft)] bg-[var(--sample-base)] p-2" key={label}>
+                    <p className="text-[10px] text-[var(--sample-muted)]">{label}</p>
+                    <p className="mt-2 text-sm font-semibold text-[var(--sample-text)]">{value}</p>
+                    <p className="mt-1 text-[10px] text-[var(--sample-muted)]">{meta}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className={cn("grid gap-3 pt-4", compact ? "hidden" : "grid-cols-1 sm:grid-cols-[0.82fr_1fr]")}>
+                <div className="border border-[var(--sample-border-soft)] bg-[var(--sample-base)] p-3">
+                  <div className="flex items-end justify-between">
+                    <div>
+                      <p className="text-[10px] text-[var(--sample-muted)]">Progress</p>
+                      <p className="mt-2 text-2xl font-semibold text-[var(--sample-text)]">72%</p>
+                    </div>
+                    <span className="h-10 w-10 border border-[var(--sample-border-soft)] bg-[var(--sample-accent)]" />
+                  </div>
+                  <div className="mt-4 h-1.5 bg-[var(--sample-border)]">
+                    <span className="block h-full w-[72%] bg-[var(--sample-text)]" />
                   </div>
                 </div>
+
+                <div className="border border-[var(--sample-border-soft)]">
+                  {workItems.map(([label, status]) => (
+                    <div className="flex items-center justify-between border-b border-[var(--sample-border-soft)] px-3 py-2 last:border-b-0" key={label}>
+                      <span className="text-[11px] text-[var(--sample-text)]">{label}</span>
+                      <span className="text-[10px] text-[var(--sample-muted)]">{status}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="grid grid-cols-3 border-y border-[var(--sample-border-soft)] text-[10px] text-[var(--sample-muted)]">
-              {["Whitespace", "Thin rules", "Low noise"].map((item) => (
-                <span className="border-r border-[var(--sample-border-soft)] px-2 py-2 last:border-r-0" key={item}>
-                  {item}
-                </span>
-              ))}
             </div>
           </div>
         </div>
