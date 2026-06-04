@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useMemo } from "react";
+import { Suspense, useEffect, useMemo } from "react";
 import { designStyles } from "@/data/designStyles";
 import { webLayouts } from "@/data/webLayouts";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
@@ -9,25 +9,56 @@ import { LayoutPreviewRenderer } from "@/components/web-layout/LayoutPreviewRend
 import type { PreviewViewport } from "@/components/web-layout/ViewportSwitcher";
 
 const DEFAULT_STYLE = "brutalism";
-const DEFAULT_LAYOUT = "hero-layout";
+const DEFAULT_LAYOUT = "hero-focused-layout";
 
 function StudioViewInner() {
   const router = useRouter();
   const params = useSearchParams();
 
-  const selectedStyleSlug = params.get("style") ?? DEFAULT_STYLE;
-  const selectedLayoutSlug = params.get("layout") ?? DEFAULT_LAYOUT;
-  const viewport = (params.get("vp") ?? "desktop") as PreviewViewport;
+  const requestedStyleSlug = params.get("style") ?? DEFAULT_STYLE;
+  const requestedLayoutSlug = params.get("layout") ?? DEFAULT_LAYOUT;
+  const viewport = (params.get("vp") === "mobile" ? "mobile" : "desktop") as PreviewViewport;
 
   const selectedStyle = useMemo(
-    () => designStyles.find((s) => s.slug === selectedStyleSlug) ?? designStyles[0],
-    [selectedStyleSlug],
+    () =>
+      designStyles.find((s) => s.slug === requestedStyleSlug) ??
+      designStyles.find((s) => s.slug === DEFAULT_STYLE) ??
+      designStyles[0],
+    [requestedStyleSlug],
   );
 
   const selectedLayout = useMemo(
-    () => webLayouts.find((l) => l.slug === selectedLayoutSlug) ?? webLayouts[0],
-    [selectedLayoutSlug],
+    () =>
+      webLayouts.find((l) => l.slug === requestedLayoutSlug) ??
+      webLayouts.find((l) => l.slug === DEFAULT_LAYOUT) ??
+      webLayouts[0],
+    [requestedLayoutSlug],
   );
+
+  const selectedStyleSlug = selectedStyle.slug;
+  const selectedLayoutSlug = selectedLayout.slug;
+
+  useEffect(() => {
+    const next = new URLSearchParams(params.toString());
+    let changed = false;
+
+    if (next.get("style") !== selectedStyleSlug) {
+      next.set("style", selectedStyleSlug);
+      changed = true;
+    }
+
+    if (next.get("layout") !== selectedLayoutSlug) {
+      next.set("layout", selectedLayoutSlug);
+      changed = true;
+    }
+
+    if (next.get("vp") !== viewport) {
+      next.set("vp", viewport);
+      changed = true;
+    }
+
+    if (changed) router.replace(`/studio?${next.toString()}`);
+  }, [params, router, selectedLayoutSlug, selectedStyleSlug, viewport]);
 
   function update(key: string, value: string) {
     const next = new URLSearchParams(params.toString());
