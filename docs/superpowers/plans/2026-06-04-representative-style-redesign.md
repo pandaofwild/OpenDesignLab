@@ -93,7 +93,7 @@ Each style below must end with explicit references, explicit copy, explicit pale
 ### 모던 / 미니멀
 
 - [x] `minimalism`
-- [ ] `modernism`
+- [x] `modernism`
 - [ ] `swiss-design`
 - [ ] `international-style`
 - [ ] `scandinavian`
@@ -1001,3 +1001,4 @@ git commit -m "Document representative style research workflow"
 - [x] 2026-06-04: Confirmed current implementation has 88 styles, 24 tuned token overrides, 12 reference-backed styles, 64 mostly untuned styles, and 76 styles without reference entries.
 - [x] 2026-06-04: User clarified that reference work must include additional matching sources for each style, specifically Pinterest, Awwwards, and Dribbble, not only existing real-site references.
 - [x] 2026-06-04: Completed the first per-style pass for `minimalism`: refreshed Linear, Apple, Stripe, Pinterest, Awwwards, and Dribbble references; added targeted reference validation; rewrote copy, palette, tokens, research brief, and a dedicated sample renderer; verified desktop and mobile renders with Playwright.
+- [x] 2026-06-04: Completed the second per-style pass for `modernism`: added Bauhaus-Archiv, MoMA, Vitra, AIM, Pinterest, Awwwards, and Dribbble references; separated it from quiet minimalism with functional grid, primary color blocks, black structure, explicit copy, palette, tokens, research brief, and a dedicated web-like sample renderer; verified desktop and mobile renders with Playwright.

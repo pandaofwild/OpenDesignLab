@@ -14,6 +14,20 @@
     ]
   },
 
+  "modernism": {
+    "sites": [
+      { "url": "https://www.bauhaus.de/en/", "title": "Bauhaus-Archiv / Museum für Gestaltung", "note": "Historical design institution reference for functional typography, modular information, black structure, and modernist graphic discipline." },
+      { "url": "https://www.moma.org/", "title": "MoMA", "note": "Museum reference for modernist institutional hierarchy, large type, direct navigation, and rational event/content modules." },
+      { "url": "https://www.vitra.com/en-us/home", "title": "Vitra", "note": "Product and furniture reference for modernist object culture, functional categories, clear grids, and disciplined product storytelling." },
+      { "url": "https://aim.obys.agency/", "title": "AIM - AI Modernism of Kharkiv", "note": "Contemporary web reference for explicit modernist graphics, strong typography, geometric composition, and structured digital storytelling." }
+    ],
+    "galleries": [
+      { "url": "https://kr.pinterest.com/pinewatt/modernism/", "title": "Pinterest - Modernism", "note": "Moodboard reference for modernist graphic layouts, geometric marks, primary color accents, asymmetric grids, and poster-like structure." },
+      { "url": "https://www.awwwards.com/websites/modern/", "title": "Awwwards - Modern Websites", "note": "Gallery reference for contemporary modern web execution, including architecture, cultural, and modernist-coded digital projects." },
+      { "url": "https://dribbble.com/tags/modernist", "title": "Dribbble - Modernist", "note": "UI and graphic reference for modernist interface modules, geometric symbols, strict grids, and high-contrast typography." }
+    ]
+  },
+
   "brutalism": {
     "sites": [
       { "url": "https://www.balenciaga.com", "title": "Balenciaga", "note": "패션 브루탈리즘 — 검정 배경, 굵은 산세리프, 각진 레이아웃" },

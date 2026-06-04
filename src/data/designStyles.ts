@@ -345,6 +345,17 @@ const palettes: Record<string, DesignStylePalette> = {
     accent3: "#C9D2C5",
     border: "#D8D5CD",
   },
+  modernism: {
+    base: "#F2EFE6",
+    surface: "#FFFFFF",
+    text: "#111111",
+    mutedText: "#626057",
+    primary: "#111111",
+    accent: "#D72F24",
+    accent2: "#1E5AA8",
+    accent3: "#E2B51E",
+    border: "#111111",
+  },
   brutalism: {
     base: "#E4E2DD",
     surface: "#F0EEE8",
@@ -655,6 +666,70 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         "Use flat off-white surfaces, near-black text, soft dividers, no shadow, nearly zero tracking, airy spacing, and a small cool gray accent so the style reads as precise web minimalism rather than warm lifestyle minimalism.",
     },
   },
+  modernism: {
+    summary: "모더니즘은 기능이 형태를 이끈다는 원칙을 바탕으로 비대칭 그리드, 산세리프 타이포, 원색 기하학으로 정보를 조직하는 디자인입니다.",
+    description:
+      "모더니즘은 장식을 줄이는 데서 끝나는 미니멀리즘과 달리, 기능주의적 구조 자체를 화면의 주인공으로 드러냅니다. Bauhaus-Archiv의 역사적 그래픽 언어, MoMA의 기관형 정보 위계, Vitra의 제품 카테고리 구조, AIM의 현대적 모더니스트 웹 표현처럼 강한 그리드와 명확한 모듈, 검정 선, 빨강·파랑·노랑의 제한된 색면을 사용합니다. 웹에서는 히어로, 내비게이션, 콘텐츠 카드가 모두 같은 모듈 체계 안에서 움직이는 느낌이 중요합니다.",
+    visualFeatures: [
+      "비대칭 그리드와 굵은 구조선으로 화면의 질서를 먼저 드러냅니다.",
+      "빨강, 파랑, 노랑 같은 제한된 원색을 기능적 표식과 기하학 블록에 사용합니다.",
+      "산세리프 제목과 작은 메타 정보가 포스터처럼 맞물려 정보 위계를 만듭니다.",
+      "사진이나 제품 영역은 장식 프레임보다 명확한 모듈과 번호 체계 안에 배치합니다.",
+    ],
+    colorPalette: [
+      "따뜻한 종이색 배경과 흰 표면을 기본으로 두어 역사적 인쇄물 감각을 남깁니다.",
+      "검정 텍스트와 검정 경계선으로 모듈 구조를 분명하게 만듭니다.",
+      "빨강은 주요 동작과 방향성을, 파랑은 정보 블록을, 노랑은 보조 강조를 맡깁니다.",
+      "색면은 넓게 번지기보다 기능이 있는 사각형, 상태, 번호, 배지에 제한합니다.",
+    ],
+    typography: [
+      "기하학적 산세리프 제목을 큰 크기로 쓰되 정렬과 행간을 엄격하게 통제합니다.",
+      "메타 라벨, 번호, 분류명은 작고 선명하게 배치해 시스템성을 만듭니다.",
+      "자간은 약간 타이트하게 두지만 Swiss 스타일처럼 완전히 차갑게 만들지는 않습니다.",
+    ],
+    layoutTraits: [
+      "12컬럼 느낌의 모듈 그리드와 비대칭 칸 분할을 사용합니다.",
+      "내비게이션, 히어로, 콘텐츠 카드가 같은 경계선 체계로 연결됩니다.",
+      "기하학 색면은 배경 장식이 아니라 카드 상태, 섹션 구분, 진행 정보에 붙습니다.",
+      "여백은 충분히 두되 빈 화면보다 기능적 구성 밀도가 느껴져야 합니다.",
+    ],
+    useCases: ["문화기관 웹사이트", "건축/제품 포트폴리오", "디자인 스튜디오", "전시 랜딩"],
+    goodFor: ["역사적 디자인 문법을 현대 웹에 적용하려는 브랜드", "제품 카테고리와 아카이브를 강한 구조로 보여줘야 하는 사이트", "문화·교육·건축 콘텐츠처럼 정보와 이미지가 함께 중요한 서비스", "미니멀보다 더 그래픽한 첫인상이 필요한 랜딩페이지"],
+    cautions: [
+      "Bauhaus 전용 스타일처럼 보이지 않게 역사적 인용보다 기능적 웹 구조를 우선해야 합니다.",
+      "원색 블록이 많아지면 장식처럼 보이므로 각 색면에 역할을 부여해야 합니다.",
+      "Swiss Design과 겹치지 않도록 완전한 중립성보다 실험적 비대칭과 기하학 신호를 남겨야 합니다.",
+    ],
+    imagePrompt:
+      "A modernist web design reference image with asymmetric modular grid, geometric sans-serif typography, black structural lines, restrained red blue yellow blocks, functional navigation, product and archive modules, Bauhaus and New Typography influence, no logo, no watermark",
+    research: {
+      referenceSites: [
+        { title: "Bauhaus-Archiv / Museum für Gestaltung", url: "https://www.bauhaus.de/en/", note: "Historical design institution reference for functional typography, modular information, black structure, and modernist graphic discipline." },
+        { title: "MoMA", url: "https://www.moma.org/", note: "Museum reference for modernist institutional hierarchy, large type, direct navigation, and rational event/content modules." },
+        { title: "Vitra", url: "https://www.vitra.com/en-us/home", note: "Product and furniture reference for modernist object culture, functional categories, clear grids, and disciplined product storytelling." },
+        { title: "AIM - AI Modernism of Kharkiv", url: "https://aim.obys.agency/", note: "Contemporary web reference for explicit modernist graphics, strong typography, geometric composition, and structured digital storytelling." },
+      ],
+      referenceGalleries: [
+        { title: "Pinterest - Modernism", url: "https://kr.pinterest.com/pinewatt/modernism/", note: "Moodboard reference for modernist graphic layouts, geometric marks, primary color accents, asymmetric grids, and poster-like structure." },
+        { title: "Awwwards - Modern Websites", url: "https://www.awwwards.com/websites/modern/", note: "Gallery reference for contemporary modern web execution, including architecture, cultural, and modernist-coded digital projects." },
+        { title: "Dribbble - Modernist", url: "https://dribbble.com/tags/modernist", note: "UI and graphic reference for modernist interface modules, geometric symbols, strict grids, and high-contrast typography." },
+      ],
+      representativeTraits: [
+        "Asymmetric modular grid",
+        "Functional sans-serif hierarchy",
+        "Black structural rules",
+        "Primary geometric color blocks",
+        "Numbered information modules",
+      ],
+      avoidTraits: [
+        "Quiet SaaS minimalism",
+        "Pure Swiss neutrality",
+        "Decorative retro Bauhaus pastiche",
+      ],
+      tokenIntent:
+        "Use a warm paper base, black text and borders, sharp corners, moderate density, tight geometric typography, and red blue yellow accents so the style reads as functional modernist web structure rather than generic modern minimalism.",
+    },
+  },
 };
 
 function hashSlug(slug: string) {
@@ -673,10 +748,11 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     layout: { heroVariant: "left", navStyle: "minimal", alignment: "left" },
   },
   "modernism": {
-    typography: { weightDisplay: 700, tracking: "-0.03em", headingScale: 1.08 },
-    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px" },
-    space: { density: "airy", gap: "1.1rem", padScale: 1.25 },
-    layout: { heroVariant: "left", navStyle: "underline", alignment: "left" },
+    typography: { weightDisplay: 700, weightBody: 500, tracking: "-0.02em", headingScale: 1.12 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "2px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.85rem", padScale: 1.05 },
+    decoration: { shadow: "none", effect: "none" },
+    layout: { heroVariant: "split", navStyle: "underline", alignment: "left" },
   },
   "warm-minimal": {
     typography: { weightDisplay: 500, weightBody: 400, tracking: "-0.01em", headingScale: 0.96 },

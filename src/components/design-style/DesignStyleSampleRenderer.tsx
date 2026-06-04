@@ -220,6 +220,103 @@ function MinimalismProductSystem({ className, compact = false, style }: Props) {
   );
 }
 
+function ModernismFunctionalGrid({ className, compact = false, style }: Props) {
+  const modules = [
+    ["01", "Archive"],
+    ["02", "Objects"],
+    ["03", "Program"],
+  ];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr]">
+        <div className="grid grid-cols-[auto_1fr_auto] items-center border-b-2 border-[var(--sample-border)]">
+          <div className="border-r-2 border-[var(--sample-border)] bg-[var(--sample-text)] px-3 py-2 text-[10px] font-bold text-[var(--sample-base)]">
+            M28
+          </div>
+          <div className="flex items-center gap-4 px-3 text-[10px] font-semibold text-[var(--sample-text)]">
+            <span>Research</span>
+            <span>Objects</span>
+            <span className={compact ? "hidden" : ""}>Program</span>
+          </div>
+          <div className="grid h-full w-16 grid-cols-3 border-l-2 border-[var(--sample-border)]">
+            {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((color) => (
+              <span key={color} style={{ backgroundColor: color }} />
+            ))}
+          </div>
+        </div>
+
+        <div className={cn("grid min-h-0", compact ? "grid-cols-[0.9fr_1.1fr]" : "grid-cols-1 md:grid-cols-[0.82fr_1.18fr]")}>
+          <div className="flex min-w-0 flex-col justify-between border-r-2 border-[var(--sample-border)] p-4">
+            <div>
+              <p className="text-[10px] font-semibold uppercase text-[var(--sample-muted)]">Form follows function</p>
+              <h3
+                className={cn("mt-4 font-display leading-[0.94]", compact ? "text-3xl" : "text-4xl md:text-6xl")}
+                style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+              >
+                Function shapes form.
+              </h3>
+            </div>
+            <div className={cn("mt-4 grid gap-2", compact ? "grid-cols-1" : "grid-cols-2")}>
+              <span className="h-12 bg-[var(--sample-accent)]" />
+              <span className="h-12 border-2 border-[var(--sample-border)] bg-[var(--sample-surface)]" />
+            </div>
+          </div>
+
+          <div className="grid min-h-0 grid-rows-[auto_1fr_auto] bg-[var(--sample-surface)]">
+            <div className="grid grid-cols-3 border-b-2 border-[var(--sample-border)]">
+              {modules.map(([number, label], index) => (
+                <div className="border-r-2 border-[var(--sample-border)] p-3 last:border-r-0" key={label}>
+                  <p className="text-[10px] font-bold text-[var(--sample-muted)]">{number}</p>
+                  <p className="mt-2 text-xs font-semibold text-[var(--sample-text)]">{label}</p>
+                  <span
+                    className="mt-3 block h-2"
+                    style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index] }}
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className={cn("grid gap-3 p-4", compact ? "grid-cols-1" : "grid-cols-[1fr_0.72fr]")}>
+              <div className="grid grid-rows-[1fr_auto] border-2 border-[var(--sample-border)]">
+                <div className="grid grid-cols-[0.65fr_1fr]">
+                  <div className="border-r-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)]" />
+                  <div className="grid grid-rows-[1fr_1fr]">
+                    <span className="border-b-2 border-[var(--sample-border)] bg-[var(--sample-base)]" />
+                    <span className="bg-[var(--sample-accent-3)]" />
+                  </div>
+                </div>
+                <div className="flex items-center justify-between border-t-2 border-[var(--sample-border)] px-3 py-2">
+                  <span className="text-xs font-semibold text-[var(--sample-text)]">Object index</span>
+                  <span className="text-[10px] text-[var(--sample-muted)]">1920-1960</span>
+                </div>
+              </div>
+
+              <div className={cn("space-y-2", compact ? "hidden" : "block")}>
+                {["Visit", "Collection", "Lecture"].map((label, index) => (
+                  <div className="grid grid-cols-[2rem_1fr] border-2 border-[var(--sample-border)]" key={label}>
+                    <span className="grid place-items-center border-r-2 border-[var(--sample-border)] bg-[var(--sample-text)] text-[10px] font-bold text-[var(--sample-base)]">
+                      {index + 1}
+                    </span>
+                    <span className="px-3 py-2 text-xs font-semibold text-[var(--sample-text)]">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-[1fr_auto] border-t-2 border-[var(--sample-border)]">
+              <p className="line-clamp-1 px-3 py-2 text-[10px] text-[var(--sample-muted)]">{style.summary}</p>
+              <span className="border-l-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)] px-3 py-2 text-[10px] font-bold text-white">
+                System
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
 function BrutalistPoster({ compact = false, style }: Props) {
   return (
     <SampleFrame compact={compact} className="bg-[var(--sample-base)]" style={style}>
@@ -491,6 +588,10 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
 
   if (style.slug === "minimalism") {
     return <MinimalismProductSystem {...props} />;
+  }
+
+  if (style.slug === "modernism") {
+    return <ModernismFunctionalGrid {...props} />;
   }
 
   switch (style.sampleType) {
