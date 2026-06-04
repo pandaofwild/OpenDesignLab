@@ -98,10 +98,10 @@ function StudioViewInner() {
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[320px_1fr]">
+        <div className="grid min-w-0 gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
 
           {/* Left: Controls */}
-          <aside className="space-y-6">
+          <aside className="min-w-0 space-y-6">
 
             {/* Style picker */}
             <div>
@@ -179,7 +179,7 @@ function StudioViewInner() {
               </p>
             </div>
 
-            {/* Copy buttons (Phase 7 — disabled placeholder) */}
+            {/* Copy buttons */}
             <div className="space-y-2">
               <button
                 className="h-10 w-full border border-[#1E1E1E]/25 text-[11px] font-bold uppercase tracking-[0.1em] text-[#1E1E1E]/70 transition-colors hover:border-[#1E1E1E] hover:text-[#1E1E1E]"
@@ -200,9 +200,9 @@ function StudioViewInner() {
           </aside>
 
           {/* Right: Live preview */}
-          <div className="min-h-[600px]">
+          <div className="min-h-[600px] min-w-0">
             <div
-              className="style-preset-root relative overflow-hidden"
+              className="style-preset-root relative min-w-0 max-w-full overflow-hidden"
               data-st-density={selectedStyle.tokens.space.density}
               data-st-effect={selectedStyle.tokens.decoration.effect}
               data-style-preset={selectedStyle.slug}
