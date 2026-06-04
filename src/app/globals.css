@@ -497,7 +497,7 @@ main header {
 
 .st-display {
   font-family: var(--st-font-display, var(--font-display));
-  font-size: calc(1em * var(--st-heading-scale, 1));
+  font-size: calc(var(--st-display-size, 1em) * var(--st-heading-scale, 1));
   font-weight: var(--st-weight-display, 700);
   letter-spacing: var(--st-tracking, -0.05em);
 }
