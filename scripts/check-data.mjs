@@ -27,8 +27,12 @@ for (const s of designStyles) {
   assert(s.tokens !== undefined, `style ${s.slug} missing tokens`);
   assert(["airy","normal","tight"].includes(s.tokens.space.density), `style ${s.slug} bad density: ${s.tokens.space.density}`);
   assert(typeof s.tokens.typography.weightDisplay === "number", `style ${s.slug} bad weightDisplay`);
+  assert(typeof s.tokens.typography.headingScale === "number", `style ${s.slug} bad headingScale`);
   assert(typeof s.tokens.shape.radius === "string" && s.tokens.shape.radius.length > 0, `style ${s.slug} missing shape.radius`);
   assert(typeof s.tokens.shape.radiusPill === "string" && s.tokens.shape.radiusPill.length > 0, `style ${s.slug} missing shape.radiusPill`);
+  assert(["solid","dashed","double"].includes(s.tokens.shape.borderStyle), `style ${s.slug} bad borderStyle`);
+  assert(typeof s.tokens.space.gap === "string" && s.tokens.space.gap.length > 0, `style ${s.slug} missing space.gap`);
+  assert(typeof s.tokens.space.padScale === "number", `style ${s.slug} bad padScale`);
   assert(s.tokens.color.base === s.palette.base, `style ${s.slug} tokens.color.base mismatch`);
 }
 

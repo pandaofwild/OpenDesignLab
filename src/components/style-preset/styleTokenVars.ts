@@ -44,6 +44,7 @@ export function styleTokenVars(style: DesignStyle): CSSProperties {
     "--st-radius": shape.radius,
     "--st-radius-pill": shape.radiusPill,
     "--st-border-width": shape.borderWidth,
+    "--st-border-style": shape.borderStyle,
     // Space tokens
     "--st-gap": space.gap,
     "--st-pad-scale": String(space.padScale),
