@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import type { WebLayout } from "@/data/webLayouts";
 import { AnnotatedRegion } from "@/components/web-layout/LayoutAnnotations";
 import type { PreviewViewport } from "@/components/web-layout/ViewportSwitcher";
@@ -36,7 +36,7 @@ function Region({
   return (
     <AnnotatedRegion
       className={cn(
-        "min-w-0 max-w-full border-[rgb(var(--st-border-rgb)_/_0.18)] bg-[rgb(var(--st-surface-rgb)_/_0.72)]",
+        "st-border st-density-gap min-w-0 max-w-full bg-[rgb(var(--st-surface-rgb)_/_0.72)]",
         className,
       )}
       label={label}
@@ -51,17 +51,17 @@ function Region({
 function SampleHeader({ compact = false }: { compact?: boolean }) {
   return (
     <header
-      className="flex min-h-11 items-center justify-between border border-[rgb(var(--st-border-rgb)_/_0.18)] bg-[rgb(var(--st-base-rgb)_/_0.78)] px-3 py-2"
+      className="st-border st-gap flex min-h-11 items-center justify-between bg-[rgb(var(--st-base-rgb)_/_0.78)] px-3 py-2"
       style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }}
     >
       <div className="flex items-center gap-2">
         <span className="h-6 w-6 bg-[var(--st-primary)]" />
-        <span className="font-display text-sm font-bold uppercase leading-none tracking-[-0.05em]">
+        <span className="st-display uppercase leading-none" style={{ "--st-display-size": "0.875rem" } as CSSProperties}>
           Raw Co.
         </span>
       </div>
       {compact ? (
-        <span className="border border-[rgb(var(--st-border-rgb)_/_0.25)] px-2 py-1 text-[11px] font-bold uppercase tracking-[0.12em]">
+        <span className="st-border px-2 py-1 text-[11px] font-bold uppercase tracking-[0.12em]">
           Menu
         </span>
       ) : (
@@ -96,16 +96,14 @@ function RawHeading({
   return (
     <h3
       className={cn(
-        "max-w-full break-words uppercase leading-[0.78]",
-        compact ? "text-[2.35rem] leading-[0.86]" : "text-7xl",
+        "st-display max-w-full break-words uppercase",
+        compact ? "leading-[0.86]" : "leading-[0.78]",
         className,
       )}
       style={{
+        "--st-display-size": compact ? "2.35rem" : "4.5rem",
         color: "var(--st-text)",
-        fontFamily: "var(--st-font-display)",
-        fontWeight: "var(--st-weight-display)",
-        letterSpacing: "var(--st-tracking)",
-      }}
+      } as CSSProperties}
     >
       {children}
     </h3>
@@ -116,12 +114,12 @@ function RawButton({ children, tone = "dark" }: { children: ReactNode; tone?: "d
   return (
     <button
       className={cn(
-        "h-9 border px-4 text-[11px] font-bold uppercase tracking-[0.12em]",
+        "st-border h-9 px-4 text-[11px] font-bold uppercase tracking-[0.12em]",
         tone === "dark"
           ? "border-[var(--st-primary)] bg-[var(--st-primary)] text-[var(--st-surface)]"
           : "border-[rgb(var(--st-border-rgb)_/_0.28)] bg-[rgb(var(--st-surface-rgb)_/_0.80)] text-[var(--st-text)]",
       )}
-      style={{ borderRadius: "var(--st-radius-pill)", borderWidth: "var(--st-border-width)" }}
+      style={{ borderRadius: "var(--st-radius-pill)" }}
       type="button"
     >
       {children}
@@ -133,7 +131,7 @@ function SoftScene({ className, children }: { className?: string; children?: Rea
   return (
     <div
       className={cn(
-        "relative overflow-hidden border border-[rgb(var(--st-border-rgb)_/_0.16)] bg-[var(--st-base)] p-4",
+        "st-border st-pad relative overflow-hidden bg-[var(--st-base)]",
         "before:absolute before:left-[-20%] before:top-[-20%] before:h-56 before:w-56 before:bg-[rgb(var(--st-accent-rgb)_/_0.42)] before:blur-[70px] before:content-['']",
         "after:absolute after:bottom-[-22%] after:right-[-15%] after:h-56 after:w-56 after:bg-[rgb(var(--st-accent-2-rgb)_/_0.42)] after:blur-[70px] after:content-['']",
         className,
@@ -173,13 +171,13 @@ function ProductTile({ name, index }: { name: string; index: number }) {
 function MetricCard({ label, value }: { label: string; value: string }) {
   return (
     <div
-      className="border border-[rgb(var(--st-border-rgb)_/_0.16)] bg-[rgb(var(--st-surface-rgb)_/_0.78)] p-3"
+      className="st-border bg-[rgb(var(--st-surface-rgb)_/_0.78)] p-3"
       style={{ borderRadius: "var(--st-radius)", boxShadow: "var(--st-shadow)" }}
     >
       <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[rgb(var(--st-text-rgb)_/_0.50)]">{label}</p>
       <p
-        className="mt-2 text-4xl font-bold leading-none"
-        style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+        className="st-display mt-2 leading-none"
+        style={{ "--st-display-size": "2.25rem" } as CSSProperties}
       >
         {value}
       </p>

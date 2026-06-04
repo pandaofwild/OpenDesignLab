@@ -42,8 +42,8 @@ function SampleFrame({
   return (
     <div
       className={cn(
-        "relative h-full min-h-[250px] overflow-hidden border bg-[var(--sample-base)] text-[var(--sample-text)]",
-        compact ? "min-h-[210px] p-3" : "min-h-[540px] p-6 md:p-8",
+        "st-border relative h-full min-h-[250px] overflow-hidden bg-[var(--sample-base)] text-[var(--sample-text)]",
+        compact ? "min-h-[210px] p-3" : "st-pad min-h-[540px]",
         className,
       )}
       style={sampleVariables(style)}
@@ -55,8 +55,11 @@ function SampleFrame({
 
 function MiniNav({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="flex items-center justify-between gap-3">
-      <span className={cn("font-bold uppercase tracking-[0.16em]", compact ? "text-[9px]" : "text-xs")}>
+    <div className="st-gap flex items-center justify-between">
+      <span
+        className="st-display uppercase"
+        style={{ "--st-display-size": compact ? "0.5625rem" : "0.75rem" } as CSSProperties}
+      >
         Studio
       </span>
       <div className="flex gap-2">
