@@ -129,14 +129,18 @@ npm run build
 src/app/layouts/page.tsx              # Explorer page
 src/app/layouts/[slug]/page.tsx       # Layout detail page
 src/app/layouts/compare/page.tsx      # Compare page shell
+src/app/studio/page.tsx               # Style x Layout studio
+src/app/components/page.tsx           # Component dictionary
 src/app/styles/page.tsx            # Design style library page
 src/app/styles/[slug]/page.tsx     # Design style detail page
 src/app/styles/generate/page.tsx   # Local image generation admin
 src/app/api/design-style-images/route.ts  # OpenAI Image API route
 src/data/webLayouts.ts                    # Layout catalog and generated metadata
 src/data/designStyles.ts                  # 88 design styles and generated metadata
+src/data/componentSpecs.ts                # Tokenized component dictionary specs
 src/components/web-layout/                # Explorer, cards, previews, compare UI
 src/components/design-style/              # Style cards, filters, samples, generator UI
+src/components/component-dictionary/      # Component token previews and picker UI
 src/components/style-preset/              # Global selected style provider
 src/components/ui/                        # Small shared UI primitives
 skills/layout-recommender/SKILL.md        # Purpose-based layout recommendation skill
