@@ -822,65 +822,70 @@ function NeoBrutalistApp({ className, compact = false, style }: Props) {
 }
 
 function AntiDesignLanding({ className, compact = false, style }: Props) {
-  const portalLinks = [
-    { label: "plain index", meta: "/start-here", tone: "bg-[var(--sample-accent-3)]" },
-    { label: "wrong shop", meta: "cart without cart", tone: "bg-[var(--sample-accent)]" },
-    { label: "pay wall?", meta: "please do not align", tone: "bg-[var(--sample-surface)]" },
-    { label: "about now", meta: "published sideways", tone: "bg-[var(--sample-accent-2)]" },
+  const projects = [
+    ["01", "Handshake", "brand system"],
+    ["02", "Typeforce 12", "motion type"],
+    ["03", "Offset", "noise cut"],
   ];
 
   return (
     <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="absolute inset-0 bg-[var(--sample-base)]" />
+      <div className={cn("absolute rounded-full bg-[var(--sample-accent)]", compact ? "-left-14 top-12 h-12 w-[130%] -rotate-[21deg]" : "-left-24 top-12 h-20 w-[130%] -rotate-[18deg]")} />
+      <div className={cn("absolute rounded-full bg-[var(--sample-accent)]", compact ? "-left-16 bottom-14 h-10 w-[92%] -rotate-[32deg]" : "-left-28 bottom-20 h-16 w-[96%] -rotate-[31deg]")} />
+      <div className={cn("absolute rounded-full border-[10px] border-[var(--sample-accent-2)]", compact ? "right-[-4rem] top-14 h-32 w-40 rotate-[12deg]" : "right-[-6rem] top-20 h-64 w-72 rotate-[10deg]")} />
       <div
-        className="absolute inset-0 opacity-35"
-        style={{
-          backgroundImage:
-            "linear-gradient(90deg, var(--sample-accent-3) 0 1px, transparent 1px), linear-gradient(0deg, var(--sample-accent) 0 1px, transparent 1px), repeating-linear-gradient(135deg, transparent 0 18px, var(--sample-surface) 19px 21px, transparent 22px 38px)",
-          backgroundSize: "29px 17px, 29px 17px, 100% 100%",
-        }}
+        className={cn("absolute border-2 border-[var(--sample-accent-3)]", compact ? "left-[34%] top-[36%] h-20 w-36 rotate-[5deg]" : "left-[34%] top-[38%] h-32 w-72 rotate-[5deg]")}
+        style={{ borderRadius: "48% 42% 58% 39% / 34% 58% 42% 66%" }}
       />
-      <div className={cn("absolute right-5 top-16 border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)]", compact ? "h-16 w-20 rotate-[7deg]" : "h-24 w-36 rotate-[8deg]")} />
-      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-2">
+      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
         <div className="flex items-start justify-between gap-3 text-[10px] font-black uppercase">
-          <span className="rotate-[-2deg] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-1">Anti-site / live wrong</span>
-          <span className="translate-y-2 rotate-[4deg] border-2 border-[var(--sample-border)] bg-[var(--sample-accent)] px-2 py-1">menu is lower</span>
+          <span className="rounded-full border border-[var(--sample-border)] bg-[var(--sample-base)] px-3 py-1">wildweb.studio</span>
+          <span className="rounded-full bg-[var(--sample-surface)] px-3 py-1 text-[var(--sample-base)]">work / about / contact</span>
         </div>
-        <div className={cn("grid min-h-0 gap-2", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[0.78fr_1.22fr]")}>
-          <div className="relative z-10 self-center border-4 border-[var(--sample-border)] bg-[var(--sample-accent-2)] p-3 shadow-none md:rotate-[-3deg]">
-            <span className="mb-2 inline-block border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-1 text-[10px] font-black uppercase">not a bug</span>
+        <div className={cn("grid min-h-0 items-center gap-3", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[0.9fr_1.1fr]")}>
+          <div
+            className="relative z-10 bg-[var(--sample-surface)] p-4 text-[var(--sample-base)]"
+            style={{ borderRadius: "43% 57% 44% 56% / 58% 42% 58% 42%", boxShadow: "0 0 0 2px var(--sample-accent-3), 10px 10px 0 var(--sample-accent-2)" }}
+          >
+            <span className="mb-3 inline-block rounded-full bg-[var(--sample-accent)] px-3 py-1 text-[10px] font-black text-[var(--sample-border)]">creative dev portfolio</span>
             <h3
               className={cn("break-words font-display leading-[0.9]", compact ? "text-3xl" : "text-5xl md:text-6xl")}
               style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
             >
-              This layout argues back.
+              Wild web work, still usable.
             </h3>
-            <p className={cn("mt-3 max-w-[19rem] border-2 border-[var(--sample-border)] bg-[var(--sample-base)] px-2 py-1 text-xs font-bold", compact ? "hidden" : "")}>
-              Links remain obvious while the page refuses the usual polish.
+            <p className={cn("mt-4 max-w-[18rem] bg-[var(--sample-base)] px-3 py-2 text-xs font-bold text-[var(--sample-border)]", compact ? "hidden" : "")}>
+              I build web experiences for designers with improbable ideas.
             </p>
           </div>
-          <div className="grid min-h-0 content-center gap-2 font-black">
-            {portalLinks.map((link, index) => (
+          <div className={cn("relative z-10 grid gap-2", compact ? "hidden" : "")}>
+            <div className="ml-auto w-3/4 border border-[var(--sample-border)] bg-[var(--sample-base)] p-2 text-xs font-black">
+              <span className="block text-[10px] uppercase text-[var(--sample-muted)]">selected work</span>
+              <span className="mt-1 block text-2xl leading-none">Projects that should have been impossible.</span>
+            </div>
+            {projects.map(([number, title, meta], index) => (
               <span
                 className={cn(
-                  "block border-2 border-[var(--sample-border)] px-3 py-2 text-xs",
-                  link.tone,
-                  index === 0 ? "-translate-x-1 rotate-[1deg]" : "",
-                  index === 1 ? "translate-x-5 rotate-[-2deg]" : "",
-                  index === 2 ? "-translate-x-3 rotate-[3deg]" : "",
-                  index === 3 ? "translate-x-2 rotate-[-1deg]" : "",
-                  compact ? "translate-x-0 rotate-0" : "",
+                  "grid grid-cols-[2.5rem_1fr] border border-[var(--sample-border)] bg-[var(--sample-base)] px-3 py-2 text-xs font-black",
+                  index === 0 ? "mr-10 -rotate-[1deg]" : "",
+                  index === 1 ? "ml-12 rotate-[2deg]" : "",
+                  index === 2 ? "mr-4 -rotate-[2deg]" : "",
                 )}
-                key={link.label}
+                key={title}
               >
-                <span className="block break-words underline decoration-[3px] underline-offset-2">{link.label}</span>
-                <span className="mt-1 block break-words font-mono text-[10px] font-bold">{link.meta}</span>
+                <span className="text-[var(--sample-accent-3)]">{number}</span>
+                <span className="min-w-0">
+                  <span className="block truncate">{title}</span>
+                  <span className="block truncate font-mono text-[10px] text-[var(--sample-muted)]">{meta}</span>
+                </span>
               </span>
             ))}
           </div>
         </div>
-        <div className={cn("grid grid-cols-[1fr_auto] border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] text-[10px] font-black", compact ? "hidden" : "")}>
-          <span className="truncate px-2 py-1">newsletter that asks nothing</span>
-          <span className="border-l-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-1">send?</span>
+        <div className={cn("grid grid-cols-[1fr_auto] overflow-hidden rounded-full border border-[var(--sample-border)] bg-[var(--sample-base)] text-[10px] font-black", compact ? "hidden" : "")}>
+          <span className="truncate px-3 py-1">hello @ wildweb.studio</span>
+          <span className="bg-[var(--sample-accent-3)] px-3 py-1">available</span>
         </div>
       </div>
     </SampleFrame>

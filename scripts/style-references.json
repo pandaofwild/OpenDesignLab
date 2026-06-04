@@ -83,15 +83,14 @@
 
   "anti-design": {
     "sites": [
+      { "url": "https://bryantcodes.art/", "title": "Bryantcodes", "note": "Creative developer portfolio reference for massive hand-drawn neon gestures, irregular dark focal forms, experimental web craft, and project-led storytelling." },
       { "url": "https://www.superbad.com", "title": "Superbad", "note": "Historical web reference for intentionally awkward composition, early-web friction, clashing visuals, and anti-polished navigation." },
-      { "url": "https://net-art.org/superbad", "title": "Superbad - net.art archive", "note": "Archive context for Superbad as a sprawling web-art hub of pages, graphics, images, text, and non-linear navigation." },
-      { "url": "https://thehtml.review/", "title": "The HTML Review", "note": "Independent web reference for strange editorial systems, raw HTML feeling, unexpected layouts, and handcrafted anti-design energy." },
-      { "url": "https://www.are.na/", "title": "Are.na", "note": "Cultural platform reference for rough knowledge boards, dense links, plain interface elements, and anti-slick publishing rhythm." }
+      { "url": "https://thehtml.review/", "title": "The HTML Review", "note": "Independent web reference for strange editorial systems, raw HTML feeling, unexpected layouts, and handcrafted anti-design energy." }
     ],
     "galleries": [
       { "url": "https://www.pinterest.com/search/pins/?q=anti%20design%20website", "title": "Pinterest - Anti Design Website", "note": "Moodboard reference for clashing layouts, deliberate imbalance, uncomfortable type scale, and anti-commercial web composition." },
       { "url": "https://www.awwwards.com/websites/experimental/", "title": "Awwwards - Experimental Websites", "note": "Gallery reference for unconventional web systems, broken expectations, experimental navigation, and intentionally unstable visual rhythm." },
-      { "url": "https://dribbble.com/search/anti%20design%20website", "title": "Dribbble - Anti Design Website", "note": "UI reference for anti-design posters, chaotic cards, distorted hierarchy, and deliberately awkward digital surfaces." }
+      { "url": "https://dribbble.com/tags/anti-design", "title": "Dribbble - Anti Design", "note": "UI reference for anti-design portfolios, experimental app shots, scribbled overlays, off-grid cards, and weird but intentional digital surfaces." }
     ]
   },
 
