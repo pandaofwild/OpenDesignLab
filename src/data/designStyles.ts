@@ -356,6 +356,61 @@ const palettes: Record<string, DesignStylePalette> = {
     accent3: "#E2B51E",
     border: "#111111",
   },
+  "swiss-design": {
+    base: "#F6F6F2",
+    surface: "#FFFFFF",
+    text: "#111111",
+    mutedText: "#5D5D58",
+    primary: "#111111",
+    accent: "#E1261C",
+    accent2: "#D7D7D2",
+    accent3: "#6A6F75",
+    border: "#111111",
+  },
+  "international-style": {
+    base: "#F5F6F7",
+    surface: "#FFFFFF",
+    text: "#16191D",
+    mutedText: "#68707A",
+    primary: "#16191D",
+    accent: "#0F62FE",
+    accent2: "#DDE3EA",
+    accent3: "#8D97A5",
+    border: "#C8D0DA",
+  },
+  scandinavian: {
+    base: "#F7F3EA",
+    surface: "#FFFCF5",
+    text: "#243027",
+    mutedText: "#727466",
+    primary: "#243027",
+    accent: "#9EB7A5",
+    accent2: "#D9B983",
+    accent3: "#D86F45",
+    border: "#D8D2C3",
+  },
+  japandi: {
+    base: "#EFE8DC",
+    surface: "#F8F3EA",
+    text: "#2A2822",
+    mutedText: "#746B5F",
+    primary: "#2A2822",
+    accent: "#8B6F4E",
+    accent2: "#C7B79D",
+    accent3: "#6F7A5E",
+    border: "#B8AA96",
+  },
+  "warm-minimal": {
+    base: "#F6EFE5",
+    surface: "#FFF9F0",
+    text: "#2A211B",
+    mutedText: "#7A6B5F",
+    primary: "#2A211B",
+    accent: "#C87A4A",
+    accent2: "#E6C8A8",
+    accent3: "#9A7B5D",
+    border: "#DED1C1",
+  },
   brutalism: {
     base: "#E4E2DD",
     surface: "#F0EEE8",
@@ -730,6 +785,166 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         "Use a warm paper base, black text and borders, sharp corners, moderate density, tight geometric typography, and red blue yellow accents so the style reads as functional modernist web structure rather than generic modern minimalism.",
     },
   },
+  "swiss-design": {
+    summary: "스위스 디자인은 엄격한 그리드와 객관적인 산세리프 타이포그래피로 정보를 가장 빠르고 명확하게 읽히게 만드는 디자인입니다.",
+    description:
+      "스위스 디자인은 장식보다 질서와 가독성을 우선합니다. SWI swissinfo.ch의 다국어 뉴스 구조, SBB의 공공 교통 정보 체계, Swiss grid 레퍼런스처럼 큰 제목, 작은 번호, 빨간 포인트, 정확한 칼럼 폭이 화면을 지배합니다. 모더니즘보다 색면 장식은 줄이고, 인터내셔널 스타일보다 포스터 같은 타이포 긴장감을 더 강하게 남깁니다.",
+    visualFeatures: [
+      "명확한 칼럼과 기준선으로 콘텐츠의 위치와 크기를 결정합니다.",
+      "빨간색은 방향, 현재 위치, 핵심 CTA처럼 기능적 신호에만 사용합니다.",
+      "큰 제목과 작은 메타 정보가 같은 그리드 위에서 강한 대비를 만듭니다.",
+      "사진, 데이터, 링크가 모두 동일한 모듈 규칙 안에서 정렬됩니다.",
+    ],
+    colorPalette: [
+      "흰색과 거의 검정에 가까운 텍스트를 기본으로 사용합니다.",
+      "스위스 레드는 작은 면적이지만 즉시 눈에 띄는 시스템 색으로 둡니다.",
+      "보조 회색은 선, 캡션, 비활성 영역에만 제한합니다.",
+      "색보다 위치, 크기, 간격이 위계를 만드는 팔레트입니다.",
+    ],
+    typography: ["중립 산세리프를 크게 쓰고 행간과 기준선을 엄격히 맞춥니다.", "번호와 섹션 라벨은 작은 크기로 두되 매우 선명하게 둡니다.", "자간은 과하게 좁히지 않고 정보 판독성을 우선합니다."],
+    layoutTraits: ["12컬럼에 가까운 포스터식 그리드를 사용합니다.", "비대칭 배치라도 기준선과 마진은 일관되게 유지합니다.", "카드보다 정보 행과 표식이 더 강하게 보입니다.", "모바일에서도 번호, 제목, 링크의 순서를 잃지 않습니다."],
+    useCases: ["뉴스/매거진", "공공 정보 서비스", "교통/지도 서비스", "디자인 아카이브"],
+    goodFor: ["많은 정보를 빠르게 훑어야 하는 콘텐츠", "공공성과 신뢰가 중요한 서비스", "타이포그래피가 브랜드 자산인 사이트", "섹션과 상태를 명확히 구분해야 하는 웹앱"],
+    cautions: ["너무 중립적으로 만들면 인터내셔널 스타일과 구분되지 않습니다.", "빨간 포인트가 많아지면 시스템성이 약해지므로 한 화면에 역할을 제한해야 합니다.", "그리드가 너무 촘촘하면 모바일에서 뉴스 표처럼 답답해질 수 있습니다."],
+    imagePrompt:
+      "A Swiss design web reference image with strict asymmetric grid, large sans-serif typography, small numbered labels, white background, black rules, one red system accent, editorial information modules, no logo, no watermark",
+    research: {
+      referenceSites: [
+        { title: "SWI swissinfo.ch", url: "https://www.swissinfo.ch", note: "Swiss editorial reference for strict news hierarchy, multilingual content modules, objective typography, and restrained public-service layout." },
+        { title: "SBB", url: "https://www.sbb.ch", note: "Swiss transport reference for functional navigation, red system accent, timetable-like structure, and highly legible information design." },
+        { title: "Web Design Lookbook - Swiss Design", url: "https://webdesignlookbook.webflow.io/", note: "Style study reference for Swiss grid principles, type-led hierarchy, structured margins, and clarity-first digital layouts." },
+      ],
+      referenceGalleries: [
+        { title: "Pinterest - Swiss Grids", url: "https://www.pinterest.com/tonyxj/swiss-grids/", note: "Moodboard reference for poster grids, asymmetric columns, type blocks, red markers, and modular Swiss-style spacing." },
+        { title: "Awwwards - Switzerland Websites", url: "https://www.awwwards.com/websites/Switzerland/", note: "Gallery reference for Swiss web executions, local agencies, clean grid systems, and restrained precision in digital interfaces." },
+        { title: "Dribbble - Swiss Grid", url: "https://dribbble.com/tags/swiss-grid", note: "UI and poster reference for grid-driven cards, baseline rhythm, numbered layouts, and strict typographic composition." },
+      ],
+      representativeTraits: ["Strict asymmetric grid", "Objective typography", "Red system marker", "Numbered modules", "High information clarity"],
+      avoidTraits: ["Warm lifestyle minimalism", "Decorative Bauhaus color blocks", "Soft card-heavy UI"],
+      tokenIntent:
+        "Use a white base, black type, sharp two-pixel rules, red as a small system marker, tight modular spacing, and left-aligned typography so the style reads as Swiss information design.",
+    },
+  },
+  "international-style": {
+    summary: "인터내셔널 스타일은 지역색과 장식을 줄이고, 어디서나 이해되는 중립적 그리드와 일관된 컴포넌트로 정보를 전달하는 디자인입니다.",
+    description:
+      "인터내셔널 스타일은 Swiss Design에서 출발한 객관성과 보편성을 더 글로벌한 제품/기관 시스템으로 확장합니다. IBM Design Language의 2x Grid와 기업형 컴포넌트, MoMA의 기관형 정보 구조처럼 색은 절제하고, 동일한 규칙의 패널과 데이터 행으로 화면을 구성합니다. Swiss보다 포스터성이 약하고, Modernism보다 색면 실험이 적습니다.",
+    visualFeatures: ["중립 배경과 얇은 회색 선으로 글로벌 제품 시스템처럼 보입니다.", "반복 가능한 패널, 표, 상태 행이 같은 규칙으로 정렬됩니다.", "파란색은 브랜드/행동/상태를 표시하는 단일 시스템 색으로 작동합니다.", "국제적 문서와 대시보드처럼 정보의 객관성을 강조합니다."],
+    colorPalette: ["차가운 흰색과 밝은 회색 표면을 사용합니다.", "텍스트는 검정에 가까운 중립색으로 유지합니다.", "파랑은 CTA와 현재 상태에만 사용합니다.", "보조 회색은 패널, 선, 보조 텍스트를 구분합니다."],
+    typography: ["Helvetica 계열처럼 중립적이고 실용적인 산세리프 위계를 씁니다.", "제목보다 레이블, 표, 본문 시스템의 일관성을 강조합니다.", "자간은 0에 가깝게 두어 다국어 환경에서도 안정적으로 보이게 합니다."],
+    layoutTraits: ["기업형 포털처럼 반복 가능한 패널 구조를 사용합니다.", "그리드와 표가 화면의 기본 단위가 됩니다.", "CTA는 강하지만 장식적이지 않은 단일 색 버튼으로 둡니다.", "데이터와 설명이 같은 높이와 간격으로 반복됩니다."],
+    useCases: ["B2B 제품 사이트", "디자인 시스템 문서", "기관 포털", "글로벌 서비스 소개"],
+    goodFor: ["언어와 시장을 넘나드는 기업/기관", "규칙과 신뢰를 먼저 보여줘야 하는 제품", "디자인 시스템과 문서를 함께 보여주는 사이트", "중립적이지만 전문적인 랜딩페이지"],
+    cautions: ["너무 무색무취하면 일반 SaaS처럼 보일 수 있습니다.", "Swiss처럼 빨간 포스터 신호를 쓰면 스타일 경계가 흐려집니다.", "컴포넌트가 반복되더라도 첫 화면에는 명확한 브랜드 신호가 필요합니다."],
+    imagePrompt:
+      "An International Typographic Style web system with neutral corporate grid, modular panels, blue system accent, data rows, precise sans-serif hierarchy, global institutional clarity, no logo, no watermark",
+    research: {
+      referenceSites: [
+        { title: "IBM Design Language", url: "https://www.ibm.com/design/language/", note: "Global corporate system reference for neutral typography, repeatable components, modular grids, and international product communication." },
+        { title: "IBM Design Language - Layout", url: "https://www.ibm.com/design/language/layout/overview/", note: "Layout reference for precise grid behavior, consistent alignment, engineered hierarchy, and corporate-scale design rules." },
+        { title: "MoMA", url: "https://www.moma.org/", note: "Institutional reference for universal information structure, objective navigation, and cross-content modules across art, events, and visits." },
+      ],
+      referenceGalleries: [
+        { title: "Pinterest - International Typographic Style", url: "https://id.pinterest.com/4340m/international-typographic-style/", note: "Moodboard reference for objective grids, Helvetica-like typography, asymmetric alignment, and universal information hierarchy." },
+        { title: "Awwwards - Business & Corporate Websites", url: "https://www.awwwards.com/websites/business-corporate/", note: "Gallery reference for corporate-scale web systems, rational content architecture, neutral tone, and product/institution clarity." },
+        { title: "Dribbble - International Typographic Style", url: "https://dribbble.com/search/international%20typographic%20style", note: "UI and graphic reference for typographic systems, neutral components, grid-based presentation, and corporate information modules." },
+      ],
+      representativeTraits: ["Neutral global grid", "Corporate component system", "Blue system accent", "Data and document modules", "Objective hierarchy"],
+      avoidTraits: ["Poster-like Swiss red", "Warm domestic palette", "Expressive geometric modernism"],
+      tokenIntent:
+        "Use cool neutral surfaces, subtle borders, a single blue accent, sharp components, normal density, and predictable grid rhythm so the style reads as international corporate information design.",
+    },
+  },
+  scandinavian: {
+    summary: "스칸디나비안 디자인은 밝은 배경, 생활감 있는 제품 사진, 부드러운 색, 실용적인 카드 구조로 편안한 북유럽식 웹 경험을 만드는 디자인입니다.",
+    description:
+      "스칸디나비안은 미니멀하지만 차갑지 않습니다. IKEA의 접근성 있는 홈 커머스, Muuto의 현대적 북유럽 제품 표현, Nordic Nest의 생활 카테고리처럼 밝은 표면과 넓은 여백 위에 제품, 방, 소재가 친근하게 놓입니다. Japandi보다 더 밝고 생활적이며, Warm Minimal보다 더 실용적인 커머스 구조를 가집니다.",
+    visualFeatures: ["밝은 크림색 배경과 부드러운 그린/우드 톤이 생활감을 만듭니다.", "제품 카드, 방 카테고리, 추천 모듈처럼 실제 쇼핑 구조가 잘 어울립니다.", "사진 또는 제품 영역은 둥근 모서리와 충분한 여백으로 편안하게 보입니다.", "작은 할인/신상품 배지가 UI의 실용성을 더합니다."],
+    colorPalette: ["크림과 밝은 흰색 표면을 기본으로 사용합니다.", "세이지 그린과 밝은 우드 색을 주요 감성색으로 둡니다.", "오렌지/코랄은 생활감 있는 작은 강조에만 씁니다.", "경계선은 부드럽고 낮은 대비로 유지합니다."],
+    typography: ["친근한 산세리프를 중간 굵기로 사용합니다.", "제목은 큰 편이지만 지나치게 차갑거나 압축되지 않습니다.", "제품명, 가격, 카테고리 텍스트는 읽기 쉽게 작고 명확하게 둡니다."],
+    layoutTraits: ["생활형 커머스처럼 히어로, 카테고리, 제품 카드가 이어집니다.", "그리드는 정돈되어 있지만 카드 간 간격이 넉넉합니다.", "둥근 형태와 부드러운 색면을 사용해 실용성과 온기를 같이 줍니다.", "모바일에서도 제품 카드가 실제 쇼핑 화면처럼 보이도록 합니다."],
+    useCases: ["홈 리빙 커머스", "라이프스타일 브랜드", "가구 쇼룸", "웰니스 제품"],
+    goodFor: ["제품을 친근하게 보여줘야 하는 커머스", "밝고 신뢰감 있는 홈 브랜드", "복잡하지 않은 카테고리 탐색", "생활 사진과 제품 카드가 많은 사이트"],
+    cautions: ["너무 베이지로만 가면 Warm Minimal과 겹칩니다.", "사진 없는 추상 카드만 쓰면 북유럽 생활감이 사라집니다.", "귀여운 파스텔이 강하면 Kawaii나 Pastel 쪽으로 흐를 수 있습니다."],
+    imagePrompt:
+      "A Scandinavian web commerce reference image with bright cream background, soft sage and oak accents, practical furniture product cards, cozy home categories, friendly sans-serif typography, no logo, no watermark",
+    research: {
+      referenceSites: [
+        { title: "IKEA", url: "https://www.ikea.com", note: "Mass-market Scandinavian reference for friendly product navigation, bright surfaces, practical room modules, and approachable home commerce." },
+        { title: "Muuto", url: "https://www.muuto.com", note: "Contemporary Scandinavian brand reference for soft color, furniture-led storytelling, generous product cards, and warm minimal composition." },
+        { title: "Nordic Nest", url: "https://www.nordicnest.com/", note: "Scandinavian commerce reference for lifestyle categories, pale backgrounds, cozy product density, and practical shopping hierarchy." },
+      ],
+      referenceGalleries: [
+        { title: "Pinterest - Scandinavian Website Design", url: "https://www.pinterest.com/search/pins/?q=scandinavian%20website%20design", note: "Moodboard/search reference for light interiors, pale wood, home-product layouts, soft neutrals, and cozy-but-ordered web composition." },
+        { title: "Awwwards - Minimal Websites", url: "https://www.awwwards.com/websites/minimal/", note: "Closest gallery reference for refined Scandinavian-adjacent minimal web execution, bright layouts, product calm, and restrained interaction." },
+        { title: "Dribbble - Scandinavian", url: "https://dribbble.com/tags/scandinavian", note: "UI and brand reference for Nordic furniture cards, soft product palettes, clean ecommerce modules, and lifestyle interface details." },
+      ],
+      representativeTraits: ["Bright home commerce", "Soft Nordic palette", "Practical product cards", "Cozy lifestyle modules", "Friendly rounded edges"],
+      avoidTraits: ["Sterile Swiss grid", "Dark luxury restraint", "Japanese shadow-heavy calm"],
+      tokenIntent:
+        "Use bright cream surfaces, soft sage and oak accents, rounded cards, gentle shadows, normal spacing, and product-card layout so the style reads as Scandinavian home commerce.",
+    },
+  },
+  japandi: {
+    summary: "재팬디는 일본식 고요함과 북유럽의 실용성을 결합해 목재, 낮은 대비, 정적인 여백으로 차분한 웹 공간을 만드는 디자인입니다.",
+    description:
+      "재팬디는 밝은 북유럽 커머스보다 더 조용하고, Warm Minimal보다 더 건축적입니다. Karimoku Case, Norm Architects의 Azabu Residence와 Soft Minimal처럼 목재, 종이빛 표면, muted green, 긴 호흡의 이미지 블록을 사용합니다. 웹에서는 제품이나 공간을 빠르게 팔기보다, 재료와 장면을 천천히 읽게 하는 구조가 중요합니다.",
+    visualFeatures: ["낮은 대비의 베이지와 목재색이 화면의 기본 온도를 만듭니다.", "큰 이미지/공간 패널과 작은 설명 텍스트가 느린 리듬을 만듭니다.", "경계선과 카드 그림자는 최소화하고 재료감 있는 색면으로 구분합니다.", "라벨, 가격, CTA는 작고 조용하지만 명확하게 배치합니다."],
+    colorPalette: ["쌀빛 베이지와 따뜻한 흰색을 기본으로 둡니다.", "목재 갈색과 muted green을 핵심 재료색으로 사용합니다.", "검정 대신 부드러운 먹색 텍스트를 씁니다.", "테두리는 진하지 않게 두어 공간감이 끊기지 않게 합니다."],
+    typography: ["가늘고 차분한 산세리프 또는 세리프 느낌의 보조 리듬이 어울립니다.", "제목은 크게 쓰되 공격적인 압축 없이 낮은 목소리로 둡니다.", "본문은 짧은 문장과 넓은 행간으로 공간처럼 읽히게 합니다."],
+    layoutTraits: ["큰 공간 이미지, 재료 카드, 예약/문의 CTA가 느리게 이어집니다.", "비대칭이 있더라도 긴 여백과 낮은 대비로 안정감을 줍니다.", "제품 카드보다 룸/재료/철학 블록이 더 강하게 보입니다.", "모바일에서는 이미지-설명-CTA 순서를 명확히 유지합니다."],
+    useCases: ["가구 브랜드", "인테리어 스튜디오", "숙박/스테이", "웰니스 공간"],
+    goodFor: ["자연 소재와 공간감을 강조하는 브랜드", "프리미엄이지만 과시하지 않는 제품", "느린 탐색과 문의 전환이 중요한 사이트", "건축/인테리어 포트폴리오"],
+    cautions: ["너무 밝고 카드형이면 Scandinavian과 겹칩니다.", "색을 너무 따뜻하게 밀면 Warm Minimal과 구분이 약해집니다.", "장면이 없으면 단순 베이지 미니멀로 보일 수 있습니다."],
+    imagePrompt:
+      "A Japandi web design reference image with quiet wood-toned interiors, rice paper neutrals, muted green accent, large calm spatial panels, soft minimal furniture modules, no logo, no watermark",
+    research: {
+      referenceSites: [
+        { title: "Karimoku Case - Creators", url: "https://www.karimoku-case.com/creators/", note: "Japandi reference for Japanese craft plus Scandinavian restraint, natural materials, quiet furniture presentation, and calm editorial spacing." },
+        { title: "Norm Architects - Azabu Residence", url: "https://normcph.com/project/azabu-residence/", note: "Project reference for muted palette, tactile materials, wood warmth, and Japanese-Danish spatial calm in a web editorial format." },
+        { title: "Norm Architects - Soft Minimal", url: "https://normcph.com/project/soft-minimal-2/", note: "Concept reference for human-centric restraint, tactility, natural light, and soft-minimal web storytelling that overlaps with Japandi." },
+      ],
+      referenceGalleries: [
+        { title: "Pinterest - Japandi Website Design", url: "https://www.pinterest.com/search/pins/?q=japandi%20website%20design", note: "Moodboard/search reference for wood, rice-paper neutrals, interior whitespace, low contrast, and quiet Japanese-Scandinavian layouts." },
+        { title: "Awwwards - Architecture Websites", url: "https://www.awwwards.com/websites/architecture/", note: "Closest gallery reference for architectural calm, image-led spaces, restrained motion, and premium interior/architecture web presentation." },
+        { title: "Dribbble - Japandi", url: "https://dribbble.com/search/japandi", note: "UI reference for Japandi furniture landings, interior cards, muted e-commerce flows, and calm booking/product layouts." },
+      ],
+      representativeTraits: ["Wood and rice-paper neutrals", "Quiet spatial panels", "Low contrast hierarchy", "Tactile material cards", "Slow editorial rhythm"],
+      avoidTraits: ["Bright Scandinavian commerce", "Terracotta-heavy warm minimal", "Hard Swiss structure"],
+      tokenIntent:
+        "Use muted wood, rice-paper neutrals, soft ink text, low borders, calm spacing, and image-led interior modules so the style reads as Japandi spatial calm.",
+    },
+  },
+  "warm-minimal": {
+    summary: "웜 미니멀은 미니멀한 구조 위에 크림, 테라코타, 리넨 같은 따뜻한 색과 질감을 더해 부드럽고 초대하는 웹 경험을 만드는 디자인입니다.",
+    description:
+      "웜 미니멀은 차가운 미니멀리즘을 피하고, 감정이 있는 절제를 만듭니다. QUQU Design Studio와 Vellum Studio처럼 크림 배경, 부드러운 실내 사진, 테라코타 포인트, 여유로운 프로젝트 카드가 핵심입니다. Japandi보다 더 부드럽고 감성적이며, Scandinavian보다 커머스보다는 스튜디오/포트폴리오의 초대감에 가깝습니다.",
+    visualFeatures: ["크림, 타우프, 테라코타 계열이 첫인상을 따뜻하게 만듭니다.", "큰 둥근 이미지나 프로젝트 카드가 실제 스튜디오 웹처럼 보입니다.", "그림자는 거의 없지만 레이어 사이에 부드러운 색 차이를 둡니다.", "CTA와 배지는 검정 대신 따뜻한 브라운/테라코타로 처리합니다."],
+    colorPalette: ["크림과 웜 화이트를 기본 배경으로 사용합니다.", "테라코타는 CTA와 주요 상태에 제한적으로 씁니다.", "리넨 베이지와 따뜻한 브라운을 보조 표면에 둡니다.", "텍스트는 검정보다 부드러운 짙은 브라운에 가깝게 둡니다."],
+    typography: ["부드러운 산세리프를 중간 굵기로 사용합니다.", "제목은 크지만 모서리와 행간이 편안하게 느껴져야 합니다.", "본문은 짧고 감성적인 문장으로 프로젝트 분위기를 설명합니다."],
+    layoutTraits: ["스튜디오 포트폴리오처럼 히어로, 프로젝트 카드, 상담 CTA가 이어집니다.", "카드는 둥글고 넉넉하지만 과한 그림자 없이 색 차이로 구분합니다.", "색상 블록보다 이미지/텍스처/여백의 리듬이 중요합니다.", "모바일에서는 상담 CTA가 분명하게 보여야 합니다."],
+    useCases: ["인테리어 스튜디오", "웰니스 브랜드", "프리미엄 로컬 브랜드", "크리에이티브 포트폴리오"],
+    goodFor: ["부드러운 고급감과 접근성을 같이 원하는 브랜드", "공간/라이프스타일 사진이 많은 사이트", "상담 전환이 중요한 스튜디오", "차갑지 않은 미니멀 랜딩페이지"],
+    cautions: ["베이지 톤만 반복하면 개성이 약해집니다.", "둥근 카드와 그림자가 많아지면 일반 라이프스타일 UI처럼 보입니다.", "Japandi와 구분하려면 목재보다 리넨/테라코타/스튜디오 카드를 강조해야 합니다."],
+    imagePrompt:
+      "A warm minimal web design reference image with cream and taupe surfaces, terracotta accents, soft interior studio cards, linen texture feeling, rounded consultation CTA, no logo, no watermark",
+    research: {
+      referenceSites: [
+        { title: "QUQU Design Studio", url: "https://ququstudio.com/en/", note: "Warm minimalist studio reference for cream surfaces, soft interior imagery, quiet navigation, and selected-work portfolio rhythm." },
+        { title: "Vellum Studio", url: "https://www.vellum.studio/", note: "Interior studio reference for tranquil warm minimalism, tactile residential imagery, soft brutalist restraint, and calm editorial pacing." },
+        { title: "Norm Architects - Soft Minimal", url: "https://normcph.com/project/soft-minimal-2/", note: "Soft-minimal reference for warm neutrals, tactile material language, slower reading rhythm, and human-centered restraint." },
+      ],
+      referenceGalleries: [
+        { title: "Pinterest - Warm Minimal Website Design", url: "https://www.pinterest.com/search/pins/?q=warm%20minimal%20website%20design", note: "Moodboard/search reference for cream, taupe, terracotta, soft shadows, natural texture, and welcoming minimal web layouts." },
+        { title: "Awwwards - Minimal Collection", url: "https://www.awwwards.com/awwwards/collections/minimal/", note: "Closest gallery reference for quiet minimal sites, soft portfolio pacing, restrained modules, and polished warm-minimal execution cues." },
+        { title: "Dribbble - Minimal Page", url: "https://dribbble.com/search/minimal-page", note: "UI reference for warm minimal product pages, soft conversion modules, spacious hero sections, and gently layered neutral components." },
+      ],
+      representativeTraits: ["Cream and taupe warmth", "Terracotta CTA", "Soft project cards", "Linen-like texture", "Welcoming studio rhythm"],
+      avoidTraits: ["Cool SaaS minimalism", "Nordic product-commerce density", "Japanese wood-heavy stillness"],
+      tokenIntent:
+        "Use cream surfaces, terracotta accents, warm brown text, rounded cards, airy spacing, and soft studio modules so the style reads as warm minimal rather than generic beige minimalism.",
+    },
+  },
 };
 
 function hashSlug(slug: string) {
@@ -755,10 +970,32 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     layout: { heroVariant: "split", navStyle: "underline", alignment: "left" },
   },
   "warm-minimal": {
-    typography: { weightDisplay: 500, weightBody: 400, tracking: "-0.01em", headingScale: 0.96 },
-    shape: { radius: "10px", radiusPill: "9999px", borderWidth: "1px" },
-    space: { density: "airy", gap: "1.4rem", padScale: 1.45 },
-    decoration: { shadow: "0 10px 30px rgb(var(--st-text-rgb) / 0.08)", effect: "none" },
+    typography: { weightDisplay: 500, weightBody: 400, tracking: "0em", headingScale: 0.94 },
+    shape: { radius: "18px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.45rem", padScale: 1.5 },
+    decoration: { shadow: "0 18px 44px rgb(var(--st-text-rgb) / 0.08)", effect: "none" },
+    layout: { heroVariant: "left", navStyle: "minimal", alignment: "left" },
+  },
+  "international-style": {
+    typography: { weightDisplay: 600, weightBody: 400, tracking: "0em", headingScale: 0.98 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.75rem", padScale: 1.0 },
+    decoration: { shadow: "none", effect: "none" },
+    layout: { heroVariant: "split", navStyle: "underline", alignment: "left" },
+  },
+  "scandinavian": {
+    typography: { weightDisplay: 600, weightBody: 400, tracking: "0em", headingScale: 0.98 },
+    shape: { radius: "14px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.25rem", padScale: 1.28 },
+    decoration: { shadow: "0 12px 28px rgb(var(--st-text-rgb) / 0.08)", effect: "none" },
+    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
+  },
+  "japandi": {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, weightBody: 400, tracking: "0em", headingScale: 0.9 },
+    shape: { radius: "6px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.7rem", padScale: 1.55 },
+    decoration: { shadow: "none", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
   },
   "brutalism": {
     typography: { weightDisplay: 900, tracking: "-0.05em" },
@@ -876,9 +1113,9 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     decoration: { shadow: "4px 4px 0 var(--st-accent), -4px -4px 0 var(--st-accent-2)", effect: "grain" },
   },
   "swiss-design": {
-    typography: { weightDisplay: 700, tracking: "-0.02em", headingScale: 1.05 },
-    shape: { radius: "0px", borderWidth: "1px" },
-    space: { density: "airy", gap: "1rem", padScale: 1.2 },
+    typography: { weightDisplay: 700, weightBody: 400, tracking: "0em", headingScale: 1.02 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "2px", borderStyle: "solid" },
+    space: { density: "tight", gap: "0.65rem", padScale: 0.95 },
     decoration: { shadow: "none", effect: "none" },
     layout: { heroVariant: "left", navStyle: "underline", alignment: "left" },
   },

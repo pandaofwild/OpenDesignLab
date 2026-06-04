@@ -317,6 +317,256 @@ function ModernismFunctionalGrid({ className, compact = false, style }: Props) {
   );
 }
 
+function SwissInformationGrid({ className, compact = false, style }: Props) {
+  const rows = ["Politics", "Culture", "Economy"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)]">
+        <div className="grid grid-cols-[auto_1fr_auto] border-b-2 border-[var(--sample-border)]">
+          <span className="bg-[var(--sample-accent)] px-3 py-2 text-[10px] font-bold text-white">CH</span>
+          <div className="flex items-center gap-4 px-3 text-[10px] font-bold text-[var(--sample-text)]">
+            <span>World</span>
+            <span>Briefing</span>
+            <span className={compact ? "hidden" : ""}>Archive</span>
+          </div>
+          <span className="border-l-2 border-[var(--sample-border)] px-3 py-2 text-[10px] font-bold">06.04</span>
+        </div>
+        <div className={cn("grid min-h-0", compact ? "grid-cols-[1.1fr_0.9fr]" : "grid-cols-1 md:grid-cols-[1.05fr_0.95fr]")}>
+          <div className={cn("flex min-w-0 flex-col justify-between p-4", compact ? "border-r-2 border-[var(--sample-border)]" : "border-b-2 border-[var(--sample-border)] md:border-b-0 md:border-r-2")}>
+            <div>
+              <p className="text-[10px] font-bold uppercase text-[var(--sample-muted)]">Grid first / Type leads</p>
+              <h3
+                className={cn("mt-4 break-words font-display leading-[0.86]", compact ? "text-3xl" : "text-5xl md:text-7xl")}
+                style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+              >
+                Clear public information.
+              </h3>
+            </div>
+            <div className="mt-4 grid grid-cols-[auto_1fr] border-y-2 border-[var(--sample-border)] text-[10px]">
+              <span className="border-r-2 border-[var(--sample-border)] px-2 py-2 font-bold text-[var(--sample-accent)]">01</span>
+              <span className="px-2 py-2 text-[var(--sample-muted)]">Multilingual editorial system</span>
+            </div>
+          </div>
+          <div className="grid min-h-0 grid-rows-[auto_1fr_auto]">
+            <div className="grid grid-cols-3 border-b-2 border-[var(--sample-border)]">
+              {rows.map((row, index) => (
+                <div className="border-r-2 border-[var(--sample-border)] p-3 last:border-r-0" key={row}>
+                  <p className="text-[10px] font-bold text-[var(--sample-muted)]">0{index + 2}</p>
+                  <p className="mt-2 text-xs font-bold text-[var(--sample-text)]">{row}</p>
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-[0.72fr_1fr] gap-3 p-4">
+              <div className="bg-[var(--sample-accent)]" />
+              <div className="space-y-2">
+                {[84, 64, 92, 52].map((width) => (
+                  <span className="block h-2 bg-[var(--sample-text)]" key={width} style={{ width: `${width}%` }} />
+                ))}
+                <div className="mt-5 grid grid-cols-2 gap-2">
+                  <span className="h-12 border-2 border-[var(--sample-border)]" />
+                  <span className="h-12 bg-[var(--sample-accent-2)]" />
+                </div>
+              </div>
+            </div>
+            <div className="border-t-2 border-[var(--sample-border)] px-3 py-2 text-[10px] font-bold text-[var(--sample-muted)]">
+              {style.nameEn} / legibility index
+            </div>
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function InternationalSystemPortal({ className, compact = false, style }: Props) {
+  const panels = ["Standards", "Grid", "Language"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr] border border-[var(--sample-border-soft)] bg-[var(--sample-surface)]">
+        <div className="flex items-center justify-between border-b border-[var(--sample-border-soft)] px-4 py-3">
+          <div>
+            <p className="text-xs font-semibold text-[var(--sample-text)]">Global System</p>
+            <p className="text-[10px] text-[var(--sample-muted)]">Design language portal</p>
+          </div>
+          <span className="bg-[var(--sample-accent)] px-3 py-1 text-[10px] font-semibold text-white">Docs</span>
+        </div>
+        <div className={cn("grid min-h-0 gap-4 p-4", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[0.92fr_1.08fr]")}>
+          <div className="flex min-w-0 flex-col justify-between">
+            <div>
+              <p className="text-[10px] font-semibold uppercase text-[var(--sample-muted)]">Universal clarity</p>
+              <h3
+                className={cn("mt-4 font-display leading-[1]", compact ? "text-3xl" : "text-5xl")}
+                style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+              >
+                One system for every market.
+              </h3>
+            </div>
+            <div className={cn("mt-5 grid gap-2", compact ? "hidden" : "grid-cols-2")}>
+              <span className="border border-[var(--sample-border-soft)] bg-[var(--sample-base)] px-3 py-2 text-xs">View guidelines</span>
+              <span className="bg-[var(--sample-text)] px-3 py-2 text-xs text-[var(--sample-base)]">Use template</span>
+            </div>
+          </div>
+          <div className="grid min-h-0 min-w-0 grid-rows-[auto_1fr] gap-3">
+            <div className="grid grid-cols-3 gap-2">
+              {panels.map((panel, index) => (
+                <div className="border border-[var(--sample-border-soft)] bg-[var(--sample-base)] p-2" key={panel}>
+                  <p className="text-[10px] text-[var(--sample-muted)]">0{index + 1}</p>
+                  <p className="mt-2 text-xs font-semibold">{panel}</p>
+                </div>
+              ))}
+            </div>
+            <div className="border border-[var(--sample-border-soft)]">
+              {["Layout grid", "Typography", "Components", "Data states"].map((item, index) => (
+                <div className="grid grid-cols-[2.5rem_1fr_auto] border-b border-[var(--sample-border-soft)] last:border-b-0" key={item}>
+                  <span className="border-r border-[var(--sample-border-soft)] px-2 py-2 text-[10px] text-[var(--sample-muted)]">{index + 1}</span>
+                  <span className="px-3 py-2 text-xs font-medium">{item}</span>
+                  <span className="px-3 py-2 text-[10px] text-[var(--sample-accent)]">Active</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function ScandinavianCommerceHome({ className, compact = false, style }: Props) {
+  const products = ["Lounge", "Lighting", "Textiles"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between pb-4">
+          <div>
+            <p className="text-xs font-semibold">Nord Room</p>
+            <p className="text-[10px] text-[var(--sample-muted)]">Home essentials</p>
+          </div>
+          <span className="rounded-full bg-[var(--sample-accent)] px-3 py-1 text-[10px] font-semibold text-[var(--sample-text)]">Shop</span>
+        </div>
+        <div className={cn("grid min-w-0 gap-4", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[0.85fr_1.15fr]")}>
+          <div className="flex flex-col justify-between rounded-[var(--st-radius)] bg-[var(--sample-surface)] p-4" style={{ boxShadow: "var(--st-shadow)" }}>
+            <div>
+              <p className="text-[10px] uppercase text-[var(--sample-muted)]">Spring home edit</p>
+              <h3
+                className={cn("mt-3 font-display leading-[1]", compact ? "text-2xl" : "text-4xl md:text-5xl")}
+                style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+              >
+                Bright rooms, useful objects.
+              </h3>
+            </div>
+            <div className={cn("mt-4 grid grid-cols-2 gap-2", compact ? "hidden" : "")}>
+              <span className="rounded-full bg-[var(--sample-accent-2)] px-3 py-2 text-xs">New arrivals</span>
+              <span className="rounded-full border border-[var(--sample-border-soft)] px-3 py-2 text-xs">Room ideas</span>
+            </div>
+          </div>
+          <div className="grid min-w-0 grid-cols-3 gap-2">
+            {products.map((product, index) => (
+              <div className="flex min-w-0 flex-col justify-between rounded-[var(--st-radius)] border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-3" key={product}>
+                <span
+                  className="block aspect-square rounded-[calc(var(--st-radius)-4px)]"
+                  style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index] }}
+                />
+                <div className="mt-3">
+                  <p className="truncate text-xs font-semibold">{product}</p>
+                  <p className="mt-1 text-[10px] text-[var(--sample-muted)]">From ${[84, 126, 48][index]}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function JapandiSpatialLanding({ className, compact = false, style }: Props) {
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between pb-4 text-[10px] text-[var(--sample-muted)]">
+          <span>Karuma House</span>
+          <span>Materials / Stay / Journal</span>
+        </div>
+        <div className={cn("grid gap-5", compact ? "grid-cols-[0.9fr_1.1fr]" : "grid-cols-1 md:grid-cols-[0.82fr_1.18fr]")}>
+          <div className="flex flex-col justify-between">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.08em] text-[var(--sample-muted)]">Quiet materials</p>
+              <h3
+                className={cn("mt-4 font-display leading-[1.05]", compact ? "text-2xl" : "text-4xl md:text-5xl")}
+                style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+              >
+                Slow rooms for everyday rituals.
+              </h3>
+            </div>
+            <div className={cn("mt-5 grid gap-2", compact ? "hidden" : "grid-cols-3")}>
+              {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((color) => (
+                <span className="h-10" key={color} style={{ backgroundColor: color }} />
+              ))}
+            </div>
+          </div>
+          <div className="grid grid-cols-[1fr_0.62fr] gap-3">
+            <div className="bg-[var(--sample-surface)] p-3">
+              <div className="h-full bg-[linear-gradient(160deg,var(--sample-accent-2),var(--sample-surface)_45%,var(--sample-accent))]" />
+            </div>
+            <div className="grid grid-rows-[1fr_auto] gap-3">
+              <div className="bg-[var(--sample-accent-3)]/80" />
+              <div className="border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-3">
+                <p className="text-xs font-semibold">Azabu</p>
+                <p className="mt-2 line-clamp-3 text-[10px] leading-4 text-[var(--sample-muted)]">{style.summary}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function WarmMinimalStudio({ className, compact = false, style }: Props) {
+  const works = ["Hallway", "Bedroom", "Dining"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between pb-4">
+          <div>
+            <p className="text-xs font-semibold">Atelier Warm</p>
+            <p className="text-[10px] text-[var(--sample-muted)]">Interior consultation</p>
+          </div>
+          <span className="rounded-full bg-[var(--sample-accent)] px-3 py-1 text-[10px] font-semibold text-[var(--sample-surface)]">Book</span>
+        </div>
+        <div className={cn("grid min-w-0 gap-4", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[0.92fr_1.08fr]")}>
+          <div className="min-w-0 rounded-[var(--st-radius)] bg-[var(--sample-surface)] p-4" style={{ boxShadow: "var(--st-shadow)" }}>
+            <p className="text-[10px] uppercase text-[var(--sample-muted)]">Selected works</p>
+            <h3
+              className={cn("mt-4 font-display leading-[1]", compact ? "text-3xl" : "text-5xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              Soft rooms, clear decisions.
+            </h3>
+            <p className={cn("mt-4 text-sm leading-6 text-[var(--sample-muted)]", compact ? "hidden" : "")}>{style.summary}</p>
+          </div>
+          <div className="grid min-w-0 grid-rows-3 gap-2">
+            {works.map((work, index) => (
+              <div className="grid grid-cols-[4.5rem_1fr_auto] items-center rounded-[var(--st-radius)] bg-[var(--sample-surface)] p-2" key={work}>
+                <span
+                  className="h-12 rounded-[calc(var(--st-radius)-6px)]"
+                  style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index] }}
+                />
+                <span className="px-3 text-xs font-semibold">{work}</span>
+                <span className="pr-2 text-[10px] text-[var(--sample-muted)]">0{index + 1}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
 function BrutalistPoster({ compact = false, style }: Props) {
   return (
     <SampleFrame compact={compact} className="bg-[var(--sample-base)]" style={style}>
@@ -592,6 +842,26 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
 
   if (style.slug === "modernism") {
     return <ModernismFunctionalGrid {...props} />;
+  }
+
+  if (style.slug === "swiss-design") {
+    return <SwissInformationGrid {...props} />;
+  }
+
+  if (style.slug === "international-style") {
+    return <InternationalSystemPortal {...props} />;
+  }
+
+  if (style.slug === "scandinavian") {
+    return <ScandinavianCommerceHome {...props} />;
+  }
+
+  if (style.slug === "japandi") {
+    return <JapandiSpatialLanding {...props} />;
+  }
+
+  if (style.slug === "warm-minimal") {
+    return <WarmMinimalStudio {...props} />;
   }
 
   switch (style.sampleType) {

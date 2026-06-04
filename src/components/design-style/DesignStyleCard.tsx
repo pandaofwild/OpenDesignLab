@@ -16,16 +16,16 @@ export function DesignStyleCard({ isSelected, onSelect, style }: Props) {
   return (
     <article
       className={cn(
-        "group flex h-full flex-col border p-2 transition",
+        "group flex h-full min-w-0 flex-col border p-2 transition",
         isSelected
           ? "border-[#1E1E1E] bg-[#1E1E1E] text-[#E4E2DD]"
           : "border-[#1E1E1E]/18 bg-[#E4E2DD] text-[#1E1E1E] hover:border-[#1E1E1E]",
       )}
     >
-      <div className="aspect-[4/3] min-h-[220px] overflow-hidden bg-[#D9D6D0]">
+      <div className="aspect-[4/3] min-h-[220px] min-w-0 overflow-hidden bg-[#D9D6D0]">
         <DesignStyleSampleRenderer compact style={style} />
       </div>
-      <div className="flex flex-1 flex-col gap-4 p-3 pt-4">
+      <div className="flex min-w-0 flex-1 flex-col gap-4 p-3 pt-4">
         <div>
           <p className={cn("raw-label", isSelected ? "text-[#F8A348]" : "text-[#DB4A2B]")}>
             {style.category}

@@ -94,11 +94,11 @@ Each style below must end with explicit references, explicit copy, explicit pale
 
 - [x] `minimalism`
 - [x] `modernism`
-- [ ] `swiss-design`
-- [ ] `international-style`
-- [ ] `scandinavian`
-- [ ] `japandi`
-- [ ] `warm-minimal`
+- [x] `swiss-design`
+- [x] `international-style`
+- [x] `scandinavian`
+- [x] `japandi`
+- [x] `warm-minimal`
 - [ ] `soft-minimal`
 - [ ] `high-end-minimal`
 
@@ -1002,3 +1002,4 @@ git commit -m "Document representative style research workflow"
 - [x] 2026-06-04: User clarified that reference work must include additional matching sources for each style, specifically Pinterest, Awwwards, and Dribbble, not only existing real-site references.
 - [x] 2026-06-04: Completed the first per-style pass for `minimalism`: refreshed Linear, Apple, Stripe, Pinterest, Awwwards, and Dribbble references; added targeted reference validation; rewrote copy, palette, tokens, research brief, and a dedicated sample renderer; verified desktop and mobile renders with Playwright.
 - [x] 2026-06-04: Completed the second per-style pass for `modernism`: added Bauhaus-Archiv, MoMA, Vitra, AIM, Pinterest, Awwwards, and Dribbble references; separated it from quiet minimalism with functional grid, primary color blocks, black structure, explicit copy, palette, tokens, research brief, and a dedicated web-like sample renderer; verified desktop and mobile renders with Playwright.
+- [x] 2026-06-04: Completed the next modern/minimal pass through `warm-minimal`: added Swiss, International, Scandinavian, Japandi, and Warm Minimal references; rewrote copy, palettes, tokens, research briefs, and dedicated web-like sample renderers; fixed mobile card overflow; verified `/styles` plus all five detail pages at desktop and 390px mobile.

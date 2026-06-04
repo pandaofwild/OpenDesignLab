@@ -151,14 +151,66 @@
 
   "swiss-design": {
     "sites": [
-      { "url": "https://www.swissinfo.ch", "title": "Swissinfo", "note": "실제 스위스 정보 포털 — 그리드, 인터내셔널 타이포 시스템" },
-      { "url": "https://www.sbb.ch", "title": "SBB 스위스 철도", "note": "기능 중심 그리드 — 스위스 공공 디자인 언어" },
-      { "url": "https://www.muji.com", "title": "Muji", "note": "스위스 스타일 응용 — 그리드 질서, 산세리프, 오프화이트" }
+      { "url": "https://www.swissinfo.ch", "title": "SWI swissinfo.ch", "note": "Swiss editorial reference for strict news hierarchy, multilingual content modules, objective typography, and restrained public-service layout." },
+      { "url": "https://www.sbb.ch", "title": "SBB", "note": "Swiss transport reference for functional navigation, red system accent, timetable-like structure, and highly legible information design." },
+      { "url": "https://webdesignlookbook.webflow.io/", "title": "Web Design Lookbook - Swiss Design", "note": "Style study reference for Swiss grid principles, type-led hierarchy, structured margins, and clarity-first digital layouts." }
     ],
     "galleries": [
-      { "url": "https://dribbble.com/tags/swiss-grid", "title": "Dribbble — Swiss Grid", "note": "그리드 시스템 + 타이포 구성 참고" },
-      { "url": "https://www.pinterest.com/ideas/swiss-design/", "title": "Pinterest — Swiss Design" },
-      { "url": "https://docs.mew.design/blog/swiss-design-style/", "title": "Mew Design — Swiss Style Guide" }
+      { "url": "https://www.pinterest.com/tonyxj/swiss-grids/", "title": "Pinterest - Swiss Grids", "note": "Moodboard reference for poster grids, asymmetric columns, type blocks, red markers, and modular Swiss-style spacing." },
+      { "url": "https://www.awwwards.com/websites/Switzerland/", "title": "Awwwards - Switzerland Websites", "note": "Gallery reference for Swiss web executions, local agencies, clean grid systems, and restrained precision in digital interfaces." },
+      { "url": "https://dribbble.com/tags/swiss-grid", "title": "Dribbble - Swiss Grid", "note": "UI and poster reference for grid-driven cards, baseline rhythm, numbered layouts, and strict typographic composition." }
+    ]
+  },
+
+  "international-style": {
+    "sites": [
+      { "url": "https://www.ibm.com/design/language/", "title": "IBM Design Language", "note": "Global corporate system reference for neutral typography, repeatable components, modular grids, and international product communication." },
+      { "url": "https://www.ibm.com/design/language/layout/overview/", "title": "IBM Design Language - Layout", "note": "Layout reference for precise grid behavior, consistent alignment, engineered hierarchy, and corporate-scale design rules." },
+      { "url": "https://www.moma.org/", "title": "MoMA", "note": "Institutional reference for universal information structure, objective navigation, and cross-content modules across art, events, and visits." }
+    ],
+    "galleries": [
+      { "url": "https://id.pinterest.com/4340m/international-typographic-style/", "title": "Pinterest - International Typographic Style", "note": "Moodboard reference for objective grids, Helvetica-like typography, asymmetric alignment, and universal information hierarchy." },
+      { "url": "https://www.awwwards.com/websites/business-corporate/", "title": "Awwwards - Business & Corporate Websites", "note": "Gallery reference for corporate-scale web systems, rational content architecture, neutral tone, and product/institution clarity." },
+      { "url": "https://dribbble.com/search/international%20typographic%20style", "title": "Dribbble - International Typographic Style", "note": "UI and graphic reference for typographic systems, neutral components, grid-based presentation, and corporate information modules." }
+    ]
+  },
+
+  "scandinavian": {
+    "sites": [
+      { "url": "https://www.ikea.com", "title": "IKEA", "note": "Mass-market Scandinavian reference for friendly product navigation, bright surfaces, practical room modules, and approachable home commerce." },
+      { "url": "https://www.muuto.com", "title": "Muuto", "note": "Contemporary Scandinavian brand reference for soft color, furniture-led storytelling, generous product cards, and warm minimal composition." },
+      { "url": "https://www.nordicnest.com/", "title": "Nordic Nest", "note": "Scandinavian commerce reference for lifestyle categories, pale backgrounds, cozy product density, and practical shopping hierarchy." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=scandinavian%20website%20design", "title": "Pinterest - Scandinavian Website Design", "note": "Moodboard/search reference for light interiors, pale wood, home-product layouts, soft neutrals, and cozy-but-ordered web composition." },
+      { "url": "https://www.awwwards.com/websites/minimal/", "title": "Awwwards - Minimal Websites", "note": "Closest gallery reference for refined Scandinavian-adjacent minimal web execution, bright layouts, product calm, and restrained interaction." },
+      { "url": "https://dribbble.com/tags/scandinavian", "title": "Dribbble - Scandinavian", "note": "UI and brand reference for Nordic furniture cards, soft product palettes, clean ecommerce modules, and lifestyle interface details." }
+    ]
+  },
+
+  "japandi": {
+    "sites": [
+      { "url": "https://www.karimoku-case.com/creators/", "title": "Karimoku Case - Creators", "note": "Japandi reference for Japanese craft plus Scandinavian restraint, natural materials, quiet furniture presentation, and calm editorial spacing." },
+      { "url": "https://normcph.com/project/azabu-residence/", "title": "Norm Architects - Azabu Residence", "note": "Project reference for muted palette, tactile materials, wood warmth, and Japanese-Danish spatial calm in a web editorial format." },
+      { "url": "https://normcph.com/project/soft-minimal-2/", "title": "Norm Architects - Soft Minimal", "note": "Concept reference for human-centric restraint, tactility, natural light, and soft-minimal web storytelling that overlaps with Japandi." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=japandi%20website%20design", "title": "Pinterest - Japandi Website Design", "note": "Moodboard/search reference for wood, rice-paper neutrals, interior whitespace, low contrast, and quiet Japanese-Scandinavian layouts." },
+      { "url": "https://www.awwwards.com/websites/architecture/", "title": "Awwwards - Architecture Websites", "note": "Closest gallery reference for architectural calm, image-led spaces, restrained motion, and premium interior/architecture web presentation." },
+      { "url": "https://dribbble.com/search/japandi", "title": "Dribbble - Japandi", "note": "UI reference for Japandi furniture landings, interior cards, muted e-commerce flows, and calm booking/product layouts." }
+    ]
+  },
+
+  "warm-minimal": {
+    "sites": [
+      { "url": "https://ququstudio.com/en/", "title": "QUQU Design Studio", "note": "Warm minimalist studio reference for cream surfaces, soft interior imagery, quiet navigation, and selected-work portfolio rhythm." },
+      { "url": "https://www.vellum.studio/", "title": "Vellum Studio", "note": "Interior studio reference for tranquil warm minimalism, tactile residential imagery, soft brutalist restraint, and calm editorial pacing." },
+      { "url": "https://normcph.com/project/soft-minimal-2/", "title": "Norm Architects - Soft Minimal", "note": "Soft-minimal reference for warm neutrals, tactile material language, slower reading rhythm, and human-centered restraint." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=warm%20minimal%20website%20design", "title": "Pinterest - Warm Minimal Website Design", "note": "Moodboard/search reference for cream, taupe, terracotta, soft shadows, natural texture, and welcoming minimal web layouts." },
+      { "url": "https://www.awwwards.com/awwwards/collections/minimal/", "title": "Awwwards - Minimal Collection", "note": "Closest gallery reference for quiet minimal sites, soft portfolio pacing, restrained modules, and polished warm-minimal execution cues." },
+      { "url": "https://dribbble.com/search/minimal-page", "title": "Dribbble - Minimal Page", "note": "UI reference for warm minimal product pages, soft conversion modules, spacious hero sections, and gently layered neutral components." }
     ]
   }
 }
