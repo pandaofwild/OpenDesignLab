@@ -685,44 +685,74 @@ function HighEndMinimalProduct({ className, compact = false, style }: Props) {
 
 function RawBrutalistIndex({ className, compact = false, style }: Props) {
   const rows = compact
-    ? ["NOTICE.TXT", "INDEX", "FORM"]
-    : ["EXHIBITION NOTICE", "ARCHIVE INDEX", "TICKET REQUEST", "PRESS FILE", "NO CMS LOG"];
+    ? [
+        ["01", "notice.txt", "text"],
+        ["02", "tickets.html", "form"],
+        ["03", "press/", "dir"],
+      ]
+    : [
+        ["01", "notice.txt", "plain text"],
+        ["02", "tickets.html", "default form"],
+        ["03", "press/index.html", "directory"],
+        ["04", "manifesto.pdf", "download"],
+        ["05", "server-log.txt", "raw log"],
+      ];
 
   return (
     <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_auto_1fr_auto] border-4 border-[var(--sample-border)] bg-[var(--sample-surface)] font-mono">
-        <div className="grid grid-cols-[auto_1fr_auto] border-b-4 border-[var(--sample-border)] text-[10px] font-bold">
-          <span className="bg-[var(--sample-text)] px-3 py-2 text-[var(--sample-base)]">INDEX.HTML</span>
-          <span className="px-3 py-2">PUBLIC ARCHIVE / NO THEME</span>
-          <span className="border-l-4 border-[var(--sample-border)] px-3 py-2">V.06</span>
-        </div>
-        <div className={cn("grid border-b-4 border-[var(--sample-border)] text-[10px] font-bold", compact ? "grid-cols-[1fr_auto]" : "grid-cols-[1fr_auto_auto]")}>
-          <span className="px-3 py-2">Find record:</span>
-          <span className="border-l-4 border-[var(--sample-border)] px-3 py-2">submit</span>
-          <span className={cn("border-l-4 border-[var(--sample-border)] px-3 py-2", compact ? "hidden" : "")}>plain html</span>
-        </div>
-        <div className={cn("grid min-h-0", compact ? "grid-cols-[0.9fr_1.1fr]" : "grid-cols-1 md:grid-cols-[0.92fr_1.08fr]")}>
-          <div className="flex min-w-0 flex-col justify-between border-r-4 border-[var(--sample-border)] p-3">
-            <h3
-              className={cn("break-words font-display leading-[0.92]", compact ? "text-3xl" : "text-5xl md:text-6xl")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
-            >
-              Raw public index.
-            </h3>
-            <span className="mt-4 w-max border-4 border-[var(--sample-border)] bg-[var(--sample-accent)] px-3 py-1 text-xs font-bold">OPEN / GET</span>
+      <div className="grid h-full grid-rows-[auto_1fr_auto] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] font-mono text-[var(--sample-text)]">
+        <div className="border-b-2 border-[var(--sample-border)] p-3">
+          <div className="flex items-start justify-between gap-3 text-[10px]">
+            <span>/public/index.html</span>
+            <span>no framework / no cards</span>
           </div>
-          <div className="grid min-w-0 content-start">
-            {rows.map((row, index) => (
-              <div className="grid grid-cols-[2.2rem_1fr_auto] border-b-4 border-[var(--sample-border)] last:border-b-0" key={row}>
-                <span className="border-r-4 border-[var(--sample-border)] px-2 py-2 text-[10px] font-bold">0{index + 1}</span>
-                <span className="truncate px-2 py-2 text-xs font-bold">{row}</span>
-                <span className={cn("border-l-4 border-[var(--sample-border)] px-2 py-2 text-[10px]", compact ? "hidden" : "")}>LINK</span>
-              </div>
-            ))}
+          <h3
+            className={cn("mt-3 break-words font-display leading-[0.9]", compact ? "text-3xl" : "text-5xl md:text-6xl")}
+            style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+          >
+            Plain files, real links.
+          </h3>
+        </div>
+        <div className={cn("grid min-h-0", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[1.08fr_0.92fr]")}>
+          <div className={cn("min-w-0", compact ? "" : "md:border-r-2 md:border-[var(--sample-border)]")}>
+            <table className="h-full w-full table-fixed border-collapse text-[10px]">
+              <thead>
+                <tr className="border-b-2 border-[var(--sample-border)] bg-[var(--sample-base)] text-left">
+                  <th className="w-10 px-2 py-2 font-bold">no</th>
+                  <th className="px-2 py-2 font-bold">href</th>
+                  <th className={cn("px-2 py-2 font-bold", compact ? "hidden" : "table-cell")}>type</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map(([number, file, type]) => (
+                  <tr className="border-b border-[var(--sample-border)] last:border-b-0" key={file}>
+                    <td className="px-2 py-2 align-top">{number}</td>
+                    <td className="truncate px-2 py-2 align-top">
+                      <span className="underline" style={{ color: number === "04" ? "#551A8B" : "#0000EE" }}>
+                        {file}
+                      </span>
+                    </td>
+                    <td className={cn("truncate px-2 py-2 align-top", compact ? "hidden" : "table-cell")}>{type}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className={cn("grid content-start gap-3 p-3", compact ? "hidden" : "")}>
+            <label className="grid gap-1 text-[10px] font-bold">
+              Find record
+              <input className="w-full border-2 border-[var(--sample-border)] bg-white px-2 py-1 font-normal text-[10px] text-[var(--sample-text)]" defaultValue="raw form widget" />
+            </label>
+            <button className="w-max border-2 border-[var(--sample-border)] bg-[#E9E9E9] px-3 py-1 text-[10px] text-[var(--sample-text)]" type="button">
+              submit query
+            </button>
+            <pre className="overflow-hidden border border-[var(--sample-border)] bg-[var(--sample-base)] p-2 text-[9px] leading-4">
+              GET /archive{"\n"}200 text/html{"\n"}back button works
+            </pre>
           </div>
         </div>
-        <p className={cn("border-t-4 border-[var(--sample-border)] px-3 py-2 text-[10px] text-[var(--sample-muted)]", compact ? "hidden" : "")}>
-          {style.summary}
+        <p className={cn("border-t-2 border-[var(--sample-border)] px-3 py-2 text-[10px] text-[var(--sample-muted)]", compact ? "hidden" : "")}>
+          Buttons look like buttons. Links are underlined. Content is the material.
         </p>
       </div>
     </SampleFrame>
@@ -731,41 +761,59 @@ function RawBrutalistIndex({ className, compact = false, style }: Props) {
 
 function NeoBrutalistApp({ className, compact = false, style }: Props) {
   const metrics = [
-    ["Sales", "$8,420", style.palette.accent],
-    ["Tasks", "14 open", style.palette.accent2],
+    ["Revenue", "$8,420", style.palette.accent],
+    ["Orders", "147", style.palette.accent2],
     ["Payout", "Fri 09", style.palette.accent3],
   ];
+  const checklist = ["Landing live", "Checkout tested", "Email queued"];
 
   return (
     <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr]">
-        <div className="mb-4 flex items-center justify-between rounded-[var(--st-radius)] border-4 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2" style={{ boxShadow: "6px 6px 0 var(--sample-border)" }}>
-          <span className="text-xs font-black">Creator checkout desk</span>
-          <span className="rounded-[var(--st-radius)] border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-2)] px-3 py-1 text-[10px] font-black">Publish</span>
+      <div
+        className="absolute inset-0 opacity-25"
+        style={{ backgroundImage: "linear-gradient(var(--sample-border) 1px, transparent 1px), linear-gradient(90deg, var(--sample-border) 1px, transparent 1px)", backgroundSize: "24px 24px" }}
+      />
+      <div className="relative grid h-full grid-rows-[auto_1fr]">
+        <div className="mb-4 grid grid-cols-[1fr_auto_auto] items-center border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] text-xs font-black" style={{ boxShadow: "5px 5px 0 var(--sample-border)" }}>
+          <span className="truncate px-3 py-2">Component kit for loud products.</span>
+          <span className={cn("border-l-[3px] border-[var(--sample-border)] px-3 py-2", compact ? "hidden" : "")}>cmd+k</span>
+          <span className="border-l-[3px] border-[var(--sample-border)] bg-[var(--sample-accent)] px-3 py-2">Ship</span>
         </div>
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[0.9fr_1.1fr]")}>
-          <div className="grid min-h-0 rounded-[var(--st-radius)] border-4 border-[var(--sample-border)] bg-[var(--sample-surface)] p-4" style={{ boxShadow: "6px 6px 0 var(--sample-accent)" }}>
-            <p className="text-[10px] font-black">New product form</p>
+        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[1.05fr_0.95fr]")}>
+          <div className="grid min-h-0 content-between border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] p-4" style={{ boxShadow: "7px 7px 0 var(--sample-border)" }}>
+            <p className="w-max border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-2)] px-2 py-1 text-[10px] font-black">creator product</p>
             <h3
               className={cn("mt-3 break-words font-display leading-[0.95]", compact ? "text-3xl" : "text-5xl")}
               style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
             >
-              Sell a tiny tool today.
+              Launch the loud template.
             </h3>
             <div className={cn("mt-4 grid grid-cols-[1fr_auto] border-[3px] border-[var(--sample-border)] bg-[var(--sample-base)] text-xs font-black", compact ? "hidden" : "")}>
-              <span className="px-3 py-2">icon pack.zip</span>
-              <span className="border-l-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-3 py-2">$19</span>
+              <span className="px-3 py-2">landing-kit.zip</span>
+              <span className="border-l-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-3 py-2">$29</span>
             </div>
           </div>
           <div className="grid min-w-0 gap-2">
-            {metrics.map(([metric, value, color]) => (
-              <div className="grid grid-cols-[1fr_auto] items-center rounded-[var(--st-radius)] border-4 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2" key={metric} style={{ boxShadow: "4px 4px 0 var(--sample-border)" }}>
-                <span className="text-xs font-black">{metric}</span>
-                <span className="rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] px-2 py-1 text-[10px] font-black" style={{ backgroundColor: color }}>
-                  {value}
-                </span>
-              </div>
-            ))}
+            <div className="grid grid-cols-3 gap-2">
+              {metrics.map(([metric, value, color]) => (
+                <div className="min-w-0 border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] p-2" key={metric} style={{ boxShadow: "4px 4px 0 var(--sample-border)" }}>
+                  <span className="block truncate text-[9px] font-black">{metric}</span>
+                  <span className="mt-2 block truncate px-1 py-1 text-[10px] font-black" style={{ backgroundColor: color }}>
+                    {value}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className={cn("grid gap-2 border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] p-3 text-xs font-black", compact ? "hidden" : "")} style={{ boxShadow: "4px 4px 0 var(--sample-border)" }}>
+              {checklist.map((item, index) => (
+                <div className="grid grid-cols-[1.5rem_1fr] items-center" key={item}>
+                  <span className="grid aspect-square place-items-center border-2 border-[var(--sample-border)]" style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index] }}>
+                    x
+                  </span>
+                  <span className="truncate pl-2">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

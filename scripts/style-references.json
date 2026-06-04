@@ -57,7 +57,7 @@
   "brutalism": {
     "sites": [
       { "url": "https://brutalistwebsites.com", "title": "Brutalist Websites", "note": "Reference archive for raw HTML structure, default-looking controls, hard borders, and deliberately plain web composition." },
-      { "url": "https://www.balenciaga.com", "title": "Balenciaga", "note": "Fashion reference for sparse commerce, severe monochrome hierarchy, blunt navigation, and anti-polished luxury minimalism." },
+      { "url": "https://brutalist-web.design/", "title": "Brutalist Web Design", "note": "Guideline reference for readable raw content, underlined links, button-like buttons, normal scrolling, and performance-first web construction." },
       { "url": "https://www.secession.at", "title": "Secession", "note": "Cultural reference for table-like structure, strict columns, plain surfaces, and brutalist institutional web rhythm." }
     ],
     "galleries": [
@@ -70,8 +70,9 @@
   "new-brutalism": {
     "sites": [
       { "url": "https://gumroad.com", "title": "Gumroad", "note": "Product reference for playful digital brutalism, thick outline cards, blunt commerce hierarchy, and saturated accent blocks." },
+      { "url": "https://neubrutalism.com/", "title": "Neubrutalism Guide", "note": "Design-language reference for flat fills, thick outlines, hard shadows, square corners, and commercial product UI token systems." },
       { "url": "https://neobrutalism.dev/", "title": "Neo Brutalism UI", "note": "Component reference for offset shadows, heavy borders, direct controls, high-contrast panels, and web-native neo-brutalist rules." },
-      { "url": "https://www.figma.com/community/tag/neubrutalism/files", "title": "Figma Community - Neubrutalism", "note": "Design-resource reference for component-level neo-brutalist cards, buttons, forms, and dashboard surfaces." }
+      { "url": "https://www.brutxui.site/docs", "title": "BrutxUI", "note": "Component-library reference for neo-brutalist SaaS, dashboard, form, pricing, and utility interfaces with configurable borders and hard shadows." }
     ],
     "galleries": [
       { "url": "https://www.pinterest.com/search/pins/?q=neo%20brutalism%20web%20design", "title": "Pinterest - Neo Brutalism Web Design", "note": "Moodboard reference for chunky outlines, playful shadows, saturated panels, and intentionally simple app interfaces." },
