@@ -84,6 +84,7 @@
   "anti-design": {
     "sites": [
       { "url": "https://www.superbad.com", "title": "Superbad", "note": "Historical web reference for intentionally awkward composition, early-web friction, clashing visuals, and anti-polished navigation." },
+      { "url": "https://net-art.org/superbad", "title": "Superbad - net.art archive", "note": "Archive context for Superbad as a sprawling web-art hub of pages, graphics, images, text, and non-linear navigation." },
       { "url": "https://thehtml.review/", "title": "The HTML Review", "note": "Independent web reference for strange editorial systems, raw HTML feeling, unexpected layouts, and handcrafted anti-design energy." },
       { "url": "https://www.are.na/", "title": "Are.na", "note": "Cultural platform reference for rough knowledge boards, dense links, plain interface elements, and anti-slick publishing rhythm." }
     ],
@@ -97,7 +98,7 @@
   "maximalism": {
     "sites": [
       { "url": "https://farmrio.com/", "title": "FARM Rio", "note": "Fashion maximalism reference for saturated prints, joyful pattern density, tropical color, and expressive product storytelling." },
-      { "url": "https://www.versace.com", "title": "Versace", "note": "Luxury reference for gold, pattern, iconic motifs, high-contrast product drama, and unapologetically decorative surfaces." },
+      { "url": "https://meowwolf.com/", "title": "Meow Wolf", "note": "Immersive arts reference for maximal color, layered worlds, dense visual storytelling, and experience-led web composition." },
       { "url": "https://www.libertylondon.com", "title": "Liberty London", "note": "Retail reference for textile pattern density, floral maximalism, heritage color, and layered commerce modules." }
     ],
     "galleries": [
@@ -110,8 +111,8 @@
   "glitch-art": {
     "sites": [
       { "url": "https://www.cyberpunk.net", "title": "Cyberpunk 2077 Official", "note": "Commercial reference for error-like overlays, neon distortion, aggressive digital panels, and high-energy sci-fi interface rhythm." },
-      { "url": "https://patatap.com", "title": "Patatap", "note": "Interactive reference for audiovisual pulses, reactive digital marks, simple controls, and playful glitch-adjacent feedback." },
-      { "url": "https://thehtml.review/", "title": "The HTML Review", "note": "Experimental web reference for raw publishing, unexpected visual breaks, and non-standard digital composition." }
+      { "url": "https://www.sarahwebfx.com/lab.html", "title": "SarahwebFX Distortion Lab", "note": "Browser-based glitch reference for VHS, CRT, RGB split, pixel sort, binary overlays, glitch blocks, and live distortion controls." },
+      { "url": "https://patatap.com", "title": "Patatap", "note": "Interactive reference for audiovisual pulses, reactive digital marks, simple controls, and playful glitch-adjacent feedback." }
     ],
     "galleries": [
       { "url": "https://www.pinterest.com/search/pins/?q=glitch%20website%20design", "title": "Pinterest - Glitch Website Design", "note": "Moodboard reference for RGB splits, broken scanlines, noisy panels, digital corruption, and distorted typography." },

@@ -1245,8 +1245,8 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
   "anti-design": {
     summary: "안티디자인은 균형, 정렬, 세련됨을 일부러 비틀어 불편하지만 기억에 남는 실험적 웹 경험을 만드는 스타일입니다.",
     description:
-      "안티디자인은 실수처럼 보이는 것이 아니라, 관습을 깨는 의도적인 연출입니다. Superbad, The HTML Review, Are.na처럼 엇나간 배치, 충돌하는 색, 비정형 링크, 불균형한 텍스트 블록을 사용하되 클릭과 읽기는 유지해야 합니다.",
-    visualFeatures: ["정렬이 일부러 흔들리고 모듈 크기가 불균형합니다.", "충돌하는 색과 배경이 관습적인 미감을 방해합니다.", "링크와 라벨은 낯설지만 실제 웹 요소처럼 작동합니다."],
+      "안티디자인은 실수처럼 보이는 것이 아니라, 관습을 깨는 의도적인 연출입니다. Superbad, The HTML Review, Are.na처럼 엇나간 배치, 충돌하는 색, 비정형 링크, 불균형한 텍스트 블록을 사용하되 링크 허브와 입력 영역은 실제 웹처럼 작동해야 합니다.",
+    visualFeatures: ["정렬이 일부러 흔들리고 모듈 크기가 불균형합니다.", "충돌하는 색과 배경이 관습적인 미감을 방해합니다.", "링크, 메타 라벨, 간단한 폼이 낯설지만 실제 웹 요소처럼 보입니다."],
     colorPalette: ["형광 노랑, 핑크, 사이언처럼 충돌하는 색을 씁니다.", "검정 테두리로 최소한의 구조를 붙잡습니다.", "중성색은 숨을 쉴 수 있는 작은 영역에만 둡니다."],
     typography: ["제목과 라벨 크기를 일부러 어긋나게 배치합니다.", "본문은 완전히 깨뜨리지 않고 읽을 수 있는 기준선을 유지합니다.", "다양한 굵기보다 위치와 색 충돌로 긴장을 만듭니다."],
     layoutTraits: ["랜딩, 링크 허브, 아트 프로젝트, 독립 출판 페이지에 어울립니다.", "요소가 겹치거나 튀어나오되 주요 CTA는 남아야 합니다.", "모바일에서는 혼란보다 의도적 순서를 우선합니다."],
@@ -1258,6 +1258,7 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     research: {
       referenceSites: [
         { title: "Superbad", url: "https://www.superbad.com", note: "Historical web reference for intentionally awkward composition, early-web friction, clashing visuals, and anti-polished navigation." },
+        { title: "Superbad - net.art archive", url: "https://net-art.org/superbad", note: "Archive context for Superbad as a sprawling web-art hub of pages, graphics, images, text, and non-linear navigation." },
         { title: "The HTML Review", url: "https://thehtml.review/", note: "Independent web reference for strange editorial systems, raw HTML feeling, unexpected layouts, and handcrafted anti-design energy." },
         { title: "Are.na", url: "https://www.are.na/", note: "Cultural platform reference for rough knowledge boards, dense links, plain interface elements, and anti-slick publishing rhythm." },
       ],
@@ -1275,7 +1276,7 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
   maximalism: {
     summary: "맥시멀리즘은 색, 패턴, 이미지, 장식 모티프를 풍부하게 쌓아 브랜드 세계관을 한 화면에 밀도 있게 보여주는 스타일입니다.",
     description:
-      "맥시멀리즘은 단순히 많은 요소를 넣는 방식이 아니라, 반복 패턴과 강한 색으로 몰입형 브랜드 무대를 만드는 방식입니다. FARM Rio, Versace, Liberty London처럼 제품 카드, 캠페인 배너, 장식 패턴, 배지가 동시에 보이지만 중심 행동은 분명해야 합니다.",
+      "맥시멀리즘은 단순히 많은 요소를 넣는 방식이 아니라, 반복 패턴과 강한 색으로 몰입형 브랜드 무대를 만드는 방식입니다. FARM Rio, Meow Wolf, Liberty London처럼 제품 카드, 캠페인 배너, 장식 패턴, 배지가 동시에 보이지만 중심 행동은 분명해야 합니다.",
     visualFeatures: ["패턴과 색면이 화면의 빈 공간을 적극적으로 채웁니다.", "상품/이미지/라벨이 여러 층으로 겹쳐 브랜드 세계관을 만듭니다.", "장식적이지만 가격, 컬렉션, CTA 같은 정보가 살아 있어야 합니다."],
     colorPalette: ["짙은 보라나 버건디 같은 깊은 배경을 사용할 수 있습니다.", "핑크, 그린, 골드처럼 강한 액센트를 함께 씁니다.", "패턴이 많을수록 텍스트 대비를 의식적으로 확보합니다."],
     typography: ["굵은 제목과 장식적 라벨을 함께 사용합니다.", "본문은 짧게 유지해 장식 밀도에 묻히지 않게 합니다.", "가격과 CTA는 고대비 박스로 분명하게 처리합니다."],
@@ -1288,7 +1289,7 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     research: {
       referenceSites: [
         { title: "FARM Rio", url: "https://farmrio.com/", note: "Fashion maximalism reference for saturated prints, joyful pattern density, tropical color, and expressive product storytelling." },
-        { title: "Versace", url: "https://www.versace.com", note: "Luxury reference for gold, pattern, iconic motifs, high-contrast product drama, and unapologetically decorative surfaces." },
+        { title: "Meow Wolf", url: "https://meowwolf.com/", note: "Immersive arts reference for maximal color, layered worlds, dense visual storytelling, and experience-led web composition." },
         { title: "Liberty London", url: "https://www.libertylondon.com", note: "Retail reference for textile pattern density, floral maximalism, heritage color, and layered commerce modules." },
       ],
       referenceGalleries: [
@@ -1305,7 +1306,7 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
   "glitch-art": {
     summary: "글리치 아트는 디지털 오류, RGB 분리, 스캔라인, 깨진 데이터 패널을 시각 언어로 삼는 실험적 웹 스타일입니다.",
     description:
-      "글리치 아트는 사이버펑크와 가깝지만 더 오류 자체에 집중합니다. Cyberpunk 2077, Patatap, 실험적 웹 레퍼런스처럼 화면이 깨지는 듯한 선, 모노스페이스 정보 패널, 노이즈가 있는 상태 카드가 실제 인터페이스처럼 구성되어야 합니다.",
+      "글리치 아트는 사이버펑크와 가깝지만 더 오류 자체에 집중합니다. Cyberpunk 2077, SarahwebFX, Patatap처럼 화면이 깨지는 듯한 선, 모노스페이스 정보 패널, 노이즈가 있는 상태 카드가 실제 인터페이스처럼 구성되어야 합니다.",
     visualFeatures: ["RGB 분리와 스캔라인이 디지털 손상을 암시합니다.", "패널은 터미널이나 진단 화면처럼 보입니다.", "밝은 사이언, 마젠타, 라임이 어두운 배경에서 충돌합니다."],
     colorPalette: ["거의 검정에 가까운 배경을 사용합니다.", "사이언과 마젠타를 핵심 오류 색으로 씁니다.", "라임은 경고나 상태값에 제한적으로 둡니다."],
     typography: ["모노스페이스 폰트와 짧은 상태 라벨이 잘 맞습니다.", "제목은 굵고 각진 느낌으로 처리합니다.", "긴 문단보다 코드, 수치, 로그 같은 짧은 단위를 씁니다."],
@@ -1318,8 +1319,8 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     research: {
       referenceSites: [
         { title: "Cyberpunk 2077 Official", url: "https://www.cyberpunk.net", note: "Commercial reference for error-like overlays, neon distortion, aggressive digital panels, and high-energy sci-fi interface rhythm." },
+        { title: "SarahwebFX Distortion Lab", url: "https://www.sarahwebfx.com/lab.html", note: "Browser-based glitch reference for VHS, CRT, RGB split, pixel sort, binary overlays, glitch blocks, and live distortion controls." },
         { title: "Patatap", url: "https://patatap.com", note: "Interactive reference for audiovisual pulses, reactive digital marks, simple controls, and playful glitch-adjacent feedback." },
-        { title: "The HTML Review", url: "https://thehtml.review/", note: "Experimental web reference for raw publishing, unexpected visual breaks, and non-standard digital composition." },
       ],
       referenceGalleries: [
         { title: "Pinterest - Glitch Website Design", url: "https://www.pinterest.com/search/pins/?q=glitch%20website%20design", note: "Moodboard reference for RGB splits, broken scanlines, noisy panels, digital corruption, and distorted typography." },
