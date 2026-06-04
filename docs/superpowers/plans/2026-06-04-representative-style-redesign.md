@@ -99,29 +99,29 @@ Each style below must end with explicit references, explicit copy, explicit pale
 - [x] `scandinavian`
 - [x] `japandi`
 - [x] `warm-minimal`
-- [ ] `soft-minimal`
-- [ ] `high-end-minimal`
+- [x] `soft-minimal`
+- [x] `high-end-minimal`
 
 ### 강렬 / 실험
 
-- [ ] `brutalism`
-- [ ] `new-brutalism`
-- [ ] `anti-design`
-- [ ] `maximalism`
-- [ ] `glitch-art`
-- [ ] `deconstructivism`
-- [ ] `avant-garde`
-- [ ] `postmodernism`
+- [x] `brutalism`
+- [x] `new-brutalism`
+- [x] `anti-design`
+- [x] `maximalism`
+- [x] `glitch-art`
+- [x] `deconstructivism`
+- [x] `avant-garde`
+- [x] `postmodernism`
 
 ### 레트로 / 빈티지
 
-- [ ] `retro`
-- [ ] `vintage`
-- [ ] `seventies-retro`
-- [ ] `eighties-retro`
-- [ ] `nineties-graphic`
-- [ ] `y2k`
-- [ ] `retro-futurism`
+- [x] `retro`
+- [x] `vintage`
+- [x] `seventies-retro`
+- [x] `eighties-retro`
+- [x] `nineties-graphic`
+- [x] `y2k`
+- [x] `retro-futurism`
 - [ ] `mid-century-modern`
 - [ ] `bauhaus`
 
@@ -1003,3 +1003,4 @@ git commit -m "Document representative style research workflow"
 - [x] 2026-06-04: Completed the first per-style pass for `minimalism`: refreshed Linear, Apple, Stripe, Pinterest, Awwwards, and Dribbble references; added targeted reference validation; rewrote copy, palette, tokens, research brief, and a dedicated sample renderer; verified desktop and mobile renders with Playwright.
 - [x] 2026-06-04: Completed the second per-style pass for `modernism`: added Bauhaus-Archiv, MoMA, Vitra, AIM, Pinterest, Awwwards, and Dribbble references; separated it from quiet minimalism with functional grid, primary color blocks, black structure, explicit copy, palette, tokens, research brief, and a dedicated web-like sample renderer; verified desktop and mobile renders with Playwright.
 - [x] 2026-06-04: Completed the next modern/minimal pass through `warm-minimal`: added Swiss, International, Scandinavian, Japandi, and Warm Minimal references; rewrote copy, palettes, tokens, research briefs, and dedicated web-like sample renderers; fixed mobile card overflow; verified `/styles` plus all five detail pages at desktop and 390px mobile.
+- [x] 2026-06-04: Completed the next representative pass through `retro-futurism`: added references, copy, palettes, token overrides, and dedicated web-like samples for `soft-minimal`, `high-end-minimal`, `brutalism`, `new-brutalism`, `anti-design`, `maximalism`, `glitch-art`, `deconstructivism`, `avant-garde`, `postmodernism`, `retro`, `vintage`, `seventies-retro`, `eighties-retro`, `nineties-graphic`, `y2k`, and `retro-futurism`. Verified targeted references for 24 styles, data, lint, build, and browser QA across `/styles` plus the 17 detail pages at desktop and 390px mobile. Reference capture completed for target real-site sources after replacing inaccessible URLs with captureable equivalents.

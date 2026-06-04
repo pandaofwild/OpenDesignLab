@@ -572,6 +572,622 @@ function WarmMinimalStudio({ className, compact = false, style }: Props) {
   );
 }
 
+function SoftMinimalService({ className, compact = false, style }: Props) {
+  const services = compact ? ["Audit", "Plan", "Launch"] : ["Mindful audit", "Care plan", "Quiet launch"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between pb-4 text-[10px] text-[var(--sample-muted)]">
+          <span className="font-semibold text-[var(--sample-text)]">Soft Office</span>
+          <span>Journal / Services / Book</span>
+        </div>
+        <div className={cn("grid min-h-0 gap-4", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[0.9fr_1.1fr]")}>
+          <div className="flex min-w-0 flex-col justify-between rounded-[var(--st-radius)] border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-4" style={{ boxShadow: "var(--st-shadow)" }}>
+            <div>
+              <p className="text-[10px] font-medium text-[var(--sample-muted)]">Consultation studio</p>
+              <h3
+                className={cn("mt-4 max-w-full break-words font-display leading-[1.05]", compact ? "text-2xl" : "text-4xl md:text-5xl")}
+                style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+              >
+                Gentle pages for careful decisions.
+              </h3>
+            </div>
+            <div className={cn("mt-5 flex flex-wrap gap-2", compact ? "hidden" : "")}>
+              <span className="rounded-full bg-[var(--sample-text)] px-4 py-2 text-xs text-[var(--sample-base)]">Book a call</span>
+              <span className="rounded-full border border-[var(--sample-border-soft)] px-4 py-2 text-xs">View packages</span>
+            </div>
+          </div>
+          <div className="grid min-h-0 grid-rows-[auto_1fr] gap-3">
+            <div className="grid grid-cols-3 gap-2">
+              {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((color) => (
+                <span className="h-8 rounded-full" key={color} style={{ backgroundColor: color }} />
+              ))}
+            </div>
+            <div className="grid gap-2">
+              {services.map((service, index) => (
+                <div className="grid grid-cols-[auto_1fr_auto] items-center rounded-[var(--st-radius)] bg-[var(--sample-surface)] px-3 py-2" key={service}>
+                  <span className="mr-3 h-7 w-7 rounded-full bg-[var(--sample-accent-2)]" />
+                  <span className="truncate text-xs font-medium text-[var(--sample-text)]">{service}</span>
+                  <span className="text-[10px] text-[var(--sample-muted)]">0{index + 1}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function HighEndMinimalProduct({ className, compact = false, style }: Props) {
+  const details = ["Material", "Size", "Reserve"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between border-b border-[var(--sample-border-soft)] pb-3 text-[10px] text-[var(--sample-muted)]">
+          <span className="text-[var(--sample-text)]">Maison Item</span>
+          <span>Shop / Atelier / Cart</span>
+        </div>
+        <div className={cn("grid min-h-0 gap-5 pt-5", compact ? "grid-cols-[0.85fr_1.15fr]" : "grid-cols-1 md:grid-cols-[0.82fr_1.18fr]")}>
+          <div className="flex min-w-0 flex-col justify-between">
+            <div>
+              <p className="text-[10px] text-[var(--sample-muted)]">Atelier edition</p>
+              <h3
+                className={cn("mt-4 max-w-full break-words font-display leading-[1.04]", compact ? "text-2xl" : "text-4xl md:text-5xl")}
+                style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+              >
+                A quiet frame for one object.
+              </h3>
+            </div>
+            <div className={cn("mt-5 border-t border-[var(--sample-border-soft)] pt-3", compact ? "hidden" : "block")}>
+              <p className="line-clamp-2 text-xs leading-5 text-[var(--sample-muted)]">{style.summary}</p>
+            </div>
+          </div>
+          <div className="grid min-w-0 grid-rows-[1fr_auto] gap-3">
+            <div className="grid place-items-center bg-[var(--sample-surface)]">
+              <div className="aspect-[4/5] w-[58%] border border-[var(--sample-border-soft)] bg-[linear-gradient(150deg,var(--sample-accent-2),var(--sample-surface)_48%,var(--sample-accent))]" />
+            </div>
+            <div className="grid grid-cols-3 border-y border-[var(--sample-border-soft)] text-[10px]">
+              {details.map((detail) => (
+                <span className="border-r border-[var(--sample-border-soft)] px-2 py-2 text-center last:border-r-0" key={detail}>
+                  {detail}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function RawBrutalistIndex({ className, compact = false, style }: Props) {
+  const rows = compact ? ["News", "Index", "Buy"] : ["Exhibition notice", "Archive index", "Ticket request", "Press file"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr_auto] border-4 border-[var(--sample-border)] bg-[var(--sample-surface)]">
+        <div className="grid grid-cols-[auto_1fr_auto] border-b-4 border-[var(--sample-border)] text-[10px] font-bold">
+          <span className="bg-[var(--sample-text)] px-3 py-2 text-[var(--sample-base)]">RAW</span>
+          <span className="px-3 py-2">Public index</span>
+          <span className="border-l-4 border-[var(--sample-border)] px-3 py-2">06.04</span>
+        </div>
+        <div className={cn("grid min-h-0", compact ? "grid-cols-[1fr_0.8fr]" : "grid-cols-1 md:grid-cols-[1fr_0.86fr]")}>
+          <div className="flex min-w-0 flex-col justify-between border-r-4 border-[var(--sample-border)] p-3">
+            <h3
+              className={cn("break-words font-display leading-[0.92]", compact ? "text-3xl" : "text-5xl md:text-6xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              WEB STRUCTURE FIRST.
+            </h3>
+            <span className="mt-4 w-max border-4 border-[var(--sample-border)] bg-[var(--sample-accent)] px-3 py-1 text-xs font-bold">OPEN</span>
+          </div>
+          <div className="grid min-w-0">
+            {rows.map((row, index) => (
+              <div className="grid grid-cols-[2.2rem_1fr] border-b-4 border-[var(--sample-border)] last:border-b-0" key={row}>
+                <span className="border-r-4 border-[var(--sample-border)] px-2 py-2 text-[10px] font-bold">0{index + 1}</span>
+                <span className="truncate px-2 py-2 text-xs font-bold">{row}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p className={cn("border-t-4 border-[var(--sample-border)] px-3 py-2 text-[10px] text-[var(--sample-muted)]", compact ? "hidden" : "")}>
+          {style.summary}
+        </p>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function NeoBrutalistApp({ className, compact = false, style }: Props) {
+  const metrics = ["Sales", "Tasks", "Payout"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr]">
+        <div className="mb-4 flex items-center justify-between rounded-[var(--st-radius)] border-4 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2" style={{ boxShadow: "var(--st-shadow)" }}>
+          <span className="text-xs font-black">Creator desk</span>
+          <span className="rounded-[var(--st-radius)] bg-[var(--sample-accent-2)] px-3 py-1 text-[10px] font-black">Ship</span>
+        </div>
+        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[0.9fr_1.1fr]")}>
+          <div className="rounded-[var(--st-radius)] border-4 border-[var(--sample-border)] bg-[var(--sample-surface)] p-4" style={{ boxShadow: "var(--st-shadow)" }}>
+            <p className="text-[10px] font-black">New product</p>
+            <h3
+              className={cn("mt-3 break-words font-display leading-[0.95]", compact ? "text-3xl" : "text-5xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              Sell a tiny tool today.
+            </h3>
+          </div>
+          <div className="grid min-w-0 grid-rows-3 gap-2">
+            {metrics.map((metric, index) => (
+              <div className="grid grid-cols-[1fr_auto] items-center rounded-[var(--st-radius)] border-4 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2" key={metric}>
+                <span className="text-xs font-black">{metric}</span>
+                <span className="rounded-[var(--st-radius)] px-2 py-1 text-[10px] font-black" style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index] }}>
+                  {[82, 14, 3][index]}%
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function AntiDesignLanding({ className, compact = false, style }: Props) {
+  const links = ["wrong shop", "index?", "about now"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="relative grid h-full grid-rows-[auto_1fr_auto]">
+        <div className="flex items-start justify-between">
+          <span className="border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-1 text-xs font-black">no polish</span>
+          <span className="translate-y-3 border-2 border-[var(--sample-border)] bg-[var(--sample-accent)] px-2 py-1 text-[10px] font-black">menu</span>
+        </div>
+        <div className={cn("grid min-h-0 gap-2", compact ? "grid-cols-[0.9fr_1.1fr]" : "grid-cols-1 md:grid-cols-[0.86fr_1.14fr]")}>
+          <div className="rotate-[-3deg] self-center border-4 border-[var(--sample-border)] bg-[var(--sample-accent-2)] p-3">
+            <h3
+              className={cn("break-words font-display leading-[0.9]", compact ? "text-3xl" : "text-5xl md:text-6xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              Useful friction.
+            </h3>
+          </div>
+          <div className="grid content-center gap-2">
+            {links.map((link, index) => (
+              <span
+                className={cn("block border-2 border-[var(--sample-border)] px-3 py-2 text-xs font-black", index === 1 ? "translate-x-4 bg-[var(--sample-accent)]" : "bg-[var(--sample-accent-3)]")}
+                key={link}
+              >
+                {link}
+              </span>
+            ))}
+          </div>
+        </div>
+        <p className={cn("w-3/4 border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-1 text-[10px]", compact ? "hidden" : "")}>
+          Still clickable. Still intentional.
+        </p>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function MaximalistPatternMarket({ className, compact = false, style }: Props) {
+  const items = ["Silk", "Bloom", "Gold"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="absolute inset-0 opacity-35" style={{ backgroundImage: "radial-gradient(circle at 12px 12px, var(--sample-accent) 0 4px, transparent 5px), linear-gradient(135deg, transparent 0 45%, var(--sample-accent-2) 45% 55%, transparent 55%)", backgroundSize: "32px 32px, 44px 44px" }} />
+      <div className="relative grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between pb-3">
+          <span className="bg-[var(--sample-surface)] px-3 py-1 text-xs font-bold text-[var(--sample-border)]">Pattern hall</span>
+          <span className="bg-[var(--sample-accent)] px-3 py-1 text-[10px] font-bold text-[var(--sample-border)]">Cart 03</span>
+        </div>
+        <div className={cn("grid gap-3", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[1fr_0.9fr]")}>
+          <div className="border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-3 text-[var(--sample-border)]">
+            <h3
+              className={cn("break-words font-display leading-[0.95]", compact ? "text-3xl" : "text-5xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              More color, more world.
+            </h3>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {items.map((item, index) => (
+              <div className="flex min-w-0 flex-col justify-between border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-2 text-[var(--sample-border)]" key={item}>
+                <span className="block aspect-square" style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index] }} />
+                <span className="mt-2 truncate text-xs font-bold">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function GlitchArtInterface({ className, compact = false, style }: Props) {
+  const nodes = ["Signal", "Noise", "Error"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent 0 10px, var(--sample-accent) 11px 12px)" }} />
+      <div className="relative grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between border border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2 font-mono text-[10px]">
+          <span>SYS://GLITCH</span>
+          <span className="text-[var(--sample-accent-2)]">LIVE</span>
+        </div>
+        <div className={cn("grid min-h-0 gap-3 pt-3", compact ? "grid-cols-[0.8fr_1.2fr]" : "grid-cols-1 md:grid-cols-[0.82fr_1.18fr]")}>
+          <div className="grid gap-2">
+            {nodes.map((node, index) => (
+              <div className="border border-[var(--sample-border)] bg-[var(--sample-surface)] p-3 font-mono" key={node}>
+                <p className="text-[10px] text-[var(--sample-muted)]">{node}</p>
+                <div className="mt-2 h-2 bg-[var(--sample-accent-2)]" style={{ width: `${[72, 42, 91][index]}%` }} />
+              </div>
+            ))}
+          </div>
+          <div className="relative overflow-hidden border border-[var(--sample-border)] bg-[var(--sample-surface)] p-4" style={{ boxShadow: "var(--st-shadow)" }}>
+            <h3
+              className={cn("break-words font-display leading-[0.95] text-[var(--sample-text)]", compact ? "text-3xl" : "text-5xl md:text-6xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              DATA BROKE CLEAN.
+            </h3>
+            <span className="absolute bottom-4 left-4 right-4 h-2 bg-[var(--sample-accent)]" />
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function DeconstructiveExhibition({ className, compact = false, style }: Props) {
+  const projects = ["Fold", "Cut", "Void"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between border-b-2 border-[var(--sample-border)] pb-2 text-[10px] font-bold">
+          <span>Architecture index</span>
+          <span>Projects 12</span>
+        </div>
+        <div className={cn("relative grid min-h-0 gap-3 pt-4", compact ? "grid-cols-[1fr_0.85fr]" : "grid-cols-1 md:grid-cols-[1fr_0.9fr]")}>
+          <div className="relative border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-4">
+            <div className="absolute -right-3 top-8 h-16 w-24 skew-x-[-18deg] bg-[var(--sample-accent)]" />
+            <h3
+              className={cn("relative break-words font-display leading-[0.95]", compact ? "text-3xl" : "text-5xl md:text-6xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              Fragments become navigation.
+            </h3>
+          </div>
+          <div className="grid gap-2">
+            {projects.map((project, index) => (
+              <div className={cn("border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2", index === 1 ? "translate-x-3" : "")} key={project}>
+                <p className="text-[10px] text-[var(--sample-muted)]">0{index + 1}</p>
+                <p className="mt-1 text-xs font-bold">{project}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function AvantGardeEditorial({ className, compact = false, style }: Props) {
+  const program = ["Talk", "Film", "Essay"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr]">
+        <div className="grid grid-cols-[auto_1fr_auto] items-center border-b-2 border-[var(--sample-border)] pb-2 text-[10px] font-bold">
+          <span>AG</span>
+          <span className="px-3 text-[var(--sample-muted)]">Program / Publishing</span>
+          <span>2026</span>
+        </div>
+        <div className={cn("grid min-h-0 gap-4 pt-4", compact ? "grid-cols-[1fr_0.8fr]" : "grid-cols-1 md:grid-cols-[1.05fr_0.95fr]")}>
+          <div className="flex min-w-0 flex-col justify-between">
+            <h3
+              className={cn("break-words font-display leading-[0.9]", compact ? "text-3xl" : "text-5xl md:text-7xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              New rules for public culture.
+            </h3>
+            <span className={cn("mt-4 h-10 w-24 bg-[var(--sample-accent)]", compact ? "hidden" : "block")} />
+          </div>
+          <div className="grid gap-2">
+            {program.map((item, index) => (
+              <div className="grid grid-cols-[2rem_1fr] border-2 border-[var(--sample-border)]" key={item}>
+                <span className="grid place-items-center bg-[var(--sample-text)] text-[10px] text-[var(--sample-base)]">0{index + 1}</span>
+                <span className="px-3 py-2 text-xs font-bold">{item}</span>
+              </div>
+            ))}
+            <div className="grid grid-cols-3 gap-2">
+              {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((color) => (
+                <span className="h-8" key={color} style={{ backgroundColor: color }} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function PostmodernMemphisPortal({ className, compact = false, style }: Props) {
+  const shapes = ["Chair", "Lamp", "Vase"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="absolute inset-0 opacity-60" style={{ backgroundImage: "radial-gradient(circle at 20px 20px, var(--sample-accent) 0 5px, transparent 6px)", backgroundSize: "42px 42px" }} />
+      <div className="relative grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between pb-3">
+          <span className="rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-1 text-xs font-black">Memphis shop</span>
+          <span className="h-8 w-8 rounded-full bg-[var(--sample-accent-2)]" />
+        </div>
+        <div className={cn("grid gap-3", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[0.9fr_1.1fr]")}>
+          <div className="rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-4" style={{ boxShadow: "var(--st-shadow)" }}>
+            <h3
+              className={cn("break-words font-display leading-[0.95]", compact ? "text-3xl" : "text-5xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              Objects with jokes inside.
+            </h3>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {shapes.map((shape, index) => (
+              <div className="min-w-0 rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-2" key={shape}>
+                <span className={cn("block aspect-square", index === 0 ? "rounded-full" : index === 1 ? "skew-x-[-12deg]" : "")} style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index] }} />
+                <p className="mt-2 truncate text-xs font-black">{shape}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function RetroDinerShop({ className, compact = false, style }: Props) {
+  const products = ["Soda", "Vinyl", "Tote"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between pb-3">
+          <span className="rounded-full bg-[var(--sample-text)] px-3 py-1 text-xs font-bold text-[var(--sample-base)]">Retro Mart</span>
+          <span className="rounded-full border-2 border-[var(--sample-border)] px-3 py-1 text-[10px] font-bold">Open</span>
+        </div>
+        <div className={cn("grid gap-3", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[0.9fr_1.1fr]")}>
+          <div className="rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)] p-4">
+            <h3
+              className={cn("break-words font-display leading-[0.95]", compact ? "text-3xl" : "text-5xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              Nostalgia you can buy.
+            </h3>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {products.map((product, index) => (
+              <div className="rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-2" key={product}>
+                <span className="block aspect-square rounded-full" style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index] }} />
+                <p className="mt-2 truncate text-xs font-bold">{product}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function VintagePaperCatalog({ className, compact = false, style }: Props) {
+  const rows = compact ? ["Jacket", "Boot", "Tin"] : ["Wax jacket", "Field boot", "Tool tin", "Archive bag"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr] border border-[var(--sample-border)] bg-[var(--sample-surface)]">
+        <div className="flex items-center justify-between border-b border-[var(--sample-border)] px-3 py-2 text-[10px]">
+          <span>Heritage catalog</span>
+          <span>Est. 1912</span>
+        </div>
+        <div className={cn("grid min-h-0", compact ? "grid-cols-[0.9fr_1.1fr]" : "grid-cols-1 md:grid-cols-[0.8fr_1.2fr]")}>
+          <div className="border-r border-[var(--sample-border)] p-4">
+            <h3
+              className={cn("break-words font-display leading-[1.02]", compact ? "text-2xl" : "text-4xl md:text-5xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              Goods with a long memory.
+            </h3>
+            <span className={cn("mt-5 block h-10 w-16 rounded-full border border-[var(--sample-border)]", compact ? "hidden" : "")} />
+          </div>
+          <div className="grid">
+            {rows.map((row, index) => (
+              <div className="grid grid-cols-[2rem_1fr_auto] border-b border-[var(--sample-border)] px-2 py-2 last:border-b-0" key={row}>
+                <span className="text-[10px] text-[var(--sample-muted)]">0{index + 1}</span>
+                <span className="truncate text-xs font-semibold">{row}</span>
+                <span className="text-[10px] text-[var(--sample-muted)]">${[48, 92, 18, 64][index]}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function SeventiesGroovyLanding({ className, compact = false, style }: Props) {
+  const cards = ["Listen", "Shop", "Gather"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="absolute left-0 right-0 top-12 h-16 rounded-[0_0_50%_50%] bg-[var(--sample-accent)] opacity-70" />
+      <div className="relative grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between pb-4">
+          <span className="rounded-full bg-[var(--sample-text)] px-3 py-1 text-xs font-bold text-[var(--sample-base)]">Groove house</span>
+          <span className="rounded-full bg-[var(--sample-accent-2)] px-3 py-1 text-[10px] font-bold">RSVP</span>
+        </div>
+        <div className={cn("grid gap-3", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[1fr_0.95fr]")}>
+          <div className="rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-4" style={{ boxShadow: "var(--st-shadow)" }}>
+            <h3
+              className={cn("break-words font-display leading-[0.98]", compact ? "text-3xl" : "text-5xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              Warm curves for easy days.
+            </h3>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {cards.map((card, index) => (
+              <div className="rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-2" key={card}>
+                <span className="block h-12 rounded-full" style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index] }} />
+                <p className="mt-2 truncate text-xs font-bold">{card}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function EightiesSynthConsole({ className, compact = false, style }: Props) {
+  const tracks = ["FM", "VHS", "Arcade"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="absolute inset-x-0 bottom-0 h-1/2 opacity-30" style={{ backgroundImage: "linear-gradient(var(--sample-accent-2) 1px, transparent 1px), linear-gradient(90deg, var(--sample-accent-2) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
+      <div className="relative grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between border border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2 font-mono text-[10px]">
+          <span>SYNTH://88</span>
+          <span className="text-[var(--sample-accent)]">ON AIR</span>
+        </div>
+        <div className={cn("grid gap-3 pt-3", compact ? "grid-cols-[1fr_0.8fr]" : "grid-cols-1 md:grid-cols-[1fr_0.9fr]")}>
+          <div className="border border-[var(--sample-border)] bg-[var(--sample-surface)] p-4" style={{ boxShadow: "var(--st-shadow)" }}>
+            <h3
+              className={cn("break-words font-display leading-[0.95]", compact ? "text-3xl" : "text-5xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              Neon signal, midnight grid.
+            </h3>
+          </div>
+          <div className="grid gap-2">
+            {tracks.map((track, index) => (
+              <div className="border border-[var(--sample-border)] bg-[var(--sample-surface)] p-2 font-mono text-xs" key={track}>
+                <span>{track}</span>
+                <span className="mt-2 block h-2" style={{ width: `${[80, 54, 92][index]}%`, backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index] }} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function NinetiesGraphicZine({ className, compact = false, style }: Props) {
+  const windows = ["Drop", "Links", "Guestbook"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "linear-gradient(45deg, var(--sample-accent-3) 25%, transparent 25%), linear-gradient(-45deg, var(--sample-accent-3) 25%, transparent 25%)", backgroundSize: "24px 24px" }} />
+      <div className="relative grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2 text-[10px] font-black">
+          <span>browser window</span>
+          <span>[x]</span>
+        </div>
+        <div className={cn("grid gap-2 pt-3", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[1fr_0.9fr]")}>
+          <div className="border-4 border-[var(--sample-border)] bg-[var(--sample-surface)] p-3" style={{ boxShadow: "var(--st-shadow)" }}>
+            <h3
+              className={cn("break-words font-display leading-[0.9]", compact ? "text-3xl" : "text-5xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              Web stickers and loud links.
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 gap-2">
+            {windows.map((window, index) => (
+              <span className="border-4 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2 text-xs font-black" key={window} style={{ backgroundColor: index === 1 ? style.palette.accent3 : style.palette.surface }}>
+                {window}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function Y2KGlossPortal({ className, compact = false, style }: Props) {
+  const widgets = ["Profile", "Chat", "Hits"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2 text-[10px] font-bold" style={{ boxShadow: "var(--st-shadow)" }}>
+          <span>Crystal portal</span>
+          <span>login</span>
+        </div>
+        <div className={cn("grid min-h-0 gap-3 pt-4", compact ? "grid-cols-1" : "grid-cols-1 md:grid-cols-[0.92fr_1.08fr]")}>
+          <div className="rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[linear-gradient(145deg,var(--sample-surface),var(--sample-accent)_42%,var(--sample-accent-2))] p-4" style={{ boxShadow: "var(--st-shadow)" }}>
+            <h3
+              className={cn("break-words font-display leading-[0.98]", compact ? "text-3xl" : "text-5xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              Glossy widgets for web dreams.
+            </h3>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {widgets.map((widget, index) => (
+              <div className="rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-2" key={widget}>
+                <span className="block h-10 rounded-full" style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index] }} />
+                <p className="mt-2 truncate text-[10px] font-bold">{widget}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
+function RetroFuturismFlightDeck({ className, compact = false, style }: Props) {
+  const legs = ["Orbit", "Dock", "Return"];
+
+  return (
+    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
+      <div className="absolute inset-0 opacity-25" style={{ backgroundImage: "linear-gradient(90deg, var(--sample-border-soft) 1px, transparent 1px), linear-gradient(var(--sample-border-soft) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+      <div className="relative grid h-full grid-rows-[auto_1fr]">
+        <div className="flex items-center justify-between rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2 text-[10px] font-bold text-[var(--sample-base)]">
+          <span>Orbital departures</span>
+          <span>Gate 07</span>
+        </div>
+        <div className={cn("grid min-h-0 gap-3 pt-4", compact ? "grid-cols-[1fr_0.9fr]" : "grid-cols-1 md:grid-cols-[1fr_0.9fr]")}>
+          <div className="rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-4 text-[var(--sample-base)]" style={{ boxShadow: "var(--st-shadow)" }}>
+            <h3
+              className={cn("break-words font-display leading-[0.98]", compact ? "text-3xl" : "text-5xl")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              Book tomorrow as imagined yesterday.
+            </h3>
+          </div>
+          <div className="grid gap-2">
+            {legs.map((leg, index) => (
+              <div className="rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2 text-[var(--sample-base)]" key={leg}>
+                <p className="text-[10px] text-[var(--sample-base)] opacity-70">0{index + 1}</p>
+                <p className="text-xs font-bold">{leg}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SampleFrame>
+  );
+}
+
 function BrutalistPoster({ compact = false, style }: Props) {
   return (
     <SampleFrame compact={compact} className="bg-[var(--sample-base)]" style={style}>
@@ -867,6 +1483,74 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
 
   if (style.slug === "warm-minimal") {
     return <WarmMinimalStudio {...props} />;
+  }
+
+  if (style.slug === "soft-minimal") {
+    return <SoftMinimalService {...props} />;
+  }
+
+  if (style.slug === "high-end-minimal") {
+    return <HighEndMinimalProduct {...props} />;
+  }
+
+  if (style.slug === "brutalism") {
+    return <RawBrutalistIndex {...props} />;
+  }
+
+  if (style.slug === "new-brutalism") {
+    return <NeoBrutalistApp {...props} />;
+  }
+
+  if (style.slug === "anti-design") {
+    return <AntiDesignLanding {...props} />;
+  }
+
+  if (style.slug === "maximalism") {
+    return <MaximalistPatternMarket {...props} />;
+  }
+
+  if (style.slug === "glitch-art") {
+    return <GlitchArtInterface {...props} />;
+  }
+
+  if (style.slug === "deconstructivism") {
+    return <DeconstructiveExhibition {...props} />;
+  }
+
+  if (style.slug === "avant-garde") {
+    return <AvantGardeEditorial {...props} />;
+  }
+
+  if (style.slug === "postmodernism") {
+    return <PostmodernMemphisPortal {...props} />;
+  }
+
+  if (style.slug === "retro") {
+    return <RetroDinerShop {...props} />;
+  }
+
+  if (style.slug === "vintage") {
+    return <VintagePaperCatalog {...props} />;
+  }
+
+  if (style.slug === "seventies-retro") {
+    return <SeventiesGroovyLanding {...props} />;
+  }
+
+  if (style.slug === "eighties-retro") {
+    return <EightiesSynthConsole {...props} />;
+  }
+
+  if (style.slug === "nineties-graphic") {
+    return <NinetiesGraphicZine {...props} />;
+  }
+
+  if (style.slug === "y2k") {
+    return <Y2KGlossPortal {...props} />;
+  }
+
+  if (style.slug === "retro-futurism") {
+    return <RetroFuturismFlightDeck {...props} />;
   }
 
   switch (style.sampleType) {

@@ -134,13 +134,18 @@ async function capture() {
     const sites = entry.sites ?? [];
     const galleries = sitesOnly ? [] : (entry.galleries ?? []);
 
-    const page = await context.newPage();
+    let page = await context.newPage();
 
     for (const item of sites) {
       const result = await capturePage(page, item, outDir, `site`);
       if (result.ok && !result.skipped) total++;
       else if (!result.ok) failed++;
       else skipped++;
+
+      if (!result.ok) {
+        await page.close().catch(() => {});
+        page = await context.newPage();
+      }
     }
 
     for (const item of galleries) {
@@ -148,6 +153,11 @@ async function capture() {
       if (result.ok && !result.skipped) total++;
       else if (!result.ok) failed++;
       else skipped++;
+
+      if (!result.ok) {
+        await page.close().catch(() => {});
+        page = await context.newPage();
+      }
     }
 
     await page.close();

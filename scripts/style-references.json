@@ -28,15 +28,224 @@
     ]
   },
 
-  "brutalism": {
+  "soft-minimal": {
     "sites": [
-      { "url": "https://www.balenciaga.com", "title": "Balenciaga", "note": "패션 브루탈리즘 — 검정 배경, 굵은 산세리프, 각진 레이아웃" },
-      { "url": "https://brutalistwebsites.com", "title": "Brutalist Websites", "note": "브루탈리즘 전문 갤러리 사이트 — 실제 예시 풍부" },
-      { "url": "https://www.bloomberg.com", "title": "Bloomberg", "note": "에디토리얼 브루탈리즘 — 높은 정보 밀도, 굵은 타이포" }
+      { "url": "https://normcph.com/project/soft-minimal-2/", "title": "Norm Architects - Soft Minimal", "note": "Concept reference for gentle restraint, tactile neutrals, soft light, and human-centered minimal composition." },
+      { "url": "https://www.vellum.studio/", "title": "Vellum Studio", "note": "Interior studio reference for low-contrast warm surfaces, calm portfolio pacing, and quiet service-oriented modules." },
+      { "url": "https://www.toogood.com/", "title": "Toogood", "note": "Design studio reference for softened editorial minimalism, sculptural product rhythm, and restrained off-white brand storytelling." }
     ],
     "galleries": [
-      { "url": "https://www.awwwards.com/awwwards/collections/brutalism/", "title": "Awwwards — Brutalism Collection" },
-      { "url": "https://dribbble.com/tags/neo-brutalism", "title": "Dribbble — Neo Brutalism" }
+      { "url": "https://www.pinterest.com/search/pins/?q=soft%20minimal%20website%20design", "title": "Pinterest - Soft Minimal Website Design", "note": "Moodboard reference for cream neutrals, gentle shadows, rounded editorial cards, and low-pressure web service layouts." },
+      { "url": "https://www.awwwards.com/awwwards/collections/minimal/", "title": "Awwwards - Minimal Collection", "note": "Closest gallery reference for polished minimal sites that use soft pacing, subtle surface separation, and restrained typography." },
+      { "url": "https://dribbble.com/search/soft%20minimal%20website", "title": "Dribbble - Soft Minimal Website", "note": "UI reference for soft forms, neutral cards, approachable service blocks, and gentle conversion components." }
+    ]
+  },
+
+  "high-end-minimal": {
+    "sites": [
+      { "url": "https://www.aesop.com", "title": "Aesop", "note": "Premium retail reference for disciplined product storytelling, refined spacing, muted material color, and controlled interaction detail." },
+      { "url": "https://www.jilsander.com", "title": "Jil Sander", "note": "Fashion reference for austere luxury minimalism, precise product grids, quiet typography, and severe neutral composition." },
+      { "url": "https://www.toteme.com", "title": "Toteme", "note": "Luxury fashion reference for image-led restraint, exact spacing, black-and-cream hierarchy, and editorial commerce modules." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=high%20end%20minimal%20website%20design", "title": "Pinterest - High End Minimal Website Design", "note": "Moodboard reference for luxury whitespace, refined serif and sans typography, premium product framing, and controlled neutral palettes." },
+      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury Websites", "note": "Award-gallery reference for high-end web execution, premium imagery, restrained motion, and careful editorial pacing." },
+      { "url": "https://dribbble.com/search/luxury%20minimal%20website", "title": "Dribbble - Luxury Minimal Website", "note": "UI reference for refined product detail pages, elegant navigation, premium cards, and spare conversion layouts." }
+    ]
+  },
+
+  "brutalism": {
+    "sites": [
+      { "url": "https://brutalistwebsites.com", "title": "Brutalist Websites", "note": "Reference archive for raw HTML structure, default-looking controls, hard borders, and deliberately plain web composition." },
+      { "url": "https://www.balenciaga.com", "title": "Balenciaga", "note": "Fashion reference for sparse commerce, severe monochrome hierarchy, blunt navigation, and anti-polished luxury minimalism." },
+      { "url": "https://www.secession.at", "title": "Secession", "note": "Cultural reference for table-like structure, strict columns, plain surfaces, and brutalist institutional web rhythm." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=brutalist%20website%20design", "title": "Pinterest - Brutalist Website Design", "note": "Moodboard reference for raw typography, stark black-white layouts, exposed boxes, and intentionally severe web surfaces." },
+      { "url": "https://www.awwwards.com/awwwards/collections/brutalism/", "title": "Awwwards - Brutalism Collection", "note": "Gallery reference for award-level brutalist executions, including hard grids, exposed UI, oversized type, and rough interaction cues." },
+      { "url": "https://dribbble.com/tags/brutalist_website", "title": "Dribbble - Brutalist Website", "note": "UI reference for brutalist cards, thick borders, raw navigation, stark CTAs, and component-level layout tension." }
+    ]
+  },
+
+  "new-brutalism": {
+    "sites": [
+      { "url": "https://gumroad.com", "title": "Gumroad", "note": "Product reference for playful digital brutalism, thick outline cards, blunt commerce hierarchy, and saturated accent blocks." },
+      { "url": "https://neobrutalism.dev/", "title": "Neo Brutalism UI", "note": "Component reference for offset shadows, heavy borders, direct controls, high-contrast panels, and web-native neo-brutalist rules." },
+      { "url": "https://www.figma.com/community/tag/neubrutalism/files", "title": "Figma Community - Neubrutalism", "note": "Design-resource reference for component-level neo-brutalist cards, buttons, forms, and dashboard surfaces." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=neo%20brutalism%20web%20design", "title": "Pinterest - Neo Brutalism Web Design", "note": "Moodboard reference for chunky outlines, playful shadows, saturated panels, and intentionally simple app interfaces." },
+      { "url": "https://www.awwwards.com/awwwards/collections/brutalism/", "title": "Awwwards - Brutalism Collection", "note": "Gallery reference for brutalist and neo-brutalist web executions, hard-edged modules, and expressive web-native structures." },
+      { "url": "https://dribbble.com/tags/neo-brutalism", "title": "Dribbble - Neo Brutalism", "note": "UI reference for neo-brutalist dashboards, cards, buttons, pricing blocks, and high-contrast product surfaces." }
+    ]
+  },
+
+  "anti-design": {
+    "sites": [
+      { "url": "https://www.superbad.com", "title": "Superbad", "note": "Historical web reference for intentionally awkward composition, early-web friction, clashing visuals, and anti-polished navigation." },
+      { "url": "https://thehtml.review/", "title": "The HTML Review", "note": "Independent web reference for strange editorial systems, raw HTML feeling, unexpected layouts, and handcrafted anti-design energy." },
+      { "url": "https://www.are.na/", "title": "Are.na", "note": "Cultural platform reference for rough knowledge boards, dense links, plain interface elements, and anti-slick publishing rhythm." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=anti%20design%20website", "title": "Pinterest - Anti Design Website", "note": "Moodboard reference for clashing layouts, deliberate imbalance, uncomfortable type scale, and anti-commercial web composition." },
+      { "url": "https://www.awwwards.com/websites/experimental/", "title": "Awwwards - Experimental Websites", "note": "Gallery reference for unconventional web systems, broken expectations, experimental navigation, and intentionally unstable visual rhythm." },
+      { "url": "https://dribbble.com/search/anti%20design%20website", "title": "Dribbble - Anti Design Website", "note": "UI reference for anti-design posters, chaotic cards, distorted hierarchy, and deliberately awkward digital surfaces." }
+    ]
+  },
+
+  "maximalism": {
+    "sites": [
+      { "url": "https://farmrio.com/", "title": "FARM Rio", "note": "Fashion maximalism reference for saturated prints, joyful pattern density, tropical color, and expressive product storytelling." },
+      { "url": "https://www.versace.com", "title": "Versace", "note": "Luxury reference for gold, pattern, iconic motifs, high-contrast product drama, and unapologetically decorative surfaces." },
+      { "url": "https://www.libertylondon.com", "title": "Liberty London", "note": "Retail reference for textile pattern density, floral maximalism, heritage color, and layered commerce modules." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=maximalist%20website%20design", "title": "Pinterest - Maximalist Website Design", "note": "Moodboard reference for saturated color, layered pattern, dense composition, eclectic type, and decorative web scenes." },
+      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Closest gallery reference for award-level maximal color, bold visual systems, ornamental motion, and dense campaign pages." },
+      { "url": "https://dribbble.com/tags/maximalism", "title": "Dribbble - Maximalism", "note": "UI reference for pattern-rich landing pages, expressive product cards, layered hero modules, and decorative component systems." }
+    ]
+  },
+
+  "glitch-art": {
+    "sites": [
+      { "url": "https://www.cyberpunk.net", "title": "Cyberpunk 2077 Official", "note": "Commercial reference for error-like overlays, neon distortion, aggressive digital panels, and high-energy sci-fi interface rhythm." },
+      { "url": "https://patatap.com", "title": "Patatap", "note": "Interactive reference for audiovisual pulses, reactive digital marks, simple controls, and playful glitch-adjacent feedback." },
+      { "url": "https://thehtml.review/", "title": "The HTML Review", "note": "Experimental web reference for raw publishing, unexpected visual breaks, and non-standard digital composition." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=glitch%20website%20design", "title": "Pinterest - Glitch Website Design", "note": "Moodboard reference for RGB splits, broken scanlines, noisy panels, digital corruption, and distorted typography." },
+      { "url": "https://www.awwwards.com/websites/experimental/", "title": "Awwwards - Experimental Websites", "note": "Gallery reference for interactive experimental sites, digital distortion, non-linear motion, and unconventional interface effects." },
+      { "url": "https://dribbble.com/search/glitch%20website", "title": "Dribbble - Glitch Website", "note": "UI reference for glitch dashboards, corrupted type treatments, scanline overlays, and cyber interface modules." }
+    ]
+  },
+
+  "deconstructivism": {
+    "sites": [
+      { "url": "https://www.moma.org/calendar/exhibitions/1813", "title": "MoMA - Deconstructivist Architecture", "note": "Historical reference for fragmented structure, broken geometry, spatial tension, and deconstructivist visual principles." },
+      { "url": "https://www.coop-himmelblau.at", "title": "Coop Himmelb(l)au", "note": "Architecture reference for angular fragments, asymmetric space, sharp structural overlays, and engineered visual disruption." },
+      { "url": "https://www.zaha-hadid.com/?lang=en-US", "title": "Zaha Hadid Architects", "note": "Architecture reference for dynamic deconstructive forms, sharp spatial movement, and complex project-driven visual structure." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=deconstructivism%20website%20design", "title": "Pinterest - Deconstructivism Website Design", "note": "Moodboard reference for broken grids, sliced panels, tilted forms, architectural fragments, and tense editorial composition." },
+      { "url": "https://www.awwwards.com/websites/experimental/", "title": "Awwwards - Experimental Websites", "note": "Gallery reference for unconventional structures, fragmented navigation, dynamic composition, and architecture-adjacent web work." },
+      { "url": "https://dribbble.com/search/deconstructivism%20web%20design", "title": "Dribbble - Deconstructivism Web Design", "note": "UI reference for angular cards, displaced content blocks, skewed editorial layouts, and fractured hero systems." }
+    ]
+  },
+
+  "avant-garde": {
+    "sites": [
+      { "url": "https://www.serpentinegalleries.org", "title": "Serpentine Galleries", "note": "Art institution reference for experimental editorial hierarchy, cultural programming, unexpected rhythm, and contemporary exhibition pages." },
+      { "url": "https://canopycanopycanopy.com/", "title": "Triple Canopy", "note": "Publishing reference for conceptual editorial systems, unusual reading pace, art-critical typography, and non-commercial structure." },
+      { "url": "https://walkerart.org", "title": "Walker Art Center", "note": "Museum reference for bold cultural navigation, flexible editorial modules, and progressive institutional visual language." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=avant%20garde%20website%20design", "title": "Pinterest - Avant Garde Website Design", "note": "Moodboard reference for experimental typography, art-poster composition, asymmetry, and cultural web layouts." },
+      { "url": "https://www.awwwards.com/websites/experimental/", "title": "Awwwards - Experimental Websites", "note": "Gallery reference for forward-looking web work, unusual navigation, expressive typography, and conceptual interaction systems." },
+      { "url": "https://dribbble.com/search/avant%20garde%20website", "title": "Dribbble - Avant Garde Website", "note": "UI reference for avant-garde landing pages, editorial experiments, angular typography, and gallery-style modules." }
+    ]
+  },
+
+  "postmodernism": {
+    "sites": [
+      { "url": "https://www.memphis-milano.com", "title": "Memphis Milano", "note": "Primary postmodern reference for Memphis forms, bright geometric surfaces, ironic color, and playful product presentation." },
+      { "url": "https://www.vitra.com/en-us/magazine/details/the-memphis-group", "title": "Vitra - The Memphis Group", "note": "Design-history reference for postmodern pattern, anti-functional color, expressive furniture, and cultural context." },
+      { "url": "https://designmuseum.org/exhibitions/memphis-plastic-field", "title": "Design Museum - Memphis: Plastic Field", "note": "Museum reference for postmodern exhibition framing, graphic motifs, playful material, and Memphis visual vocabulary." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=postmodern%20website%20design%20memphis", "title": "Pinterest - Postmodern Memphis Website Design", "note": "Moodboard reference for Memphis patterns, playful geometry, ironic type, and colorful postmodern web composition." },
+      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Closest gallery reference for postmodern-adjacent color, expressive geometry, layered campaign pages, and playful digital rhythm." },
+      { "url": "https://dribbble.com/search/postmodern%20website", "title": "Dribbble - Postmodern Website", "note": "UI reference for Memphis cards, mismatched shapes, colorful product modules, and ironic interface treatments." }
+    ]
+  },
+
+  "retro": {
+    "sites": [
+      { "url": "https://poolside.fm", "title": "Poolside FM", "note": "Retro web reference for nostalgia, playful media interface, warm color, and intentionally analog browsing cues." },
+      { "url": "https://radiooooo.com", "title": "Radiooooo", "note": "Music experience reference for time-travel navigation, nostalgic color, map-like interaction, and retro audio discovery." },
+      { "url": "https://www.webdesignmuseum.org/", "title": "Web Design Museum", "note": "Archive reference for historical web aesthetics, period UI patterns, typography, palettes, and layout conventions." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=retro%20website%20design", "title": "Pinterest - Retro Website Design", "note": "Moodboard reference for nostalgic palettes, rounded badges, vintage-inspired web graphics, and playful commerce layouts." },
+      { "url": "https://www.awwwards.com/websites/retro/", "title": "Awwwards - Retro Websites", "note": "Gallery reference for modern retro web executions, nostalgic imagery, period color, and contemporary interaction polish." },
+      { "url": "https://dribbble.com/search/retro%20website", "title": "Dribbble - Retro Website", "note": "UI reference for retro landing pages, badge systems, diner-style cards, and nostalgic product screens." }
+    ]
+  },
+
+  "vintage": {
+    "sites": [
+      { "url": "https://www.filson.com", "title": "Filson", "note": "Heritage retail reference for rugged catalog rhythm, aged neutrals, serif accents, and practical vintage product storytelling." },
+      { "url": "https://www.levi.com", "title": "Levi's", "note": "Heritage apparel reference for archival denim tone, classic commerce modules, and vintage Americana brand cues." },
+      { "url": "https://www.webdesignmuseum.org/", "title": "Web Design Museum", "note": "Archive reference for older web layouts, historic graphics, period typography, and document-like page structure." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=vintage%20website%20design", "title": "Pinterest - Vintage Website Design", "note": "Moodboard reference for paper texture, muted ink, heritage badges, classic catalog grids, and aged color systems." },
+      { "url": "https://www.awwwards.com/websites/retro/", "title": "Awwwards - Retro Websites", "note": "Closest gallery reference for vintage and retro web executions, heritage color, editorial pacing, and archival atmosphere." },
+      { "url": "https://dribbble.com/search/vintage%20website", "title": "Dribbble - Vintage Website", "note": "UI reference for vintage catalogs, badges, serif headings, paper-like cards, and heritage product pages." }
+    ]
+  },
+
+  "seventies-retro": {
+    "sites": [
+      { "url": "https://www.houseplant.com", "title": "Houseplant", "note": "Lifestyle commerce reference for warm 70s color, rounded typography, product character, and relaxed editorial modules." },
+      { "url": "https://www.rollingstone.com", "title": "Rolling Stone", "note": "Media reference for 70s cultural heritage, strong editorial identity, music nostalgia, and bold magazine hierarchy." },
+      { "url": "https://www.webdesignmuseum.org/", "title": "Web Design Museum", "note": "Archive reference for period web interpretation, old interface rhythm, nostalgic graphics, and historical color cues." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=70s%20retro%20website%20design", "title": "Pinterest - 70s Retro Website Design", "note": "Moodboard reference for groovy curves, warm orange and avocado palettes, psychedelic patterns, and relaxed retro layouts." },
+      { "url": "https://www.awwwards.com/websites/retro/", "title": "Awwwards - Retro Websites", "note": "Gallery reference for contemporary retro sites that reinterpret 70s color, soft shapes, and nostalgic campaign structure." },
+      { "url": "https://dribbble.com/search/70s%20website%20design", "title": "Dribbble - 70s Website Design", "note": "UI reference for 70s landing pages, groovy badges, wavy modules, and warm product cards." }
+    ]
+  },
+
+  "eighties-retro": {
+    "sites": [
+      { "url": "https://poolside.fm", "title": "Poolside FM", "note": "Interface reference for 80s media nostalgia, lo-fi desktop cues, bright controls, and playful analog-digital interaction." },
+      { "url": "https://www.cyberpunk.net", "title": "Cyberpunk 2077 Official", "note": "Commercial reference for neon futurist palettes, dark interface panels, sci-fi campaign hierarchy, and high-contrast digital drama." },
+      { "url": "https://windows93.net", "title": "Windows 93", "note": "Desktop-web reference for retro OS windows, pixel-era controls, playful app framing, and 80s/90s digital nostalgia." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=80s%20retro%20website%20design", "title": "Pinterest - 80s Retro Website Design", "note": "Moodboard reference for neon grids, synthwave gradients, VHS graphics, and arcade-style web surfaces." },
+      { "url": "https://www.awwwards.com/websites/retro/", "title": "Awwwards - Retro Websites", "note": "Gallery reference for retro-futurist and 80s-inspired sites, neon motion, dark stages, and nostalgic interaction cues." },
+      { "url": "https://dribbble.com/search/synthwave%20website", "title": "Dribbble - Synthwave Website", "note": "UI reference for synthwave dashboards, neon panels, arcade buttons, and dark retro digital layouts." }
+    ]
+  },
+
+  "nineties-graphic": {
+    "sites": [
+      { "url": "https://www.spacejam.com/1996/", "title": "Space Jam 1996", "note": "Historic web reference for 90s graphics, tiled backgrounds, image-heavy navigation, and early-web composition." },
+      { "url": "https://windows93.net", "title": "Windows 93", "note": "Retro desktop reference for playful window chrome, pixel controls, chaotic app surfaces, and 90s computing nostalgia." },
+      { "url": "https://www.webdesignmuseum.org/", "title": "Web Design Museum", "note": "Archive reference for historical 90s web layouts, visual tropes, browser-era UI, and graphic density." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=90s%20graphic%20website%20design", "title": "Pinterest - 90s Graphic Website Design", "note": "Moodboard reference for loud patterns, early digital graphics, sticker-like elements, and zine-style web layouts." },
+      { "url": "https://www.awwwards.com/websites/retro/", "title": "Awwwards - Retro Websites", "note": "Gallery reference for modern retro sites that reinterpret 90s web energy, collage density, and graphic nostalgia." },
+      { "url": "https://dribbble.com/search/90s%20website%20design", "title": "Dribbble - 90s Website Design", "note": "UI reference for 90s landing pages, desktop windows, bold stickers, and high-energy graphic modules." }
+    ]
+  },
+
+  "y2k": {
+    "sites": [
+      { "url": "https://www.webdesignmuseum.org/exhibitions/y2k-aesthetic-in-web-design", "title": "Web Design Museum - Y2K Aesthetic", "note": "Archive reference for early-2000s web design, chrome effects, optimistic digital color, and period interface conventions." },
+      { "url": "https://www.blingee.com", "title": "Blingee", "note": "Living web reference for glitter graphics, decorative internet nostalgia, shiny surfaces, and participatory Y2K visual culture." },
+      { "url": "https://windows93.net", "title": "Windows 93", "note": "Retro desktop reference for playful legacy UI, pixel controls, layered windows, and early web nostalgia." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/ideas/y2k-website-design-inspiration/893524089634/", "title": "Pinterest - Y2K Website Design Inspiration", "note": "Moodboard reference for chrome, gradients, bubble type, glitter, plastic surfaces, and early-2000s web optimism." },
+      { "url": "https://www.awwwards.com/websites/y2k/", "title": "Awwwards - Y2K Websites", "note": "Gallery reference for contemporary Y2K web executions, glossy gradients, nostalgic interfaces, and cyber-pop visual systems." },
+      { "url": "https://dribbble.com/search/y2k%20website", "title": "Dribbble - Y2K Website", "note": "UI reference for Y2K landing pages, shiny cards, bubble navigation, chrome-like widgets, and playful web portals." }
+    ]
+  },
+
+  "retro-futurism": {
+    "sites": [
+      { "url": "https://retro-futurism.com/", "title": "Retro Futurism", "note": "Archive reference for past visions of the future, space-age graphics, optimistic technology motifs, and period futurist imagery." },
+      { "url": "https://paleofuture.com/", "title": "Paleofuture", "note": "Cultural archive reference for historical future speculation, mid-century technology imagery, and optimistic space-age narrative." },
+      { "url": "https://www.webdesignmuseum.org/", "title": "Web Design Museum", "note": "Archive reference for historical digital aesthetics, period UI systems, and older web interpretations of future-facing design." }
+    ],
+    "galleries": [
+      { "url": "https://www.pinterest.com/search/pins/?q=retro%20futurism%20website%20design", "title": "Pinterest - Retro Futurism Website Design", "note": "Moodboard reference for space-age curves, chrome panels, pastel planets, vintage technology, and optimistic future nostalgia." },
+      { "url": "https://www.awwwards.com/websites/retro/", "title": "Awwwards - Retro Websites", "note": "Closest gallery reference for retro-futurist web execution, nostalgic future visuals, playful motion, and modern polish." },
+      { "url": "https://dribbble.com/search/retro%20futurism%20website", "title": "Dribbble - Retro Futurism Website", "note": "UI reference for space-age landing pages, rocket dashboards, rounded control panels, and future-nostalgia product screens." }
     ]
   },
 
@@ -122,30 +331,6 @@
       { "url": "https://onepagelove.com/style/glassmorphism", "title": "One Page Love — Glassmorphism", "note": "큐레이션 갤러리 — blur/opacity/shadow 토큰 참고" },
       { "url": "https://webflow.com/made-in-webflow/glassmorphism", "title": "Webflow — Glassmorphism" },
       { "url": "https://dribbble.com/tags/glassmorphism", "title": "Dribbble — Glassmorphism" }
-    ]
-  },
-
-  "y2k": {
-    "sites": [
-      { "url": "https://www.webdesignmuseum.org/exhibitions/y2k-aesthetic-in-web-design", "title": "Web Design Museum — Y2K", "note": "실제 2000년대 초 웹디자인 아카이브 — 색·폰트·레이아웃 원형 확인" },
-      { "url": "https://www.blingee.com", "title": "Blingee", "note": "크롬·글리터·버블 Y2K 에너지 살아있는 실제 사이트" }
-    ],
-    "galleries": [
-      { "url": "https://www.pinterest.com/ideas/y2k-website-design-inspiration/893524089634/", "title": "Pinterest — Y2K Website Design Inspiration", "note": "Y2K 웹디자인 무드보드 — 크롬, 그라디언트, 버블폰트 참고" },
-      { "url": "https://www.behance.net/search/projects/y2k%20website", "title": "Behance — Y2K Website Projects" },
-      { "url": "https://webflow.com/blog/y2k-aesthetic", "title": "Webflow Blog — Y2K Aesthetic Guide" }
-    ]
-  },
-
-  "maximalism": {
-    "sites": [
-      { "url": "https://www.gucci.com", "title": "Gucci", "note": "패션 맥시멀리즘 — 패턴 레이어, 에클렉틱 타이포, 강한 색" },
-      { "url": "https://www.versace.com", "title": "Versace", "note": "그리스 모티프 + 골드 + 볼드 패턴 — 과감한 장식성" },
-      { "url": "https://www.libertylondon.com", "title": "Liberty London", "note": "꽃무늬·패턴 맥시멀리즘 — 텍스타일 기반 밀도감" }
-    ],
-    "galleries": [
-      { "url": "https://onepagelove.com/tag/maximalist", "title": "One Page Love — Maximalist" },
-      { "url": "https://dribbble.com/tags/maximalism", "title": "Dribbble — Maximalism" }
     ]
   },
 
