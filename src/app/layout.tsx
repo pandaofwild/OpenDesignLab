@@ -52,6 +52,7 @@ function RawNavigation() {
             ["Library", "/layouts"],
             ["Styles", "/styles"],
             ["Studio", "/studio"],
+            ["Components", "/components"],
             ["Compare", "/layouts/compare"],
             ["Skill", "/layouts#layout-skill"],
           ].map(([label, href]) => (
@@ -110,6 +111,8 @@ function RawFooter() {
           items={[
             ["Library", "/layouts"],
             ["Styles", "/styles"],
+            ["Studio", "/studio"],
+            ["Components", "/components"],
             ["Compare", "/layouts/compare"],
             ["GitHub", "https://github.com/pandaofwild/openlayout"],
           ]}
