@@ -238,6 +238,7 @@
 
   "retro-futurism": {
     "sites": [
+      { "url": "https://www.jpl.nasa.gov/galleries/visions-of-the-future/", "title": "NASA JPL - Visions of the Future", "note": "Official space-tourism poster reference for retro-future travel advertising, WPA-inspired composition, optimistic destinations, and scientific imagination." },
       { "url": "https://retro-futurism.com/", "title": "Retro Futurism", "note": "Archive reference for past visions of the future, space-age graphics, optimistic technology motifs, and period futurist imagery." },
       { "url": "https://paleofuture.com/", "title": "Paleofuture", "note": "Cultural archive reference for historical future speculation, mid-century technology imagery, and optimistic space-age narrative." },
       { "url": "https://www.webdesignmuseum.org/", "title": "Web Design Museum", "note": "Archive reference for historical digital aesthetics, period UI systems, and older web interpretations of future-facing design." }

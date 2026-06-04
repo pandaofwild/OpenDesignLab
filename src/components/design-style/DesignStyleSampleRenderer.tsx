@@ -1155,32 +1155,76 @@ function Y2KGlossPortal({ className, compact = false, style }: Props) {
 }
 
 function RetroFuturismFlightDeck({ className, compact = false, style }: Props) {
-  const legs = ["Orbit", "Dock", "Return"];
+  const destinations = compact ? ["Moon", "Mars", "Titan"] : ["Lunar resort", "Mars canyons", "Titan seas"];
 
   return (
     <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <div className="absolute inset-0 opacity-25" style={{ backgroundImage: "linear-gradient(90deg, var(--sample-border-soft) 1px, transparent 1px), linear-gradient(var(--sample-border-soft) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-      <div className="relative grid h-full grid-rows-[auto_1fr]">
-        <div className="flex items-center justify-between rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2 text-[10px] font-bold text-[var(--sample-base)]">
-          <span>Orbital departures</span>
-          <span>Gate 07</span>
+      <div className="absolute inset-0 opacity-25" style={{ backgroundImage: "radial-gradient(circle at 14px 14px, var(--sample-accent-3) 0 2px, transparent 3px)", backgroundSize: "30px 30px" }} />
+      <div
+        aria-hidden="true"
+        className="absolute right-[-3rem] top-12 h-28 w-56 rotate-[-14deg] rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute bottom-8 left-[-2.5rem] h-20 w-44 rotate-[18deg] rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent)]"
+      />
+
+      <div className="relative grid h-full grid-rows-[auto_1fr] gap-3">
+        <div className="flex items-center justify-between rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2 text-[10px] font-bold text-[var(--sample-text)]" style={{ boxShadow: "var(--st-shadow)" }}>
+          <span>Worlds Fair Travel Bureau</span>
+          <span>1962 / 2084</span>
         </div>
-        <div className={cn("grid min-h-0 gap-3 pt-4", compact ? "grid-cols-[1fr_0.9fr]" : "grid-cols-1 md:grid-cols-[1fr_0.9fr]")}>
-          <div className="rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-4 text-[var(--sample-base)]" style={{ boxShadow: "var(--st-shadow)" }}>
+
+        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1.05fr_0.95fr]" : "grid-cols-1 md:grid-cols-[1.06fr_0.94fr]")}>
+          <div className="relative min-w-0 overflow-hidden rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-4" style={{ boxShadow: "var(--st-shadow)" }}>
+            <span
+              aria-hidden="true"
+              className="absolute right-5 top-5 h-16 w-16 bg-[var(--sample-accent-3)]"
+              style={{ clipPath: "polygon(50% 0, 58% 36%, 100% 50%, 58% 64%, 50% 100%, 42% 64%, 0 50%, 42% 36%)" }}
+            />
+            <span aria-hidden="true" className="absolute bottom-5 right-7 h-20 w-20 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)]" />
+            <span aria-hidden="true" className="absolute bottom-9 right-3 h-8 w-32 rotate-[-16deg] rounded-full border-2 border-[var(--sample-border)]" />
+            <p className="relative w-max rounded-full bg-[var(--sample-accent)] px-3 py-1 text-[10px] font-bold uppercase text-[var(--sample-surface)]">
+              Grand tour
+            </p>
             <h3
-              className={cn("break-words font-display leading-[0.98]", compact ? "text-3xl" : "text-5xl")}
+              className={cn("relative mt-4 max-w-[12rem] break-words font-display leading-[0.9] text-[var(--sample-text)]", compact ? "text-3xl" : "text-5xl md:text-6xl")}
               style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
             >
-              Book tomorrow as imagined yesterday.
+              Tomorrow looked like a holiday.
             </h3>
+            <div className={cn("relative mt-5 flex flex-wrap gap-2", compact ? "hidden" : "")}>
+              <span className="rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-3 py-1 text-xs font-bold text-[var(--sample-text)]">Moon deck</span>
+              <span className="rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-1 text-xs font-bold text-[var(--sample-text)]">Depart 08:40</span>
+            </div>
           </div>
-          <div className="grid gap-2">
-            {legs.map((leg, index) => (
-              <div className="rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2 text-[var(--sample-base)]" key={leg}>
-                <p className="text-[10px] text-[var(--sample-base)] opacity-70">0{index + 1}</p>
-                <p className="text-xs font-bold">{leg}</p>
+
+          <div className="grid min-w-0 grid-rows-[auto_1fr] gap-2">
+            <div className="rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)] p-3 text-[var(--sample-text)]">
+              <p className="text-[10px] font-bold uppercase">Ticket window</p>
+              <div className="mt-3 grid grid-cols-[1fr_auto] items-end gap-3">
+                <div>
+                  <p className="text-2xl font-black leading-none">3 stops</p>
+                  <p className="mt-1 text-[10px] font-bold opacity-75">atomic route pass</p>
+                </div>
+                <span className="grid h-10 w-10 place-items-center rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] text-xs font-black">GO</span>
               </div>
-            ))}
+            </div>
+            <div className="grid gap-2">
+              {destinations.map((destination, index) => (
+                <div className="grid grid-cols-[auto_1fr_auto] items-center rounded-[var(--st-radius)] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2 text-[var(--sample-text)]" key={destination}>
+                  <span
+                    className="mr-3 h-6 w-6 rounded-full border-2 border-[var(--sample-border)]"
+                    style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3][index] }}
+                  />
+                  <span className="truncate text-xs font-bold">{destination}</span>
+                  <span className="text-[10px] font-bold">0{index + 1}</span>
+                </div>
+              ))}
+              <div className={cn("rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-text)] px-3 py-2 text-center text-[10px] font-bold text-[var(--sample-base)]", compact ? "hidden" : "")}>
+                Reserve a seat to the future
+              </div>
+            </div>
           </div>
         </div>
       </div>
