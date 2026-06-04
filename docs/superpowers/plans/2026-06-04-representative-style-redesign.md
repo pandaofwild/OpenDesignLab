@@ -4,7 +4,7 @@
 
 **Goal:** Re-author all 88 design styles so each style reads as a representative design direction, not a category-default palette swap.
 
-**Architecture:** Treat `scripts/style-references.json` as the research source of truth, then turn research into explicit per-style data in `src/data/designStyles.ts`. Every style must have deliberate references, a style brief, a unique palette, non-color token overrides, a suitable sample variant, and prompt copy that describes the actual visual language. Validation should fail when styles fall back to generated/default-looking data.
+**Architecture:** Treat `scripts/style-references.json` as the research source of truth, but do not assume the current entries are enough. Every style requires fresh discovery: real sites or archives plus Pinterest, Awwwards, and Dribbble references that match the specific visual language. Those references then drive explicit per-style data in `src/data/designStyles.ts`: a style brief, a unique palette, non-color token overrides, a suitable sample variant, and prompt copy that describes the actual visual language. Validation should fail when styles fall back to generated/default-looking data or when any required discovery source is missing.
 
 **Tech Stack:** Modified Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4, static TypeScript data, Node 22, Playwright for reference capture and visual QA. Before editing framework routes or config, read the relevant guide in `node_modules/next/dist/docs/`.
 
@@ -13,7 +13,7 @@
 ## Current Findings
 
 - `README.md` is now the English default and links to `README.ko.md`; the branch has been pushed to the draft PR.
-- The strongest existing memo for this work is `scripts/style-references.json`.
+- The strongest existing memo for this work is `scripts/style-references.json`, but it is only a starting point.
 - `scripts/style-references.json` currently covers only 12 of 88 styles:
   - `minimalism`
   - `brutalism`
@@ -28,6 +28,7 @@
   - `maximalism`
   - `swiss-design`
 - `scripts/capture-references.mjs` captures those references to `public/references/[slug]/`, which is intentionally gitignored for copyright and local-only review.
+- Each style still needs additional platform research from Pinterest, Awwwards, and Dribbble. If a platform does not have a perfect direct category page for a style, store the best matching search/results URL and explain the limitation in `note`.
 - `src/data/designStyles.ts` has 88 styles, but many fields are generated from category profiles.
 - `styleTokenOverrides` currently covers 24 styles; 64 styles still inherit category defaults for most non-color behavior.
 - Palettes are explicit for a small subset and hash-assigned from `paletteBank` for the rest.
@@ -41,12 +42,15 @@
   - Add reference entries for all 88 style slugs.
   - Keep entries split into `sites` and `galleries`.
   - Prefer real brand/product/editorial sites in `sites`; keep curation platforms in `galleries`.
+  - For every style, include Pinterest, Awwwards, and Dribbble entries in `galleries`.
+  - Use exact style pages when available; otherwise use platform search/result URLs with precise notes.
 - Modify: `scripts/capture-references.mjs`
   - Keep screenshots local-only under `public/references/`.
   - Add a coverage summary that reports missing slugs before capture starts.
 - Create: `scripts/check-style-references.mjs`
   - Validate all 88 style slugs have references.
-  - Validate each referenced style has at least 2 `sites` and 1 `galleries` entry.
+  - Validate each referenced style has at least 2 `sites` and at least 3 `galleries` entries.
+  - Validate each style has Pinterest, Awwwards, and Dribbble coverage in `galleries`.
   - Validate each reference item has `url`, `title`, and `note`.
 
 ### Style Data Files
@@ -229,7 +233,10 @@ type StyleResearchBrief = {
 Every style must satisfy:
 
 - `referenceSites.length >= 2`
-- `referenceGalleries.length >= 1`
+- `referenceGalleries.length >= 3`
+- `referenceGalleries` includes at least one Pinterest URL
+- `referenceGalleries` includes at least one Awwwards URL
+- `referenceGalleries` includes at least one Dribbble URL
 - `representativeTraits.length >= 4`
 - `avoidTraits.length >= 2`
 - `tokenIntent.length >= 40`
@@ -271,12 +278,20 @@ for (const style of designStyles) {
   assert(entry, `missing references for ${style.slug}`);
   if (!entry) continue;
 
+  const sites = entry.sites ?? [];
+  const galleries = entry.galleries ?? [];
+
   assert(Array.isArray(entry.sites), `references.${style.slug}.sites must be an array`);
   assert(Array.isArray(entry.galleries), `references.${style.slug}.galleries must be an array`);
-  assert((entry.sites ?? []).length >= 2, `${style.slug} needs at least 2 real site references`);
-  assert((entry.galleries ?? []).length >= 1, `${style.slug} needs at least 1 gallery reference`);
+  assert(sites.length >= 2, `${style.slug} needs at least 2 real site references`);
+  assert(galleries.length >= 3, `${style.slug} needs Pinterest, Awwwards, and Dribbble references`);
 
-  for (const [groupName, items] of [["sites", entry.sites ?? []], ["galleries", entry.galleries ?? []]]) {
+  const galleryUrls = galleries.map((item) => item.url);
+  assert(galleryUrls.some((url) => url.includes("pinterest.")), `${style.slug} missing Pinterest reference`);
+  assert(galleryUrls.some((url) => url.includes("awwwards.")), `${style.slug} missing Awwwards reference`);
+  assert(galleryUrls.some((url) => url.includes("dribbble.")), `${style.slug} missing Dribbble reference`);
+
+  for (const [groupName, items] of [["sites", sites], ["galleries", galleries]]) {
     for (const item of items) {
       assert(typeof item.url === "string" && item.url.startsWith("https://"), `${style.slug}.${groupName} has bad url`);
       assert(typeof item.title === "string" && item.title.length > 0, `${style.slug}.${groupName} missing title`);
@@ -345,23 +360,47 @@ git commit -m "Add style reference coverage validation"
 
 ---
 
-## Task 2: Expand `style-references.json` To All 88 Styles
+## Task 2: Discover Pinterest, Awwwards, And Dribbble References For Every Style
 
 **Files:**
 - Modify: `scripts/style-references.json`
 
-- [ ] **Step 1: Add missing reference entries by category**
+- [ ] **Step 1: Use a fixed search pattern per style**
 
-Add entries for every slug listed in the Style Inventory. Each entry must follow this shape:
+For each style slug, search and review all of these source patterns:
+
+```text
+Pinterest: {style.nameEn} website design inspiration pinterest
+Awwwards: {style.nameEn} website design awwwards
+Dribbble: {style.nameEn} website design dribbble
+Real sites: {style.nameEn} brand website examples
+Archive or guide: {style.nameEn} web design style guide
+```
+
+Examples:
+
+```text
+Pinterest: swiss design website design inspiration pinterest
+Awwwards: swiss design website design awwwards
+Dribbble: swiss design website design dribbble
+Real sites: swiss design brand website examples
+Archive or guide: swiss design web design style guide
+```
+
+- [ ] **Step 2: Add missing reference entries by category**
+
+Add entries for every slug listed in the Style Inventory. Use this as a concrete entry shape, then replace the style and references with researched matches for each slug:
 
 ```json
-"style-slug": {
+"minimalism": {
   "sites": [
-    { "url": "https://example.com", "title": "Example", "note": "Why this real site represents the style and which tokens it informs" },
-    { "url": "https://example.org", "title": "Example 2", "note": "Second real product, brand, archive, or editorial reference" }
+    { "url": "https://linear.app", "title": "Linear", "note": "Restrained typography, quiet surfaces, compact spacing, and product-focused hierarchy inform the minimalism tokens." },
+    { "url": "https://www.apple.com", "title": "Apple", "note": "Large negative space, disciplined image scale, precise type rhythm, and low-noise navigation inform the layout and copy density." }
   ],
   "galleries": [
-    { "url": "https://example.net", "title": "Gallery", "note": "Curation source used for broader visual vocabulary" }
+    { "url": "https://www.pinterest.com/search/pins/?q=minimalist%20website%20design", "title": "Pinterest - Minimalist Website Design", "note": "Moodboard reference for restrained layouts, neutral palettes, whitespace, and understated composition patterns." },
+    { "url": "https://www.awwwards.com/websites/minimalism/", "title": "Awwwards - Minimalism Websites", "note": "High-quality web execution reference for minimal interactions, typography, layout proportion, and detail restraint." },
+    { "url": "https://dribbble.com/search/minimalist-website", "title": "Dribbble - Minimalist Website", "note": "UI reference for minimal cards, controls, type scale, and component-level visual vocabulary." }
   ]
 }
 ```
@@ -370,11 +409,11 @@ Rules:
 
 - Use real sites for `sites` when possible.
 - Use museum/archive pages for historical styles when active brand sites are misleading.
-- Use galleries only as secondary evidence.
+- Use Pinterest, Awwwards, and Dribbble for every style, even when the best link is a search/result page rather than a curated category page.
 - Avoid adding references whose visual language is merely adjacent.
 - Keep notes specific: mention typography, spacing, shape, color, texture, grid, motion, or density.
 
-- [ ] **Step 2: Verify reference coverage**
+- [ ] **Step 3: Verify reference coverage**
 
 Run:
 
@@ -388,7 +427,7 @@ Expected:
 style reference check passed: 88 styles covered
 ```
 
-- [ ] **Step 3: Capture selected references locally**
+- [ ] **Step 4: Capture selected references locally**
 
 Run a sites-only capture first:
 
@@ -406,11 +445,11 @@ Failed: 0
 
 If some live sites block capture, keep the URL in `style-references.json`, add a precise note, and capture the remaining references. Do not commit `public/references/`.
 
-- [ ] **Step 4: Commit**
+- [ ] **Step 5: Commit**
 
 ```powershell
 git add scripts/style-references.json
-git commit -m "Expand design style reference coverage"
+git commit -m "Expand platform reference coverage for all design styles"
 ```
 
 ---
@@ -580,19 +619,19 @@ for (const [slug] of styleSeedTuples) {
 
 - [ ] **Step 3: Add explicit palettes for all missing slugs**
 
-For every style slug, add a 9-color palette:
+For every style slug, add a researched 9-color palette. This is a concrete shape example:
 
 ```ts
-"style-slug": {
-  base: "#000000",
-  surface: "#111111",
-  text: "#FFFFFF",
-  mutedText: "#999999",
-  primary: "#FFFFFF",
-  accent: "#FF0000",
-  accent2: "#00FF00",
-  accent3: "#0000FF",
-  border: "#FFFFFF",
+"minimalism": {
+  base: "#F7F6F2",
+  surface: "#FFFFFF",
+  text: "#171717",
+  mutedText: "#6F6B63",
+  primary: "#111111",
+  accent: "#B9ADA0",
+  accent2: "#D9D2C7",
+  accent3: "#8B908A",
+  border: "#E5E0D8",
 },
 ```
 
@@ -878,7 +917,8 @@ npm run build
 
 ## Quality Rules
 
-- Each style must have at least 2 real site references and 1 gallery or archive reference.
+- Each style must have at least 2 real site or archive references.
+- Each style must include Pinterest, Awwwards, and Dribbble references.
 - Each style must have explicit copy, palette, and token overrides.
 - Each style must be visually distinguishable from neighboring styles in the same category.
 - Captured screenshots are for local research only and must not be committed.
@@ -959,3 +999,4 @@ git commit -m "Document representative style research workflow"
 - [x] 2026-06-04: User identified that current styles do not yet feel representative enough and asked to find the earlier reference notes.
 - [x] 2026-06-04: Found `scripts/style-references.json` as the existing reference memo. It covers 12 styles and is consumed by `scripts/capture-references.mjs`.
 - [x] 2026-06-04: Confirmed current implementation has 88 styles, 24 tuned token overrides, 12 reference-backed styles, 64 mostly untuned styles, and 76 styles without reference entries.
+- [x] 2026-06-04: User clarified that reference work must include additional matching sources for each style, specifically Pinterest, Awwwards, and Dribbble, not only existing real-site references.
