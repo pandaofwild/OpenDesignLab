@@ -1,11 +1,12 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useMemo } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { designStyles } from "@/data/designStyles";
 import { webLayouts } from "@/data/webLayouts";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
 import { LayoutPreviewRenderer } from "@/components/web-layout/LayoutPreviewRenderer";
+import { exportDesignPrompt } from "@/lib/exportPrompt";
 import type { PreviewViewport } from "@/components/web-layout/ViewportSwitcher";
 
 const DEFAULT_STYLE = "brutalism";
@@ -14,6 +15,7 @@ const DEFAULT_LAYOUT = "hero-focused-layout";
 function StudioViewInner() {
   const router = useRouter();
   const params = useSearchParams();
+  const [copied, setCopied] = useState<"code" | "prompt" | null>(null);
 
   const requestedStyleSlug = params.get("style") ?? DEFAULT_STYLE;
   const requestedLayoutSlug = params.get("layout") ?? DEFAULT_LAYOUT;
@@ -67,6 +69,12 @@ function StudioViewInner() {
   }
 
   const tokenVars = useMemo(() => styleTokenVars(selectedStyle), [selectedStyle]);
+
+  async function copyPrompt() {
+    await navigator.clipboard.writeText(exportDesignPrompt(selectedStyle, selectedLayout));
+    setCopied("prompt");
+    window.setTimeout(() => setCopied(null), 1400);
+  }
 
   return (
     <main className="min-h-screen bg-background pt-20 text-[#1E1E1E]">
@@ -175,12 +183,11 @@ function StudioViewInner() {
                 코드 복사 (준비 중)
               </button>
               <button
-                className="h-10 w-full cursor-not-allowed border border-[#1E1E1E]/25 text-[11px] font-bold uppercase tracking-[0.1em] text-[#1E1E1E]/35"
-                disabled
-                title="Phase 7에서 활성화됩니다"
+                className="h-10 w-full border border-[#1E1E1E]/25 text-[11px] font-bold uppercase tracking-[0.1em] text-[#1E1E1E]/70 transition-colors hover:border-[#1E1E1E] hover:text-[#1E1E1E]"
+                onClick={copyPrompt}
                 type="button"
               >
-                프롬프트 복사 (준비 중)
+                {copied === "prompt" ? "프롬프트 복사됨" : "프롬프트 복사"}
               </button>
             </div>
 
