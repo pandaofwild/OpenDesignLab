@@ -37,7 +37,8 @@ type StylePresetContextValue = {
 type StyleVariables = CSSProperties & Record<`--style-${string}`, string>;
 
 const StylePresetContext = createContext<StylePresetContextValue | null>(null);
-const storageKey = "openlayout-style-preset-v1";
+const legacyStorageKey = "openlayout-style-preset-v1";
+const storageKey = "opendesignlab-style-preset-v1";
 
 const defaultPrompt =
   "브랜드, 웹, 그래픽, UI 디자인에 활용할 수 있는 디자인 풍 사전. 대표 이미지는 카드 썸네일처럼 명확하고 색감이 강해야 한다.";
@@ -103,7 +104,7 @@ function styleVariablesFor(palette: DesignStylePalette): StyleVariables {
 function readStoredStyleState(): StoredStyleState {
   if (typeof window === "undefined") return defaultStyleState;
 
-  const saved = window.localStorage.getItem(storageKey);
+  const saved = window.localStorage.getItem(storageKey) ?? window.localStorage.getItem(legacyStorageKey);
   if (!saved) return defaultStyleState;
 
   try {
@@ -116,6 +117,7 @@ function readStoredStyleState(): StoredStyleState {
     };
   } catch {
     window.localStorage.removeItem(storageKey);
+    window.localStorage.removeItem(legacyStorageKey);
     return defaultStyleState;
   }
 }

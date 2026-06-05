@@ -1,18 +1,18 @@
 ---
 name: design-style-recommender
-description: Use when recommending openlayout design styles by brand tone, audience, industry, visual intensity, typography needs, palette direction, or when adding/refining design style catalog entries in this project.
+description: Use when recommending OpenDesignLab design styles by brand tone, audience, industry, visual intensity, typography needs, palette direction, or when adding/refining design style catalog entries in this project.
 ---
 
 # Design Style Recommender
 
-Use this skill inside openlayout when a user needs a visual style direction before applying it to a layout.
+Use this skill inside OpenDesignLab when a user needs a visual style direction before applying it to a layout.
 
 ## Source of Truth
 
 - Design style data lives in `src/data/designStyles.ts`.
 - Prefer existing `designStyles` entries before inventing a new style.
 - Match by `category`, `summary`, `description`, `tags`, `goodFor`, `useCases`, `palette`, and `sampleType`.
-- When recommending a concrete item, include its route: `/design-styles/{slug}`.
+- When recommending a concrete item, include its route: `/styles/{slug}`.
 
 ## Recommendation Workflow
 
@@ -39,7 +39,7 @@ Ask a short clarification only when the brand or page goal is unclear. Otherwise
 Use this format unless the user asks otherwise:
 
 ```markdown
-추천: [style.nameKo] (`/design-styles/{slug}`)
+추천: [style.nameKo] (`/styles/{slug}`)
 
 왜 맞는지:
 - ...

@@ -1,6 +1,6 @@
-# Contributing to openlayout
+# Contributing to OpenDesignLab
 
-Thanks for taking the time to improve openlayout.
+Thanks for taking the time to improve OpenDesignLab.
 
 ## Development setup
 
@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000/web-layouts`.
+Open `http://localhost:3000/layouts`.
 
 ## Before sending changes
 

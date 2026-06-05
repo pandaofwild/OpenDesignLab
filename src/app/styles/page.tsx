@@ -4,8 +4,8 @@ import { designStyleCategories, designStyles } from "@/data/designStyles";
 import { DesignStyleLibrary } from "@/components/design-style/DesignStyleLibrary";
 
 export const metadata: Metadata = {
-  title: "Design Style Library",
-  description: "레이아웃 예시에 적용할 수 있는 디자인 형식과 색상표 프리셋",
+  title: "Design Style Lab",
+  description: "OpenDesignLab에서 레이아웃 예시에 적용할 디자인 형식과 색상표를 고릅니다.",
 };
 
 const categories = designStyleCategories;
@@ -33,13 +33,13 @@ export default function DesignStylesPage() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 className="inline-flex h-11 items-center border border-[#1E1E1E] bg-[#1E1E1E] px-4 text-sm font-bold uppercase tracking-[0.1em] text-[#E4E2DD] transition hover:bg-[#DB4A2B]"
-                href="/web-layouts"
+                href="/layouts"
               >
                 레이아웃으로 돌아가기
               </Link>
               <Link
                 className="inline-flex h-11 items-center border border-[#1E1E1E]/25 px-4 text-sm font-bold uppercase tracking-[0.1em] text-[#1E1E1E] transition hover:bg-[#F8A348]"
-                href="/web-layouts/compare"
+                href="/layouts/compare"
               >
                 비교에서 보기
               </Link>

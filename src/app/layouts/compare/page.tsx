@@ -13,7 +13,7 @@ export default function ComparePage() {
       <div className="mx-auto max-w-[1720px] px-5 py-6 lg:px-8">
         <Link
           className="raw-label text-[#DB4A2B] underline-offset-4 hover:underline"
-          href="/web-layouts"
+          href="/layouts"
         >
           목록으로 돌아가기
         </Link>
