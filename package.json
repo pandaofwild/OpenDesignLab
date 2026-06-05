@@ -1,17 +1,17 @@
 {
-  "name": "openlayout",
+  "name": "opendesignlab",
   "version": "0.1.4",
   "private": false,
-  "description": "A web layout and design style library for choosing, comparing, and previewing website structures.",
+  "description": "A design lab for combining layout and style attributes into previews, prompts, and implementation-ready snippets.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pandaofwild/openlayout.git"
+    "url": "https://github.com/pandaofwild/OpenDesignLab.git"
   },
   "bugs": {
-    "url": "https://github.com/pandaofwild/openlayout/issues"
+    "url": "https://github.com/pandaofwild/OpenDesignLab/issues"
   },
-  "homepage": "https://github.com/pandaofwild/openlayout#readme",
+  "homepage": "https://github.com/pandaofwild/OpenDesignLab#readme",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

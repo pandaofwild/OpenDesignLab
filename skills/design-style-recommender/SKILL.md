@@ -1,11 +1,11 @@
 ---
 name: design-style-recommender
-description: Use when recommending openlayout design styles by brand tone, audience, industry, visual intensity, typography needs, palette direction, or when adding/refining design style catalog entries in this project.
+description: Use when recommending OpenDesignLab design styles by brand tone, audience, industry, visual intensity, typography needs, palette direction, or when adding/refining design style catalog entries in this project.
 ---
 
 # Design Style Recommender
 
-Use this skill inside openlayout when a user needs a visual style direction before applying it to a layout.
+Use this skill inside OpenDesignLab when a user needs a visual style direction before applying it to a layout.
 
 ## Source of Truth
 

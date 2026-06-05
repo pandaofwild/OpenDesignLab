@@ -1,14 +1,14 @@
-# openlayout
+# OpenDesignLab
 
 **English** | [한국어](./README.ko.md)
 
-A web layout library for choosing, comparing, and previewing website structures and design styles separately, with real webpage-style previews.
+A design lab for combining layout, style, palette, and component attributes into real webpage-style previews, prompts, and implementation-ready snippets.
 
-openlayout is a layout and style dictionary that helps you quickly pick page structure and visual language before you start designing. It provides 96 layouts, 88 design styles, 10 style categories, and webpage-style sample renderers. Each entry includes recommended use cases, trade-offs, responsive behavior, accessibility checkpoints, a color palette, and Tailwind implementation hints.
+OpenDesignLab helps you quickly pick page structure and visual language before you start designing. It provides 96 layouts, 88 design styles, 10 style categories, and webpage-style sample renderers. Each entry includes recommended use cases, trade-offs, responsive behavior, accessibility checkpoints, a color palette, and Tailwind implementation hints.
 
 | Item | Value |
 | --- | --- |
-| Repository | https://github.com/pandaofwild/openlayout |
+| Repository | https://github.com/pandaofwild/OpenDesignLab |
 | Last reviewed | 2026-06-04 |
 
 ## Who It's For
@@ -23,7 +23,7 @@ openlayout is a layout and style dictionary that helps you quickly pick page str
 - **Full-stage preview**: View layouts large, like a real webpage background, on detail and compare pages.
 - **Floating detail panel**: Keep the base screen focused, then open structure details and pros/cons in a floating panel.
 - **Compare view**: Select up to 3 layouts and compare recommended use, mobile support, density, and difficulty side by side.
-- **Design Style Library**: Explore 88 design styles by category, tag, and search term, then inspect palettes and webpage-style samples on detail pages.
+- **Design Style Lab**: Explore 88 design styles by category, tag, and search term, then inspect palettes and webpage-style samples on detail pages.
 - **Style application**: A design style chosen in `/styles` is applied to `/layouts` and `/layouts/compare` previews and persisted in localStorage.
 - **Studio copy**: Copy a prompt or self-contained HTML/CSS for the selected Style x Layout combination from `/studio`.
 - **Component dictionary**: Preview how the same style tokens affect buttons, cards, navigation, input fields, and badges in `/components`.

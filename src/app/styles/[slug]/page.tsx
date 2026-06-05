@@ -28,7 +28,7 @@ export async function generateMetadata({
 
   return {
     description: style.summary,
-    title: `${style.nameKo} | Design Style Library`,
+    title: `${style.nameKo} | Design Style Lab`,
   };
 }
 

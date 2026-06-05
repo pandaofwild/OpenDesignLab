@@ -1,11 +1,11 @@
 ---
 name: layout-recommender
-description: Use when recommending openlayout web layouts by purpose, audience, content density, conversion goal, navigation depth, device priority, or when adding/refining layout catalog entries in this project.
+description: Use when recommending OpenDesignLab web layouts by purpose, audience, content density, conversion goal, navigation depth, device priority, or when adding/refining layout catalog entries in this project.
 ---
 
 # Layout Recommender
 
-Use this skill inside the openlayout project to recommend layouts that match a page purpose.
+Use this skill inside the OpenDesignLab project to recommend layouts that match a page purpose.
 
 ## Source of truth
 

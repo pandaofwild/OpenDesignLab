@@ -4,8 +4,8 @@ import { designStyleCategories, designStyles } from "@/data/designStyles";
 import { DesignStyleLibrary } from "@/components/design-style/DesignStyleLibrary";
 
 export const metadata: Metadata = {
-  title: "Design Style Library",
-  description: "레이아웃 예시에 적용할 수 있는 디자인 형식과 색상표 프리셋",
+  title: "Design Style Lab",
+  description: "OpenDesignLab에서 레이아웃 예시에 적용할 디자인 형식과 색상표를 고릅니다.",
 };
 
 const categories = designStyleCategories;

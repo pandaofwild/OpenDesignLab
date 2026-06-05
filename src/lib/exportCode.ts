@@ -10,15 +10,15 @@ function cssVars(style: DesignStyle) {
 
 export function exportDesignCode(style: DesignStyle, layout: WebLayout) {
   return `<!-- ${style.nameKo} x ${layout.nameKo} -->
-<section class="openlayout-export" style="
+<section class="opendesignlab-export" style="
 ${cssVars(style)}
 ">
-  <header class="openlayout-nav">
+  <header class="opendesignlab-nav">
     <strong>${style.nameEn}</strong>
     <nav>${layout.nameEn}</nav>
   </header>
-  <main class="openlayout-hero">
-    <p class="openlayout-kicker">${layout.previewType}</p>
+  <main class="opendesignlab-hero">
+    <p class="opendesignlab-kicker">${layout.previewType}</p>
     <h1>${layout.nameKo}</h1>
     <p>${layout.summary}</p>
     <button>Primary action</button>
@@ -26,14 +26,14 @@ ${cssVars(style)}
 </section>
 
 <style>
-.openlayout-export {
+.opendesignlab-export {
   min-height: 100vh;
   padding: calc(2rem * var(--st-pad-scale, 1));
   background: var(--st-base);
   color: var(--st-text);
   font-family: var(--st-font-body);
 }
-.openlayout-nav {
+.opendesignlab-nav {
   display: flex;
   justify-content: space-between;
   gap: var(--st-gap);
@@ -41,25 +41,25 @@ ${cssVars(style)}
   border-radius: var(--st-radius);
   padding: 1rem;
 }
-.openlayout-hero {
+.opendesignlab-hero {
   display: grid;
   gap: var(--st-gap);
   max-width: 760px;
   margin-top: 4rem;
 }
-.openlayout-kicker {
+.opendesignlab-kicker {
   color: var(--st-accent);
   font-weight: 800;
   text-transform: uppercase;
 }
-.openlayout-hero h1 {
+.opendesignlab-hero h1 {
   font-family: var(--st-font-display);
   font-size: clamp(3rem, 8vw, 7rem);
   line-height: 0.9;
   letter-spacing: var(--st-tracking);
   font-weight: var(--st-weight-display);
 }
-.openlayout-hero button {
+.opendesignlab-hero button {
   width: max-content;
   border: var(--st-border-width) var(--st-border-style, solid) var(--st-primary);
   border-radius: var(--st-radius-pill, var(--st-radius));

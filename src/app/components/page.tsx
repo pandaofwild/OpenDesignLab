@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ComponentDictionaryView } from "@/components/component-dictionary/ComponentDictionaryView";
 
 export const metadata: Metadata = {
-  title: "Components | openlayout",
+  title: "Components",
   description: "Preview UI components with design style tokens.",
 };
 

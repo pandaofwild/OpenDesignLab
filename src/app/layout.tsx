@@ -5,10 +5,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Web Layout Library",
-    template: "%s | Web Layout Library",
+    default: "OpenDesignLab",
+    template: "%s | OpenDesignLab",
   },
-  description: "웹사이트 설계에 활용할 수 있는 레이아웃 구조 사전",
+  description: "디자인 속성을 조합해 미리보기, 프롬프트, 구현 힌트로 바꾸는 디자인 랩",
 };
 
 export const viewport: Viewport = {
@@ -42,10 +42,10 @@ function RawNavigation() {
     >
       <div className="mx-auto grid max-w-[1720px] grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[1fr_auto_1fr]">
         <Link
-          className="min-w-0 truncate font-display text-2xl font-bold uppercase leading-none tracking-[-0.05em] text-white md:text-[#1E1E1E]"
+          className="min-w-0 truncate font-display text-2xl font-bold leading-none tracking-[-0.03em] text-white md:text-[#1E1E1E]"
           href="/layouts"
         >
-          Openlayout
+          OpenDesignLab
         </Link>
         <div className="hidden items-center gap-8 md:flex">
           {[
@@ -94,7 +94,9 @@ function RawFooter() {
           <p className="font-display text-5xl font-bold uppercase leading-[0.8] tracking-[-0.05em]">
             Open
             <br />
-            Layout
+            Design
+            <br />
+            Lab
           </p>
           <div className="mt-6 flex gap-3">
             {["GH", "AI", "UI"].map((item) => (
@@ -114,7 +116,7 @@ function RawFooter() {
             ["Studio", "/studio"],
             ["Components", "/components"],
             ["Compare", "/layouts/compare"],
-            ["GitHub", "https://github.com/pandaofwild/openlayout"],
+            ["GitHub", "https://github.com/pandaofwild/OpenDesignLab"],
           ]}
           title="Navigate"
         />
@@ -129,8 +131,8 @@ function RawFooter() {
         <div>
           <p className="raw-label text-[#E4E2DD]/60">Build note</p>
           <p className="mt-4 max-w-xs text-sm leading-6 text-[#E4E2DD]/70">
-            목적을 먼저 정하고, 구조를 고른 뒤, 컴포넌트와 카피를 빠르게
-            반복하는 레이아웃 사전입니다.
+            디자인 속성을 고르고 조합한 뒤, 프리뷰와 프롬프트로 빠르게
+            이어가는 디자인 랩입니다.
           </p>
         </div>
       </div>
@@ -139,7 +141,7 @@ function RawFooter() {
           2026
         </p>
         <p className="pb-3 text-right text-xs font-medium uppercase tracking-[0.14em] text-[#E4E2DD]/60">
-          openlayout / web structure library
+          opendesignlab / preview and prompt lab
         </p>
       </div>
     </footer>

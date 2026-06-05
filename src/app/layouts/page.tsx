@@ -5,8 +5,8 @@ import { AppliedStyleStrip } from "@/components/style-preset/AppliedStyleStrip";
 import { WebLayoutExplorer } from "@/components/web-layout/WebLayoutExplorer";
 
 export const metadata: Metadata = {
-  title: "Web Layout Library",
-  description: "웹사이트 설계에 활용할 수 있는 레이아웃 구조 사전",
+  title: "Layout Library",
+  description: "OpenDesignLab에서 웹사이트 구조를 고르고 프리뷰와 프롬프트로 조합합니다.",
 };
 
 export default function WebLayoutsPage() {
@@ -26,13 +26,14 @@ export default function WebLayoutsPage() {
               <h1 className="raw-display max-w-full text-[4.35rem] uppercase min-[420px]:text-[5.3rem] sm:text-[8rem] md:text-[12rem] xl:text-[14rem] 2xl:text-[15.5rem]">
                 Open
                 <br />
-                <span className="ml-3 block sm:ml-8 md:ml-32 xl:ml-52">Layout</span>
+                <span className="ml-3 block sm:ml-8 md:ml-24 xl:ml-40">Design</span>
+                <span className="block sm:ml-16 md:ml-48 xl:ml-72">Lab</span>
               </h1>
             </div>
             <div className="min-w-0 max-w-[20.5rem] pb-2 sm:max-w-md lg:col-start-2">
               <p className="text-lg leading-7 text-[#1E1E1E] sm:text-xl sm:leading-8">
-                웹사이트 구조를 고르고, 실제 화면처럼 비교하고, 바로 구현 조건으로
-                바꾸는 레이아웃 사전입니다.
+                디자인 속성을 조합해 실제 화면처럼 비교하고, 바로 쓸 수 있는
+                프롬프트와 구현 조건으로 바꾸는 디자인 랩입니다.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-5">
                 <Link

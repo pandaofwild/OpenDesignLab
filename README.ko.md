@@ -1,14 +1,14 @@
-# openlayout
+# OpenDesignLab
 
 **한국어** | [English](./README.md)
 
-웹사이트 레이아웃과 디자인 형식을 분리해서 고르고, 비교하고, 실제 웹페이지형 프리뷰로 확인하는 Web Layout Library입니다.
+레이아웃, 디자인 형식, 색상표, 컴포넌트 속성을 조합해 실제 웹페이지형 프리뷰와 프롬프트로 확인하는 디자인 랩입니다.
 
-openlayout은 디자인을 시작하기 전에 페이지 구조와 시각 언어를 빠르게 고를 수 있도록 만든 레이아웃/스타일 사전입니다. 96개의 레이아웃, 88개의 디자인 형식, 10개의 스타일 카테고리, 웹페이지형 샘플 렌더러를 제공하며, 각 항목은 추천 용도, 장단점, 반응형 동작, 접근성 체크포인트, 색상표, Tailwind 구현 힌트를 함께 보여줍니다.
+OpenDesignLab은 디자인을 시작하기 전에 페이지 구조와 시각 언어를 빠르게 고를 수 있도록 만든 레이아웃/스타일 조합 랩입니다. 96개의 레이아웃, 88개의 디자인 형식, 10개의 스타일 카테고리, 웹페이지형 샘플 렌더러를 제공하며, 각 항목은 추천 용도, 장단점, 반응형 동작, 접근성 체크포인트, 색상표, Tailwind 구현 힌트를 함께 보여줍니다.
 
 | 항목 | 값 |
 | --- | --- |
-| Repository | https://github.com/pandaofwild/openlayout |
+| Repository | https://github.com/pandaofwild/OpenDesignLab |
 | 마지막 검토일 | 2026-06-04 |
 
 ## 대상 사용자
@@ -23,7 +23,7 @@ openlayout은 디자인을 시작하기 전에 페이지 구조와 시각 언어
 - **Full-stage preview**: 상세 페이지와 비교 페이지에서 레이아웃을 실제 웹페이지 배경처럼 크게 확인합니다.
 - **Floating detail panel**: 기본 화면에는 작은 요약 박스만 두고, 클릭하면 구조 설명과 장단점이 패널로 떠오릅니다.
 - **Compare view**: 최대 3개의 레이아웃을 선택해 추천 용도, 모바일 대응, 밀도, 난이도를 나란히 비교합니다.
-- **Design Style Library**: 88개의 디자인 형식을 카테고리, 태그, 검색어로 탐색하고 상세 페이지에서 색상표와 웹페이지형 샘플을 확인합니다.
+- **Design Style Lab**: 88개의 디자인 형식을 카테고리, 태그, 검색어로 탐색하고 상세 페이지에서 색상표와 웹페이지형 샘플을 확인합니다.
 - **Style application**: `/styles`에서 선택한 디자인 형식이 `/layouts`와 `/layouts/compare`의 프리뷰 톤에 적용되고 localStorage에 유지됩니다.
 - **Studio copy**: `/studio`에서 선택한 Style x Layout 조합의 프롬프트와 self-contained HTML/CSS 코드를 복사할 수 있습니다.
 - **Component dictionary**: `/components`에서 같은 스타일 토큰이 주요 UI 컴포넌트에 어떻게 적용되는지 확인할 수 있습니다.
