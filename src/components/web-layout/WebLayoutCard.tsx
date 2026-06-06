@@ -1,7 +1,11 @@
-import Link from "next/link";
+"use client";
+
 import type { WebLayout } from "@/data/webLayouts";
+import { LocalizedLink } from "@/components/i18n/LocalizedLink";
+import { useLocale } from "@/components/i18n/useLocale";
 import { Badge } from "@/components/ui/badge";
 import { WireframeThumbnail } from "@/components/web-layout/WireframeThumbnail";
+import { layoutForLocale } from "@/lib/localizedContent";
 import { cn, complexityTone, formatComplexity } from "@/lib/utils";
 
 type WebLayoutCardProps = {
@@ -10,58 +14,65 @@ type WebLayoutCardProps = {
 };
 
 export function WebLayoutCard({ layout, compact = false }: WebLayoutCardProps) {
+  const locale = useLocale();
+  const localizedLayout = layoutForLocale(layout, locale);
+
   return (
-    <article className="group flex h-full flex-col">
+    <article className="group flex h-full flex-col border border-[var(--specimen-line)] bg-[rgb(251_250_246_/_0.70)] p-3 transition hover:border-[var(--specimen-ink)]">
       <div
         className={cn(
-          "overflow-hidden bg-[#D9D6D0] p-2",
+          "overflow-hidden border border-[var(--specimen-line-soft)] bg-[rgb(234_230_220_/_0.58)] p-2",
           compact ? "aspect-[16/10]" : "aspect-[4/3]",
         )}
       >
-        <div className="h-full bg-[#E4E2DD] p-2 transition duration-500 ease-out group-hover:scale-[1.03]">
-          <WireframeThumbnail layout={layout} />
+        <div className="h-full bg-[var(--specimen-paper)] p-2 transition duration-500 ease-out group-hover:scale-[1.015]">
+          <WireframeThumbnail layout={localizedLayout} />
         </div>
       </div>
       <div className="flex flex-1 flex-col gap-4 pt-4">
         <div className="space-y-3">
           <div className="flex flex-wrap gap-2">
-            <Badge>{layout.category}</Badge>
+            <Badge>{localizedLayout.category}</Badge>
             <Badge className={cn("border", complexityTone(layout.complexity))}>
-              {formatComplexity(layout.complexity)}
+              {formatComplexity(layout.complexity, locale)}
             </Badge>
           </div>
           <div>
-            <h2 className="text-sm font-bold uppercase tracking-[0.15em] text-[#1E1E1E] transition group-hover:text-[#FF89A9]">
-              {layout.nameKo}
+            <h2 className="font-mono text-sm font-bold uppercase tracking-[0.15em] text-[var(--specimen-ink)] transition group-hover:text-[var(--specimen-signal)]">
+              {localizedLayout.nameKo}
             </h2>
-            <p className="mt-1 text-sm font-medium text-[#444444]">{layout.nameEn}</p>
+            {localizedLayout.nameEn !== localizedLayout.nameKo ? (
+              <p className="mt-1 text-sm font-medium text-[var(--specimen-ink-55)]">
+                {localizedLayout.nameEn}
+              </p>
+            ) : null}
           </div>
           <p
             className={cn(
-              "text-sm leading-6 text-[#1E1E1E]/68",
+              "text-sm leading-6 text-[var(--specimen-ink-55)]",
               compact ? "line-clamp-2" : "line-clamp-3",
             )}
           >
-            {layout.summary}
+            {localizedLayout.summary}
           </p>
         </div>
         <div className="mt-auto space-y-4">
           <div className="flex flex-wrap gap-1.5">
-            {layout.bestFor.slice(0, 3).map((purpose) => (
+            {localizedLayout.bestFor.slice(0, 3).map((purpose) => (
               <span
                 key={purpose}
-                className="bg-[#F8A348]/25 px-2 py-1 text-xs font-bold uppercase tracking-[0.1em] text-[#1E1E1E]/70"
+                className="border border-[var(--specimen-line-soft)] bg-transparent px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--specimen-ink-55)]"
               >
                 {purpose}
               </span>
             ))}
           </div>
-          <Link
+          <LocalizedLink
             href={`/layouts/${layout.slug}`}
-            className="raw-button inline-flex h-10 items-center justify-center border border-[#1E1E1E] bg-[#1E1E1E] px-4 text-sm font-bold uppercase tracking-[0.1em] text-[#E4E2DD] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E]"
+            className="raw-button inline-flex h-10 items-center justify-center border border-[var(--specimen-ink)] bg-[var(--specimen-ink)] px-4 font-mono text-xs font-bold uppercase tracking-[0.14em] text-[var(--specimen-paper)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--specimen-ink)]"
           >
-            상세 보기
-          </Link>
+            {locale === "ko" ? "상세 보기" : "View details"}
+          </LocalizedLink>
         </div>
       </div>
     </article>

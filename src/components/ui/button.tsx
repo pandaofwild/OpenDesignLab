@@ -7,11 +7,11 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variantClasses = {
   primary:
-    "border-[#1E1E1E] bg-[#1E1E1E] text-[#E4E2DD] focus-visible:outline-[#1E1E1E]",
+    "border-[var(--specimen-ink)] bg-[var(--specimen-ink)] text-[var(--specimen-paper)] focus-visible:outline-[var(--specimen-ink)]",
   secondary:
-    "border-[#1E1E1E]/40 bg-transparent text-[#1E1E1E] focus-visible:outline-[#1E1E1E]",
+    "border-[var(--specimen-line)] bg-[rgb(251_250_246_/_0.72)] text-[var(--specimen-ink)] focus-visible:outline-[var(--specimen-ink)]",
   ghost:
-    "border-transparent bg-transparent text-[#1E1E1E] hover:text-[#DB4A2B] focus-visible:outline-[#1E1E1E]",
+    "border-transparent bg-transparent text-[var(--specimen-ink)] hover:text-[var(--specimen-signal)] focus-visible:outline-[var(--specimen-ink)]",
 };
 
 const sizeClasses = {

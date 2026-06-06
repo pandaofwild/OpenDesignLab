@@ -2,13 +2,15 @@
 
 import { useMemo, useState } from "react";
 import type { WebLayout } from "@/data/webLayouts";
+import { useLocale } from "@/components/i18n/useLocale";
 import { Button } from "@/components/ui/button";
+import { layoutForLocale } from "@/lib/localizedContent";
 
 type LayoutCodeExampleProps = {
   layout: WebLayout;
 };
 
-function templateFor(layout: WebLayout) {
+function templateFor(layout: WebLayout, locale: "en" | "ko") {
   const title = layout.nameKo;
 
   if (layout.previewType === "dashboard") {
@@ -36,7 +38,7 @@ function templateFor(layout: WebLayout) {
   <h1 className="text-3xl font-bold">${title}</h1>
   <div className="mt-8 overflow-x-auto">
     <table className="w-full border-collapse rounded-lg border text-left">
-      <caption className="sr-only">레이아웃 비교표</caption>
+      <caption className="sr-only">${locale === "ko" ? "레이아웃 비교표" : "Layout comparison table"}</caption>
       <thead>
         <tr>{columns.map((column) => <th scope="col" className="border p-4" key={column}>{column}</th>)}</tr>
       </thead>
@@ -55,12 +57,12 @@ function templateFor(layout: WebLayout) {
 
   if (layout.previewType === "docs" || layout.previewType === "three-column") {
     return `<section className="grid grid-cols-[220px_minmax(0,1fr)_220px] gap-8 px-8 py-10">
-  <nav aria-label="문서 목차" className="sticky top-6 self-start">...</nav>
+  <nav aria-label="${locale === "ko" ? "문서 목차" : "Documentation navigation"}" className="sticky top-6 self-start">...</nav>
   <main className="min-w-0">
     <h1 className="text-3xl font-bold">${title}</h1>
     <p className="mt-4 text-zinc-600">${layout.summary}</p>
   </main>
-  <aside className="sticky top-6 self-start" aria-label="현재 페이지 섹션">...</aside>
+  <aside className="sticky top-6 self-start" aria-label="${locale === "ko" ? "현재 페이지 섹션" : "Current page sections"}">...</aside>
 </section>`;
   }
 
@@ -112,8 +114,13 @@ function templateFor(layout: WebLayout) {
 }
 
 export function LayoutCodeExample({ layout }: LayoutCodeExampleProps) {
+  const locale = useLocale();
+  const localizedLayout = layoutForLocale(layout, locale);
   const [copied, setCopied] = useState(false);
-  const code = useMemo(() => templateFor(layout), [layout]);
+  const code = useMemo(
+    () => templateFor(localizedLayout, locale),
+    [locale, localizedLayout],
+  );
 
   async function copyCode() {
     await navigator.clipboard.writeText(code);
@@ -122,25 +129,28 @@ export function LayoutCodeExample({ layout }: LayoutCodeExampleProps) {
   }
 
   return (
-    <section className="bg-[#1E1E1E] p-4 text-[#E4E2DD]">
-      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <section className="border border-[var(--specimen-ink)] bg-[var(--specimen-ink)] p-4 text-[var(--specimen-paper)]">
+      <div className="mb-4 flex flex-col gap-3 border-b border-[rgb(242_239_232_/_0.2)] pb-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="raw-label text-[#E4E2DD]">
-            Tailwind 기반 예시 코드
+          <h2 className="raw-label flex items-center gap-2 text-[var(--specimen-paper)]">
+            <span className="h-2 w-2 bg-[var(--specimen-signal)]" aria-hidden="true" />
+            {locale === "ko" ? "Tailwind 기반 예시 코드" : "Tailwind example code"}
           </h2>
-          <p className="mt-2 text-sm text-[#E4E2DD]/60">
-            구조를 시작하기 위한 복사 가능한 React/Tailwind 조각입니다.
+          <p className="mt-2 text-sm leading-6 text-[rgb(242_239_232_/_0.62)]">
+            {locale === "ko"
+              ? "구조를 시작하기 위한 복사 가능한 React/Tailwind 조각입니다."
+              : "A copyable React and Tailwind starter snippet for this structure."}
           </p>
         </div>
         <Button
-          className="border-[#E4E2DD] bg-[#E4E2DD] text-[#1E1E1E]"
+          className="border-[var(--specimen-paper)] bg-[var(--specimen-paper)] text-[var(--specimen-ink)]"
           onClick={copyCode}
           variant="secondary"
         >
-          {copied ? "복사됨" : "코드 복사"}
+          {copied ? (locale === "ko" ? "복사됨" : "Copied") : locale === "ko" ? "코드 복사" : "Copy code"}
         </Button>
       </div>
-      <pre className="max-h-[520px] overflow-auto border border-[#E4E2DD]/20 bg-black/35 p-4 text-sm leading-6 text-[#F8A348]">
+      <pre className="max-h-[520px] overflow-auto border border-[rgb(242_239_232_/_0.18)] bg-[rgb(251_250_246_/_0.06)] p-4 font-mono text-sm leading-6 text-[rgb(242_239_232_/_0.78)]">
         <code>{code}</code>
       </pre>
     </section>

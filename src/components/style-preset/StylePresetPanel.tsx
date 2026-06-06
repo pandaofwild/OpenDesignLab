@@ -1,7 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useLocale } from "@/components/i18n/useLocale";
 import { useStylePreset, stylePresets } from "@/components/style-preset/StylePresetProvider";
+import { designStyleForLocale, styleCategoryLabel } from "@/lib/localizedContent";
 import { cn } from "@/lib/utils";
 
 const paletteLabels = [
@@ -15,6 +17,7 @@ const paletteLabels = [
 ] as const;
 
 export function StylePresetPanel() {
+  const locale = useLocale();
   const {
     activePreset,
     customPreset,
@@ -37,16 +40,19 @@ export function StylePresetPanel() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(360px,0.8fr)]">
-      <section className="min-w-0 border border-[#1E1E1E]/20 bg-[#F0EEE8]/78 p-4 md:p-5">
-        <div className="flex flex-col gap-3 border-b border-[#1E1E1E]/18 pb-4 md:flex-row md:items-end md:justify-between">
+      <section className="specimen-surface min-w-0 p-4 md:p-5">
+        <div className="flex flex-col gap-3 border-b border-[var(--specimen-line)] pb-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="raw-label text-[#DB4A2B]">Design format categories</p>
-            <h3 className="mt-2 font-display text-4xl font-bold uppercase leading-[0.84] tracking-[-0.05em] text-[#1E1E1E] md:text-5xl">
+            <p className="raw-label flex items-center gap-2 text-[var(--specimen-signal)]">
+              <span className="specimen-bullet" aria-hidden="true" />
+              {locale === "ko" ? "디자인 형식 카테고리" : "Design format categories"}
+            </p>
+            <h3 className="raw-display mt-2 text-4xl leading-[0.84] text-[var(--specimen-ink)] md:text-5xl">
               Visual format
             </h3>
           </div>
-          <div className="text-right text-xs font-bold uppercase tracking-[0.12em] text-[#1E1E1E]/54">
-            {activePreset.category}
+          <div className="raw-label text-right text-[var(--specimen-ink-55)]">
+            {styleCategoryLabel(activePreset.category, locale)}
           </div>
         </div>
 
@@ -59,14 +65,14 @@ export function StylePresetPanel() {
                 className={cn(
                   "shrink-0 border px-3 py-2 text-xs font-bold uppercase tracking-[0.1em] transition",
                   active
-                    ? "border-[#1E1E1E] bg-[#1E1E1E] text-[#E4E2DD]"
-                    : "border-[#1E1E1E]/20 bg-[#E4E2DD] text-[#1E1E1E] hover:border-[#1E1E1E]",
+                    ? "border-[var(--specimen-ink)] bg-[var(--specimen-ink)] text-[var(--specimen-paper)]"
+                    : "border-[var(--specimen-line)] bg-[var(--specimen-card)] text-[var(--specimen-ink)] hover:border-[var(--specimen-ink)]",
                 )}
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 type="button"
               >
-                {category}
+                {styleCategoryLabel(category, locale)}
               </button>
             );
           })}
@@ -75,14 +81,15 @@ export function StylePresetPanel() {
         <div className="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
           {visiblePresets.map((preset) => {
             const active = !customPreset && selectedSlug === preset.slug;
+            const localizedPreset = designStyleForLocale(preset, locale);
 
             return (
               <button
                 className={cn(
                   "group min-w-0 border p-3 text-left transition",
                   active
-                    ? "border-[#1E1E1E] bg-[#1E1E1E] text-[#E4E2DD]"
-                    : "border-[#1E1E1E]/18 bg-[#E4E2DD] text-[#1E1E1E] hover:border-[#1E1E1E]",
+                    ? "border-[var(--specimen-ink)] bg-[var(--specimen-ink)] text-[var(--specimen-paper)]"
+                    : "border-[var(--specimen-line)] bg-[var(--specimen-card)] text-[var(--specimen-ink)] hover:border-[var(--specimen-ink)]",
                 )}
                 key={preset.slug}
                 onClick={() => {
@@ -94,10 +101,10 @@ export function StylePresetPanel() {
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
                     <p className="truncate text-sm font-bold uppercase tracking-[0.12em]">
-                      {preset.nameKo}
+                      {localizedPreset.nameKo}
                     </p>
-                    <p className={cn("mt-1 text-xs", active ? "text-[#E4E2DD]/62" : "text-[#1E1E1E]/58")}>
-                      {preset.nameEn}
+                    <p className={cn("mt-1 text-xs", active ? "text-[rgb(242_239_232_/_0.62)]" : "text-[var(--specimen-ink-55)]")}>
+                      {localizedPreset.nameEn}
                     </p>
                   </div>
                   <div className="flex shrink-0 gap-1">
@@ -110,8 +117,8 @@ export function StylePresetPanel() {
                     ))}
                   </div>
                 </div>
-                <p className={cn("mt-3 line-clamp-2 text-xs leading-5", active ? "text-[#E4E2DD]/72" : "text-[#1E1E1E]/64")}>
-                  {preset.summary}
+                <p className={cn("mt-3 line-clamp-2 text-xs leading-5", active ? "text-[rgb(242_239_232_/_0.72)]" : "text-[var(--specimen-ink-55)]")}>
+                  {localizedPreset.summary}
                 </p>
               </button>
             );
@@ -119,38 +126,42 @@ export function StylePresetPanel() {
         </div>
       </section>
 
-      <aside className="min-w-0 border border-[#1E1E1E]/20 bg-[#1E1E1E] p-4 text-[#E4E2DD] md:p-5">
+      <aside className="min-w-0 border border-[var(--specimen-ink)] bg-[var(--specimen-ink)] p-4 text-[var(--specimen-paper)] md:p-5">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="raw-label text-[#F8A348]">Prompt mix</p>
-            <h3 className="mt-2 font-display text-4xl font-bold uppercase leading-[0.84] tracking-[-0.05em]">
+            <p className="raw-label text-[rgb(242_239_232_/_0.68)]">Prompt mix</p>
+            <h3 className="raw-display mt-2 text-4xl leading-[0.84]">
               Palette
             </h3>
           </div>
           {customPreset ? (
             <button
-              className="border border-[#E4E2DD]/25 px-3 py-2 text-xs font-bold uppercase tracking-[0.1em] text-[#E4E2DD] transition hover:bg-[#E4E2DD] hover:text-[#1E1E1E]"
+              className="border border-[rgb(242_239_232_/_0.25)] px-3 py-2 text-xs font-bold uppercase tracking-[0.1em] text-[var(--specimen-paper)] transition hover:bg-[var(--specimen-paper)] hover:text-[var(--specimen-ink)]"
               onClick={resetCustomPreset}
               type="button"
             >
-              Reset
+              {locale === "ko" ? "초기화" : "Reset"}
             </button>
           ) : null}
         </div>
 
         <textarea
-          className="mt-5 min-h-32 w-full resize-y border border-[#E4E2DD]/20 bg-[#E4E2DD]/8 p-3 text-sm leading-6 text-[#E4E2DD] outline-none transition placeholder:text-[#E4E2DD]/35 focus:border-[#F8A348]"
+          className="mt-5 min-h-32 w-full resize-y border border-[rgb(242_239_232_/_0.2)] bg-[rgb(242_239_232_/_0.08)] p-3 text-sm leading-6 text-[var(--specimen-paper)] outline-none transition placeholder:text-[rgb(242_239_232_/_0.35)] focus:border-[var(--specimen-paper)]"
           onChange={(event) => setPrompt(event.target.value)}
-          placeholder="예: 고급 한옥 호텔, 따뜻한 미니멀, 짙은 먹색과 금색 포인트"
+          placeholder={
+            locale === "ko"
+              ? "예: 고급 한옥 호텔, 따뜻한 미니멀, 짙은 먹색과 금색 포인트"
+              : "Example: premium hotel, warm minimal, deep ink and gold accents"
+          }
           value={prompt}
         />
         <button
-          className="mt-3 inline-flex h-11 w-full items-center justify-center gap-2 border border-[#F8A348] bg-[#F8A348] px-4 text-sm font-bold uppercase tracking-[0.1em] text-[#1E1E1E] transition hover:bg-[#E4E2DD]"
+          className="raw-button mt-3 inline-flex h-11 w-full items-center justify-center gap-2 border border-[var(--specimen-paper)] bg-[var(--specimen-paper)] px-4 text-sm font-bold uppercase tracking-[0.1em] text-[var(--specimen-ink)] transition"
           onClick={generateCustomPreset}
           type="button"
         >
           <SparkIcon />
-          Generate palette
+          {locale === "ko" ? "팔레트 생성" : "Generate palette"}
         </button>
 
         <div className="mt-5 grid grid-cols-2 gap-2">
@@ -158,15 +169,15 @@ export function StylePresetPanel() {
             const color = palette[key];
 
             return (
-              <div className="border border-[#E4E2DD]/16 bg-[#E4E2DD]/8 p-2" key={key}>
+              <div className="border border-[rgb(242_239_232_/_0.16)] bg-[rgb(242_239_232_/_0.08)] p-2" key={key}>
                 <span
-                  className="block h-12 border border-[#E4E2DD]/18"
+                  className="block h-12 border border-[rgb(242_239_232_/_0.18)]"
                   style={{ backgroundColor: color }}
                 />
-                <span className="mt-2 block text-[10px] font-bold uppercase tracking-[0.12em] text-[#E4E2DD]/48">
+                <span className="mt-2 block text-[10px] font-bold uppercase tracking-[0.12em] text-[rgb(242_239_232_/_0.48)]">
                   {label}
                 </span>
-                <span className="mt-1 block font-mono text-xs text-[#E4E2DD]/82">{color}</span>
+                <span className="mt-1 block font-mono text-xs text-[rgb(242_239_232_/_0.82)]">{color}</span>
               </div>
             );
           })}

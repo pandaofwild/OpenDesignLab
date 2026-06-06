@@ -1,3 +1,6 @@
+"use client";
+
+import { useLocale } from "@/components/i18n/useLocale";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -15,10 +18,12 @@ const viewportOptions: Array<{ value: PreviewViewport; label: string }> = [
 ];
 
 export function ViewportSwitcher({ value, onChange }: ViewportSwitcherProps) {
+  const locale = useLocale();
+
   return (
     <div
-      aria-label="프리뷰 뷰포트"
-      className="inline-flex rounded-md border border-zinc-200 bg-zinc-100 p-1"
+      aria-label={locale === "ko" ? "프리뷰 뷰포트" : "Preview viewport"}
+      className="inline-flex border border-[var(--specimen-line)] bg-[rgb(251_250_246_/_0.72)] p-1"
       role="group"
     >
       {viewportOptions.map((option) => (
@@ -28,8 +33,8 @@ export function ViewportSwitcher({ value, onChange }: ViewportSwitcherProps) {
           className={cn(
             "border-transparent",
             value === option.value
-              ? "bg-white text-zinc-950 shadow-sm hover:bg-white"
-              : "bg-transparent text-zinc-600 hover:bg-zinc-50",
+              ? "bg-[var(--specimen-ink)] text-[var(--specimen-paper)] hover:bg-[var(--specimen-ink)]"
+              : "bg-transparent text-[var(--specimen-ink-55)] hover:bg-[var(--specimen-card)]",
           )}
           onClick={() => onChange(option.value)}
           size="sm"

@@ -14,8 +14,8 @@ export function exportDesignCode(style: DesignStyle, layout: WebLayout) {
 ${cssVars(style)}
 ">
   <header class="opendesignlab-nav">
-    <strong>${style.nameEn}</strong>
-    <nav>${layout.nameEn}</nav>
+    <strong>${style.nameKo}</strong>
+    <nav>${layout.nameKo}</nav>
   </header>
   <main class="opendesignlab-hero">
     <p class="opendesignlab-kicker">${layout.previewType}</p>

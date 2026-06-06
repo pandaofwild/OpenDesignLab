@@ -1,17 +1,29 @@
+import type { Locale } from "@/lib/i18n";
+
 export function cn(
   ...classes: Array<string | false | null | undefined>
 ): string {
   return classes.filter(Boolean).join(" ");
 }
 
-export function formatComplexity(complexity: "easy" | "medium" | "hard") {
+export function formatComplexity(
+  complexity: "easy" | "medium" | "hard",
+  locale: Locale = "ko",
+) {
   const labels = {
-    easy: "쉬움",
-    medium: "보통",
-    hard: "어려움",
+    en: {
+      easy: "Easy",
+      medium: "Medium",
+      hard: "Hard",
+    },
+    ko: {
+      easy: "쉬움",
+      medium: "보통",
+      hard: "어려움",
+    },
   };
 
-  return labels[complexity];
+  return labels[locale][complexity];
 }
 
 export function complexityTone(complexity: "easy" | "medium" | "hard") {

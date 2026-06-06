@@ -1,26 +1,40 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react";
-import { designStyles } from "@/data/designStyles";
+import { defaultDesignStyleSlug, designStyles } from "@/data/designStyles";
 import { webLayouts } from "@/data/webLayouts";
+import {
+  SpecimenCoreFrame,
+  SpecimenSideSection,
+  SpecimenTinyChip,
+} from "@/components/specimen/SpecimenCoreFrame";
+import { includesQuery } from "@/components/specimen/useCatalogUrlState";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
 import { LayoutPreviewRenderer } from "@/components/web-layout/LayoutPreviewRenderer";
 import { exportDesignCode } from "@/lib/exportCode";
 import { exportDesignPrompt } from "@/lib/exportPrompt";
+import { localeFromPathname, withLocalePath } from "@/lib/i18n";
+import { designStyleForLocale, layoutForLocale } from "@/lib/localizedContent";
+import { cn } from "@/lib/utils";
 import type { PreviewViewport } from "@/components/web-layout/ViewportSwitcher";
 
-const DEFAULT_STYLE = "brutalism";
+const DEFAULT_STYLE = defaultDesignStyleSlug;
 const DEFAULT_LAYOUT = "hero-focused-layout";
 
 function StudioViewInner() {
   const router = useRouter();
+  const pathname = usePathname();
   const params = useSearchParams();
   const [copied, setCopied] = useState<"code" | "prompt" | null>(null);
+  const locale = localeFromPathname(pathname);
 
   const requestedStyleSlug = params.get("style") ?? DEFAULT_STYLE;
   const requestedLayoutSlug = params.get("layout") ?? DEFAULT_LAYOUT;
-  const viewport = (params.get("vp") === "mobile" ? "mobile" : "desktop") as PreviewViewport;
+  const catalogQuery = params.get("q") ?? "";
+  const viewport = (params.get("vp") === "mobile" || params.get("vp") === "tablet"
+    ? params.get("vp")
+    : "desktop") as PreviewViewport;
 
   const selectedStyle = useMemo(
     () =>
@@ -38,20 +52,67 @@ function StudioViewInner() {
     [requestedLayoutSlug],
   );
 
-  const selectedStyleSlug = selectedStyle.slug;
-  const selectedLayoutSlug = selectedLayout.slug;
+  const localizedStyle = useMemo(
+    () => designStyleForLocale(selectedStyle, locale),
+    [locale, selectedStyle],
+  );
+  const localizedLayout = useMemo(
+    () => layoutForLocale(selectedLayout, locale),
+    [locale, selectedLayout],
+  );
+  const tokenVars = useMemo(() => styleTokenVars(selectedStyle), [selectedStyle]);
+  const visibleStyleOptions = useMemo(
+    () =>
+      catalogQuery
+        ? designStyles
+            .filter((style) => {
+              const item = designStyleForLocale(style, locale);
+              return includesQuery(
+                [style.nameKo, style.nameEn, style.category, item.nameKo, item.nameEn, item.category, ...style.tags],
+                catalogQuery,
+              );
+            })
+            .slice(0, 5)
+        : prioritizeSelected(designStyles, selectedStyle, 3),
+    [catalogQuery, locale, selectedStyle],
+  );
+  const visibleLayoutOptions = useMemo(
+    () =>
+      catalogQuery
+        ? webLayouts
+            .filter((layout) => {
+              const item = layoutForLocale(layout, locale);
+              return includesQuery(
+                [
+                  layout.nameKo,
+                  layout.nameEn,
+                  layout.category,
+                  layout.summary,
+                  item.nameKo,
+                  item.nameEn,
+                  item.category,
+                  item.summary,
+                  ...layout.tags,
+                ],
+                catalogQuery,
+              );
+            })
+            .slice(0, 5)
+        : prioritizeSelected(webLayouts, selectedLayout, 3),
+    [catalogQuery, locale, selectedLayout],
+  );
 
   useEffect(() => {
     const next = new URLSearchParams(params.toString());
     let changed = false;
 
-    if (next.get("style") !== selectedStyleSlug) {
-      next.set("style", selectedStyleSlug);
+    if (next.get("style") !== selectedStyle.slug) {
+      next.set("style", selectedStyle.slug);
       changed = true;
     }
 
-    if (next.get("layout") !== selectedLayoutSlug) {
-      next.set("layout", selectedLayoutSlug);
+    if (next.get("layout") !== selectedLayout.slug) {
+      next.set("layout", selectedLayout.slug);
       changed = true;
     }
 
@@ -60,149 +121,170 @@ function StudioViewInner() {
       changed = true;
     }
 
-    if (changed) router.replace(`/studio?${next.toString()}`);
-  }, [params, router, selectedLayoutSlug, selectedStyleSlug, viewport]);
+    if (changed) router.replace(`${withLocalePath("/studio", locale)}?${next.toString()}`, { scroll: false });
+  }, [locale, params, router, selectedLayout.slug, selectedStyle.slug, viewport]);
 
   function update(key: string, value: string) {
     const next = new URLSearchParams(params.toString());
-    next.set(key, value);
-    router.replace(`/studio?${next.toString()}`);
+    if (value) {
+      next.set(key, value);
+    } else {
+      next.delete(key);
+    }
+    router.replace(`${withLocalePath("/studio", locale)}?${next.toString()}`, { scroll: false });
   }
 
-  const tokenVars = useMemo(() => styleTokenVars(selectedStyle), [selectedStyle]);
-
   async function copyPrompt() {
-    await navigator.clipboard.writeText(exportDesignPrompt(selectedStyle, selectedLayout));
+    await navigator.clipboard.writeText(exportDesignPrompt(localizedStyle, localizedLayout));
     setCopied("prompt");
     window.setTimeout(() => setCopied(null), 1400);
   }
 
   async function copyCode() {
-    await navigator.clipboard.writeText(exportDesignCode(selectedStyle, selectedLayout));
+    await navigator.clipboard.writeText(exportDesignCode(localizedStyle, localizedLayout));
     setCopied("code");
     window.setTimeout(() => setCopied(null), 1400);
   }
 
   return (
-    <main className="min-h-screen bg-background pt-20 text-[#1E1E1E]">
-      <div className="mx-auto max-w-[1720px] px-5 py-8 lg:px-8">
+    <main className="min-h-screen bg-background px-3 py-4 text-[var(--specimen-ink)] lg:px-5">
+      <SpecimenCoreFrame
+        active="studio"
+        appliedLabel={localizedStyle.nameEn.toUpperCase()}
+        label="Studio · Style × Layout"
+        onSearchChange={(value) => update("q", value)}
+        searchPlaceholder={locale === "ko" ? "스타일 또는 레이아웃 검색..." : "search style or layout..."}
+        searchValue={catalogQuery}
+      >
+        <div className="grid min-h-[calc(100dvh-96px)] lg:grid-cols-[258px_minmax(0,1fr)_300px]">
+          <aside className="space-y-7 border-b border-[var(--specimen-line)] p-4 lg:border-b-0 lg:border-r">
+            <SpecimenSideSection title="Style · 088">
+              <div className="space-y-2">
+                {visibleStyleOptions.length ? visibleStyleOptions.map((style, index) => {
+                  const item = designStyleForLocale(style, locale);
+                  const active = style.slug === selectedStyle.slug;
 
-        {/* Header */}
-        <div className="mb-8">
-          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#DB4A2B]">Studio</p>
-          <h1 className="mt-2 font-display text-4xl font-bold uppercase leading-none tracking-[-0.05em]">
-            Style × Layout
-          </h1>
-          <p className="mt-3 text-sm text-[#1E1E1E]/62">
-            스타일과 레이아웃을 골라 조합된 웹을 미리 봅니다.
-          </p>
-        </div>
+                  return (
+                    <button
+                      className={cn(
+                        "grid w-full grid-cols-[34px_1fr_auto] items-center gap-2.5 border p-2.5 text-left transition",
+                        active
+                          ? "border-[var(--specimen-ink)] bg-[rgb(251_250_246_/_0.78)]"
+                          : "border-[var(--specimen-line)] hover:border-[var(--specimen-ink)]",
+                      )}
+                      key={style.slug}
+                      onClick={() => update("style", style.slug)}
+                      type="button"
+                    >
+                      <span className="font-mono text-[11px] text-[var(--specimen-ink-55)]">
+                        {String(index + 11).padStart(3, "0")}
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block truncate text-[13px] font-bold leading-tight">{item.nameKo}</span>
+                        <span className="block truncate text-[11px] text-[var(--specimen-ink-55)]">
+                          {item.nameEn}
+                        </span>
+                      </span>
+                      <span className={cn("h-2 w-2", active ? "bg-[var(--specimen-signal)]" : "bg-transparent")} />
+                    </button>
+                  );
+                }) : (
+                  <p className="border border-[var(--specimen-line)] p-3 text-[12px] text-[var(--specimen-ink-55)]">
+                    {locale === "ko" ? "일치하는 스타일이 없습니다." : "No matching styles."}
+                  </p>
+                )}
+              </div>
+            </SpecimenSideSection>
 
-        <div className="grid min-w-0 gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
+            <SpecimenSideSection title="Layout · 096">
+              <div className="space-y-2">
+                {visibleLayoutOptions.length ? visibleLayoutOptions.map((layout, index) => {
+                  const item = layoutForLocale(layout, locale);
+                  const active = layout.slug === selectedLayout.slug;
 
-          {/* Left: Controls */}
-          <aside className="min-w-0 space-y-6">
+                  return (
+                    <button
+                      className={cn(
+                        "grid w-full grid-cols-[34px_1fr_auto] items-center gap-2.5 border p-2.5 text-left transition",
+                        active
+                          ? "border-[var(--specimen-ink)] bg-[rgb(251_250_246_/_0.78)]"
+                          : "border-[var(--specimen-line)] hover:border-[var(--specimen-ink)]",
+                      )}
+                      key={layout.slug}
+                      onClick={() => update("layout", layout.slug)}
+                      type="button"
+                    >
+                      <span className="font-mono text-[11px] text-[var(--specimen-ink-55)]">
+                        {String(index + 12).padStart(3, "0")}
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block truncate text-[13px] font-bold leading-tight">{item.nameKo}</span>
+                        <span className="block truncate text-[11px] text-[var(--specimen-ink-55)]">
+                          {item.nameEn}
+                        </span>
+                      </span>
+                      <span className={cn("h-2 w-2", active ? "bg-[var(--specimen-signal)]" : "bg-transparent")} />
+                    </button>
+                  );
+                }) : (
+                  <p className="border border-[var(--specimen-line)] p-3 text-[12px] text-[var(--specimen-ink-55)]">
+                    {locale === "ko" ? "일치하는 레이아웃이 없습니다." : "No matching layouts."}
+                  </p>
+                )}
+              </div>
+            </SpecimenSideSection>
 
-            {/* Style picker */}
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#1E1E1E]/50">Design Style</p>
-              <select
-                className="mt-2 h-11 w-full border border-[#1E1E1E]/25 bg-background px-3 text-sm outline-none focus:border-[#1E1E1E]"
-                onChange={(e) => update("style", e.target.value)}
-                value={selectedStyleSlug}
-              >
-                {designStyles.map((s) => (
-                  <option key={s.slug} value={s.slug}>
-                    {s.nameKo} ({s.nameEn})
-                  </option>
-                ))}
-              </select>
-              <p className="mt-2 text-xs text-[#1E1E1E]/50">{selectedStyle.category}</p>
-            </div>
+            <SpecimenSideSection title="Tokens">
+              <dl className="grid grid-cols-[1fr_auto] gap-y-1.5 font-mono text-[11px]">
+                <dt className="text-[var(--specimen-ink-55)]">--radius</dt>
+                <dd>{selectedStyle.tokens.shape.radius}</dd>
+                <dt className="text-[var(--specimen-ink-55)]">--border</dt>
+                <dd>
+                  {selectedStyle.tokens.shape.borderWidth} {selectedStyle.tokens.shape.borderStyle}
+                </dd>
+                <dt className="text-[var(--specimen-ink-55)]">--font</dt>
+                <dd>{selectedStyle.tokens.typography.displayFont.split(",")[0].replace(/"/g, "")}</dd>
+                <dt className="text-[var(--specimen-ink-55)]">--shadow</dt>
+                <dd>{selectedStyle.tokens.decoration.shadow}</dd>
+              </dl>
+            </SpecimenSideSection>
+          </aside>
 
-            {/* Layout picker */}
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#1E1E1E]/50">Layout</p>
-              <select
-                className="mt-2 h-11 w-full border border-[#1E1E1E]/25 bg-background px-3 text-sm outline-none focus:border-[#1E1E1E]"
-                onChange={(e) => update("layout", e.target.value)}
-                value={selectedLayoutSlug}
-              >
-                {webLayouts.map((l) => (
-                  <option key={l.slug} value={l.slug}>
-                    {l.nameKo} ({l.nameEn})
-                  </option>
-                ))}
-              </select>
-              <p className="mt-2 text-xs text-[#1E1E1E]/50">{selectedLayout.category}</p>
-            </div>
-
-            {/* Viewport toggle */}
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#1E1E1E]/50">Viewport</p>
-              <div className="mt-2 flex gap-2">
-                {(["desktop", "mobile"] as const).map((vp) => (
+          <section className="min-w-0 border-b border-[var(--specimen-line)] p-4 lg:border-b-0 lg:border-r lg:p-5">
+            <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <div className="flex flex-wrap items-baseline gap-3">
+                <h1 className="raw-display text-5xl leading-none md:text-[4.25rem]">Studio</h1>
+                <p className="raw-label text-[var(--specimen-ink-55)]">
+                  {localizedStyle.nameEn} × {localizedLayout.nameEn}
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="raw-label flex items-center gap-2 text-[var(--specimen-ink-55)]">
+                  <span className="h-3 w-3 rounded-full border border-[var(--specimen-signal)] p-0.5">
+                    <span className="block h-full w-full rounded-full bg-[var(--specimen-signal)]" />
+                  </span>
+                  Live preview
+                </p>
+                {(["desktop", "tablet", "mobile"] as const).map((vp) => (
                   <button
-                    className={`h-9 flex-1 border text-[11px] font-bold uppercase tracking-[0.1em] transition-colors ${
+                    className={cn(
+                      "h-8 border px-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.12em]",
                       viewport === vp
-                        ? "border-[#1E1E1E] bg-[#1E1E1E] text-[#E4E2DD]"
-                        : "border-[#1E1E1E]/25 text-[#1E1E1E]/62"
-                    }`}
+                        ? "border-[var(--specimen-ink)] bg-[var(--specimen-ink)] text-[var(--specimen-paper)]"
+                        : "border-[var(--specimen-line)] text-[var(--specimen-ink-55)]",
+                    )}
                     key={vp}
                     onClick={() => update("vp", vp)}
                     type="button"
                   >
-                    {vp === "desktop" ? "데스크탑" : "모바일"}
+                    {vp}
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Selected style token preview */}
-            <div className="space-y-3 border border-[#1E1E1E]/14 p-4">
-              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#1E1E1E]/50">Style Tokens</p>
-              <div className="grid grid-cols-5 gap-1">
-                {[
-                  selectedStyle.tokens.color.base,
-                  selectedStyle.tokens.color.surface,
-                  selectedStyle.tokens.color.primary,
-                  selectedStyle.tokens.color.accent,
-                  selectedStyle.tokens.color.accent2,
-                ].map((hex, i) => (
-                  <div key={i} className="h-8 border border-[#1E1E1E]/10" style={{ backgroundColor: hex }} title={hex} />
-                ))}
-              </div>
-              <p className="text-[11px] text-[#1E1E1E]/50">
-                {selectedStyle.tokens.typography.displayFont.split(",")[0].replace(/"/g, "")} ·{" "}
-                {selectedStyle.tokens.shape.radius} radius ·{" "}
-                {selectedStyle.tokens.space.density}
-              </p>
-            </div>
-
-            {/* Copy buttons */}
-            <div className="space-y-2">
-              <button
-                className="h-10 w-full border border-[#1E1E1E]/25 text-[11px] font-bold uppercase tracking-[0.1em] text-[#1E1E1E]/70 transition-colors hover:border-[#1E1E1E] hover:text-[#1E1E1E]"
-                onClick={copyCode}
-                type="button"
-              >
-                {copied === "code" ? "코드 복사됨" : "코드 복사"}
-              </button>
-              <button
-                className="h-10 w-full border border-[#1E1E1E]/25 text-[11px] font-bold uppercase tracking-[0.1em] text-[#1E1E1E]/70 transition-colors hover:border-[#1E1E1E] hover:text-[#1E1E1E]"
-                onClick={copyPrompt}
-                type="button"
-              >
-                {copied === "prompt" ? "프롬프트 복사됨" : "프롬프트 복사"}
-              </button>
-            </div>
-
-          </aside>
-
-          {/* Right: Live preview */}
-          <div className="min-h-[600px] min-w-0">
             <div
-              className="style-preset-root relative min-w-0 max-w-full overflow-hidden"
+              className="style-preset-root min-h-[560px] overflow-hidden border border-[var(--specimen-line)] bg-[var(--st-base)] p-4"
               data-st-density={selectedStyle.tokens.space.density}
               data-st-effect={selectedStyle.tokens.decoration.effect}
               data-style-preset={selectedStyle.slug}
@@ -210,18 +292,48 @@ function StudioViewInner() {
             >
               <LayoutPreviewRenderer
                 denseContent={false}
-                layout={selectedLayout}
+                layout={localizedLayout}
+                locale={locale}
                 showLabels={false}
                 viewport={viewport}
               />
             </div>
-            <p className="mt-3 text-[11px] tracking-[0.1em] text-[#1E1E1E]/45">
-              {selectedStyle.nameKo} × {selectedLayout.nameKo} · URL로 공유 가능
-            </p>
-          </div>
+          </section>
 
+          <aside className="p-4 lg:p-5">
+            <SpecimenSideSection title="Export">
+              <div className="flex gap-5 border-b border-[var(--specimen-ink)] pb-2.5 raw-label">
+                <span className="text-[var(--specimen-ink)]">Prompt</span>
+                <span className="text-[var(--specimen-ink-55)]">HTML</span>
+                <span className="text-[var(--specimen-ink-55)]">CSS</span>
+              </div>
+              <pre className="mt-3 max-h-[440px] min-h-[360px] overflow-auto whitespace-pre-wrap bg-[var(--specimen-ink)] p-4 font-mono text-[11px] leading-6 text-[rgb(242_239_232_/_0.8)]">
+                {exportDesignPrompt(localizedStyle, localizedLayout)}
+              </pre>
+              <div className="mt-4 grid gap-3">
+                <button
+                  className="raw-button h-10 border border-[var(--specimen-ink)] bg-[var(--specimen-ink)] px-3 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--specimen-paper)]"
+                  onClick={copyPrompt}
+                  type="button"
+                >
+                  {copied === "prompt" ? "Copied prompt" : "Copy prompt"}
+                </button>
+                <button
+                  className="h-10 border border-[var(--specimen-line)] px-3 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--specimen-ink)]"
+                  onClick={copyCode}
+                  type="button"
+                >
+                  {copied === "code" ? "Copied code" : "Design.md"}
+                </button>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <SpecimenTinyChip>{selectedStyle.tokens.space.density}</SpecimenTinyChip>
+                <SpecimenTinyChip>{selectedLayout.previewType}</SpecimenTinyChip>
+              </div>
+            </SpecimenSideSection>
+          </aside>
         </div>
-      </div>
+      </SpecimenCoreFrame>
     </main>
   );
 }
@@ -232,4 +344,8 @@ export function StudioView() {
       <StudioViewInner />
     </Suspense>
   );
+}
+
+function prioritizeSelected<T extends { slug: string }>(items: T[], selected: T, limit: number) {
+  return [selected, ...items.filter((item) => item.slug !== selected.slug)].slice(0, limit);
 }

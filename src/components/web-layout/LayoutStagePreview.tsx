@@ -1,10 +1,12 @@
 "use client";
 
 import { useId, useState, type ReactNode } from "react";
-import Link from "next/link";
 import type { WebLayout } from "@/data/webLayouts";
+import { LocalizedLink } from "@/components/i18n/LocalizedLink";
+import { useLocale } from "@/components/i18n/useLocale";
 import { Badge } from "@/components/ui/badge";
 import { LayoutPreviewRenderer } from "@/components/web-layout/LayoutPreviewRenderer";
+import { layoutForLocale } from "@/lib/localizedContent";
 import { cn, complexityTone, formatComplexity } from "@/lib/utils";
 
 type LayoutStagePreviewProps = {
@@ -16,62 +18,67 @@ type LayoutStagePreviewProps = {
   showMetrics?: boolean;
 };
 
-function densityFor(layout: WebLayout) {
+function densityFor(layout: WebLayout, locale: "en" | "ko") {
   if (["dashboard", "docs", "comparison", "feed"].includes(layout.previewType)) {
-    return "높음";
+    return locale === "ko" ? "높음" : "High";
   }
 
   if (["single-column", "hero", "split-screen"].includes(layout.previewType)) {
-    return "낮음";
+    return locale === "ko" ? "낮음" : "Low";
   }
 
-  return "보통";
+  return locale === "ko" ? "보통" : "Medium";
 }
 
-function mobileFitFor(layout: WebLayout) {
+function mobileFitFor(layout: WebLayout, locale: "en" | "ko") {
   if (layout.previewType === "three-column" || layout.previewType === "dashboard") {
-    return "재구성 필요";
+    return locale === "ko" ? "재구성 필요" : "Needs restructuring";
   }
 
   if (layout.previewType === "feed" || layout.previewType === "single-column") {
-    return "강함";
+    return locale === "ko" ? "강함" : "Strong";
   }
 
-  return "규칙 필요";
+  return locale === "ko" ? "규칙 필요" : "Needs rules";
 }
 
 export function LayoutStagePreview({
   layout,
   className,
   detailHref,
-  detailLabel = "상세 보기",
+  detailLabel,
   indexLabel,
   showMetrics = true,
 }: LayoutStagePreviewProps) {
+  const locale = useLocale();
+  const localizedLayout = layoutForLocale(layout, locale);
+  const resolvedDetailLabel = detailLabel ?? (locale === "ko" ? "상세 보기" : "View details");
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const detailPanelId = useId();
 
   return (
     <div
-      className={cn("absolute inset-0 overflow-hidden bg-[#E4E2DD]", className)}
+      className={cn("absolute inset-0 overflow-hidden bg-[var(--specimen-paper)]", className)}
       data-testid="layout-stage-preview"
     >
-      <div className="absolute inset-0 bg-[#E4E2DD]" data-testid="layout-preview-background">
+      <div className="absolute inset-0 bg-[var(--specimen-paper)]" data-testid="layout-preview-background">
         <div className="h-full overflow-hidden md:hidden">
-          <div className="min-h-full bg-[#F0EEE8] p-3">
+          <div className="min-h-full bg-[var(--specimen-card)] p-3">
             <LayoutPreviewRenderer
               denseContent
-              layout={layout}
+              layout={localizedLayout}
+              locale={locale}
               showLabels={false}
               viewport="mobile"
             />
           </div>
         </div>
         <div className="hidden h-full overflow-hidden md:block">
-          <div className="min-h-full bg-[#F0EEE8] p-6">
+          <div className="min-h-full bg-[var(--specimen-card)] p-6">
             <LayoutPreviewRenderer
               denseContent
-              layout={layout}
+              layout={localizedLayout}
+              locale={locale}
               showLabels={false}
               viewport="desktop"
             />
@@ -79,64 +86,68 @@ export function LayoutStagePreview({
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#1E1E1E]/50 via-[#1E1E1E]/20 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[rgb(24_22_15_/_0.24)] via-[rgb(24_22_15_/_0.08)] to-transparent" />
 
       {indexLabel ? (
-        <div className="absolute right-3 top-3 z-20 flex items-center gap-2 rounded-full border border-[#1E1E1E]/20 bg-[#E4E2DD]/90 px-3 py-2 text-xs font-bold text-[#1E1E1E] shadow-lg backdrop-blur md:right-5 md:top-5">
+        <div className="raw-label absolute right-3 top-3 z-20 flex items-center gap-2 border border-[var(--specimen-line)] bg-[rgb(251_250_246_/_0.88)] px-3 py-2 text-[var(--specimen-ink)] md:right-5 md:top-5">
           <span>{indexLabel}</span>
-          <span className="hidden h-1 w-1 rounded-full bg-zinc-400 sm:block" />
-          <span className="hidden sm:inline">{layout.previewType}</span>
+          <span className="hidden h-1 w-1 bg-[var(--specimen-signal)] sm:block" />
+          <span className="hidden sm:inline">{localizedLayout.previewType}</span>
         </div>
       ) : null}
 
       <div className="absolute bottom-3 left-3 right-3 z-30 sm:right-auto sm:w-[min(440px,calc(100%-1.5rem))] md:bottom-5 md:left-5">
         <div
-          className="border border-[#1E1E1E]/20 bg-[#E4E2DD]/92 p-3 text-[#1E1E1E] shadow-2xl backdrop-blur-xl"
+          className="specimen-surface bg-[rgb(251_250_246_/_0.9)] p-3 text-[var(--specimen-ink)]"
           data-testid="layout-floating-summary"
         >
           <div className="flex items-start gap-3">
             <button
-              aria-label="설명 열기"
+              aria-label={locale === "ko" ? "설명 열기" : "Open details"}
               aria-controls={detailPanelId}
               aria-expanded={isDetailOpen}
-              className="flex h-9 w-9 shrink-0 items-center justify-center bg-[#1E1E1E] text-[#E4E2DD] transition hover:bg-[#DB4A2B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E]"
+              className="flex h-9 w-9 shrink-0 items-center justify-center bg-[var(--specimen-ink)] text-[var(--specimen-paper)] transition hover:bg-[var(--specimen-signal)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--specimen-ink)]"
               onClick={() => setIsDetailOpen(true)}
               type="button"
             >
               <InfoIcon />
-              <span className="sr-only">설명 열기</span>
+              <span className="sr-only">{locale === "ko" ? "설명 열기" : "Open details"}</span>
             </button>
             <button
               aria-controls={detailPanelId}
               aria-expanded={isDetailOpen}
-              className="min-w-0 flex-1 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1E1E1E]"
+              className="min-w-0 flex-1 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--specimen-ink)]"
               onClick={() => setIsDetailOpen(true)}
               type="button"
             >
-              <span className="block truncate text-sm font-bold">{layout.nameKo}</span>
-              <span className="mt-1 block truncate text-xs leading-5 text-[#1E1E1E]/62">
-                {layout.summary}
+              <span className="block truncate text-sm font-bold">{localizedLayout.nameKo}</span>
+              <span className="mt-1 block truncate text-xs leading-5 text-[var(--specimen-ink-55)]">
+                {localizedLayout.summary}
               </span>
             </button>
             <div className="flex shrink-0 gap-1.5">
               {detailHref ? (
-                <Link
-                  aria-label={`${layout.nameKo} 상세 페이지로 이동`}
-                  className="hidden h-9 w-9 items-center justify-center border border-[#1E1E1E]/25 bg-[#F0EEE8] text-[#1E1E1E] transition hover:bg-[#FF89A9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E] sm:flex"
+                <LocalizedLink
+                  aria-label={
+                    locale === "ko"
+                      ? `${localizedLayout.nameKo} 상세 페이지로 이동`
+                      : `Open ${localizedLayout.nameKo} detail page`
+                  }
+                  className="hidden h-9 w-9 items-center justify-center border border-[var(--specimen-line)] bg-[var(--specimen-card)] text-[var(--specimen-ink)] transition hover:border-[var(--specimen-ink)] hover:bg-[var(--specimen-paper-2)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--specimen-ink)] sm:flex"
                   href={detailHref}
                 >
                   <ExternalLinkIcon />
-                </Link>
+                </LocalizedLink>
               ) : null}
               <button
                 aria-controls={detailPanelId}
                 aria-expanded={isDetailOpen}
-                className="flex h-9 w-9 items-center justify-center border border-[#1E1E1E]/25 bg-[#F0EEE8] text-xs font-bold uppercase tracking-[0.1em] text-[#1E1E1E] transition hover:bg-[#F8A348] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E] sm:w-auto sm:gap-1.5 sm:px-2.5"
+                className="raw-button flex h-9 w-9 items-center justify-center border border-[var(--specimen-line)] bg-[var(--specimen-card)] text-xs font-bold uppercase tracking-[0.1em] text-[var(--specimen-ink)] transition hover:border-[var(--specimen-ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--specimen-ink)] sm:w-auto sm:gap-1.5 sm:px-2.5"
                 onClick={() => setIsDetailOpen(true)}
                 type="button"
               >
                 <ChevronUpIcon />
-                <span className="hidden sm:inline">설명</span>
+                <span className="hidden sm:inline">{locale === "ko" ? "설명" : "Details"}</span>
               </button>
             </div>
           </div>
@@ -146,15 +157,19 @@ export function LayoutStagePreview({
       {isDetailOpen ? (
         <>
           <button
-            aria-label="설명 닫기"
-            className="absolute inset-0 z-40 bg-[#1E1E1E]/40 backdrop-blur-[2px]"
+            aria-label={locale === "ko" ? "설명 닫기" : "Close details"}
+            className="absolute inset-0 z-40 bg-[rgb(24_22_15_/_0.36)]"
             onClick={() => setIsDetailOpen(false)}
             type="button"
           />
           <div
-            aria-label={`${layout.nameKo} 전체 설명`}
+            aria-label={
+              locale === "ko"
+                ? `${localizedLayout.nameKo} 전체 설명`
+                : `${localizedLayout.nameKo} full description`
+            }
             aria-modal="true"
-            className="absolute bottom-3 left-3 right-3 z-50 max-h-[calc(100%-1.5rem)] overflow-y-auto border border-[#1E1E1E]/20 bg-[#E4E2DD]/96 p-4 text-[#1E1E1E] shadow-2xl backdrop-blur-xl md:bottom-5 md:left-5 md:right-auto md:max-h-[calc(100%-2.5rem)] md:w-[min(720px,calc(100%-2.5rem))] md:p-5"
+            className="specimen-surface absolute bottom-3 left-3 right-3 z-50 max-h-[calc(100%-1.5rem)] overflow-y-auto bg-[rgb(251_250_246_/_0.96)] p-4 text-[var(--specimen-ink)] md:bottom-5 md:left-5 md:right-auto md:max-h-[calc(100%-2.5rem)] md:w-[min(720px,calc(100%-2.5rem))] md:p-5"
             data-testid="layout-detail-panel"
             id={detailPanelId}
             role="dialog"
@@ -162,22 +177,24 @@ export function LayoutStagePreview({
             <div className="flex items-start justify-between gap-4">
               <div className="min-w-0">
                 <div className="flex flex-wrap gap-2">
-                  <Badge>{layout.category}</Badge>
+                  <Badge>{localizedLayout.category}</Badge>
                   <Badge className={cn("border", complexityTone(layout.complexity))}>
-                    {formatComplexity(layout.complexity)}
+                    {formatComplexity(layout.complexity, locale)}
                   </Badge>
-                  <Badge>{layout.previewType}</Badge>
+                  <Badge>{localizedLayout.previewType}</Badge>
                 </div>
                 <h2 className="mt-4 text-2xl font-bold tracking-normal md:text-3xl">
-                  {layout.nameKo}
+                  {localizedLayout.nameKo}
                 </h2>
-                <p className="mt-1 text-sm font-medium text-[#1E1E1E]/55">
-                  {layout.nameEn}
-                </p>
+                {localizedLayout.nameEn !== localizedLayout.nameKo ? (
+                  <p className="mt-1 text-sm font-medium text-[var(--specimen-ink-55)]">
+                    {localizedLayout.nameEn}
+                  </p>
+                ) : null}
               </div>
               <button
-                aria-label="설명 패널 닫기"
-                className="flex h-9 w-9 shrink-0 items-center justify-center border border-[#1E1E1E]/25 bg-[#F0EEE8] text-[#1E1E1E] transition hover:bg-[#FF89A9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E]"
+                aria-label={locale === "ko" ? "설명 패널 닫기" : "Close detail panel"}
+                className="flex h-9 w-9 shrink-0 items-center justify-center border border-[var(--specimen-line)] bg-[var(--specimen-card)] text-[var(--specimen-ink)] transition hover:border-[var(--specimen-ink)] hover:bg-[var(--specimen-paper-2)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--specimen-ink)]"
                 onClick={() => setIsDetailOpen(false)}
                 type="button"
               >
@@ -185,48 +202,72 @@ export function LayoutStagePreview({
               </button>
             </div>
 
-            <div className="mt-5 border border-[#1E1E1E]/20 bg-[#F0EEE8] p-4">
-              <p className="text-sm font-bold leading-6 text-[#1E1E1E]">
-                {layout.summary}
+            <div className="mt-5 border border-[var(--specimen-line)] bg-[var(--specimen-card)] p-4">
+              <p className="text-sm font-bold leading-6 text-[var(--specimen-ink)]">
+                {localizedLayout.summary}
               </p>
-              <p className="mt-3 text-sm leading-6 text-[#1E1E1E]/64">
-                {layout.description}
+              <p className="mt-3 text-sm leading-6 text-[var(--specimen-ink-55)]">
+                {localizedLayout.description}
               </p>
             </div>
 
             {showMetrics ? (
               <div className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-4">
-                <Metric label="추천" value={layout.bestFor[0]} />
-                <Metric label="모바일" value={mobileFitFor(layout)} />
-                <Metric label="밀도" value={densityFor(layout)} />
-                <Metric label="난이도" value={formatComplexity(layout.complexity)} />
+                <Metric
+                  label={locale === "ko" ? "추천" : "Best for"}
+                  value={localizedLayout.bestFor[0]}
+                />
+                <Metric
+                  label={locale === "ko" ? "모바일" : "Mobile"}
+                  value={mobileFitFor(layout, locale)}
+                />
+                <Metric
+                  label={locale === "ko" ? "밀도" : "Density"}
+                  value={densityFor(layout, locale)}
+                />
+                <Metric
+                  label={locale === "ko" ? "난이도" : "Level"}
+                  value={formatComplexity(layout.complexity, locale)}
+                />
               </div>
             ) : null}
 
             <div className="mt-5 grid gap-4 md:grid-cols-2">
-              <DetailBlock title="구조 설명" items={layout.structure} />
-              <DetailBlock title="반응형 동작" items={layout.responsiveBehavior} />
-              <DetailBlock title="어울리는 페이지" items={layout.bestFor} />
-              <DetailBlock title="피해야 할 상황" items={layout.notGoodFor} />
-              <DetailBlock title="장점" items={layout.pros} />
-              <DetailBlock title="단점" items={layout.cons} />
+              <DetailBlock
+                title={locale === "ko" ? "구조 설명" : "Structure"}
+                items={localizedLayout.structure}
+              />
+              <DetailBlock
+                title={locale === "ko" ? "반응형 동작" : "Responsive behavior"}
+                items={localizedLayout.responsiveBehavior}
+              />
+              <DetailBlock
+                title={locale === "ko" ? "어울리는 페이지" : "Best for"}
+                items={localizedLayout.bestFor}
+              />
+              <DetailBlock
+                title={locale === "ko" ? "피해야 할 상황" : "Avoid when"}
+                items={localizedLayout.notGoodFor}
+              />
+              <DetailBlock title={locale === "ko" ? "장점" : "Pros"} items={localizedLayout.pros} />
+              <DetailBlock title={locale === "ko" ? "단점" : "Cons"} items={localizedLayout.cons} />
             </div>
 
             <DetailBlock
               className="mt-4"
-              items={layout.accessibilityNotes}
-              title="접근성 체크포인트"
+              items={localizedLayout.accessibilityNotes}
+              title={locale === "ko" ? "접근성 체크포인트" : "Accessibility checkpoints"}
             />
 
             {detailHref ? (
               <div className="mt-5 flex justify-end">
-                <Link
-                  className="raw-button inline-flex h-10 items-center gap-2 border border-[#1E1E1E] bg-[#1E1E1E] px-4 text-sm font-bold uppercase tracking-[0.1em] text-[#E4E2DD] transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E]"
+                <LocalizedLink
+                  className="raw-button inline-flex h-10 items-center gap-2 border border-[var(--specimen-ink)] bg-[var(--specimen-ink)] px-4 text-sm font-bold uppercase tracking-[0.1em] text-[var(--specimen-paper)] transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--specimen-ink)]"
                   href={detailHref}
                 >
-                  {detailLabel}
+                  {resolvedDetailLabel}
                   <ExternalLinkIcon />
-                </Link>
+                </LocalizedLink>
               </div>
             ) : null}
           </div>
@@ -246,11 +287,11 @@ function DetailBlock({
   className?: string;
 }) {
   return (
-    <section className={cn("border border-[#1E1E1E]/18 bg-[#F0EEE8] p-4", className)}>
-      <h3 className="raw-label text-[#1E1E1E]">{title}</h3>
+    <section className={cn("border border-[var(--specimen-line-soft)] bg-[var(--specimen-card)] p-4", className)}>
+      <h3 className="raw-label text-[var(--specimen-ink)]">{title}</h3>
       <ul className="mt-3 space-y-2">
         {items.map((item) => (
-          <li className="flex gap-2 text-sm leading-6 text-[#1E1E1E]/65" key={`${title}-${item}`}>
+          <li className="flex gap-2 text-sm leading-6 text-[var(--specimen-ink-55)]" key={`${title}-${item}`}>
             <CheckIcon />
             <span>{item}</span>
           </li>
@@ -262,11 +303,11 @@ function DetailBlock({
 
 function Metric({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border border-[#1E1E1E]/18 bg-[#F0EEE8] p-3">
-      <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#1E1E1E]/45">
+    <div className="border border-[var(--specimen-line-soft)] bg-[var(--specimen-card)] p-3">
+      <p className="raw-label text-[var(--specimen-ink-55)]">
         {label}
       </p>
-      <p className="mt-1 truncate text-sm font-bold text-[#1E1E1E]">{value}</p>
+      <p className="mt-1 truncate text-sm font-bold text-[var(--specimen-ink)]">{value}</p>
     </div>
   );
 }
@@ -355,7 +396,7 @@ function CheckIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="mt-1.5 h-3.5 w-3.5 shrink-0 text-[#DB4A2B]"
+      className="mt-1.5 h-3.5 w-3.5 shrink-0 text-[var(--specimen-signal)]"
       fill="none"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"

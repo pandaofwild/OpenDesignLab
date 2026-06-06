@@ -1,12 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
 import { webLayouts } from "@/data/webLayouts";
+import { LocalizedLink } from "@/components/i18n/LocalizedLink";
+import { useLocale } from "@/components/i18n/useLocale";
 import { WebLayoutCard } from "@/components/web-layout/WebLayoutCard";
 import { WebLayoutFilters } from "@/components/web-layout/WebLayoutFilters";
+import { layoutForLocale } from "@/lib/localizedContent";
 
 export function WebLayoutExplorer() {
+  const locale = useLocale();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
   const [purpose, setPurpose] = useState("");
@@ -16,14 +19,15 @@ export function WebLayoutExplorer() {
     const normalizedQuery = query.trim().toLowerCase();
 
     return webLayouts.filter((layout) => {
+      const localizedLayout = layoutForLocale(layout, locale);
       const matchesQuery =
         normalizedQuery.length === 0 ||
         [
-          layout.nameKo,
-          layout.nameEn,
-          layout.summary,
-          layout.category,
-          ...layout.bestFor,
+          localizedLayout.nameKo,
+          localizedLayout.nameEn,
+          localizedLayout.summary,
+          localizedLayout.category,
+          ...localizedLayout.bestFor,
           ...layout.tags,
         ]
           .join(" ")
@@ -38,7 +42,7 @@ export function WebLayoutExplorer() {
         matchesQuery && matchesCategory && matchesPurpose && matchesComplexity
       );
     });
-  }, [category, complexity, purpose, query]);
+  }, [category, complexity, locale, purpose, query]);
 
   function resetFilters() {
     setQuery("");
@@ -61,16 +65,19 @@ export function WebLayoutExplorer() {
         query={query}
       />
 
-      <div className="flex flex-col gap-3 border-y border-[#1E1E1E]/20 py-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="raw-label text-[#1E1E1E]/62">
-          {filteredLayouts.length}개 레이아웃 표시 중
+      <div className="specimen-surface flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="raw-label flex items-center gap-2 text-[var(--specimen-ink-55)]">
+          <span className="specimen-bullet" aria-hidden="true" />
+          {locale === "ko"
+            ? `${filteredLayouts.length}개 레이아웃 표시 중`
+            : `${filteredLayouts.length} layouts shown`}
         </p>
-        <Link
-          className="inline-flex h-11 items-center justify-center border border-[#1E1E1E] bg-transparent px-4 text-sm font-bold uppercase tracking-[0.1em] text-[#1E1E1E] transition hover:bg-[#1E1E1E] hover:text-[#E4E2DD] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E1E1E]"
+        <LocalizedLink
+          className="inline-flex h-11 items-center justify-center border border-[var(--specimen-line)] bg-transparent px-4 font-mono text-xs font-bold uppercase tracking-[0.14em] text-[var(--specimen-ink)] transition hover:border-[var(--specimen-ink)] hover:bg-[var(--specimen-ink)] hover:text-[var(--specimen-paper)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--specimen-ink)]"
           href="/layouts/compare"
         >
-          레이아웃 비교하기
-        </Link>
+          {locale === "ko" ? "레이아웃 비교하기" : "Compare layouts"}
+        </LocalizedLink>
       </div>
 
       {filteredLayouts.length > 0 ? (
@@ -80,12 +87,14 @@ export function WebLayoutExplorer() {
           ))}
         </div>
       ) : (
-        <div className="border border-dashed border-[#1E1E1E]/35 bg-[#D9D6D0] p-12 text-center">
-          <h2 className="font-display text-4xl font-bold uppercase leading-none tracking-[-0.05em] text-[#1E1E1E]">
-            조건에 맞는 레이아웃이 없습니다.
+        <div className="specimen-surface p-12 text-center">
+          <h2 className="raw-display text-4xl leading-none text-[var(--specimen-ink)]">
+            {locale === "ko" ? "조건에 맞는 레이아웃이 없습니다." : "No matching layouts"}
           </h2>
-          <p className="mt-4 text-sm text-[#1E1E1E]/65">
-            검색어를 줄이거나 필터를 초기화해 다시 탐색하세요.
+          <p className="mt-4 text-sm text-[var(--specimen-ink-55)]">
+            {locale === "ko"
+              ? "검색어를 줄이거나 필터를 초기화해 다시 탐색하세요."
+              : "Try a broader search or reset the filters."}
           </p>
         </div>
       )}

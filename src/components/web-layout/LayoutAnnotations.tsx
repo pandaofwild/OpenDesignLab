@@ -18,13 +18,13 @@ export function AnnotatedRegion({
     <section
       aria-label={label}
       className={cn(
-        "relative overflow-hidden border border-[#1E1E1E]/14 bg-[#F0EEE8]/78",
+        "relative overflow-hidden border border-[var(--specimen-line-soft)] bg-[rgb(251_250_246_/_0.62)]",
         className,
       )}
       {...props}
     >
       {showLabel ? (
-        <span className="absolute left-2 top-2 z-10 border border-[#1E1E1E]/20 bg-[#E4E2DD]/90 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-[#1E1E1E]/70 shadow-sm">
+        <span className="absolute left-2 top-2 z-10 border border-[var(--specimen-line)] bg-[rgb(251_250_246_/_0.9)] px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--specimen-ink-55)]">
           {label}
         </span>
       ) : null}

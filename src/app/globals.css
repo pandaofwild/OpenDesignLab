@@ -1,42 +1,64 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "Clash Display";
+  font-family: "Bricolage Grotesque";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 700 800;
   font-display: swap;
-  src: local("Clash Display"), local("ClashDisplay-Bold");
+  src: local("Bricolage Grotesque"), local("BricolageGrotesque-Bold");
 }
 
 @font-face {
-  font-family: "Satoshi";
+  font-family: "Hanken Grotesk";
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: local("Satoshi"), local("Satoshi-Regular");
+  src: local("Hanken Grotesk"), local("HankenGrotesk-Regular");
+}
+
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: local("Space Mono"), local("SpaceMono-Regular");
 }
 
 :root {
-  --background: #e4e2dd;
-  --foreground: #1e1e1e;
-  --raw-base: #e4e2dd;
-  --raw-paper: #f0eee8;
-  --raw-primary: #1e1e1e;
-  --raw-red: #db4a2b;
-  --raw-orange: #f8a348;
-  --raw-pink: #ff89a9;
-  --raw-muted: #6d6961;
-  --raw-panel: #d9d6d0;
+  --background: #f2efe8;
+  --foreground: #18160f;
+  --raw-base: #f2efe8;
+  --raw-paper: #fbfaf6;
+  --raw-primary: #18160f;
+  --raw-red: #d8431b;
+  --raw-orange: #6e685b;
+  --raw-pink: #9a9486;
+  --raw-muted: #6e685b;
+  --raw-panel: #eae6dc;
+  --specimen-paper: #f2efe8;
+  --specimen-paper-2: #eae6dc;
+  --specimen-card: #fbfaf6;
+  --specimen-ink: #18160f;
+  --specimen-ink-55: #6e685b;
+  --specimen-line: rgb(24 22 15 / 0.26);
+  --specimen-line-soft: rgb(24 22 15 / 0.12);
+  --specimen-signal: #d8431b;
+  --specimen-grid: rgb(24 22 15 / 0.055);
   --raw-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --raw-ease-quick: cubic-bezier(0.25, 1, 0.5, 1);
+  --raw-ease-firm: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-fast: 120ms;
+  --motion-medium: 210ms;
+  --motion-page: 380ms;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Satoshi", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic",
+  --font-sans: "Hanken Grotesk", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic",
     "Segoe UI", sans-serif;
-  --font-display: "Clash Display", "Satoshi", "Pretendard", sans-serif;
-  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-display: "Bricolage Grotesque", "Hanken Grotesk", "Pretendard", sans-serif;
+  --font-mono: "Space Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
 html {
@@ -44,7 +66,11 @@ html {
 }
 
 body {
-  background: var(--background);
+  background:
+    linear-gradient(var(--specimen-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--specimen-grid) 1px, transparent 1px),
+    var(--background);
+  background-size: 120px 120px;
   color: var(--foreground);
   font-family: var(--font-sans);
   font-weight: 400;
@@ -54,7 +80,7 @@ body {
 
 ::selection {
   background: var(--raw-red);
-  color: #ffffff;
+  color: var(--raw-paper);
 }
 
 ::-webkit-scrollbar {
@@ -79,7 +105,7 @@ textarea {
 @keyframes raw-slide-up {
   from {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(16px);
   }
 
   to {
@@ -101,38 +127,35 @@ textarea {
   }
 }
 
-.raw-reveal,
-main > section,
-main > div,
-main article,
-main header {
-  animation: raw-slide-up 0.8s var(--raw-ease) both;
+.raw-reveal {
+  animation: raw-slide-up var(--motion-page) var(--raw-ease) both;
 }
 
 .raw-display {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  line-height: 0.75;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 0.86;
 }
 
 .raw-label {
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .raw-field {
-  border: 1px solid rgb(30 30 30 / 0.45);
+  border: 1px solid var(--specimen-line);
   border-radius: 0;
-  background: rgb(228 226 221 / 0.76);
+  background: rgb(251 250 246 / 0.86);
   color: var(--raw-primary);
 }
 
 .raw-field:focus {
   border-color: var(--raw-primary);
-  box-shadow: 0 0 0 3px rgb(219 74 43 / 0.18);
+  box-shadow: inset 0 0 0 1px var(--raw-primary);
 }
 
 .raw-button {
@@ -147,17 +170,18 @@ main header {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: #ffffff;
-  transform: translateX(-101%);
-  transition: transform 0.3s ease-out;
+  background: var(--specimen-signal);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--motion-medium) var(--raw-ease-firm);
 }
 
 .raw-button:hover::before {
-  transform: translateX(0);
+  transform: scaleX(1);
 }
 
 .raw-button:hover {
-  color: var(--raw-red);
+  color: var(--raw-paper);
 }
 
 .raw-atmosphere {
@@ -169,21 +193,21 @@ main header {
   filter: blur(140px);
   mix-blend-mode: multiply;
   pointer-events: none;
-  animation: raw-pulse-field 12s var(--raw-ease) infinite;
+  animation: raw-pulse-field 18s var(--raw-ease) infinite;
 }
 
 .raw-atmosphere-red {
-  background: radial-gradient(circle, rgb(219 74 43 / 0.74), transparent 66%);
+  background: radial-gradient(circle, rgb(216 67 27 / 0.12), transparent 66%);
 }
 
 .raw-atmosphere-orange {
-  background: radial-gradient(circle, rgb(248 163 72 / 0.72), transparent 66%);
+  background: radial-gradient(circle, rgb(110 104 91 / 0.10), transparent 66%);
   animation-duration: 15s;
   animation-delay: -4s;
 }
 
 .raw-atmosphere-pink {
-  background: radial-gradient(circle, rgb(255 137 169 / 0.52), transparent 64%);
+  background: radial-gradient(circle, rgb(154 148 134 / 0.08), transparent 64%);
   animation-duration: 10s;
   animation-delay: -7s;
 }
@@ -194,11 +218,11 @@ main header {
   isolation: isolate;
   overflow: hidden;
   background:
-    radial-gradient(circle at 18% 18%, rgb(219 74 43 / 0.28), transparent 36%),
-    radial-gradient(circle at 82% 28%, rgb(248 163 72 / 0.24), transparent 38%),
-    radial-gradient(circle at 48% 92%, rgb(255 137 169 / 0.22), transparent 34%),
-    #e4e2dd;
-  color: #1e1e1e;
+    linear-gradient(var(--specimen-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--specimen-grid) 1px, transparent 1px),
+    var(--specimen-paper);
+  background-size: 48px 48px;
+  color: var(--specimen-ink);
 }
 
 .raw-preview-canvas::before,
@@ -241,7 +265,7 @@ main header {
 .raw-wireframe :where(h3) {
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
   line-height: 0.85;
 }
 
@@ -481,6 +505,273 @@ main header {
   border-color: rgb(var(--style-border-rgb) / 0.22) !important;
 }
 
+/* SPECIMEN base chrome */
+@keyframes specimen-board-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0) scale(0.998);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes specimen-item-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 6px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes specimen-signal-pulse {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.08;
+    transform: scale(1.85);
+  }
+}
+
+.specimen-core {
+  --specimen-core-pad: clamp(12px, 1.2vw, 18px);
+  --specimen-core-gap: 16px;
+  --specimen-core-gap-tight: 8px;
+}
+
+.specimen-core-kicker {
+  animation: specimen-item-in 260ms var(--raw-ease-quick) both;
+}
+
+.specimen-core-sheet {
+  animation: specimen-board-in var(--motion-page) var(--raw-ease) both;
+  min-height: calc(100dvh - 58px);
+}
+
+.specimen-core-header {
+  min-height: 56px;
+}
+
+.specimen-core :where(article, button, a, .specimen-toolbar-field, .specimen-applied) {
+  transition-duration: var(--motion-fast);
+  transition-property: background-color, border-color, color, opacity, transform;
+  transition-timing-function: var(--raw-ease-quick);
+}
+
+.specimen-core [class*="tracking-[-"] {
+  letter-spacing: 0 !important;
+}
+
+.specimen-core :where(article) {
+  animation: specimen-item-in 300ms var(--raw-ease-quick) both;
+}
+
+.specimen-core :where(article:nth-of-type(2)) {
+  animation-delay: 24ms;
+}
+
+.specimen-core :where(article:nth-of-type(3)) {
+  animation-delay: 48ms;
+}
+
+.specimen-core :where(article:nth-of-type(4)) {
+  animation-delay: 72ms;
+}
+
+.specimen-core article:hover {
+  transform: translate3d(0, -1px, 0);
+}
+
+.specimen-core :where(button, a):active {
+  transform: translate3d(0, 1px, 0);
+}
+
+.specimen-tab {
+  position: relative;
+}
+
+.specimen-tab::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  bottom: 5px;
+  left: 8px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.38;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--motion-medium) var(--raw-ease);
+}
+
+.specimen-tab:hover::after,
+.specimen-tab[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+.specimen-toolbar-field:focus-within,
+.specimen-toolbar-field:hover,
+.specimen-applied:hover {
+  border-color: var(--specimen-ink);
+}
+
+.specimen-sheet {
+  position: relative;
+  border: 1px solid var(--specimen-line);
+  background: rgb(251 250 246 / 0.74);
+}
+
+.specimen-sheet::before,
+.specimen-sheet::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  pointer-events: none;
+}
+
+.specimen-sheet::before {
+  left: 6px;
+  top: 6px;
+  border-left: 1px solid var(--specimen-ink);
+  border-top: 1px solid var(--specimen-ink);
+}
+
+.specimen-sheet::after {
+  right: 6px;
+  bottom: 6px;
+  border-right: 1px solid var(--specimen-ink);
+  border-bottom: 1px solid var(--specimen-ink);
+}
+
+.specimen-mark {
+  position: relative;
+  display: inline-flex;
+  height: 28px;
+  width: 28px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--specimen-ink);
+  border-radius: 999px;
+}
+
+.specimen-mark::before,
+.specimen-mark::after {
+  content: "";
+  position: absolute;
+  background: var(--specimen-ink);
+}
+
+.specimen-mark::before {
+  height: 1px;
+  width: 16px;
+}
+
+.specimen-mark::after {
+  height: 16px;
+  width: 1px;
+}
+
+.specimen-mark > span {
+  position: relative;
+  z-index: 1;
+  height: 7px;
+  width: 7px;
+  border-radius: 999px;
+  background: var(--specimen-signal);
+}
+
+.specimen-bullet {
+  display: inline-block;
+  height: 5px;
+  width: 5px;
+  background: var(--specimen-signal);
+}
+
+.specimen-live-pulse {
+  position: relative;
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  border-radius: 999px;
+  background: var(--specimen-signal);
+}
+
+.specimen-live-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 1px solid var(--specimen-signal);
+  border-radius: inherit;
+  animation: specimen-signal-pulse 1600ms var(--raw-ease) infinite;
+}
+
+.specimen-grid-bg {
+  background:
+    linear-gradient(var(--specimen-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--specimen-grid) 1px, transparent 1px),
+    var(--specimen-paper);
+  background-size: 120px 120px;
+}
+
+.specimen-surface {
+  border: 1px solid var(--specimen-line);
+  background: rgb(251 250 246 / 0.78);
+}
+
+.bg-\[\#E4E2DD\],
+.bg-\[\#F0EEE8\] {
+  background-color: rgb(251 250 246 / 0.78) !important;
+}
+
+.bg-\[\#D9D6D0\] {
+  background-color: rgb(234 230 220 / 0.78) !important;
+}
+
+.bg-\[\#1E1E1E\] {
+  background-color: var(--specimen-ink) !important;
+}
+
+.bg-\[\#DB4A2B\] {
+  background-color: var(--specimen-signal) !important;
+}
+
+.text-\[\#1E1E1E\] {
+  color: var(--specimen-ink) !important;
+}
+
+.text-\[\#DB4A2B\] {
+  color: var(--specimen-signal) !important;
+}
+
+.text-\[\#E4E2DD\] {
+  color: var(--specimen-paper) !important;
+}
+
+.border-\[\#1E1E1E\],
+.border-\[\#1E1E1E\]\/20,
+.border-\[\#1E1E1E\]\/25,
+.border-\[\#1E1E1E\]\/30,
+.border-\[\#1E1E1E\]\/35,
+.border-\[\#1E1E1E\]\/40 {
+  border-color: var(--specimen-line) !important;
+}
+
+.ring-\[\#1E1E1E\]\/20,
+.ring-\[\#1E1E1E\]\/12 {
+  --tw-ring-color: var(--specimen-line) !important;
+}
+
 /* ─── Style token utility classes ─────────────────────────────────────────── */
 
 .st-surface {
@@ -613,7 +904,8 @@ main header {
   }
 
   [data-st-effect="glitch"] .st-display,
-  [data-st-effect="glitch"] .raw-preview-canvas h3 {
+  [data-st-effect="glitch"] .raw-preview-canvas h3,
+  .specimen-live-pulse::after {
     animation: none;
   }
 }

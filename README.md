@@ -100,23 +100,33 @@ npm run dev
 Open in your browser:
 
 ```text
-http://localhost:3000/layouts
+http://localhost:3000/en/layouts
+http://localhost:3000/ko/layouts
 ```
 
-The root path (`/`) redirects to `/layouts`.
+The root path (`/`) redirects to `/ko/layouts`. Unprefixed app routes redirect to the Korean route by default.
 
 ## Main Routes
 
 | Route | Contents |
 | --- | --- |
-| `/layouts` | Layout search, filters, and card list |
-| `/layouts/[slug]` | Structure description, pros/cons, responsive behavior, accessibility notes, live preview, and code example |
-| `/layouts/compare` | Compare up to 3 layouts with large structure previews |
-| `/studio` | Combine a design style and layout, preview the result, and copy code or prompts |
-| `/styles` | Design style search, category/tag filters, color palettes, and webpage-style samples |
-| `/styles/[slug]` | Design style detail, color palette, typography/layout traits, and related styles |
-| `/styles/generate` | Local reference image generation admin powered by the OpenAI Image API |
-| `/components` | Compare how design style tokens affect buttons, cards, navigation, inputs, and badges |
+| `/en/layouts`, `/ko/layouts` | Layout search, filters, and card list |
+| `/en/layouts/[slug]`, `/ko/layouts/[slug]` | Structure description, pros/cons, responsive behavior, accessibility notes, live preview, and code example |
+| `/en/layouts/compare`, `/ko/layouts/compare` | Compare up to 3 layouts with large structure previews |
+| `/en/studio`, `/ko/studio` | Combine a design style and layout, preview the result, and copy code or prompts |
+| `/en/styles`, `/ko/styles` | Design style search, category/tag filters, color palettes, and webpage-style samples |
+| `/en/styles/[slug]`, `/ko/styles/[slug]` | Design style detail, color palette, typography/layout traits, and related styles |
+| `/en/styles/generate`, `/ko/styles/generate` | Local reference image generation admin powered by the OpenAI Image API |
+| `/en/components`, `/ko/components` | Compare how design style tokens affect buttons, cards, navigation, inputs, and badges |
+
+## Language Structure
+
+OpenDesignLab keeps both English and Korean in one project.
+
+- GitHub docs use `README.md` for English and `README.ko.md` for Korean.
+- App routes use `/en/...` and `/ko/...` prefixes.
+- Navigation, footer links, and internal card links preserve the active language prefix.
+- Unprefixed app routes redirect to `/ko/...` for compatibility while the localized routes become the canonical structure.
 
 ## Image Generation Environment Variables
 

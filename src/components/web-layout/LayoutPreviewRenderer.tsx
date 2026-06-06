@@ -9,6 +9,7 @@ type LayoutPreviewRendererProps = {
   viewport: PreviewViewport;
   showLabels: boolean;
   denseContent: boolean;
+  locale?: "en" | "ko";
 };
 
 type SampleProps = {
@@ -16,11 +17,16 @@ type SampleProps = {
   compact: boolean;
   showLabels: boolean;
   denseContent: boolean;
+  locale: "en" | "ko";
 };
 
 const navItems = ["Shop", "Journal", "Studio"];
 const productNames = ["Raw tote", "Grid coat", "Poster tee", "Field knit", "Form bag", "Studio cap"];
 const stepNames = ["Brief", "Wire", "Prototype", "Ship"];
+
+function inferLocale(layout: WebLayout, locale?: "en" | "ko") {
+  return locale ?? (/[\uAC00-\uD7A3]/.test(layout.nameKo) ? "ko" : "en");
+}
 
 function Region({
   label,
@@ -185,7 +191,7 @@ function MetricCard({ label, value }: { label: string; value: string }) {
   );
 }
 
-function SingleColumnSample({ layout, compact, showLabels }: SampleProps) {
+function SingleColumnSample({ layout, compact, showLabels, locale }: SampleProps) {
   return (
     <div className="space-y-3">
       <Region label="Header" showLabels={showLabels}>
@@ -219,8 +225,9 @@ function SingleColumnSample({ layout, compact, showLabels }: SampleProps) {
               className={cn("mt-3 text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.68)]", compact && "text-xs leading-5")}
               style={{ fontFamily: "var(--st-font-body)" }}
             >
-              본문 폭을 제한하고 큰 제목, 짧은 설명, 반복 CTA를 같은 흐름 안에 둔 실제
-              읽기형 페이지입니다.
+              {locale === "ko"
+                ? "본문 폭을 제한하고 큰 제목, 짧은 설명, 반복 CTA를 같은 흐름 안에 둔 실제 읽기형 페이지입니다."
+                : "A readable page pattern with a limited text width, large heading, short copy, and repeated calls to action."}
             </p>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -233,7 +240,7 @@ function SingleColumnSample({ layout, compact, showLabels }: SampleProps) {
   );
 }
 
-function TwoColumnSample({ layout, compact, showLabels }: SampleProps) {
+function TwoColumnSample({ layout, compact, showLabels, locale }: SampleProps) {
   return (
     <div className="space-y-3">
       <Region label="Header" showLabels={showLabels}>
@@ -263,7 +270,9 @@ function TwoColumnSample({ layout, compact, showLabels }: SampleProps) {
                 </p>
                 <p className="mt-2 text-sm font-bold">{item}</p>
                 <p className="mt-2 text-xs leading-5 text-[rgb(var(--st-text-rgb)_/_0.60)]" style={{ fontFamily: "var(--st-font-body)" }}>
-                  보조 정보가 주 메시지 옆에서 바로 결정을 돕습니다.
+                  {locale === "ko"
+                    ? "보조 정보가 주 메시지 옆에서 바로 결정을 돕습니다."
+                    : "Supporting information sits beside the main message to help decisions quickly."}
                 </p>
               </div>
             ))}
@@ -275,8 +284,8 @@ function TwoColumnSample({ layout, compact, showLabels }: SampleProps) {
   );
 }
 
-function ThreeColumnSample({ layout, compact, showLabels }: SampleProps) {
-  if (compact) return <TwoColumnSample layout={layout} compact showLabels={showLabels} denseContent />;
+function ThreeColumnSample({ layout, compact, showLabels, locale }: SampleProps) {
+  if (compact) return <TwoColumnSample layout={layout} compact showLabels={showLabels} denseContent locale={locale} />;
 
   return (
     <div className="space-y-3">
@@ -438,7 +447,7 @@ function CardGridSample({ layout, compact, showLabels, denseContent }: SamplePro
   );
 }
 
-function BentoSample({ layout, compact, showLabels }: SampleProps) {
+function BentoSample({ layout, compact, showLabels, locale }: SampleProps) {
   return (
     <div className={cn("grid gap-3", compact ? "grid-cols-1" : "grid-cols-4 auto-rows-[150px]")}>
       <Region className={cn("p-5", compact ? "p-4" : "col-span-2 row-span-2")} label="Feature" showLabels={showLabels}>
@@ -470,7 +479,9 @@ function BentoSample({ layout, compact, showLabels }: SampleProps) {
             className="text-sm leading-6 text-[rgb(var(--st-text-rgb)_/_0.68)]"
             style={{ fontFamily: "var(--st-font-body)" }}
           >
-            서로 다른 크기의 모듈이 실제 콘텐츠 허브처럼 조합됩니다.
+            {locale === "ko"
+              ? "서로 다른 크기의 모듈이 실제 콘텐츠 허브처럼 조합됩니다."
+              : "Modules of different sizes combine like a real content hub."}
           </p>
         </div>
       </Region>
@@ -583,7 +594,7 @@ function TaskList({ count }: { count: number }) {
   );
 }
 
-function EditorialSample({ layout, compact, showLabels }: SampleProps) {
+function EditorialSample({ layout, compact, showLabels, locale }: SampleProps) {
   return (
     <div className="space-y-3">
       <Region className="p-6" label="Editorial" showLabels={showLabels}>
@@ -597,7 +608,11 @@ function EditorialSample({ layout, compact, showLabels }: SampleProps) {
             <blockquote className="border-l-4 border-[var(--st-accent)] bg-[rgb(var(--st-accent-2-rgb)_/_0.18)] p-4 font-bold text-[var(--st-text)]">
               {layout.bestFor.join(" / ")}
             </blockquote>
-            <p>큰 제목과 짧은 본문, 강조 인용을 실제 매거진 페이지처럼 배치합니다.</p>
+            <p>
+              {locale === "ko"
+                ? "큰 제목과 짧은 본문, 강조 인용을 실제 매거진 페이지처럼 배치합니다."
+                : "Large headlines, short body text, and pull quotes are arranged like a real magazine page."}
+            </p>
           </div>
         </div>
       </Region>
@@ -605,7 +620,7 @@ function EditorialSample({ layout, compact, showLabels }: SampleProps) {
   );
 }
 
-function CommerceSample({ layout, compact, showLabels }: SampleProps) {
+function CommerceSample({ layout, compact, showLabels, locale }: SampleProps) {
   return (
     <div className={cn("grid gap-3", compact ? "grid-cols-1" : "grid-cols-[1.05fr_0.95fr]")}>
       <Region className="p-4" label="Product Media" showLabels={showLabels}>
@@ -647,15 +662,15 @@ function CommerceSample({ layout, compact, showLabels }: SampleProps) {
           style={{ borderRadius: "var(--st-radius)" }}
           type="button"
         >
-          장바구니 담기
+          {locale === "ko" ? "장바구니 담기" : "Add to cart"}
         </button>
       </Region>
     </div>
   );
 }
 
-function DocsSample({ layout, compact, showLabels }: SampleProps) {
-  if (compact) return <SingleColumnSample layout={layout} compact showLabels={showLabels} denseContent />;
+function DocsSample({ layout, compact, showLabels, locale }: SampleProps) {
+  if (compact) return <SingleColumnSample layout={layout} compact showLabels={showLabels} denseContent locale={locale} />;
 
   return (
     <div className="grid grid-cols-[190px_1fr_190px] gap-3">
@@ -893,7 +908,7 @@ function ScrollStorySample({ layout, compact, showLabels }: SampleProps) {
 
 function LayoutPreviewContent(props: LayoutPreviewRendererProps) {
   const compact = props.viewport !== "desktop";
-  const sampleProps: SampleProps = { ...props, compact };
+  const sampleProps: SampleProps = { ...props, compact, locale: inferLocale(props.layout, props.locale) };
 
   if (props.layout.previewType === "two-column") return <TwoColumnSample {...sampleProps} />;
   if (props.layout.previewType === "three-column") return <ThreeColumnSample {...sampleProps} />;

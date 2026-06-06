@@ -100,23 +100,33 @@ npm run dev
 브라우저에서 열기:
 
 ```text
-http://localhost:3000/layouts
+http://localhost:3000/en/layouts
+http://localhost:3000/ko/layouts
 ```
 
-루트 경로(`/`)는 `/layouts`로 리다이렉트됩니다.
+루트 경로(`/`)는 `/ko/layouts`로 리다이렉트됩니다. 언어 prefix가 없는 앱 경로는 기본적으로 한국어 경로로 이동합니다.
 
 ## 주요 라우트
 
 | Route | 내용 |
 | --- | --- |
-| `/layouts` | 레이아웃 검색, 필터, 카드 목록 |
-| `/layouts/[slug]` | 구조 설명, 장단점, 반응형 동작, 접근성 노트, 라이브 프리뷰, 코드 예시 |
-| `/layouts/compare` | 최대 3개 레이아웃 비교와 큰 구조 미리보기 |
-| `/studio` | 디자인 스타일과 레이아웃을 조합해 실제 웹 프리뷰를 보고 코드/프롬프트를 복사 |
-| `/styles` | 디자인 형식 검색, 카테고리/태그 필터, 색상표, 웹페이지형 스타일 샘플 |
-| `/styles/[slug]` | 디자인 형식 상세 설명, 색상표, 타이포/레이아웃 특징, 관련 스타일 |
-| `/styles/generate` | OpenAI Image API 기반 로컬 참조 이미지 생성 관리자 |
-| `/components` | 디자인 스타일 토큰을 버튼, 카드, 내비게이션, 입력 필드, 배지에 적용해 비교 |
+| `/en/layouts`, `/ko/layouts` | 레이아웃 검색, 필터, 카드 목록 |
+| `/en/layouts/[slug]`, `/ko/layouts/[slug]` | 구조 설명, 장단점, 반응형 동작, 접근성 노트, 라이브 프리뷰, 코드 예시 |
+| `/en/layouts/compare`, `/ko/layouts/compare` | 최대 3개 레이아웃 비교와 큰 구조 미리보기 |
+| `/en/studio`, `/ko/studio` | 디자인 스타일과 레이아웃을 조합해 실제 웹 프리뷰를 보고 코드/프롬프트를 복사 |
+| `/en/styles`, `/ko/styles` | 디자인 형식 검색, 카테고리/태그 필터, 색상표, 웹페이지형 스타일 샘플 |
+| `/en/styles/[slug]`, `/ko/styles/[slug]` | 디자인 형식 상세 설명, 색상표, 타이포/레이아웃 특징, 관련 스타일 |
+| `/en/styles/generate`, `/ko/styles/generate` | OpenAI Image API 기반 로컬 참조 이미지 생성 관리자 |
+| `/en/components`, `/ko/components` | 디자인 스타일 토큰을 버튼, 카드, 내비게이션, 입력 필드, 배지에 적용해 비교 |
+
+## 언어 구조
+
+OpenDesignLab은 하나의 프로젝트 안에서 영어와 한국어를 함께 관리합니다.
+
+- GitHub 문서는 영어 `README.md`와 한국어 `README.ko.md`로 나눕니다.
+- 앱 경로는 `/en/...`, `/ko/...` prefix를 사용합니다.
+- 내비게이션, 푸터 링크, 카드 내부 링크는 현재 언어 prefix를 유지합니다.
+- 언어 prefix가 없는 앱 경로는 호환성을 위해 `/ko/...`로 이동하고, 새 언어별 경로를 기본 구조로 사용합니다.
 
 ## 이미지 생성 환경 변수
 

@@ -25,7 +25,7 @@ export function ColorPaletteGrid({
         <span
           aria-label={`${label} ${palette[key]}`}
           className={cn(
-            "border border-[#1E1E1E]/18",
+            "border border-[var(--specimen-line-soft)]",
             compact ? "h-6" : "h-8",
           )}
           key={key}

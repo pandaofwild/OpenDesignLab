@@ -30,6 +30,14 @@ CLAUDE.md
 /public/references/
 /.playwright-mcp/
 
+# local run artifacts
+.next-dev.*.log
+/output/
+
+# local design references
+/오픈소스/
+/오픈소스.zip
+
 # debug
 npm-debug.log*
 yarn-debug.log*

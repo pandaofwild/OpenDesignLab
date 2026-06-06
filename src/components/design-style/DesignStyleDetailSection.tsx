@@ -8,9 +8,12 @@ export function DesignStyleDetailSection({
   title: string;
 }) {
   return (
-    <section className="border border-[#1E1E1E]/18 bg-[#F0EEE8] p-5">
-      <h2 className="raw-label text-[#DB4A2B]">{title}</h2>
-      <div className="mt-4 text-sm leading-7 text-[#1E1E1E]/70">{children}</div>
+    <section className="specimen-surface p-5">
+      <h2 className="raw-label flex items-center gap-2 text-[var(--specimen-signal)]">
+        <span className="specimen-bullet" aria-hidden="true" />
+        {title}
+      </h2>
+      <div className="mt-4 text-sm leading-7 text-[var(--specimen-ink-55)]">{children}</div>
     </section>
   );
 }

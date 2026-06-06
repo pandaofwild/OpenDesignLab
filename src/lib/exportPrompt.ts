@@ -1,11 +1,15 @@
 import type { DesignStyle } from "@/data/designStyles";
 import type { WebLayout } from "@/data/webLayouts";
 
+function formatName(primary: string, secondary: string) {
+  return primary === secondary ? primary : `${primary} (${secondary})`;
+}
+
 export function exportDesignPrompt(style: DesignStyle, layout: WebLayout) {
   const tokens = style.tokens;
 
   return [
-    `Create a high-quality webpage design reference for ${style.nameEn} (${style.nameKo}) using a ${layout.nameEn}.`,
+    `Create a high-quality webpage design reference for ${formatName(style.nameKo, style.nameEn)} using a ${layout.nameKo}.`,
     `Visual style: ${style.summary}`,
     `Layout structure: ${layout.summary}`,
     `Preview type: ${layout.previewType}.`,
@@ -21,7 +25,7 @@ export function exportDesignPrompt(style: DesignStyle, layout: WebLayout) {
 
 export function exportLayoutPrompt(layout: WebLayout) {
   return [
-    `Create a production-ready webpage using a ${layout.nameEn} (${layout.nameKo}).`,
+    `Create a production-ready webpage using a ${formatName(layout.nameKo, layout.nameEn)}.`,
     `Layout summary: ${layout.summary}`,
     `Preview type: ${layout.previewType}.`,
     `Structure: ${layout.structure.join(", ")}.`,

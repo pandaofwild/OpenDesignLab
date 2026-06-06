@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { ComponentDictionaryView } from "@/components/component-dictionary/ComponentDictionaryView";
+import { defaultLocale, type Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Components",
@@ -7,16 +9,16 @@ export const metadata: Metadata = {
 };
 
 export default function ComponentsPage() {
+  return <ComponentsPageContent locale={defaultLocale} />;
+}
+
+export function ComponentsPageContent({ locale }: { locale: Locale }) {
   return (
-    <main className="min-h-screen bg-background pt-28 text-[#1E1E1E]">
-      <div className="mx-auto max-w-[1720px] px-5 py-8 lg:px-8">
-        <p className="raw-label text-[#DB4A2B]">Component Dictionary</p>
-        <h1 className="mt-4 font-display text-5xl font-bold uppercase leading-none tracking-[-0.05em] md:text-7xl">
-          Components
-        </h1>
-        <div className="mt-10">
-          <ComponentDictionaryView />
-        </div>
+    <main className="min-h-screen bg-background px-3 py-4 text-[var(--specimen-ink)] lg:px-5">
+      <div className="mx-auto max-w-[1440px]">
+        <Suspense fallback={null}>
+          <ComponentDictionaryView locale={locale} />
+        </Suspense>
       </div>
     </main>
   );

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { LocalizedLink } from "@/components/i18n/LocalizedLink";
 import { WebLayoutCompare } from "@/components/web-layout/WebLayoutCompare";
+import { defaultLocale, type Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "레이아웃 비교",
@@ -8,21 +9,31 @@ export const metadata: Metadata = {
 };
 
 export default function ComparePage() {
+  return <ComparePageContent locale={defaultLocale} />;
+}
+
+export function ComparePageContent({ locale }: { locale: Locale }) {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-background pt-24 text-[#1E1E1E]">
+    <main className="min-h-screen overflow-x-hidden bg-background pt-24 text-[var(--specimen-ink)]">
       <div className="mx-auto max-w-[1720px] px-5 py-6 lg:px-8">
-        <Link
-          className="raw-label text-[#DB4A2B] underline-offset-4 hover:underline"
+        <LocalizedLink
+          className="raw-label inline-flex items-center gap-2 text-[var(--specimen-signal)] underline-offset-4 hover:underline"
           href="/layouts"
         >
-          목록으로 돌아가기
-        </Link>
-        <header className="mt-5 max-w-3xl">
-          <h1 className="font-display text-6xl font-bold uppercase leading-[0.8] tracking-[-0.05em] text-[#1E1E1E] md:text-8xl">
+          <span className="specimen-bullet" aria-hidden="true" />
+          {locale === "ko" ? "목록으로 돌아가기" : "Back to layouts"}
+        </LocalizedLink>
+        <header className="specimen-sheet mt-5 max-w-4xl p-5 lg:p-7">
+          <p className="raw-label text-[var(--specimen-ink-55)]">
+            {locale === "ko" ? "레이아웃 비교 규격" : "Layout comparison spec"}
+          </p>
+          <h1 className="raw-display mt-3 text-6xl leading-[0.8] text-[var(--specimen-ink)] md:text-8xl">
             Compare
           </h1>
-          <p className="mt-4 max-w-md text-sm leading-6 text-[#1E1E1E]/65">
-            큰 프리뷰를 좌우로 넘기며 핵심 차이만 빠르게 확인합니다.
+          <p className="mt-4 max-w-md text-sm leading-6 text-[var(--specimen-ink-55)]">
+            {locale === "ko"
+              ? "큰 프리뷰를 좌우로 넘기며 핵심 차이만 빠르게 확인합니다."
+              : "Move through large previews and compare the most important structural differences."}
           </p>
         </header>
         <div className="mt-5">
