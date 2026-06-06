@@ -73,7 +73,7 @@ export function WebLayoutExplorer() {
             : `${filteredLayouts.length} layouts shown`}
         </p>
         <LocalizedLink
-          className="inline-flex h-11 items-center justify-center border border-[var(--specimen-line)] bg-transparent px-4 font-mono text-xs font-bold uppercase tracking-[0.14em] text-[var(--specimen-ink)] transition hover:border-[var(--specimen-ink)] hover:bg-[var(--specimen-ink)] hover:text-[var(--specimen-paper)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--specimen-ink)]"
+          className="specimen-button specimen-button-md specimen-button-secondary"
           href="/layouts/compare"
         >
           {locale === "ko" ? "레이아웃 비교하기" : "Compare layouts"}

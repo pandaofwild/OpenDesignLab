@@ -156,7 +156,7 @@ export function StylePresetPanel() {
           value={prompt}
         />
         <button
-          className="raw-button mt-3 inline-flex h-11 w-full items-center justify-center gap-2 border border-[var(--specimen-paper)] bg-[var(--specimen-paper)] px-4 text-sm font-bold uppercase tracking-[0.1em] text-[var(--specimen-ink)] transition"
+          className="specimen-button specimen-button-md mt-3 w-full gap-2 border-[var(--specimen-paper)] bg-[var(--specimen-paper)] text-[var(--specimen-ink)] hover:border-[var(--specimen-signal)] hover:bg-[var(--specimen-signal)] hover:text-[var(--specimen-paper)]"
           onClick={generateCustomPreset}
           type="button"
         >

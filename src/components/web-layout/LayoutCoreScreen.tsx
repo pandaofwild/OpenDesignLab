@@ -139,10 +139,10 @@ export function LayoutCoreScreen({ locale }: { locale: Locale }) {
                 <button
                   aria-pressed={activeComplexity === complexity}
                   className={cn(
-                    "flex w-full items-center gap-2.5 text-left text-[13px]",
+                    "specimen-filter-row",
                     activeComplexity === complexity
-                      ? "font-bold text-[var(--specimen-ink)]"
-                      : "text-[var(--specimen-ink-55)]",
+                      ? "is-active font-bold"
+                      : "",
                   )}
                   key={complexity}
                   onClick={() => setParam("complexity", activeComplexity === complexity ? null : complexity)}
@@ -171,7 +171,7 @@ export function LayoutCoreScreen({ locale }: { locale: Locale }) {
 
           {hasFilters ? (
             <button
-              className="h-8 border border-[var(--specimen-line)] px-3 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--specimen-ink-55)] hover:border-[var(--specimen-ink)] hover:text-[var(--specimen-ink)]"
+              className="specimen-button specimen-button-sm specimen-button-quiet"
               onClick={resetFilters}
               type="button"
             >
@@ -229,7 +229,7 @@ export function LayoutCoreScreen({ locale }: { locale: Locale }) {
               <div className="mt-6 border border-[var(--specimen-line)] p-6">
                 <p className="raw-label text-[var(--specimen-ink-55)]">No matching layouts</p>
                 <button
-                  className="mt-4 h-9 border border-[var(--specimen-ink)] px-3 font-mono text-[11px] font-bold uppercase tracking-[0.12em]"
+                  className="specimen-button specimen-button-sm specimen-button-secondary mt-4"
                   onClick={resetFilters}
                   type="button"
                 >
@@ -261,7 +261,7 @@ function CoreLayoutCard({
         <div className="relative aspect-[5/3] overflow-hidden border border-[var(--specimen-line-soft)] bg-[var(--specimen-card)] p-1.5">
           <WireframeThumbnail layout={localizedLayout} />
           <LocalizedLink
-            className="absolute right-3 top-3 bg-[var(--specimen-ink)] px-2.5 py-1.5 font-mono text-[9px] font-bold uppercase tracking-[0.12em] text-[var(--specimen-paper)]"
+            className="specimen-button specimen-button-tiny specimen-button-primary absolute right-3 top-3"
             href={`/studio?layout=${layout.slug}`}
           >
             Use
@@ -284,7 +284,7 @@ function CoreLayoutCard({
         <div className="flex flex-wrap gap-1.5">
           <SpecimenTinyChip>{localizedLayout.category}</SpecimenTinyChip>
           <LocalizedLink
-            className="inline-flex border border-[var(--specimen-line)] px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.12em] text-[var(--specimen-signal)] hover:border-[var(--specimen-signal)]"
+            className="specimen-button specimen-button-tiny specimen-button-quiet"
             href={`/layouts/${layout.slug}`}
           >
             Detail
@@ -323,13 +323,13 @@ function CoreLayoutRow({
       </div>
       <div className="col-span-2 flex items-center gap-3 border-t border-[var(--specimen-line)] p-3 md:col-span-1 md:border-t-0">
         <LocalizedLink
-          className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--specimen-signal)]"
+          className="specimen-button specimen-button-tiny specimen-button-quiet"
           href={`/layouts/${layout.slug}`}
         >
           Open
         </LocalizedLink>
         <LocalizedLink
-          className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--specimen-ink)]"
+          className="specimen-button specimen-button-tiny specimen-button-secondary"
           href={`/studio?layout=${layout.slug}`}
         >
           Use

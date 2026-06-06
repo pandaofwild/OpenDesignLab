@@ -770,7 +770,7 @@ function InternationalSystemPortal({ className, compact = false, style }: Props)
               ))}
             </div>
             <div className="flex items-end justify-between border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] px-3 py-2">
-              <span className="font-display text-3xl leading-none text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)" }}>Aa</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--sample-text)]">Type scale</span>
               <span className="text-right text-[9px] leading-tight text-[var(--sample-muted)]">
                 Plex Sans<br />16 / 24 · 1.5 scale
               </span>

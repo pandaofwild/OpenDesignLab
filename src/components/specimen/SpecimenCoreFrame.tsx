@@ -132,7 +132,7 @@ function LanguageToggle({ locale, pathname }: { locale: Locale; pathname: string
   return (
     <div
       aria-label="Language"
-      className="inline-flex h-8 items-center border border-[var(--specimen-line)] bg-[rgb(251_250_246_/_0.72)] font-mono text-[10px] font-bold uppercase tracking-[0.14em]"
+      className="specimen-language-toggle inline-flex h-8 items-center border border-[var(--specimen-line)] bg-[rgb(251_250_246_/_0.72)] font-mono text-[10px] font-bold uppercase tracking-[0.14em]"
     >
       {(["en", "ko"] as const).map((item) => {
         const active = locale === item;
@@ -186,7 +186,7 @@ export function SpecimenOptionRow({
   label: string;
   onClick?: () => void;
 }) {
-  const className = "flex w-full items-center gap-2.5 text-left text-[13px]";
+  const className = cn("specimen-filter-row", active ? "is-active font-bold" : "");
   const content = (
     <>
       <span
@@ -233,10 +233,10 @@ export function SpecimenTinyChip({
   onClick?: () => void;
 }) {
   const className = cn(
-    "inline-flex border px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.12em]",
+    "specimen-chip",
     active
-      ? "border-[var(--specimen-ink)] bg-[var(--specimen-ink)] text-[var(--specimen-paper)]"
-      : "border-[var(--specimen-line)] text-[var(--specimen-ink-55)]",
+      ? "is-active"
+      : "",
   );
 
   if (onClick) {

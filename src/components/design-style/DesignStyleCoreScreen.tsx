@@ -152,10 +152,10 @@ export function DesignStyleCoreScreen() {
                 <button
                   aria-pressed={activeDensity === density}
                   className={cn(
-                    "flex w-full items-center gap-2.5 text-left text-[13px]",
+                    "specimen-filter-row",
                     activeDensity === density
-                      ? "font-bold text-[var(--specimen-ink)]"
-                      : "text-[var(--specimen-ink-55)]",
+                      ? "is-active font-bold"
+                      : "",
                   )}
                   key={density}
                   onClick={() => setParam("density", activeDensity === density ? null : density)}
@@ -184,7 +184,7 @@ export function DesignStyleCoreScreen() {
 
           {hasFilters ? (
             <button
-              className="h-8 border border-[var(--specimen-line)] px-3 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--specimen-ink-55)] hover:border-[var(--specimen-ink)] hover:text-[var(--specimen-ink)]"
+              className="specimen-button specimen-button-sm specimen-button-quiet"
               onClick={resetFilters}
               type="button"
             >
@@ -254,7 +254,7 @@ export function DesignStyleCoreScreen() {
               <div className="mt-6 border border-[var(--specimen-line)] p-6">
                 <p className="raw-label text-[var(--specimen-ink-55)]">No matching styles</p>
                 <button
-                  className="mt-4 h-9 border border-[var(--specimen-ink)] px-3 font-mono text-[11px] font-bold uppercase tracking-[0.12em]"
+                  className="specimen-button specimen-button-sm specimen-button-secondary mt-4"
                   onClick={resetFilters}
                   type="button"
                 >
@@ -293,8 +293,7 @@ function CoreStyleCard({
       )}
     >
       <div className="border-b border-[var(--specimen-line)] p-2">
-        <ColorPaletteGrid compact palette={style.palette} />
-        <div className="mt-2 aspect-[16/7] overflow-hidden border border-[var(--specimen-line-soft)] bg-[var(--specimen-card)]">
+        <div className="aspect-[16/7] overflow-hidden border border-[var(--specimen-line-soft)] bg-[var(--specimen-card)]">
           <DesignStyleSampleRenderer compact style={localizedStyle} />
         </div>
       </div>
@@ -306,8 +305,7 @@ function CoreStyleCard({
           <p className="raw-label text-[var(--specimen-ink-55)]">{localizedStyle.category}</p>
         </div>
         <div>
-          <p className="font-mono text-base font-bold leading-none">Aa</p>
-          <h2 className="mt-2 text-base font-bold leading-tight text-[var(--specimen-ink)]">{localizedStyle.nameKo}</h2>
+          <h2 className="text-base font-bold leading-tight text-[var(--specimen-ink)]">{localizedStyle.nameKo}</h2>
           {localizedStyle.nameEn !== localizedStyle.nameKo ? (
             <p className="mt-0.5 text-[12px] text-[var(--specimen-ink-55)]">{localizedStyle.nameEn}</p>
           ) : null}
@@ -316,34 +314,31 @@ function CoreStyleCard({
           <SpecimenTinyChip>{densityLabel[style.tokens.space.density]}</SpecimenTinyChip>
           <SpecimenTinyChip>{effectLabel[style.tokens.decoration.effect]}</SpecimenTinyChip>
         </div>
-        <div className="flex flex-wrap items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center gap-1.5">
           <button
             className={cn(
-              "h-8 border px-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.12em] transition",
+              "specimen-button specimen-button-sm",
               isSelected
-                ? "border-[var(--specimen-ink)] bg-[var(--specimen-ink)] text-[var(--specimen-paper)]"
-                : "border-[var(--specimen-ink)] bg-transparent text-[var(--specimen-ink)] hover:bg-[var(--specimen-ink)] hover:text-[var(--specimen-paper)]",
+                ? "is-active"
+                : "specimen-button-secondary",
             )}
             onClick={() => onSelect(style.slug)}
             type="button"
           >
             {isSelected ? "Applied" : "Apply"}
           </button>
-          <div className="flex gap-2">
-            <LocalizedLink
-              className="raw-label text-[var(--specimen-signal)] hover:underline"
-              href={`/styles/${style.slug}`}
-            >
+          <div className="flex gap-1.5">
+            <LocalizedLink className="specimen-button specimen-button-sm specimen-button-quiet" href={`/styles/${style.slug}`}>
               Detail
             </LocalizedLink>
-            <LocalizedLink
-              className="raw-label text-[var(--specimen-ink)] hover:underline"
-              href={`/studio?style=${style.slug}`}
-            >
+            <LocalizedLink className="specimen-button specimen-button-sm specimen-button-quiet" href={`/studio?style=${style.slug}`}>
               Studio
             </LocalizedLink>
           </div>
         </div>
+      </div>
+      <div className="border-t border-[var(--specimen-line)] p-2">
+        <ColorPaletteGrid compact palette={style.palette} />
       </div>
     </article>
   );
@@ -381,8 +376,8 @@ function CoreStyleRow({
       <div className="col-span-2 flex flex-wrap items-center gap-3 border-t border-[var(--specimen-line)] p-3 md:col-span-1 md:border-t-0">
         <button
           className={cn(
-            "font-mono text-[10px] font-bold uppercase tracking-[0.12em]",
-            isSelected ? "text-[var(--specimen-ink)]" : "text-[var(--specimen-signal)]",
+            "specimen-button specimen-button-tiny",
+            isSelected ? "is-active" : "specimen-button-secondary",
           )}
           onClick={() => onSelect(style.slug)}
           type="button"
@@ -390,13 +385,13 @@ function CoreStyleRow({
           {isSelected ? "Applied" : "Apply"}
         </button>
         <LocalizedLink
-          className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--specimen-signal)]"
+          className="specimen-button specimen-button-tiny specimen-button-quiet"
           href={`/styles/${style.slug}`}
         >
           Open
         </LocalizedLink>
         <LocalizedLink
-          className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--specimen-ink)]"
+          className="specimen-button specimen-button-tiny specimen-button-quiet"
           href={`/studio?style=${style.slug}`}
         >
           Use

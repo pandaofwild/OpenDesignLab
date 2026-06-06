@@ -74,10 +74,10 @@ export function DesignStyleCard({ isSelected, onSelect, style }: Props) {
         <div className="grid grid-cols-2 gap-2">
           <button
             className={cn(
-              "h-10 border px-3 font-mono text-xs font-bold uppercase tracking-[0.12em] transition",
+              "specimen-button specimen-button-md w-full",
               isSelected
-                ? "border-[var(--specimen-paper)] bg-[var(--specimen-paper)] text-[var(--specimen-ink)]"
-                : "border-[var(--specimen-ink)] bg-[var(--specimen-ink)] text-[var(--specimen-paper)] hover:bg-[var(--specimen-signal)]",
+                ? "border-[var(--specimen-paper)] bg-[var(--specimen-paper)] text-[var(--specimen-ink)] hover:bg-[var(--specimen-paper)] hover:text-[var(--specimen-ink)]"
+                : "specimen-button-primary",
             )}
             onClick={() => onSelect(style.slug)}
             type="button"
@@ -88,10 +88,10 @@ export function DesignStyleCard({ isSelected, onSelect, style }: Props) {
           </button>
           <LocalizedLink
             className={cn(
-              "inline-flex h-10 items-center justify-center border px-3 font-mono text-xs font-bold uppercase tracking-[0.12em] transition",
+              "specimen-button specimen-button-md w-full",
               isSelected
                 ? "border-[rgb(242_239_232_/_0.30)] text-[var(--specimen-paper)] hover:bg-[var(--specimen-paper)] hover:text-[var(--specimen-ink)]"
-                : "border-[var(--specimen-line)] text-[var(--specimen-ink)] hover:border-[var(--specimen-ink)]",
+                : "specimen-button-secondary",
             )}
             href={`/styles/${style.slug}`}
           >

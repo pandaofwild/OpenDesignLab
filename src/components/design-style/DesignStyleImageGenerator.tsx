@@ -145,7 +145,7 @@ export function DesignStyleImageGenerator() {
           </label>
 
           <button
-            className="raw-button h-11 border border-[var(--specimen-ink)] bg-[var(--specimen-ink)] px-4 text-sm font-bold uppercase tracking-[0.1em] text-[var(--specimen-paper)] transition disabled:cursor-not-allowed disabled:opacity-50"
+            className="specimen-button specimen-button-md specimen-button-primary w-full disabled:cursor-not-allowed disabled:opacity-50"
             disabled={isGenerating}
             onClick={generateImage}
             type="button"

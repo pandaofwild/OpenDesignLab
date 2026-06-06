@@ -43,7 +43,7 @@ export function AppliedStyleStrip() {
             )}
           </div>
           <LocalizedLink
-            className="raw-button inline-flex h-10 items-center border border-[var(--specimen-ink)] bg-[var(--specimen-ink)] px-4 text-xs font-bold uppercase tracking-[0.1em] text-[var(--specimen-paper)] transition"
+            className="specimen-button specimen-button-md specimen-button-primary"
             href="/styles"
           >
             {locale === "ko" ? "형식 바꾸기" : "Change style"}

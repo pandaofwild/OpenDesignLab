@@ -19,7 +19,7 @@ export function CopyTextButton({ copiedLabel, idleLabel, text }: CopyTextButtonP
 
   return (
     <button
-      className="raw-button border border-[var(--specimen-line)] bg-[var(--specimen-card)] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--specimen-ink-55)] transition-colors hover:border-[var(--specimen-ink)] hover:text-[var(--specimen-paper)]"
+      className="specimen-button specimen-button-sm specimen-button-secondary"
       onClick={copy}
       type="button"
     >

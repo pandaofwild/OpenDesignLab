@@ -56,15 +56,29 @@ export function AppChrome({ children }: { children: React.ReactNode }) {
   );
 
   if (usesCoreScreenChrome) {
-    return <>{children}</>;
+    return <PageTransition pathname={pathname}>{children}</PageTransition>;
   }
 
   return (
     <>
       <RawNavigation dictionary={dictionary} locale={locale} pathname={pathname} />
-      {children}
+      <PageTransition pathname={pathname}>{children}</PageTransition>
       <RawFooter dictionary={dictionary} locale={locale} pathname={pathname} />
     </>
+  );
+}
+
+function PageTransition({
+  children,
+  pathname,
+}: {
+  children: React.ReactNode;
+  pathname: string;
+}) {
+  return (
+    <div className="odl-page-transition flex-1" key={pathname}>
+      {children}
+    </div>
   );
 }
 

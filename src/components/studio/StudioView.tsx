@@ -9,6 +9,7 @@ import {
   SpecimenSideSection,
   SpecimenTinyChip,
 } from "@/components/specimen/SpecimenCoreFrame";
+import { ColorPaletteGrid } from "@/components/design-style/ColorPaletteGrid";
 import { includesQuery } from "@/components/specimen/useCatalogUrlState";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
 import { LayoutPreviewRenderer } from "@/components/web-layout/LayoutPreviewRenderer";
@@ -242,8 +243,6 @@ function StudioViewInner() {
                 <dd>
                   {selectedStyle.tokens.shape.borderWidth} {selectedStyle.tokens.shape.borderStyle}
                 </dd>
-                <dt className="text-[var(--specimen-ink-55)]">--font</dt>
-                <dd>{selectedStyle.tokens.typography.displayFont.split(",")[0].replace(/"/g, "")}</dd>
                 <dt className="text-[var(--specimen-ink-55)]">--shadow</dt>
                 <dd>{selectedStyle.tokens.decoration.shadow}</dd>
               </dl>
@@ -268,10 +267,10 @@ function StudioViewInner() {
                 {(["desktop", "tablet", "mobile"] as const).map((vp) => (
                   <button
                     className={cn(
-                      "h-8 border px-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.12em]",
+                      "specimen-button specimen-button-sm",
                       viewport === vp
-                        ? "border-[var(--specimen-ink)] bg-[var(--specimen-ink)] text-[var(--specimen-paper)]"
-                        : "border-[var(--specimen-line)] text-[var(--specimen-ink-55)]",
+                        ? "is-active"
+                        : "specimen-button-quiet",
                     )}
                     key={vp}
                     onClick={() => update("vp", vp)}
@@ -284,10 +283,11 @@ function StudioViewInner() {
             </div>
 
             <div
-              className="style-preset-root min-h-[560px] overflow-hidden border border-[var(--specimen-line)] bg-[var(--st-base)] p-4"
+              className="style-preset-root studio-panel-transition min-h-[560px] overflow-hidden border border-[var(--specimen-line)] bg-[var(--st-base)] p-4"
               data-st-density={selectedStyle.tokens.space.density}
               data-st-effect={selectedStyle.tokens.decoration.effect}
               data-style-preset={selectedStyle.slug}
+              key={`${selectedStyle.slug}-${selectedLayout.slug}-${viewport}`}
               style={tokenVars}
             >
               <LayoutPreviewRenderer
@@ -300,26 +300,26 @@ function StudioViewInner() {
             </div>
           </section>
 
-          <aside className="p-4 lg:p-5">
+          <aside className="space-y-6 p-4 lg:p-5">
             <SpecimenSideSection title="Export">
               <div className="flex gap-5 border-b border-[var(--specimen-ink)] pb-2.5 raw-label">
                 <span className="text-[var(--specimen-ink)]">Prompt</span>
                 <span className="text-[var(--specimen-ink-55)]">HTML</span>
                 <span className="text-[var(--specimen-ink-55)]">CSS</span>
               </div>
-              <pre className="mt-3 max-h-[440px] min-h-[360px] overflow-auto whitespace-pre-wrap bg-[var(--specimen-ink)] p-4 font-mono text-[11px] leading-6 text-[rgb(242_239_232_/_0.8)]">
+              <pre className="studio-panel-transition mt-3 max-h-[440px] min-h-[360px] overflow-auto whitespace-pre-wrap bg-[var(--specimen-ink)] p-4 font-mono text-[11px] leading-6 text-[rgb(242_239_232_/_0.8)]" key={`prompt-${selectedStyle.slug}-${selectedLayout.slug}`}>
                 {exportDesignPrompt(localizedStyle, localizedLayout)}
               </pre>
               <div className="mt-4 grid gap-3">
                 <button
-                  className="raw-button h-10 border border-[var(--specimen-ink)] bg-[var(--specimen-ink)] px-3 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--specimen-paper)]"
+                  className="specimen-button specimen-button-md specimen-button-primary w-full"
                   onClick={copyPrompt}
                   type="button"
                 >
                   {copied === "prompt" ? "Copied prompt" : "Copy prompt"}
                 </button>
                 <button
-                  className="h-10 border border-[var(--specimen-line)] px-3 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--specimen-ink)]"
+                  className="specimen-button specimen-button-md specimen-button-secondary w-full"
                   onClick={copyCode}
                   type="button"
                 >
@@ -329,6 +329,11 @@ function StudioViewInner() {
               <div className="mt-4 flex flex-wrap gap-2">
                 <SpecimenTinyChip>{selectedStyle.tokens.space.density}</SpecimenTinyChip>
                 <SpecimenTinyChip>{selectedLayout.previewType}</SpecimenTinyChip>
+              </div>
+            </SpecimenSideSection>
+            <SpecimenSideSection title="Palette">
+              <div className="studio-panel-transition border border-[var(--specimen-line)] bg-[rgb(251_250_246_/_0.58)] p-2" key={`palette-${selectedStyle.slug}`}>
+                <ColorPaletteGrid compact palette={selectedStyle.palette} />
               </div>
             </SpecimenSideSection>
           </aside>

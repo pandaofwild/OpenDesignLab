@@ -100,7 +100,7 @@ export function ComponentDictionaryView({ locale }: { locale: Locale }) {
               <div className="p-6">
                 <p className="raw-label text-[var(--specimen-ink-55)]">No matching components</p>
                 <button
-                  className="mt-4 h-9 border border-[var(--specimen-ink)] px-3 font-mono text-[11px] font-bold uppercase tracking-[0.12em]"
+                  className="specimen-button specimen-button-sm specimen-button-secondary mt-4"
                   onClick={() => setParam("q", null)}
                   type="button"
                 >

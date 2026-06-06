@@ -142,7 +142,7 @@ export function LayoutStagePreview({
               <button
                 aria-controls={detailPanelId}
                 aria-expanded={isDetailOpen}
-                className="raw-button flex h-9 w-9 items-center justify-center border border-[var(--specimen-line)] bg-[var(--specimen-card)] text-xs font-bold uppercase tracking-[0.1em] text-[var(--specimen-ink)] transition hover:border-[var(--specimen-ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--specimen-ink)] sm:w-auto sm:gap-1.5 sm:px-2.5"
+                className="specimen-button specimen-button-sm specimen-button-secondary w-9 sm:w-auto sm:gap-1.5"
                 onClick={() => setIsDetailOpen(true)}
                 type="button"
               >
@@ -262,7 +262,7 @@ export function LayoutStagePreview({
             {detailHref ? (
               <div className="mt-5 flex justify-end">
                 <LocalizedLink
-                  className="raw-button inline-flex h-10 items-center gap-2 border border-[var(--specimen-ink)] bg-[var(--specimen-ink)] px-4 text-sm font-bold uppercase tracking-[0.1em] text-[var(--specimen-paper)] transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--specimen-ink)]"
+                  className="specimen-button specimen-button-md specimen-button-primary gap-2"
                   href={detailHref}
                 >
                   {resolvedDetailLabel}

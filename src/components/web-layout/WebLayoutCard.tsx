@@ -69,7 +69,7 @@ export function WebLayoutCard({ layout, compact = false }: WebLayoutCardProps) {
           </div>
           <LocalizedLink
             href={`/layouts/${layout.slug}`}
-            className="raw-button inline-flex h-10 items-center justify-center border border-[var(--specimen-ink)] bg-[var(--specimen-ink)] px-4 font-mono text-xs font-bold uppercase tracking-[0.14em] text-[var(--specimen-paper)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--specimen-ink)]"
+            className="specimen-button specimen-button-md specimen-button-primary"
           >
             {locale === "ko" ? "상세 보기" : "View details"}
           </LocalizedLink>
