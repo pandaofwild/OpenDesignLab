@@ -44,6 +44,21 @@ const effectLabel: Record<StyleEffect, string> = {
   glitch: "Glitch",
 };
 
+const densityLabelKo: Record<StyleDensity, string> = {
+  airy: "여유",
+  normal: "보통",
+  tight: "촘촘",
+};
+
+const effectLabelKo: Record<StyleEffect, string> = {
+  none: "없음",
+  grain: "그레인",
+  scanline: "스캔라인",
+  glow: "글로우",
+  gradient: "그라데이션",
+  glitch: "글리치",
+};
+
 export function DesignStyleCoreScreen() {
   const locale = useLocale();
   const { activePreset, customPreset, selectedSlug, setSelectedSlug } = useStylePreset();
@@ -101,6 +116,30 @@ export function DesignStyleCoreScreen() {
   }, [activeCategory, activeDensity, activeEffect, locale, q, sort]);
 
   const visibleStyles = filteredStyles.slice(0, view === "list" ? 40 : 24);
+  const activeFilterCount = [
+    Boolean(q),
+    activeCategory !== "all",
+    activeDensity !== "all",
+    activeEffect !== "all",
+  ].filter(Boolean).length;
+  const sortLabel =
+    sort === "name"
+      ? locale === "ko"
+        ? "이름순"
+        : "Name"
+      : sort === "density"
+        ? locale === "ko"
+          ? "밀도순"
+          : "Density"
+        : locale === "ko"
+          ? "카테고리순"
+          : "Category";
+  const mobileFilterSummary = [
+    q ? `${locale === "ko" ? "검색" : "Search"} ${q}` : null,
+    activeCategory !== "all" ? styleCategoryLabel(activeCategory, locale) : null,
+    activeDensity !== "all" ? densityDisplayLabel(activeDensity as StyleDensity, locale) : null,
+    activeEffect !== "all" ? effectDisplayLabel(activeEffect as StyleEffect, locale) : null,
+  ].filter(Boolean).join(" / ");
   const hasFilters =
     Boolean(q) ||
     activeCategory !== "all" ||
@@ -124,77 +163,94 @@ export function DesignStyleCoreScreen() {
       searchPlaceholder={locale === "ko" ? "스타일 검색..." : "search styles..."}
       searchValue={q}
     >
-      <div className="grid min-h-[calc(100dvh-96px)] lg:grid-cols-[248px_minmax(0,1fr)]">
-        <aside className="space-y-7 border-b border-[var(--specimen-line)] p-4 lg:border-b-0 lg:border-r">
-          <SpecimenSideSection title={locale === "ko" ? "카테고리" : "Category"}>
-            <div className="space-y-2.5">
-              <SpecimenOptionRow
-                active={activeCategory === "all"}
-                count={designStyles.length}
-                label={locale === "ko" ? "전체 스타일" : "All styles"}
-                onClick={() => setParam("category", null)}
-              />
-              {categoryCounts.map(({ category, count }) => (
+      <div className="grid min-h-[calc(100dvh-96px)] min-w-0 lg:grid-cols-[276px_minmax(0,1fr)]">
+        <aside className="specimen-scrollbar min-w-0 border-b border-[var(--specimen-line)] p-3 lg:sticky lg:top-4 lg:max-h-[calc(100dvh-32px)] lg:overflow-auto lg:border-b-0 lg:border-r lg:p-5">
+          <StyleMobileFilters
+            activeCategory={activeCategory}
+            activeDensity={activeDensity}
+            activeEffect={activeEffect}
+            activeFilterCount={activeFilterCount}
+            categoryCounts={categoryCounts}
+            filterSummary={mobileFilterSummary}
+            hasFilters={hasFilters}
+            locale={locale}
+            onCategoryChange={(category) => setParam("category", category)}
+            onDensityChange={(density) => setParam("density", density)}
+            onEffectChange={(effect) => setParam("effect", effect)}
+            onReset={resetFilters}
+          />
+
+          <div className="hidden space-y-6 lg:block">
+            <SpecimenSideSection title={locale === "ko" ? "카테고리" : "Category"}>
+              <div className="space-y-2.5">
                 <SpecimenOptionRow
-                  active={activeCategory === category}
-                  count={count}
-                  key={category}
-                  label={styleCategoryLabel(category, locale)}
-                  onClick={() => setParam("category", activeCategory === category ? null : category)}
+                  active={activeCategory === "all"}
+                  count={designStyles.length}
+                  label={locale === "ko" ? "전체 스타일" : "All styles"}
+                  onClick={() => setParam("category", null)}
                 />
-              ))}
-            </div>
-          </SpecimenSideSection>
+                {categoryCounts.map(({ category, count }) => (
+                  <SpecimenOptionRow
+                    active={activeCategory === category}
+                    count={count}
+                    key={category}
+                    label={styleCategoryLabel(category, locale)}
+                    onClick={() => setParam("category", activeCategory === category ? null : category)}
+                  />
+                ))}
+              </div>
+            </SpecimenSideSection>
 
-          <SpecimenSideSection title={locale === "ko" ? "밀도" : "Density"}>
-            <div className="space-y-2">
-              {densityOptions.map((density) => (
-                <button
-                  aria-pressed={activeDensity === density}
-                  className={cn(
-                    "specimen-filter-row",
-                    activeDensity === density
-                      ? "is-active font-bold"
-                      : "",
-                  )}
-                  key={density}
-                  onClick={() => setParam("density", activeDensity === density ? null : density)}
-                  type="button"
-                >
-                  <span className="font-mono text-base leading-none">{densityDots(density)}</span>
-                  <span>{densityLabel[density]}</span>
-                </button>
-              ))}
-            </div>
-          </SpecimenSideSection>
+            <SpecimenSideSection title={locale === "ko" ? "밀도" : "Density"}>
+              <div className="space-y-2">
+                {densityOptions.map((density) => (
+                  <button
+                    aria-pressed={activeDensity === density}
+                    className={cn(
+                      "specimen-filter-row",
+                      activeDensity === density
+                        ? "is-active font-bold"
+                        : "",
+                    )}
+                    key={density}
+                    onClick={() => setParam("density", activeDensity === density ? null : density)}
+                    type="button"
+                  >
+                    <span className="font-mono text-base leading-none">{densityDots(density)}</span>
+                    <span>{densityDisplayLabel(density, locale)}</span>
+                  </button>
+                ))}
+              </div>
+            </SpecimenSideSection>
 
-          <SpecimenSideSection title={locale === "ko" ? "효과" : "Effect"}>
-            <div className="flex flex-wrap gap-2">
-              {effectOptions.map((effect) => (
-                <SpecimenTinyChip
-                  active={activeEffect === effect}
-                  key={effect}
-                  onClick={() => setParam("effect", activeEffect === effect ? null : effect)}
-                >
-                  {effectLabel[effect]}
-                </SpecimenTinyChip>
-              ))}
-            </div>
-          </SpecimenSideSection>
+            <SpecimenSideSection title={locale === "ko" ? "효과" : "Effect"}>
+              <div className="flex flex-wrap gap-2">
+                {effectOptions.map((effect) => (
+                  <SpecimenTinyChip
+                    active={activeEffect === effect}
+                    key={effect}
+                    onClick={() => setParam("effect", activeEffect === effect ? null : effect)}
+                  >
+                    {effectDisplayLabel(effect, locale)}
+                  </SpecimenTinyChip>
+                ))}
+              </div>
+            </SpecimenSideSection>
 
-          {hasFilters ? (
-            <button
-              className="specimen-button specimen-button-sm specimen-button-quiet"
-              onClick={resetFilters}
-              type="button"
-            >
-              Reset filters
-            </button>
-          ) : null}
+            {hasFilters ? (
+              <button
+                className="specimen-button specimen-button-sm specimen-button-quiet"
+                onClick={resetFilters}
+                type="button"
+              >
+                {locale === "ko" ? "필터 초기화" : "Reset filters"}
+              </button>
+            ) : null}
+          </div>
         </aside>
 
-        <section className="min-w-0 p-4 md:p-6">
-          <div className="border-t border-[var(--specimen-ink)] pt-7">
+        <section className="min-w-0 p-4 md:p-5 lg:p-6">
+          <div className="border-t border-[var(--specimen-ink)] pt-6 lg:pt-7">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div className="flex flex-wrap items-baseline gap-3">
                 <h1 className="raw-display text-5xl leading-none md:text-[4.5rem]">
@@ -207,26 +263,46 @@ export function DesignStyleCoreScreen() {
               </div>
               <div className="flex flex-wrap gap-1.5 raw-label text-[var(--specimen-ink-55)]">
                 <SpecimenTinyChip active={sort === "category"} onClick={() => setParam("sort", "category")}>
-                  Sort category
+                  {locale === "ko" ? "카테고리순" : "Sort category"}
                 </SpecimenTinyChip>
                 <SpecimenTinyChip active={sort === "name"} onClick={() => setParam("sort", "name")}>
-                  Name
+                  {locale === "ko" ? "이름순" : "Name"}
                 </SpecimenTinyChip>
                 <SpecimenTinyChip active={sort === "density"} onClick={() => setParam("sort", "density")}>
-                  Density
+                  {locale === "ko" ? "밀도순" : "Density"}
                 </SpecimenTinyChip>
                 <SpecimenTinyChip active={view === "grid"} onClick={() => setParam("view", null)}>
-                  Grid
+                  {locale === "ko" ? "그리드" : "Grid"}
                 </SpecimenTinyChip>
                 <SpecimenTinyChip active={view === "list"} onClick={() => setParam("view", "list")}>
-                  List
+                  {locale === "ko" ? "리스트" : "List"}
                 </SpecimenTinyChip>
               </div>
             </div>
 
+            <div className="mt-5 grid gap-2 sm:grid-cols-3">
+              <StyleMetric
+                label={locale === "ko" ? "라이브러리" : "Library"}
+                mono
+                note={locale === "ko" ? "등록 스타일" : "styles"}
+                value={String(designStyles.length).padStart(3, "0")}
+              />
+              <StyleMetric
+                label={locale === "ko" ? "현재 보기" : "Shown"}
+                mono
+                note={activeFilterCount ? (locale === "ko" ? "필터 적용" : "filtered") : locale === "ko" ? "전체 범위" : "full range"}
+                value={String(filteredStyles.length).padStart(3, "0")}
+              />
+              <StyleMetric
+                label={locale === "ko" ? "정렬" : "Order"}
+                note={view === "grid" ? (locale === "ko" ? "그리드 보기" : "grid view") : locale === "ko" ? "리스트 보기" : "list view"}
+                value={sortLabel}
+              />
+            </div>
+
             {visibleStyles.length ? (
               view === "grid" ? (
-                <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
                   {visibleStyles.map((style, index) => (
                     <CoreStyleCard
                       index={index}
@@ -266,6 +342,181 @@ export function DesignStyleCoreScreen() {
         </section>
       </div>
     </SpecimenCoreFrame>
+  );
+}
+
+function StyleMetric({
+  label,
+  mono = false,
+  note,
+  value,
+}: {
+  label: string;
+  mono?: boolean;
+  note: string;
+  value: string;
+}) {
+  return (
+    <div className="border border-[var(--specimen-line)] bg-[rgb(251_250_246_/_0.54)] p-3">
+      <p className="raw-label text-[var(--specimen-ink-55)]">{label}</p>
+      <div className="mt-3 flex items-end justify-between gap-3">
+        <p
+          className={cn(
+            "truncate text-[1.55rem] font-bold leading-none text-[var(--specimen-ink)]",
+            mono ? "font-mono" : "",
+          )}
+        >
+          {value}
+        </p>
+        <p className="pb-0.5 text-right text-[11px] font-medium text-[var(--specimen-ink-55)]">
+          {note}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function StyleMobileFilters({
+  activeCategory,
+  activeDensity,
+  activeEffect,
+  activeFilterCount,
+  categoryCounts,
+  filterSummary,
+  hasFilters,
+  locale,
+  onCategoryChange,
+  onDensityChange,
+  onEffectChange,
+  onReset,
+}: {
+  activeCategory: string;
+  activeDensity: string;
+  activeEffect: string;
+  activeFilterCount: number;
+  categoryCounts: Array<{ category: string; count: number }>;
+  filterSummary: string;
+  hasFilters: boolean;
+  locale: "en" | "ko";
+  onCategoryChange: (category: string | null) => void;
+  onDensityChange: (density: StyleDensity | null) => void;
+  onEffectChange: (effect: StyleEffect | null) => void;
+  onReset: () => void;
+}) {
+  const stateText = activeFilterCount
+    ? locale === "ko"
+      ? `${activeFilterCount}개 적용`
+      : `${activeFilterCount} active`
+    : locale === "ko"
+      ? "전체 보기"
+      : "All";
+  const summaryText = filterSummary || (locale === "ko" ? "전체 스타일" : "All styles");
+
+  return (
+    <details className="group w-full min-w-0 max-w-full overflow-hidden lg:hidden">
+      <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 border border-[var(--specimen-line)] bg-[rgb(251_250_246_/_0.72)] px-3 py-2 [&::-webkit-details-marker]:hidden">
+        <span className="min-w-0">
+          <span className="raw-label block text-[var(--specimen-ink)]">
+            {locale === "ko" ? "필터" : "Filters"}
+          </span>
+          <span className="mt-1 block truncate text-xs font-medium text-[var(--specimen-ink-55)]">
+            {summaryText}
+          </span>
+        </span>
+        <span className="flex shrink-0 items-center gap-2">
+          <span className="raw-label text-[var(--specimen-ink-55)]">{stateText}</span>
+          <span className="font-mono text-lg leading-none text-[var(--specimen-ink)] transition group-open:rotate-45">
+            +
+          </span>
+        </span>
+      </summary>
+
+      <div className="mt-2 w-full min-w-0 max-w-full space-y-4 overflow-hidden border border-[var(--specimen-line)] bg-[rgb(251_250_246_/_0.54)] p-3">
+        <section className="space-y-2">
+          <p className="raw-label text-[var(--specimen-ink-55)]">
+            {locale === "ko" ? "카테고리" : "Category"}
+          </p>
+          <div className="specimen-scrollbar -mx-1 flex min-w-0 max-w-full gap-1.5 overflow-x-auto px-1 pb-1">
+            <button
+              aria-pressed={activeCategory === "all"}
+              className={styleMobileFilterChipClass(activeCategory === "all")}
+              onClick={() => onCategoryChange(null)}
+              type="button"
+            >
+              <span>{locale === "ko" ? "전체" : "All"}</span>
+              <span className="font-mono opacity-70">{designStyles.length}</span>
+            </button>
+            {categoryCounts.map(({ category, count }) => (
+              <button
+                aria-pressed={activeCategory === category}
+                className={styleMobileFilterChipClass(activeCategory === category)}
+                key={category}
+                onClick={() => onCategoryChange(activeCategory === category ? null : category)}
+                type="button"
+              >
+                <span>{styleCategoryLabel(category, locale)}</span>
+                <span className="font-mono opacity-70">{count}</span>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-2">
+          <p className="raw-label text-[var(--specimen-ink-55)]">
+            {locale === "ko" ? "밀도" : "Density"}
+          </p>
+          <div className="specimen-scrollbar -mx-1 flex min-w-0 max-w-full gap-1.5 overflow-x-auto px-1 pb-1">
+            {densityOptions.map((density) => (
+              <button
+                aria-pressed={activeDensity === density}
+                className={styleMobileFilterChipClass(activeDensity === density)}
+                key={density}
+                onClick={() => onDensityChange(activeDensity === density ? null : density)}
+                type="button"
+              >
+                {densityDisplayLabel(density, locale)}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-2">
+          <p className="raw-label text-[var(--specimen-ink-55)]">
+            {locale === "ko" ? "효과" : "Effect"}
+          </p>
+          <div className="specimen-scrollbar -mx-1 flex min-w-0 max-w-full gap-1.5 overflow-x-auto px-1 pb-1">
+            {effectOptions.map((effect) => (
+              <button
+                aria-pressed={activeEffect === effect}
+                className={styleMobileFilterChipClass(activeEffect === effect)}
+                key={effect}
+                onClick={() => onEffectChange(activeEffect === effect ? null : effect)}
+                type="button"
+              >
+                {effectDisplayLabel(effect, locale)}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {hasFilters ? (
+          <button
+            className="specimen-button specimen-button-sm specimen-button-quiet w-full"
+            onClick={onReset}
+            type="button"
+          >
+            {locale === "ko" ? "필터 초기화" : "Reset filters"}
+          </button>
+        ) : null}
+      </div>
+    </details>
+  );
+}
+
+function styleMobileFilterChipClass(active: boolean) {
+  return cn(
+    "specimen-button specimen-button-tiny shrink-0 gap-2 whitespace-nowrap px-2.5",
+    active ? "specimen-button-primary" : "specimen-button-secondary",
   );
 }
 
@@ -311,8 +562,8 @@ function CoreStyleCard({
           ) : null}
         </div>
         <div className="flex flex-wrap gap-1.5">
-          <SpecimenTinyChip>{densityLabel[style.tokens.space.density]}</SpecimenTinyChip>
-          <SpecimenTinyChip>{effectLabel[style.tokens.decoration.effect]}</SpecimenTinyChip>
+          <SpecimenTinyChip>{densityDisplayLabel(style.tokens.space.density, locale)}</SpecimenTinyChip>
+          <SpecimenTinyChip>{effectDisplayLabel(style.tokens.decoration.effect, locale)}</SpecimenTinyChip>
         </div>
         <div className="flex flex-wrap items-center gap-1.5">
           <button
@@ -370,7 +621,7 @@ function CoreStyleRow({
       <div className="border-t border-[var(--specimen-line)] p-3 md:border-r md:border-t-0">
         <p className="raw-label truncate text-[var(--specimen-ink-55)]">{localizedStyle.category}</p>
         <p className="mt-2 text-[12px] text-[var(--specimen-ink-55)]">
-          {densityLabel[style.tokens.space.density]} · {effectLabel[style.tokens.decoration.effect]}
+          {densityDisplayLabel(style.tokens.space.density, locale)} · {effectDisplayLabel(style.tokens.decoration.effect, locale)}
         </p>
       </div>
       <div className="col-span-2 flex flex-wrap items-center gap-3 border-t border-[var(--specimen-line)] p-3 md:col-span-1 md:border-t-0">
@@ -405,4 +656,12 @@ function densityDots(density: StyleDensity) {
   if (density === "airy") return ". . .";
   if (density === "tight") return "...";
   return ".. .";
+}
+
+function densityDisplayLabel(density: StyleDensity, locale: "en" | "ko") {
+  return locale === "ko" ? densityLabelKo[density] : densityLabel[density];
+}
+
+function effectDisplayLabel(effect: StyleEffect, locale: "en" | "ko") {
+  return locale === "ko" ? effectLabelKo[effect] : effectLabel[effect];
 }

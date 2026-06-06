@@ -66,6 +66,8 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-color: rgb(24 22 15 / 0.28) transparent;
+  scrollbar-width: thin;
 }
 
 body {
@@ -106,15 +108,28 @@ html:lang(ko) :where(
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  height: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--raw-base);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--raw-red);
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgb(24 22 15 / 0.22);
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(24 22 15 / 0.38);
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 button,
@@ -346,6 +361,32 @@ textarea {
 .specimen-filter-row.is-active,
 .specimen-filter-row[aria-pressed="true"] {
   color: var(--specimen-ink);
+}
+
+.specimen-scrollbar {
+  scrollbar-color: rgb(24 22 15 / 0.24) transparent;
+  scrollbar-width: thin;
+}
+
+.specimen-scrollbar::-webkit-scrollbar {
+  height: 7px;
+  width: 7px;
+}
+
+.specimen-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.specimen-scrollbar::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: rgb(24 22 15 / 0.2);
+  background-clip: content-box;
+}
+
+.specimen-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgb(24 22 15 / 0.36);
+  background-clip: content-box;
 }
 
 .raw-atmosphere {
@@ -667,6 +708,70 @@ textarea {
 .style-preset-root .raw-wireframe [class*="border-[#1E1E1E"],
 .style-preset-root .raw-wireframe [class*="border-zinc"] {
   border-color: rgb(var(--style-border-rgb) / 0.22) !important;
+}
+
+.layout-wireframe-thumbnail .raw-preview-canvas,
+.style-preset-root .layout-wireframe-thumbnail .raw-preview-canvas {
+  --style-base: var(--specimen-card);
+  --style-base-rgb: 251 250 246;
+  --style-surface: var(--specimen-paper);
+  --style-surface-rgb: 242 239 232;
+  --style-text: var(--specimen-ink);
+  --style-text-rgb: 24 22 15;
+  --style-primary: var(--specimen-ink);
+  --style-primary-rgb: 24 22 15;
+  --style-accent: var(--specimen-ink-55);
+  --style-accent-rgb: 110 104 91;
+  --style-accent-2: rgb(24 22 15 / 0.28);
+  --style-accent-2-rgb: 154 148 134;
+  --style-accent-3: rgb(24 22 15 / 0.16);
+  --style-accent-3-rgb: 198 193 183;
+  --style-border-rgb: 24 22 15;
+  --st-base: var(--specimen-card);
+  --st-base-rgb: 251 250 246;
+  --st-surface: var(--specimen-paper);
+  --st-surface-rgb: 242 239 232;
+  --st-text: var(--specimen-ink);
+  --st-text-rgb: 24 22 15;
+  --st-primary: var(--specimen-ink);
+  --st-primary-rgb: 24 22 15;
+  --st-accent: var(--specimen-ink-55);
+  --st-accent-rgb: 110 104 91;
+  --st-accent-2: rgb(24 22 15 / 0.28);
+  --st-accent-2-rgb: 154 148 134;
+  --st-accent-3: rgb(24 22 15 / 0.16);
+  --st-accent-3-rgb: 198 193 183;
+  --st-border-rgb: 24 22 15;
+  --st-shadow: none;
+  background:
+    linear-gradient(var(--specimen-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--specimen-grid) 1px, transparent 1px),
+    var(--specimen-card) !important;
+  color: var(--specimen-ink) !important;
+}
+
+.layout-wireframe-thumbnail .raw-preview-canvas::before,
+.layout-wireframe-thumbnail .raw-preview-canvas::after,
+.style-preset-root .layout-wireframe-thumbnail .raw-preview-canvas::before,
+.style-preset-root .layout-wireframe-thumbnail .raw-preview-canvas::after,
+.layout-wireframe-thumbnail .raw-preview-canvas [class*="before:absolute"]::before,
+.layout-wireframe-thumbnail .raw-preview-canvas [class*="after:absolute"]::after,
+.style-preset-root .layout-wireframe-thumbnail .raw-preview-canvas [class*="before:absolute"]::before,
+.style-preset-root .layout-wireframe-thumbnail .raw-preview-canvas [class*="after:absolute"]::after {
+  display: none !important;
+  background: none !important;
+}
+
+.layout-wireframe-thumbnail .raw-preview-canvas [class*="bg-[var(--st-accent"],
+.layout-wireframe-thumbnail .raw-preview-canvas [class*="bg-[rgb(var(--st-accent"],
+.style-preset-root .layout-wireframe-thumbnail .raw-preview-canvas [class*="bg-[var(--st-accent"],
+.style-preset-root .layout-wireframe-thumbnail .raw-preview-canvas [class*="bg-[rgb(var(--st-accent"] {
+  background-color: rgb(24 22 15 / 0.16) !important;
+}
+
+.layout-wireframe-thumbnail .raw-preview-canvas [class*="text-[var(--st-accent"],
+.style-preset-root .layout-wireframe-thumbnail .raw-preview-canvas [class*="text-[var(--st-accent"] {
+  color: var(--specimen-ink-55) !important;
 }
 
 /* SPECIMEN base chrome */

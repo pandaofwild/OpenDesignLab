@@ -12,7 +12,7 @@ export function WireframeThumbnail({ layout, className }: WireframeThumbnailProp
     <div
       aria-hidden="true"
       className={cn(
-        "specimen-grid-bg relative h-full w-full overflow-hidden text-[var(--specimen-ink)]",
+        "layout-wireframe-thumbnail specimen-grid-bg relative h-full w-full overflow-hidden text-[var(--specimen-ink)]",
         className,
       )}
     >
