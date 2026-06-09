@@ -18,6 +18,10 @@
     "start": "next start",
     "lint": "eslint",
     "check:data": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/check-data.mjs",
+    "check:cute-casual": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/check-cute-casual.mjs",
+    "check:future-digital": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/check-future-digital.mjs",
+    "check:street-subculture": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/check-street-subculture.mjs",
+    "check:style-distinction": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/check-style-distinction.mjs",
     "check:style-refs": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/check-style-references.mjs",
     "capture:refs": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/capture-references.mjs"
   },

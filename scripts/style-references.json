@@ -215,14 +215,14 @@
 
   "postmodernism": {
     "sites": [
-      { "url": "https://www.memphis-milano.com", "title": "Memphis Milano", "note": "Primary postmodern reference for Memphis forms, bright geometric surfaces, ironic color, and playful product presentation." },
-      { "url": "https://www.vitra.com/en-us/magazine/details/the-memphis-group", "title": "Vitra - The Memphis Group", "note": "Design-history reference for postmodern pattern, anti-functional color, expressive furniture, and cultural context." },
-      { "url": "https://designmuseum.org/exhibitions/memphis-plastic-field", "title": "Design Museum - Memphis: Plastic Field", "note": "Museum reference for postmodern exhibition framing, graphic motifs, playful material, and Memphis visual vocabulary." }
+      { "url": "https://www.moma.org/collection/terms/postmodernism", "title": "MoMA - Postmodernism", "note": "Broad design-history reference for postmodern mixing of historical styles, popular culture, irony, and ornament." },
+      { "url": "https://www.vitra.com/en-us/magazine/details/the-memphis-group", "title": "Vitra - The Memphis Group", "note": "Design-history reference for Memphis as one postmodern branch, with expressive furniture, pattern, color, and cultural context." },
+      { "url": "https://www.memphis-milano.com", "title": "Memphis Milano", "note": "Visual reference for Memphis forms, bright geometric surfaces, ironic color, and playful product presentation as an accent language." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=postmodern%20website%20design%20memphis", "title": "Pinterest - Postmodern Memphis Website Design", "note": "Moodboard reference for Memphis patterns, playful geometry, ironic type, and colorful postmodern web composition." },
-      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Closest gallery reference for postmodern-adjacent color, expressive geometry, layered campaign pages, and playful digital rhythm." },
-      { "url": "https://dribbble.com/search/postmodern%20website", "title": "Dribbble - Postmodern Website", "note": "UI reference for Memphis cards, mismatched shapes, colorful product modules, and ironic interface treatments." }
+      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for expressive color, layered campaign pages, and postmodern-adjacent digital rhythm." },
+      { "url": "https://dribbble.com/search/postmodern%20website", "title": "Dribbble - Postmodern Website", "note": "UI reference for mismatched cards, editorial commerce modules, ironic type, and colorful interface treatments." },
+      { "url": "https://www.pinterest.com/search/pins/?q=postmodern%20graphic%20design", "title": "Pinterest - Postmodern Graphic Design", "note": "Moodboard reference for mixed historical forms, geometry, collage, and postmodern graphic composition." }
     ]
   },
 
@@ -320,9 +320,10 @@
 
   "mid-century-modern": {
     "sites": [
-      { "url": "https://www.moma.org/search?query=Mid-Century%20Modern", "title": "MoMA Search - Mid-Century Modern", "note": "Site reference for Mid-Century Modern, useful for studying period color, nostalgic graphics, printed texture, and commerce-ready layout rhythm through MoMA Search - Mid-Century Modern." },
-      { "url": "https://www.vam.ac.uk/search?q=Mid-Century%20Modern", "title": "V&A Search - Mid-Century Modern", "note": "Site reference for Mid-Century Modern, useful for studying period color, nostalgic graphics, printed texture, and commerce-ready layout rhythm through V&A Search - Mid-Century Modern." },
-      { "url": "https://www.webdesignmuseum.org/", "title": "Web Design Museum - Mid-Century Modern", "note": "Site reference for Mid-Century Modern, useful for studying period color, nostalgic graphics, printed texture, and commerce-ready layout rhythm through Web Design Museum - Mid-Century Modern." }
+      { "url": "https://www.moma.org/collection/works/3325", "title": "MoMA - Eames Lounge Chair and Ottoman", "note": "Object reference for 1956 molded rosewood, plywood, leather, aluminum, and the iconic low lounge silhouette." },
+      { "url": "https://www.hermanmiller.com/products/seating/benches/nelson-platform-bench/", "title": "Herman Miller - Nelson Platform Bench", "note": "Official product reference for George Nelson's rectilinear bench, wood slats, simple legs, and functional modern archetype." },
+      { "url": "https://www.moma.org/collection/works/86474", "title": "MoMA - Noguchi Coffee Table", "note": "Object reference for Isamu Noguchi's 1944 coffee table, useful for glass surface, organic wood base, and sculptural restraint." },
+      { "url": "https://www.design-museum.de/en/exhibitions/detailpages/alexander-girard-a-designers-universe.html", "title": "Vitra Design Museum - Alexander Girard", "note": "Archive reference for Girard's coordinated interiors, textiles, color, pattern, and warm decorative modernism." }
     ],
     "galleries": [
       { "url": "https://www.pinterest.com/search/pins/?q=Mid-Century%20Modern%20website%20design", "title": "Pinterest - Mid-Century Modern Website Design", "note": "Gallery reference for Mid-Century Modern, useful for studying period color, nostalgic graphics, printed texture, and commerce-ready layout rhythm through Pinterest - Mid-Century Modern Website Design." },
@@ -346,238 +347,254 @@
 
   "futurism": {
     "sites": [
-      { "url": "https://www.spacex.com", "title": "SpaceX", "note": "Dark, optimistic space-age product hero - clean grids, technical confidence, future-tech imagery." },
-      { "url": "https://rivian.com", "title": "Rivian", "note": "Next-gen mobility brand - bold type, motion, product-led futurism." },
-      { "url": "https://boomsupersonic.com", "title": "Boom Supersonic", "note": "Speed/aerospace brand - velocity, sleek hero, optimistic engineering." }
+      { "url": "https://www.spacex.com", "title": "SpaceX", "note": "Operational aerospace reference for black fields, launch imagery, technical confidence, and stark future-facing product hierarchy." },
+      { "url": "https://boomsupersonic.com", "title": "Boom Supersonic", "note": "Speed and supersonic aviation reference for velocity language, aerodynamic form, and optimistic engineering storytelling." },
+      { "url": "https://www.nasa.gov/humans-in-space/artemis/", "title": "NASA Artemis", "note": "Official space-program reference for mission timelines, launch windows, orbital diagrams, and civic-science futurism." }
     ],
     "galleries": [
-      { "url": "https://www.awwwards.com/websites/sci-fi/", "title": "Awwwards - Sci-Fi", "note": "Gallery for futuristic, speed and technology-forward web execution." },
-      { "url": "https://dribbble.com/search/futuristic-website", "title": "Dribbble - Futuristic Website", "note": "UI patterns for speed lines, technical readouts, and future-tech layouts." },
-      { "url": "https://www.pinterest.com/search/pins/?q=Futurism%20website%20design", "title": "Pinterest - Futurism Website Design", "note": "Gallery reference for Futurism, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Pinterest - Futurism Website Design." }
+      { "url": "https://www.awwwards.com/websites/sci-fi/", "title": "Awwwards - Sci-Fi Websites", "note": "Gallery reference for contemporary sci-fi web execution, launch scenes, technical modules, and future-product pacing." },
+      { "url": "https://dribbble.com/search/futuristic-website", "title": "Dribbble - Futuristic Website", "note": "UI reference for speed lines, mission readouts, launch dashboards, and sharp future-tech layouts." },
+      { "url": "https://www.pinterest.com/search/pins/?q=Futurism%20website%20design", "title": "Pinterest - Futurism Website Design", "note": "Moodboard reference for orbital diagrams, aerodynamic silhouettes, dark space surfaces, and luminous mission UI." }
     ]
   },
 
   "cyberpunk": {
     "sites": [
-      { "url": "https://www.cyberpunk.net", "title": "Cyberpunk 2077 Official", "note": "네온, 글리치, 다크 배경 - 장르 정의 사이트" },
-      { "url": "https://www.razer.com", "title": "Razer", "note": "그린 네온 + 블랙 - 게이밍 사이버펑크 대표" },
-      { "url": "https://linear.app", "title": "Linear - Cyberpunk", "note": "Site reference for Cyberpunk, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Linear - Cyberpunk." }
+      { "url": "https://www.cyberpunk.net", "title": "Cyberpunk 2077 Official", "note": "Genre-defining commercial reference for yellow hazard UI, neon city atmosphere, glitch overlays, and dense sci-fi campaign panels." },
+      { "url": "https://www.razer.com", "title": "Razer", "note": "Gaming hardware reference for black surfaces, electric green accents, RGB product framing, and aggressive cyber retail hierarchy." },
+      { "url": "https://rog.asus.com", "title": "Republic of Gamers", "note": "Gaming-tech reference for angular neon panels, hardware telemetry, dark product staging, and high-contrast interface language." }
     ],
     "galleries": [
-      { "url": "https://dribbble.com/search/cyberpunk-website", "title": "Dribbble - Cyberpunk Website", "note": "Gallery reference for Cyberpunk, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Dribbble - Cyberpunk Website." },
-      { "url": "https://www.behance.net/search/projects/cyberpunk%20website%20design", "title": "Behance - Cyberpunk Website Design", "note": "Gallery reference for Cyberpunk, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Behance - Cyberpunk Website Design." },
-      { "url": "https://webflow.com/made-in-webflow/cyberpunk", "title": "Webflow Made-in-Webflow - Cyberpunk", "note": "Gallery reference for Cyberpunk, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Webflow Made-in-Webflow - Cyberpunk." },
-      { "url": "https://www.pinterest.com/search/pins/?q=Cyberpunk%20website%20design", "title": "Pinterest - Cyberpunk Website Design", "note": "Gallery reference for Cyberpunk, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Pinterest - Cyberpunk Website Design." },
-      { "url": "https://www.awwwards.com/websites/sci-fi/", "title": "Awwwards - Sci-Fi Websites", "note": "Gallery reference for Cyberpunk, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Awwwards - Sci-Fi Websites." }
+      { "url": "https://www.awwwards.com/websites/sci-fi/", "title": "Awwwards - Sci-Fi Websites", "note": "Gallery reference for cyberpunk-adjacent dark storytelling, animated panels, neon contrast, and immersive sci-fi web craft." },
+      { "url": "https://dribbble.com/search/cyberpunk-website", "title": "Dribbble - Cyberpunk Website", "note": "UI reference for black-market dashboards, neon labels, glitch cards, and dense cyber interface modules." },
+      { "url": "https://www.pinterest.com/search/pins/?q=Cyberpunk%20website%20design", "title": "Pinterest - Cyberpunk Website Design", "note": "Moodboard reference for dystopian city color, neon signage, hacked terminal surfaces, and cyber commerce pages." }
     ]
   },
 
   "neon-noir": {
     "sites": [
-      { "url": "https://exo-ape.com", "title": "Exo Ape", "note": "Moody dark studio - cinematic imagery, restrained neon, atmospheric pacing." },
-      { "url": "https://www.locomotive.ca", "title": "Locomotive", "note": "Dark cinematic agency - heavy contrast, mood-led storytelling." },
-      { "url": "https://www.refik.com", "title": "Refik Anadol", "note": "Dark immersive media-art - glow, atmosphere, single-light drama." }
+      { "url": "https://exo-ape.com", "title": "Exo Ape", "note": "Cinematic agency reference for dark image-led pacing, dramatic contrast, restrained glow, and moody portfolio rhythm." },
+      { "url": "https://locomotive.ca", "title": "Locomotive", "note": "Dark digital-studio reference for immersive storytelling, heavy contrast, cinematic transitions, and polished atmospheric UI." },
+      { "url": "https://refikanadol.com", "title": "Refik Anadol", "note": "Media-art reference for luminous data atmospheres, gallery darkness, single-source glow, and immersive digital abstraction." }
     ],
     "galleries": [
-      { "url": "https://www.awwwards.com/websites/dark/", "title": "Awwwards - Dark", "note": "Gallery for moody, low-key, neon-accented cinematic sites." },
-      { "url": "https://dribbble.com/search/neon-noir", "title": "Dribbble - Neon Noir", "note": "UI reference for noir mood, neon signage, and cinematic hierarchy." },
-      { "url": "https://www.pinterest.com/search/pins/?q=Neon%20Noir%20website%20design", "title": "Pinterest - Neon Noir Website Design", "note": "Gallery reference for Neon Noir, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Pinterest - Neon Noir Website Design." }
+      { "url": "https://www.awwwards.com/websites/dark/", "title": "Awwwards - Dark Websites", "note": "Gallery reference for moody low-key websites, cinematic hero sections, subtle glow, and atmospheric dark interfaces." },
+      { "url": "https://dribbble.com/search/neon-noir", "title": "Dribbble - Neon Noir", "note": "UI reference for noir poster framing, red-blue lighting, rain-soaked overlays, and case-file style cards." },
+      { "url": "https://www.pinterest.com/search/pins/?q=Neon%20Noir%20website%20design", "title": "Pinterest - Neon Noir Website Design", "note": "Moodboard reference for night streets, neon reflections, film still layouts, and red room visual motifs." }
     ]
   },
 
   "techwear": {
     "sites": [
-      { "url": "https://acrnm.com", "title": "ACRONYM", "note": "Definitive techwear - raw industrial UI, monospace, technical product specs, utilitarian rigor." },
-      { "url": "https://www.stoneisland.com", "title": "Stone Island", "note": "Technical apparel commerce - utility, material focus, severe product framing." },
-      { "url": "https://www.nike.com/w/ispa-shoes", "title": "Nike ISPA", "note": "Industrial/utility footwear - modular system, technical callouts." }
+      { "url": "https://acrnm.com", "title": "ACRONYM", "note": "Canonical techwear reference for utility catalog grids, monospace product codes, severe black surfaces, and garment-system logic." },
+      { "url": "https://www.stoneisland.com", "title": "Stone Island", "note": "Technical apparel reference for material research, product indexing, subdued industrial color, and functional clothing presentation." },
+      { "url": "https://arcteryx.com/us/en/c/mens/veilance", "title": "Arc'teryx Veilance", "note": "Minimal technical apparel reference for weatherproof shells, modular garment systems, restrained utility, and black-on-black retail rhythm." }
     ],
     "galleries": [
-      { "url": "https://dribbble.com/search/techwear", "title": "Dribbble - Techwear", "note": "UI reference for utility labels, modular grids, hazard accents, and spec sheets." },
-      { "url": "https://www.awwwards.com/websites/dark/", "title": "Awwwards - Dark/Industrial", "note": "Gallery for dark utilitarian commerce and technical product layouts." },
-      { "url": "https://www.pinterest.com/search/pins/?q=Techwear%20website%20design", "title": "Pinterest - Techwear Website Design", "note": "Gallery reference for Techwear, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Pinterest - Techwear Website Design." }
+      { "url": "https://www.awwwards.com/websites/fashion/", "title": "Awwwards - Fashion Websites", "note": "Gallery reference for advanced fashion commerce, technical product staging, editorial utility pages, and high-detail garment presentation." },
+      { "url": "https://dribbble.com/search/techwear", "title": "Dribbble - Techwear", "note": "UI reference for utility labels, modular grids, spec sheets, hazard accents, and garment matrix interfaces." },
+      { "url": "https://www.pinterest.com/search/pins/?q=Techwear%20website%20design", "title": "Pinterest - Techwear Website Design", "note": "Moodboard reference for black shells, strap systems, cargo modules, industrial labels, and tactical apparel layouts." }
     ]
   },
 
   "high-tech": {
     "sites": [
-      { "url": "https://linear.app", "title": "Linear", "note": "Precision dark product UI - crisp panels, restrained data, premium engineering feel." },
-      { "url": "https://vercel.com", "title": "Vercel", "note": "Developer-platform aesthetic - dark gradients, telemetry, sharp typography." },
-      { "url": "https://grafana.com", "title": "Grafana", "note": "Observability/data-viz reference - dashboards, charts, live metrics, status." }
+      { "url": "https://vercel.com", "title": "Vercel", "note": "Developer-platform reference for dark control-plane surfaces, deployment language, precise typography, and productized infrastructure UI." },
+      { "url": "https://linear.app", "title": "Linear", "note": "Precision software reference for crisp panels, controlled gradients, system status, and high-end engineering-product pacing." },
+      { "url": "https://grafana.com", "title": "Grafana", "note": "Observability reference for dashboards, live metrics, graph panels, incident status, and dense technical data visualization." }
     ],
     "galleries": [
-      { "url": "https://www.awwwards.com/websites/saas/", "title": "Awwwards - SaaS", "note": "Gallery for high-tech product landings and dashboard-driven layouts." },
-      { "url": "https://dribbble.com/search/dashboard-dark", "title": "Dribbble - Dark Dashboard", "note": "UI reference for KPI cards, charts, telemetry panels, and status systems." },
-      { "url": "https://www.pinterest.com/search/pins/?q=High-Tech%20website%20design", "title": "Pinterest - High-Tech Website Design", "note": "Gallery reference for High-Tech, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Pinterest - High-Tech Website Design." }
+      { "url": "https://www.awwwards.com/websites/saas/", "title": "Awwwards - SaaS Websites", "note": "Gallery reference for high-tech SaaS landing pages, dashboard storytelling, product proof sections, and enterprise-grade interface polish." },
+      { "url": "https://dribbble.com/search/dashboard-dark", "title": "Dribbble - Dark Dashboard", "note": "UI reference for deploy graphs, KPI cards, telemetry panels, edge-region maps, and control-plane interaction patterns." },
+      { "url": "https://www.pinterest.com/search/pins/?q=High-Tech%20website%20design", "title": "Pinterest - High-Tech Website Design", "note": "Moodboard reference for dark product systems, data grids, technical blue-green accents, and advanced software surfaces." }
     ]
   },
 
   "ai-aesthetic": {
     "sites": [
-      { "url": "https://openai.com", "title": "OpenAI", "note": "Clean generative-AI brand - soft gradients, restraint, model/product framing." },
-      { "url": "https://runwayml.com", "title": "Runway", "note": "Generative media studio - mesh gradients, glow, creative tooling UI." },
-      { "url": "https://lumalabs.ai", "title": "Luma AI", "note": "Generative 3D/AI - luminous gradients, soft futuristic surfaces." }
+      { "url": "https://openai.com", "title": "OpenAI", "note": "AI-product reference for restrained model framing, quiet technical copy, generated media examples, and calm future-facing brand surfaces." },
+      { "url": "https://runwayml.com", "title": "Runway", "note": "Generative media reference for creator tooling, model canvases, dark gradients, motion-ready thumbnails, and AI studio language." },
+      { "url": "https://lumalabs.ai", "title": "Luma AI", "note": "Generative 3D/video reference for luminous scene previews, spatial AI outputs, soft gradients, and world-model visual cues." }
     ],
     "galleries": [
-      { "url": "https://www.awwwards.com/websites/ai/", "title": "Awwwards - AI", "note": "Gallery for AI-product web aesthetics, mesh gradients, and generative imagery." },
-      { "url": "https://dribbble.com/search/ai-gradient", "title": "Dribbble - AI Gradient", "note": "UI reference for prompt bars, generated thumbnails, and glowing mesh gradients." },
-      { "url": "https://www.pinterest.com/search/pins/?q=AI%20Aesthetic%20website%20design", "title": "Pinterest - AI Aesthetic Website Design", "note": "Gallery reference for AI Aesthetic, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Pinterest - AI Aesthetic Website Design." }
+      { "url": "https://www.awwwards.com/websites/ai/", "title": "Awwwards - AI Websites", "note": "Gallery reference for AI-product web aesthetics, prompt-first flows, generated imagery, luminous gradients, and model storytelling." },
+      { "url": "https://dribbble.com/search/ai-gradient", "title": "Dribbble - AI Gradient", "note": "UI reference for model canvases, prompt bars, latent queues, generated thumbnails, and soft glowing mesh gradients." },
+      { "url": "https://www.pinterest.com/search/pins/?q=AI%20Aesthetic%20website%20design", "title": "Pinterest - AI Aesthetic Website Design", "note": "Moodboard reference for neural gradients, synthetic scenes, AI product pages, and abstract model visualization." }
     ]
   },
 
   "hologram-style": {
     "sites": [
-      { "url": "https://www.apple.com/apple-vision-pro/", "title": "Apple Vision Pro", "note": "Iridescent translucent UI, glassy depth, spectral light - premium holographic feel." },
-      { "url": "https://igloo.inc", "title": "Igloo Inc", "note": "3D iridescent/chrome web - holographic surfaces, refraction, hovering objects." },
-      { "url": "https://www.dolby.com", "title": "Dolby", "note": "Spectral gradients and luminous, immersive technology framing." }
+      { "url": "https://www.apple.com/apple-vision-pro/", "title": "Apple Vision Pro", "note": "Spatial-computing reference for glassy depth, floating interfaces, soft refraction, premium translucency, and layered light." },
+      { "url": "https://www.magicleap.com", "title": "Magic Leap", "note": "AR hardware reference for mixed-reality overlays, depth layers, transparent UI, and spatial interface language." },
+      { "url": "https://lookingglassfactory.com", "title": "Looking Glass Factory", "note": "Holographic display reference for light-field depth, volumetric objects, prism surfaces, and floating 3D product cues." }
     ],
     "galleries": [
-      { "url": "https://dribbble.com/search/holographic", "title": "Dribbble - Holographic", "note": "UI reference for iridescent gradients, glassmorphism, and spectral panels." },
-      { "url": "https://www.awwwards.com/websites/3d/", "title": "Awwwards - 3D", "note": "Gallery for translucent, depth-rich, holographic web execution." },
-      { "url": "https://www.pinterest.com/search/pins/?q=Hologram%20Style%20website%20design", "title": "Pinterest - Hologram Style Website Design", "note": "Gallery reference for Hologram Style, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Pinterest - Hologram Style Website Design." }
+      { "url": "https://www.awwwards.com/websites/3d/", "title": "Awwwards - 3D Websites", "note": "Gallery reference for depth-rich web execution, translucent 3D objects, spectral materials, and immersive product staging." },
+      { "url": "https://dribbble.com/search/holographic", "title": "Dribbble - Holographic", "note": "UI reference for iridescent gradients, glass panels, prism stacks, and translucent holographic interface cards." },
+      { "url": "https://www.pinterest.com/search/pins/?q=Hologram%20Style%20website%20design", "title": "Pinterest - Hologram Style Website Design", "note": "Moodboard reference for spectral light, transparent surfaces, holographic labels, and dimensional UI effects." }
     ]
   },
 
   "chromecore": {
     "sites": [
-      { "url": "https://lusion.co", "title": "Lusion", "note": "Liquid-metal/3D studio - chrome reflections, glossy metallic surfaces, premium render." },
-      { "url": "https://igloo.inc", "title": "Igloo Inc", "note": "Chrome/metal 3D objects, reflective type, Y2K-revival metallic gloss." },
-      { "url": "https://offbrand.io", "title": "Offbrand", "note": "Glossy metallic/chrome brand design and reflective surface treatments." }
+      { "url": "https://aesthetics.fandom.com/wiki/Chromecore", "title": "Aesthetics Wiki - Chromecore", "note": "Trend definition reference for Y2K Chromecore, metallic gray texture, molded curves, silver plastic hardware, and late-90s/2000s product optimism." },
+      { "url": "https://www.webdesignmuseum.org/exhibitions/y2k-aesthetic-in-web-design", "title": "Web Design Museum - Y2K Aesthetic in Web Design", "note": "Historical web reference for shiny turn-of-millennium interfaces, Flash-era chrome surfaces, translucent modules, and early digital futurism." },
+      { "url": "https://www.admiddleeast.com/story/nail-the-chrome-decor-trend-2025", "title": "AD Middle East - Chrome Decor Trend", "note": "Current design reference for high-shine metallics, space-age finishes, liquid metal fashion influence, and reflective chrome as a tactile accent." }
     ],
     "galleries": [
-      { "url": "https://dribbble.com/search/chrome-type", "title": "Dribbble - Chrome Type", "note": "UI reference for liquid-metal lettering, reflective surfaces, and metallic UI." },
-      { "url": "https://www.pinterest.com/search/pins/?q=chrome%20y2k%20design", "title": "Pinterest - Chrome Y2K", "note": "Moodboard for metallic gradients, chrome orbs, and reflective Y2K-revival graphics." },
-      { "url": "https://www.awwwards.com/websites/sci-fi/", "title": "Awwwards - Sci-Fi Websites", "note": "Gallery reference for Chromecore, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Awwwards - Sci-Fi Websites." }
+      { "url": "https://www.awwwards.com/websites/3d/", "title": "Awwwards - 3D Websites", "note": "Supplementary gallery reference for reflective 3D objects, metallic hero treatments, and modern chrome execution that can support the Y2K Chromecore direction." },
+      { "url": "https://www.goodmoods.com/fr/moodboards/chromecore", "title": "Goodmoods - Chromecore Moodboard", "note": "Moodboard reference for mirror surfaces, liquefied metal, brushed finishes, chrome furniture, and reflective silver objects." },
+      { "url": "https://dribbble.com/search/chrome-type", "title": "Dribbble - Chrome Type", "note": "UI reference for liquid-metal lettering, mirrored title treatments, specular highlights, and metallic visual identity systems." },
+      { "url": "https://www.pinterest.com/search/pins/?q=chrome%20y2k%20design", "title": "Pinterest - Chrome Y2K Design", "note": "Moodboard reference for Y2K chrome type, silver gradients, molded gadget shells, reflective buttons, and early-2000s metallic graphics." }
     ]
   },
 
   "metaverse-style": {
     "sites": [
-      { "url": "https://decentraland.org", "title": "Decentraland", "note": "Virtual-world platform - 3D space, avatars, spatial neon UI, land/explore modules." },
-      { "url": "https://www.spatial.io", "title": "Spatial", "note": "Virtual spaces/avatars - immersive 3D rooms, social spatial interface." },
-      { "url": "https://www.sandbox.game", "title": "The Sandbox", "note": "Metaverse gaming - voxel worlds, avatar identity, neon virtual hierarchy." }
+      { "url": "https://www.spatial.io", "title": "Spatial", "note": "Virtual-space reference for 3D rooms, avatar presence, gallery-like spatial UI, and creator collaboration surfaces." },
+      { "url": "https://www.sandbox.game", "title": "The Sandbox", "note": "Metaverse game reference for voxel worlds, avatar identity, land cards, marketplace modules, and playful spatial navigation." },
+      { "url": "https://www.meta.com/quest/", "title": "Meta Quest", "note": "Consumer VR reference for headset product hierarchy, virtual worlds, immersive experiences, and spatial interaction framing." }
     ],
     "galleries": [
-      { "url": "https://www.awwwards.com/websites/webgl/", "title": "Awwwards - WebGL", "note": "Gallery for 3D/immersive virtual-space web execution." },
-      { "url": "https://dribbble.com/search/metaverse", "title": "Dribbble - Metaverse", "note": "UI reference for avatars, 3D grids, spatial cards, and virtual-world navigation." },
-      { "url": "https://www.pinterest.com/search/pins/?q=Metaverse%20Style%20website%20design", "title": "Pinterest - Metaverse Style Website Design", "note": "Gallery reference for Metaverse Style, useful for studying dark surfaces, technical panels, luminous accents, and future-facing product structure through Pinterest - Metaverse Style Website Design." }
+      { "url": "https://www.awwwards.com/websites/webgl/", "title": "Awwwards - WebGL Websites", "note": "Gallery reference for immersive WebGL pages, virtual-space navigation, 3D scenes, and spatial interface craft." },
+      { "url": "https://dribbble.com/search/metaverse", "title": "Dribbble - Metaverse", "note": "UI reference for avatars, lobby screens, virtual land cards, world shards, and social spatial dashboards." },
+      { "url": "https://www.pinterest.com/search/pins/?q=Metaverse%20Style%20website%20design", "title": "Pinterest - Metaverse Style Website Design", "note": "Moodboard reference for avatar meshes, glowing world maps, virtual rooms, and playful 3D interface layouts." }
     ]
   },
 
   "classic": {
     "sites": [
-      { "url": "https://www.metmuseum.org/search-results#!/search?q=Classic", "title": "The Met Search - Classic", "note": "Site reference for Classic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through The Met Search - Classic." },
-      { "url": "https://www.vam.ac.uk/search?q=Classic", "title": "V&A Search - Classic", "note": "Site reference for Classic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through V&A Search - Classic." },
-      { "url": "https://www.ralphlauren.com", "title": "Ralph Lauren - Classic", "note": "Site reference for Classic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Ralph Lauren - Classic." }
+      { "url": "https://www.ralphlauren.com", "title": "Ralph Lauren", "note": "Heritage fashion reference for classic American proportions, serif restraint, navy cream contrast, and archive-led commerce." },
+      { "url": "https://www.brooksbrothers.com", "title": "Brooks Brothers", "note": "Classic wardrobe reference for traditional menswear grids, conservative product hierarchy, and balanced catalog pacing." },
+      { "url": "https://www.hermes.com/us/en/", "title": "Hermes", "note": "Luxury heritage reference for quiet navigation, material-led product framing, and restrained editorial storytelling." },
+      { "url": "https://www.burberry.com", "title": "Burberry", "note": "British heritage reference for classic outerwear, campaign imagery, refined commerce modules, and subdued brand rhythm." },
+      { "url": "https://www.smythson.com", "title": "Smythson", "note": "Stationery and leather goods reference for heritage product detail, small luxury objects, and formal serif-adjacent pacing." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Classic%20website%20design", "title": "Pinterest - Classic Website Design", "note": "Gallery reference for Classic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Pinterest - Classic Website Design." },
-      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury Websites", "note": "Gallery reference for Classic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Awwwards - Luxury Websites." },
-      { "url": "https://dribbble.com/search/Classic%20website%20design", "title": "Dribbble - Classic Website Design", "note": "Gallery reference for Classic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Dribbble - Classic Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=classic%20website%20design", "title": "Pinterest - Classic Website Design", "note": "Moodboard reference for balanced serif layouts, heritage product cards, ivory surfaces, and timeless editorial web composition." },
+      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury Websites", "note": "Gallery reference for premium web craft, restrained interaction, refined spacing, and high-end product storytelling." },
+      { "url": "https://dribbble.com/search/classic%20website%20design", "title": "Dribbble - Classic Website Design", "note": "UI reference for formal landing pages, heritage catalogs, serif hierarchy, and classic commerce modules." }
     ]
   },
 
   "neoclassic": {
     "sites": [
-      { "url": "https://www.metmuseum.org/search-results#!/search?q=Neoclassic", "title": "The Met Search - Neoclassic", "note": "Site reference for Neoclassic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through The Met Search - Neoclassic." },
-      { "url": "https://www.vam.ac.uk/search?q=Neoclassic", "title": "V&A Search - Neoclassic", "note": "Site reference for Neoclassic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through V&A Search - Neoclassic." },
-      { "url": "https://www.ralphlauren.com", "title": "Ralph Lauren - Neoclassic", "note": "Site reference for Neoclassic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Ralph Lauren - Neoclassic." }
+      { "url": "https://www.ritzparis.com", "title": "Ritz Paris", "note": "Palace hotel reference for grand symmetry, cream interiors, reservation flow, and refined hospitality hierarchy." },
+      { "url": "https://www.rosewoodhotels.com/en/hotel-de-crillon", "title": "Hotel de Crillon", "note": "Neoclassical Paris hotel reference for marble, column rhythm, quiet luxury booking modules, and formal imagery." },
+      { "url": "https://www.dorchestercollection.com/paris/le-meurice", "title": "Le Meurice", "note": "Paris palace reference for classical interiors, Louis-style detailing, editorial hospitality pacing, and refined CTA structure." },
+      { "url": "https://www.oetkercollection.com/hotels/le-bristol-paris/", "title": "Le Bristol Paris", "note": "Luxury hotel reference for restrained palatial tone, suite cards, garden imagery, and stately service storytelling." },
+      { "url": "https://en.chateauversailles.fr/", "title": "Chateau de Versailles", "note": "Cultural architecture reference for symmetry, classical order, gilded restraint, and formal spatial hierarchy." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Neoclassic%20website%20design", "title": "Pinterest - Neoclassic Website Design", "note": "Gallery reference for Neoclassic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Pinterest - Neoclassic Website Design." },
-      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury Websites", "note": "Gallery reference for Neoclassic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Awwwards - Luxury Websites." },
-      { "url": "https://dribbble.com/search/Neoclassic%20website%20design", "title": "Dribbble - Neoclassic Website Design", "note": "Gallery reference for Neoclassic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Dribbble - Neoclassic Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=neoclassical%20interior%20website%20design", "title": "Pinterest - Neoclassical Interior Website", "note": "Moodboard reference for marble portals, column spacing, hotel pages, and modern classical interior web direction." },
+      { "url": "https://www.awwwards.com/websites/hotel/", "title": "Awwwards - Hotel Websites", "note": "Gallery reference for luxury hospitality interactions, reservation flows, room cards, and high-end editorial pacing." },
+      { "url": "https://dribbble.com/search/neoclassical%20website", "title": "Dribbble - Neoclassical Website", "note": "UI reference for neoclassical landing pages, column motifs, formal booking strips, and elegant serif hierarchy." }
     ]
   },
 
   "luxury": {
     "sites": [
-      { "url": "https://www.loewe.com", "title": "Loewe", "note": "Quiet luxury 교과서 - 세리프, 아이보리, 극도의 여백" },
-      { "url": "https://www.bottegaveneta.com", "title": "Bottega Veneta", "note": "이미지 중심, 카피 최소화, 크래프트 고급감" },
-      { "url": "https://www.celine.com", "title": "Celine", "note": "감성적 미니멀 럭셔리 - 클로즈업 + 세리프 타이포" }
+      { "url": "https://www.loewe.com", "title": "Loewe", "note": "Luxury fashion reference for craft-led imagery, muted surfaces, refined product framing, and spare editorial commerce." },
+      { "url": "https://www.bottegaveneta.com", "title": "Bottega Veneta", "note": "Quiet luxury reference for material close-ups, low-copy product hierarchy, leather texture, and restrained navigation." },
+      { "url": "https://www.celine.com", "title": "Celine", "note": "Fashion reference for high-end image pacing, black and cream contrast, serif-adjacent restraint, and minimal commerce structure." },
+      { "url": "https://www.chanel.com", "title": "Chanel", "note": "Luxury house reference for black white hierarchy, product storytelling, editorial modules, and tightly controlled brand rhythm." },
+      { "url": "https://www.dior.com", "title": "Dior", "note": "Couture and beauty reference for polished imagery, refined product detail, campaign sections, and elevated shopping flow." }
     ],
     "galleries": [
-      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury", "note": "수상 럭셔리 사이트 - 폰트·여백·색 토큰 참고" },
-      { "url": "https://mediaboom.com/news/luxury-fashion-website-design/", "title": "Mediaboom - 50 Luxury Fashion Websites", "note": "Gallery reference for Luxury, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Mediaboom - 50 Luxury Fashion Websites." },
-      { "url": "https://www.pinterest.com/search/pins/?q=Luxury%20website%20design", "title": "Pinterest - Luxury Website Design", "note": "Gallery reference for Luxury, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Pinterest - Luxury Website Design." },
-      { "url": "https://dribbble.com/search/Luxury%20website%20design", "title": "Dribbble - Luxury Website Design", "note": "Gallery reference for Luxury, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Dribbble - Luxury Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=luxury%20website%20design", "title": "Pinterest - Luxury Website Design", "note": "Moodboard reference for premium product pages, fashion imagery, cream black palettes, and restrained luxury layouts." },
+      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury Websites", "note": "Gallery reference for high-end web execution, premium imagery, elegant motion, and carefully paced landing pages." },
+      { "url": "https://dribbble.com/search/luxury%20website", "title": "Dribbble - Luxury Website", "note": "UI reference for luxury ecommerce cards, refined product detail pages, spare CTAs, and sophisticated editorial grids." }
     ]
   },
 
   "old-money": {
     "sites": [
-      { "url": "https://www.metmuseum.org/search-results#!/search?q=Old%20Money", "title": "The Met Search - Old Money", "note": "Site reference for Old Money, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through The Met Search - Old Money." },
-      { "url": "https://www.vam.ac.uk/search?q=Old%20Money", "title": "V&A Search - Old Money", "note": "Site reference for Old Money, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through V&A Search - Old Money." },
-      { "url": "https://www.ralphlauren.com", "title": "Ralph Lauren - Old Money", "note": "Site reference for Old Money, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Ralph Lauren - Old Money." }
+      { "url": "https://us.loropiana.com", "title": "Loro Piana", "note": "Quiet luxury reference for cashmere texture, understated product storytelling, neutral palette, and soft heritage pacing." },
+      { "url": "https://shop.brunellocucinelli.com", "title": "Brunello Cucinelli", "note": "Heritage luxury reference for humanistic editorial sections, muted wardrobe cards, and refined material presentation." },
+      { "url": "https://www.ralphlauren.com", "title": "Ralph Lauren", "note": "Old-money reference for club lifestyle imagery, equestrian and country cues, navy cream palette, and heritage commerce." },
+      { "url": "https://www.drakes.com", "title": "Drake's", "note": "Classic menswear reference for relaxed tailoring, editorial lookbook rhythm, and understated product grids." },
+      { "url": "https://therake.com", "title": "The Rake", "note": "Classic menswear editorial reference for heritage tone, gentleman wardrobe language, and magazine-commerce crossover." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Old%20Money%20website%20design", "title": "Pinterest - Old Money Website Design", "note": "Gallery reference for Old Money, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Pinterest - Old Money Website Design." },
-      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury Websites", "note": "Gallery reference for Old Money, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Awwwards - Luxury Websites." },
-      { "url": "https://dribbble.com/search/Old%20Money%20website%20design", "title": "Dribbble - Old Money Website Design", "note": "Gallery reference for Old Money, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Dribbble - Old Money Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=old%20money%20website%20design", "title": "Pinterest - Old Money Website Design", "note": "Moodboard reference for club palettes, quiet luxury wardrobes, heritage interiors, and understated editorial layouts." },
+      { "url": "https://www.awwwards.com/websites/fashion/", "title": "Awwwards - Fashion Websites", "note": "Gallery reference for polished fashion web execution, lookbook flow, and premium apparel storytelling." },
+      { "url": "https://dribbble.com/search/old%20money%20website", "title": "Dribbble - Old Money Website", "note": "UI reference for old-money landing pages, country club cues, classic fashion cards, and restrained navigation." }
     ]
   },
 
   "art-deco": {
     "sites": [
-      { "url": "https://www.metmuseum.org/search-results#!/search?q=Art%20Deco", "title": "The Met Search - Art Deco", "note": "Site reference for Art Deco, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through The Met Search - Art Deco." },
-      { "url": "https://www.vam.ac.uk/search?q=Art%20Deco", "title": "V&A Search - Art Deco", "note": "Site reference for Art Deco, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through V&A Search - Art Deco." },
-      { "url": "https://www.ralphlauren.com", "title": "Ralph Lauren - Art Deco", "note": "Site reference for Art Deco, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Ralph Lauren - Art Deco." }
+      { "url": "https://www.claridges.co.uk", "title": "Claridge's", "note": "Luxury hotel reference for Art Deco glamour, black gold contrast, grand hospitality hierarchy, and refined evening atmosphere." },
+      { "url": "https://www.thesavoylondon.com", "title": "The Savoy London", "note": "Historic hotel reference for Deco-era elegance, polished room cards, theatre-like hospitality pacing, and formal navigation." },
+      { "url": "https://www.rosewoodhotels.com/en/the-carlyle-new-york", "title": "The Carlyle", "note": "New York hotel reference for Art Deco heritage, jazz lounge mood, luxury room modules, and dark polished composition." },
+      { "url": "https://www.msg.com/radio-city-music-hall", "title": "Radio City Music Hall", "note": "Architecture and entertainment reference for Deco vertical rhythm, stage glamour, marquee energy, and geometric spectacle." },
+      { "url": "https://www.esbnyc.com", "title": "Empire State Building", "note": "Art Deco landmark reference for stepped geometry, vertical hierarchy, metallic accents, and iconic architectural order." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Art%20Deco%20website%20design", "title": "Pinterest - Art Deco Website Design", "note": "Gallery reference for Art Deco, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Pinterest - Art Deco Website Design." },
-      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury Websites", "note": "Gallery reference for Art Deco, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Awwwards - Luxury Websites." },
-      { "url": "https://dribbble.com/search/Art%20Deco%20website%20design", "title": "Dribbble - Art Deco Website Design", "note": "Gallery reference for Art Deco, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Dribbble - Art Deco Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=art%20deco%20website%20design", "title": "Pinterest - Art Deco Website Design", "note": "Moodboard reference for fan motifs, gold linework, black backgrounds, geometric borders, and Deco hospitality pages." },
+      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury Websites", "note": "Gallery reference for high-end dark luxury sites, polished motion, premium hospitality layouts, and sophisticated visual systems." },
+      { "url": "https://dribbble.com/search/art%20deco%20website", "title": "Dribbble - Art Deco Website", "note": "UI reference for Art Deco landing pages, geometric frames, fan patterns, and glamorous hotel or bar interfaces." }
     ]
   },
 
   "art-nouveau": {
     "sites": [
-      { "url": "https://www.metmuseum.org/search-results#!/search?q=Art%20Nouveau", "title": "The Met Search - Art Nouveau", "note": "Site reference for Art Nouveau, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through The Met Search - Art Nouveau." },
-      { "url": "https://www.vam.ac.uk/search?q=Art%20Nouveau", "title": "V&A Search - Art Nouveau", "note": "Site reference for Art Nouveau, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through V&A Search - Art Nouveau." },
-      { "url": "https://www.ralphlauren.com", "title": "Ralph Lauren - Art Nouveau", "note": "Site reference for Art Nouveau, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Ralph Lauren - Art Nouveau." }
+      { "url": "https://www.muchafoundation.org", "title": "Mucha Foundation", "note": "Primary visual reference for flowing ornamental line, floral framing, elegant figures, and Art Nouveau poster rhythm." },
+      { "url": "https://www.hortamuseum.be/en", "title": "Horta Museum", "note": "Architecture reference for organic ironwork, whiplash curves, interior structure, and decorative spatial flow." },
+      { "url": "https://www.casabatllo.es/en/", "title": "Casa Batllo", "note": "Gaudi architecture reference for organic facade rhythm, curved surfaces, color, and immersive decorative storytelling." },
+      { "url": "https://www.vam.ac.uk/articles/an-introduction-to-art-nouveau", "title": "V&A - Introduction to Art Nouveau", "note": "Museum reference for plant forms, sinuous lines, glass, metalwork, and the style's decorative vocabulary." },
+      { "url": "https://www.metmuseum.org/toah/hd/artn/hd_artn.htm", "title": "The Met - Art Nouveau", "note": "Historical reference for Art Nouveau objects, botanical ornament, material craft, and international decorative language." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Art%20Nouveau%20website%20design", "title": "Pinterest - Art Nouveau Website Design", "note": "Gallery reference for Art Nouveau, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Pinterest - Art Nouveau Website Design." },
-      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury Websites", "note": "Gallery reference for Art Nouveau, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Awwwards - Luxury Websites." },
-      { "url": "https://dribbble.com/search/Art%20Nouveau%20website%20design", "title": "Dribbble - Art Nouveau Website Design", "note": "Gallery reference for Art Nouveau, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Dribbble - Art Nouveau Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=art%20nouveau%20website%20design", "title": "Pinterest - Art Nouveau Website Design", "note": "Moodboard reference for vine frames, botanical landing pages, perfume packaging, and organic line-based web composition." },
+      { "url": "https://www.awwwards.com/websites/illustration/", "title": "Awwwards - Illustration Websites", "note": "Gallery reference for illustrated web craft, ornamental interaction, organic imagery, and polished decorative storytelling." },
+      { "url": "https://dribbble.com/search/art%20nouveau%20website", "title": "Dribbble - Art Nouveau Website", "note": "UI reference for Art Nouveau cards, botanical frames, curved product panels, and decorative landing pages." }
     ]
   },
 
   "baroque": {
     "sites": [
-      { "url": "https://www.metmuseum.org/search-results#!/search?q=Baroque", "title": "The Met Search - Baroque", "note": "Site reference for Baroque, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through The Met Search - Baroque." },
-      { "url": "https://www.vam.ac.uk/search?q=Baroque", "title": "V&A Search - Baroque", "note": "Site reference for Baroque, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through V&A Search - Baroque." },
-      { "url": "https://www.ralphlauren.com", "title": "Ralph Lauren - Baroque", "note": "Site reference for Baroque, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Ralph Lauren - Baroque." }
+      { "url": "https://en.chateauversailles.fr/", "title": "Chateau de Versailles", "note": "Palace reference for dramatic interiors, gilded frames, ceremonial hierarchy, and dense classical storytelling." },
+      { "url": "https://www.louvre.fr/en", "title": "Louvre", "note": "Museum reference for Baroque painting context, gallery pacing, dark image-led pages, and high-cultural content structure." },
+      { "url": "https://www.khm.at/en/", "title": "Kunsthistorisches Museum Wien", "note": "Museum reference for old master imagery, dark gallery atmosphere, gilded heritage, and dramatic art presentation." },
+      { "url": "https://www.rijksmuseum.nl/en", "title": "Rijksmuseum", "note": "Art museum reference for Rembrandt-era image drama, collection cards, editorial labels, and museum commerce structure." },
+      { "url": "https://www.museodelprado.es/en", "title": "Museo del Prado", "note": "Museum reference for Spanish Baroque collection tone, deep imagery, cultural navigation, and formal exhibition hierarchy." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Baroque%20website%20design", "title": "Pinterest - Baroque Website Design", "note": "Gallery reference for Baroque, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Pinterest - Baroque Website Design." },
-      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury Websites", "note": "Gallery reference for Baroque, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Awwwards - Luxury Websites." },
-      { "url": "https://dribbble.com/search/Baroque%20website%20design", "title": "Dribbble - Baroque Website Design", "note": "Gallery reference for Baroque, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Dribbble - Baroque Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=baroque%20website%20design", "title": "Pinterest - Baroque Website Design", "note": "Moodboard reference for candlelit palettes, ornate frames, dramatic contrast, and gallery-like web compositions." },
+      { "url": "https://www.awwwards.com/websites/art-culture/", "title": "Awwwards - Art Websites", "note": "Gallery reference for art and culture sites, exhibition pacing, dramatic imagery, and immersive cultural landing pages." },
+      { "url": "https://dribbble.com/search/baroque%20website", "title": "Dribbble - Baroque Website", "note": "UI reference for Baroque-inspired landing pages, dark gold interfaces, ornate cards, and theatrical product pages." }
     ]
   },
 
   "rococo": {
     "sites": [
-      { "url": "https://www.metmuseum.org/search-results#!/search?q=Rococo", "title": "The Met Search - Rococo", "note": "Site reference for Rococo, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through The Met Search - Rococo." },
-      { "url": "https://www.vam.ac.uk/search?q=Rococo", "title": "V&A Search - Rococo", "note": "Site reference for Rococo, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through V&A Search - Rococo." },
-      { "url": "https://www.ralphlauren.com", "title": "Ralph Lauren - Rococo", "note": "Site reference for Rococo, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Ralph Lauren - Rococo." }
+      { "url": "https://www.wallacecollection.org", "title": "Wallace Collection", "note": "Collection reference for Rococo interiors, porcelain, gilt, pastel rooms, and refined decorative object presentation." },
+      { "url": "https://www.frick.org", "title": "The Frick Collection", "note": "Museum reference for intimate salon rhythm, decorative arts, calm collection cards, and refined interior storytelling." },
+      { "url": "https://www.getty.edu/art/collection/", "title": "Getty Collection", "note": "Collection reference for French decorative arts, porcelain, furniture, object detail, and museum-grade visual hierarchy." },
+      { "url": "https://www.metmuseum.org/toah/hd/roco/hd_roco.htm", "title": "The Met - Rococo", "note": "Historical reference for Rococo lightness, asymmetry, shell ornament, pastel palette, and intimate decorative style." },
+      { "url": "https://www.vam.ac.uk/articles/rococo", "title": "V&A - Rococo", "note": "Museum reference for shell curves, delicate ornament, pale color, and the ornamental language of Rococo design." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Rococo%20website%20design", "title": "Pinterest - Rococo Website Design", "note": "Gallery reference for Rococo, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Pinterest - Rococo Website Design." },
-      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury Websites", "note": "Gallery reference for Rococo, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Awwwards - Luxury Websites." },
-      { "url": "https://dribbble.com/search/Rococo%20website%20design", "title": "Dribbble - Rococo Website Design", "note": "Gallery reference for Rococo, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Dribbble - Rococo Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=rococo%20website%20design", "title": "Pinterest - Rococo Website Design", "note": "Moodboard reference for pastel salon pages, shell ornaments, porcelain cards, beauty products, and light decorative layouts." },
+      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury Websites", "note": "Gallery reference for polished premium web pacing, delicate product sections, and refined lifestyle landing pages." },
+      { "url": "https://dribbble.com/search/rococo%20website", "title": "Dribbble - Rococo Website", "note": "UI reference for Rococo-inspired beauty pages, pastel cards, ornamental panels, and elegant product grids." }
     ]
   },
 
   "gothic": {
     "sites": [
-      { "url": "https://www.metmuseum.org/search-results#!/search?q=Gothic", "title": "The Met Search - Gothic", "note": "Site reference for Gothic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through The Met Search - Gothic." },
-      { "url": "https://www.vam.ac.uk/search?q=Gothic", "title": "V&A Search - Gothic", "note": "Site reference for Gothic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through V&A Search - Gothic." },
-      { "url": "https://www.ralphlauren.com", "title": "Ralph Lauren - Gothic", "note": "Site reference for Gothic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Ralph Lauren - Gothic." }
+      { "url": "https://www.westminster-abbey.org", "title": "Westminster Abbey", "note": "Gothic architecture reference for pointed arches, stone rhythm, sacred verticality, and historic visitor page hierarchy." },
+      { "url": "https://www.notredamedeparis.fr/en/", "title": "Notre-Dame de Paris", "note": "Cathedral reference for Gothic facade language, restoration storytelling, vertical navigation, and stained-glass atmosphere." },
+      { "url": "https://www.koelner-dom.de/en", "title": "Cologne Cathedral", "note": "Cathedral reference for spires, dark stone, sacred scale, visitor information, and vertical architectural rhythm." },
+      { "url": "https://www.metmuseum.org/toah/hd/mgot/hd_mgot.htm", "title": "The Met - Gothic Art", "note": "Historical reference for Gothic art, pointed forms, religious objects, stained glass, and medieval visual language." },
+      { "url": "https://www.vam.ac.uk/articles/gothic-style", "title": "V&A - Gothic Style", "note": "Museum reference for Gothic arches, tracery, stonework, manuscript detail, and decorative structural vocabulary." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Gothic%20website%20design", "title": "Pinterest - Gothic Website Design", "note": "Gallery reference for Gothic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Pinterest - Gothic Website Design." },
-      { "url": "https://www.awwwards.com/websites/luxury/", "title": "Awwwards - Luxury Websites", "note": "Gallery reference for Gothic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Awwwards - Luxury Websites." },
-      { "url": "https://dribbble.com/search/Gothic%20website%20design", "title": "Dribbble - Gothic Website Design", "note": "Gallery reference for Gothic, useful for studying refined spacing, serif contrast, heritage cues, and premium product storytelling through Dribbble - Gothic Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=gothic%20website%20design", "title": "Pinterest - Gothic Website Design", "note": "Moodboard reference for dark cathedral pages, pointed arch motifs, stained glass palettes, and sacred editorial layouts." },
+      { "url": "https://www.awwwards.com/websites/dark/", "title": "Awwwards - Dark Websites", "note": "Gallery reference for polished dark web execution, strong contrast, dramatic imagery, and immersive atmospheric pages." },
+      { "url": "https://dribbble.com/search/gothic%20website", "title": "Dribbble - Gothic Website", "note": "UI reference for Gothic landing pages, pointed-arch cards, dark fashion pages, and stained-glass interface motifs." }
     ]
   },
 
@@ -702,236 +719,254 @@
 
   "kitsch": {
     "sites": [
-      { "url": "https://www.sanrio.com", "title": "Sanrio - Kitsch", "note": "Site reference for Kitsch, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Sanrio - Kitsch." },
-      { "url": "https://www.lego.com", "title": "LEGO - Kitsch", "note": "Site reference for Kitsch, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through LEGO - Kitsch." },
-      { "url": "https://www.duolingo.com", "title": "Duolingo - Kitsch", "note": "Site reference for Kitsch, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Duolingo - Kitsch." }
+      { "url": "https://www.bando.com/", "title": "ban.do", "note": "Novelty retail reference for loud lifestyle objects, playful category density, sale banners, expressive product photography, and intentionally cheerful merch language." },
+      { "url": "https://www.lazyoaf.com/", "title": "Lazy Oaf", "note": "Oddball fashion reference for quirky graphics, subcultural humor, clashing product attitude, and boutique pages that feel intentionally offbeat." },
+      { "url": "https://lisasaysgah.com/", "title": "Lisa Says Gah", "note": "Pattern-heavy boutique reference for playful fashion curation, expressive product cards, and a colorful shop voice that stays commercially usable." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Kitsch%20website%20design", "title": "Pinterest - Kitsch Website Design", "note": "Gallery reference for Kitsch, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Pinterest - Kitsch Website Design." },
-      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for Kitsch, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Awwwards - Colorful Websites." },
-      { "url": "https://dribbble.com/search/Kitsch%20website%20design", "title": "Dribbble - Kitsch Website Design", "note": "Gallery reference for Kitsch, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Dribbble - Kitsch Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=Kitsch%20website%20design", "title": "Pinterest - Kitsch Website Design", "note": "Moodboard reference for novelty shop layouts, clashy patterns, sticker pricing, odd product groupings, and deliberately excessive visual humor." },
+      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for polished colorful web pages that keep maximal color, commerce hierarchy, and interaction quality under control." },
+      { "url": "https://dribbble.com/search/kitsch%20website", "title": "Dribbble - Kitsch Website", "note": "UI reference for kitsch ecommerce cards, novelty stickers, cheerful packaging motifs, and controlled visual clutter in web components." }
     ]
   },
 
   "kawaii": {
     "sites": [
-      { "url": "https://www.sanrio.com", "title": "Sanrio", "note": "카와이 원조 - 핑크, 둥근 모서리, 캐릭터 아이콘" },
-      { "url": "https://www.supercutekawaii.com", "title": "Super Cute Kawaii", "note": "카와이 콘텐츠 사이트 - 파스텔, 버블 폰트, 스티커 UI" },
-      { "url": "https://www.lego.com", "title": "LEGO - Kawaii", "note": "Site reference for Kawaii, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through LEGO - Kawaii." }
+      { "url": "https://www.sanrio.com/", "title": "Sanrio", "note": "Character-first retail reference for mascot worlds, soft pink surfaces, rounded product rhythm, stickers, and immediately legible cuteness." },
+      { "url": "https://pusheen.com/", "title": "Pusheen", "note": "Mascot content reference for simple cute navigation, comics and quizzes, soft character framing, and approachable community content." },
+      { "url": "https://www.tokidoki.it/", "title": "tokidoki", "note": "Collectibles reference for candy color, character universes, blind-box retail modules, and dense but friendly cute product cards." }
     ],
     "galleries": [
-      { "url": "https://dribbble.com/tags/kawaii-website", "title": "Dribbble - Kawaii Website", "note": "카와이 UI 패턴, 버튼 모양, 일러스트 스타일 참고" },
-      { "url": "https://dribbble.com/tags/kawaii-ui", "title": "Dribbble - Kawaii UI", "note": "Gallery reference for Kawaii, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Dribbble - Kawaii UI." },
-      { "url": "https://www.pinterest.com/wixcom/kawaii-japanese-websites/", "title": "Pinterest - Kawaii Japanese Websites (140개 핀)", "note": "Gallery reference for Kawaii, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Pinterest - Kawaii Japanese Websites (140개 핀)." },
-      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for Kawaii, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Awwwards - Colorful Websites." }
+      { "url": "https://www.pinterest.com/wixcom/kawaii-japanese-websites/", "title": "Pinterest - Kawaii Japanese Websites", "note": "Moodboard reference for mascot-led pages, pink rounded UI, sticker details, cute shop modules, and Japanese kawaii web pacing." },
+      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for professional colorful websites that preserve polish while using cheerful palettes and playful content." },
+      { "url": "https://dribbble.com/tags/kawaii-website", "title": "Dribbble - Kawaii Website", "note": "UI reference for kawaii dashboards, rounded buttons, character cards, heart badges, and soft app-like composition." }
     ]
   },
 
   "dopamine-design": {
     "sites": [
-      { "url": "https://www.sanrio.com", "title": "Sanrio - Dopamine Design", "note": "Site reference for Dopamine Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Sanrio - Dopamine Design." },
-      { "url": "https://www.lego.com", "title": "LEGO - Dopamine Design", "note": "Site reference for Dopamine Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through LEGO - Dopamine Design." },
-      { "url": "https://www.duolingo.com", "title": "Duolingo - Dopamine Design", "note": "Site reference for Dopamine Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Duolingo - Dopamine Design." }
+      { "url": "https://www.happysocks.com/us", "title": "Happy Socks", "note": "Color-commerce reference for high-saturation product grids, repeated pattern impact, joyful browsing, and bright reward-like retail rhythm." },
+      { "url": "https://www.baggu.com/", "title": "BAGGU", "note": "Clean colorful commerce reference for strong object color, reusable product systems, simple nav, and visual joy without messy kitsch clutter." },
+      { "url": "https://www.duolingo.com/", "title": "Duolingo", "note": "Product UX reference for bright mascot feedback, gamified progress, confident CTAs, and cheerful reward loops that remain usable." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Dopamine%20Design%20website%20design", "title": "Pinterest - Dopamine Design Website Design", "note": "Gallery reference for Dopamine Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Pinterest - Dopamine Design Website Design." },
-      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for Dopamine Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Awwwards - Colorful Websites." },
-      { "url": "https://dribbble.com/search/Dopamine%20Design%20website%20design", "title": "Dribbble - Dopamine Design Website Design", "note": "Gallery reference for Dopamine Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Dribbble - Dopamine Design Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=Dopamine%20Design%20website%20design", "title": "Pinterest - Dopamine Design Website Design", "note": "Moodboard reference for color therapy, high-saturation layouts, upbeat CTA fields, and clean happy interface systems." },
+      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for professional colorful execution, motion pacing, and bright designs that retain strong information hierarchy." },
+      { "url": "https://dribbble.com/search/dopamine%20design%20website", "title": "Dribbble - Dopamine Design Website", "note": "UI reference for reward meters, bright modules, color-block progress, and upbeat product dashboards." }
     ]
   },
 
   "pop-art": {
     "sites": [
-      { "url": "https://www.sanrio.com", "title": "Sanrio - Pop Art", "note": "Site reference for Pop Art, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Sanrio - Pop Art." },
-      { "url": "https://www.lego.com", "title": "LEGO - Pop Art", "note": "Site reference for Pop Art, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through LEGO - Pop Art." },
-      { "url": "https://www.duolingo.com", "title": "Duolingo - Pop Art", "note": "Site reference for Pop Art, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Duolingo - Pop Art." }
+      { "url": "https://www.warhol.org/", "title": "The Andy Warhol Museum", "note": "Pop art archive reference for consumer imagery, celebrity/product repetition, museum storytelling, and bold object-centered exhibition pages." },
+      { "url": "https://www.haring.com/", "title": "Keith Haring Foundation", "note": "Graphic art reference for flat iconic figures, thick black contour, public-art archive rhythm, and simple high-contrast visual language." },
+      { "url": "https://www.guggenheim.org/exhibition/guggenheim-pop", "title": "Guggenheim Pop", "note": "Exhibition reference for pop-art historical framing, event metadata, poster-like hierarchy, and art-object archive modules." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Pop%20Art%20website%20design", "title": "Pinterest - Pop Art Website Design", "note": "Gallery reference for Pop Art, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Pinterest - Pop Art Website Design." },
-      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for Pop Art, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Awwwards - Colorful Websites." },
-      { "url": "https://dribbble.com/search/Pop%20Art%20website%20design", "title": "Dribbble - Pop Art Website Design", "note": "Gallery reference for Pop Art, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Dribbble - Pop Art Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=Pop%20Art%20website%20design", "title": "Pinterest - Pop Art Website Design", "note": "Moodboard reference for halftone fields, repeated objects, primary color posters, and archive-style web pages." },
+      { "url": "https://www.awwwards.com/websites/art-culture/", "title": "Awwwards - Art and Culture Websites", "note": "Gallery reference for museum-grade web craft, exhibition pacing, art-object storytelling, and polished editorial layouts." },
+      { "url": "https://dribbble.com/search/pop%20art%20website", "title": "Dribbble - Pop Art Website", "note": "UI reference for pop-art poster cards, product-object repetition, strong ink outlines, and color-block composition." }
     ]
   },
 
   "comic-book-style": {
     "sites": [
-      { "url": "https://www.sanrio.com", "title": "Sanrio - Comic Book Style", "note": "Site reference for Comic Book Style, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Sanrio - Comic Book Style." },
-      { "url": "https://www.lego.com", "title": "LEGO - Comic Book Style", "note": "Site reference for Comic Book Style, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through LEGO - Comic Book Style." },
-      { "url": "https://www.duolingo.com", "title": "Duolingo - Comic Book Style", "note": "Site reference for Comic Book Style, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Duolingo - Comic Book Style." }
+      { "url": "https://www.marvel.com/comics", "title": "Marvel Comics", "note": "Comic catalog reference for issue grids, cover-led cards, character franchise navigation, and dense release metadata." },
+      { "url": "https://www.dc.com/comics", "title": "DC Comics", "note": "Comic catalog reference for searchable issue lists, hero-driven cards, publisher metadata, and high-contrast entertainment hierarchy." },
+      { "url": "https://www.webtoons.com/en", "title": "WEBTOON", "note": "Digital comics reference for vertical episode browsing, genre tabs, colorful thumbnails, and mobile-first serial reading rhythm." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Comic%20Book%20Style%20website%20design", "title": "Pinterest - Comic Book Style Website Design", "note": "Gallery reference for Comic Book Style, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Pinterest - Comic Book Style Website Design." },
-      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for Comic Book Style, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Awwwards - Colorful Websites." },
-      { "url": "https://dribbble.com/search/Comic%20Book%20Style%20website%20design", "title": "Dribbble - Comic Book Style Website Design", "note": "Gallery reference for Comic Book Style, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Dribbble - Comic Book Style Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=Comic%20Book%20Style%20website%20design", "title": "Pinterest - Comic Book Style Website Design", "note": "Moodboard reference for panel grids, speech balloons, ink borders, episode cards, and comic storefront layouts." },
+      { "url": "https://www.awwwards.com/websites/entertainment/", "title": "Awwwards - Entertainment Websites", "note": "Gallery reference for entertainment pages with strong media cards, story-driven navigation, and campaign-quality polish." },
+      { "url": "https://dribbble.com/search/comic%20book%20website", "title": "Dribbble - Comic Book Website", "note": "UI reference for comic issue cards, panel-based sections, balloon labels, and bold sequential reading surfaces." }
     ]
   },
 
   "toy-design": {
     "sites": [
-      { "url": "https://www.sanrio.com", "title": "Sanrio - Toy Design", "note": "Site reference for Toy Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Sanrio - Toy Design." },
-      { "url": "https://www.lego.com", "title": "LEGO - Toy Design", "note": "Site reference for Toy Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through LEGO - Toy Design." },
-      { "url": "https://www.duolingo.com", "title": "Duolingo - Toy Design", "note": "Site reference for Toy Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Duolingo - Toy Design." }
+      { "url": "https://www.lego.com/en-us", "title": "LEGO", "note": "Toy commerce reference for modular brick logic, age and theme filters, primary colors, product cards, and buildable system language." },
+      { "url": "https://play.hasbro.com/en-us/brand/play-doh", "title": "Play-Doh / Hasbro", "note": "Toy brand reference for soft clay visuals, kid-safe activities, bright material color, and approachable family-facing pages." },
+      { "url": "https://shop.mattel.com/pages/fisher-price", "title": "Fisher-Price / Mattel", "note": "Preschool toy reference for age-based browsing, chunky product navigation, developmental cues, and friendly toy catalog polish." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Toy%20Design%20website%20design", "title": "Pinterest - Toy Design Website Design", "note": "Gallery reference for Toy Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Pinterest - Toy Design Website Design." },
-      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for Toy Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Awwwards - Colorful Websites." },
-      { "url": "https://dribbble.com/search/Toy%20Design%20website%20design", "title": "Dribbble - Toy Design Website Design", "note": "Gallery reference for Toy Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Dribbble - Toy Design Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=Toy%20Design%20website%20design", "title": "Pinterest - Toy Design Website Design", "note": "Moodboard reference for blocky modules, toy catalogs, playset layouts, age tabs, bright packaging, and kid-friendly commerce pages." },
+      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for colorful professional sites that balance playful graphics with product usability and clean hierarchy." },
+      { "url": "https://dribbble.com/search/toy%20website", "title": "Dribbble - Toy Website", "note": "UI reference for toy product cards, chunky controls, playset builders, and bright modular interface components." }
     ]
   },
 
   "playful-design": {
     "sites": [
-      { "url": "https://www.sanrio.com", "title": "Sanrio - Playful Design", "note": "Site reference for Playful Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Sanrio - Playful Design." },
-      { "url": "https://www.lego.com", "title": "LEGO - Playful Design", "note": "Site reference for Playful Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through LEGO - Playful Design." },
-      { "url": "https://www.duolingo.com", "title": "Duolingo - Playful Design", "note": "Site reference for Playful Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Duolingo - Playful Design." }
+      { "url": "https://www.duolingo.com/", "title": "Duolingo", "note": "Playful product reference for onboarding confidence, friendly mascot cues, lesson progress, and clear action hierarchy." },
+      { "url": "https://mailchimp.com/", "title": "Mailchimp", "note": "Business tool reference for friendly illustration, approachable SaaS copy, warm utility, and playful brand personality without childishness." },
+      { "url": "https://www.headspace.com/", "title": "Headspace", "note": "Wellness app reference for warm character illustration, calm playful surfaces, human-centered flows, and friendly task framing." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Playful%20Design%20website%20design", "title": "Pinterest - Playful Design Website Design", "note": "Gallery reference for Playful Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Pinterest - Playful Design Website Design." },
-      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for Playful Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Awwwards - Colorful Websites." },
-      { "url": "https://dribbble.com/search/Playful%20Design%20website%20design", "title": "Dribbble - Playful Design Website Design", "note": "Gallery reference for Playful Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Dribbble - Playful Design Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=Playful%20Design%20website%20design", "title": "Pinterest - Playful Design Website Design", "note": "Moodboard reference for friendly product flows, soft illustrations, approachable task cards, and optimistic onboarding pages." },
+      { "url": "https://www.awwwards.com/websites/playful/", "title": "Awwwards - Playful Websites", "note": "Gallery reference for polished playful websites with interaction, personality, strong hierarchy, and professional craft." },
+      { "url": "https://dribbble.com/search/playful%20website", "title": "Dribbble - Playful Website", "note": "UI reference for playful SaaS/product cards, friendly helper states, warm illustration, and lightweight motion cues." }
     ]
   },
 
   "pastel-style": {
     "sites": [
-      { "url": "https://www.sanrio.com", "title": "Sanrio - Pastel Style", "note": "Site reference for Pastel Style, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Sanrio - Pastel Style." },
-      { "url": "https://www.lego.com", "title": "LEGO - Pastel Style", "note": "Site reference for Pastel Style, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through LEGO - Pastel Style." },
-      { "url": "https://www.duolingo.com", "title": "Duolingo - Pastel Style", "note": "Site reference for Pastel Style, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Duolingo - Pastel Style." }
+      { "url": "https://www.glossier.com/", "title": "Glossier", "note": "Soft beauty ecommerce reference for airy whitespace, pale pink neutrals, editorial product rows, and low-contrast polish." },
+      { "url": "https://starface.world/products/hydro-stars-refill", "title": "Starface Hydro-Stars", "note": "Cute skincare product reference for pastel/yellow product framing, clean detail-page hierarchy, and friendly beauty language." },
+      { "url": "https://www.bubbleskincare.com/", "title": "Bubble Skincare", "note": "Youth skincare reference for gentle color, rounded product architecture, soft surfaces, and approachable clean commerce." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Pastel%20Style%20website%20design", "title": "Pinterest - Pastel Style Website Design", "note": "Gallery reference for Pastel Style, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Pinterest - Pastel Style Website Design." },
-      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for Pastel Style, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Awwwards - Colorful Websites." },
-      { "url": "https://dribbble.com/search/Pastel%20Style%20website%20design", "title": "Dribbble - Pastel Style Website Design", "note": "Gallery reference for Pastel Style, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Dribbble - Pastel Style Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=Pastel%20Style%20website%20design", "title": "Pinterest - Pastel Style Website Design", "note": "Moodboard reference for soft beauty layouts, low-contrast surfaces, airy cards, pale product photography, and gentle editorial rhythm." },
+      { "url": "https://www.awwwards.com/websites/beauty/", "title": "Awwwards - Beauty Websites", "note": "Gallery reference for professional beauty and skincare sites with refined spacing, subtle color, and polished ecommerce details." },
+      { "url": "https://dribbble.com/search/pastel%20website", "title": "Dribbble - Pastel Website", "note": "UI reference for pastel product pages, soft cards, low-contrast palettes, and elegant rounded component systems." }
     ]
   },
 
   "bubble-design": {
     "sites": [
-      { "url": "https://www.sanrio.com", "title": "Sanrio - Bubble Design", "note": "Site reference for Bubble Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Sanrio - Bubble Design." },
-      { "url": "https://www.lego.com", "title": "LEGO - Bubble Design", "note": "Site reference for Bubble Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through LEGO - Bubble Design." },
-      { "url": "https://www.duolingo.com", "title": "Duolingo - Bubble Design", "note": "Site reference for Bubble Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Duolingo - Bubble Design." }
+      { "url": "https://www.bubbleskincare.com/", "title": "Bubble Skincare", "note": "Rounded skincare reference for capsule product architecture, soft bubble-adjacent naming, and friendly but clean product modules." },
+      { "url": "https://drinkpoppi.com/", "title": "poppi", "note": "Sparkling soda reference for circular product sections, can-forward color, bubbly motion cues, and lively liquid commerce rhythm." },
+      { "url": "https://www.bubly.com/", "title": "bubly", "note": "Sparkling-water reference for simple bubble identity, round flavor language, light color, and buoyant brand surface." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Bubble%20Design%20website%20design", "title": "Pinterest - Bubble Design Website Design", "note": "Gallery reference for Bubble Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Pinterest - Bubble Design Website Design." },
-      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for Bubble Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Awwwards - Colorful Websites." },
-      { "url": "https://dribbble.com/search/Bubble%20Design%20website%20design", "title": "Dribbble - Bubble Design Website Design", "note": "Gallery reference for Bubble Design, useful for studying rounded shapes, cheerful color, playful components, and approachable interaction patterns through Dribbble - Bubble Design Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=Bubble%20Design%20website%20design", "title": "Pinterest - Bubble Design Website Design", "note": "Moodboard reference for inflated capsules, liquid product modules, circular cards, buoyant UI, and sparkling brand pages." },
+      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery reference for polished colorful sites with rounded modules, motion, strong product staging, and professional hierarchy." },
+      { "url": "https://dribbble.com/search/bubble%20website", "title": "Dribbble - Bubble Website", "note": "UI reference for bubble-shaped cards, circular navigation, inflated panels, and soft liquid progress patterns." }
     ]
   },
 
   "streetwear": {
     "sites": [
-      { "url": "https://www.supremenewyork.com", "title": "Supreme", "note": "스트리트웨어 원형 - 빨간 박스, 산세리프, 직접적 레이아웃" },
-      { "url": "https://www.palace.ltd", "title": "Palace Skateboards", "note": "UK 스케이트 에너지 - 그래픽, 타이포, 거친 밀도" },
-      { "url": "https://www.stussy.com", "title": "Stüssy", "note": "서프+스케이트 헤리티지 - 그래픽 중심, 레이어드 텍스처" }
+      { "url": "https://supreme.com/", "title": "Supreme", "note": "Official streetwear drop reference for direct release navigation, scarce product rhythm, box-logo restraint, and blunt commerce hierarchy." },
+      { "url": "https://palaceskateboards.com/", "title": "Palace Skateboards", "note": "Official skate-streetwear reference for range drops, web shop links, brand-world pages, and loud graphic capsule energy." },
+      { "url": "https://www.stussy.com/", "title": "Stüssy", "note": "Official streetwear reference for new arrivals, archive/chapter links, compact shop categories, and surf-skate heritage commerce." },
+      { "url": "https://us.bape.com/", "title": "BAPE US", "note": "Official streetwear reference for camo collections, large product grids, bold new-arrival modules, and strong category merchandising." },
+      { "url": "https://kith.com/", "title": "Kith", "note": "Official streetwear retail reference for collection programs, editorial capsules, detailed megamenu hierarchy, and polished product-wall commerce." }
     ],
     "galleries": [
-      { "url": "https://dribbble.com/tags/streetwear", "title": "Dribbble - Streetwear", "note": "Gallery reference for Streetwear, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dribbble - Streetwear." },
-      { "url": "https://www.pinterest.com/ideas/supreme-clothing-streetwear/930480009757/", "title": "Pinterest - Supreme / Streetwear", "note": "Gallery reference for Streetwear, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Pinterest - Supreme / Streetwear." },
-      { "url": "https://www.awwwards.com/websites/culture/", "title": "Awwwards - Culture Websites", "note": "Gallery reference for Streetwear, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Awwwards - Culture Websites." }
+      { "url": "https://dribbble.com/tags/streetwear", "title": "Dribbble - Streetwear", "note": "UI and campaign reference for product-drop cards, oversized typographic treatments, lookbook panels, and streetwear ecommerce composition." },
+      { "url": "https://www.pinterest.com/ideas/supreme-clothing-streetwear/930480009757/", "title": "Pinterest - Supreme / Streetwear", "note": "Moodboard reference for box-logo minimalism, drop posters, sticker-like product labels, and streetwear outfit/product wall pacing." },
+      { "url": "https://www.awwwards.com/websites/fashion/", "title": "Awwwards - Fashion Websites", "note": "Gallery reference for professional fashion commerce, lookbook transitions, product-grid polish, and campaign-grade streetwear layouts." }
     ]
   },
 
   "graffiti": {
     "sites": [
-      { "url": "https://www.complex.com", "title": "Complex - Graffiti", "note": "Site reference for Graffiti, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Complex - Graffiti." },
-      { "url": "https://www.rollingstone.com/music/", "title": "Rolling Stone Music - Graffiti", "note": "Site reference for Graffiti, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Rolling Stone Music - Graffiti." },
-      { "url": "https://www.dazeddigital.com", "title": "Dazed - Graffiti", "note": "Site reference for Graffiti, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dazed - Graffiti." }
+      { "url": "https://www.montana-cans.com/Products/SPRAY-CANS/", "title": "Montana Cans - Spray Cans", "note": "Official spray-paint product reference for can-heavy merchandising, graffiti-specific tools, high-pressure labeling, color range density, and utility-first product grids." },
+      { "url": "https://brand.molotow.com/en/products/spray-cans/", "title": "MOLOTOW - Spray Cans", "note": "Official graffiti materials reference for bold product ranges, mural language, over-275-color rack logic, and spray-can storytelling tied to walls and pieces." },
+      { "url": "https://www.bombingscience.com/", "title": "Bombing Science", "note": "Graffiti culture and supply reference for pictures plus commerce, article feeds, tool categories, writer-support messaging, and street-scene archive rhythm." },
+      { "url": "https://streetpins.com/", "title": "Streetpins", "note": "Graffiti photo community reference for ranked uploads, tag/photo metrics, city indexes, weekly archive posts, and wall documentation UI." },
+      { "url": "https://streetartcities.com/about", "title": "Street Art Cities", "note": "Street-art mapping reference for city artwork indexes, hunter/community roles, verified artist counts, and map-led public wall discovery." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Graffiti%20website%20design", "title": "Pinterest - Graffiti Website Design", "note": "Gallery reference for Graffiti, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Pinterest - Graffiti Website Design." },
-      { "url": "https://www.awwwards.com/websites/culture/", "title": "Awwwards - Culture Websites", "note": "Gallery reference for Graffiti, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Awwwards - Culture Websites." },
-      { "url": "https://dribbble.com/search/Graffiti%20website%20design", "title": "Dribbble - Graffiti Website Design", "note": "Gallery reference for Graffiti, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dribbble - Graffiti Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=graffiti%20website%20design", "title": "Pinterest - Graffiti Website Design", "note": "Moodboard reference for spray-wall texture, handstyle lettering, layered stickers, tag clusters, brick/concrete surfaces, and noisy color overlays." },
+      { "url": "https://www.awwwards.com/websites/culture/", "title": "Awwwards - Culture Websites", "note": "Professional culture-site gallery for translating raw street visuals into polished navigation, responsive hierarchy, and editorial-grade interaction surfaces." },
+      { "url": "https://dribbble.com/search/graffiti%20website", "title": "Dribbble - Graffiti Website", "note": "UI reference for graffiti-themed layouts, paint palettes, marker-style labels, archive panels, and compact visual systems that still read as product UI." }
     ]
   },
 
   "hiphop-style": {
     "sites": [
-      { "url": "https://www.complex.com", "title": "Complex - Hip-Hop Style", "note": "Site reference for Hip-Hop Style, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Complex - Hip-Hop Style." },
-      { "url": "https://www.rollingstone.com/music/", "title": "Rolling Stone Music - Hip-Hop Style", "note": "Site reference for Hip-Hop Style, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Rolling Stone Music - Hip-Hop Style." },
-      { "url": "https://www.dazeddigital.com", "title": "Dazed - Hip-Hop Style", "note": "Site reference for Hip-Hop Style, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dazed - Hip-Hop Style." }
+      { "url": "https://www.xxlmag.com/", "title": "XXL Magazine", "note": "Hip-hop magazine reference for bold news hierarchy, Freshman-list energy, album/video modules, artist-first editorial cards, and loud music-culture pacing." },
+      { "url": "https://hiphopdx.com/", "title": "HipHopDX", "note": "Hip-hop news reference for dense release feeds, review/news segmentation, video and artist modules, and high-contrast music-publisher navigation." },
+      { "url": "https://genius.com/", "title": "Genius", "note": "Lyrics and annotation reference for line-level commentary, yellow highlight language, knowledge-card rails, and reader interaction around bars and verses." },
+      { "url": "https://www.lyricallemonade.com/", "title": "Lyrical Lemonade", "note": "Music-video and culture reference for video-led grids, saturated youth-culture art direction, artist tiles, and mixtape-style content rhythm." },
+      { "url": "https://www.massappeal.com/", "title": "Mass Appeal", "note": "Hip-hop creative studio reference for premium black-and-gold editorial tone, artist documentary language, cultural storytelling, and polished campaign surfaces." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Hip-Hop%20Style%20website%20design", "title": "Pinterest - Hip-Hop Style Website Design", "note": "Gallery reference for Hip-Hop Style, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Pinterest - Hip-Hop Style Website Design." },
-      { "url": "https://www.awwwards.com/websites/culture/", "title": "Awwwards - Culture Websites", "note": "Gallery reference for Hip-Hop Style, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Awwwards - Culture Websites." },
-      { "url": "https://dribbble.com/search/Hip-Hop%20Style%20website%20design", "title": "Dribbble - Hip-Hop Style Website Design", "note": "Gallery reference for Hip-Hop Style, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dribbble - Hip-Hop Style Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=hip%20hop%20website%20design", "title": "Pinterest - Hip Hop Website Design", "note": "Moodboard reference for mixtape covers, speaker stacks, tracklist panels, lyric posters, waveform stickers, and music-campaign color contrast." },
+      { "url": "https://www.awwwards.com/websites/music-sound/", "title": "Awwwards - Music & Sound Websites", "note": "Professional music-site gallery for audio-player layouts, immersive artist pages, video grids, editorial transitions, and responsive music storytelling." },
+      { "url": "https://dribbble.com/search/hip%20hop%20website", "title": "Dribbble - Hip Hop Website", "note": "UI reference for music dashboards, player cards, artist promo pages, playlist grids, and bold type systems adapted to hip-hop culture." }
     ]
   },
 
   "skate-culture": {
     "sites": [
-      { "url": "https://www.complex.com", "title": "Complex - Skate Culture", "note": "Site reference for Skate Culture, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Complex - Skate Culture." },
-      { "url": "https://www.rollingstone.com/music/", "title": "Rolling Stone Music - Skate Culture", "note": "Site reference for Skate Culture, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Rolling Stone Music - Skate Culture." },
-      { "url": "https://www.dazeddigital.com", "title": "Dazed - Skate Culture", "note": "Site reference for Skate Culture, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dazed - Skate Culture." }
+      { "url": "https://theberrics.com/", "title": "The Berrics", "note": "Skate media reference for clip-led home modules, canteen shop links, park-shot rhythm, and skateboarding video culture presented as a living feed." },
+      { "url": "https://www.nikesb.com/", "title": "Nike SB", "note": "Skateboarding brand reference for team/vault/skateshop navigation, video-first stories, city skate sessions, and polished skate editorial systems." },
+      { "url": "https://independenttrucks.com/", "title": "Independent Trucks", "note": "Skate hardware reference for truck-category grids, parts merchandising, rider credibility, and no-nonsense hardgoods commerce hierarchy." },
+      { "url": "https://santacruzskateboards.com/skate", "title": "Santa Cruz Skateboards", "note": "Deck and hardgoods reference for pro deck walls, team/reissue/VX categories, bold board graphics, and dense skateboard product indexing." },
+      { "url": "https://skateparkoftampa.com/", "title": "Skatepark of Tampa", "note": "Skate shop and event reference for shoes/decks/wheels/trucks category blocks, contest modules, skater shopping paths, and park-culture credibility." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Skate%20Culture%20website%20design", "title": "Pinterest - Skate Culture Website Design", "note": "Gallery reference for Skate Culture, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Pinterest - Skate Culture Website Design." },
-      { "url": "https://www.awwwards.com/websites/culture/", "title": "Awwwards - Culture Websites", "note": "Gallery reference for Skate Culture, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Awwwards - Culture Websites." },
-      { "url": "https://dribbble.com/search/Skate%20Culture%20website%20design", "title": "Dribbble - Skate Culture Website Design", "note": "Gallery reference for Skate Culture, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dribbble - Skate Culture Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=skate%20website%20design", "title": "Pinterest - Skate Website Design", "note": "Moodboard reference for deck walls, sticker slaps, skate shop menus, contest posters, fisheye frames, and worn concrete color systems." },
+      { "url": "https://www.awwwards.com/websites/sports/", "title": "Awwwards - Sports Websites", "note": "Professional sports-site gallery for turning motion, athlete stories, category navigation, and retail paths into responsive polished interfaces." },
+      { "url": "https://dribbble.com/search/skateboard%20website", "title": "Dribbble - Skateboard Website", "note": "UI reference for skate shop layouts, product deck grids, event cards, mobile category bars, and sticker-style labels without generic street posters." }
     ]
   },
 
   "punk": {
     "sites": [
-      { "url": "https://www.complex.com", "title": "Complex - Punk", "note": "Site reference for Punk, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Complex - Punk." },
-      { "url": "https://www.rollingstone.com/music/", "title": "Rolling Stone Music - Punk", "note": "Site reference for Punk, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Rolling Stone Music - Punk." },
-      { "url": "https://www.dazeddigital.com", "title": "Dazed - Punk", "note": "Site reference for Punk, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dazed - Punk." }
+      { "url": "https://www.punknews.org/", "title": "Punknews.org", "note": "Punk news and community reference for dense headlines, label premieres, review feeds, small-format culture posts, and rough bulletin-board rhythm." },
+      { "url": "https://fatwreck.com/", "title": "Fat Wreck Chords", "note": "Punk label/store reference for release announcements, merch rows, catalog browsing, touring snippets, and irreverent label voice." },
+      { "url": "https://www.epitaph.com/", "title": "Epitaph Records", "note": "Punk and alternative label reference for artist/release grids, video/news modules, record-store hierarchy, and high-contrast promotional pages." },
+      { "url": "https://dischord.com/", "title": "Dischord Records", "note": "DIY punk label reference for stripped-down catalog structure, practical record information, low-polish authenticity, and archive-first navigation." },
+      { "url": "https://www.maximumrocknroll.com/about/", "title": "Maximum Rocknroll", "note": "Punk zine reference for underground scene voice, fanzine legacy, reviews, columns, radio, and photocopied editorial texture." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Punk%20website%20design", "title": "Pinterest - Punk Website Design", "note": "Gallery reference for Punk, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Pinterest - Punk Website Design." },
-      { "url": "https://www.awwwards.com/websites/culture/", "title": "Awwwards - Culture Websites", "note": "Gallery reference for Punk, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Awwwards - Culture Websites." },
-      { "url": "https://dribbble.com/search/Punk%20website%20design", "title": "Dribbble - Punk Website Design", "note": "Gallery reference for Punk, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dribbble - Punk Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=punk%20zine%20website%20design", "title": "Pinterest - Punk Zine Website Design", "note": "Moodboard reference for ransom typography, photocopy texture, torn flyers, gig posters, badge grids, and black-white-red zine composition." },
+      { "url": "https://www.awwwards.com/websites/music-sound/", "title": "Awwwards - Music & Sound Websites", "note": "Professional music-site gallery for adapting raw label/flyer language into responsive pages with usable navigation and release hierarchy." },
+      { "url": "https://dribbble.com/search/punk%20zine%20website", "title": "Dribbble - Punk Zine Website", "note": "UI reference for punk zine layouts, collage editorial cards, distressed type blocks, release lists, and flyer-inspired web components." }
     ]
   },
 
   "grunge": {
     "sites": [
-      { "url": "https://www.complex.com", "title": "Complex - Grunge", "note": "Site reference for Grunge, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Complex - Grunge." },
-      { "url": "https://www.rollingstone.com/music/", "title": "Rolling Stone Music - Grunge", "note": "Site reference for Grunge, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Rolling Stone Music - Grunge." },
-      { "url": "https://www.dazeddigital.com", "title": "Dazed - Grunge", "note": "Site reference for Grunge, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dazed - Grunge." }
+      { "url": "https://www.nirvana.com/", "title": "Nirvana Official", "note": "Official grunge band reference for dark archive/store/discography pages, damaged album memory, sparse navigation, and worn music-culture hierarchy." },
+      { "url": "https://www.subpop.com/", "title": "Sub Pop", "note": "Seattle label reference for records, artists, news, catalog modules, indie label commerce, and grunge heritage without punk flyer aggression." },
+      { "url": "https://www.soundgardenworld.com/", "title": "Soundgarden Official", "note": "Official band archive reference for dark album, video, tour, and merch modules with heavy grunge legacy and restrained editorial structure." },
+      { "url": "https://pearljam.com/", "title": "Pearl Jam Official", "note": "Official band reference for tour/archive/community/shop organization, grounded music navigation, and sober alternative-rock page rhythm." },
+      { "url": "https://www.subpop.com/artists/mudhoney", "title": "Mudhoney - Sub Pop", "note": "Artist catalog page reference for Seattle grunge bio, discography, label archive, and low-polish historical content structure." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Grunge%20website%20design", "title": "Pinterest - Grunge Website Design", "note": "Gallery reference for Grunge, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Pinterest - Grunge Website Design." },
-      { "url": "https://www.awwwards.com/websites/culture/", "title": "Awwwards - Culture Websites", "note": "Gallery reference for Grunge, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Awwwards - Culture Websites." },
-      { "url": "https://dribbble.com/search/Grunge%20website%20design", "title": "Dribbble - Grunge Website Design", "note": "Gallery reference for Grunge, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dribbble - Grunge Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=grunge%20website%20design", "title": "Pinterest - Grunge Website Design", "note": "Moodboard reference for torn photos, dirty paper, cassette tape labels, flannel plaid, faded denim, and low-saturation distressed website layouts." },
+      { "url": "https://www.awwwards.com/websites/music-sound/", "title": "Awwwards - Music & Sound Websites", "note": "Professional music-site gallery for translating band archives, tour pages, release modules, and merch paths into responsive production interfaces." },
+      { "url": "https://dribbble.com/search/grunge%20website", "title": "Dribbble - Grunge Website", "note": "UI reference for grunge-inspired editorial cards, damaged image stacks, distressed type blocks, cassette motifs, and rough music landing pages." }
     ]
   },
 
   "indie-sleaze": {
     "sites": [
-      { "url": "https://www.complex.com", "title": "Complex - Indie Sleaze", "note": "Site reference for Indie Sleaze, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Complex - Indie Sleaze." },
-      { "url": "https://www.rollingstone.com/music/", "title": "Rolling Stone Music - Indie Sleaze", "note": "Site reference for Indie Sleaze, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Rolling Stone Music - Indie Sleaze." },
-      { "url": "https://www.dazeddigital.com", "title": "Dazed - Indie Sleaze", "note": "Site reference for Indie Sleaze, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dazed - Indie Sleaze." }
+      { "url": "https://www.thecobrasnake.com/", "title": "The Cobrasnake", "note": "Party photography archive reference for harsh flash portraits, nightlife grids, messy candid crops, celebrity-afterparty energy, and early-2000s blog culture." },
+      { "url": "https://cari.institute/aesthetics/indie-sleaze", "title": "CARI - Indie Sleaze", "note": "Aesthetic research reference for the era's flash photography, American Apparel energy, Tumblr/MySpace surfaces, skinny silhouettes, and bloghaus-adjacent visual cues." },
+      { "url": "https://www.dazeddigital.com/", "title": "Dazed", "note": "Fashion and youth-culture reference for reviving indie sleaze through club styling, editorial flash, grainy nightlife, and rebellious image-led layouts." },
+      { "url": "https://www.nylon.com/", "title": "Nylon", "note": "Pop-fashion media reference for trend-led outfit language, celebrity street style, glossy-black editorial cards, and accessible indie-sleaze styling cues." },
+      { "url": "https://www.vogue.com/", "title": "Vogue", "note": "Fashion editorial reference for translating the trend into professional styling hierarchy, trend notes, runway/street-style imagery, and polished article layouts." },
+      { "url": "https://www.asos.com/", "title": "ASOS", "note": "Retail reference for making indie-sleaze styling practical through outfit tags, product rails, black-and-white campaign modules, and trend shopping paths." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Indie%20Sleaze%20website%20design", "title": "Pinterest - Indie Sleaze Website Design", "note": "Gallery reference for Indie Sleaze, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Pinterest - Indie Sleaze Website Design." },
-      { "url": "https://www.awwwards.com/websites/culture/", "title": "Awwwards - Culture Websites", "note": "Gallery reference for Indie Sleaze, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Awwwards - Culture Websites." },
-      { "url": "https://dribbble.com/search/Indie%20Sleaze%20website%20design", "title": "Dribbble - Indie Sleaze Website Design", "note": "Gallery reference for Indie Sleaze, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dribbble - Indie Sleaze Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=indie%20sleaze%20website%20design", "title": "Pinterest - Indie Sleaze Website Design", "note": "Moodboard reference for flash photos, sticker overlays, black mini-dress styling, cigarette-smoke grain, club stamps, and messy 2000s web layouts." },
+      { "url": "https://www.awwwards.com/websites/fashion-beauty/", "title": "Awwwards - Fashion & Beauty Websites", "note": "Professional gallery for adapting trend photography, fashion editorial structure, campaign navigation, and shopping modules into high-quality responsive pages." },
+      { "url": "https://dribbble.com/search/indie%20sleaze%20website", "title": "Dribbble - Indie Sleaze Website", "note": "UI reference for nightlife photo feeds, sticker-like labels, hot-pink/cyan accents, playlist cards, and fashion-culture landing compositions." }
     ]
   },
 
   "rave-style": {
     "sites": [
-      { "url": "https://www.complex.com", "title": "Complex - Rave Style", "note": "Site reference for Rave Style, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Complex - Rave Style." },
-      { "url": "https://www.rollingstone.com/music/", "title": "Rolling Stone Music - Rave Style", "note": "Site reference for Rave Style, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Rolling Stone Music - Rave Style." },
-      { "url": "https://www.dazeddigital.com", "title": "Dazed - Rave Style", "note": "Site reference for Rave Style, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dazed - Rave Style." }
+      { "url": "https://ra.co/", "title": "Resident Advisor", "note": "Electronic music event reference for dense club listings, artist/date filters, ticket paths, location metadata, and underground nightlife utility." },
+      { "url": "https://boilerroom.tv/", "title": "Boiler Room", "note": "Live electronic music media reference for session cards, dark video grids, artist context, broadcast energy, and club-culture editorial modules." },
+      { "url": "https://www.tomorrowland.com/", "title": "Tomorrowland", "note": "Festival reference for large-scale stage worlds, lineups, tickets, immersive event branding, bright spectacle, and multi-day navigation systems." },
+      { "url": "https://ultramusicfestival.com/", "title": "Ultra Music Festival", "note": "Electronic festival reference for lineup hierarchy, ticket CTAs, stage visuals, schedule blocks, and high-energy neon festival promotion." },
+      { "url": "https://www.amsterdam-dance-event.nl/", "title": "Amsterdam Dance Event", "note": "Electronic music conference and festival reference for program grids, venue maps, artist sessions, ticket passes, and citywide nightlife structure." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Rave%20Style%20website%20design", "title": "Pinterest - Rave Style Website Design", "note": "Gallery reference for Rave Style, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Pinterest - Rave Style Website Design." },
-      { "url": "https://www.awwwards.com/websites/culture/", "title": "Awwwards - Culture Websites", "note": "Gallery reference for Rave Style, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Awwwards - Culture Websites." },
-      { "url": "https://dribbble.com/search/Rave%20Style%20website%20design", "title": "Dribbble - Rave Style Website Design", "note": "Gallery reference for Rave Style, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dribbble - Rave Style Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=rave%20festival%20website%20design", "title": "Pinterest - Rave Festival Website Design", "note": "Moodboard reference for laser grids, wristbands, neon lineups, warehouse flyers, sound-system graphics, and festival-stage poster systems." },
+      { "url": "https://www.awwwards.com/websites/events/", "title": "Awwwards - Events Websites", "note": "Professional event-site gallery for schedule grids, ticket flows, venue modules, animated stage visuals, and responsive festival storytelling." },
+      { "url": "https://dribbble.com/search/rave%20festival%20website", "title": "Dribbble - Rave Festival Website", "note": "UI reference for BPM dashboards, neon event cards, stage maps, ticket badges, artist lineup blocks, and nightclub landing pages." }
     ]
   },
 
   "lo-fi": {
     "sites": [
-      { "url": "https://www.complex.com", "title": "Complex - Lo-Fi", "note": "Site reference for Lo-Fi, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Complex - Lo-Fi." },
-      { "url": "https://www.rollingstone.com/music/", "title": "Rolling Stone Music - Lo-Fi", "note": "Site reference for Lo-Fi, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Rolling Stone Music - Lo-Fi." },
-      { "url": "https://www.dazeddigital.com", "title": "Dazed - Lo-Fi", "note": "Site reference for Lo-Fi, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dazed - Lo-Fi." }
+      { "url": "https://lofigirl.com/", "title": "Lofi Girl", "note": "Lo-fi music brand reference for calm streaming identity, study-beat culture, illustrated listening worlds, shop/community paths, and soft always-on ambience." },
+      { "url": "https://chillhop.com/", "title": "Chillhop Music", "note": "Lo-fi and chill beats label reference for seasonal compilations, cozy release cards, playlist navigation, merch modules, and warm analog listening surfaces." },
+      { "url": "https://bandcamp.com/", "title": "Bandcamp", "note": "Independent music marketplace reference for album pages, track lists, purchase modules, community discovery, and low-polish artist-first music browsing." },
+      { "url": "https://www.nts.live/", "title": "NTS Radio", "note": "Independent radio reference for show archives, schedule rows, muted player controls, editorial curation, and listening-history interface patterns." },
+      { "url": "https://soundcloud.com/", "title": "SoundCloud", "note": "Music platform reference for waveform players, queue cards, creator profiles, comments, and casual playlist discovery across lo-fi communities." }
     ],
     "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Lo-Fi%20website%20design", "title": "Pinterest - Lo-Fi Website Design", "note": "Gallery reference for Lo-Fi, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Pinterest - Lo-Fi Website Design." },
-      { "url": "https://www.awwwards.com/websites/culture/", "title": "Awwwards - Culture Websites", "note": "Gallery reference for Lo-Fi, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Awwwards - Culture Websites." },
-      { "url": "https://dribbble.com/search/Lo-Fi%20website%20design", "title": "Dribbble - Lo-Fi Website Design", "note": "Gallery reference for Lo-Fi, useful for studying street culture, bold graphics, rough texture, and campaign-like visual energy through Dribbble - Lo-Fi Website Design." }
+      { "url": "https://www.pinterest.com/search/pins/?q=lofi%20music%20website%20design", "title": "Pinterest - Lo-fi Music Website Design", "note": "Moodboard reference for cassette decks, dusty sampler pads, paper notes, cozy room players, muted browns, tape labels, and analog music UI." },
+      { "url": "https://www.awwwards.com/websites/music-sound/", "title": "Awwwards - Music & Sound Websites", "note": "Professional music-site gallery for translating listening experiences, release cards, player controls, and artist/label navigation into polished responsive interfaces." },
+      { "url": "https://dribbble.com/search/lofi%20music%20website", "title": "Dribbble - Lo-fi Music Website", "note": "UI reference for relaxed music players, tape textures, waveform cards, warm desktop widgets, album queues, and quiet beat-making dashboards." }
     ]
   },
 

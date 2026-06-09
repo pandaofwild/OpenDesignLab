@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import type { StyleReferenceSource } from "@/data/designStyles";
 import { designStyles, getDesignStyleBySlug } from "@/data/designStyles";
 import { CopyTextButton } from "@/components/export/CopyTextButton";
 import { ColorPaletteGrid } from "@/components/design-style/ColorPaletteGrid";
@@ -61,6 +62,9 @@ const detailText = {
     pages: "Best pages",
     cautions: "Cautions",
     imagePrompt: "Image prompt",
+    referenceGalleries: "Reference galleries",
+    references: "References",
+    referenceSites: "Reference sites",
     promptCopied: "Prompt copied",
     copyPrompt: "Copy prompt",
   },
@@ -75,6 +79,9 @@ const detailText = {
     pages: "어울리는 페이지",
     cautions: "사용 시 주의점",
     imagePrompt: "이미지 생성 프롬프트",
+    referenceGalleries: "레퍼런스 갤러리",
+    references: "참고 레퍼런스",
+    referenceSites: "실제 사이트",
     promptCopied: "프롬프트 복사됨",
     copyPrompt: "프롬프트 복사",
   },
@@ -99,12 +106,12 @@ export function DesignStyleDetailPageContent({
         </LocalizedLink>
 
         <header className="specimen-sheet mt-8 grid gap-8 p-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end lg:p-7">
-          <div>
+          <div className="min-w-0">
             <p className="raw-label flex items-center gap-2 text-[var(--specimen-signal)]">
               <span className="specimen-bullet" aria-hidden="true" />
               {localizedStyle.category}
             </p>
-            <h1 className="raw-display mt-4 max-w-full text-[clamp(3.5rem,7vw,6.25rem)] leading-[0.82] text-[var(--specimen-ink)]">
+            <h1 className="raw-display mt-4 max-w-full break-words text-[clamp(3.25rem,5vw,5.25rem)] leading-[0.82] text-[var(--specimen-ink)] [overflow-wrap:anywhere]">
               {localizedStyle.nameKo}
             </h1>
             {localizedStyle.nameEn !== localizedStyle.nameKo ? (
@@ -124,7 +131,7 @@ export function DesignStyleDetailPageContent({
               ))}
             </div>
           </div>
-          <DesignStyleSampleRenderer style={localizedStyle} />
+          <DesignStyleSampleRenderer className="min-w-0" style={localizedStyle} />
         </header>
 
         <section className="mt-10 grid gap-4 lg:grid-cols-[0.8fr_1.2fr]">
@@ -160,6 +167,13 @@ export function DesignStyleDetailPageContent({
           </DesignStyleDetailSection>
         </div>
 
+        {style.research ? (
+          <section className="mt-4 grid gap-4 lg:grid-cols-2">
+            <ReferenceBlock items={style.research.referenceSites} title={t.referenceSites} />
+            <ReferenceBlock items={style.research.referenceGalleries} title={t.referenceGalleries} />
+          </section>
+        ) : null}
+
         <div className="mt-16">
           <RelatedDesignStyles slugs={style.related} />
         </div>
@@ -175,6 +189,29 @@ function ListBlock({ items, title }: { items: string[]; title: string }) {
         {items.map((item) => (
           <li className="border-t border-[var(--specimen-line-soft)] pt-2" key={item}>
             {item}
+          </li>
+        ))}
+      </ul>
+    </DesignStyleDetailSection>
+  );
+}
+
+function ReferenceBlock({
+  items,
+  title,
+}: {
+  items: StyleReferenceSource[];
+  title: string;
+}) {
+  return (
+    <DesignStyleDetailSection title={title}>
+      <ul className="space-y-3">
+        {items.map((item) => (
+          <li className="border-t border-[var(--specimen-line-soft)] pt-3" key={item.url}>
+            <a className="font-semibold underline-offset-4 hover:underline" href={item.url} rel="noreferrer" target="_blank">
+              {item.title}
+            </a>
+            <p className="mt-1 text-sm leading-6 text-[rgb(24_22_15_/_0.62)]">{item.note}</p>
           </li>
         ))}
       </ul>

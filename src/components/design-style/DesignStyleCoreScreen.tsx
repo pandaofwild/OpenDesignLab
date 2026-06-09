@@ -28,6 +28,15 @@ import { useStylePreset } from "@/components/style-preset/StylePresetProvider";
 
 const densityOptions: StyleDensity[] = ["airy", "normal", "tight"];
 const effectOptions: StyleEffect[] = ["none", "grain", "scanline", "glow", "gradient", "glitch"];
+const gridColumnOptions = ["1", "2", "3"] as const;
+
+type StyleGridColumns = (typeof gridColumnOptions)[number];
+
+const gridColumnClass: Record<StyleGridColumns, string> = {
+  "1": "grid-cols-1",
+  "2": "grid-cols-1 sm:grid-cols-2",
+  "3": "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3",
+};
 
 const densityLabel: Record<StyleDensity, string> = {
   airy: "Airy",
@@ -68,6 +77,7 @@ export function DesignStyleCoreScreen() {
   const activeEffect = searchParams.get("effect") ?? "all";
   const sort = searchParams.get("sort") ?? "category";
   const view = searchParams.get("view") === "list" ? "list" : "grid";
+  const gridColumns = normalizeGridColumns(searchParams.get("columns"));
 
   const categoryCounts = designStyleCategories.map((category) => ({
     category,
@@ -115,7 +125,7 @@ export function DesignStyleCoreScreen() {
     });
   }, [activeCategory, activeDensity, activeEffect, locale, q, sort]);
 
-  const visibleStyles = filteredStyles.slice(0, view === "list" ? 40 : 24);
+  const visibleStyles = filteredStyles;
   const activeFilterCount = [
     Boolean(q),
     activeCategory !== "all",
@@ -146,11 +156,12 @@ export function DesignStyleCoreScreen() {
     activeDensity !== "all" ||
     activeEffect !== "all" ||
     sort !== "category" ||
-    view !== "grid";
+    view !== "grid" ||
+    gridColumns !== "2";
 
   function resetFilters() {
     setParam("q", null, {
-      clear: ["category", "density", "effect", "sort", "view"],
+      clear: ["category", "density", "effect", "sort", "view", "columns"],
     });
   }
 
@@ -261,22 +272,40 @@ export function DesignStyleCoreScreen() {
                   {String(designStyles.length).padStart(3, "0")} styles
                 </p>
               </div>
-              <div className="flex flex-wrap gap-1.5 raw-label text-[var(--specimen-ink-55)]">
-                <SpecimenTinyChip active={sort === "category"} onClick={() => setParam("sort", "category")}>
-                  {locale === "ko" ? "카테고리순" : "Sort category"}
-                </SpecimenTinyChip>
-                <SpecimenTinyChip active={sort === "name"} onClick={() => setParam("sort", "name")}>
-                  {locale === "ko" ? "이름순" : "Name"}
-                </SpecimenTinyChip>
-                <SpecimenTinyChip active={sort === "density"} onClick={() => setParam("sort", "density")}>
-                  {locale === "ko" ? "밀도순" : "Density"}
-                </SpecimenTinyChip>
-                <SpecimenTinyChip active={view === "grid"} onClick={() => setParam("view", null)}>
-                  {locale === "ko" ? "그리드" : "Grid"}
-                </SpecimenTinyChip>
-                <SpecimenTinyChip active={view === "list"} onClick={() => setParam("view", "list")}>
-                  {locale === "ko" ? "리스트" : "List"}
-                </SpecimenTinyChip>
+              <div className="flex flex-col gap-2 lg:items-end">
+                <div className="flex flex-wrap gap-1.5 raw-label text-[var(--specimen-ink-55)]">
+                  <SpecimenTinyChip active={sort === "category"} onClick={() => setParam("sort", "category")}>
+                    {locale === "ko" ? "카테고리순" : "Sort category"}
+                  </SpecimenTinyChip>
+                  <SpecimenTinyChip active={sort === "name"} onClick={() => setParam("sort", "name")}>
+                    {locale === "ko" ? "이름순" : "Name"}
+                  </SpecimenTinyChip>
+                  <SpecimenTinyChip active={sort === "density"} onClick={() => setParam("sort", "density")}>
+                    {locale === "ko" ? "밀도순" : "Density"}
+                  </SpecimenTinyChip>
+                  <SpecimenTinyChip active={view === "grid"} onClick={() => setParam("view", null)}>
+                    {locale === "ko" ? "그리드" : "Grid"}
+                  </SpecimenTinyChip>
+                  <SpecimenTinyChip active={view === "list"} onClick={() => setParam("view", "list")}>
+                    {locale === "ko" ? "리스트" : "List"}
+                  </SpecimenTinyChip>
+                </div>
+                {view === "grid" ? (
+                  <div className="flex flex-wrap items-center gap-1.5 raw-label text-[var(--specimen-ink-55)]">
+                    <span className="mr-1 text-[var(--specimen-ink-55)]">
+                      {locale === "ko" ? "열" : "Columns"}
+                    </span>
+                    {gridColumnOptions.map((column) => (
+                      <SpecimenTinyChip
+                        active={gridColumns === column}
+                        key={column}
+                        onClick={() => setParam("columns", column === "2" ? null : column)}
+                      >
+                        {gridColumnControlLabel(column)}
+                      </SpecimenTinyChip>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </div>
 
@@ -295,14 +324,14 @@ export function DesignStyleCoreScreen() {
               />
               <StyleMetric
                 label={locale === "ko" ? "정렬" : "Order"}
-                note={view === "grid" ? (locale === "ko" ? "그리드 보기" : "grid view") : locale === "ko" ? "리스트 보기" : "list view"}
+                note={view === "grid" ? gridColumnMetricLabel(gridColumns, locale) : locale === "ko" ? "리스트 보기" : "list view"}
                 value={sortLabel}
               />
             </div>
 
             {visibleStyles.length ? (
               view === "grid" ? (
-                <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
+                <div className={cn("mt-5 grid gap-4", gridColumnClass[gridColumns])}>
                   {visibleStyles.map((style, index) => (
                     <CoreStyleCard
                       index={index}
@@ -588,7 +617,7 @@ function CoreStyleCard({
           </div>
         </div>
       </div>
-      <div className="border-t border-[var(--specimen-line)] p-2">
+      <div className="border-t border-[var(--specimen-line)] px-2 py-1.5">
         <ColorPaletteGrid compact palette={style.palette} />
       </div>
     </article>
@@ -664,4 +693,16 @@ function densityDisplayLabel(density: StyleDensity, locale: "en" | "ko") {
 
 function effectDisplayLabel(effect: StyleEffect, locale: "en" | "ko") {
   return locale === "ko" ? effectLabelKo[effect] : effectLabel[effect];
+}
+
+function normalizeGridColumns(value: string | null): StyleGridColumns {
+  return gridColumnOptions.includes(value as StyleGridColumns) ? value as StyleGridColumns : "2";
+}
+
+function gridColumnControlLabel(columns: StyleGridColumns) {
+  return columns;
+}
+
+function gridColumnMetricLabel(columns: StyleGridColumns, locale: "en" | "ko") {
+  return locale === "ko" ? `${columns}열 보기` : `${columns} columns`;
 }

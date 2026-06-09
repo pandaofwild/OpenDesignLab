@@ -511,15 +511,15 @@ const palettes: Record<string, DesignStylePalette> = {
     border: "#101010",
   },
   postmodernism: {
-    base: "#F8E64D",
-    surface: "#FFFFFF",
-    text: "#141414",
-    mutedText: "#5F4D78",
-    primary: "#141414",
-    accent: "#FF4FA3",
-    accent2: "#22C7A9",
-    accent3: "#5B5BD6",
-    border: "#141414",
+    base: "#F4EBDD",
+    surface: "#FFFDF5",
+    text: "#171414",
+    mutedText: "#61564D",
+    primary: "#171414",
+    accent: "#E13E2F",
+    accent2: "#2357C7",
+    accent3: "#F2D23C",
+    border: "#171414",
   },
   retro: {
     base: "#F8D992",
@@ -610,15 +610,15 @@ const palettes: Record<string, DesignStylePalette> = {
     border: "#1A1A1A",
   },
   "mid-century-modern": {
-    base: "#ECE3D0",
-    surface: "#FBF6EA",
-    text: "#2E2A22",
-    mutedText: "#7A6E58",
-    primary: "#2E2A22",
-    accent: "#E07A3F",
-    accent2: "#2F8F83",
-    accent3: "#E3B23C",
-    border: "#2E2A22",
+    base: "#E7D8BD",
+    surface: "#F8EEDB",
+    text: "#2B241A",
+    mutedText: "#76664D",
+    primary: "#5A321F",
+    accent: "#C9653A",
+    accent2: "#2F776B",
+    accent3: "#D4A33A",
+    border: "#3A2A1D",
   },
   futurism: {
     base: "#ECEFF4",
@@ -719,6 +719,28 @@ const palettes: Record<string, DesignStylePalette> = {
     accent3: "#B7FF3C",
     border: "#6DEBFF",
   },
+  classic: {
+    base: "#F3EFE5",
+    surface: "#FFFDF5",
+    text: "#161616",
+    mutedText: "#706A5D",
+    primary: "#10213F",
+    accent: "#7C1F2A",
+    accent2: "#C7A66A",
+    accent3: "#D8D1C4",
+    border: "#232019",
+  },
+  neoclassic: {
+    base: "#EEE7DA",
+    surface: "#FFF9EE",
+    text: "#24211D",
+    mutedText: "#71695B",
+    primary: "#312820",
+    accent: "#B79B68",
+    accent2: "#D8D0BF",
+    accent3: "#6E7A68",
+    border: "#AFA089",
+  },
   luxury: {
     base: "#F4EFE5",
     surface: "#FFF9EE",
@@ -729,6 +751,72 @@ const palettes: Record<string, DesignStylePalette> = {
     accent2: "#D8B66A",
     accent3: "#4D1F24",
     border: "#2B241A",
+  },
+  "old-money": {
+    base: "#EDE7D9",
+    surface: "#FBF5E8",
+    text: "#18251B",
+    mutedText: "#65705D",
+    primary: "#18251B",
+    accent: "#39533B",
+    accent2: "#C1A06D",
+    accent3: "#6D1F2A",
+    border: "#2D3B2B",
+  },
+  "art-deco": {
+    base: "#080806",
+    surface: "#14120E",
+    text: "#F7E7BD",
+    mutedText: "#B9A473",
+    primary: "#F7E7BD",
+    accent: "#D8A94B",
+    accent2: "#0E6B56",
+    accent3: "#7A2330",
+    border: "#D8A94B",
+  },
+  "art-nouveau": {
+    base: "#E8E2CE",
+    surface: "#F9F1DA",
+    text: "#253021",
+    mutedText: "#6A745E",
+    primary: "#253021",
+    accent: "#5F7F4F",
+    accent2: "#D3A75E",
+    accent3: "#9B5867",
+    border: "#58694C",
+  },
+  baroque: {
+    base: "#1F0E12",
+    surface: "#32151B",
+    text: "#F3DDB7",
+    mutedText: "#C49B82",
+    primary: "#F3DDB7",
+    accent: "#B9773B",
+    accent2: "#7C1828",
+    accent3: "#3F2016",
+    border: "#8E6042",
+  },
+  rococo: {
+    base: "#F4E9E8",
+    surface: "#FFF8F3",
+    text: "#3B2C2E",
+    mutedText: "#8A7476",
+    primary: "#3B2C2E",
+    accent: "#D4A7B4",
+    accent2: "#B7D0D4",
+    accent3: "#C8A45A",
+    border: "#D8C4BA",
+  },
+  gothic: {
+    base: "#0D0F12",
+    surface: "#171A1F",
+    text: "#ECE5D0",
+    mutedText: "#A4A3A0",
+    primary: "#ECE5D0",
+    accent: "#7D1128",
+    accent2: "#1E4A70",
+    accent3: "#C0A35A",
+    border: "#8D806A",
   },
   "organic-design": {
     base: "#E8E5D8",
@@ -741,16 +829,192 @@ const palettes: Record<string, DesignStylePalette> = {
     accent3: "#D7A6A0",
     border: "#3A4536",
   },
+  natural: {
+    base: "#E9E1D0",
+    surface: "#F7F1E4",
+    text: "#2B271F",
+    mutedText: "#746C5C",
+    primary: "#2B271F",
+    accent: "#A9874A",
+    accent2: "#C8B792",
+    accent3: "#6F7A5C",
+    border: "#5C5140",
+  },
+  botanical: {
+    base: "#E7EAD7",
+    surface: "#F6F2DF",
+    text: "#1F3425",
+    mutedText: "#66705F",
+    primary: "#1F3425",
+    accent: "#527A45",
+    accent2: "#B7C96E",
+    accent3: "#D29A8F",
+    border: "#365039",
+  },
+  "eco-design": {
+    base: "#EEF0D8",
+    surface: "#FAF8E7",
+    text: "#152118",
+    mutedText: "#5E6859",
+    primary: "#152118",
+    accent: "#4F8E3F",
+    accent2: "#D8F36A",
+    accent3: "#7DB7B2",
+    border: "#263B2B",
+  },
+  rustic: {
+    base: "#DCC6A4",
+    surface: "#F0E0C6",
+    text: "#2A1B12",
+    mutedText: "#765D48",
+    primary: "#2A1B12",
+    accent: "#7A3F22",
+    accent2: "#B56A38",
+    accent3: "#556744",
+    border: "#3E2819",
+  },
+  kinfolk: {
+    base: "#EDE6D8",
+    surface: "#F8F2E7",
+    text: "#22201B",
+    mutedText: "#777064",
+    primary: "#22201B",
+    accent: "#A98B4C",
+    accent2: "#D9D0B8",
+    accent3: "#6D755D",
+    border: "#BBB09B",
+  },
+  handmade: {
+    base: "#F0E0C8",
+    surface: "#FFF1D6",
+    text: "#262018",
+    mutedText: "#7A6853",
+    primary: "#262018",
+    accent: "#C45A34",
+    accent2: "#3F6F8F",
+    accent3: "#E2B64E",
+    border: "#3A2B1D",
+  },
+  craft: {
+    base: "#E7DDCB",
+    surface: "#F7EEDC",
+    text: "#1F1B17",
+    mutedText: "#6F6558",
+    primary: "#1F1B17",
+    accent: "#9E6A3B",
+    accent2: "#2D5963",
+    accent3: "#C8A15A",
+    border: "#2C241B",
+  },
+  "wabi-sabi": {
+    base: "#D8D4C8",
+    surface: "#ECE8DA",
+    text: "#1F211D",
+    mutedText: "#6B6B62",
+    primary: "#1F211D",
+    accent: "#B6A37D",
+    accent2: "#6E7568",
+    accent3: "#9B6044",
+    border: "#777267",
+  },
+  kitsch: {
+    base: "#FFF0D8",
+    surface: "#FFFDF2",
+    text: "#261A22",
+    mutedText: "#775666",
+    primary: "#E33B88",
+    accent: "#FF5E2C",
+    accent2: "#8B5CF6",
+    accent3: "#FFE44D",
+    border: "#261A22",
+  },
   kawaii: {
     base: "#FFF4F8",
     surface: "#FFFFFF",
-    text: "#262132",
-    mutedText: "#7A7288",
-    primary: "#262132",
-    accent: "#FF6FAE",
-    accent2: "#70D6FF",
-    accent3: "#FFE66D",
-    border: "#262132",
+    text: "#2A2135",
+    mutedText: "#786F87",
+    primary: "#FF5FA2",
+    accent: "#FF7AB8",
+    accent2: "#8EDAFF",
+    accent3: "#FFE66B",
+    border: "#2A2135",
+  },
+  "dopamine-design": {
+    base: "#FFF7D6",
+    surface: "#FFFFFF",
+    text: "#152214",
+    mutedText: "#5F6A44",
+    primary: "#1F7A36",
+    accent: "#FF3B7F",
+    accent2: "#2DDB6F",
+    accent3: "#FFD22E",
+    border: "#162316",
+  },
+  "pop-art": {
+    base: "#FFF2C2",
+    surface: "#FFFFFF",
+    text: "#101010",
+    mutedText: "#5A4E3B",
+    primary: "#101010",
+    accent: "#F21D2F",
+    accent2: "#155BFF",
+    accent3: "#FFD400",
+    border: "#101010",
+  },
+  "comic-book-style": {
+    base: "#F6EDCE",
+    surface: "#FFFDF2",
+    text: "#111111",
+    mutedText: "#615946",
+    primary: "#111111",
+    accent: "#E3202D",
+    accent2: "#1F69FF",
+    accent3: "#FFD13B",
+    border: "#111111",
+  },
+  "toy-design": {
+    base: "#E8F6FF",
+    surface: "#FFFFFF",
+    text: "#182432",
+    mutedText: "#627184",
+    primary: "#182432",
+    accent: "#EF2F32",
+    accent2: "#0FAF5A",
+    accent3: "#FFD23A",
+    border: "#182432",
+  },
+  "playful-design": {
+    base: "#F8F4FF",
+    surface: "#FFFFFF",
+    text: "#221F33",
+    mutedText: "#69627D",
+    primary: "#4A3AFF",
+    accent: "#FF7A1A",
+    accent2: "#36C48F",
+    accent3: "#F7D84A",
+    border: "#221F33",
+  },
+  "pastel-style": {
+    base: "#F7EAF1",
+    surface: "#FFFDFC",
+    text: "#332B2F",
+    mutedText: "#8A7881",
+    primary: "#8E5A6A",
+    accent: "#F8B7C9",
+    accent2: "#B9D9F2",
+    accent3: "#DCE8B8",
+    border: "#D8C6CE",
+  },
+  "bubble-design": {
+    base: "#E8FBFF",
+    surface: "#FFFFFF",
+    text: "#122E3A",
+    mutedText: "#5B7480",
+    primary: "#14A5B8",
+    accent: "#70D9FF",
+    accent2: "#FF8BD1",
+    accent3: "#B8F05C",
+    border: "#2B6A78",
   },
   streetwear: {
     base: "#EDE9DC",
@@ -942,6 +1206,310 @@ const styleSeeds: DesignStyleSeed[] = styleSeedTuples.map(([slug, nameKo, nameEn
   tags,
   tone,
 }));
+
+const futureDigitalResearch: Partial<Record<string, StyleResearchBrief>> = {
+  futurism: {
+    referenceSites: [
+      { title: "SpaceX", url: "https://www.spacex.com", note: "Operational aerospace reference for black fields, launch imagery, technical confidence, and stark future-facing product hierarchy." },
+      { title: "Boom Supersonic", url: "https://boomsupersonic.com", note: "Speed and supersonic aviation reference for velocity language, aerodynamic form, and optimistic engineering storytelling." },
+      { title: "NASA Artemis", url: "https://www.nasa.gov/humans-in-space/artemis/", note: "Official space-program reference for mission timelines, launch windows, orbital diagrams, and civic-science futurism." },
+    ],
+    referenceGalleries: [
+      { title: "Awwwards - Sci-Fi Websites", url: "https://www.awwwards.com/websites/sci-fi/", note: "Gallery reference for contemporary sci-fi web execution, launch scenes, technical modules, and future-product pacing." },
+      { title: "Dribbble - Futuristic Website", url: "https://dribbble.com/search/futuristic-website", note: "UI reference for speed lines, mission readouts, launch dashboards, and sharp future-tech layouts." },
+      { title: "Pinterest - Futurism Website Design", url: "https://www.pinterest.com/search/pins/?q=Futurism%20website%20design", note: "Moodboard reference for orbital diagrams, aerodynamic silhouettes, dark space surfaces, and luminous mission UI." },
+    ],
+    representativeTraits: ["Orbital mission framing", "Launch-window modules", "Velocity typography", "Aerodynamic diagonal cuts", "Dark civic-science confidence"],
+    avoidTraits: ["Generic blue tech dashboard", "Cyberpunk dystopia", "Toy rocket illustration", "Unreadable speed-line clutter"],
+    tokenIntent:
+      "Use dark aerospace surfaces, white mission text, red/blue launch accents, diagonal velocity cuts, orbital diagrams, and telemetry strips so the style reads as optimistic aerospace futurism.",
+  },
+  cyberpunk: {
+    referenceSites: [
+      { title: "Cyberpunk 2077 Official", url: "https://www.cyberpunk.net", note: "Genre-defining commercial reference for yellow hazard UI, neon city atmosphere, mercenary commerce, and dense sci-fi campaign panels." },
+      { title: "Razer", url: "https://www.razer.com", note: "Gaming hardware reference for black surfaces, electric green accents, RGB product framing, and aggressive cyber retail hierarchy." },
+      { title: "Republic of Gamers", url: "https://rog.asus.com", note: "Gaming-tech reference for angular neon panels, hardware telemetry, dark product staging, and high-contrast interface language." },
+    ],
+    referenceGalleries: [
+      { title: "Awwwards - Sci-Fi Websites", url: "https://www.awwwards.com/websites/sci-fi/", note: "Gallery reference for cyberpunk-adjacent dark storytelling, animated panels, neon contrast, and immersive sci-fi web craft." },
+      { title: "Dribbble - Cyberpunk Website", url: "https://dribbble.com/search/cyberpunk-website", note: "UI reference for black-market dashboards, neon street labels, cybernetic shops, and dense sci-fi interface modules." },
+      { title: "Pinterest - Cyberpunk Website Design", url: "https://www.pinterest.com/search/pins/?q=Cyberpunk%20website%20design", note: "Moodboard reference for dystopian city color, neon signage, hacked terminal surfaces, and cyber commerce pages." },
+    ],
+    representativeTraits: ["Night market signage", "Black-market interface panels", "Ripperdoc commerce", "Neon hazard contrast", "Dense city protocol labels"],
+    avoidTraits: ["Clean SaaS polish", "Soft AI gradients", "Retro synthwave nostalgia", "Pure glitch/error art without city culture"],
+    tokenIntent:
+      "Use black panels, cyan and magenta neon, hazard yellow accents, clipped corners, night-market signage, ripperdoc labels, and back-alley commerce widgets so the style reads as cyberpunk rather than glitch art.",
+  },
+  "neon-noir": {
+    referenceSites: [
+      { title: "Exo Ape", url: "https://exo-ape.com", note: "Cinematic agency reference for dark image-led pacing, dramatic contrast, restrained glow, and moody portfolio rhythm." },
+      { title: "Locomotive", url: "https://locomotive.ca", note: "Dark digital-studio reference for immersive storytelling, heavy contrast, cinematic transitions, and polished atmospheric UI." },
+      { title: "Refik Anadol", url: "https://refikanadol.com", note: "Media-art reference for luminous data atmospheres, gallery darkness, single-source glow, and immersive digital abstraction." },
+    ],
+    referenceGalleries: [
+      { title: "Awwwards - Dark Websites", url: "https://www.awwwards.com/websites/dark/", note: "Gallery reference for moody low-key websites, cinematic hero sections, subtle glow, and atmospheric dark interfaces." },
+      { title: "Dribbble - Neon Noir", url: "https://dribbble.com/search/neon-noir", note: "UI reference for noir poster framing, red-blue lighting, rain-soaked overlays, and case-file style cards." },
+      { title: "Pinterest - Neon Noir Website Design", url: "https://www.pinterest.com/search/pins/?q=Neon%20Noir%20website%20design", note: "Moodboard reference for night streets, neon reflections, film still layouts, and red room visual motifs." },
+    ],
+    representativeTraits: ["Rain-lit case files", "Red room focal light", "Low-key cinematic framing", "Noir typography", "Single-source glow"],
+    avoidTraits: ["Full cyberpunk clutter", "Generic dark agency hero", "Bright synthwave grid", "Flat black cards without atmosphere"],
+    tokenIntent:
+      "Use near-black backgrounds, red and blue neon accents, rain streaks, cinematic still frames, case-file modules, and restrained glow so the style reads as neon noir.",
+  },
+  techwear: {
+    referenceSites: [
+      { title: "ACRONYM", url: "https://acrnm.com", note: "Canonical techwear reference for utility catalog grids, monospace product codes, severe black surfaces, and garment-system logic." },
+      { title: "Stone Island", url: "https://www.stoneisland.com", note: "Technical apparel reference for material research, product indexing, subdued industrial color, and functional clothing presentation." },
+      { title: "Arc'teryx Veilance", url: "https://arcteryx.com/us/en/c/mens/veilance", note: "Minimal technical apparel reference for weatherproof shells, modular garment systems, restrained utility, and black-on-black retail rhythm." },
+    ],
+    referenceGalleries: [
+      { title: "Awwwards - Fashion Websites", url: "https://www.awwwards.com/websites/fashion/", note: "Gallery reference for advanced fashion commerce, technical product staging, editorial utility pages, and high-detail garment presentation." },
+      { title: "Dribbble - Techwear", url: "https://dribbble.com/search/techwear", note: "UI reference for utility labels, modular grids, spec sheets, hazard accents, and garment matrix interfaces." },
+      { title: "Pinterest - Techwear Website Design", url: "https://www.pinterest.com/search/pins/?q=Techwear%20website%20design", note: "Moodboard reference for black shells, strap systems, cargo modules, industrial labels, and tactical apparel layouts." },
+    ],
+    representativeTraits: ["Garment matrix", "Weatherproof shell systems", "Utility product codes", "Industrial orange labels", "Dense technical catalog"],
+    avoidTraits: ["Generic streetwear drop", "Luxury fashion softness", "Cyberpunk neon city", "Random tactical decoration"],
+    tokenIntent:
+      "Use black technical surfaces, mono product codes, utility labels, lime or orange hazard accents, modular garment grids, and material spec panels so the style reads as techwear.",
+  },
+  "high-tech": {
+    referenceSites: [
+      { title: "Vercel", url: "https://vercel.com", note: "Developer-platform reference for dark control-plane surfaces, deployment language, precise typography, and productized infrastructure UI." },
+      { title: "Linear", url: "https://linear.app", note: "Precision software reference for crisp panels, controlled gradients, system status, and high-end engineering-product pacing." },
+      { title: "Grafana", url: "https://grafana.com", note: "Observability reference for dashboards, live metrics, graph panels, incident status, and dense technical data visualization." },
+    ],
+    referenceGalleries: [
+      { title: "Awwwards - SaaS Websites", url: "https://www.awwwards.com/websites/saas/", note: "Gallery reference for high-tech SaaS landing pages, dashboard storytelling, product proof sections, and enterprise-grade interface polish." },
+      { title: "Dribbble - Dark Dashboard", url: "https://dribbble.com/search/dashboard-dark", note: "UI reference for deploy graphs, KPI cards, telemetry panels, edge-region maps, and control-plane interaction patterns." },
+      { title: "Pinterest - High-Tech Website Design", url: "https://www.pinterest.com/search/pins/?q=High-Tech%20website%20design", note: "Moodboard reference for dark product systems, data grids, technical blue-green accents, and advanced software surfaces." },
+    ],
+    representativeTraits: ["Control-plane dashboard", "Deploy graph", "Edge-region status", "Telemetry cards", "Precise engineering copy"],
+    avoidTraits: ["Cyberpunk fantasy", "Generic KPI dashboard", "Marketing-only gradient hero", "Unlabeled data decoration"],
+    tokenIntent:
+      "Use dark product surfaces, blue-green live accents, compact telemetry, deploy graphs, edge-region tables, and crisp typography so the style reads as high-tech software infrastructure.",
+  },
+  "ai-aesthetic": {
+    referenceSites: [
+      { title: "OpenAI", url: "https://openai.com", note: "AI-product reference for restrained model framing, quiet technical copy, generated media examples, and calm future-facing brand surfaces." },
+      { title: "Runway", url: "https://runwayml.com", note: "Generative media reference for creator tooling, model canvases, dark gradients, motion-ready thumbnails, and AI studio language." },
+      { title: "Luma AI", url: "https://lumalabs.ai", note: "Generative 3D/video reference for luminous scene previews, spatial AI outputs, soft gradients, and world-model visual cues." },
+    ],
+    referenceGalleries: [
+      { title: "Awwwards - AI Websites", url: "https://www.awwwards.com/websites/ai/", note: "Gallery reference for AI-product web aesthetics, prompt-first flows, generated imagery, luminous gradients, and model storytelling." },
+      { title: "Dribbble - AI Gradient", url: "https://dribbble.com/search/ai-gradient", note: "UI reference for model canvases, prompt bars, latent queues, generated thumbnails, and soft glowing mesh gradients." },
+      { title: "Pinterest - AI Aesthetic Website Design", url: "https://www.pinterest.com/search/pins/?q=AI%20Aesthetic%20website%20design", note: "Moodboard reference for neural gradients, synthetic scenes, AI product pages, and abstract model visualization." },
+    ],
+    representativeTraits: ["Model canvas", "Latent queue", "World-model preview", "Prompt bar", "Synthetic gradient scene"],
+    avoidTraits: ["Generic purple SaaS", "Cyberpunk terminal noise", "Unexplainable abstract blobs", "Static image without product workflow"],
+    tokenIntent:
+      "Use dark model-canvas surfaces, luminous violet/cyan gradients, prompt controls, generated thumbnails, latent queue modules, and synthetic scene previews so the style reads as AI product design.",
+  },
+  "hologram-style": {
+    referenceSites: [
+      { title: "Apple Vision Pro", url: "https://www.apple.com/apple-vision-pro/", note: "Spatial-computing reference for glassy depth, floating interfaces, soft refraction, premium translucency, and layered light." },
+      { title: "Magic Leap", url: "https://www.magicleap.com", note: "AR hardware reference for mixed-reality overlays, depth layers, transparent UI, and spatial interface language." },
+      { title: "Looking Glass Factory", url: "https://lookingglassfactory.com", note: "Holographic display reference for light-field depth, volumetric objects, prism surfaces, and floating 3D product cues." },
+    ],
+    referenceGalleries: [
+      { title: "Awwwards - 3D Websites", url: "https://www.awwwards.com/websites/3d/", note: "Gallery reference for depth-rich web execution, translucent 3D objects, spectral materials, and immersive product staging." },
+      { title: "Dribbble - Holographic", url: "https://dribbble.com/search/holographic", note: "UI reference for iridescent gradients, glass panels, prism stacks, and translucent holographic interface cards." },
+      { title: "Pinterest - Hologram Style Website Design", url: "https://www.pinterest.com/search/pins/?q=Hologram%20Style%20website%20design", note: "Moodboard reference for spectral light, transparent surfaces, holographic labels, and dimensional UI effects." },
+    ],
+    representativeTraits: ["Light-field depth", "Prism stack", "Translucent panels", "Floating spatial labels", "Spectral edge light"],
+    avoidTraits: ["Opaque glassmorphism cards only", "Chrome metal surfaces", "Flat neon dashboard", "Rainbow decoration without depth"],
+    tokenIntent:
+      "Use transparent panels, spectral gradients, light-field depth, prism cards, floating labels, and soft refraction so the style reads as holographic interface design.",
+  },
+  chromecore: {
+    referenceSites: [
+      { title: "Aesthetics Wiki - Chromecore", url: "https://aesthetics.fandom.com/wiki/Chromecore", note: "Trend definition reference for Y2K Chromecore, metallic gray texture, molded curves, silver plastic hardware, and late-90s/2000s product optimism." },
+      { title: "Web Design Museum - Y2K Aesthetic in Web Design", url: "https://www.webdesignmuseum.org/exhibitions/y2k-aesthetic-in-web-design", note: "Historical web reference for shiny turn-of-millennium interfaces, Flash-era chrome surfaces, translucent modules, and early digital futurism." },
+      { title: "AD Middle East - Chrome Decor Trend", url: "https://www.admiddleeast.com/story/nail-the-chrome-decor-trend-2025", note: "Current design reference for high-shine metallics, space-age finishes, liquid metal fashion influence, and reflective chrome as a tactile accent." },
+    ],
+    referenceGalleries: [
+      { title: "Awwwards - 3D Websites", url: "https://www.awwwards.com/websites/3d/", note: "Supplementary gallery reference for reflective 3D objects, metallic hero treatments, and modern chrome execution that can support the Y2K Chromecore direction." },
+      { title: "Goodmoods - Chromecore Moodboard", url: "https://www.goodmoods.com/fr/moodboards/chromecore", note: "Moodboard reference for mirror surfaces, liquefied metal, brushed finishes, chrome furniture, and reflective silver objects." },
+      { title: "Dribbble - Chrome Type", url: "https://dribbble.com/search/chrome-type", note: "UI reference for liquid-metal lettering, mirrored title treatments, specular highlights, and metallic visual identity systems." },
+      { title: "Pinterest - Chrome Y2K Design", url: "https://www.pinterest.com/search/pins/?q=chrome%20y2k%20design", note: "Moodboard reference for Y2K chrome type, silver gradients, molded gadget shells, reflective buttons, and early-2000s metallic graphics." },
+    ],
+    representativeTraits: ["Y2K chrome type", "Molded silver hardware", "Specular star flashes", "Rounded gadget shells", "Blue lens accents"],
+    avoidTraits: ["Generic luxury CGI", "Flat silver cards", "Holographic rainbow plastic", "Dark WebGL sculpture without Y2K hardware cues"],
+    tokenIntent:
+      "Use Y2K chrome lettering, molded silver device shells, bright specular flashes, gray-white metal gradients, blue lens accents, and early-2000s interface modules so the style reads as Chromecore instead of generic metallic luxury.",
+  },
+  "metaverse-style": {
+    referenceSites: [
+      { title: "Spatial", url: "https://www.spatial.io", note: "Virtual-space reference for 3D rooms, avatar presence, gallery-like spatial UI, and creator collaboration surfaces." },
+      { title: "The Sandbox", url: "https://www.sandbox.game", note: "Metaverse game reference for voxel worlds, avatar identity, land cards, marketplace modules, and playful spatial navigation." },
+      { title: "Meta Quest", url: "https://www.meta.com/quest/", note: "Consumer VR reference for headset product hierarchy, virtual worlds, immersive experiences, and spatial interaction framing." },
+    ],
+    referenceGalleries: [
+      { title: "Awwwards - WebGL Websites", url: "https://www.awwwards.com/websites/webgl/", note: "Gallery reference for immersive WebGL pages, virtual-space navigation, 3D scenes, and spatial interface craft." },
+      { title: "Dribbble - Metaverse", url: "https://dribbble.com/search/metaverse", note: "UI reference for avatars, lobby screens, virtual land cards, world shards, and social spatial dashboards." },
+      { title: "Pinterest - Metaverse Style Website Design", url: "https://www.pinterest.com/search/pins/?q=Metaverse%20Style%20website%20design", note: "Moodboard reference for avatar meshes, glowing world maps, virtual rooms, and playful 3D interface layouts." },
+    ],
+    representativeTraits: ["Spatial lobby", "Avatar mesh", "World shard cards", "Virtual room grid", "Social presence labels"],
+    avoidTraits: ["Flat SaaS dashboard", "Cyberpunk city mood", "Generic gaming landing", "3D decoration without navigation"],
+    tokenIntent:
+      "Use virtual room depth, avatar cards, neon world shards, spatial navigation, purple/cyan ambience, and social presence modules so the style reads as metaverse interface design.",
+  },
+};
+
+const luxuryClassicResearch: Record<string, StyleResearchBrief> = {
+  classic: {
+    referenceSites: [
+      { title: "Ralph Lauren", url: "https://www.ralphlauren.com", note: "Heritage fashion reference for classic American proportions, serif restraint, navy cream contrast, and archive-led commerce." },
+      { title: "Brooks Brothers", url: "https://www.brooksbrothers.com", note: "Classic wardrobe reference for traditional menswear grids, conservative product hierarchy, and balanced catalog pacing." },
+      { title: "Hermes", url: "https://www.hermes.com/us/en/", note: "Luxury heritage reference for quiet navigation, material-led product framing, and restrained editorial storytelling." },
+      { title: "Burberry", url: "https://www.burberry.com", note: "British heritage reference for classic outerwear, campaign imagery, refined commerce modules, and subdued brand rhythm." },
+      { title: "Smythson", url: "https://www.smythson.com", note: "Stationery and leather goods reference for heritage product detail, small luxury objects, and formal serif-adjacent pacing." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Classic Website Design", url: "https://www.pinterest.com/search/pins/?q=classic%20website%20design", note: "Moodboard reference for balanced serif layouts, heritage product cards, ivory surfaces, and timeless editorial web composition." },
+      { title: "Awwwards - Luxury Websites", url: "https://www.awwwards.com/websites/luxury/", note: "Gallery reference for premium web craft, restrained interaction, refined spacing, and high-end product storytelling." },
+      { title: "Dribbble - Classic Website Design", url: "https://dribbble.com/search/classic%20website%20design", note: "UI reference for formal landing pages, heritage catalogs, serif hierarchy, and classic commerce modules." },
+    ],
+    representativeTraits: ["Balanced serif hierarchy", "Heritage product rhythm", "Ivory and navy restraint", "Archive catalog modules", "Material credibility"],
+    avoidTraits: ["Overly ornate palace styling", "Generic luxury gold overload", "Modern SaaS minimalism", "Streetwear campaign density"],
+    tokenIntent: "Use ivory surfaces, navy and oxblood accents, serif display type, thin rules, and symmetrical catalog modules so Classic reads as timeless commerce rather than ornate luxury.",
+  },
+  neoclassic: {
+    referenceSites: [
+      { title: "Ritz Paris", url: "https://www.ritzparis.com", note: "Palace hotel reference for grand symmetry, cream interiors, reservation flow, and refined hospitality hierarchy." },
+      { title: "Hotel de Crillon", url: "https://www.rosewoodhotels.com/en/hotel-de-crillon", note: "Neoclassical Paris hotel reference for marble, column rhythm, quiet luxury booking modules, and formal imagery." },
+      { title: "Le Meurice", url: "https://www.dorchestercollection.com/paris/le-meurice", note: "Paris palace reference for classical interiors, Louis-style detailing, editorial hospitality pacing, and refined CTA structure." },
+      { title: "Le Bristol Paris", url: "https://www.oetkercollection.com/hotels/le-bristol-paris/", note: "Luxury hotel reference for restrained palatial tone, suite cards, garden imagery, and stately service storytelling." },
+      { title: "Chateau de Versailles", url: "https://en.chateauversailles.fr/", note: "Cultural architecture reference for symmetry, classical order, gilded restraint, and formal spatial hierarchy." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Neoclassical Interior Website", url: "https://www.pinterest.com/search/pins/?q=neoclassical%20interior%20website%20design", note: "Moodboard reference for marble portals, column spacing, hotel pages, and modern classical interior web direction." },
+      { title: "Awwwards - Hotel Websites", url: "https://www.awwwards.com/websites/hotel/", note: "Gallery reference for luxury hospitality interactions, reservation flows, room cards, and high-end editorial pacing." },
+      { title: "Dribbble - Neoclassical Website", url: "https://dribbble.com/search/neoclassical%20website", note: "UI reference for neoclassical landing pages, column motifs, formal booking strips, and elegant serif hierarchy." },
+    ],
+    representativeTraits: ["Column rhythm", "Marble symmetry", "Palace hotel booking strip", "Champagne accent", "Formal center alignment"],
+    avoidTraits: ["Baroque darkness", "Rococo pastel playfulness", "Generic real estate template", "Excessive gold ornament"],
+    tokenIntent: "Use marble ivory, champagne accents, centered serif type, symmetrical cards, and hotel reservation modules so Neoclassic reads as modern classical hospitality.",
+  },
+  luxury: {
+    referenceSites: [
+      { title: "Loewe", url: "https://www.loewe.com", note: "Luxury fashion reference for craft-led imagery, muted surfaces, refined product framing, and spare editorial commerce." },
+      { title: "Bottega Veneta", url: "https://www.bottegaveneta.com", note: "Quiet luxury reference for material close-ups, low-copy product hierarchy, leather texture, and restrained navigation." },
+      { title: "Celine", url: "https://www.celine.com", note: "Fashion reference for high-end image pacing, black and cream contrast, serif-adjacent restraint, and minimal commerce structure." },
+      { title: "Chanel", url: "https://www.chanel.com", note: "Luxury house reference for black white hierarchy, product storytelling, editorial modules, and tightly controlled brand rhythm." },
+      { title: "Dior", url: "https://www.dior.com", note: "Couture and beauty reference for polished imagery, refined product detail, campaign sections, and elevated shopping flow." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Luxury Website Design", url: "https://www.pinterest.com/search/pins/?q=luxury%20website%20design", note: "Moodboard reference for premium product pages, fashion imagery, cream black palettes, and restrained luxury layouts." },
+      { title: "Awwwards - Luxury Websites", url: "https://www.awwwards.com/websites/luxury/", note: "Gallery reference for high-end web execution, premium imagery, elegant motion, and carefully paced landing pages." },
+      { title: "Dribbble - Luxury Website", url: "https://dribbble.com/search/luxury%20website", note: "UI reference for luxury ecommerce cards, refined product detail pages, spare CTAs, and sophisticated editorial grids." },
+    ],
+    representativeTraits: ["Material close-up", "Low-copy commerce", "Cream black restraint", "Polished product cards", "Silent CTA hierarchy"],
+    avoidTraits: ["Generic gold badge luxury", "Busy magazine collage", "Casual lifestyle warmth", "Baroque ornament"],
+    tokenIntent: "Use warm ivory, black ink, antique gold, thin rules, and spacious product imagery so Luxury reads as high-end ecommerce rather than decorative premium styling.",
+  },
+  "old-money": {
+    referenceSites: [
+      { title: "Loro Piana", url: "https://us.loropiana.com", note: "Quiet luxury reference for cashmere texture, understated product storytelling, neutral palette, and soft heritage pacing." },
+      { title: "Brunello Cucinelli", url: "https://shop.brunellocucinelli.com", note: "Heritage luxury reference for humanistic editorial sections, muted wardrobe cards, and refined material presentation." },
+      { title: "Ralph Lauren", url: "https://www.ralphlauren.com", note: "Old-money reference for club lifestyle imagery, equestrian and country cues, navy cream palette, and heritage commerce." },
+      { title: "Drake's", url: "https://www.drakes.com", note: "Classic menswear reference for relaxed tailoring, editorial lookbook rhythm, and understated product grids." },
+      { title: "The Rake", url: "https://therake.com", note: "Classic menswear editorial reference for heritage tone, gentleman wardrobe language, and magazine-commerce crossover." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Old Money Website Design", url: "https://www.pinterest.com/search/pins/?q=old%20money%20website%20design", note: "Moodboard reference for club palettes, quiet luxury wardrobes, heritage interiors, and understated editorial layouts." },
+      { title: "Awwwards - Fashion Websites", url: "https://www.awwwards.com/websites/fashion/", note: "Gallery reference for polished fashion web execution, lookbook flow, and premium apparel storytelling." },
+      { title: "Dribbble - Old Money Website", url: "https://dribbble.com/search/old%20money%20website", note: "UI reference for old-money landing pages, country club cues, classic fashion cards, and restrained navigation." },
+    ],
+    representativeTraits: ["Club lifestyle cues", "Cashmere and leather texture", "Forest green and navy", "Crest-like restraint", "Wardrobe cards"],
+    avoidTraits: ["Flashy gold luxury", "Streetwear drop language", "Generic preppy cartoon", "Overly polished tech minimalism"],
+    tokenIntent: "Use cream, forest green, navy, camel, leather accents, serif display, and calm product cards so Old Money reads as understated heritage.",
+  },
+  "art-deco": {
+    referenceSites: [
+      { title: "Claridge's", url: "https://www.claridges.co.uk", note: "Luxury hotel reference for Art Deco glamour, black gold contrast, grand hospitality hierarchy, and refined evening atmosphere." },
+      { title: "The Savoy London", url: "https://www.thesavoylondon.com", note: "Historic hotel reference for Deco-era elegance, polished room cards, theatre-like hospitality pacing, and formal navigation." },
+      { title: "The Carlyle", url: "https://www.rosewoodhotels.com/en/the-carlyle-new-york", note: "New York hotel reference for Art Deco heritage, jazz lounge mood, luxury room modules, and dark polished composition." },
+      { title: "Radio City Music Hall", url: "https://www.msg.com/radio-city-music-hall", note: "Architecture and entertainment reference for Deco vertical rhythm, stage glamour, marquee energy, and geometric spectacle." },
+      { title: "Empire State Building", url: "https://www.esbnyc.com", note: "Art Deco landmark reference for stepped geometry, vertical hierarchy, metallic accents, and iconic architectural order." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Art Deco Website Design", url: "https://www.pinterest.com/search/pins/?q=art%20deco%20website%20design", note: "Moodboard reference for fan motifs, gold linework, black backgrounds, geometric borders, and Deco hospitality pages." },
+      { title: "Awwwards - Luxury Websites", url: "https://www.awwwards.com/websites/luxury/", note: "Gallery reference for high-end dark luxury sites, polished motion, premium hospitality layouts, and sophisticated visual systems." },
+      { title: "Dribbble - Art Deco Website", url: "https://dribbble.com/search/art%20deco%20website", note: "UI reference for Art Deco landing pages, geometric frames, fan patterns, and glamorous hotel or bar interfaces." },
+    ],
+    representativeTraits: ["Fan geometry", "Stepped vertical rhythm", "Black and brass contrast", "Evening hospitality", "Marquee-like modules"],
+    avoidTraits: ["Random gold clutter", "Baroque scrollwork", "Cyber neon nightlife", "Flat retro poster styling"],
+    tokenIntent: "Use black lacquer, brass, emerald, double borders, fan arcs, and symmetrical hotel modules so Art Deco reads as polished geometric glamour.",
+  },
+  "art-nouveau": {
+    referenceSites: [
+      { title: "Mucha Foundation", url: "https://www.muchafoundation.org", note: "Primary visual reference for flowing ornamental line, floral framing, elegant figures, and Art Nouveau poster rhythm." },
+      { title: "Horta Museum", url: "https://www.hortamuseum.be/en", note: "Architecture reference for organic ironwork, whiplash curves, interior structure, and decorative spatial flow." },
+      { title: "Casa Batllo", url: "https://www.casabatllo.es/en/", note: "Gaudi architecture reference for organic facade rhythm, curved surfaces, color, and immersive decorative storytelling." },
+      { title: "V&A - Introduction to Art Nouveau", url: "https://www.vam.ac.uk/articles/an-introduction-to-art-nouveau", note: "Museum reference for plant forms, sinuous lines, glass, metalwork, and the style's decorative vocabulary." },
+      { title: "The Met - Art Nouveau", url: "https://www.metmuseum.org/toah/hd/artn/hd_artn.htm", note: "Historical reference for Art Nouveau objects, botanical ornament, material craft, and international decorative language." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Art Nouveau Website Design", url: "https://www.pinterest.com/search/pins/?q=art%20nouveau%20website%20design", note: "Moodboard reference for vine frames, botanical landing pages, perfume packaging, and organic line-based web composition." },
+      { title: "Awwwards - Illustration Websites", url: "https://www.awwwards.com/websites/illustration/", note: "Gallery reference for illustrated web craft, ornamental interaction, organic imagery, and polished decorative storytelling." },
+      { title: "Dribbble - Art Nouveau Website", url: "https://dribbble.com/search/art%20nouveau%20website", note: "UI reference for Art Nouveau cards, botanical frames, curved product panels, and decorative landing pages." },
+    ],
+    representativeTraits: ["Whiplash line", "Botanical frame", "Perfume or poster object", "Warm green gold palette", "Organic internal shapes"],
+    avoidTraits: ["Generic organic minimalism", "Rococo shell pastel", "Baroque gold heaviness", "Flat botanical clipart"],
+    tokenIntent: "Use botanical greens, warm gold, serif type, vine-like internal frames, and curved product modules so Art Nouveau reads as plant-led ornament rather than generic nature style.",
+  },
+  baroque: {
+    referenceSites: [
+      { title: "Chateau de Versailles", url: "https://en.chateauversailles.fr/", note: "Palace reference for dramatic interiors, gilded frames, ceremonial hierarchy, and dense classical storytelling." },
+      { title: "Louvre", url: "https://www.louvre.fr/en", note: "Museum reference for Baroque painting context, gallery pacing, dark image-led pages, and high-cultural content structure." },
+      { title: "Kunsthistorisches Museum Wien", url: "https://www.khm.at/en/", note: "Museum reference for old master imagery, dark gallery atmosphere, gilded heritage, and dramatic art presentation." },
+      { title: "Rijksmuseum", url: "https://www.rijksmuseum.nl/en", note: "Art museum reference for Rembrandt-era image drama, collection cards, editorial labels, and museum commerce structure." },
+      { title: "Museo del Prado", url: "https://www.museodelprado.es/en", note: "Museum reference for Spanish Baroque collection tone, deep imagery, cultural navigation, and formal exhibition hierarchy." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Baroque Website Design", url: "https://www.pinterest.com/search/pins/?q=baroque%20website%20design", note: "Moodboard reference for candlelit palettes, ornate frames, dramatic contrast, and gallery-like web compositions." },
+      { title: "Awwwards - Art Websites", url: "https://www.awwwards.com/websites/art-culture/", note: "Gallery reference for art and culture sites, exhibition pacing, dramatic imagery, and immersive cultural landing pages." },
+      { title: "Dribbble - Baroque Website", url: "https://dribbble.com/search/baroque%20website", note: "UI reference for Baroque-inspired landing pages, dark gold interfaces, ornate cards, and theatrical product pages." },
+    ],
+    representativeTraits: ["Chiaroscuro", "Gilded frame", "Deep wine and black", "Museum gallery rhythm", "Theatrical CTA"],
+    avoidTraits: ["Deco fan geometry", "Rococo lightness", "Fantasy castle UI", "Unreadable ornament density"],
+    tokenIntent: "Use deep shadows, wine, antique gold, serif display, framed hero imagery, and dramatic museum modules so Baroque reads as theatrical luxury.",
+  },
+  rococo: {
+    referenceSites: [
+      { title: "Wallace Collection", url: "https://www.wallacecollection.org", note: "Collection reference for Rococo interiors, porcelain, gilt, pastel rooms, and refined decorative object presentation." },
+      { title: "The Frick Collection", url: "https://www.frick.org", note: "Museum reference for intimate salon rhythm, decorative arts, calm collection cards, and refined interior storytelling." },
+      { title: "Getty Collection", url: "https://www.getty.edu/art/collection/", note: "Collection reference for French decorative arts, porcelain, furniture, object detail, and museum-grade visual hierarchy." },
+      { title: "The Met - Rococo", url: "https://www.metmuseum.org/toah/hd/roco/hd_roco.htm", note: "Historical reference for Rococo lightness, asymmetry, shell ornament, pastel palette, and intimate decorative style." },
+      { title: "V&A - Rococo", url: "https://www.vam.ac.uk/articles/rococo", note: "Museum reference for shell curves, delicate ornament, pale color, and the ornamental language of Rococo design." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Rococo Website Design", url: "https://www.pinterest.com/search/pins/?q=rococo%20website%20design", note: "Moodboard reference for pastel salon pages, shell ornaments, porcelain cards, beauty products, and light decorative layouts." },
+      { title: "Awwwards - Luxury Websites", url: "https://www.awwwards.com/websites/luxury/", note: "Gallery reference for polished premium web pacing, delicate product sections, and refined lifestyle landing pages." },
+      { title: "Dribbble - Rococo Website", url: "https://dribbble.com/search/rococo%20website", note: "UI reference for Rococo-inspired beauty pages, pastel cards, ornamental panels, and elegant product grids." },
+    ],
+    representativeTraits: ["Pastel salon", "Shell curve", "Porcelain product cards", "Light asymmetry", "Delicate gold"],
+    avoidTraits: ["Baroque heavy darkness", "Kawaii pastel childishness", "Minimal beige flatness", "Art Nouveau vine line"],
+    tokenIntent: "Use porcelain cream, blush, pale blue, delicate gold, serif type, and shell-like internal cards so Rococo reads as light ornamental luxury.",
+  },
+  gothic: {
+    referenceSites: [
+      { title: "Westminster Abbey", url: "https://www.westminster-abbey.org", note: "Gothic architecture reference for pointed arches, stone rhythm, sacred verticality, and historic visitor page hierarchy." },
+      { title: "Notre-Dame de Paris", url: "https://www.notredamedeparis.fr/en/", note: "Cathedral reference for Gothic facade language, restoration storytelling, vertical navigation, and stained-glass atmosphere." },
+      { title: "Cologne Cathedral", url: "https://www.koelner-dom.de/en", note: "Cathedral reference for spires, dark stone, sacred scale, visitor information, and vertical architectural rhythm." },
+      { title: "The Met - Gothic Art", url: "https://www.metmuseum.org/toah/hd/mgot/hd_mgot.htm", note: "Historical reference for Gothic art, pointed forms, religious objects, stained glass, and medieval visual language." },
+      { title: "V&A - Gothic Style", url: "https://www.vam.ac.uk/articles/gothic-style", note: "Museum reference for Gothic arches, tracery, stonework, manuscript detail, and decorative structural vocabulary." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Gothic Website Design", url: "https://www.pinterest.com/search/pins/?q=gothic%20website%20design", note: "Moodboard reference for dark cathedral pages, pointed arch motifs, stained glass palettes, and sacred editorial layouts." },
+      { title: "Awwwards - Dark Websites", url: "https://www.awwwards.com/websites/dark/", note: "Gallery reference for polished dark web execution, strong contrast, dramatic imagery, and immersive atmospheric pages." },
+      { title: "Dribbble - Gothic Website", url: "https://dribbble.com/search/gothic%20website", note: "UI reference for Gothic landing pages, pointed-arch cards, dark fashion pages, and stained-glass interface motifs." },
+    ],
+    representativeTraits: ["Pointed arch", "Stone verticality", "Stained glass color", "Dark sacred mood", "Vaulted modules"],
+    avoidTraits: ["Halloween novelty", "Cyberpunk dark neon", "Baroque candle palace", "Generic black fashion page"],
+    tokenIntent: "Use charcoal stone, wine, blue glass, aged gold, serif type, sharp arches, and vertical modules so Gothic reads as cathedral structure rather than generic dark style.",
+  },
+};
 
 const styleContentOverrides: Record<string, StyleContentOverride> = {
   minimalism: {
@@ -1346,10 +1914,10 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         { title: "Awwwards - Brutalism Collection", url: "https://www.awwwards.com/awwwards/collections/brutalism/", note: "Gallery reference for brutalist and neo-brutalist web executions, hard-edged modules, and expressive web-native structures." },
         { title: "Dribbble - Neo Brutalism", url: "https://dribbble.com/tags/neo-brutalism", note: "UI reference for neo-brutalist dashboards, cards, buttons, pricing blocks, and high-contrast product surfaces." },
       ],
-      representativeTraits: ["Chunky app UI", "Offset shadows", "Bright panels", "Thick black controls", "Direct product modules"],
-      avoidTraits: ["Raw archival brutalism", "Anti-design disorder", "Soft rounded minimalism"],
+      representativeTraits: ["Raw component kit", "Native form controls", "Pricing table", "Offset shadows", "Thick black buttons"],
+      avoidTraits: ["Postmodern cultural collage", "Classical quotation", "Raw archival brutalism", "Anti-design disorder", "Soft rounded minimalism"],
       tokenIntent:
-        "Use bright panels, thick black outlines, block shadows, compact spacing, and app-like cards so the style reads as neo brutalism.",
+        "Use bright panels, thick black outlines, block shadows, compact spacing, native form controls, pricing tables, obvious buttons, and app-like modules so the style reads as neo brutalism rather than postmodernism.",
     },
   },
   "anti-design": {
@@ -1505,34 +2073,124 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     },
   },
   postmodernism: {
-    summary: "포스트모더니즘은 Memphis식 패턴, 아이러니한 색 조합, 유희적인 형태를 섞어 규칙을 즐겁게 비트는 스타일입니다.",
+    summary: "포스트모더니즘은 하나의 규칙보다 역사적 인용, 대중문화, 아이러니한 색과 형태를 의도적으로 섞는 스타일입니다.",
     description:
-      "포스트모더니즘은 장난스럽지만 의도적인 혼합입니다. Memphis Milano, Vitra, Design Museum 사례처럼 기하학 패턴, 색면, 둥근/각진 형태, 상품 카드가 서로 다른 시대의 언어를 섞으며 하나의 웹 포털처럼 보여야 합니다.",
-    visualFeatures: ["Memphis 패턴과 기하학 조각이 강한 식별자가 됩니다.", "카드와 배지는 일부러 서로 다른 형태를 사용합니다.", "색은 밝고 충돌하지만 화면은 유쾌한 질서를 유지합니다."],
-    colorPalette: ["노랑, 핑크, 민트, 보라 같은 밝은 색을 조합합니다.", "흰색 표면으로 정보 영역을 분리합니다.", "검정 선을 사용해 장난스러운 모양을 묶습니다."],
-    typography: ["굵은 제목과 작은 제품 라벨을 대비시킵니다.", "세리프보다 그래픽한 산세리프가 잘 맞습니다.", "번호와 가격 같은 기능 텍스트를 장식처럼 활용합니다."],
-    layoutTraits: ["상품/전시/브랜드 포털처럼 여러 카드가 한 화면에 배치됩니다.", "도형 장식이 카드 주변을 리듬감 있게 감쌉니다.", "모바일에서는 패턴을 줄이고 카드 순서를 명확히 합니다."],
-    useCases: ["디자인 숍", "전시 굿즈", "문화 브랜드", "컬러풀 제품 랜딩"],
-    goodFor: ["밝고 아이러니한 브랜드 태도", "상품 자체가 그래픽한 커머스", "디자인 역사나 오브젝트를 소개하는 페이지", "엄격함보다 즐거운 혼합이 중요한 프로젝트"],
-    cautions: ["Maximalism보다 패턴의 언어가 더 명확해야 합니다.", "Anti-Design처럼 무질서하게 보이면 포스트모던의 유희가 약해집니다.", "텍스트 대비를 반드시 확보해야 합니다."],
+      "포스트모더니즘은 장난스러운 Memphis 패턴만을 뜻하지 않습니다. 고전적 형태, 팝 문화, 디자인 사료, 상품 카드, 충돌하는 색과 타입을 한 화면에 의도적으로 배치하면서도 실제 탐색 가능한 웹 구조를 유지해야 합니다.",
+    visualFeatures: ["고전적 오브젝트, 사진, 세리프 인용문, 팝 상품 라벨이 서로 다른 시대의 언어를 섞습니다.", "Memphis 패턴은 강한 악센트로 쓰되 전체 정체성을 독점하지 않습니다.", "문화 아카이브, 오브젝트 인덱스, 숍 노트가 한 화면에 아이러니한 질서를 만듭니다."],
+    colorPalette: ["크림과 검정 구조 위에 코발트, 레드, 노랑, 민트 같은 충돌색을 얹습니다.", "밝은 색만으로 채우기보다 사진과 중립 표면을 함께 둡니다.", "색면은 장식이 아니라 카드와 정보 구역을 나누는 장치로 씁니다."],
+    typography: ["굵은 산세리프 제목과 작은 아카이브 라벨을 대비시킵니다.", "필요하면 세리프 문장을 섞어 역사적 인용감을 만듭니다.", "번호, 에디션, 섹션명 같은 기능 텍스트를 그래픽 리듬으로 활용합니다."],
+    layoutTraits: ["전시, 아카이브, 숍이 섞인 문화 포털처럼 구성합니다.", "고전 인용 블록, 문화 콜라주, 오브젝트 인덱스를 중심으로 배치합니다.", "모바일에서는 장식보다 카드 순서와 텍스트 대비를 우선합니다."],
+    useCases: ["디자인 아카이브", "전시 웹", "컬처 커머스", "브랜드 에디토리얼"],
+    goodFor: ["디자인 역사와 현대 상품을 함께 보여주는 프로젝트", "엄격한 모더니즘보다 혼합과 해석이 중요한 브랜드", "문화 기관, 오브젝트 숍, 전시 캠페인", "유머와 지적 레퍼런스를 함께 쓰는 웹 경험"],
+    cautions: ["Memphis만 반복하면 포스트모더니즘이 아니라 Memphis 리바이벌처럼 보입니다.", "Maximalism처럼 패턴 과잉으로 흐르지 않게 해야 합니다.", "Anti-Design처럼 무질서해지면 의도적인 혼합이 사라집니다.", "텍스트 대비와 실제 탐색 구조를 반드시 유지해야 합니다."],
     imagePrompt:
-      "A postmodern Memphis-style website reference image with yellow background, geometric pattern pieces, playful product cards, pink mint purple accents, black outline structure, no logo, no watermark",
+      "A sophisticated postmodern editorial commerce website reference image with classical column fragments, archival photo panels, terrazzo plinths, mismatched cards, black outline modules, cobalt blue, tomato red, acid yellow, muted pink, pale mint, warm cream base, cultural and ironic mood, no logo, no watermark",
     research: {
       referenceSites: [
-        { title: "Memphis Milano", url: "https://www.memphis-milano.com", note: "Primary postmodern reference for Memphis forms, bright geometric surfaces, ironic color, and playful product presentation." },
-        { title: "Vitra - The Memphis Group", url: "https://www.vitra.com/en-us/magazine/details/the-memphis-group", note: "Design-history reference for postmodern pattern, anti-functional color, expressive furniture, and cultural context." },
-        { title: "Design Museum - Memphis: Plastic Field", url: "https://designmuseum.org/exhibitions/memphis-plastic-field", note: "Museum reference for postmodern exhibition framing, graphic motifs, playful material, and Memphis visual vocabulary." },
+        { title: "MoMA - Postmodernism", url: "https://www.moma.org/collection/terms/postmodernism", note: "Broad design-history reference for postmodern mixing of historical styles, popular culture, irony, and ornament." },
+        { title: "Vitra - The Memphis Group", url: "https://www.vitra.com/en-us/magazine/details/the-memphis-group", note: "Design-history reference for Memphis as one postmodern branch, with expressive furniture, pattern, color, and cultural context." },
+        { title: "Memphis Milano", url: "https://www.memphis-milano.com", note: "Visual reference for Memphis forms, bright geometric surfaces, ironic color, and playful product presentation as an accent language." },
       ],
       referenceGalleries: [
-        { title: "Pinterest - Postmodern Memphis Website Design", url: "https://www.pinterest.com/search/pins/?q=postmodern%20website%20design%20memphis", note: "Moodboard reference for Memphis patterns, playful geometry, ironic type, and colorful postmodern web composition." },
-        { title: "Awwwards - Colorful Websites", url: "https://www.awwwards.com/websites/colorful/", note: "Closest gallery reference for postmodern-adjacent color, expressive geometry, layered campaign pages, and playful digital rhythm." },
-        { title: "Dribbble - Postmodern Website", url: "https://dribbble.com/search/postmodern%20website", note: "UI reference for Memphis cards, mismatched shapes, colorful product modules, and ironic interface treatments." },
+        { title: "Awwwards - Colorful Websites", url: "https://www.awwwards.com/websites/colorful/", note: "Gallery reference for expressive color, layered campaign pages, and postmodern-adjacent digital rhythm." },
+        { title: "Dribbble - Postmodern Website", url: "https://dribbble.com/search/postmodern%20website", note: "UI reference for mismatched cards, editorial commerce modules, ironic type, and colorful interface treatments." },
+        { title: "Pinterest - Postmodern Graphic Design", url: "https://www.pinterest.com/search/pins/?q=postmodern%20graphic%20design", note: "Moodboard reference for mixed historical forms, geometry, collage, and postmodern graphic composition." },
       ],
-      representativeTraits: ["Memphis geometry", "Playful mixed forms", "Ironic color", "Product portal", "Graphic black outlines"],
-      avoidTraits: ["Generic colorful UI", "Dense maximalist fashion pattern", "Raw brutalist severity"],
+      representativeTraits: ["Classical quotation", "Culture collage", "Ironic object index", "Mixed cultural forms", "Editorial commerce"],
+      avoidTraits: ["Neo-brutalist component kit", "Native form controls", "Memphis-only revival", "Generic colorful UI", "Raw brutalist severity"],
       tokenIntent:
-        "Use bright Memphis colors, geometric cards, hard outlines, playful shapes, and product modules so the style reads as postmodernism.",
+        "Use classical quotation, culture collage, ironic object indexes, selective Memphis geometry, museum labels, and cultural commerce modules so the style reads as broader postmodernism rather than neo-brutalist UI.",
     },
+  },
+  classic: {
+    summary: "클래식은 균형 잡힌 세리프 위계, 헤리티지 상품 이미지, 아이보리 표면과 얇은 선으로 시간이 지나도 안정적인 웹 인상을 만드는 스타일입니다.",
+    description:
+      "클래식은 장식을 많이 붙이는 것이 아니라 비례와 절제를 오래 유지하는 방식입니다. Ralph Lauren, Brooks Brothers, Hermes, Burberry, Smythson처럼 헤리티지 제품, 아카이브형 라벨, 네이비와 아이보리 대비, 단정한 상품 그리드가 실제 커머스 흐름 안에서 작동해야 합니다.",
+    visualFeatures: ["세리프 제목과 작은 대문자 라벨이 안정적인 첫인상을 만듭니다.", "네이비, 옥스블러드, 가죽색, 아이보리 표면으로 헤리티지 톤을 만듭니다.", "상품 카드와 아카이브 모듈은 균형 잡힌 그리드 안에서 반복됩니다."],
+    layoutTraits: ["큰 히어로 이미지와 작은 상품 카탈로그가 함께 보입니다.", "상단 내비게이션, 히어로, 하단 정보 스트립이 같은 선 체계를 공유합니다.", "모바일에서는 제품 이미지, 컬렉션명, 핵심 카드를 우선합니다."],
+    imagePrompt:
+      "A classic heritage commerce website reference image with ivory paper, navy tailoring, leather objects, balanced serif hierarchy, archive product cards, oxblood and muted gold accents, no logo, no watermark",
+    research: luxuryClassicResearch.classic,
+  },
+  neoclassic: {
+    summary: "네오클래식은 고전 건축의 대칭, 기둥, 대리석 질감을 현대적인 호텔 예약 화면과 결합하는 우아한 웹 스타일입니다.",
+    description:
+      "네오클래식은 Versailles식 웅장함을 그대로 복제하기보다 현대 호텔 웹처럼 절제된 예약 흐름과 결합해야 설득력이 생깁니다. Ritz Paris, Hotel de Crillon, Le Meurice, Le Bristol Paris처럼 대리석, 기둥 리듬, 중앙 정렬, 샴페인 골드가 조용한 고급감을 만듭니다.",
+    visualFeatures: ["기둥과 대리석 이미지가 구조적 중심 신호가 됩니다.", "예약 바, 객실 카드, 서비스 리스트는 대칭 축을 따라 정렬됩니다.", "샴페인 골드와 석재색이 과하지 않은 고전성을 만듭니다."],
+    layoutTraits: ["중앙 정렬 내비게이션과 큰 건축 히어로가 잘 맞습니다.", "호텔 예약 스트립, 객실 카드, 다이닝 카드가 실제 전환 흐름을 만듭니다.", "모바일에서는 기둥 장식을 줄이고 예약 행동을 우선합니다."],
+    imagePrompt:
+      "A neoclassical luxury hotel website reference image with marble columns, symmetrical suite booking strip, champagne gold accents, refined serif type, modern hospitality cards, no logo, no watermark",
+    research: luxuryClassicResearch.neoclassic,
+  },
+  luxury: {
+    summary: "럭셔리는 소재감 있는 이미지, 넓은 여백, 낮은 목소리의 CTA, 얇은 선으로 프리미엄 상품을 조용히 돋보이게 하는 스타일입니다.",
+    description:
+      "럭셔리는 골드 장식을 크게 넣는 방식보다 제품 사진과 간격을 정확히 조율하는 방식에 가깝습니다. Loewe, Bottega Veneta, Celine, Chanel, Dior처럼 가죽, 실크, 유리 같은 물성이 화면의 주인공이 되고 내비게이션과 카피는 매우 작고 조용해야 합니다.",
+    visualFeatures: ["큰 소재 클로즈업과 작은 제품 카드가 화면의 밀도를 조절합니다.", "크림, 블랙, 버건디, 골드 포인트를 아주 제한적으로 사용합니다.", "CTA는 선명하지만 주변보다 과하게 떠 보이지 않습니다."],
+    layoutTraits: ["좌측 정보와 우측 대형 이미지가 조용한 split 구조를 만듭니다.", "상품 카드, 소재 스와치, 상세 링크가 같은 간격으로 반복됩니다.", "모바일에서는 이미지가 먼저 보이되 구매 행동은 바로 이어져야 합니다."],
+    imagePrompt:
+      "A restrained luxury fashion ecommerce website reference image with cream studio surface, leather product close-up, silk fabric, black ink typography, antique gold detail, sparse product cards, no logo, no watermark",
+    research: luxuryClassicResearch.luxury,
+  },
+  "old-money": {
+    summary: "올드머니는 과시보다 전통, 소재, 장소성을 강조하며 클럽 라이프스타일과 조용한 워드로브를 웹 화면으로 옮기는 스타일입니다.",
+    description:
+      "올드머니는 화려한 럭셔리보다 더 낮은 톤이어야 합니다. Loro Piana, Brunello Cucinelli, Ralph Lauren, Drake's, The Rake처럼 캐시미어, 테일러링, 가죽, 잔디와 도서관 같은 장소 신호가 작고 단정한 상품 흐름과 함께 보여야 합니다.",
+    visualFeatures: ["크림, 포레스트 그린, 네이비, 카멜이 차분한 헤리티지 분위기를 만듭니다.", "클럽, 테라스, 라이브러리 같은 장소성이 상품보다 조용히 뒤를 받칩니다.", "크레스트나 모노그램은 작게만 써야 과시로 흐르지 않습니다."],
+    layoutTraits: ["큰 라이프스타일 히어로와 작은 워드로브 카드가 잘 맞습니다.", "정보 스트립은 소재, 장소, 시즌처럼 낮은 톤의 메타 정보로 구성합니다.", "모바일에서는 장식보다 상품과 컬렉션 흐름을 먼저 보이게 합니다."],
+    imagePrompt:
+      "An old-money wardrobe website reference image with country club terrace, cashmere knitwear, navy blazer, loafers, leather luggage, forest green cream camel palette, no logo, no watermark",
+    research: luxuryClassicResearch["old-money"],
+  },
+  "art-deco": {
+    summary: "아르데코는 팬 모양 기하학, 스텝 구조, 검정과 금속색 대비로 호텔, 바, 극장 같은 화려한 질서를 만드는 스타일입니다.",
+    description:
+      "아르데코는 금색을 많이 쓰는 스타일이 아니라 기하학적 질서가 먼저 보여야 합니다. Claridge's, The Savoy, The Carlyle, Radio City Music Hall, Empire State Building처럼 팬 아치, 수직 리듬, 블랙 라커, 브라스, 에메랄드 포인트가 실제 호텔/바 예약 화면과 결합될 때 스타일이 분명해집니다.",
+    visualFeatures: ["팬 아치와 계단형 라인이 대표 신호가 됩니다.", "검정, 브라스, 에메랄드, 버건디가 저녁의 고급감을 만듭니다.", "카드와 CTA는 장식보다 기하학적 질서에 맞춰 배치합니다."],
+    layoutTraits: ["중앙 정렬 내비게이션, 큰 호텔 히어로, 하단 카드 그리드가 잘 맞습니다.", "기하학 장식은 배경이 아니라 예약, 룸 카드, 바 카드의 구조에 붙습니다.", "모바일에서는 팬 장식을 단순화하고 CTA 대비를 우선합니다."],
+    imagePrompt:
+      "An Art Deco hotel and cocktail bar website reference image with black lacquer, brass fan geometry, emerald accents, stepped room cards, symmetrical luxury navigation, no logo, no watermark",
+    research: luxuryClassicResearch["art-deco"],
+  },
+  "art-nouveau": {
+    summary: "아르누보는 식물적 곡선, 유리와 금속 공예, 장식적 선을 향수나 문화 페이지처럼 흐르는 웹 구조로 만드는 스타일입니다.",
+    description:
+      "아르누보는 단순한 꽃 장식이 아니라 선의 흐름이 레이아웃을 이끄는 스타일입니다. Mucha Foundation, Horta Museum, Casa Batllo, V&A, The Met 레퍼런스처럼 덩굴형 프레임, 유기적 내부 카드, 보태니컬 색, 공예적 소재가 실제 제품/전시 화면 안에서 보여야 합니다.",
+    visualFeatures: ["덩굴 같은 곡선과 비대칭 유기형 프레임이 핵심 신호입니다.", "세이지 그린, 금빛 베이지, 말린 꽃색이 장식성과 자연성을 연결합니다.", "향수병, 포스터, 식물 표본 같은 오브젝트가 잘 어울립니다."],
+    layoutTraits: ["좌측 설명과 우측 유기형 제품 히어로가 잘 맞습니다.", "곡선은 내부 요소에서 쓰고 전체 프레임은 읽기 쉽게 유지합니다.", "모바일에서는 곡선 장식을 배경화하고 제품 정보 순서를 유지합니다."],
+    imagePrompt:
+      "An Art Nouveau botanical perfume website reference image with flowing vine frames, glass bottle, warm green and gold palette, organic line ornament, elegant serif typography, no logo, no watermark",
+    research: luxuryClassicResearch["art-nouveau"],
+  },
+  baroque: {
+    summary: "바로크는 극적인 명암, 깊은 색, 금박 프레임, 무대 같은 히어로로 감정 밀도가 높은 럭셔리 웹을 만드는 스타일입니다.",
+    description:
+      "바로크는 장식이 많다는 뜻보다 빛과 장면의 극적 통제가 중요합니다. Versailles, Louvre, Kunsthistorisches Museum, Rijksmuseum, Prado처럼 어두운 갤러리, 금박 프레임, 벨벳, 회화적 이미지가 실제 전시나 프라이빗 뷰 예약 화면으로 구성되어야 합니다.",
+    visualFeatures: ["키아로스쿠로처럼 밝고 어두운 영역의 대비가 스타일을 만듭니다.", "와인, 검정, 앤틱 골드, 벨벳 질감이 깊은 분위기를 만듭니다.", "프레임과 장식은 히어로 이미지 주변에서 통제해서 사용합니다."],
+    layoutTraits: ["중앙의 큰 이미지와 우측 전시/상품 리스트가 무대처럼 작동합니다.", "하단 정보는 조도, 소재, 장식처럼 분위기 단서로 구성합니다.", "모바일에서는 어두운 배경에서도 텍스트 대비를 높게 유지합니다."],
+    imagePrompt:
+      "A Baroque luxury museum website reference image with candlelit chiaroscuro, deep wine velvet, antique gold frame, dark gallery hero, dramatic editorial cards, no logo, no watermark",
+    research: luxuryClassicResearch.baroque,
+  },
+  rococo: {
+    summary: "로코코는 밝은 파스텔, 조개형 곡선, 도자기와 살롱 이미지를 섬세한 상품/뷰티 웹 구조로 옮기는 스타일입니다.",
+    description:
+      "로코코는 바로크보다 가볍고 섬세해야 합니다. Wallace Collection, Frick, Getty, The Met, V&A처럼 셸 장식, 도자기, 파스텔 살롱, 비대칭 장식이 상품 카드와 부드러운 히어로 안에서 정리될 때 과하지 않고 고급스럽게 보입니다.",
+    visualFeatures: ["조개형 곡선과 밝은 비대칭 장식이 대표 신호입니다.", "블러시, 파우더 블루, 민트, 샴페인 골드가 가벼운 장식성을 만듭니다.", "도자기, 티, 뷰티 오브젝트처럼 작은 상품이 잘 맞습니다."],
+    layoutTraits: ["큰 살롱 히어로와 작은 2열 상품 카드가 잘 맞습니다.", "곡선 장식은 내부 상품 썸네일과 배지에 집중합니다.", "모바일에서는 파스텔 대비가 약해지지 않도록 텍스트와 CTA를 선명하게 둡니다."],
+    imagePrompt:
+      "A Rococo salon beauty website reference image with porcelain cream, blush pink, powder blue, shell curves, gilt mirror, delicate product cards, no logo, no watermark",
+    research: luxuryClassicResearch.rococo,
+  },
+  gothic: {
+    summary: "고딕은 뾰족한 아치, 스테인드글라스, 석재의 수직 리듬, 어두운 색으로 장중하고 구조적인 웹 화면을 만드는 스타일입니다.",
+    description:
+      "고딕은 단순히 검은 배경을 쓰는 것이 아니라 건축적 수직성과 빛의 구조가 보여야 합니다. Westminster Abbey, Notre-Dame, Cologne Cathedral, The Met, V&A처럼 포인티드 아치, 리브 구조, 스테인드글라스 색, 오래된 석재 질감이 실제 아카이브나 패션/문화 페이지의 모듈로 번역되어야 합니다.",
+    visualFeatures: ["뾰족한 아치와 높은 세로 분할이 핵심 형태입니다.", "와인, 딥 블루, 낡은 금색이 스테인드글라스처럼 어두운 배경 위에 뜹니다.", "장식은 성당 구조처럼 수직적이고 반복적이어야 합니다."],
+    layoutTraits: ["좌측 인덱스와 우측 아치형 비주얼 모듈이 잘 맞습니다.", "스테인드글라스 색은 카드 내부에만 제한적으로 사용합니다.", "모바일에서는 아치 장식을 줄이고 제목, 이미지, 링크 순서를 명확히 합니다."],
+    imagePrompt:
+      "A Gothic cathedral archive website reference image with pointed arch modules, stained glass wine and deep blue accents, charcoal stone surface, sacred vertical rhythm, no logo, no watermark",
+    research: luxuryClassicResearch.gothic,
   },
   retro: {
     summary: "레트로는 특정 시대의 색, 배지, 둥근 그래픽, 아날로그 미디어 감각을 현대 웹 커머스나 콘텐츠 화면으로 다시 구성하는 스타일입니다.",
@@ -1745,6 +2403,373 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         "Use bright cream poster surfaces, coral and turquoise accents, navy ink, rounded ticket cards, atomic motifs, boomerang geometry, and travel-bureau modules so the style reads as retro futurism instead of dark sci-fi.",
     },
   },
+  "mid-century-modern": {
+    summary: "미드센추리 모던은 월넛 목재, 성형 합판 곡선, 얇은 금속선, 유리 표면, 그래픽 직물 색을 조합해 생활감 있는 20세기 중반 모던을 만드는 스타일입니다.",
+    description:
+      "미드센추리 모던은 막연한 빈티지 감성이 아니라 실제 가구와 인테리어 물성에서 출발해야 합니다. Eames Lounge Chair의 성형 합판과 가죽 쿠션, Nelson Platform Bench의 직선 목재 슬랫, Noguchi Coffee Table의 유기적인 유리와 목재 다리, Alexander Girard의 색과 패턴처럼 기능적인 구조와 따뜻한 장식이 함께 보여야 웹 화면에서도 스타일이 분명해집니다.",
+    visualFeatures: [
+      "성형 합판처럼 둥글게 휜 목재 면과 어두운 쿠션이 대표 신호가 됩니다.",
+      "벤치나 선반처럼 반복되는 얇은 목재 슬랫은 수평 리듬을 만듭니다.",
+      "유리 테이블, 가느다란 금속 다리, 원형 시계 모티프가 화면을 가볍게 합니다.",
+      "직물 패턴은 큰 배경보다 작은 패널이나 스와치로 제한할 때 실제 인테리어처럼 보입니다.",
+    ],
+    colorPalette: [
+      "크림과 오래된 종이색을 배경으로 두고 화면을 따뜻하게 시작합니다.",
+      "월넛 브라운을 주요 구조색으로 사용해 목재 물성을 만듭니다.",
+      "토마토 오렌지, 딥 틸, 머스터드는 직물, 시계, 작은 CTA에만 씁니다.",
+      "검정 대신 짙은 에스프레소 브라운을 텍스트와 선에 사용하면 더 자연스럽습니다.",
+    ],
+    typography: [
+      "제목은 둥근 산세리프 계열이 잘 맞지만 과한 70년대 곡선체는 피합니다.",
+      "메뉴와 제품 라벨은 짧고 단정하게 두어 가구 카탈로그처럼 보이게 합니다.",
+      "본문은 장식보다 읽기 편한 비례를 우선하고 자간은 0에 가깝게 유지합니다.",
+    ],
+    layoutTraits: [
+      "큰 가구 실루엣 하나와 작은 오브젝트 카탈로그를 나란히 배치하면 실제 쇼룸 같은 구조가 됩니다.",
+      "수평 선반, 벤치, 하단 레일을 활용해 화면 아래쪽에 안정감을 줍니다.",
+      "패턴은 전체 배경이 아니라 작은 직물 샘플, 카드, 배지로 써야 과해지지 않습니다.",
+      "모바일에서는 가구 실루엣, 핵심 라벨, 컬렉션 항목 순서로 단순화합니다.",
+    ],
+    useCases: ["가구 쇼룸", "라이프스타일 브랜드", "인테리어 포트폴리오", "레트로 제품 랜딩"],
+    goodFor: ["따뜻하지만 세련된 제품 이미지를 만들 때", "생활감 있는 모던 인테리어를 보여줄 때", "가구, 조명, 오브젝트 카탈로그", "레트로 감성을 쓰되 과장된 노스탤지어를 피하고 싶을 때"],
+    cautions: [
+      "70s Retro처럼 굵은 곡선과 주황색만 키우면 시대가 뒤로 밀려 보입니다.",
+      "Bauhaus처럼 원색 도형만 앞세우면 생활감보다 그래픽 실험으로 읽힙니다.",
+      "목재, 유리, 직물 중 최소 두 가지 물성이 보여야 단순한 빈티지 카드가 되지 않습니다.",
+    ],
+    imagePrompt:
+      "A mid-century modern interior commerce website reference image with walnut molded plywood lounge chair shapes, dark leather cushions, thin Nelson-style wood slats, organic glass coffee table, cream paper background, tomato orange, deep teal and mustard textile accents, catalog labels, no logo, no watermark",
+    research: {
+      referenceSites: [
+        { title: "MoMA - Eames Lounge Chair and Ottoman", url: "https://www.moma.org/collection/works/3325", note: "Object reference for 1956 molded rosewood, plywood, leather, aluminum, and the iconic low lounge silhouette." },
+        { title: "Herman Miller - Nelson Platform Bench", url: "https://www.hermanmiller.com/products/seating/benches/nelson-platform-bench/", note: "Official product reference for George Nelson's rectilinear bench, wood slats, simple legs, and functional modern archetype." },
+        { title: "MoMA - Noguchi Coffee Table", url: "https://www.moma.org/collection/works/86474", note: "Object reference for Isamu Noguchi's 1944 coffee table, useful for glass surface, organic wood base, and sculptural restraint." },
+        { title: "Vitra Design Museum - Alexander Girard", url: "https://www.design-museum.de/en/exhibitions/detailpages/alexander-girard-a-designers-universe.html", note: "Archive reference for Girard's coordinated interiors, textiles, color, pattern, and warm decorative modernism." },
+      ],
+      referenceGalleries: [
+        { title: "Pinterest - Mid-Century Modern Website Design", url: "https://www.pinterest.com/search/pins/?q=Mid-Century%20Modern%20website%20design", note: "Moodboard reference for warm furniture pages, catalog layouts, wood tones, textile accents, and modern vintage web direction." },
+        { title: "Awwwards - Retro Websites", url: "https://www.awwwards.com/websites/retro/", note: "Gallery reference for contemporary retro web execution, motion restraint, product staging, and polished nostalgic layouts." },
+        { title: "Dribbble - Mid-Century Modern Website Design", url: "https://dribbble.com/search/Mid-Century%20Modern%20website%20design", note: "UI reference for mid-century landing pages, furniture cards, warm palettes, geometric motifs, and compact catalog modules." },
+      ],
+      representativeTraits: ["Molded plywood shells", "Walnut slat rhythm", "Organic glass table", "Girard-like textile color", "Catalog-like product labels"],
+      avoidTraits: ["General sepia vintage", "70s groovy overload", "Bauhaus primary-color poster"],
+      tokenIntent:
+        "Use cream paper surfaces, espresso text, walnut primary color, tomato orange, deep teal, mustard accents, thin borders, restrained radius, no heavy shadows, and grain so the style reads as real mid-century furniture and textile design.",
+    },
+  },
+};
+
+const cuteCasualResearch: Partial<Record<string, StyleResearchBrief>> = {
+  kitsch: {
+    referenceSites: [
+      { title: "ban.do", url: "https://www.bando.com/", note: "Novelty retail reference for loud lifestyle objects, playful category density, sale banners, expressive product photography, and intentionally cheerful merch language." },
+      { title: "Lazy Oaf", url: "https://www.lazyoaf.com/", note: "Oddball fashion reference for quirky graphics, subcultural humor, clashing product attitude, and boutique pages that feel intentionally offbeat." },
+      { title: "Lisa Says Gah", url: "https://lisasaysgah.com/", note: "Pattern-heavy boutique reference for playful fashion curation, expressive product cards, and a colorful shop voice that stays commercially usable." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Kitsch Website Design", url: "https://www.pinterest.com/search/pins/?q=Kitsch%20website%20design", note: "Moodboard reference for novelty shop layouts, clashy patterns, sticker pricing, odd product groupings, and deliberately excessive visual humor." },
+      { title: "Awwwards - Colorful Websites", url: "https://www.awwwards.com/websites/colorful/", note: "Gallery reference for polished colorful web pages that keep maximal color, commerce hierarchy, and interaction quality under control." },
+      { title: "Dribbble - Kitsch Website", url: "https://dribbble.com/search/kitsch%20website", note: "UI reference for kitsch ecommerce cards, novelty stickers, cheerful packaging motifs, and controlled visual clutter in web components." },
+    ],
+    representativeTraits: ["Novelty shop drops", "Sticker price bursts", "Clashing pattern strips", "Odd object cards", "Boutique humor"],
+    avoidTraits: ["Clean dopamine reward system", "Mascot-led kawaii dashboard", "Soft beauty pastel", "Generic colorful ecommerce"],
+    tokenIntent:
+      "Use warm cream, hot orange, magenta, violet, yellow, thick borders, offset stickers, pattern strips, and compact novelty product cards so kitsch reads as deliberate quirky retail rather than generic cute color.",
+  },
+  kawaii: {
+    referenceSites: [
+      { title: "Sanrio", url: "https://www.sanrio.com/", note: "Character-first retail reference for mascot worlds, soft pink surfaces, rounded product rhythm, stickers, and immediately legible cuteness." },
+      { title: "Pusheen", url: "https://pusheen.com/", note: "Mascot content reference for simple cute navigation, comics and quizzes, soft character framing, and approachable community content." },
+      { title: "tokidoki", url: "https://www.tokidoki.it/", note: "Collectibles reference for candy color, character universes, blind-box retail modules, and dense but friendly cute product cards." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Kawaii Japanese Websites", url: "https://www.pinterest.com/wixcom/kawaii-japanese-websites/", note: "Moodboard reference for mascot-led pages, pink rounded UI, sticker details, cute shop modules, and Japanese kawaii web pacing." },
+      { title: "Awwwards - Colorful Websites", url: "https://www.awwwards.com/websites/colorful/", note: "Gallery reference for professional colorful websites that preserve polish while using cheerful palettes and playful content." },
+      { title: "Dribbble - Kawaii Website", url: "https://dribbble.com/tags/kawaii-website", note: "UI reference for kawaii dashboards, rounded buttons, character cards, heart badges, and soft app-like composition." },
+    ],
+    representativeTraits: ["Mascot tiles", "Heart badges", "Sticker navigation", "Rounded room modules", "Soft character community"],
+    avoidTraits: ["Kitsch novelty clutter", "Pastel beauty editorial", "Dopamine color rewards", "Comic-book panels"],
+    tokenIntent:
+      "Use white and blush surfaces, pink primary actions, sky and yellow accents, large radius, soft shadows, mascot tiles, and sticker-like badges so kawaii reads as a character-world interface.",
+  },
+  "dopamine-design": {
+    referenceSites: [
+      { title: "Happy Socks", url: "https://www.happysocks.com/us", note: "Color-commerce reference for high-saturation product grids, repeated pattern impact, joyful browsing, and bright reward-like retail rhythm." },
+      { title: "BAGGU", url: "https://www.baggu.com/", note: "Clean colorful commerce reference for strong object color, reusable product systems, simple nav, and visual joy without messy kitsch clutter." },
+      { title: "Duolingo", url: "https://www.duolingo.com/", note: "Product UX reference for bright mascot feedback, gamified progress, confident CTAs, and cheerful reward loops that remain usable." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Dopamine Design Website Design", url: "https://www.pinterest.com/search/pins/?q=Dopamine%20Design%20website%20design", note: "Moodboard reference for color therapy, high-saturation layouts, upbeat CTA fields, and clean happy interface systems." },
+      { title: "Awwwards - Colorful Websites", url: "https://www.awwwards.com/websites/colorful/", note: "Gallery reference for professional colorful execution, motion pacing, and bright designs that retain strong information hierarchy." },
+      { title: "Dribbble - Dopamine Design Website", url: "https://dribbble.com/search/dopamine%20design%20website", note: "UI reference for reward meters, bright modules, color-block progress, and upbeat product dashboards." },
+    ],
+    representativeTraits: ["Reward meter", "High-saturation modules", "Clean color hits", "Progress feedback", "Joyful conversion path"],
+    avoidTraits: ["Retro kitsch irony", "Mascot collectible shop", "Soft pastel beauty page", "Random color clutter"],
+    tokenIntent:
+      "Use bright yellow base, green primary, hot pink rewards, crisp white surfaces, rounded modules, progress meters, and clean high-saturation rhythm so dopamine design reads as joyful product UX.",
+  },
+  "pop-art": {
+    referenceSites: [
+      { title: "The Andy Warhol Museum", url: "https://www.warhol.org/", note: "Pop art archive reference for consumer imagery, celebrity/product repetition, museum storytelling, and bold object-centered exhibition pages." },
+      { title: "Keith Haring Foundation", url: "https://www.haring.com/", note: "Graphic art reference for flat iconic figures, thick black contour, public-art archive rhythm, and simple high-contrast visual language." },
+      { title: "Guggenheim Pop", url: "https://www.guggenheim.org/exhibition/guggenheim-pop", note: "Exhibition reference for pop-art historical framing, event metadata, poster-like hierarchy, and art-object archive modules." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Pop Art Website Design", url: "https://www.pinterest.com/search/pins/?q=Pop%20Art%20website%20design", note: "Moodboard reference for halftone fields, repeated objects, primary color posters, and archive-style web pages." },
+      { title: "Awwwards - Art and Culture Websites", url: "https://www.awwwards.com/websites/art-culture/", note: "Gallery reference for museum-grade web craft, exhibition pacing, art-object storytelling, and polished editorial layouts." },
+      { title: "Dribbble - Pop Art Website", url: "https://dribbble.com/search/pop%20art%20website", note: "UI reference for pop-art poster cards, product-object repetition, strong ink outlines, and color-block composition." },
+    ],
+    representativeTraits: ["Halftone block", "Repeated object", "Primary color archive", "Bold museum poster", "Consumer iconography"],
+    avoidTraits: ["Sequential comic panels", "Speech balloons", "Mascot cuteness", "Toy builder UI"],
+    tokenIntent:
+      "Use primary red, blue, yellow, black ink borders, flat poster fields, halftone blocks, and repeated object modules so pop art reads as an art archive rather than a comic storefront.",
+  },
+  "comic-book-style": {
+    referenceSites: [
+      { title: "Marvel Comics", url: "https://www.marvel.com/comics", note: "Comic catalog reference for issue grids, cover-led cards, character franchise navigation, and dense release metadata." },
+      { title: "DC Comics", url: "https://www.dc.com/comics", note: "Comic catalog reference for searchable issue lists, hero-driven cards, publisher metadata, and high-contrast entertainment hierarchy." },
+      { title: "WEBTOON", url: "https://www.webtoons.com/en", note: "Digital comics reference for vertical episode browsing, genre tabs, colorful thumbnails, and mobile-first serial reading rhythm." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Comic Book Style Website Design", url: "https://www.pinterest.com/search/pins/?q=Comic%20Book%20Style%20website%20design", note: "Moodboard reference for panel grids, speech balloons, ink borders, episode cards, and comic storefront layouts." },
+      { title: "Awwwards - Entertainment Websites", url: "https://www.awwwards.com/websites/entertainment/", note: "Gallery reference for entertainment pages with strong media cards, story-driven navigation, and campaign-quality polish." },
+      { title: "Dribbble - Comic Book Website", url: "https://dribbble.com/search/comic%20book%20website", note: "UI reference for comic issue cards, panel-based sections, balloon labels, and bold sequential reading surfaces." },
+    ],
+    representativeTraits: ["Issue grid", "Speech balloon", "Episode metadata", "Heavy ink borders", "Sequential panels"],
+    avoidTraits: ["Warhol-style archive poster", "Soft mascot app", "Dopamine rewards", "Pastel beauty ecommerce"],
+    tokenIntent:
+      "Use heavy black ink, cream paper, red blue yellow action colors, square panels, speech balloons, cover cards, and episode metadata so comic-book style reads as sequential media.",
+  },
+  "toy-design": {
+    referenceSites: [
+      { title: "LEGO", url: "https://www.lego.com/en-us", note: "Toy commerce reference for modular brick logic, age and theme filters, primary colors, product cards, and buildable system language." },
+      { title: "Play-Doh / Hasbro", url: "https://play.hasbro.com/en-us/brand/play-doh", note: "Toy brand reference for soft clay visuals, kid-safe activities, bright material color, and approachable family-facing pages." },
+      { title: "Fisher-Price / Mattel", url: "https://shop.mattel.com/pages/fisher-price", note: "Preschool toy reference for age-based browsing, chunky product navigation, developmental cues, and friendly toy catalog polish." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Toy Design Website Design", url: "https://www.pinterest.com/search/pins/?q=Toy%20Design%20website%20design", note: "Moodboard reference for blocky modules, toy catalogs, playset layouts, age tabs, bright packaging, and kid-friendly commerce pages." },
+      { title: "Awwwards - Colorful Websites", url: "https://www.awwwards.com/websites/colorful/", note: "Gallery reference for colorful professional sites that balance playful graphics with product usability and clean hierarchy." },
+      { title: "Dribbble - Toy Website", url: "https://dribbble.com/search/toy%20website", note: "UI reference for toy product cards, chunky controls, playset builders, and bright modular interface components." },
+    ],
+    representativeTraits: ["Block parts", "Assembly tray", "Age tabs", "Chunky controls", "Modular playset"],
+    avoidTraits: ["Liquid bubble capsules", "Soft beauty pastel", "Mascot collectible shop", "Comic panels"],
+    tokenIntent:
+      "Use bright primary toy colors, blue base, chunky borders, modular block parts, age filters, and an assembly tray so toy design reads as physical play construction.",
+  },
+  "playful-design": {
+    referenceSites: [
+      { title: "Duolingo", url: "https://www.duolingo.com/", note: "Playful product reference for onboarding confidence, friendly mascot cues, lesson progress, and clear action hierarchy." },
+      { title: "Mailchimp", url: "https://mailchimp.com/", note: "Business tool reference for friendly illustration, approachable SaaS copy, warm utility, and playful brand personality without childishness." },
+      { title: "Headspace", url: "https://www.headspace.com/", note: "Wellness app reference for warm character illustration, calm playful surfaces, human-centered flows, and friendly task framing." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Playful Design Website Design", url: "https://www.pinterest.com/search/pins/?q=Playful%20Design%20website%20design", note: "Moodboard reference for friendly product flows, soft illustrations, approachable task cards, and optimistic onboarding pages." },
+      { title: "Awwwards - Playful Websites", url: "https://www.awwwards.com/websites/playful/", note: "Gallery reference for polished playful websites with interaction, personality, strong hierarchy, and professional craft." },
+      { title: "Dribbble - Playful Website", url: "https://dribbble.com/search/playful%20website", note: "UI reference for playful SaaS/product cards, friendly helper states, warm illustration, and lightweight motion cues." },
+    ],
+    representativeTraits: ["Friendly onboarding", "Mascot helper", "Gentle task cards", "Success states", "Approachable product flow"],
+    avoidTraits: ["Kawaii character shop", "Toy playset builder", "Bubble product capsules", "Loud kitsch retail"],
+    tokenIntent:
+      "Use light lavender, orange and green accents, friendly rounded controls, clear onboarding cards, helper illustrations, and success states so playful design reads as product UX rather than childish decoration.",
+  },
+  "pastel-style": {
+    referenceSites: [
+      { title: "Glossier", url: "https://www.glossier.com/", note: "Soft beauty ecommerce reference for airy whitespace, pale pink neutrals, editorial product rows, and low-contrast polish." },
+      { title: "Starface Hydro-Stars", url: "https://starface.world/products/hydro-stars-refill", note: "Cute skincare product reference for pastel/yellow product framing, clean detail-page hierarchy, and friendly beauty language." },
+      { title: "Bubble Skincare", url: "https://www.bubbleskincare.com/", note: "Youth skincare reference for gentle color, rounded product architecture, soft surfaces, and approachable clean commerce." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Pastel Style Website Design", url: "https://www.pinterest.com/search/pins/?q=Pastel%20Style%20website%20design", note: "Moodboard reference for soft beauty layouts, low-contrast surfaces, airy cards, pale product photography, and gentle editorial rhythm." },
+      { title: "Awwwards - Beauty Websites", url: "https://www.awwwards.com/websites/beauty/", note: "Gallery reference for professional beauty and skincare sites with refined spacing, subtle color, and polished ecommerce details." },
+      { title: "Dribbble - Pastel Website", url: "https://dribbble.com/search/pastel%20website", note: "UI reference for pastel product pages, soft cards, low-contrast palettes, and elegant rounded component systems." },
+    ],
+    representativeTraits: ["Airy product rows", "Low-contrast set", "Soft beauty editorial", "Pale product modules", "Gentle whitespace"],
+    avoidTraits: ["Mascot-heavy kawaii", "Saturated dopamine modules", "Inflated bubble UI", "Kitsch novelty clutter"],
+    tokenIntent:
+      "Use blush base, white surfaces, muted mauve text, pale blue and sage accents, airy spacing, subtle borders, and soft editorial product rows so pastel style reads as refined beauty rather than cute mascot design.",
+  },
+  "bubble-design": {
+    referenceSites: [
+      { title: "Bubble Skincare", url: "https://www.bubbleskincare.com/", note: "Rounded skincare reference for capsule product architecture, soft bubble-adjacent naming, and friendly but clean product modules." },
+      { title: "poppi", url: "https://drinkpoppi.com/", note: "Sparkling soda reference for circular product sections, can-forward color, bubbly motion cues, and lively liquid commerce rhythm." },
+      { title: "bubly", url: "https://www.bubly.com/", note: "Sparkling-water reference for simple bubble identity, round flavor language, light color, and buoyant brand surface." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Bubble Design Website Design", url: "https://www.pinterest.com/search/pins/?q=Bubble%20Design%20website%20design", note: "Moodboard reference for inflated capsules, liquid product modules, circular cards, buoyant UI, and sparkling brand pages." },
+      { title: "Awwwards - Colorful Websites", url: "https://www.awwwards.com/websites/colorful/", note: "Gallery reference for polished colorful sites with rounded modules, motion, strong product staging, and professional hierarchy." },
+      { title: "Dribbble - Bubble Website", url: "https://dribbble.com/search/bubble%20website", note: "UI reference for bubble-shaped cards, circular navigation, inflated panels, and soft liquid progress patterns." },
+    ],
+    representativeTraits: ["Inflated capsules", "Liquid progress", "Circular product modules", "Sparkling surface", "Floating flavor cards"],
+    avoidTraits: ["LEGO block parts", "Flat pastel editorial", "Kawaii sticker dashboard", "Comic issue panels"],
+    tokenIntent:
+      "Use aqua base, white surfaces, cyan, pink, and lime accents, large inflated radii, circular product modules, and liquid progress shapes so bubble design reads as buoyant product UI.",
+  },
+};
+
+const streetSubcultureResearch: Partial<Record<string, StyleResearchBrief>> = {
+  streetwear: {
+    referenceSites: [
+      { title: "Supreme", url: "https://supreme.com/", note: "Official streetwear drop reference for direct release navigation, scarce product rhythm, box-logo restraint, and blunt commerce hierarchy." },
+      { title: "Palace Skateboards", url: "https://palaceskateboards.com/", note: "Official skate-streetwear reference for range drops, web shop links, brand-world pages, and loud graphic capsule energy." },
+      { title: "Stüssy", url: "https://www.stussy.com/", note: "Official streetwear reference for new arrivals, archive/chapter links, compact shop categories, and surf-skate heritage commerce." },
+      { title: "BAPE US", url: "https://us.bape.com/", note: "Official streetwear reference for camo collections, large product grids, bold new-arrival modules, and strong category merchandising." },
+      { title: "Kith", url: "https://kith.com/", note: "Official streetwear retail reference for collection programs, editorial capsules, detailed megamenu hierarchy, and polished product-wall commerce." },
+    ],
+    referenceGalleries: [
+      { title: "Dribbble - Streetwear", url: "https://dribbble.com/tags/streetwear", note: "UI and campaign reference for product-drop cards, oversized typographic treatments, lookbook panels, and streetwear ecommerce composition." },
+      { title: "Pinterest - Supreme / Streetwear", url: "https://www.pinterest.com/ideas/supreme-clothing-streetwear/930480009757/", note: "Moodboard reference for box-logo minimalism, drop posters, sticker-like product labels, and streetwear outfit/product wall pacing." },
+      { title: "Awwwards - Fashion Websites", url: "https://www.awwwards.com/websites/fashion/", note: "Gallery reference for professional fashion commerce, lookbook transitions, product-grid polish, and campaign-grade streetwear layouts." },
+    ],
+    representativeTraits: ["Drop ledger", "Size run matrix", "Lookbook strip", "Release clock", "Streetwear product wall"],
+    avoidTraits: ["Generic rotated street poster", "Graffiti spray wall", "Punk torn flyer", "Luxury fashion softness"],
+    tokenIntent:
+      "Use bone paper, black ink, warning red, acid green, royal blue, hard square modules, dense product grids, drop timers, SKU labels, and lookbook strips so streetwear reads as a real drop-commerce page.",
+  },
+  graffiti: {
+    referenceSites: [
+      { title: "Montana Cans - Spray Cans", url: "https://www.montana-cans.com/Products/SPRAY-CANS/", note: "Official spray-paint product reference for can-heavy merchandising, graffiti-specific tools, high-pressure labeling, color range density, and utility-first product grids." },
+      { title: "MOLOTOW - Spray Cans", url: "https://brand.molotow.com/en/products/spray-cans/", note: "Official graffiti materials reference for bold product ranges, mural language, over-275-color rack logic, and spray-can storytelling tied to walls and pieces." },
+      { title: "Bombing Science", url: "https://www.bombingscience.com/", note: "Graffiti culture and supply reference for pictures plus commerce, article feeds, tool categories, writer-support messaging, and street-scene archive rhythm." },
+      { title: "Streetpins", url: "https://streetpins.com/", note: "Graffiti photo community reference for ranked uploads, tag/photo metrics, city indexes, weekly archive posts, and wall documentation UI." },
+      { title: "Street Art Cities", url: "https://streetartcities.com/about", note: "Street-art mapping reference for city artwork indexes, hunter/community roles, verified artist counts, and map-led public wall discovery." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Graffiti Website Design", url: "https://www.pinterest.com/search/pins/?q=graffiti%20website%20design", note: "Moodboard reference for spray-wall texture, handstyle lettering, layered stickers, tag clusters, brick/concrete surfaces, and noisy color overlays." },
+      { title: "Awwwards - Culture Websites", url: "https://www.awwwards.com/websites/culture/", note: "Professional culture-site gallery for translating raw street visuals into polished navigation, responsive hierarchy, and editorial-grade interaction surfaces." },
+      { title: "Dribbble - Graffiti Website", url: "https://dribbble.com/search/graffiti%20website", note: "UI reference for graffiti-themed layouts, paint palettes, marker-style labels, archive panels, and compact visual systems that still read as product UI." },
+    ],
+    representativeTraits: ["Graffiti wall scanner", "Wall tag index", "Spray color rack", "Crew tag archive", "Mural route map"],
+    avoidTraits: ["Streetwear product drop", "Fashion SKU cards", "Punk ransom-note collage", "Generic tilted campaign poster"],
+    tokenIntent:
+      "Use concrete and brick wall texture, black marker ink, chrome/signal-white contrast, toxic green and hot paint accents, spray-can rack modules, tag indexes, drip overlays, and route-map pins so graffiti reads as a real wall archive and material system.",
+  },
+  "hiphop-style": {
+    referenceSites: [
+      { title: "XXL Magazine", url: "https://www.xxlmag.com/", note: "Hip-hop magazine reference for bold news hierarchy, Freshman-list energy, album/video modules, artist-first editorial cards, and loud music-culture pacing." },
+      { title: "HipHopDX", url: "https://hiphopdx.com/", note: "Hip-hop news reference for dense release feeds, review/news segmentation, video and artist modules, and high-contrast music-publisher navigation." },
+      { title: "Genius", url: "https://genius.com/", note: "Lyrics and annotation reference for line-level commentary, yellow highlight language, knowledge-card rails, and reader interaction around bars and verses." },
+      { title: "Lyrical Lemonade", url: "https://www.lyricallemonade.com/", note: "Music-video and culture reference for video-led grids, saturated youth-culture art direction, artist tiles, and mixtape-style content rhythm." },
+      { title: "Mass Appeal", url: "https://www.massappeal.com/", note: "Hip-hop creative studio reference for premium black-and-gold editorial tone, artist documentary language, cultural storytelling, and polished campaign surfaces." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Hip Hop Website Design", url: "https://www.pinterest.com/search/pins/?q=hip%20hop%20website%20design", note: "Moodboard reference for mixtape covers, speaker stacks, tracklist panels, lyric posters, waveform stickers, and music-campaign color contrast." },
+      { title: "Awwwards - Music & Sound Websites", url: "https://www.awwwards.com/websites/music-sound/", note: "Professional music-site gallery for audio-player layouts, immersive artist pages, video grids, editorial transitions, and responsive music storytelling." },
+      { title: "Dribbble - Hip Hop Website", url: "https://dribbble.com/search/hip%20hop%20website", note: "UI reference for music dashboards, player cards, artist promo pages, playlist grids, and bold type systems adapted to hip-hop culture." },
+    ],
+    representativeTraits: ["Tracklist index", "Beat grid mixer", "Artist card stack", "Lyric annotation rail", "Release waveform"],
+    avoidTraits: ["Graffiti wall scanner", "Streetwear product drop", "Skate sticker collage", "Punk torn protest flyer"],
+    tokenIntent:
+      "Use black studio base, warm paper and gold accents, signal red, electric blue, dense tracklist modules, waveform strips, artist cards, lyric annotation rails, and mixer pads so hip-hop style reads as a real music-culture interface.",
+  },
+  "skate-culture": {
+    referenceSites: [
+      { title: "The Berrics", url: "https://theberrics.com/", note: "Skate media reference for clip-led home modules, canteen shop links, park-shot rhythm, and skateboarding video culture presented as a living feed." },
+      { title: "Nike SB", url: "https://www.nikesb.com/", note: "Skateboarding brand reference for team/vault/skateshop navigation, video-first stories, city skate sessions, and polished skate editorial systems." },
+      { title: "Independent Trucks", url: "https://independenttrucks.com/", note: "Skate hardware reference for truck-category grids, parts merchandising, rider credibility, and no-nonsense hardgoods commerce hierarchy." },
+      { title: "Santa Cruz Skateboards", url: "https://santacruzskateboards.com/skate", note: "Deck and hardgoods reference for pro deck walls, team/reissue/VX categories, bold board graphics, and dense skateboard product indexing." },
+      { title: "Skatepark of Tampa", url: "https://skateparkoftampa.com/", note: "Skate shop and event reference for shoes/decks/wheels/trucks category blocks, contest modules, skater shopping paths, and park-culture credibility." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Skate Website Design", url: "https://www.pinterest.com/search/pins/?q=skate%20website%20design", note: "Moodboard reference for deck walls, sticker slaps, skate shop menus, contest posters, fisheye frames, and worn concrete color systems." },
+      { title: "Awwwards - Sports Websites", url: "https://www.awwwards.com/websites/sports/", note: "Professional sports-site gallery for turning motion, athlete stories, category navigation, and retail paths into responsive polished interfaces." },
+      { title: "Dribbble - Skateboard Website", url: "https://dribbble.com/search/skateboard%20website", note: "UI reference for skate shop layouts, product deck grids, event cards, mobile category bars, and sticker-style labels without generic street posters." },
+    ],
+    representativeTraits: ["Spot checklist", "Deck wall grid", "Trick line map", "Clip sequence rail", "Sticker slap index"],
+    avoidTraits: ["Streetwear product drop", "Graffiti wall scanner", "Hip-hop waveform console", "Punk protest flyer"],
+    tokenIntent:
+      "Use weathered concrete, black grip, safety orange, washed teal, deck wood, sticker labels, clip strips, deck-wall product grids, route lines, and spot checklists so skate culture reads as a skate shop and park-session interface.",
+  },
+  punk: {
+    referenceSites: [
+      { title: "Punknews.org", url: "https://www.punknews.org/", note: "Punk news and community reference for dense headlines, label premieres, review feeds, small-format culture posts, and rough bulletin-board rhythm." },
+      { title: "Fat Wreck Chords", url: "https://fatwreck.com/", note: "Punk label/store reference for release announcements, merch rows, catalog browsing, touring snippets, and irreverent label voice." },
+      { title: "Epitaph Records", url: "https://www.epitaph.com/", note: "Punk and alternative label reference for artist/release grids, video/news modules, record-store hierarchy, and high-contrast promotional pages." },
+      { title: "Dischord Records", url: "https://dischord.com/", note: "DIY punk label reference for stripped-down catalog structure, practical record information, low-polish authenticity, and archive-first navigation." },
+      { title: "Maximum Rocknroll", url: "https://www.maximumrocknroll.com/about/", note: "Punk zine reference for underground scene voice, fanzine legacy, reviews, columns, radio, and photocopied editorial texture." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Punk Zine Website Design", url: "https://www.pinterest.com/search/pins/?q=punk%20zine%20website%20design", note: "Moodboard reference for ransom typography, photocopy texture, torn flyers, gig posters, badge grids, and black-white-red zine composition." },
+      { title: "Awwwards - Music & Sound Websites", url: "https://www.awwwards.com/websites/music-sound/", note: "Professional music-site gallery for adapting raw label/flyer language into responsive pages with usable navigation and release hierarchy." },
+      { title: "Dribbble - Punk Zine Website", url: "https://dribbble.com/search/punk%20zine%20website", note: "UI reference for punk zine layouts, collage editorial cards, distressed type blocks, release lists, and flyer-inspired web components." },
+    ],
+    representativeTraits: ["Zine dispatch", "Ransom headline stack", "Gig flyer rail", "Patch badge grid", "Photocopy noise field"],
+    avoidTraits: ["Skate spot checklist", "Hip-hop waveform console", "Graffiti wall scanner", "Streetwear product drop"],
+    tokenIntent:
+      "Use xerox white, black ink, hazard red, acid yellow, torn-paper panels, ransom headline stacks, gig flyer rails, patch badges, release ledgers, and photocopy noise so punk reads as DIY zine and label culture rather than generic street graphics.",
+  },
+  grunge: {
+    referenceSites: [
+      { title: "Nirvana Official", url: "https://www.nirvana.com/", note: "Official grunge band reference for dark archive/store/discography pages, damaged album memory, sparse navigation, and worn music-culture hierarchy." },
+      { title: "Sub Pop", url: "https://www.subpop.com/", note: "Seattle label reference for records, artists, news, catalog modules, indie label commerce, and grunge heritage without punk flyer aggression." },
+      { title: "Soundgarden Official", url: "https://www.soundgardenworld.com/", note: "Official band archive reference for dark album, video, tour, and merch modules with heavy grunge legacy and restrained editorial structure." },
+      { title: "Pearl Jam Official", url: "https://pearljam.com/", note: "Official band reference for tour/archive/community/shop organization, grounded music navigation, and sober alternative-rock page rhythm." },
+      { title: "Mudhoney - Sub Pop", url: "https://www.subpop.com/artists/mudhoney", note: "Artist catalog page reference for Seattle grunge bio, discography, label archive, and low-polish historical content structure." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Grunge Website Design", url: "https://www.pinterest.com/search/pins/?q=grunge%20website%20design", note: "Moodboard reference for torn photos, dirty paper, cassette tape labels, flannel plaid, faded denim, and low-saturation distressed website layouts." },
+      { title: "Awwwards - Music & Sound Websites", url: "https://www.awwwards.com/websites/music-sound/", note: "Professional music-site gallery for translating band archives, tour pages, release modules, and merch paths into responsive production interfaces." },
+      { title: "Dribbble - Grunge Website", url: "https://dribbble.com/search/grunge%20website", note: "UI reference for grunge-inspired editorial cards, damaged image stacks, distressed type blocks, cassette motifs, and rough music landing pages." },
+    ],
+    representativeTraits: ["Distorted archive", "Torn photo stack", "Cassette setlist rail", "Flannel texture board", "Basement gig log"],
+    avoidTraits: ["Punk ransom flyer", "Skate spot checklist", "Hip-hop waveform console", "Graffiti wall scanner"],
+    tokenIntent:
+      "Use charcoal, dirty paper, faded denim, rust, muted moss, torn photo panels, cassette setlist rails, flannel plaid, basement gig logs, and degraded photocopy grain so grunge reads as a distressed music archive rather than punk zine or skate shop.",
+  },
+  "indie-sleaze": {
+    referenceSites: [
+      { title: "The Cobrasnake", url: "https://www.thecobrasnake.com/", note: "Party photography archive reference for harsh flash portraits, nightlife grids, messy candid crops, celebrity-afterparty energy, and early-2000s blog culture." },
+      { title: "CARI - Indie Sleaze", url: "https://cari.institute/aesthetics/indie-sleaze", note: "Aesthetic research reference for the era's flash photography, American Apparel energy, Tumblr/MySpace surfaces, skinny silhouettes, and bloghaus-adjacent visual cues." },
+      { title: "Dazed", url: "https://www.dazeddigital.com/", note: "Fashion and youth-culture reference for reviving indie sleaze through club styling, editorial flash, grainy nightlife, and rebellious image-led layouts." },
+      { title: "Nylon", url: "https://www.nylon.com/", note: "Pop-fashion media reference for trend-led outfit language, celebrity street style, glossy-black editorial cards, and accessible indie-sleaze styling cues." },
+      { title: "Vogue", url: "https://www.vogue.com/", note: "Fashion editorial reference for translating the trend into professional styling hierarchy, trend notes, runway/street-style imagery, and polished article layouts." },
+      { title: "ASOS", url: "https://www.asos.com/", note: "Retail reference for making indie-sleaze styling practical through outfit tags, product rails, black-and-white campaign modules, and trend shopping paths." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Indie Sleaze Website Design", url: "https://www.pinterest.com/search/pins/?q=indie%20sleaze%20website%20design", note: "Moodboard reference for flash photos, sticker overlays, black mini-dress styling, cigarette-smoke grain, club stamps, and messy 2000s web layouts." },
+      { title: "Awwwards - Fashion & Beauty Websites", url: "https://www.awwwards.com/websites/fashion-beauty/", note: "Professional gallery for adapting trend photography, fashion editorial structure, campaign navigation, and shopping modules into high-quality responsive pages." },
+      { title: "Dribbble - Indie Sleaze Website", url: "https://dribbble.com/search/indie%20sleaze%20website", note: "UI reference for nightlife photo feeds, sticker-like labels, hot-pink/cyan accents, playlist cards, and fashion-culture landing compositions." },
+    ],
+    representativeTraits: ["Flash photo index", "Disposable camera grid", "Club stamp rail", "Bloghaus playlist deck", "Messy outfit tags"],
+    avoidTraits: ["Grunge tape archive", "Rave laser stage", "Punk ransom flyer", "Streetwear product drop"],
+    tokenIntent:
+      "Use flash-white photo cards, black party backgrounds, hot-pink stickers, cyan link accents, disposable camera frames, club stamp rails, bloghaus playlist decks, and messy outfit tags so indie sleaze reads as 2000s nightlife fashion media rather than grunge music archive or rave stage graphics.",
+  },
+  "rave-style": {
+    referenceSites: [
+      { title: "Resident Advisor", url: "https://ra.co/", note: "Electronic music event reference for dense club listings, artist/date filters, ticket paths, location metadata, and underground nightlife utility." },
+      { title: "Boiler Room", url: "https://boilerroom.tv/", note: "Live electronic music media reference for session cards, dark video grids, artist context, broadcast energy, and club-culture editorial modules." },
+      { title: "Tomorrowland", url: "https://www.tomorrowland.com/", note: "Festival reference for large-scale stage worlds, lineups, tickets, immersive event branding, bright spectacle, and multi-day navigation systems." },
+      { title: "Ultra Music Festival", url: "https://ultramusicfestival.com/", note: "Electronic festival reference for lineup hierarchy, ticket CTAs, stage visuals, schedule blocks, and high-energy neon festival promotion." },
+      { title: "Amsterdam Dance Event", url: "https://www.amsterdam-dance-event.nl/", note: "Electronic music conference and festival reference for program grids, venue maps, artist sessions, ticket passes, and citywide nightlife structure." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Rave Festival Website Design", url: "https://www.pinterest.com/search/pins/?q=rave%20festival%20website%20design", note: "Moodboard reference for laser grids, wristbands, neon lineups, warehouse flyers, sound-system graphics, and festival-stage poster systems." },
+      { title: "Awwwards - Events Websites", url: "https://www.awwwards.com/websites/events/", note: "Professional event-site gallery for schedule grids, ticket flows, venue modules, animated stage visuals, and responsive festival storytelling." },
+      { title: "Dribbble - Rave Festival Website", url: "https://dribbble.com/search/rave%20festival%20website", note: "UI reference for BPM dashboards, neon event cards, stage maps, ticket badges, artist lineup blocks, and nightclub landing pages." },
+    ],
+    representativeTraits: ["Laser stage map", "BPM lineup grid", "Ticket wristband rail", "Sound system meters", "Warehouse light tunnel"],
+    avoidTraits: ["Indie sleaze flash feed", "Cyberpunk city dashboard", "Grunge tape archive", "Streetwear product drop"],
+    tokenIntent:
+      "Use black event surfaces, acid green, cyan laser beams, safety orange ticket accents, magenta light trails, BPM lineup grids, wristband rails, sound-system meters, warehouse tunnel depth, and stage-map geometry so rave style reads as electronic event infrastructure rather than cyberpunk UI or indie party photography.",
+  },
+  "lo-fi": {
+    referenceSites: [
+      { title: "Lofi Girl", url: "https://lofigirl.com/", note: "Lo-fi music brand reference for calm streaming identity, study-beat culture, illustrated listening worlds, shop/community paths, and soft always-on ambience." },
+      { title: "Chillhop Music", url: "https://chillhop.com/", note: "Lo-fi and chill beats label reference for seasonal compilations, cozy release cards, playlist navigation, merch modules, and warm analog listening surfaces." },
+      { title: "Bandcamp", url: "https://bandcamp.com/", note: "Independent music marketplace reference for album pages, track lists, purchase modules, community discovery, and low-polish artist-first music browsing." },
+      { title: "NTS Radio", url: "https://www.nts.live/", note: "Independent radio reference for show archives, schedule rows, muted player controls, editorial curation, and listening-history interface patterns." },
+      { title: "SoundCloud", url: "https://soundcloud.com/", note: "Music platform reference for waveform players, queue cards, creator profiles, comments, and casual playlist discovery across lo-fi communities." },
+    ],
+    referenceGalleries: [
+      { title: "Pinterest - Lo-fi Music Website Design", url: "https://www.pinterest.com/search/pins/?q=lofi%20music%20website%20design", note: "Moodboard reference for cassette decks, dusty sampler pads, paper notes, cozy room players, muted browns, tape labels, and analog music UI." },
+      { title: "Awwwards - Music & Sound Websites", url: "https://www.awwwards.com/websites/music-sound/", note: "Professional music-site gallery for translating listening experiences, release cards, player controls, and artist/label navigation into polished responsive interfaces." },
+      { title: "Dribbble - Lo-fi Music Website", url: "https://dribbble.com/search/lofi%20music%20website", note: "UI reference for relaxed music players, tape textures, waveform cards, warm desktop widgets, album queues, and quiet beat-making dashboards." },
+    ],
+    representativeTraits: ["Lo-fi loop desk", "Dusty sampler pads", "Cassette progress rail", "Bedroom radio queue", "Paper note texture"],
+    avoidTraits: ["Rave laser stage", "Indie sleaze flash feed", "Grunge tape archive", "Retro diner commerce"],
+    tokenIntent:
+      "Use warm paper, faded olive, tape brown, muted denim, cream borders, cassette progress rails, dusty sampler pads, quiet waveform cards, bedroom radio queues, and paper note texture so lo-fi reads as a calm listening and beat-making desk rather than retro shop, grunge archive, or rave interface.",
+  },
 };
 
 function hashSlug(slug: string) {
@@ -1916,6 +2941,13 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     decoration: { shadow: "6px 6px 0 var(--st-accent-3)", effect: "none" },
     layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
   },
+  "mid-century-modern": {
+    typography: { displayFont: '"Gill Sans", "Avenir Next", "Trebuchet MS", sans-serif', bodyFont: '"Avenir Next", "Trebuchet MS", sans-serif', weightDisplay: 700, weightBody: 500, tracking: "0em", headingScale: 0.98 },
+    shape: { radius: "10px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.85rem", padScale: 1.0 },
+    decoration: { shadow: "none", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "underline", alignment: "left" },
+  },
   "cyberpunk": {
     typography: { bodyFont: '"SFMono-Regular", monospace', tracking: "0.02em" },
     shape: { radius: "2px", borderWidth: "1px" },
@@ -1927,44 +2959,199 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     space: { density: "tight", gap: "0.55rem", padScale: 0.9 },
     decoration: { shadow: "0 0 28px rgb(var(--st-accent-rgb) / 0.7)", effect: "scanline" },
   },
-  "kawaii": {
-    shape: { radius: "20px", radiusPill: "9999px", borderWidth: "2px" },
+  kitsch: {
+    typography: { displayFont: '"Trebuchet MS", "Arial", sans-serif', weightDisplay: 900, weightBody: 600, tracking: "0em", headingScale: 1.18 },
+    shape: { radius: "12px", radiusPill: "9999px", borderWidth: "2px", borderStyle: "solid" },
+    space: { density: "tight", gap: "0.55rem", padScale: 0.9 },
+    decoration: { shadow: "5px 5px 0 var(--st-accent-3)", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
+  },
+  kawaii: {
+    typography: { displayFont: '"Trebuchet MS", "Arial", sans-serif', weightDisplay: 800, weightBody: 500, tracking: "0em", headingScale: 1.06 },
+    shape: { radius: "24px", radiusPill: "9999px", borderWidth: "2px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.82rem", padScale: 1.06 },
     decoration: { shadow: "4px 4px 0 var(--st-accent)", effect: "none" },
+    layout: { heroVariant: "center", navStyle: "boxed", alignment: "center" },
+  },
+  "dopamine-design": {
+    typography: { displayFont: '"Trebuchet MS", "Arial", sans-serif', weightDisplay: 850, weightBody: 600, tracking: "0em", headingScale: 1.14 },
+    shape: { radius: "22px", radiusPill: "9999px", borderWidth: "2px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.72rem", padScale: 1.0 },
+    decoration: { shadow: "0 14px 28px rgb(var(--st-accent-rgb) / 0.18)", effect: "gradient" },
+    layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
+  },
+  "pop-art": {
+    typography: { displayFont: '"Arial Black", Impact, sans-serif', weightDisplay: 900, weightBody: 650, tracking: "0em", headingScale: 1.24 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "3px", borderStyle: "solid" },
+    space: { density: "tight", gap: "0.5rem", padScale: 0.88 },
+    decoration: { shadow: "none", effect: "none" },
+    layout: { heroVariant: "left", navStyle: "boxed", alignment: "left" },
+  },
+  "comic-book-style": {
+    typography: { displayFont: '"Arial Black", Impact, sans-serif', weightDisplay: 900, weightBody: 650, tracking: "0em", headingScale: 1.18 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "3px", borderStyle: "solid" },
+    space: { density: "tight", gap: "0.5rem", padScale: 0.86 },
+    decoration: { shadow: "5px 5px 0 var(--st-accent-3)", effect: "none" },
+    layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
+  },
+  "toy-design": {
+    typography: { displayFont: '"Trebuchet MS", "Arial", sans-serif', weightDisplay: 850, weightBody: 600, tracking: "0em", headingScale: 1.06 },
+    shape: { radius: "14px", radiusPill: "9999px", borderWidth: "2px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.7rem", padScale: 0.96 },
+    decoration: { shadow: "0 10px 0 rgb(var(--st-text-rgb) / 0.08)", effect: "none" },
+    layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
+  },
+  "playful-design": {
+    typography: { displayFont: '"Trebuchet MS", "Arial", sans-serif', weightDisplay: 760, weightBody: 500, tracking: "0em", headingScale: 1.0 },
+    shape: { radius: "18px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.9rem", padScale: 1.06 },
+    decoration: { shadow: "0 16px 34px rgb(var(--st-text-rgb) / 0.09)", effect: "none" },
+    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
+  },
+  "pastel-style": {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 500, weightBody: 350, tracking: "0em", headingScale: 0.94 },
+    shape: { radius: "24px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.35rem", padScale: 1.35 },
+    decoration: { shadow: "0 18px 44px rgb(var(--st-text-rgb) / 0.05)", effect: "none" },
+    layout: { heroVariant: "left", navStyle: "minimal", alignment: "left" },
+  },
+  "bubble-design": {
+    typography: { displayFont: '"Trebuchet MS", "Arial", sans-serif', weightDisplay: 820, weightBody: 500, tracking: "0em", headingScale: 1.08 },
+    shape: { radius: "28px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.85rem", padScale: 1.08 },
+    decoration: { shadow: "0 18px 40px rgb(var(--st-accent-rgb) / 0.16)", effect: "gradient" },
+    layout: { heroVariant: "center", navStyle: "boxed", alignment: "center" },
+  },
+  "classic": {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, weightBody: 300, tracking: "0.02em", headingScale: 0.9 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.45rem", padScale: 1.45 },
+    decoration: { shadow: "none", effect: "none" },
+    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
+  },
+  "neoclassic": {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, weightBody: 300, tracking: "0.03em", headingScale: 0.88 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.6rem", padScale: 1.6 },
+    decoration: { shadow: "0 18px 40px rgb(var(--st-text-rgb) / 0.08)", effect: "none" },
+    layout: { heroVariant: "center", navStyle: "minimal", alignment: "center" },
   },
   "luxury": {
-    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 300, weightBody: 300, tracking: "0.12em", headingScale: 0.85 },
-    shape: { radius: "0px", borderWidth: "1px", borderStyle: "solid" },
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 300, weightBody: 300, tracking: "0.06em", headingScale: 0.84 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "solid" },
     space: { density: "airy", gap: "2rem", padScale: 1.8 },
     decoration: { shadow: "none", effect: "none" },
+    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
   },
   "old-money": {
-    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, weightBody: 300, tracking: "0.06em", headingScale: 0.92 },
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, weightBody: 300, tracking: "0.03em", headingScale: 0.9 },
     shape: { radius: "2px", radiusPill: "2px", borderWidth: "1px" },
     space: { density: "airy", gap: "1.8rem", padScale: 1.65 },
     decoration: { shadow: "0 14px 36px rgb(var(--st-text-rgb) / 0.10)", effect: "none" },
+    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
+  },
+  "art-deco": {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 500, weightBody: 400, tracking: "0.08em", headingScale: 0.92 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "double" },
+    space: { density: "normal", gap: "0.85rem", padScale: 1.08 },
+    decoration: { shadow: "0 18px 42px rgb(0 0 0 / 0.28)", effect: "none" },
+    layout: { heroVariant: "center", navStyle: "underline", alignment: "center" },
+  },
+  "art-nouveau": {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, weightBody: 350, tracking: "0.01em", headingScale: 0.94 },
+    shape: { radius: "18px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.35rem", padScale: 1.35 },
+    decoration: { shadow: "0 16px 34px rgb(var(--st-text-rgb) / 0.08)", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
+  },
+  "baroque": {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 500, weightBody: 350, tracking: "0.02em", headingScale: 0.94 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "double" },
+    space: { density: "normal", gap: "0.9rem", padScale: 1.05 },
+    decoration: { shadow: "0 18px 52px rgb(0 0 0 / 0.38)", effect: "grain" },
+    layout: { heroVariant: "center", navStyle: "minimal", alignment: "center" },
+  },
+  "rococo": {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, weightBody: 300, tracking: "0.02em", headingScale: 0.9 },
+    shape: { radius: "22px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.25rem", padScale: 1.25 },
+    decoration: { shadow: "0 16px 36px rgb(var(--st-text-rgb) / 0.07)", effect: "none" },
+    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
+  },
+  "gothic": {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 600, weightBody: 350, tracking: "0.03em", headingScale: 0.96 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.85rem", padScale: 1.0 },
+    decoration: { shadow: "0 20px 54px rgb(0 0 0 / 0.42)", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "underline", alignment: "left" },
   },
   "organic-design": {
-    shape: { radius: "12px", borderWidth: "1px", borderStyle: "solid" },
+    typography: { displayFont: '"Satoshi", sans-serif', weightDisplay: 650, weightBody: 400, tracking: "0em", headingScale: 0.98 },
+    shape: { radius: "18px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
     space: { density: "airy", gap: "1.25rem", padScale: 1.3 },
     decoration: { shadow: "none", effect: "grain" },
   },
+  natural: {
+    typography: { displayFont: '"Satoshi", sans-serif', weightDisplay: 650, weightBody: 400, tracking: "0em", headingScale: 0.95 },
+    shape: { radius: "2px", radiusPill: "2px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.35rem", padScale: 1.28 },
+    decoration: { shadow: "none", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
+  },
+  botanical: {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 500, weightBody: 350, tracking: "0em", headingScale: 0.96 },
+    shape: { radius: "14px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.2rem", padScale: 1.22 },
+    decoration: { shadow: "0 12px 30px rgb(var(--st-text-rgb) / 0.06)", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
+  },
+  "eco-design": {
+    typography: { displayFont: '"Satoshi", sans-serif', weightDisplay: 800, weightBody: 500, tracking: "0em", headingScale: 1.02 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.9rem", padScale: 1.05 },
+    decoration: { shadow: "none", effect: "none" },
+    layout: { heroVariant: "split", navStyle: "underline", alignment: "left" },
+  },
+  rustic: {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 700, weightBody: 450, tracking: "0em", headingScale: 1.02 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "2px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.9rem", padScale: 1.05 },
+    decoration: { shadow: "5px 5px 0 var(--st-accent-2)", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
+  },
+  kinfolk: {
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, weightBody: 300, tracking: "0em", headingScale: 0.88 },
+    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "1.55rem", padScale: 1.55 },
+    decoration: { shadow: "none", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
+  },
+  handmade: {
+    typography: { displayFont: '"Satoshi", sans-serif', weightDisplay: 800, weightBody: 500, tracking: "0em", headingScale: 1.08 },
+    shape: { radius: "3px", radiusPill: "3px", borderWidth: "1px", borderStyle: "dashed" },
+    space: { density: "normal", gap: "0.85rem", padScale: 1.0 },
+    decoration: { shadow: "4px 4px 0 var(--st-accent-3)", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
+  },
+  craft: {
+    typography: { displayFont: '"Satoshi", sans-serif', weightDisplay: 760, weightBody: 430, tracking: "0em", headingScale: 0.98 },
+    shape: { radius: "1px", radiusPill: "1px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.95rem", padScale: 1.08 },
+    decoration: { shadow: "3px 3px 0 var(--st-accent-3)", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
+  },
   "wabi-sabi": {
-    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, tracking: "0.02em", headingScale: 0.9 },
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, weightBody: 300, tracking: "0em", headingScale: 0.88 },
     shape: { radius: "6px", radiusPill: "12px", borderWidth: "1px", borderStyle: "dashed" },
     space: { density: "airy", gap: "1.6rem", padScale: 1.55 },
     decoration: { shadow: "none", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
   },
   "streetwear": {
     typography: { weightDisplay: 900, tracking: "-0.04em", headingScale: 1.2 },
     shape: { radius: "0px", borderWidth: "4px" },
     space: { density: "tight", gap: "0.4rem", padScale: 0.8 },
     decoration: { shadow: "5px 5px 0 var(--st-accent)", effect: "none" },
-  },
-  "dopamine-design": {
-    typography: { weightDisplay: 800, weightBody: 500, tracking: "-0.03em", headingScale: 1.18 },
-    shape: { radius: "24px", radiusPill: "9999px", borderWidth: "2px" },
-    space: { density: "normal", gap: "0.8rem", padScale: 1.05 },
-    decoration: { shadow: "5px 5px 0 var(--st-accent-2)", effect: "gradient" },
   },
   "graffiti": {
     typography: { weightDisplay: 900, weightBody: 600, tracking: "-0.05em", headingScale: 1.28 },
@@ -2045,6 +3232,13 @@ function buildStyle(seed: DesignStyleSeed, index: number): DesignStyle {
   const mergedNonColor = mergeTokens(baseTokens, styleTokenOverrides[seed.slug]);
   const tokens: StyleTokens = { ...mergedNonColor, color: colorTokens };
   const contentOverride = styleContentOverrides[seed.slug];
+  const research = futureDigitalResearch[seed.slug] ?? cuteCasualResearch[seed.slug] ?? streetSubcultureResearch[seed.slug];
+  const hasCuratedResearch = Boolean(cuteCasualResearch[seed.slug] ?? streetSubcultureResearch[seed.slug]);
+  const generatedTags = [
+    ...seed.tags,
+    seed.category.split(" / ")[0],
+    ...(hasCuratedResearch ? [] : [seed.sampleType ?? profile.sampleType]),
+  ];
 
   const generatedStyle: DesignStyle = {
     slug: seed.slug,
@@ -2083,10 +3277,11 @@ function buildStyle(seed: DesignStyleSeed, index: number): DesignStyle {
       "선택한 스타일이 콘텐츠의 실제 목적보다 앞서지 않도록 핵심 정보 위계를 먼저 고정해야 합니다.",
       "모바일에서는 장식 요소를 줄이고 제목, 본문, CTA의 가독성을 우선 확인해야 합니다.",
     ],
-    tags: [...new Set([...seed.tags, seed.category.split(" / ")[0], seed.sampleType ?? profile.sampleType])],
+    tags: [...new Set(generatedTags)],
     related: related.slice(0, 3),
     palette: seed.palette,
     imagePrompt: `A square editorial poster representing ${seed.nameEn} design style, ${seed.tone}, ${profile.visual.join(", ")}, ${promptSuffix}`,
+    research,
     sampleType: seed.sampleType ?? profile.sampleType,
     tokens,
   };

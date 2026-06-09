@@ -20,13 +20,13 @@ export function ColorPaletteGrid({
   palette: DesignStylePalette;
 }) {
   return (
-    <div className={cn("grid grid-cols-4", compact ? "gap-1" : "gap-1.5")}>
+    <div className={cn("grid", compact ? "grid-cols-[repeat(8,13px)] gap-1" : "grid-cols-4 gap-1.5")}>
       {paletteEntries.map(([key, label]) => (
         <span
           aria-label={`${label} ${palette[key]}`}
           className={cn(
             "border border-[var(--specimen-line-soft)]",
-            compact ? "h-6" : "h-8",
+            compact ? "aspect-square min-w-0" : "h-8",
           )}
           key={key}
           style={{ backgroundColor: palette[key] }}

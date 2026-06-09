@@ -87,7 +87,7 @@ export function LayoutCoreScreen({ locale }: { locale: Locale }) {
     });
   }, [activeCategory, activeComplexity, activePurpose, locale, q, sort]);
 
-  const visibleLayouts = filteredLayouts.slice(0, view === "list" ? 32 : 24);
+  const visibleLayouts = filteredLayouts;
   const activeFilterCount = [
     Boolean(q),
     activeCategory !== "all",

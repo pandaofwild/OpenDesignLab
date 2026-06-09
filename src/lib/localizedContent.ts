@@ -295,15 +295,25 @@ export function designStyleForLocale(style: DesignStyle, locale: Locale): Design
 
   const profile = styleProfileEn[style.sampleType];
   const category = styleCategoryLabel(style.category, locale);
+  const research = style.research;
+  const referenceNames = research?.referenceSites
+    .slice(0, 3)
+    .map((source) => source.title)
+    .join(", ");
+  const representativeTraits = research?.representativeTraits ?? profile.visual;
 
   return {
     ...style,
     nameKo: style.nameEn,
     nameEn: style.nameEn,
     category,
-    summary: `${style.nameEn} turns layout previews into a ${category.toLowerCase()} direction with reusable color, type, spacing, and decoration tokens.`,
-    description: `Use ${style.nameEn} as a visual language layer that can be combined with any layout in OpenDesignLab. The style keeps the structural preview intact while changing hierarchy, mood, color, type, and surface treatment.`,
-    visualFeatures: profile.visual,
+    summary: research
+      ? `${style.nameEn} uses ${representativeTraits.slice(0, 3).join(", ").toLowerCase()} to create a ${category.toLowerCase()} web direction.`
+      : `${style.nameEn} turns layout previews into a ${category.toLowerCase()} direction with reusable color, type, spacing, and decoration tokens.`,
+    description: research
+      ? `${style.nameEn} is grounded in references such as ${referenceNames}. ${research.tokenIntent}`
+      : `Use ${style.nameEn} as a visual language layer that can be combined with any layout in OpenDesignLab. The style keeps the structural preview intact while changing hierarchy, mood, color, type, and surface treatment.`,
+    visualFeatures: representativeTraits,
     colorPalette: [
       "Base, surface, text, and accent colors are stored as reusable tokens.",
       "The palette is designed to be applied consistently across layout previews.",
@@ -313,7 +323,9 @@ export function designStyleForLocale(style: DesignStyle, locale: Locale): Design
     layoutTraits: profile.layout,
     useCases: profile.useCases,
     goodFor: profile.goodFor,
-    cautions: profile.cautions,
+    cautions: research
+      ? research.avoidTraits.map((trait) => `Avoid ${trait.toLowerCase()} because it weakens the style distinction.`)
+      : profile.cautions,
   };
 }
 
