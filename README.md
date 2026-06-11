@@ -15,7 +15,7 @@ It combines layout structures, visual styles, color palettes, and component patt
 | Roadmap | Project-specific `design.md` generation |
 | Last reviewed | 2026-06-11 |
 
-![OpenDesignLab style cards](docs/assets/opendesignlab-style-cards.jpg)
+![OpenDesignLab style cards](docs/assets/opendesignlab-style-cards-2026-06-11.jpg)
 
 ## Why This Exists
 
@@ -50,7 +50,7 @@ OpenDesignLab turns design intent into inspectable choices:
 
 ### Layout Explorer
 
-![OpenDesignLab layout explorer](docs/assets/opendesignlab-layouts.jpg)
+![OpenDesignLab layout explorer](docs/assets/opendesignlab-layouts-2026-06-11.jpg)
 
 ## Key Features
 
