@@ -5492,93 +5492,163 @@ function KawaiiCharacterClub({ compact = false, style }: Props) {
 }
 
 function DopamineRewardLoop({ compact = false, style }: Props) {
-  const tags = ["no sugar", "all-natural", "ships free", "good mood"];
+  // "Habit streak engine": a gamified reward dashboard (Duolingo / Habitica /
+  // Happy Socks energy). A big circular reward loop with orbiting habit icons,
+  // an XP reward meter, color-pulse habit cards, a reward ladder and a dopamine
+  // spectrum. The circular-progress dashboard skeleton keeps it distinct from
+  // its neighbours kawaii (image cards) and pop-art (edition grid).
+  const softShadow: CSSProperties = { boxShadow: "0 10px 24px -14px rgba(26,20,54,0.5), inset 0 1px 1px rgba(255,255,255,0.7)" };
+  const orbit: Array<[string, string, string]> = [
+    ["move", "#ff3d81", "left-[38%] top-[-7%]"],
+    ["read", "#12d0b8", "right-[-7%] top-[26%]"],
+    ["water", "#ffd23e", "right-[6%] bottom-[4%]"],
+    ["focus", "#7b5cff", "left-[6%] bottom-[4%]"],
+    ["sleep", "#ff7a3d", "left-[-7%] top-[26%]"],
+  ];
+  const pulse: Array<[string, string, number, string]> = [
+    ["morning move", "12", 80, "#ff3d81"],
+    ["deep focus", "6", 55, "#7b5cff"],
+  ];
+  const ladder: Array<[string, string, string]> = [
+    ["bronze", "#ff7a3d", "claimed"],
+    ["silver", "#12d0b8", "claimed"],
+    ["gold", "#ffd23e", "active"],
+    ["platinum", "#7b5cff", "locked"],
+  ];
+  const loopBg =
+    "conic-gradient(from -90deg, #ff3d81 0turn, #ffd23e 0.22turn, #12d0b8 0.44turn, #7b5cff 0.66turn, rgb(26 20 54 / 0.09) 0.72turn 1turn)";
 
   return (
     <SampleFrame compact={compact} style={style}>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden opacity-25">
-        <span className="absolute -right-10 top-1/3 h-32 w-32 rounded-full bg-[var(--sample-accent-3)]" />
-        <span className="absolute -left-8 -bottom-8 h-28 w-28 rounded-full bg-[var(--sample-accent-2)]" />
-      </div>
-
-      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="grid h-7 w-7 place-items-center rounded-full bg-[var(--sample-accent)] text-white">
-              <IconStar size={14} />
-            </span>
-            <span className="font-display text-base font-black tracking-tight">MOODFUEL</span>
-          </div>
-          <nav className={cn("items-center gap-4 text-[11px] font-bold", compact ? "hidden" : "flex")}>
-            <span>Shop</span>
-            <span>Flavors</span>
-            <span>Joy</span>
-          </nav>
-          <span className="rounded-full bg-[var(--sample-text)] px-3 py-1.5 text-[11px] font-black text-white">Cart · 2</span>
-        </div>
-
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1.1fr_0.9fr]" : "grid-cols-[1.15fr_0.85fr] gap-5")}>
-          <section className="flex min-h-0 flex-col justify-between">
-            <div>
-              <span className="inline-block rounded-full bg-[var(--sample-accent-2)] px-3 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">
-                New drop
+      <div
+        className={cn("absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
+        style={{
+          "--sample-accent": "#ff3d81",
+          "--sample-accent-2": "#12d0b8",
+          "--sample-accent-3": "#ffd23e",
+          "--sample-base": "#fdfbff",
+          "--sample-border": "#1a1436",
+          "--sample-border-soft": "#1a14361f",
+          "--sample-muted": "#6b6494",
+          "--sample-primary": "#ff3d81",
+          "--sample-surface": "#ffffff",
+          "--sample-text": "#1a1436",
+          "--st-base-rgb": "253 251 255",
+          "--st-surface-rgb": "255 255 255",
+          "--st-text-rgb": "26 20 54",
+          "--st-primary-rgb": "255 61 129",
+          "--st-accent-rgb": "255 61 129",
+          "--st-accent-2-rgb": "18 208 184",
+          "--st-accent-3-rgb": "255 210 62",
+          "--st-border-rgb": "26 20 54",
+          background:
+            "radial-gradient(50% 40% at 12% 6%, rgb(255 61 129 / 0.14), transparent 60%), radial-gradient(46% 44% at 96% 10%, rgb(18 208 184 / 0.14), transparent 60%), radial-gradient(54% 46% at 88% 102%, rgb(123 92 255 / 0.14), transparent 62%), linear-gradient(180deg, #fefcff, #fbf7ff)",
+        } as SampleVariables}
+      >
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_1fr_auto] gap-2.5">
+          {/* app bar */}
+          <header className="flex items-center justify-between gap-2">
+            <div className="flex min-w-0 items-center gap-2">
+              <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full text-white" style={{ background: "linear-gradient(140deg, var(--sample-accent), #7b5cff)" }}>
+                <IconStar size={12} />
               </span>
-              <h3
-                className={cn("mt-3 font-display leading-[0.84]", compact ? "text-[2.1rem]" : "text-[3.6rem]")}
-                style={{ fontFamily: "var(--st-font-display)", fontWeight: 900, letterSpacing: "-0.02em" }}
-              >
-                Pure
-                <br />
-                <span className="my-1 inline-block rounded-[14px] bg-[var(--sample-accent)] px-2 text-white">good</span>
-                <br />
-                mood.
-              </h3>
+              <span className="font-black uppercase tracking-[0.02em]" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "12px" : "15px" }}>Pulse</span>
             </div>
-            <div className={cn(compact ? "hidden" : "block")}>
-              <p className="max-w-[26ch] text-[12px] font-semibold text-[var(--sample-muted)]">
-                Sparkling mood drinks, dialed to max color and zero sugar.
-              </p>
-              <button
-                className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-[var(--sample-text)] px-5 py-2.5 text-[13px] font-black text-white shadow-[0_12px_22px_-10px_rgb(var(--st-accent-rgb)_/_0.8)]"
-                type="button"
-              >
-                Shop the drop <IconArrow size={14} />
-              </button>
+            <div className="flex items-center gap-1.5">
+              <span className="flex items-center gap-1 rounded-full bg-[var(--sample-accent)] px-2 py-0.5 text-[9px] font-black uppercase text-white">
+                <span className="h-1.5 w-1.5 rounded-full bg-[var(--sample-accent-3)]" /> 12 day streak
+              </span>
+              <span className="rounded-full bg-[var(--sample-text)] px-2 py-0.5 text-[9px] font-black uppercase text-white">lv 7</span>
             </div>
-          </section>
+          </header>
 
-          <section className="grid min-h-0 grid-rows-[1.5fr_1fr] gap-2">
-            <div className="relative overflow-hidden rounded-[24px] bg-[var(--sample-accent)] p-3 text-white">
-              <span className="text-[10px] font-black uppercase tracking-[0.12em] opacity-90">bestseller</span>
-              <p className="mt-1 font-display text-2xl font-black leading-none">Punch</p>
-              <span aria-hidden="true" className="absolute -bottom-6 -right-4 h-24 w-24 rounded-full bg-white/25" />
-              <span className="absolute bottom-3 left-3 rounded-full bg-white px-2.5 py-1 text-[12px] font-black text-[var(--sample-accent)]">$4</span>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <div className="flex flex-col justify-between rounded-[20px] bg-[var(--sample-accent-2)] p-2.5 text-[var(--sample-text)]">
-                <p className="font-display text-lg font-black leading-none">Kiwi</p>
-                <span className="text-[11px] font-black">$4</span>
+          <div className={cn("grid min-h-0 min-w-0 gap-3", compact ? "grid-cols-[0.95fr_1.05fr]" : "sm:grid-cols-[0.92fr_1.08fr]")}>
+            {/* reward loop + habit orbit */}
+            <section className="relative grid min-h-0 min-w-0 place-items-center">
+              <div className={cn("relative aspect-square", compact ? "w-[86%] max-w-[9rem]" : "w-[82%] max-w-[13rem]")}>
+                <div aria-label="COLOR REWARD LOOP" className="absolute inset-0 rounded-full" style={{ background: loopBg }}>
+                  <div className="absolute inset-[15%] grid place-items-center rounded-full bg-white text-center" style={softShadow}>
+                    <div className="flex flex-col items-center leading-none">
+                      <span className={cn("font-black uppercase tracking-[0.08em] text-[var(--sample-muted)]", compact ? "text-[5.5px]" : "text-[7px]")}>STREAK ENERGY ENGINE</span>
+                      <span className={cn("font-black tabular-nums text-[var(--sample-text)]", compact ? "text-[1.7rem]" : "text-[2.6rem]")} style={{ fontFamily: "var(--st-font-display)" }}>12</span>
+                      <span className={cn("font-black uppercase tracking-[0.14em] text-[var(--sample-primary)]", compact ? "text-[6px]" : "text-[8px]")}>day streak</span>
+                    </div>
+                  </div>
+                </div>
+                <div aria-label="habit orbit" className="pointer-events-none absolute inset-0">
+                  {orbit.map(([label, color, pos]) => (
+                    <span
+                      className={cn("absolute grid place-items-center rounded-full text-[6px] font-black uppercase text-white", compact ? "h-7 w-7" : "h-9 w-9", pos)}
+                      key={label}
+                      style={{ background: `radial-gradient(circle at 34% 28%, rgba(255,255,255,0.9) 0%, ${color} 46%, color-mix(in srgb, ${color} 66%, #1a1436) 100%)`, boxShadow: `0 6px 12px -6px ${color}` }}
+                    >
+                      {label}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-col justify-between rounded-[20px] bg-[var(--sample-accent-3)] p-2.5 text-[var(--sample-text)]">
-                <p className="font-display text-lg font-black leading-none">Mango</p>
-                <span className="text-[11px] font-black">$4</span>
-              </div>
-            </div>
-          </section>
-        </div>
+            </section>
 
-        <div className={cn("flex-wrap items-center gap-2", compact ? "hidden" : "flex")}>
-          {tags.map((tag, index) => (
-            <span
-              className={cn(
-                "rounded-full px-3 py-1.5 text-[11px] font-black",
-                index % 2 === 0 ? "bg-[var(--sample-text)] text-white" : "border border-[var(--sample-border-soft)] bg-white text-[var(--sample-text)]",
-              )}
-              key={tag}
-            >
-              {tag}
-            </span>
-          ))}
+            {/* right rail */}
+            <section className="flex min-h-0 min-w-0 flex-col gap-2.5">
+              <div aria-label="reward meter" className="rounded-[16px] bg-white p-2.5" style={softShadow}>
+                <div className="mb-1.5 flex items-center justify-between text-[8px] font-black uppercase tracking-[0.08em]">
+                  <span className="text-[var(--sample-text)]">reward meter · lv 7</span>
+                  <span className="tabular-nums text-[var(--sample-muted)]">720 / 1000 xp</span>
+                </div>
+                <div className="relative h-2.5 overflow-hidden rounded-full bg-[var(--sample-base)]">
+                  <span className="absolute inset-y-0 left-0 w-[72%] rounded-full" style={{ background: "linear-gradient(90deg, var(--sample-accent-2), var(--sample-accent))" }} />
+                  <span aria-hidden="true" className="absolute left-[30%] top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-white/80" />
+                  <span aria-hidden="true" className="absolute left-[55%] top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-white/70" />
+                </div>
+              </div>
+
+              <div aria-label="color pulse cards" className="grid min-h-0 flex-1 grid-cols-2 gap-2.5">
+                {pulse.map(([name, streak, pct, color]) => (
+                  <div className="relative flex min-h-0 flex-col justify-between overflow-hidden rounded-[16px] p-2.5 text-white" key={name} style={{ background: `linear-gradient(150deg, ${color}, color-mix(in srgb, ${color} 66%, #1a1436))` }}>
+                    <span aria-hidden="true" className="absolute -right-3 -top-3 h-12 w-12 rounded-full bg-white/20" />
+                    <div className="relative">
+                      <p className="text-[9px] font-black uppercase leading-tight">{name}</p>
+                      <p className="mt-0.5 text-[7px] font-bold uppercase tracking-[0.06em] text-white/80">{streak} day streak</p>
+                    </div>
+                    <div className="relative mt-2">
+                      <div className="h-1.5 overflow-hidden rounded-full bg-black/20">
+                        <span className="block h-full rounded-full bg-white" style={{ width: `${pct}%` }} />
+                      </div>
+                      <span className="mt-1 block text-right text-[7px] font-black tabular-nums">{pct}%</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div aria-label="reward ladder" className={cn("rounded-[16px] bg-white p-2.5", compact && "hidden")} style={softShadow}>
+                <div className="mb-1 flex items-center justify-between">
+                  <span className="text-[8px] font-black uppercase tracking-[0.1em] text-[var(--sample-text)]">reward ladder</span>
+                  <span className="text-[7px] font-black uppercase text-[var(--sample-muted)]">4 tiers</span>
+                </div>
+                <div className="grid grid-cols-4 gap-1.5">
+                  {ladder.map(([tier, color, status]) => (
+                    <div className={cn("flex flex-col items-center gap-1 rounded-[10px] px-1 py-1.5", status === "active" ? "bg-[var(--sample-base)]" : "")} key={tier}>
+                      <span className="h-4 w-4 rounded-full" style={{ background: status === "locked" ? "rgb(26 20 54 / 0.14)" : color, boxShadow: status === "locked" ? "none" : `0 4px 8px -5px ${color}` }} />
+                      <span className="truncate text-[6.5px] font-black uppercase text-[var(--sample-text)]">{tier}</span>
+                      <span className={cn("text-[5.5px] font-black uppercase tracking-[0.04em]", status === "active" ? "text-[var(--sample-primary)]" : "text-[var(--sample-muted)]")}>{status}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </div>
+
+          {/* dopamine spectrum */}
+          <div aria-label="dopamine spectrum" className={cn(compact && "hidden")}>
+            <div className="mb-1 flex items-center justify-between text-[8px] font-black uppercase tracking-[0.1em]">
+              <span className="text-[var(--sample-text)]">dopamine spectrum</span>
+              <span className="text-[var(--sample-muted)]">today&apos;s energy · high</span>
+            </div>
+            <div className="relative h-3 rounded-full" style={{ background: "linear-gradient(90deg, #7b5cff, #12d0b8, #ffd23e, #ff7a3d, #ff3d81)" }}>
+              <span aria-hidden="true" className="absolute left-[74%] top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-[3px] border-white bg-[var(--sample-accent)] shadow-[0_4px_10px_-3px_rgba(26,20,54,0.6)]" />
+            </div>
+          </div>
         </div>
       </div>
     </SampleFrame>
