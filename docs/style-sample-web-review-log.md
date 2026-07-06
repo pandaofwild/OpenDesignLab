@@ -135,22 +135,20 @@
 
 ## 미해결 category QA
 
-`모던 / 미니멀`은 category QA까지 verified다(아카이브 참고). 아래 두 카테고리는 스타일별 검증은 끝났지만 카테고리 필터 화면 QA 기록이 없으므로, `futurism` 구현을 시작하기 전에 먼저 수행하고 결과를 해당 아카이브 파일에 기록한다.
+`모던 / 미니멀`, `강렬 / 실험`, `레트로 / 빈티지` 세 카테고리 모두 category QA까지 verified다(각 아카이브 파일 참고). 남은 미해결 category QA는 없다.
 
 ### 강렬 / 실험 category QA
 
-Status: `queued`
+Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/intense-experimental.md`.
 
-- `/en/styles?category=<강렬/실험 filter>` desktop/mobile에서 8개 card만 표시되는지 확인.
-- 8개 style marker 존재와 horizontal overflow `0` 확인.
+- desktop/mobile 모두 8개 card만 표시, 각 style marker 렌더, horizontal overflow `0`.
 - Screenshots: `output/playwright/category-review/intense-experimental/`.
 
 ### 레트로 / 빈티지 category QA
 
-Status: `queued`
+Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vintage.md`.
 
-- `/en/styles?category=<레트로/빈티지 filter>` desktop/mobile에서 9개 card만 표시되는지 확인.
-- 9개 style marker 존재와 horizontal overflow `0` 확인.
+- desktop/mobile 모두 9개 card만 표시, 각 style marker 렌더, horizontal overflow `0`.
 - Screenshots: `output/playwright/category-review/retro-vintage/`.
 
 ## 진행 중 카테고리: 미래 / 디지털

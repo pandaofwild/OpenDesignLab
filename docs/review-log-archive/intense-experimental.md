@@ -360,3 +360,14 @@ Status: `verified`
 - Final commands: `npm run check:data`, `npm run check:style-refs`, `npm run check:style-distinction`, `npm run lint`, `npm run build` 모두 통과.
 - 다음 style은 `retro`이다.
 
+
+## 강렬 / 실험 category QA
+
+Status: `verified` (2026-07-07)
+
+- `/en/styles?category=강렬 / 실험` 필터 화면을 desktop(1280×900)·mobile(375×812)에서 확인.
+- Desktop: 헤더 `008 SHOWN / 088 STYLES`, 사이드바 `Bold and Experimental 8` active, 카드 8개만 표시(anti-design, avant-garde, brutalism, deconstructivism, glitch-art, maximalism, new-brutalism, postmodernism). horizontal overflow `0`.
+- Mobile: 동일 8개 카드, horizontal overflow `0`.
+- 각 카드가 고유 샘플 마커를 렌더(OFF-GRID PORTFOLIO / MANIFESTO PROGRAM / BRUTALIST SITES LIST / STRUCTURAL FAULT · FORMS UNDER STRESS / SIGNAL DAMAGE · NET ART ERROR SURFACE / PATTERN MARKET · MORE IS A SYSTEM / GUMSTAND creator drop / CLASSICAL QUOTE), 잘림 없음.
+- Screenshots: `output/playwright/category-review/intense-experimental/intense-experimental-desktop.png`, `.../intense-experimental-mobile.png`.
+- 남은 의심점: 없음.

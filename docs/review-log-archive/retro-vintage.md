@@ -408,3 +408,14 @@
 - Final commands: `npm run check:data`, `npm run check:style-refs`, `npm run check:style-distinction`, `npm run lint`, `npm run build` 모두 통과. Next.js static pages `580/580`.
 - Screenshots: `output/playwright/per-style-review/bauhaus/after/desktop.png`, `output/playwright/per-style-review/bauhaus/after/mobile.png`, `output/playwright/per-style-review/bauhaus/after/styles-list.png`.
 - 다음 style은 `futurism`이다.
+
+## 레트로 / 빈티지 category QA
+
+Status: `verified` (2026-07-07)
+
+- `/en/styles?category=레트로 / 빈티지` 필터 화면을 desktop(1280×900)·mobile(375×812)에서 확인.
+- Desktop: 헤더 `009 SHOWN / 088 STYLES`, 사이드바 `Retro and Vintage 9` active, 카드 9개만 표시(retro, vintage, seventies-retro, eighties-retro, nineties-graphic, y2k, retro-futurism, mid-century-modern, bauhaus). horizontal overflow `0`.
+- Mobile: 동일 9개 카드, horizontal overflow `0`.
+- 각 카드가 고유 샘플 마커를 렌더(GROOVY LANDING / SYNTH CONSOLE · MIDNIGHT DRIVE / DESKTOP ZINE / BAUHAUS SCHOOL / MIDCENTURY STUDIO / RETRO BROADCAST SHOP / WORLDS FAIR TRAVEL BUREAU · FLIGHT DECK / ARCHIVE SUPPLY paper catalog / GLOSS PORTAL · Y2K), 잘림 없음.
+- Screenshots: `output/playwright/category-review/retro-vintage/retro-vintage-desktop.png`, `.../retro-vintage-mobile.png`.
+- 남은 의심점: 없음.
