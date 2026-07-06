@@ -5340,77 +5340,176 @@ function KawaiiApp({ compact = false, style }: Props) {
   );
 }
 
+function KitschPriceBurst({ price, bg, ink, className }: { price: string; bg: string; ink: string; className?: string }) {
+  // A real retail "sale seal" sunburst — the signature kitsch price sticker,
+  // spent once per card so it reads as deliberate novelty, not clutter.
+  const points: string[] = [];
+  const spikes = 11;
+  for (let i = 0; i < spikes * 2; i += 1) {
+    const radius = i % 2 === 0 ? 49 : 37;
+    const angle = (Math.PI / spikes) * i - Math.PI / 2;
+    points.push(`${(50 + radius * Math.cos(angle)).toFixed(1)},${(50 + radius * Math.sin(angle)).toFixed(1)}`);
+  }
+  return (
+    <svg aria-hidden="true" className={className} viewBox="0 0 100 100">
+      <polygon fill={bg} points={points.join(" ")} stroke={ink} strokeLinejoin="round" strokeOpacity={0.18} strokeWidth={2} />
+      <text dominantBaseline="central" fill={ink} fontFamily="var(--st-font-display)" fontSize="26" fontWeight="900" textAnchor="middle" x="50" y="52">{price}</text>
+    </svg>
+  );
+}
+
 function KitschNoveltyDrop({ compact = false, style }: Props) {
-  const products: Array<{ name: string; price: string; position: string; tag: string; colorVar: string }> = [
-    { name: "Wiggle", price: "$28", position: "9% 30%", tag: "NEW", colorVar: "var(--sample-accent-3)" },
-    { name: "Smiley", price: "$16", position: "37% 56%", tag: "HOT", colorVar: "var(--sample-accent)" },
-    { name: "Checker", price: "$34", position: "82% 36%", tag: "NEW", colorVar: "var(--sample-accent-2)" },
-    { name: "Hearts", price: "$22", position: "20% 88%", tag: "-20%", colorVar: "var(--sample-primary)" },
+  // "Novelty boutique storefront": a ban.do / Lisa Says Gah / Lazy Oaf shop —
+  // an asymmetric hero + gift-finder split above a wall of odd-object product
+  // cards, closed by a drop countdown. Boldness is spent on the sunburst price
+  // stickers and the clashing print swatches; everything else stays white,
+  // hairline and disciplined. The storefront skeleton keeps it distinct from
+  // its neighbours kawaii (collection-grid membership) and dopamine-design
+  // (circular reward dashboard).
+  const ink = "#2c2442";
+  const cardShadow: CSSProperties = { boxShadow: "0 8px 20px -12px rgba(44,36,66,0.42), inset 0 1px 1px rgba(255,255,255,0.7)" };
+  const products: Array<{ name: string; price: string; pos: string; size: string; tag?: string; burst: string; dots: string[] }> = [
+    { name: "smiley mug", price: "$18", pos: "40% 55%", size: "230%", tag: "new", burst: "var(--sample-accent-3)", dots: ["#ffc93d", "#ff5c35", "#f5308c"] },
+    { name: "checker tote", price: "$42", pos: "82% 40%", size: "200%", burst: "var(--sample-surface)", dots: ["#2c2442", "#fbf1df"] },
+    { name: "disco bauble", price: "$14", pos: "88% 80%", size: "250%", tag: "hot", burst: "var(--sample-accent)", dots: ["#c9c9d6", "#7c4dff"] },
+    { name: "heart shades", price: "$22", pos: "22% 86%", size: "250%", burst: "var(--sample-accent-2)", dots: ["#f7a8c4", "#ff5c35"] },
   ];
-  const countdown = ["02", "14", "39"];
+  const patterns: Array<{ name: string; style: CSSProperties }> = [
+    { name: "checker", style: { background: "conic-gradient(var(--sample-text) 0 25%, #ffffff 0 50%) 0 0 / 8px 8px", backgroundColor: "#ffffff" } },
+    { name: "dots", style: { background: "radial-gradient(var(--sample-accent) 32%, transparent 34%) 0 0 / 7px 7px", backgroundColor: "var(--sample-base)" } },
+    { name: "wavy", style: { background: "repeating-linear-gradient(45deg, var(--sample-accent-2) 0 3.5px, #ffffff 3.5px 7px)" } },
+    { name: "flame", style: { background: "repeating-linear-gradient(-45deg, var(--sample-primary) 0 3.5px, var(--sample-accent-3) 3.5px 7px)" } },
+    { name: "gingham", style: { background: "repeating-linear-gradient(0deg, rgba(245,48,140,0.5) 0 3.5px, transparent 3.5px 7px), repeating-linear-gradient(90deg, rgba(245,48,140,0.5) 0 3.5px, transparent 3.5px 7px)", backgroundColor: "#ffffff" } },
+    { name: "zigzag", style: { background: "repeating-linear-gradient(135deg, var(--sample-accent-3) 0 3.5px, var(--sample-text) 3.5px 7px)" } },
+  ];
 
   return (
     <SampleFrame compact={compact} style={style}>
-      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        {/* sale bar + nav */}
-        <div className="space-y-2">
-          <div className={cn("items-center justify-center gap-2 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-primary)] px-3 py-1 text-center text-[8px] font-black uppercase tracking-[0.14em] text-white", compact ? "hidden" : "flex")}>
-            <span>free shipping over $50</span>
-            <span className="opacity-50">·</span>
-            <span>new drop live now</span>
-            <span className="opacity-50">·</span>
-            <span>10% off your first haul</span>
+      <div
+        className={cn("absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
+        style={{
+          "--sample-accent": "#f5308c",
+          "--sample-accent-2": "#7c4dff",
+          "--sample-accent-3": "#ffc93d",
+          "--sample-base": "#fbf1df",
+          "--sample-border": "#2c2442",
+          "--sample-border-soft": "rgba(44,36,66,0.11)",
+          "--sample-muted": "#9a8fae",
+          "--sample-primary": "#ff5c35",
+          "--sample-surface": "#ffffff",
+          "--sample-text": "#2c2442",
+          "--st-base-rgb": "251 241 223",
+          "--st-surface-rgb": "255 255 255",
+          "--st-text-rgb": "44 36 66",
+          "--st-primary-rgb": "255 92 53",
+          "--st-accent-rgb": "245 48 140",
+          "--st-accent-2-rgb": "124 77 255",
+          "--st-accent-3-rgb": "255 201 61",
+          "--st-border-rgb": "44 36 66",
+          background:
+            "radial-gradient(42% 38% at 4% 0%, rgb(124 77 255 / 0.18), transparent 62%), radial-gradient(44% 40% at 100% 8%, rgb(245 48 140 / 0.16), transparent 60%), radial-gradient(52% 46% at 96% 100%, rgb(255 201 61 / 0.2), transparent 62%), linear-gradient(180deg, #fdf6ea, #fbf0dc)",
+        } as SampleVariables}
+      >
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_auto_1fr_auto] gap-2.5">
+          {/* ── marquee + nav ── */}
+          <div className="min-w-0 space-y-1.5">
+            <div className={cn("items-center gap-2 overflow-hidden rounded-full bg-[var(--sample-text)] px-2.5 py-1 text-[7px] font-black uppercase tracking-[0.14em] text-[var(--sample-base)]", compact ? "hidden" : "flex")}>
+              <span className="text-[var(--sample-accent-3)]">★</span>
+              <span className="truncate">free ship over $50 · new drop live · 10% off first haul · deliberately odd since forever</span>
+            </div>
+            <SampleNav brand="Clash Cart" compact={compact} icons={[<IconBag key="bag" size={compact ? 11 : 13} />]} links={["Drop", "Shop", "Sale"]} sub="novelty market" />
           </div>
-          <SampleNav brand="Clash Cart" compact={compact} icons={[<IconBag key="bag" size={compact ? 11 : 13} />]} links={["Drop", "Shop", "Sale"]} sub="novelty market" />
-        </div>
 
-        {/* hero + product grid */}
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1fr_1fr]" : "grid-cols-[1.05fr_0.95fr]")}>
-          <GeneratedStyleImageSurface className="rounded-[16px] border-2 border-[var(--sample-border)] shadow-[5px_5px_0_var(--sample-border)]" overlay="none" position="48% 46%" slug="kitsch">
-            <div className="flex h-full w-full flex-col justify-between p-3">
-              <span className="w-max -rotate-3 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.1em] shadow-[2px_2px_0_var(--sample-border)]">
-                ★ odd shop drop
-              </span>
-              <div className="w-max max-w-full border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-2.5 py-2 shadow-[4px_4px_0_var(--sample-border)]">
-                <h3 className={cn("font-display font-black uppercase leading-[0.85]", compact ? "text-[1.5rem]" : "text-[2.5rem]")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.01em" }}>
-                  Limited
-                  <br />
-                  oddities
-                </h3>
-                <span className="mt-2 inline-flex items-center gap-1 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-primary)] px-3 py-1 text-[10px] font-black uppercase text-white">
-                  shop the drop <IconArrow size={12} />
-                </span>
+          {/* ── hero + gift finder split ── */}
+          <div className={cn("grid min-w-0 gap-2.5", compact ? "grid-cols-1" : "grid-cols-[1.2fr_0.8fr]")}>
+            <GeneratedStyleImageSurface className="relative min-h-[112px] overflow-hidden rounded-[18px] border border-[var(--sample-border-soft)]" overlay="none" position="46% 42%" slug="kitsch" style={{ backgroundSize: "168%", ...cardShadow }}>
+              <div className="flex h-full flex-col justify-between p-2.5">
+                <span aria-label="ODD SHOP DROP" className="w-max rounded-full bg-[var(--sample-accent-3)] px-2 py-0.5 text-[7px] font-black uppercase tracking-[0.14em] text-[var(--sample-text)] shadow-[0_2px_6px_-2px_rgba(44,36,66,0.4)]">★ ODD SHOP DROP</span>
+                <div className="w-max max-w-[94%] rounded-[13px] bg-[rgb(251_241_223/0.94)] px-2.5 py-1.5 backdrop-blur-[2px]" style={{ boxShadow: "0 6px 16px -8px rgba(44,36,66,0.45)" }}>
+                  <h3 aria-label="LIMITED ODDITIES" className="font-black uppercase leading-[0.84]" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "20px" : "27px", letterSpacing: "-0.01em" }}>
+                    LIMITED
+                    <br />
+                    ODDITIES
+                  </h3>
+                  <p className="mt-0.5 text-[6.5px] font-black lowercase tracking-[0.04em] text-[var(--sample-muted)]">boutique humor, oddly giftable</p>
+                  <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-[var(--sample-primary)] px-2 py-0.5 text-[7.5px] font-black uppercase tracking-[0.06em] text-white">
+                    shop the drop <IconArrow size={9} />
+                  </span>
+                </div>
+              </div>
+            </GeneratedStyleImageSurface>
+
+            <div aria-label="giftable product finder" className={cn("flex flex-col rounded-[16px] bg-white p-2", compact && "hidden")} style={cardShadow}>
+              <div className="mb-1 flex items-center justify-between">
+                <span className="text-[7.5px] font-black lowercase tracking-[0.06em]">giftable product finder</span>
+                <span className="rounded-full bg-[var(--sample-accent-3)] px-1.5 py-0.5 text-[6px] font-black lowercase">quiz</span>
+              </div>
+              {([["for", "bestie", "desk", "you"], ["vibe", "loud", "cutesy", "weird"], ["budget", "under $25", "$25+"]] as string[][]).map(([label, ...opts]) => (
+                <div className="mb-1 flex items-center gap-1" key={label}>
+                  <span className="w-8 shrink-0 text-[6.5px] font-black lowercase text-[var(--sample-muted)]">{label}</span>
+                  <span className="flex min-w-0 flex-wrap gap-0.5">
+                    {opts.map((option, index) => (
+                      <span className={cn("rounded-full px-1.5 py-0.5 text-[6.5px] font-black lowercase", index === 0 ? "bg-[var(--sample-primary)] text-white" : "bg-[var(--sample-base)] text-[var(--sample-text)]")} key={option}>{option}</span>
+                    ))}
+                  </span>
+                </div>
+              ))}
+              <div className="mt-auto flex items-center justify-between rounded-full bg-[var(--sample-text)] px-2 py-1">
+                <span className="text-[7px] font-black lowercase text-white">find my oddity</span>
+                <span className="text-[7px] font-black lowercase text-[var(--sample-accent-3)]">18 matches</span>
               </div>
             </div>
-          </GeneratedStyleImageSurface>
+          </div>
 
-          <div className="grid min-h-0 grid-cols-2 grid-rows-2 gap-2">
-            {products.map(({ name, price, position, tag, colorVar }) => (
-              <div className="relative flex min-h-0 flex-col overflow-hidden rounded-[12px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] shadow-[3px_3px_0_var(--sample-border)]" key={name}>
-                <div className="relative min-h-0 w-full flex-1">
-                  <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position={position} slug="kitsch" />
-                  <span className="absolute right-1 top-1 rotate-12 rounded-full border-2 border-[var(--sample-border)] px-1.5 py-0.5 text-[7px] font-black" style={{ backgroundColor: colorVar }}>
-                    {tag}
-                  </span>
-                  <span className="absolute bottom-1 left-1 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-1.5 py-0.5 text-[9px] font-black">{price}</span>
+          {/* ── odd object cards + pattern clash rail ── */}
+          <section aria-label="odd object cards" className="flex min-h-0 min-w-0 flex-col gap-2.5">
+            <div aria-label="sticker price bursts" className="grid min-h-0 flex-1 grid-cols-4 gap-2">
+              {products.map(({ name, price, pos, size, tag, burst, dots }) => (
+                <div className="relative flex min-h-0 flex-col overflow-hidden rounded-[14px] border border-[var(--sample-border-soft)] bg-white" style={cardShadow} key={name}>
+                  <div className="relative min-h-0 flex-1 overflow-hidden">
+                    <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position={pos} slug="kitsch" style={{ backgroundSize: size }} />
+                    {tag && <span className="absolute left-1 top-1 rounded-full bg-[rgb(255_255_255/0.92)] px-1.5 py-0.5 text-[6px] font-black uppercase tracking-[0.08em]">{tag}</span>}
+                    <KitschPriceBurst bg={burst} className="absolute -right-1.5 -top-1.5 h-8 w-8 drop-shadow-[0_2px_3px_rgba(44,36,66,0.28)]" ink={ink} price={price} />
+                  </div>
+                  <div className="flex items-center justify-between gap-1 px-1.5 py-1">
+                    <span className="truncate text-[8px] font-black lowercase">{name}</span>
+                    <span className="flex shrink-0 gap-0.5">
+                      {dots.map((color, index) => (
+                        <span className="h-1.5 w-1.5 rounded-full" key={index} style={{ background: color, boxShadow: "inset 0 0 0 1px rgba(44,36,66,0.16)" }} />
+                      ))}
+                    </span>
+                  </div>
                 </div>
-                <div className="border-t-2 border-[var(--sample-border)] px-2 py-1">
-                  <span className="block truncate text-[9px] font-black">{name}</span>
-                </div>
+              ))}
+            </div>
+
+            <div aria-label="clashing pattern strips" className={cn("rounded-[14px] bg-white px-2 py-1.5", compact && "hidden")} style={cardShadow}>
+              <div className="mb-1 flex items-center justify-between">
+                <span className="text-[7.5px] font-black lowercase tracking-[0.06em]">shop by print</span>
+                <span className="text-[6.5px] font-black lowercase text-[var(--sample-muted)]">6 prints · mix freely</span>
               </div>
-            ))}
-          </div>
-        </div>
+              <div aria-label="pattern clash rail" className="flex items-end justify-between gap-1">
+                {patterns.map(({ name, style: patternStyle }) => (
+                  <span className="flex min-w-0 flex-col items-center gap-0.5" key={name}>
+                    <span className="h-6 w-6 rounded-[8px] ring-1 ring-[var(--sample-border-soft)]" style={patternStyle} />
+                    <span className="text-[5.5px] font-black lowercase text-[var(--sample-muted)]">{name}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          </section>
 
-        {/* countdown + shop all */}
-        <div className={cn("items-center gap-2 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-3 py-1.5 shadow-[3px_3px_0_var(--sample-border)]", compact ? "hidden" : "flex")}>
-          <span className="text-[9px] font-black uppercase tracking-[0.1em]">drop ends in</span>
-          <div className="flex gap-1">
-            {countdown.map((value) => (
-              <span className="rounded-md border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-1.5 py-0.5 text-[10px] font-black" key={value}>{value}</span>
-            ))}
+          {/* ── drop countdown ── */}
+          <div aria-label="drop countdown" className={cn("items-center gap-2 rounded-full bg-[var(--sample-text)] px-3 py-1.5", compact ? "hidden" : "flex")}>
+            <span className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent-3)]">drop ends</span>
+            <div className="flex gap-1">
+              {["02", "14", "39"].map((value, index) => (
+                <span className="rounded-md bg-[rgb(255_255_255/0.14)] px-1.5 py-0.5 text-[9px] font-black tabular-nums text-white" key={index}>{value}</span>
+              ))}
+            </div>
+            <span className="ml-auto hidden truncate text-[6.5px] font-black lowercase text-[rgb(255_255_255/0.65)] sm:block">restocks never · odd on purpose</span>
+            <span className="rounded-full bg-[var(--sample-primary)] px-2.5 py-1 text-[8px] font-black uppercase tracking-[0.06em] text-white">shop all</span>
           </div>
-          <span className="ml-auto rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-text)] px-3 py-1 text-[9px] font-black uppercase text-[var(--sample-base)]">shop all</span>
         </div>
       </div>
     </SampleFrame>
