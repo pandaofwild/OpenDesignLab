@@ -179,7 +179,7 @@ const forbiddenPrototypeMarkers = {
 const requiredStructureMarkers = {
   grunge: ["torn archive spine", "pl-12", "rotate-[-1deg]"],
   "indie-sleaze": ["strip-", "pl-14", "grid-cols-[1.36fr_0.64fr]"],
-  "rave-style": ["ticker-", "pb-12", "grid-rows-[1.34fr_0.66fr]"],
+  "rave-style": ["set-block", "gridColumn", "grid-cols-[3.4rem_1fr]"],
   "lo-fi": ["lofi-os-mixer", "aspect-square rounded-full", "/generated/lofi-listening-room.png"],
 };
 

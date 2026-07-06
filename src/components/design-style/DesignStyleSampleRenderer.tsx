@@ -189,6 +189,7 @@ const GENERATED_STYLE_IMAGES = {
   "organic-design": "/generated/design-styles/organic-design.webp",
   postmodernism: "/generated/design-styles/postmodernism.webp",
   punk: "/generated/design-styles/punk.webp",
+  "rave-style": "/generated/design-styles/rave-style.webp",
   rococo: "/generated/design-styles/rococo.webp",
   scandinavian: "/generated/design-styles/scandinavian.webp",
   "soft-minimal": "/generated/design-styles/soft-minimal.webp",
@@ -7109,169 +7110,225 @@ function IndieSleazeFlashFeed({ compact = false, style }: Props) {
 }
 
 function RaveStagePulse({ compact = false, style }: Props) {
-  const lineup = [
-    ["23:00", "phase one"],
-    ["00:30", "acid room"],
-    ["02:00", "laser live"],
-    ["04:15", "closing b2b"],
-  ] as const;
-  const meters = [78, 94, 62, 88, 71];
-  const wristbands = ["entry", "stage a", "locker", "after"];
-  const zones = ["main", "warehouse", "bass", "chill"];
+  // "Warehouse stage timetable": a Resident-Advisor / festival-app set schedule
+  // built as a real time × stage matrix. Structurally distinct from its
+  // neighbours indie-sleaze (image-hero split) and lo-fi (image + floating glass).
+  const times = ["22", "23", "00", "01", "02", "03", "04", "05"];
+  type Tone = "a" | "b" | "c" | "m";
+  const toneColor: Record<Tone, string> = {
+    a: "var(--sample-accent)",
+    b: "var(--sample-accent-2)",
+    c: "var(--sample-accent-3)",
+    m: "var(--sample-muted)",
+  };
+  const toneRgb: Record<Tone, string> = {
+    a: "var(--st-accent-rgb)",
+    b: "var(--st-accent-2-rgb)",
+    c: "var(--st-accent-3-rgb)",
+    m: "154 160 181",
+  };
+  const stages: Array<{ name: string; tone: Tone; sets: Array<{ start: number; span: number; act: string; bpm: number }> }> = [
+    { name: "main", tone: "a", sets: [
+      { start: 1, span: 2, act: "opening", bpm: 124 },
+      { start: 3, span: 3, act: "acid live", bpm: 138 },
+      { start: 6, span: 3, act: "closing b2b", bpm: 146 },
+    ] },
+    { name: "warehouse", tone: "b", sets: [
+      { start: 1, span: 3, act: "warm up", bpm: 128 },
+      { start: 4, span: 2, act: "peak set", bpm: 140 },
+      { start: 6, span: 3, act: "hard techno", bpm: 150 },
+    ] },
+    { name: "bass", tone: "c", sets: [
+      { start: 2, span: 2, act: "dub room", bpm: 140 },
+      { start: 4, span: 3, act: "jungle", bpm: 170 },
+      { start: 7, span: 2, act: "dnb b2b", bpm: 174 },
+    ] },
+    { name: "chill", tone: "m", sets: [
+      { start: 1, span: 4, act: "ambient", bpm: 90 },
+      { start: 5, span: 4, act: "downtempo", bpm: 96 },
+    ] },
+  ];
+  const meters = [72, 90, 58, 84, 66, 94, 60];
+  const tickets: Array<[string, string, Tone]> = [
+    ["general", "£25", "b"],
+    ["stage a", "£40", "a"],
+    ["after hours", "£15", "c"],
+  ];
+  const labelCol = compact ? "grid-cols-[2.4rem_1fr]" : "grid-cols-[3.4rem_1fr]";
 
   return (
     <SampleFrame compact={compact} style={style}>
       <div
-        className="relative h-full min-w-0"
+        className={cn("absolute inset-0 min-w-0 overflow-hidden bg-[var(--sample-base)] text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
         style={{
           "--sample-accent": "#c8ff19",
           "--sample-accent-2": "#11d9ff",
           "--sample-accent-3": "#ff7a1a",
           "--sample-base": "#08090d",
           "--sample-border": "#f4f7ff",
-          "--sample-border-soft": "#f4f7ff33",
+          "--sample-border-soft": "#f4f7ff26",
           "--sample-muted": "#9aa0b5",
+          "--sample-primary": "#c8ff19",
           "--sample-surface": "#141722",
           "--sample-text": "#f4f7ff",
+          "--st-base-rgb": "8 9 13",
+          "--st-surface-rgb": "20 23 34",
+          "--st-text-rgb": "244 247 255",
+          "--st-primary-rgb": "200 255 25",
+          "--st-accent-rgb": "200 255 25",
+          "--st-accent-2-rgb": "17 217 255",
+          "--st-accent-3-rgb": "255 122 26",
+          "--st-border-rgb": "244 247 255",
         } as SampleVariables}
       >
-        <div className="absolute inset-0 bg-[var(--sample-base)]" />
-        <div
-          className="absolute inset-0 opacity-90"
+        {/* ambient neon haze + grain */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(54% 42% at 50% 12%, rgb(200 255 25 / 0.36), transparent 58%), radial-gradient(40% 48% at 92% 92%, rgb(17 217 255 / 0.28), transparent 62%), radial-gradient(36% 46% at 8% 78%, rgb(255 122 26 / 0.26), transparent 58%)",
+              "radial-gradient(60% 44% at 50% -8%, rgb(var(--st-accent-rgb) / 0.16), transparent 60%), radial-gradient(46% 50% at 96% 104%, rgb(var(--st-accent-2-rgb) / 0.12), transparent 60%), radial-gradient(40% 46% at 4% 96%, rgb(var(--st-accent-3-rgb) / 0.1), transparent 58%)",
           }}
         />
-        <div
-          className="absolute inset-0 opacity-35"
-          style={{
-            backgroundImage:
-              "linear-gradient(118deg, transparent 0 27%, rgb(17 217 255 / 0.52) 28%, transparent 29% 55%, rgb(200 255 25 / 0.48) 56%, transparent 57%), linear-gradient(72deg, transparent 0 42%, rgb(255 122 26 / 0.36) 43%, transparent 44%)",
-          }}
-        />
-        <div className="absolute bottom-4 left-4 right-4 z-20 grid grid-cols-4 gap-1 border-[3px] border-[var(--sample-border)] bg-[rgb(8_9_13_/_0.86)] p-1 text-[7px] font-black uppercase text-[var(--sample-text)]">
-          {lineup.map(([time, act], index) => (
-            <span className={cn("grid grid-cols-[auto_1fr] gap-1 border-2 border-[var(--sample-border)] px-1 py-1", index === 2 ? "bg-[var(--sample-accent)] text-[var(--sample-base)]" : "bg-[var(--sample-surface)]")} key={`ticker-${act}`}>
-              <span>{time}</span>
-              <span className="min-w-0 truncate">{act}</span>
+        <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.16] mix-blend-screen" style={{ backgroundImage: GRAIN_URI, backgroundSize: "104px 104px" }} />
+
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_1fr_auto] gap-2.5">
+          {/* ── Event masthead over an atmospheric laser band ── */}
+          <header aria-label="warehouse light tunnel" className="relative overflow-hidden rounded-[2px] border border-[var(--sample-border-soft)]">
+            <span aria-hidden="true" className="absolute inset-0">
+              <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position="50% 42%" slug="rave-style" />
             </span>
-          ))}
-        </div>
-        <div className="absolute inset-0 opacity-18" style={{ backgroundImage: GRAIN_URI, backgroundSize: "92px 92px" }} />
-        <div className="relative grid h-full min-w-0 grid-rows-[auto_1fr_auto] gap-3 text-[var(--sample-text)]">
-          <SampleNav
-            brand="Pulse Floor"
-            bordered={false}
-            compact={compact}
-            icons={[<IconSearch key="search" size={compact ? 11 : 13} />]}
-            links={["Lineup", "Tickets"]}
-            sub="warehouse light tunnel"
-          />
-          <div className={cn("grid min-h-0 min-w-0 gap-3 pb-12", compact ? "grid-rows-[1.18fr_0.82fr]" : "grid-rows-[1.34fr_0.66fr]")}>
-            <section className="relative min-h-0 min-w-0 overflow-hidden border-[3px] border-[var(--sample-border)] bg-[rgb(12_14_22_/_0.94)] p-3 shadow-[8px_8px_0_var(--sample-accent-3)]">
-              <div
-                className="absolute inset-0 opacity-70"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(90deg, rgb(244 247 255 / 0.08) 1px, transparent 1px), linear-gradient(0deg, rgb(244 247 255 / 0.08) 1px, transparent 1px)",
-                  backgroundSize: "22px 22px",
-                }}
-              />
-              <span className="absolute left-1/2 top-16 h-36 w-36 -translate-x-1/2 rounded-full border-[3px] border-[var(--sample-accent)] opacity-55" />
-              <span className="absolute bottom-8 left-8 h-2 w-[78%] rotate-[-9deg] bg-[var(--sample-accent-2)] shadow-[0_0_18px_var(--sample-accent-2)]" />
-              <span className="absolute right-10 top-10 h-2 w-[62%] rotate-[17deg] bg-[var(--sample-accent)] shadow-[0_0_18px_var(--sample-accent)]" />
-              <div className="relative flex h-full min-h-0 flex-col justify-between">
-                <div className="flex items-start justify-between gap-2">
-                  <span className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-base)]">
-                    LASER STAGE MAP
-                  </span>
-                  <span className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-base)] px-2 py-1 text-[8px] font-black uppercase text-[var(--sample-accent-2)]">
-                    148 bpm
-                  </span>
+            <span aria-hidden="true" className="absolute inset-0" style={{ background: "linear-gradient(90deg, rgb(var(--st-base-rgb) / 0.86) 0%, rgb(var(--st-base-rgb) / 0.42) 46%, rgb(var(--st-base-rgb) / 0.2) 100%)" }} />
+            <div className="relative flex items-center justify-between gap-2 px-2.5 py-2">
+              <div className="min-w-0">
+                <span className="flex items-center gap-1.5 text-[8px] font-black uppercase tracking-[0.18em] text-[var(--sample-accent)]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--sample-accent)] shadow-[0_0_8px_var(--sample-accent)]" />
+                  pulse · warehouse
+                </span>
+                <h3
+                  className={cn("truncate font-black uppercase leading-[0.85] text-[var(--sample-text)]", compact ? "text-[1.35rem]" : "text-[1.95rem] sm:text-[2.5rem]")}
+                  style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.01em", textShadow: "0 2px 14px rgb(0 0 0 / 0.7)" }}
+                >
+                  Night Shift
+                </h3>
+                {!compact && <span className="block text-[8px] font-semibold uppercase tracking-[0.16em] text-[var(--sample-muted)]">fri · dock nine · sold out</span>}
+              </div>
+              <div className="flex shrink-0 flex-col items-end gap-1">
+                <span className="flex items-center gap-1 border border-[var(--sample-accent-2)] bg-[rgb(var(--st-base-rgb)/0.6)] px-1.5 py-0.5 text-[8px] font-black uppercase text-[var(--sample-accent-2)] backdrop-blur-[2px]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--sample-accent-3)] shadow-[0_0_8px_var(--sample-accent-3)]" />
+                  148 bpm
+                </span>
+                <span className="text-[7px] font-black uppercase tracking-[0.16em] text-[var(--sample-muted)]">on air</span>
+              </div>
+            </div>
+          </header>
+
+          {/* ── Stage timetable ── */}
+          <section aria-label="LASER STAGE MAP" className="relative flex min-h-0 min-w-0 flex-col overflow-hidden rounded-[2px] border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)/0.55)] p-2.5">
+            <div className="mb-2 flex items-center justify-between gap-2">
+              <div className="flex min-w-0 items-center gap-2">
+                <span className="shrink-0 bg-[var(--sample-accent)] px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-base)]">LASER STAGE MAP</span>
+                <span className="truncate text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-muted)]">bpm lineup grid</span>
+              </div>
+              <span className="shrink-0 text-[8px] font-black uppercase tracking-[0.1em] text-[var(--sample-accent-2)]">4 stages</span>
+            </div>
+
+            {/* time ruler */}
+            <div className={cn("grid items-center gap-2 pb-1", labelCol)}>
+              <span className="text-[7px] font-black uppercase tracking-[0.1em] text-[var(--sample-muted)]">stage</span>
+              <div className="grid grid-cols-8">
+                {times.map((t) => (
+                  <span className="border-l border-[rgb(var(--st-text-rgb)/0.12)] pl-1 text-[7px] font-black uppercase text-[var(--sample-muted)]" key={t}>{t}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* stage rows */}
+            <div className="grid min-h-0 flex-1 gap-1.5" style={{ gridTemplateRows: `repeat(${stages.length}, minmax(0, 1fr))` }}>
+              {stages.map((stage) => (
+                <div className={cn("grid min-h-0 items-stretch gap-2", labelCol)} key={stage.name}>
+                  <div className="flex min-w-0 items-center gap-1.5">
+                    <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: toneColor[stage.tone], boxShadow: `0 0 8px ${toneColor[stage.tone]}` }} />
+                    <span className="min-w-0 truncate text-[8px] font-black uppercase leading-none text-[var(--sample-text)]">{stage.name}</span>
+                  </div>
+                  <div className="relative grid min-h-0 grid-cols-8">
+                    <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid grid-cols-8">
+                      {times.map((t) => (
+                        <span className="border-l border-[rgb(var(--st-text-rgb)/0.07)]" key={t} />
+                      ))}
+                    </div>
+                    {stage.sets.map((s) => (
+                      <span
+                        className="set-block relative z-10 m-[1.5px] flex min-w-0 flex-col justify-center overflow-hidden rounded-[2px] px-1.5 py-0.5 text-[7px] font-black uppercase leading-[1.05]"
+                        key={s.act}
+                        style={{
+                          gridColumn: `${s.start} / span ${s.span}`,
+                          background: `rgb(${toneRgb[stage.tone]} / 0.16)`,
+                          borderLeft: `2px solid ${toneColor[stage.tone]}`,
+                          boxShadow: `0 0 12px rgb(${toneRgb[stage.tone]} / 0.2)`,
+                        }}
+                      >
+                        <span className="min-w-0 truncate text-[var(--sample-text)]">{s.act}</span>
+                        <span className="truncate" style={{ color: toneColor[stage.tone] }}>{s.bpm} bpm</span>
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div>
-                  <p className="mb-2 text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-accent-2)]">warehouse light tunnel</p>
-                  <h3
-                    className={cn("font-display font-black uppercase leading-[0.82] text-[var(--sample-text)]", compact ? "text-[2.05rem]" : "text-[3.3rem] sm:text-[4.85rem]")}
-                    style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}
+              ))}
+            </div>
+          </section>
+
+          {/* ── Utility row: meters · wristbands · on-air feed ── */}
+          <div className={cn("grid grid-cols-[1fr_1.15fr_0.9fr] gap-2.5", compact && "hidden")}>
+            <div aria-label="sound system meters" className="rounded-[2px] border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)/0.55)] p-2">
+              <p className="mb-1.5 text-[7px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent-2)]">sound system meters</p>
+              <div className="flex h-12 gap-1">
+                {meters.map((m, index) => (
+                  <span className="relative h-full flex-1 overflow-hidden rounded-[1px] bg-[rgb(var(--st-text-rgb)/0.08)]" key={`${m}-${index}`}>
+                    <span className="absolute inset-x-0 bottom-0 rounded-[1px]" style={{ height: `${m}%`, background: "linear-gradient(0deg, var(--sample-accent-2), var(--sample-accent))", boxShadow: "0 0 8px rgb(var(--st-accent-rgb) / 0.5)" }} />
+                    <span className="absolute inset-x-0 h-[1.5px] bg-[var(--sample-text)]" style={{ bottom: `calc(${m}% - 1px)` }} />
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div aria-label="ticket wristband rail" className="rounded-[2px] border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)/0.55)] p-2">
+              <p className="mb-1.5 text-[7px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent)]">ticket wristband rail</p>
+              <div className="grid gap-1">
+                {tickets.map(([tier, price, tone]) => (
+                  <span
+                    className="grid grid-cols-[auto_1fr_auto] items-center gap-1.5 rounded-[2px] bg-[rgb(var(--st-base-rgb)/0.55)] px-1.5 py-1 text-[7px] font-black uppercase"
+                    key={tier}
+                    style={{ borderLeft: `2px solid ${toneColor[tone]}` }}
                   >
-                    RAVE
-                    <span className="block text-[var(--sample-accent)]">PULSE</span>
-                  </h3>
-                </div>
-                <div className="grid grid-cols-4 gap-1.5">
-                  {zones.map((zone, index) => (
-                    <span className={cn("relative h-14 overflow-hidden border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-1 text-[7px] font-black uppercase", index === 1 ? "text-[var(--sample-accent)]" : index === 2 ? "text-[var(--sample-accent-2)]" : "text-[var(--sample-text)]")} key={zone}>
-                      <span className="absolute inset-x-2 bottom-2 h-1 bg-current shadow-[0_0_12px_currentColor]" />
-                      <span className="relative z-10">{zone}</span>
-                    </span>
-                  ))}
-                </div>
+                    <span className="h-2 w-5 rounded-full" style={{ background: `rgb(${toneRgb[tone]} / 0.85)` }} />
+                    <span className="min-w-0 truncate text-[var(--sample-text)]">{tier}</span>
+                    <span style={{ color: toneColor[tone] }}>{price}</span>
+                  </span>
+                ))}
               </div>
-            </section>
+            </div>
 
-            <section className="grid min-h-0 min-w-0 grid-cols-[1fr_0.82fr_1.05fr] gap-3">
-              <div className="grid min-h-0 min-w-0 grid-rows-[1fr] gap-3">
-                <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-border)] bg-[rgb(20_23_34_/_0.95)] p-2">
-                  <p className="mb-2 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent)]">bpm lineup grid</p>
-                  <div className="grid gap-1">
-                    {lineup.map(([time, act], index) => (
-                      <span className={cn("grid grid-cols-[auto_1fr_auto] items-center gap-2 border-2 border-[var(--sample-border)] px-1.5 py-1 text-[7px] font-black uppercase", index === 2 ? "bg-[var(--sample-accent)] text-[var(--sample-base)]" : "bg-[var(--sample-base)] text-[var(--sample-text)]")} key={act}>
-                        <span>{time}</span>
-                        <span className="min-w-0 truncate">{act}</span>
-                        <span>{142 + index * 3}</span>
-                      </span>
+            <div aria-label="on air feed" className="relative overflow-hidden rounded-[2px] border border-[var(--sample-border-soft)]">
+              <span aria-hidden="true" className="absolute inset-0">
+                <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position="34% 58%" slug="rave-style" style={{ filter: "saturate(1.1) contrast(1.05)" }} />
+              </span>
+              <span aria-hidden="true" className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgb(var(--st-base-rgb) / 0.14), rgb(var(--st-base-rgb) / 0.8))" }} />
+              <div className="relative flex h-full flex-col justify-between p-2">
+                <span className="flex w-max items-center gap-1 rounded-[1px] bg-[rgb(var(--st-base-rgb)/0.6)] px-1.5 py-0.5 text-[7px] font-black uppercase text-[var(--sample-accent-3)] backdrop-blur-[2px]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--sample-accent-3)] shadow-[0_0_8px_var(--sample-accent-3)]" />
+                  on air
+                </span>
+                <div className="flex items-end justify-between gap-2">
+                  <span className="text-[8px] font-black uppercase leading-none text-[var(--sample-text)]">main stage</span>
+                  <span className="flex h-4 items-end gap-[2px]">
+                    {[60, 90, 45, 78, 55].map((h, index) => (
+                      <span className="w-[3px] rounded-[1px] bg-[var(--sample-accent-2)]" key={index} style={{ height: `${h}%`, boxShadow: "0 0 6px var(--sample-accent-2)" }} />
                     ))}
-                  </div>
-                </div>
-                <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-3)] p-2 text-[var(--sample-base)]">
-                  <p className="mb-2 bg-[var(--sample-base)] px-1.5 py-1 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent-3)]">ticket wristband rail</p>
-                  <div className="grid h-[calc(100%-1.45rem)] min-h-0 gap-1">
-                    {wristbands.map((band, index) => (
-                      <span className={cn("grid grid-cols-[1fr_auto] items-center gap-2 border-2 border-[var(--sample-base)] px-1.5 py-1 text-[7px] font-black uppercase", index === 1 ? "bg-[var(--sample-accent)]" : "bg-[var(--sample-text)]")} key={band}>
-                        <span className="min-w-0 truncate">{band}</span>
-                        <span className="h-2 w-6 bg-[var(--sample-base)]" />
-                      </span>
-                    ))}
-                  </div>
+                  </span>
                 </div>
               </div>
-
-              <div className="grid min-h-0 min-w-0 grid-cols-2 gap-3">
-                <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-border)] bg-[var(--sample-base)] p-2">
-                  <p className="mb-2 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent-2)]">sound system meters</p>
-                  <div className="grid h-24 grid-cols-5 items-end gap-1.5">
-                    {meters.map((meter, index) => (
-                      <span className="flex h-full items-end border-2 border-[var(--sample-border)] bg-[var(--sample-surface)]" key={meter}>
-                        <span
-                          className={cn("block w-full", index % 2 ? "bg-[var(--sample-accent-2)]" : "bg-[var(--sample-accent)]")}
-                          style={{ height: `${meter}%` }}
-                        />
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-1 grid grid-cols-5 gap-1.5">
-                    {meters.map((meter, index) => (
-                      <span className="text-center text-[6px] font-black uppercase text-[var(--sample-muted)]" key={`${meter}-${index}`}>
-                        {index + 1}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="relative min-h-0 min-w-0 overflow-hidden border-[3px] border-[var(--sample-border)] bg-[rgb(20_23_34_/_0.96)] p-2">
-                  <p className="relative z-10 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent)]">stage route scanner</p>
-                  <span className="absolute left-5 top-10 h-24 w-24 rotate-45 border-[3px] border-[var(--sample-accent-2)] shadow-[0_0_20px_var(--sample-accent-2)]" />
-                  <span className="absolute right-5 top-12 h-20 w-20 rounded-full border-[3px] border-[var(--sample-accent)] shadow-[0_0_20px_var(--sample-accent)]" />
-                  <span className="absolute bottom-5 left-6 right-6 h-8 skew-x-[-18deg] bg-[var(--sample-accent-3)]" />
-                </div>
-              </div>
-            </section>
-          </div>
-          <div className="grid grid-cols-4 gap-2 text-[8px] font-black uppercase tracking-[0.1em] text-[var(--sample-base)]">
-            {["laser map", "bpm grid", "wristband", "sound meters"].map((label) => (
-              <span className="min-w-0 truncate border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent)] px-2 py-2 text-center" key={label}>{label}</span>
-            ))}
+            </div>
           </div>
         </div>
       </div>
