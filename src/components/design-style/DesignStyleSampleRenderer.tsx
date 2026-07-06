@@ -5417,73 +5417,171 @@ function KitschNoveltyDrop({ compact = false, style }: Props) {
   );
 }
 
-function KawaiiCharacterClub({ compact = false, style }: Props) {
-  const shop: Array<{ name: string; price: string; position: string }> = [
-    { name: "Bun bun", price: "$18", position: "20% 56%" },
-    { name: "Lil star", price: "$16", position: "62% 34%" },
-  ];
-  const friends: Array<{ name: string; position: string }> = [
-    { name: "Mochi", position: "20% 56%" },
-    { name: "Sky", position: "44% 70%" },
-    { name: "Butter", position: "62% 34%" },
-    { name: "Berry", position: "85% 70%" },
-  ];
-  const pills = ["free stickers", "plush club", "daily diary"];
-  const cardShadow = "shadow-[0_10px_22px_-12px_rgb(var(--st-primary-rgb)_/_0.45)]";
+function KawaiiHeart({ className, filled = true }: { className?: string; filled?: boolean }) {
+  return (
+    <svg aria-hidden="true" className={className} fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+      <path d="M12 21C6.6 16.4 4 13.4 4 10a3.6 3.6 0 0 1 6-2.6A3.6 3.6 0 0 1 20 10c0 3.4-2.6 6.4-8 11Z" />
+    </svg>
+  );
+}
 
+function KawaiiCharacterClub({ compact = false, style }: Props) {
+  // "Character club dashboard": a Sanrio / Pusheen membership screen — a mascot
+  // collection grid with a member banner, a small character mood ring, heart
+  // badges, a stamp-reward card and a tiny-treats shop. The collection-grid
+  // membership skeleton keeps it distinct from its neighbours kitsch (bordered
+  // novelty shop split) and dopamine-design (circular reward dashboard).
+  const softShadow: CSSProperties = { boxShadow: "0 10px 22px -14px rgba(91,74,87,0.42), inset 0 1px 1px rgba(255,255,255,0.85)" };
+  const mascots: Array<[string, string, boolean]> = [
+    ["bun", "18% 54%", true],
+    ["sky", "42% 40%", true],
+    ["star", "60% 56%", true],
+    ["puff", "80% 46%", false],
+    ["milk", "30% 72%", true],
+    ["berry", "72% 70%", false],
+  ];
+  const treats: Array<[string, string, string]> = [
+    ["mini plush", "$16", "24% 52%"],
+    ["sticker set", "$8", "50% 44%"],
+    ["charm", "$12", "66% 60%"],
+    ["tote", "$22", "82% 50%"],
+  ];
   return (
     <SampleFrame compact={compact} style={style}>
-      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav align="center" brand="Friend Cloud" compact={compact} icons={[<IconStar key="star" size={compact ? 11 : 13} />]} links={["Friends", "Shop", "Diary"]} sub="character world" />
-
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1.4fr_0.6fr]" : "grid-cols-[1.45fr_0.55fr]")}>
-          <GeneratedStyleImageSurface className={cn("rounded-[28px]", cardShadow)} overlay="none" position="50% 40%" slug="kawaii">
-            <div className="flex h-full w-full flex-col justify-between p-3">
-              <span className="w-max rounded-full bg-[rgb(var(--st-surface-rgb)_/_0.85)] px-2.5 py-1 text-[9px] font-black lowercase tracking-[0.06em] text-[var(--sample-primary)] backdrop-blur-sm">
-                new drop ♡
+      <div
+        className={cn("absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
+        style={{
+          "--sample-accent": "#ff9ec4",
+          "--sample-accent-2": "#9ecbff",
+          "--sample-accent-3": "#ffe08a",
+          "--sample-base": "#fff3f8",
+          "--sample-border": "#5b4a57",
+          "--sample-border-soft": "#5b4a571c",
+          "--sample-muted": "#a892a0",
+          "--sample-primary": "#ff77b0",
+          "--sample-surface": "#ffffff",
+          "--sample-text": "#5b4a57",
+          "--st-base-rgb": "255 243 248",
+          "--st-surface-rgb": "255 255 255",
+          "--st-text-rgb": "91 74 87",
+          "--st-primary-rgb": "255 119 176",
+          "--st-accent-rgb": "255 158 196",
+          "--st-accent-2-rgb": "158 203 255",
+          "--st-accent-3-rgb": "255 224 138",
+          "--st-border-rgb": "91 74 87",
+          background:
+            "radial-gradient(48% 40% at 10% 6%, rgb(255 158 196 / 0.24), transparent 60%), radial-gradient(44% 40% at 94% 10%, rgb(158 203 255 / 0.22), transparent 60%), radial-gradient(52% 44% at 84% 100%, rgb(255 224 138 / 0.22), transparent 62%), linear-gradient(180deg, #fff7fb, #fff1f6)",
+        } as SampleVariables}
+      >
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_1fr_auto] gap-2.5">
+          {/* ── Member banner ── */}
+          <header aria-label="FRIEND CLUB DASHBOARD" className="flex items-center gap-2.5 rounded-[20px] bg-white px-2.5 py-2" style={softShadow}>
+            <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 border-[var(--sample-accent)]">
+              <GeneratedStyleImageSurface className="absolute inset-0 h-full w-full" overlay="none" position="42% 46%" slug="kawaii" />
+            </span>
+            <div className="min-w-0">
+              <span className="inline-block rounded-full bg-[var(--sample-accent)] px-2 py-0.5 text-[7px] font-black uppercase tracking-[0.12em] text-white">CHARACTER CLUB</span>
+              <p className="mt-0.5 truncate font-black lowercase leading-none" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "12px" : "15px" }}>hi, mochi member!</p>
+            </div>
+            <div className="ml-auto flex shrink-0 items-center gap-2.5">
+              <span className="flex items-center gap-1 text-[var(--sample-primary)]">
+                <KawaiiHeart className="h-3 w-3" />
+                <span className="text-[10px] font-black tabular-nums text-[var(--sample-text)]">128</span>
               </span>
-              <div className="rounded-[20px] bg-[rgb(var(--st-surface-rgb)_/_0.86)] p-3 backdrop-blur-sm">
-                <span className="text-[9px] font-black lowercase tracking-[0.08em] text-[var(--sample-primary)]">character club</span>
-                <h3
-                  className={cn("font-display leading-[1.0]", compact ? "text-[1.35rem]" : "text-[1.9rem]")}
-                  style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "0em" }}
-                >
-                  Meet your Friend Cloud.
-                </h3>
-                <div className="mt-2 flex items-center gap-2">
-                  <span className="rounded-full bg-[var(--sample-primary)] px-3 py-1.5 text-[11px] font-black text-white">say hi</span>
-                  <span className="text-[10px] font-bold text-[var(--sample-muted)]">3 new plushies</span>
-                </div>
+              <div aria-label="character mood ring" className="flex flex-col items-center gap-0.5">
+                <span className="relative grid h-8 w-8 place-items-center rounded-full" style={{ background: "conic-gradient(from -90deg, #ff9ec4, #ffe08a, #a8ecc9, #9ecbff, #ff9ec4)" }}>
+                  <span className="grid h-[1.35rem] w-[1.35rem] place-items-center rounded-full bg-white text-[8px]">
+                    <span className="flex items-center gap-[2px]">
+                      <span className="h-[3px] w-[3px] rounded-full bg-[var(--sample-text)]" />
+                      <span className="h-[3px] w-[3px] rounded-full bg-[var(--sample-text)]" />
+                    </span>
+                  </span>
+                </span>
+                {!compact && <span className="text-[6px] font-black lowercase text-[var(--sample-muted)]">mood: happy</span>}
               </div>
             </div>
-          </GeneratedStyleImageSurface>
+          </header>
 
-          <div className="grid min-h-0 grid-rows-2 gap-3">
-            {shop.map(({ name, price, position }) => (
-              <div className={cn("flex min-h-0 flex-col overflow-hidden rounded-[22px] bg-[var(--sample-surface)]", cardShadow)} key={name}>
-                <GeneratedStyleImageSurface className="min-h-0 w-full flex-1" overlay="none" position={position} slug="kawaii" />
-                <div className="flex items-center justify-between gap-1 px-2.5 py-2">
-                  <span className="truncate text-[10px] font-black">{name}</span>
-                  <span className="rounded-full bg-[var(--sample-base)] px-2 py-0.5 text-[9px] font-black text-[var(--sample-primary)]">{price}</span>
+          {/* ── Mascot collection + right rail ── */}
+          <div className={cn("grid min-h-0 min-w-0 gap-2.5", compact ? "grid-cols-1" : "sm:grid-cols-[1.34fr_0.66fr]")}>
+            <section aria-label="mascot tiles" className="flex min-h-0 min-w-0 flex-col gap-1.5">
+              <div className="flex items-center justify-between">
+                <span className="text-[8px] font-black lowercase tracking-[0.08em] text-[var(--sample-text)]">mascot tiles · your friends</span>
+                <span className="rounded-full bg-[var(--sample-accent-2)] px-2 py-0.5 text-[7px] font-black lowercase text-[var(--sample-text)]">4 / 6 collected</span>
+              </div>
+              <div className="grid min-h-0 flex-1 grid-cols-3 grid-rows-2 gap-2">
+                {mascots.map(([name, pos, got]) => (
+                  <div className="relative flex min-h-0 flex-col overflow-hidden rounded-[16px] bg-white p-1" style={softShadow} key={name}>
+                    <div className="relative min-h-0 flex-1 overflow-hidden rounded-[12px] bg-[var(--sample-base)]">
+                      <span aria-hidden="true" className="absolute inset-0">
+                        <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position={pos} slug="kawaii" style={{ backgroundSize: "230%", filter: got ? "none" : "grayscale(0.7) opacity(0.55)" }} />
+                      </span>
+                      {got ? (
+                        <span className="absolute right-1 top-1 text-[var(--sample-primary)]"><KawaiiHeart className="h-3 w-3 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]" /></span>
+                      ) : (
+                        <span className="absolute right-1 top-1 rounded-full bg-[var(--sample-accent-3)] px-1 text-[6px] font-black lowercase text-[var(--sample-text)]">new</span>
+                      )}
+                    </div>
+                    <span className="truncate px-0.5 pt-0.5 text-center text-[7.5px] font-black lowercase text-[var(--sample-text)]">{name}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className={cn("flex min-h-0 min-w-0 flex-col gap-2.5", compact && "hidden")}>
+              <div aria-label="heart badges" className="rounded-[16px] bg-white p-2.5" style={softShadow}>
+                <div className="mb-1.5 flex items-center justify-between">
+                  <span className="text-[8px] font-black lowercase tracking-[0.08em] text-[var(--sample-text)]">heart badges</span>
+                  <span className="text-[7px] font-black tabular-nums text-[var(--sample-muted)]">12 / 20</span>
+                </div>
+                <div className="grid grid-cols-5 gap-1.5 text-[var(--sample-accent)]">
+                  {Array.from({ length: 10 }).map((_, index) => (
+                    <span className={cn("grid aspect-square place-items-center rounded-full", index < 6 ? "bg-[rgb(255_158_196/0.18)]" : "bg-[var(--sample-base)]")} key={index}>
+                      <KawaiiHeart className={cn("h-3 w-3", index < 6 ? "text-[var(--sample-primary)]" : "text-[var(--sample-border-soft)]")} filled={index < 6} />
+                    </span>
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
 
-        <div className="flex items-center gap-2">
-          <span className="text-[9px] font-black lowercase tracking-[0.08em] text-[var(--sample-muted)]">friends online</span>
-          <div className="flex gap-1.5">
-            {friends.map(({ name, position }) => (
-              <GeneratedStyleImageSurface className="h-8 w-8 rounded-full border-2 border-[var(--sample-surface)] shadow-[0_4px_10px_-4px_rgb(var(--st-primary-rgb)_/_0.5)]" key={name} overlay="none" position={position} slug="kawaii" />
-            ))}
+              <div aria-label="stamp rewards" className="min-h-0 flex-1 rounded-[16px] bg-white p-2.5" style={softShadow}>
+                <div className="mb-1.5 flex items-center justify-between">
+                  <span className="text-[8px] font-black lowercase tracking-[0.08em] text-[var(--sample-text)]">stamp rewards</span>
+                  <span className="rounded-full bg-[var(--sample-accent-3)] px-1.5 py-0.5 text-[7px] font-black lowercase text-[var(--sample-text)]">3 to go</span>
+                </div>
+                <div className="grid grid-cols-4 gap-1.5">
+                  {Array.from({ length: 8 }).map((_, index) => (
+                    <span
+                      className={cn("grid aspect-square place-items-center rounded-full text-[8px]", index < 5 ? "bg-[var(--sample-accent)] text-white" : "border-2 border-dashed border-[var(--sample-border-soft)] text-[var(--sample-border-soft)]")}
+                      key={index}
+                    >
+                      {index < 5 ? <KawaiiHeart className="h-2.5 w-2.5" /> : <span className="text-[7px] font-black text-[var(--sample-muted)]">{index + 1}</span>}
+                    </span>
+                  ))}
+                </div>
+                <p className="mt-1.5 text-[6.5px] font-black lowercase tracking-[0.04em] text-[var(--sample-muted)]">collect 8 stamps for a tiny treat ♡</p>
+              </div>
+            </section>
           </div>
-          <div className={cn("ml-auto items-center gap-1.5", compact ? "hidden" : "flex")}>
-            {pills.map((label, index) => (
-              <span className={cn("rounded-full px-2.5 py-1 text-[9px] font-black lowercase tracking-[0.04em] text-[var(--sample-text)]", index % 2 === 0 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-accent-2)]")} key={label}>
-                {label}
-              </span>
-            ))}
+
+          {/* ── Tiny treats shop ── */}
+          <div aria-label="shop tiny treats" className={cn(compact && "hidden")}>
+            <div className="mb-1 flex items-center justify-between">
+              <span className="text-[8px] font-black lowercase tracking-[0.08em] text-[var(--sample-text)]">shop tiny treats</span>
+              <span className="text-[7px] font-black lowercase text-[var(--sample-primary)]">see all →</span>
+            </div>
+            <div className="grid grid-cols-4 gap-2">
+              {treats.map(([name, price, pos]) => (
+                <div className="flex items-center gap-1.5 rounded-[14px] bg-white p-1 pr-2" style={softShadow} key={name}>
+                  <span className="relative h-7 w-7 shrink-0 overflow-hidden rounded-[10px] bg-[var(--sample-base)]">
+                    <GeneratedStyleImageSurface className="absolute inset-0 h-full w-full" overlay="none" position={pos} slug="kawaii" style={{ backgroundSize: "240%" }} />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block truncate text-[7.5px] font-black lowercase text-[var(--sample-text)]">{name}</span>
+                    <span className="block text-[7.5px] font-black text-[var(--sample-primary)]">{price}</span>
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
