@@ -102,7 +102,7 @@
 | 68 | 스트리트 / 서브컬처 | grunge | street-campaign | queued | distressed texture, muted dirt, rough band archive |
 | 69 | 스트리트 / 서브컬처 | indie-sleaze | street-campaign | verified | 실제 플래시 파티 사진 히어로(codex image gen) 추가: 중앙 FLASH FEED·디스포저블 카메라 그리드·미러 플래시 스택을 실제 사진 크롭으로 교체. 네온 팔레트·5 trait·구조 마커 유지, full/compact QA·lint·check 통과 |
 | 70 | 스트리트 / 서브컬처 | rave-style | cyber-dashboard | queued | event energy, laser color, club schedule system |
-| 71 | 스트리트 / 서브컬처 | lo-fi | retro-commerce | queued | low-resolution warmth, tape hiss, quiet analog UI |
+| 71 | 스트리트 / 서브컬처 | lo-fi | retro-commerce | verified | 이미지 지배형 '스터디 세션' 재설계: 아늑한 리스닝룸 사진 전면 노출 + 플로팅 글래스 UI(샘플러/큐) + 하단 lofi-os-mixer 플레이어 바. 패널-그리드 스타일들과 구조 차별화. full/compact QA·lint·check 통과 |
 | 72 | 편집 / 타이포그래피 | typography-focused | magazine-layout | queued | type scale specimen, baseline rhythm, font pairing shelf |
 | 73 | 편집 / 타이포그래피 | editorial-design | magazine-layout | queued | longform article desk, pull quote, photo essay stack |
 | 74 | 편집 / 타이포그래피 | magazine-style | magazine-layout | queued | issue browser, cover wall, department navigation |

@@ -180,7 +180,7 @@ const requiredStructureMarkers = {
   grunge: ["torn archive spine", "pl-12", "rotate-[-1deg]"],
   "indie-sleaze": ["strip-", "pl-14", "grid-cols-[1.36fr_0.64fr]"],
   "rave-style": ["ticker-", "pb-12", "grid-rows-[1.34fr_0.66fr]"],
-  "lo-fi": ["lofi-os-mixer", "grid-cols-[0.58fr_1.42fr]", "aspect-square rounded-full", "/generated/lofi-listening-room.png"],
+  "lo-fi": ["lofi-os-mixer", "aspect-square rounded-full", "/generated/lofi-listening-room.png"],
 };
 
 const rendererSource = readFileSync(
