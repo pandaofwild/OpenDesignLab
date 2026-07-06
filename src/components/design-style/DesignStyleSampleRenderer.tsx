@@ -188,6 +188,7 @@ const GENERATED_STYLE_IMAGES = {
   "old-money": "/generated/design-styles/old-money.webp",
   "organic-design": "/generated/design-styles/organic-design.webp",
   postmodernism: "/generated/design-styles/postmodernism.webp",
+  punk: "/generated/design-styles/punk.webp",
   rococo: "/generated/design-styles/rococo.webp",
   scandinavian: "/generated/design-styles/scandinavian.webp",
   "soft-minimal": "/generated/design-styles/soft-minimal.webp",
@@ -6462,148 +6463,264 @@ function SkateCultureSpotBoard({ compact = false, style }: Props) {
 }
 
 function PunkZineDispatch({ compact = false, style }: Props) {
-  const issues = [
-    ["A", "no venue"],
-    ["B", "new 7in"],
-    ["C", "riot note"],
-    ["D", "tour van"],
-  ] as const;
-  const flyers = ["basement", "matinee", "all ages", "benefit"];
-  const patches = ["diy", "loud", "anti", "raw", "zine", "mail"];
+  // "Xeroxed fanzine front page": ransom masthead + multi-column newsprint.
+  // Structurally distinct from its neighbours — skate-culture (module grid) and
+  // grunge (image/photo split) — this is a printed tabloid sheet in real columns.
+  const reviews: Array<[string, string, string]> = [
+    ["Wire Cutters — 7″", "★★★★☆", "Two chords, one riot. Fuzz mastered straight off the four-track, no apologies."],
+    ["Static Youth — LP", "★★★★★", "Basement classic back on splatter wax; side B is blown-speaker gold."],
+    ["Dead Signal — demo", "★★★☆☆", "Dubbed tape, hiss and all — the kind you pass hand to hand."],
+  ];
+  const shows: Array<[string, string, string]> = [
+    ["FRI 03", "The Boiler Rm", "all ages · $5"],
+    ["SAT 11", "Union Basement", "benefit · pwyc"],
+    ["THU 17", "Off Broadway", "matinee · $7"],
+    ["SUN 24", "The Annex", "diy · donation"],
+  ];
+  const patches = ["diy", "loud", "anti", "raw", "riot", "1977"];
+  const mailorder: Array<[string, string]> = [
+    ["No Future b/w Blank", "$4"],
+    ["Static Youth — LP", "$9"],
+    ["V/A basement comp", "$6"],
+  ];
+
+  const tileVariant = {
+    ink: "bg-[var(--sample-text)] text-[var(--sample-base)]",
+    paper: "bg-[var(--sample-base)] text-[var(--sample-text)]",
+    red: "bg-[var(--sample-accent)] text-[var(--sample-base)]",
+    serif: "bg-[var(--sample-base)] text-[var(--sample-text)] italic [font-family:Georgia,serif]",
+    mono: "bg-[var(--sample-base)] text-[var(--sample-text)] [font-family:'Courier_New',monospace]",
+  } as const;
+  const ransomRows: Array<Array<Array<[string, keyof typeof tileVariant]>>> = [
+    [[["D", "paper"], ["I", "ink"], ["Y", "red"]]],
+    [[["O", "serif"], ["R", "paper"]], [["D", "ink"], ["I", "mono"], ["E", "paper"]]],
+  ];
+  const rot = [-4, 3, -2, 4, -3, 2];
+  let letterIndex = 0;
+  const ransomHeadline = (
+    <div aria-label="ransom headline stack" className="flex flex-col gap-1.5">
+      {ransomRows.map((row, ri) => (
+        <div className="flex flex-wrap items-center gap-2" key={ri}>
+          {row.map((word, wi) => (
+            <span className="inline-flex gap-1" key={wi}>
+              {word.map(([ch, variant], ci) => {
+                const angle = rot[letterIndex++ % rot.length];
+                return (
+                  <span
+                    className={cn(
+                      "inline-flex items-center justify-center border-2 border-[var(--sample-text)] font-black uppercase leading-[0.7] shadow-[2px_2px_0_rgb(var(--st-text-rgb)/0.32)]",
+                      compact ? "h-8 w-6 text-[1.3rem]" : "h-12 w-9 text-[1.9rem] sm:h-16 sm:w-12 sm:text-[2.7rem]",
+                      tileVariant[variant],
+                    )}
+                    key={ci}
+                    style={{ transform: `rotate(${angle}deg)`, fontFamily: variant === "serif" || variant === "mono" ? undefined : "var(--st-font-display)" }}
+                  >
+                    {ch}
+                  </span>
+                );
+              })}
+            </span>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <SampleFrame compact={compact} style={style}>
       <div
-        className="relative h-full min-w-0"
+        className={cn("absolute inset-0 min-w-0 overflow-hidden bg-[var(--sample-base)] text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
         style={{
-          "--sample-accent": "#ef2b23",
-          "--sample-accent-2": "#f3eee2",
-          "--sample-accent-3": "#d8ff2f",
-          "--sample-base": "#f7f1e6",
-          "--sample-border": "#111111",
-          "--sample-border-soft": "#11111133",
-          "--sample-muted": "#4b4138",
-          "--sample-surface": "#fffaf0",
-          "--sample-text": "#111111",
+          "--sample-accent": "#de2818",
+          "--sample-accent-2": "#d9d0bd",
+          "--sample-accent-3": "#c6ee2b",
+          "--sample-base": "#f2ece0",
+          "--sample-border": "#141210",
+          "--sample-border-soft": "#14121026",
+          "--sample-muted": "#574f45",
+          "--sample-primary": "#de2818",
+          "--sample-surface": "#faf5ea",
+          "--sample-text": "#141210",
+          "--st-base-rgb": "242 236 224",
+          "--st-surface-rgb": "250 245 234",
+          "--st-text-rgb": "20 18 16",
+          "--st-primary-rgb": "222 40 24",
+          "--st-accent-rgb": "222 40 24",
+          "--st-accent-2-rgb": "217 208 189",
+          "--st-accent-3-rgb": "198 238 43",
+          "--st-border-rgb": "20 18 16",
         } as SampleVariables}
       >
-      <div
-        className="absolute inset-0 opacity-80"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(2deg, rgb(var(--st-text-rgb) / 0.1) 0 1px, transparent 1px 10px), repeating-linear-gradient(92deg, transparent 0 16px, rgb(var(--st-text-rgb) / 0.08) 16px 17px), linear-gradient(135deg, var(--sample-base), var(--sample-surface))",
-        }}
-      />
-      <div className="absolute -left-10 top-16 h-32 w-56 rotate-[-8deg] border-[6px] border-[var(--sample-text)] bg-[var(--sample-accent)] opacity-80" />
-      <div className="absolute -right-8 bottom-10 h-40 w-40 rotate-[13deg] border-[5px] border-[var(--sample-text)] bg-[var(--sample-accent-3)] opacity-75" />
-      <div className="relative grid h-full min-w-0 grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav
-          brand="Riot Press"
-          bordered={false}
-          compact={compact}
-          icons={[<IconSearch key="search" size={compact ? 11 : 13} />]}
-          links={["Zine", "Shows"]}
-          sub="photocopy noise field"
+        {/* photocopied-paper texture: toner grain + faint copier streaks */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-[0.14] mix-blend-multiply"
+          style={{ backgroundImage: GRAIN_URI, backgroundSize: "130px 130px" }}
         />
-        <div className={cn("grid min-h-0 min-w-0 gap-3", compact ? "grid-cols-[1fr_0.94fr]" : "grid-rows-[1.05fr_0.95fr] sm:grid-cols-[1.06fr_0.94fr] sm:grid-rows-none")}>
-          <section className="relative min-h-0 min-w-0 overflow-hidden border-[4px] border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.88)] p-3 shadow-[6px_6px_0_var(--sample-text)]">
-            <div className="absolute inset-0 opacity-45" style={{ backgroundImage: GRAIN_URI, backgroundSize: "90px 90px" }} />
-            <span className="absolute right-4 top-12 h-20 w-20 rotate-[12deg] border-[4px] border-[var(--sample-border)] bg-[var(--sample-accent-3)]" />
-            <span className="absolute bottom-4 left-8 h-4 w-[82%] rotate-[-7deg] bg-[var(--sample-accent)]" />
-            <div className="relative flex h-full min-h-0 flex-col justify-between">
-              <div className="flex items-start justify-between gap-2">
-                <span className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-text)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-base)]">
-                  ZINE DISPATCH
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-60"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(91deg, transparent 0 68px, rgb(var(--st-text-rgb) / 0.05) 68px 69px), repeating-linear-gradient(0deg, transparent 0 3px, rgb(var(--st-text-rgb) / 0.022) 3px 4px)",
+          }}
+        />
+        <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ boxShadow: "inset 0 0 70px 10px rgb(var(--st-text-rgb) / 0.09)" }} />
+
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_auto_1fr_auto] gap-2">
+          {/* ── Nameplate ── */}
+          <div className="grid grid-cols-[auto_1fr_auto] items-end gap-2 border-b-[3px] border-[var(--sample-text)] pb-2">
+            <div className="flex flex-col gap-1">
+              <span className="w-max bg-[var(--sample-text)] px-1.5 py-0.5 text-[8px] font-black uppercase tracking-[0.18em] text-[var(--sample-base)]">
+                ZINE DISPATCH
+              </span>
+              {!compact && <span className="text-[8px] font-bold uppercase tracking-[0.16em] text-[var(--sample-muted)]">riot press · vol. iv</span>}
+            </div>
+            <div className="min-w-0 text-center">
+              <h3
+                className={cn("truncate font-black uppercase leading-[0.8] text-[var(--sample-text)]", compact ? "text-[1.5rem]" : "text-[2.3rem] sm:text-[3rem]")}
+                style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.03em" }}
+              >
+                Xerox Riot
+              </h3>
+              {!compact && <span className="block text-[8px] font-bold uppercase tracking-[0.32em] text-[var(--sample-muted)]">a photocopied punk fanzine</span>}
+            </div>
+            <div className="flex flex-col items-end gap-1">
+              <span className="rotate-[-3deg] bg-[var(--sample-accent)] px-1.5 py-0.5 text-[9px] font-black uppercase text-[var(--sample-base)]">free</span>
+              <span className="text-[8px] font-bold uppercase tracking-[0.12em] text-[var(--sample-muted)]">no.13</span>
+            </div>
+          </div>
+
+          {/* ── Dateline rule ── */}
+          <div className="flex items-center justify-between gap-2 border-y border-[var(--sample-text)] py-0.5 text-[8px] font-black uppercase tracking-[0.1em] text-[var(--sample-text)]">
+            <div className="flex min-w-0 items-center gap-2 overflow-hidden">
+              {["scene report", "basement shows", "diy or die", "mailorder open"].map((label, index) => (
+                <span className={cn("flex items-center whitespace-nowrap", index > (compact ? 1 : 3) && "hidden")} key={label}>
+                  {index > 0 && <span className="mr-2 text-[var(--sample-accent)]">/</span>}
+                  {label}
                 </span>
-                <span className="rotate-[4deg] border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-1 text-[8px] font-black uppercase text-[var(--sample-text)]">
-                  issue 13
+              ))}
+            </div>
+            <span className="whitespace-nowrap text-[var(--sample-muted)]">xerox edition</span>
+          </div>
+
+          {/* ── Newsprint columns ── */}
+          <div className={cn("grid min-h-0 min-w-0", compact ? "grid-cols-[1.18fr_0.82fr]" : "grid-cols-1 sm:grid-cols-[1.26fr_1fr_0.82fr]")}>
+            {/* Column 1 — lead */}
+            <div className="flex min-h-0 min-w-0 flex-col gap-2 pr-3">
+              <div className="flex items-center justify-between">
+                <span className="bg-[var(--sample-text)] px-1.5 py-0.5 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-base)]">lead / no.13</span>
+                <span className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-muted)]">basement report</span>
+              </div>
+              {ransomHeadline}
+              <div className="relative min-h-0 flex-1 overflow-hidden border-2 border-[var(--sample-text)]">
+                <GeneratedStyleImageSurface
+                  className="h-full w-full"
+                  overlay="none"
+                  position="50% 28%"
+                  slug="punk"
+                  style={{ filter: "grayscale(1) contrast(1.32) brightness(1.05)" }}
+                />
+                <span
+                  aria-label="photocopy noise field"
+                  className="pointer-events-none absolute inset-0 opacity-50 mix-blend-multiply"
+                  style={{ backgroundImage: "radial-gradient(circle, rgb(var(--st-text-rgb) / 0.85) 0 0.6px, transparent 1.1px)", backgroundSize: "4px 4px" }}
+                />
+                <span className="absolute left-1.5 top-1.5 -rotate-2 bg-[var(--sample-accent)] px-1.5 py-0.5 text-[7px] font-black uppercase tracking-[0.12em] text-[var(--sample-base)]">
+                  from the pit
                 </span>
+                {/* tape corner */}
+                <span aria-hidden="true" className="absolute -left-2 -top-1 h-4 w-14 -rotate-[28deg] bg-[rgb(var(--st-text-rgb)/0.18)]" />
               </div>
-              <div>
-                <p className="mb-2 text-[8px] font-black uppercase tracking-[0.14em]">ransom headline stack</p>
-                <h3
-                  className={cn("flex flex-wrap items-center gap-1 font-display font-black uppercase leading-[0.82] text-[var(--sample-text)]", compact ? "text-[2.1rem]" : "text-[3.5rem] sm:text-[5.3rem]")}
-                  style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.05em" }}
-                >
-                  <span className="rotate-[-3deg] bg-[var(--sample-text)] px-2 text-[var(--sample-base)]">NO</span>
-                  <span className="rotate-[2deg] bg-[var(--sample-accent)] px-2">RULES</span>
-                </h3>
-                <div className="mt-3 grid grid-cols-4 gap-1">
-                  {flyers.map((flyer, index) => (
-                    <span className={cn("border-[3px] border-[var(--sample-border)] px-1 py-1 text-center text-[7px] font-black uppercase", index === 2 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-base)]")} key={flyer}>
-                      {flyer}
-                    </span>
-                  ))}
-                </div>
+              <p className={cn("text-[var(--sample-text)]", compact ? "hidden" : "text-[8.5px] leading-[1.32]")} style={{ fontFamily: "var(--st-font-body)" }}>
+                Nobody asked permission. Four bands, a PA held together with gaffer tape, and a room that smelled
+                like the future. Inside: who is still playing basements, which labels press for cheap, and why the
+                matinee always beats the club.
+              </p>
+            </div>
+
+            {/* Column 2 — reviews (folds away in the compact card) */}
+            <div className={cn("flex min-h-0 min-w-0 flex-col gap-2 border-[var(--sample-text)] sm:border-l sm:pl-3 sm:pr-3", compact ? "hidden" : "hidden sm:flex")}>
+              <div className="flex items-baseline justify-between border-b-2 border-[var(--sample-text)] pb-1">
+                <span className="relative text-[11px] font-black uppercase leading-none tracking-[0.02em]" style={{ fontFamily: "var(--st-font-display)" }}>
+                  <span aria-hidden="true" className="absolute -bottom-0.5 left-0 right-0 h-2 -rotate-1 bg-[var(--sample-accent-3)]" />
+                  <span className="relative">record reviews</span>
+                </span>
+                <span className="text-[7px] font-bold uppercase tracking-[0.1em] text-[var(--sample-muted)]">★ = keeps</span>
               </div>
-              <div className="grid grid-cols-[1fr_auto] items-end gap-2">
-                <div className="border-[3px] border-[var(--sample-border)] bg-[rgb(var(--st-base-rgb)_/_0.86)] p-2">
-                  <p className="text-[8px] font-black uppercase tracking-[0.12em]">photocopy noise field</p>
-                  <div className="mt-2 grid grid-cols-6 gap-1">
-                    {[0, 1, 2, 3, 4, 5].map((item) => (
-                      <span className={cn("h-5 border-2 border-[var(--sample-border)]", item % 2 ? "bg-[var(--sample-text)]" : "bg-[var(--sample-base)]")} key={item} />
-                    ))}
+              {reviews.map(([title, rating, body]) => (
+                <div className="border-b border-dashed border-[rgb(var(--st-text-rgb)/0.35)] pb-1.5" key={title}>
+                  <div className="flex items-baseline justify-between gap-2">
+                    <span className="min-w-0 truncate text-[9px] font-black uppercase tracking-[0.02em]">{title}</span>
+                    <span className="shrink-0 text-[9px] font-black tracking-tight text-[var(--sample-accent)]">{rating}</span>
                   </div>
+                  <p className="mt-0.5 text-[8px] leading-[1.28] text-[var(--sample-muted)]" style={{ fontFamily: "var(--st-font-body)" }}>{body}</p>
                 </div>
-                <span className="grid h-12 w-12 rotate-[-8deg] place-items-center border-[3px] border-[var(--sample-border)] bg-[var(--sample-text)] text-[8px] font-black uppercase text-[var(--sample-base)]">
-                  xerox
-                </span>
-              </div>
+              ))}
+              <blockquote className="mt-auto border-l-[3px] border-[var(--sample-accent)] bg-[rgb(var(--st-accent-rgb)/0.09)] px-2 py-1.5 text-[10px] font-bold italic leading-[1.2] text-[var(--sample-text)]" style={{ fontFamily: "Georgia, serif" }}>
+                “If you can’t find a show, book one.”
+              </blockquote>
             </div>
-          </section>
 
-          <section className="grid min-h-0 min-w-0 grid-rows-[0.9fr_1.1fr] gap-3">
-            <div className="grid min-h-0 min-w-0 grid-cols-[0.94fr_1.06fr] gap-3">
-              <div className="min-h-0 min-w-0 border-[4px] border-[var(--sample-border)] bg-[var(--sample-base)] p-2">
-                <p className="mb-2 text-[8px] font-black uppercase tracking-[0.12em]">gig flyer rail</p>
-                <div className="grid h-[calc(100%-1.35rem)] min-h-0 grid-cols-2 gap-1.5">
-                  {flyers.map((flyer, index) => (
-                    <span className={cn("relative border-[3px] border-[var(--sample-border)] p-1 text-[7px] font-black uppercase", index === 1 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-surface)]")} key={flyer}>
-                      <span className="block rotate-[-3deg] bg-[var(--sample-text)] px-1 py-0.5 text-[var(--sample-base)]">{flyer}</span>
-                      <span className="absolute bottom-1 left-1 right-1 h-1 bg-[var(--sample-accent)]" />
-                    </span>
-                  ))}
+            {/* Column 3 — listings sidebar */}
+            <div className="flex min-h-0 min-w-0 flex-col gap-2 border-l border-[var(--sample-text)] pl-3">
+              <section aria-label="gig flyer rail" className="min-h-0">
+                <div className="mb-1 flex items-center justify-between bg-[var(--sample-text)] px-1.5 py-0.5">
+                  <span className="text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-base)]">upcoming shows</span>
+                  <span className="text-[8px] font-black uppercase text-[var(--sample-accent-3)]">/ diy</span>
                 </div>
-              </div>
-              <div className="min-h-0 min-w-0 border-[4px] border-[var(--sample-border)] bg-[var(--sample-text)] p-2 text-[var(--sample-base)]">
-                <p className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent-3)]">patch badge grid</p>
-                <div className="mt-2 grid grid-cols-3 gap-1.5">
+                <ul className="divide-y divide-dashed divide-[rgb(var(--st-text-rgb)/0.32)]">
+                  {shows.map(([date, venue, note], index) => (
+                    <li className={cn("grid grid-cols-[auto_1fr] items-center gap-2 py-1", compact && index > 2 && "hidden")} key={venue}>
+                      <span className="bg-[var(--sample-text)] px-1 py-0.5 text-center text-[8px] font-black uppercase leading-tight text-[var(--sample-base)]">{date}</span>
+                      <span className="min-w-0">
+                        <span className="block truncate text-[9px] font-black uppercase leading-tight">{venue}</span>
+                        <span className="block truncate text-[7.5px] font-semibold uppercase tracking-[0.06em] text-[var(--sample-muted)]">{note}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              <section aria-label="patch badge grid" className={cn(compact && "hidden")}>
+                <p className="mb-1 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-muted)]">patches · sew or trade</p>
+                <div className="grid grid-cols-3 gap-1.5">
                   {patches.map((patch, index) => (
-                    <span className={cn("rounded-full border-2 border-[var(--sample-base)] px-1 py-2 text-center text-[7px] font-black uppercase", index % 2 ? "bg-[var(--sample-accent)] text-[var(--sample-text)]" : "bg-[var(--sample-base)] text-[var(--sample-text)]")} key={patch}>
-                      {patch}
+                    <span
+                      className={cn(
+                        "relative grid aspect-square place-items-center rounded-full border-2 border-[var(--sample-text)] text-[7px] font-black uppercase leading-none",
+                        index === 4 ? "bg-[var(--sample-accent)] text-[var(--sample-base)]" : index === 1 ? "bg-[var(--sample-accent-3)] text-[var(--sample-text)]" : "bg-[var(--sample-surface)] text-[var(--sample-text)]",
+                      )}
+                      key={patch}
+                    >
+                      <span aria-hidden="true" className="absolute inset-[3px] rounded-full border border-dashed border-current opacity-45" />
+                      <span className="relative">{patch}</span>
                     </span>
                   ))}
                 </div>
-              </div>
-            </div>
+              </section>
 
-            <div className="grid min-h-0 min-w-0 grid-cols-[0.88fr_1.12fr] gap-3">
-              <div className="min-h-0 min-w-0 border-[4px] border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.9)] p-2">
-                <p className="mb-2 text-[8px] font-black uppercase tracking-[0.12em]">release ledger</p>
-                <div className="grid gap-1">
-                  {issues.map(([issue, label], index) => (
-                    <span className={cn("grid grid-cols-[auto_1fr] gap-2 border-[3px] border-[var(--sample-border)] px-1.5 py-1 text-[8px] font-black uppercase", index === 2 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-base)]")} key={label}>
-                      <span>{issue}</span>
-                      <span className="min-w-0 truncate">{label}</span>
-                    </span>
+              <section className={cn(compact ? "hidden" : "mt-auto")}>
+                <p className="mb-1 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-muted)]">mailorder · ppd</p>
+                <ul className="space-y-0.5">
+                  {mailorder.map(([item, price]) => (
+                    <li className="flex items-baseline justify-between gap-2 border-b border-dotted border-[rgb(var(--st-text-rgb)/0.3)] pb-0.5 text-[8px] font-bold uppercase" key={item}>
+                      <span className="min-w-0 truncate" style={{ fontFamily: "var(--st-font-body)" }}>{item}</span>
+                      <span className="shrink-0 text-[var(--sample-accent)]">{price}</span>
+                    </li>
                   ))}
-                </div>
-              </div>
-              <div className="relative min-h-0 min-w-0 overflow-hidden border-[4px] border-[var(--sample-border)] bg-[var(--sample-accent)] p-2">
-                <p className="relative z-10 text-[8px] font-black uppercase tracking-[0.12em]">ransom headline stack</p>
-                <div className="absolute left-4 top-9 rotate-[-8deg] bg-[var(--sample-base)] px-2 py-1 text-[10px] font-black uppercase">basement</div>
-                <div className="absolute right-4 top-16 rotate-[6deg] bg-[var(--sample-text)] px-2 py-1 text-[10px] font-black uppercase text-[var(--sample-base)]">flyer</div>
-                <div className="absolute bottom-4 left-5 right-5 h-8 rotate-[-3deg] border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)]" />
-              </div>
+                </ul>
+              </section>
             </div>
-          </section>
+          </div>
+
+          {/* ── Folio ── */}
+          <div className="flex items-center justify-between gap-2 border-t-2 border-[var(--sample-text)] pt-1 text-[7px] font-black uppercase tracking-[0.14em] text-[var(--sample-muted)]">
+            <span className="whitespace-nowrap">p.01 · xerox edition</span>
+            <span className="hidden truncate sm:inline">cut · paste · copy · staple · repeat</span>
+            <span className="whitespace-nowrap">riot press © diy</span>
+          </div>
         </div>
-        <div className="grid grid-cols-4 gap-2 text-[8px] font-black uppercase tracking-[0.1em]">
-          {["zine dispatch", "gig rail", "patch grid", "xerox field"].map((label) => (
-            <span className="min-w-0 truncate border-[3px] border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.84)] px-2 py-2 text-center" key={label}>{label}</span>
-          ))}
-        </div>
-      </div>
       </div>
     </SampleFrame>
   );
