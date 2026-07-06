@@ -95,12 +95,12 @@
 | 61 | 귀여움 / 캐주얼 | pastel-style | kawaii-app | queued | pale soft palette, airy cute restraint, no generic candy overload |
 | 62 | 귀여움 / 캐주얼 | bubble-design | kawaii-app | queued | inflated shapes, bubble volume, soft rounded depth |
 | 63 | 스트리트 / 서브컬처 | streetwear | street-campaign | queued | drop commerce, label blocks, product wall |
-| 64 | 스트리트 / 서브컬처 | graffiti | street-campaign | queued | wall mark energy, spray layers, urban authorship |
+| 64 | 스트리트 / 서브컬처 | graffiti | street-campaign | verified | WALLDEX 스트리트아트 문서화 UI. 캐노니컬 5 trait 라벨(Graffiti wall scanner/Wall tag index/Spray color rack/Mural route map/Crew tag archive) 반영, check 마커 통과. full/compact QA·lint 통과 |
 | 65 | 스트리트 / 서브컬처 | hiphop-style | street-campaign | verified | Black & Gold Album Studio 리디자인: 전용 팔레트+토큰, 스튜디오 히어로 이미지, 5 trait 전부. full/compact QA·lint·street-subculture 마커 통과 |
 | 66 | 스트리트 / 서브컬처 | skate-culture | street-campaign | queued | deck catalog, spot map, sticker scrape |
 | 67 | 스트리트 / 서브컬처 | punk | street-campaign | queued | zine aggression, torn paper, anti-authority UI |
 | 68 | 스트리트 / 서브컬처 | grunge | street-campaign | queued | distressed texture, muted dirt, rough band archive |
-| 69 | 스트리트 / 서브컬처 | indie-sleaze | street-campaign | queued | flash-photo nightlife, messy blog commerce |
+| 69 | 스트리트 / 서브컬처 | indie-sleaze | street-campaign | verified | 실제 플래시 파티 사진 히어로(codex image gen) 추가: 중앙 FLASH FEED·디스포저블 카메라 그리드·미러 플래시 스택을 실제 사진 크롭으로 교체. 네온 팔레트·5 trait·구조 마커 유지, full/compact QA·lint·check 통과 |
 | 70 | 스트리트 / 서브컬처 | rave-style | cyber-dashboard | queued | event energy, laser color, club schedule system |
 | 71 | 스트리트 / 서브컬처 | lo-fi | retro-commerce | queued | low-resolution warmth, tape hiss, quiet analog UI |
 | 72 | 편집 / 타이포그래피 | typography-focused | magazine-layout | queued | type scale specimen, baseline rhythm, font pairing shelf |

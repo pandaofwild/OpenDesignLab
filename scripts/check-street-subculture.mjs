@@ -107,11 +107,11 @@ const requiredSampleMarkers = {
     "streetwear product wall",
   ],
   graffiti: [
-    "WALL TAG INDEX",
-    "spray color rack",
-    "crew tag archive",
-    "mural route map",
-    "graffiti wall scanner",
+    "Wall tag index",
+    "Spray color rack",
+    "Crew tag archive",
+    "Mural route map",
+    "Graffiti wall scanner",
   ],
   "hiphop-style": [
     "Tracklist index",
