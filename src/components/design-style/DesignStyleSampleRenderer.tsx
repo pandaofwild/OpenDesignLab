@@ -5827,89 +5827,186 @@ function PastelSoftEdit({ compact = false, style }: Props) {
 }
 
 function BubbleFlowCapsules({ compact = false, style }: Props) {
+  // "Effervescent flavor lab": a poppi / bubly sparkling-drink product page.
+  // A centre-stage glossy can with orbiting nutrition bubbles over a flavor
+  // carousel and can shelf — a vertical product-showcase skeleton distinct from
+  // its neighbours playful-design (card grid) and pastel-style (airy pill panel).
   const glossy = (colorVar: string): CSSProperties => ({
-    background: `radial-gradient(circle at 32% 26%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.45) 12%, ${colorVar} 46%, color-mix(in srgb, ${colorVar} 62%, #0a2630) 100%)`,
-    boxShadow: `0 14px 26px -8px color-mix(in srgb, ${colorVar} 65%, transparent), inset 0 -10px 16px -8px rgba(8,30,40,0.4), inset 0 10px 16px -6px rgba(255,255,255,0.85)`,
+    background: `radial-gradient(circle at 32% 24%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.4) 14%, ${colorVar} 48%, color-mix(in srgb, ${colorVar} 66%, #2a1440) 100%)`,
+    boxShadow: `0 12px 22px -10px color-mix(in srgb, ${colorVar} 60%, transparent), inset 0 -8px 14px -8px rgba(30,10,50,0.4), inset 0 8px 14px -6px rgba(255,255,255,0.85)`,
   });
   const softShadow: CSSProperties = {
-    boxShadow: "0 6px 14px -8px rgba(8,30,40,0.35), inset 0 1px 1px rgba(255,255,255,0.9)",
+    boxShadow: "0 8px 18px -10px rgba(30,10,50,0.3), inset 0 1px 1px rgba(255,255,255,0.9)",
   };
-  const flavors: Array<{ label: string; price: string; colorVar: string; lift: string }> = [
-    { label: "lime", price: "$5", colorVar: "var(--sample-accent-3)", lift: "translate-y-1" },
-    { label: "berry", price: "$6", colorVar: "var(--sample-accent-2)", lift: "-translate-y-2.5" },
-    { label: "soda", price: "$5", colorVar: "var(--sample-accent)", lift: "translate-y-2" },
+  const flavors: Array<{ name: string; color: string; cal: string }> = [
+    { name: "wild berry", color: "#ff5f8d", cal: "18" },
+    { name: "citrus pop", color: "#ffc93c", cal: "16" },
+    { name: "lime mint", color: "#43c98a", cal: "15" },
+    { name: "grape fizz", color: "#a06cff", cal: "18" },
+    { name: "aqua yuzu", color: "#2fb8c6", cal: "14" },
   ];
-  const features = ["flavor pops", "fizz meter", "bubble cart", "free refill"];
+  const hero = flavors[0];
+  const nutrition: Array<[string, string, string]> = [
+    ["prebiotic", "left-[3%] top-[12%]", "#2fb8c6"],
+    ["18 cal", "right-[4%] top-[8%]", "#ffc93c"],
+    ["5g sugar", "left-[6%] bottom-[14%]", "#ff5f8d"],
+    ["vit c", "right-[6%] bottom-[10%]", "#43c98a"],
+  ];
+
+  const renderCan = (color: string, name: string, big: boolean) => (
+    <div className={cn("relative", big ? (compact ? "h-[3.5rem] w-[1.7rem]" : "h-[9.5rem] w-[4.4rem]") : "h-[3.4rem] w-[1.55rem]")}>
+      {/* body */}
+      <div
+        className={cn("absolute inset-0 overflow-hidden", big ? (compact ? "rounded-[11px]" : "rounded-[18px]") : "rounded-[7px]")}
+        style={{ background: `linear-gradient(180deg, color-mix(in srgb, ${color} 74%, #ffffff) 0%, ${color} 44%, color-mix(in srgb, ${color} 70%, #201038) 100%)` }}
+      >
+        <span aria-hidden="true" className="absolute inset-y-0 left-[16%] w-[14%] bg-white/55 blur-[1px]" />
+        <span aria-hidden="true" className="absolute inset-y-0 right-[12%] w-[9%] bg-black/15" />
+        {/* label band */}
+        <span className="absolute inset-x-0 top-[33%] flex h-[34%] flex-col items-center justify-center bg-white/88">
+          <span className={cn("px-0.5 text-center font-black uppercase leading-none", big ? (compact ? "text-[6px] tracking-[0.01em]" : "text-[10px] tracking-[0.02em]") : "text-[0px]")} style={{ color }}>{big ? name : ""}</span>
+          {big && <span className={cn("mt-1 rounded-full", compact ? "h-0.5 w-3.5" : "h-1 w-6")} style={{ background: color }} />}
+        </span>
+      </div>
+      {/* top rim + tab */}
+      <span aria-hidden="true" className={cn("absolute left-1/2 -translate-x-1/2 rounded-[50%] bg-[linear-gradient(180deg,#eef0f6,#a9adba)]", big ? "-top-[3px] h-[8px] w-[82%]" : "-top-[1.5px] h-[4px] w-[80%]")} />
+      {big && <span aria-hidden="true" className="absolute -top-[5px] left-1/2 h-[4px] w-[26%] -translate-x-1/2 rounded-[3px] bg-[#c7cad6]" />}
+      {/* bottom shadow */}
+      <span aria-hidden="true" className={cn("absolute left-1/2 -translate-x-1/2 rounded-[50%] bg-black/20 blur-[2px]", big ? "-bottom-[6px] h-[8px] w-[74%]" : "-bottom-[3px] h-[4px] w-[72%]")} />
+    </div>
+  );
 
   return (
     <SampleFrame compact={compact} style={style}>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <span className="absolute -left-8 top-12 h-28 w-28 rounded-full opacity-60 blur-[2px]" style={glossy("var(--sample-accent)")} />
-        <span className="absolute -top-6 right-6 h-20 w-20 rounded-full opacity-50 blur-[2px]" style={glossy("var(--sample-accent-2)")} />
-        <span className="absolute bottom-4 left-1/2 h-16 w-16 rounded-full opacity-40 blur-[2px]" style={glossy("var(--sample-accent-3)")} />
-      </div>
-
-      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav align="center" brand="Sip Capsule" compact={compact} icons={[<IconStar key="star" size={compact ? 11 : 13} />]} links={["Flavors", "Drops", "Find"]} sub="bubble drink" />
-
-        <div className={cn("grid min-h-0 items-center gap-4", compact ? "grid-cols-[1fr_1fr]" : "grid-cols-[0.92fr_1.08fr]")}>
-          <section className="flex min-h-0 flex-col justify-center gap-3">
-            <div>
-              <span className="inline-block rounded-full bg-[rgb(var(--st-surface-rgb)_/_0.78)] px-3 py-1 text-[9px] font-black uppercase tracking-[0.18em] text-[var(--sample-primary)]" style={softShadow}>
-                bubble flow
-              </span>
-              <h3
-                className={cn("mt-3 font-display leading-[0.95]", compact ? "text-[1.7rem]" : "text-[2.9rem]")}
-                style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "-0.01em" }}
-              >
-                Sip the
-                <br />
-                <span className="text-[var(--sample-primary)]">bubbles.</span>
-              </h3>
-              <p className={cn("mt-3 font-semibold text-[var(--sample-muted)]", compact ? "line-clamp-2 text-[10px] leading-4" : "max-w-[24ch] text-[12px] leading-5")}>
-                Sparkling capsule drinks in three squishy, fizzy flavors.
-              </p>
-            </div>
-            <button
-              className={cn("w-max rounded-full px-5 py-2.5 text-center text-[12px] font-black text-[var(--sample-text)]", compact ? "hidden" : "")}
-              style={{
-                background:
-                  "linear-gradient(180deg, color-mix(in srgb, var(--sample-accent) 85%, #ffffff) 0%, var(--sample-accent) 55%, color-mix(in srgb, var(--sample-accent) 70%, var(--sample-primary)) 100%)",
-                boxShadow:
-                  "0 12px 20px -10px color-mix(in srgb, var(--sample-accent) 75%, transparent), inset 0 2px 2px rgba(255,255,255,0.85), inset 0 -5px 7px -3px rgba(8,30,40,0.28)",
-              }}
-              type="button"
-            >
-              Shop flavors →
-            </button>
-            <div className="rounded-full bg-[rgb(var(--st-surface-rgb)_/_0.78)] p-1.5" style={softShadow}>
-              <div className="h-3 overflow-hidden rounded-full bg-[var(--sample-base)]">
-                <span className="block h-full w-[68%] rounded-full bg-[linear-gradient(90deg,var(--sample-accent),var(--sample-accent-2))]" />
-              </div>
-            </div>
-          </section>
-
-          <section className="grid min-h-0 grid-cols-3 items-center gap-2">
-            {flavors.map(({ label, price, colorVar, lift }) => (
-              <div className={cn("flex min-h-0 flex-col items-center gap-2", compact ? "" : lift)} key={label}>
-                <span className={cn("relative aspect-square w-full rounded-full", compact ? "max-w-[3.5rem]" : "max-w-[5.5rem]")} style={glossy(colorVar)}>
-                  <span aria-hidden="true" className="absolute left-[22%] top-[16%] h-[24%] w-[30%] -rotate-12 rounded-full bg-white/85 blur-[1px]" />
-                </span>
-                <span className="text-[10px] font-black uppercase tracking-[0.1em] text-[var(--sample-text)]">{label}</span>
-                <span className="-mt-1 rounded-full bg-[rgb(var(--st-surface-rgb)_/_0.85)] px-2 py-0.5 text-[9px] font-black text-[var(--sample-primary)]" style={softShadow}>
-                  {price}
-                </span>
-              </div>
-            ))}
-          </section>
+      <div
+        className={cn("absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
+        style={{
+          "--sample-accent": "#ff5f8d",
+          "--sample-accent-2": "#2fb8c6",
+          "--sample-accent-3": "#ffc93c",
+          "--sample-base": "#fff3ef",
+          "--sample-border": "#33264d",
+          "--sample-border-soft": "#33264d1f",
+          "--sample-muted": "#8b7fa3",
+          "--sample-primary": "#ff5f8d",
+          "--sample-surface": "#ffffff",
+          "--sample-text": "#33264d",
+          "--st-base-rgb": "255 243 239",
+          "--st-surface-rgb": "255 255 255",
+          "--st-text-rgb": "51 38 77",
+          "--st-primary-rgb": "255 95 141",
+          "--st-accent-rgb": "255 95 141",
+          "--st-accent-2-rgb": "47 184 198",
+          "--st-accent-3-rgb": "255 201 60",
+          "--st-border-rgb": "51 38 77",
+          background:
+            "radial-gradient(60% 46% at 18% 8%, rgb(255 95 141 / 0.16), transparent 60%), radial-gradient(56% 50% at 92% 14%, rgb(47 184 198 / 0.16), transparent 60%), radial-gradient(60% 50% at 74% 104%, rgb(255 201 60 / 0.18), transparent 62%), linear-gradient(180deg, #fff8f4, #fff0ef)",
+        } as SampleVariables}
+      >
+        {/* floating background bubbles */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <span className="absolute -left-6 top-16 h-24 w-24 rounded-full opacity-40 blur-[1px]" style={glossy("#ff5f8d")} />
+          <span className="absolute right-8 top-6 h-14 w-14 rounded-full opacity-40 blur-[1px]" style={glossy("#2fb8c6")} />
+          <span className="absolute bottom-24 right-1/3 h-10 w-10 rounded-full opacity-35 blur-[1px]" style={glossy("#ffc93c")} />
         </div>
 
-        <div className="grid grid-cols-4 gap-2 text-[9px] font-black uppercase tracking-[0.1em]">
-          {features.map((item) => (
-            <span className="rounded-full bg-[rgb(var(--st-surface-rgb)_/_0.78)] px-2 py-2 text-center text-[var(--sample-text)]" key={item} style={softShadow}>
-              {item}
-            </span>
-          ))}
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_1fr_auto] gap-2.5">
+          <SampleNav
+            align="center"
+            bordered={false}
+            brand="Pop Fizz"
+            compact={compact}
+            icons={[<IconStar key="star" size={compact ? 11 : 13} />]}
+            links={["Flavors", "Lab", "Shop"]}
+            sub="sparkling drinks co."
+          />
+
+          {/* ── Hero: centre can + orbiting nutrition bubbles ── */}
+          <section aria-label="EFFERVESCENT FLAVOR LAB" className="relative grid min-h-0 min-w-0 place-items-center">
+            <div aria-label="nutrition bubbles" className="pointer-events-none absolute inset-0">
+              {nutrition.map(([label, pos, color]) => (
+                <span
+                  className={cn("absolute grid place-items-center rounded-full text-center text-[6.5px] font-black uppercase leading-[1.05] text-white", compact ? "h-9 w-9" : "h-11 w-11", pos)}
+                  key={label}
+                  style={glossy(color)}
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
+
+            <div className="relative z-10 flex flex-col items-center gap-2 text-center">
+              <span className={cn("rounded-full bg-white px-3 py-1 text-[8px] font-black uppercase tracking-[0.2em] text-[var(--sample-primary)]", compact && "hidden")} style={softShadow}>
+                BUBBLE FLOW
+              </span>
+              <h3
+                className={cn("font-black uppercase leading-[0.86]", compact ? "text-[0.95rem]" : "text-[1.6rem] sm:text-[1.9rem]")}
+                style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.01em" }}
+              >
+                EFFERVESCENT<br />FLAVOR LAB
+              </h3>
+              <div aria-label="inflated capsules" className="relative mt-0.5">
+                {renderCan(hero.color, hero.name, true)}
+              </div>
+              <span className={cn("rounded-full bg-white px-3 py-1 text-[9px] font-black uppercase tracking-[0.08em] text-[var(--sample-text)]", compact && "hidden")} style={softShadow}>
+                {hero.name} · {hero.cal} cal · prebiotic soda
+              </span>
+            </div>
+          </section>
+
+          {/* ── Flavor carousel + can shelf ── */}
+          <div className="rounded-[22px] bg-[rgb(255_255_255/0.72)] p-2.5 backdrop-blur-[2px]" style={softShadow}>
+            <div className={cn("grid min-w-0 gap-3", compact ? "grid-cols-1" : "grid-cols-[1.2fr_0.8fr]")}>
+              <div aria-label="flavor carousel" className="min-w-0">
+                <div className="mb-1.5 flex items-center justify-between">
+                  <span className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">flavor carousel</span>
+                  <span className="text-[7px] font-black uppercase tracking-[0.08em] text-[var(--sample-muted)]">inflated capsules · 5</span>
+                </div>
+                <div className="flex items-center justify-between gap-1.5">
+                  {flavors.map((flavor, index) => (
+                    <span className="relative flex flex-col items-center gap-1" key={flavor.name}>
+                      <span
+                        className={cn("relative rounded-full", index === 0 ? (compact ? "h-8 w-8" : "h-10 w-10") : (compact ? "h-6 w-6" : "h-8 w-8"))}
+                        style={glossy(flavor.color)}
+                      >
+                        {index === 0 && <span aria-hidden="true" className="absolute -inset-1 rounded-full border-2 border-[var(--sample-primary)] opacity-70" />}
+                      </span>
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-1.5 flex items-center justify-center gap-1">
+                  {flavors.map((flavor, index) => (
+                    <span className={cn("h-1.5 rounded-full", index === 0 ? "w-4 bg-[var(--sample-primary)]" : "w-1.5 bg-[var(--sample-border-soft)]")} key={flavor.name} />
+                  ))}
+                </div>
+                <div aria-label="liquid progress" className="mt-2 flex items-center gap-2">
+                  <span className="shrink-0 text-[7px] font-black uppercase tracking-[0.1em] text-[var(--sample-muted)]">batch 07</span>
+                  <span className="relative h-2.5 min-w-0 flex-1 overflow-hidden rounded-full bg-[var(--sample-base)]">
+                    <span className="absolute inset-y-0 left-0 w-[72%] rounded-full" style={{ background: "linear-gradient(90deg, var(--sample-accent-2), var(--sample-accent))" }} />
+                    <span aria-hidden="true" className="absolute left-[14%] top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-white/80" />
+                    <span aria-hidden="true" className="absolute left-[40%] top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-white/70" />
+                    <span aria-hidden="true" className="absolute left-[62%] top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-white/80" />
+                  </span>
+                  <span className="shrink-0 text-[7px] font-black tabular-nums text-[var(--sample-primary)]">72%</span>
+                </div>
+              </div>
+
+              <div aria-label="can shelf" className={cn("min-w-0", compact && "hidden")}>
+                <div className="mb-1.5 flex items-center justify-between">
+                  <span className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">can shelf</span>
+                  <span className="rounded-full bg-[var(--sample-accent-3)] px-1.5 py-0.5 text-[7px] font-black uppercase text-[var(--sample-text)]">12-pack</span>
+                </div>
+                <div className="flex items-end justify-between gap-1 rounded-[14px] bg-[rgb(255_243_239/0.7)] px-2 pb-1 pt-2">
+                  {flavors.map((flavor) => (
+                    <div className="flex flex-col items-center gap-0.5" key={flavor.name}>
+                      {renderCan(flavor.color, flavor.name, false)}
+                    </div>
+                  ))}
+                </div>
+                <div aria-hidden="true" className="mx-1 h-1 rounded-b-full bg-[var(--sample-border-soft)]" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </SampleFrame>
