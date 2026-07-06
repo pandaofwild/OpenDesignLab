@@ -6032,14 +6032,14 @@ function GraffitiWallArchive({ compact = false, style }: Props) {
           sub="street art documentation"
         />
         <div className={cn("grid min-h-0 min-w-0 gap-3", compact ? "grid-cols-[1.15fr_0.85fr]" : "grid-rows-[1.15fr_0.85fr] sm:grid-cols-[1.28fr_0.72fr] sm:grid-rows-none")}>
-          <section className="relative min-h-0 min-w-0 overflow-hidden border-[3px] border-[var(--sample-border)] shadow-[6px_6px_0_var(--sample-text)]">
+          <section className="relative min-h-0 min-w-0 overflow-hidden rounded-[2px] border-2 border-[var(--sample-border)] shadow-[0_12px_30px_rgb(0_0_0/0.32)]">
             <GeneratedStyleImageSurface className="h-full" overlay="dark" position="center 42%" slug="graffiti">
               <div className="flex h-full min-h-0 flex-col justify-between p-3">
                 <div className="flex items-start justify-between gap-2">
-                  <span className="rotate-[-2deg] border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)] shadow-[2px_2px_0_var(--sample-text)]">
+                  <span className="rotate-[-2deg] rounded-[2px] border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">
                     Graffiti wall scanner
                   </span>
-                  <span className="rotate-[1.5deg] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.12em] shadow-[2px_2px_0_var(--sample-text)]">
+                  <span className="rotate-[1.5deg] rounded-[2px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.12em]">
                     verified · 142 photos
                   </span>
                 </div>
@@ -6054,7 +6054,7 @@ function GraffitiWallArchive({ compact = false, style }: Props) {
                     FRESH PAINT
                   </h3>
                   <div className={cn("mt-2 flex flex-wrap items-center gap-2", compact && "gap-1.5")}>
-                    <span className="border-2 border-[var(--sample-border)] bg-[var(--sample-accent)] px-2.5 py-1.5 text-[9px] font-black uppercase tracking-[0.1em] text-[var(--sample-surface)] shadow-[3px_3px_0_var(--sample-text)]">
+                    <span className="rounded-[2px] border-2 border-[var(--sample-border)] bg-[var(--sample-accent)] px-2.5 py-1.5 text-[9px] font-black uppercase tracking-[0.1em] text-[var(--sample-surface)]">
                       Mural route map
                     </span>
                     <span className="border-2 border-[var(--sample-base)] px-2.5 py-1.5 text-[9px] font-black uppercase tracking-[0.1em] text-[var(--sample-base)]">
@@ -6067,7 +6067,7 @@ function GraffitiWallArchive({ compact = false, style }: Props) {
           </section>
 
           <section className={cn("grid min-h-0 min-w-0 grid-rows-[1fr_auto] overflow-hidden", compact ? "gap-2" : "gap-3")}>
-            <div className="flex min-h-0 min-w-0 flex-col overflow-hidden border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] p-2 shadow-[4px_4px_0_var(--sample-text)]">
+            <div className="flex min-h-0 min-w-0 flex-col overflow-hidden rounded-[2px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-2">
               <div className="mb-1.5 flex items-center justify-between gap-2">
                 <p className="text-[7px] font-black uppercase leading-[1.05] tracking-[0.1em] sm:text-[8px] sm:tracking-[0.14em]">Wall tag index</p>
                 <span className="bg-[var(--sample-accent)] px-1.5 py-0.5 text-[7px] font-black uppercase text-[var(--sample-surface)]">+38</span>
@@ -6101,7 +6101,7 @@ function GraffitiWallArchive({ compact = false, style }: Props) {
               </div>
             </div>
 
-            <div className="min-w-0 border-[3px] border-[var(--sample-border)] bg-[var(--sample-text)] p-2 text-[var(--sample-base)] shadow-[4px_4px_0_var(--sample-accent)]">
+            <div className="min-w-0 rounded-[2px] border-2 border-[var(--sample-border)] bg-[var(--sample-text)] p-2 text-[var(--sample-base)]">
               <div className="mb-1.5 flex items-center justify-between gap-2">
                 <p className="text-[7px] font-black uppercase tracking-[0.14em]">Spray color rack</p>
                 <span className="text-[7px] font-black uppercase tracking-[0.1em] text-[var(--sample-accent-3)]">400ml</span>
@@ -6864,7 +6864,7 @@ function IndieSleazeFlashFeed({ compact = false, style }: Props) {
           }}
         />
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: GRAIN_URI, backgroundSize: "86px 86px" }} />
-        <div className="absolute inset-y-16 left-2 z-20 grid w-12 grid-rows-6 gap-1 border-[3px] border-[var(--sample-base)] bg-[var(--sample-text)] p-1">
+        <div className="absolute inset-y-16 left-2 z-20 grid w-12 grid-rows-6 gap-1 border border-[rgb(244_240_232_/_0.55)] bg-[var(--sample-text)] p-1">
           {photos.map((photo) => (
             <span className="grid place-items-center overflow-hidden border border-[var(--sample-base)] bg-[radial-gradient(circle_at_28%_22%,white_0_8%,rgb(255_47_146)_9%_22%,rgb(9_9_9)_23%_100%)] text-[0]" key={`strip-${photo}`}>
               {photo}
@@ -6888,19 +6888,18 @@ function IndieSleazeFlashFeed({ compact = false, style }: Props) {
             />
           </div>
           <div className={cn("grid min-h-0 min-w-0 gap-3 pl-14", compact ? "grid-cols-[1.2fr_0.8fr]" : "grid-rows-none sm:grid-cols-[1.36fr_0.64fr]")}>
-            <section className="relative min-h-0 min-w-0 overflow-hidden border-[3px] border-[var(--sample-base)] bg-[var(--sample-text)] p-3 text-[var(--sample-base)] shadow-[8px_8px_0_var(--sample-accent)]">
+            <section className="relative min-h-0 min-w-0 overflow-hidden rounded-[2px] border border-[rgb(244_240_232_/_0.5)] bg-[var(--sample-text)] p-3 text-[var(--sample-base)]">
               <div aria-hidden="true" className="absolute inset-0">
                 <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position="center 60%" slug="indie-sleaze" />
               </div>
-              <div aria-hidden="true" className="absolute inset-0" style={{ backgroundImage: "linear-gradient(180deg, rgb(11 11 11 / 0.3), rgb(11 11 11 / 0.44) 42%, rgb(11 11 11 / 0.74))" }} />
+              <div aria-hidden="true" className="absolute inset-0" style={{ backgroundImage: "linear-gradient(180deg, rgb(11 11 11 / 0.28), rgb(11 11 11 / 0.42) 42%, rgb(11 11 11 / 0.72))" }} />
               <div aria-hidden="true" className="absolute inset-0 opacity-20" style={{ backgroundImage: GRAIN_URI, backgroundSize: "72px 72px" }} />
-              <span aria-hidden="true" className="absolute bottom-7 left-7 h-6 w-[76%] rotate-[-4deg] bg-[var(--sample-accent)] opacity-85" />
               <div className="relative flex h-full min-h-0 flex-col justify-between">
                 <div className="flex items-start justify-between gap-2">
-                  <span className="border-[3px] border-[var(--sample-base)] bg-[var(--sample-text)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-base)]">
+                  <span className="rounded-full border border-[rgb(244_240_232_/_0.5)] bg-[rgb(11_11_11_/_0.5)] px-2.5 py-1 text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-base)] backdrop-blur-[2px]">
                     FLASH PHOTO INDEX
                   </span>
-                  <span className="rotate-[-5deg] border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-1 text-[8px] font-black uppercase text-[var(--sample-text)]">
+                  <span className="rotate-[-2deg] rounded-[2px] border border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-1 text-[8px] font-black uppercase text-[var(--sample-text)]">
                     2007 cam
                   </span>
                 </div>
@@ -6916,7 +6915,7 @@ function IndieSleazeFlashFeed({ compact = false, style }: Props) {
                 </div>
                 <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-3">
                   {photos.map((photo, index) => (
-                    <span className={cn("relative h-14 overflow-hidden border-[3px] border-[var(--sample-border)] bg-[var(--sample-text)] p-1", index % 2 ? "rotate-[2deg]" : "rotate-[-2deg]")} key={photo}>
+                    <span className={cn("relative h-14 overflow-hidden rounded-[2px] border border-[rgb(244_240_232_/_0.4)] bg-[var(--sample-text)] p-1", index % 2 ? "rotate-[1.5deg]" : "rotate-[-1.5deg]")} key={photo}>
                       <GeneratedStyleImageSurface
                         className="h-full w-full"
                         overlay="none"
@@ -6933,21 +6932,21 @@ function IndieSleazeFlashFeed({ compact = false, style }: Props) {
 
             <section className="grid min-h-0 min-w-0 grid-rows-[auto_1fr] gap-3">
               <div className="grid min-h-0 min-w-0 grid-rows-[0.9fr_1.1fr] gap-3">
-                <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-base)] bg-[rgb(255_47_146_/_0.94)] p-2 text-[var(--sample-text)]">
-                  <p className="mb-2 bg-[var(--sample-text)] px-1.5 py-1 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-base)]">club stamp rail</p>
+                <div className="min-h-0 min-w-0 rounded-[3px] border border-[rgb(11_11_11_/_0.28)] bg-[rgb(255_47_146_/_0.92)] p-2 text-[var(--sample-text)]">
+                  <p className="mb-2 rounded-[2px] bg-[var(--sample-text)] px-1.5 py-1 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-base)]">club stamp rail</p>
                   <div className="grid h-[calc(100%-1.45rem)] min-h-0 grid-cols-2 gap-1.5">
                     {stamps.map((stamp, index) => (
-                      <span className={cn("grid place-items-center border-2 border-[var(--sample-border)] px-1 text-center text-[7px] font-black uppercase", index === 2 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-surface)]")} key={stamp}>
+                      <span className={cn("grid place-items-center rounded-[2px] border border-[var(--sample-border)] px-1 text-center text-[7px] font-black uppercase", index === 2 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-surface)]")} key={stamp}>
                         {stamp}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-base)] bg-[rgb(255_255_255_/_0.95)] p-2 text-[var(--sample-text)]">
+                <div className="min-h-0 min-w-0 rounded-[3px] border border-[rgb(11_11_11_/_0.22)] bg-[rgb(255_255_255_/_0.95)] p-2 text-[var(--sample-text)]">
                   <p className="mb-2 text-[8px] font-black uppercase tracking-[0.12em]">bloghaus playlist deck</p>
                   <div className="grid gap-1">
                     {tracks.map(([code, track], index) => (
-                      <span className={cn("grid grid-cols-[auto_1fr_auto] items-center gap-2 border-2 border-[var(--sample-border)] px-1.5 py-1 text-[7px] font-black uppercase", index === 1 ? "bg-[var(--sample-accent-2)]" : "bg-[var(--sample-base)]")} key={track}>
+                      <span className={cn("grid grid-cols-[auto_1fr_auto] items-center gap-2 rounded-[2px] border border-[var(--sample-border-soft)] px-1.5 py-1 text-[7px] font-black uppercase", index === 1 ? "bg-[var(--sample-accent-2)]" : "bg-[var(--sample-base)]")} key={track}>
                         <span>{code}</span>
                         <span className="min-w-0 truncate">{track}</span>
                         <span className="h-2 w-5 bg-[var(--sample-text)]" />
@@ -6958,21 +6957,21 @@ function IndieSleazeFlashFeed({ compact = false, style }: Props) {
               </div>
 
               <div className="grid min-h-0 min-w-0 grid-rows-[1.08fr_0.92fr] gap-3">
-                <div className="relative min-h-0 min-w-0 overflow-hidden border-[3px] border-[var(--sample-base)] bg-[var(--sample-text)] p-2">
+                <div className="relative min-h-0 min-w-0 overflow-hidden rounded-[3px] border border-[rgb(244_240_232_/_0.4)] bg-[var(--sample-text)] p-2">
                   <p className="relative z-10 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent-3)]">mirror flash stack</p>
-                  <span aria-hidden="true" className="absolute left-4 top-9 h-20 w-24 rotate-[-6deg] overflow-hidden border-[3px] border-[var(--sample-base)]">
+                  <span aria-hidden="true" className="absolute left-4 top-9 h-20 w-24 rotate-[-3deg] overflow-hidden rounded-[2px] border border-[rgb(244_240_232_/_0.55)]">
                     <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position="28% 62%" slug="indie-sleaze" style={{ backgroundSize: "220%" }} />
                   </span>
-                  <span aria-hidden="true" className="absolute right-5 top-16 h-16 w-28 rotate-[5deg] overflow-hidden border-[3px] border-[var(--sample-base)]">
+                  <span aria-hidden="true" className="absolute right-5 top-16 h-16 w-28 rotate-[3deg] overflow-hidden rounded-[2px] border border-[rgb(244_240_232_/_0.55)]">
                     <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position="72% 38%" slug="indie-sleaze" style={{ backgroundSize: "240%" }} />
                   </span>
-                  <span aria-hidden="true" className="absolute bottom-4 left-6 right-6 h-7 rotate-[-2deg] bg-[var(--sample-accent-2)]" />
+                  <span aria-hidden="true" className="absolute bottom-3 left-6 right-6 h-1.5 rounded-full bg-[var(--sample-accent-2)] opacity-80" />
                 </div>
-                <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-base)] bg-[rgb(244_240_232_/_0.95)] p-2 text-[var(--sample-text)]">
+                <div className="min-h-0 min-w-0 rounded-[3px] border border-[rgb(11_11_11_/_0.22)] bg-[rgb(244_240_232_/_0.95)] p-2 text-[var(--sample-text)]">
                   <p className="mb-2 text-[8px] font-black uppercase tracking-[0.12em]">messy outfit tags</p>
                   <div className="grid gap-1">
                     {tags.map((tag, index) => (
-                      <span className={cn("min-w-0 truncate border-2 border-[var(--sample-border)] px-1.5 py-1 text-[7px] font-black uppercase", index === 0 ? "bg-[var(--sample-accent)]" : index === 2 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-surface)]")} key={tag}>
+                      <span className={cn("min-w-0 truncate rounded-[2px] border border-[var(--sample-border-soft)] px-1.5 py-1 text-[7px] font-black uppercase", index === 0 ? "bg-[var(--sample-accent)]" : index === 2 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-surface)]")} key={tag}>
                         {tag}
                       </span>
                     ))}
@@ -6983,7 +6982,7 @@ function IndieSleazeFlashFeed({ compact = false, style }: Props) {
           </div>
           <div className="ml-14 grid grid-cols-[0.8fr_1.2fr_0.8fr_1fr] gap-2 text-[8px] font-black uppercase tracking-[0.1em] text-[var(--sample-text)]">
             {["flash index", "camera grid", "club stamp", "outfit tags"].map((label) => (
-              <span className="min-w-0 truncate border-[3px] border-[var(--sample-base)] bg-[rgb(255_255_255_/_0.9)] px-2 py-2 text-center" key={label}>{label}</span>
+              <span className="min-w-0 truncate rounded-[2px] border border-[rgb(11_11_11_/_0.25)] bg-[rgb(255_255_255_/_0.9)] px-2 py-2 text-center" key={label}>{label}</span>
             ))}
           </div>
         </div>
@@ -7210,7 +7209,7 @@ function LoFiLoopDesk({ compact = false, style }: Props) {
               <span className="h-2 w-2 rounded-full bg-[var(--sample-accent-2)]" />
               LO-FI LOOP DESK
             </span>
-            <span className={cn("rotate-[3deg] border-[3px] border-[var(--sample-border)] bg-[var(--sample-base)] text-[var(--sample-text)] shadow-[3px_3px_0_rgb(41_35_29_/_0.35)]", compact ? "max-w-[5.5rem] p-1.5" : "max-w-[9rem] p-2")}>
+            <span className={cn("rotate-[2deg] rounded-[2px] border border-[rgb(41_35_29_/_0.5)] bg-[var(--sample-base)] text-[var(--sample-text)] shadow-[0_6px_16px_rgb(0_0_0/0.25)]", compact ? "max-w-[5.5rem] p-1.5" : "max-w-[9rem] p-2")}>
               <p className="text-[7px] font-black uppercase tracking-[0.1em] sm:text-[8px]">paper note texture</p>
               <p className={cn("mt-1 text-[7px] font-bold uppercase leading-snug text-[var(--sample-muted)]", compact && "hidden")}>rain hiss / low pass / until 2am</p>
             </span>
