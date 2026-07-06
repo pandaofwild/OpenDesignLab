@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import type { CSSProperties, ReactNode } from "react";
 import type { DesignStyle } from "@/data/designStyles";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
@@ -194,6 +195,7 @@ const GENERATED_STYLE_IMAGES = {
   scandinavian: "/generated/design-styles/scandinavian.webp",
   "skate-culture": "/generated/design-styles/skate-culture.webp",
   "soft-minimal": "/generated/design-styles/soft-minimal.webp",
+  streetwear: "/generated/design-styles/streetwear.webp",
   "wabi-sabi": "/generated/design-styles/wabi-sabi.webp",
   "warm-minimal": "/generated/design-styles/warm-minimal.webp",
 } as const;
@@ -5915,85 +5917,208 @@ function BubbleFlowCapsules({ compact = false, style }: Props) {
 }
 
 function StreetwearDropEditorial({ compact = false, style }: Props) {
-  const products = [
-    ["shell parka", "S-XL", style.palette.accent],
-    ["graphic tee", "M-XXL", style.palette.accent2],
-    ["camp cap", "OS", style.palette.accent3],
-  ] as const;
-  const sizes = ["S", "M", "L", "XL"];
+  // "Weekly drop store": a premium streetwear commerce page (Supreme / Kith /
+  // Stussy) built from real retail components — a product wall of garment tiles
+  // with prices, colourways and stock states, a release-clock countdown, a drop
+  // ledger schedule, a size-run availability matrix and a lookbook strip. The
+  // retail product-grid skeleton keeps it distinct from its neighbour graffiti
+  // (image-hero documentation) and the other street styles.
+  const cOlive = "#6f6a4e";
+  const cChar = "#26262b";
+  const cBone = "#e2ddd2";
+  const cTan = "#b79a68";
+  const products: Array<{ name: string; price: string; pos: string; dots: string[]; tag?: string; sold?: boolean }> = [
+    { name: "shell parka", price: "£248", pos: "20% 42%", dots: [cOlive, cChar, "#e2231a"], tag: "new" },
+    { name: "coach jacket", price: "£185", pos: "38% 44%", dots: [cBone, cChar] },
+    { name: "box hoodie", price: "£158", pos: "50% 40%", dots: ["#e2231a", cBone, cOlive], tag: "1 / 1" },
+    { name: "cargo pant", price: "£142", pos: "74% 56%", dots: [cTan, cChar] },
+    { name: "logo tee", price: "£68", pos: "90% 74%", dots: [cBone, "#e2231a", cChar], tag: "sold out", sold: true },
+    { name: "camp cap", price: "£54", pos: "89% 40%", dots: [cOlive, cTan] },
+  ];
+  const shown = compact ? products.slice(0, 4) : products;
+  const ledger: Array<[string, string, string]> = [
+    ["shell parka", "£248", "live"],
+    ["coach jacket", "£185", "11:00"],
+    ["box hoodie", "£158", "11:02"],
+    ["logo tee", "£68", "restock"],
+  ];
+  const matrix: Array<[string, number[]]> = [
+    ["parka", [2, 2, 1, 0]],
+    ["jacket", [2, 2, 2, 2]],
+    ["hoodie", [1, 0, 0, 0]],
+    ["tee", [0, 0, 0, 0]],
+  ];
 
   return (
     <SampleFrame compact={compact} style={style}>
       <div
-        className="absolute inset-0 opacity-35"
+        className={cn("absolute inset-0 min-w-0 overflow-hidden bg-[var(--sample-base)] text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
         style={{
-          backgroundImage:
-            "linear-gradient(90deg, transparent 0 47%, var(--sample-accent) 47% 49%, transparent 49%), repeating-linear-gradient(0deg, rgb(var(--st-text-rgb) / 0.1) 0 1px, transparent 1px 18px)",
-        }}
-      />
-      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav
-          brand="Block Supply"
-          compact={compact}
-          icons={[<IconBag key="bag" size={compact ? 11 : 13} />]}
-          links={["New", "Lookbook", "Archive"]}
-          sub="streetwear drop"
-        />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.78fr_1.22fr]" : "grid-cols-[0.66fr_1.34fr]")}>
-          <section className="flex min-h-0 min-w-0 flex-col justify-between border-[4px] border-[var(--sample-border)] bg-[var(--sample-surface)] p-4 shadow-[6px_6px_0_var(--sample-accent)]">
-            <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--sample-accent)]">DROP LEDGER</p>
-              <h3 className={cn("mt-3 font-display font-black uppercase leading-[0.78]", compact ? "text-4xl" : "text-6xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.04em" }}>
-                DROP 06
-              </h3>
-              <p className="mt-3 border-t-[3px] border-[var(--sample-border)] pt-3 text-[9px] font-black uppercase tracking-[0.12em] text-[var(--sample-muted)]">streetwear product wall</p>
+          "--sample-accent": "#e2231a",
+          "--sample-accent-2": "#26262b",
+          "--sample-accent-3": "#cfc9bd",
+          "--sample-base": "#f1f0ec",
+          "--sample-border": "#16161a",
+          "--sample-border-soft": "#16161a24",
+          "--sample-muted": "#767469",
+          "--sample-primary": "#e2231a",
+          "--sample-surface": "#ffffff",
+          "--sample-text": "#16161a",
+          "--st-base-rgb": "241 240 236",
+          "--st-surface-rgb": "255 255 255",
+          "--st-text-rgb": "22 22 26",
+          "--st-primary-rgb": "226 35 26",
+          "--st-accent-rgb": "226 35 26",
+          "--st-accent-2-rgb": "38 38 43",
+          "--st-accent-3-rgb": "207 201 189",
+          "--st-border-rgb": "22 22 26",
+        } as SampleVariables}
+      >
+        <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-multiply" style={{ backgroundImage: GRAIN_URI, backgroundSize: "140px 140px" }} />
+
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_1fr] gap-2.5">
+          {/* ── Brand bar ── */}
+          <header className="flex items-center justify-between gap-2 border-b border-[var(--sample-border-soft)] pb-2">
+            <div className="flex min-w-0 items-center gap-2">
+              <span className="bg-[var(--sample-accent)] px-1.5 py-0.5 text-[10px] font-black uppercase leading-none tracking-[0.02em] text-white" style={{ fontFamily: "var(--st-font-display)" }}>Block</span>
+              <span className="font-black uppercase tracking-[0.03em] text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "12px" : "15px" }}>Supply</span>
+              <nav className="ml-1 hidden items-center gap-3 text-[9px] font-black uppercase tracking-[0.08em] text-[var(--sample-muted)] sm:flex">
+                <span className="text-[var(--sample-text)]">New</span>
+                <span>Shop</span>
+                <span>Lookbook</span>
+              </nav>
             </div>
-            <div className="grid grid-cols-3 gap-2 text-center text-[9px] font-black uppercase tracking-[0.12em]">
-              {["10", "00", "14"].map((item) => (
-                <span className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-text)] px-2 py-2 text-[var(--sample-base)]" key={item}>{item}</span>
-              ))}
-              <span className="col-span-3 border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-2 text-[var(--sample-text)]">release clock</span>
+            <div className="flex items-center gap-2">
+              <span className="hidden items-center gap-1 border border-[var(--sample-border-soft)] px-1.5 py-0.5 text-[8px] font-black uppercase tabular-nums text-[var(--sample-text)] sm:flex">
+                <span className="h-1.5 w-1.5 rounded-full bg-[var(--sample-accent)]" /> 02:10:45
+              </span>
+              <span className="relative text-[var(--sample-text)]">
+                <IconBag size={compact ? 12 : 14} />
+                <span className="absolute -right-1.5 -top-1 grid h-3 w-3 place-items-center rounded-full bg-[var(--sample-accent)] text-[6px] font-black text-white">3</span>
+              </span>
             </div>
-          </section>
-          <section className="grid min-h-0 min-w-0 grid-rows-[1fr_auto] gap-3">
-            <div className="grid min-h-0 grid-cols-3 gap-2">
-              {products.map(([label, run, color], index) => (
-                <article className="relative flex min-h-0 flex-col justify-between border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] p-2" key={label}>
-                  <span className="absolute right-2 top-2 bg-[var(--sample-text)] px-2 py-1 text-[8px] font-black uppercase text-[var(--sample-base)]">#{index + 1}</span>
-                  <span className="grid min-h-24 place-items-center bg-[var(--sample-base)]">
-                    <span className="h-20 w-12 border-[3px] border-[var(--sample-border)]" style={{ backgroundColor: color, clipPath: "polygon(18% 0, 82% 0, 100% 22%, 88% 100%, 12% 100%, 0 22%)" }} />
-                  </span>
-                  <span className="mt-2 text-[8px] font-black uppercase tracking-[0.08em]">{label}</span>
-                  <span className="mt-1 text-[8px] font-black uppercase tracking-[0.1em] text-[var(--sample-muted)]">{run}</span>
-                </article>
-              ))}
-            </div>
-            <div className="grid grid-cols-[1fr_0.7fr] gap-2">
-              <div className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-2)] p-3 text-[var(--sample-text)]">
-                <p className="text-[9px] font-black uppercase tracking-[0.14em]">lookbook strip</p>
-                <div className="mt-2 grid grid-cols-4 gap-1">
-                  {[style.palette.surface, style.palette.accent, style.palette.accent3, style.palette.primary].map((color, index) => (
-                    <span className="h-10 border-2 border-[var(--sample-border)]" key={`${color}-${index}`} style={{ backgroundColor: color }} />
+          </header>
+
+          <div className={cn("grid min-h-0 min-w-0 gap-2.5", compact ? "grid-cols-1" : "sm:grid-cols-[1.62fr_0.9fr]")}>
+            {/* ── Product wall + lookbook ── */}
+            <div className="grid min-h-0 min-w-0 grid-rows-[1fr_auto] gap-2">
+              <section aria-label="streetwear product wall" className="flex min-h-0 min-w-0 flex-col gap-1.5">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex min-w-0 items-center gap-1.5">
+                    <span className="shrink-0 bg-[var(--sample-accent)] px-1.5 py-0.5 text-[8px] font-black uppercase tracking-[0.1em] text-white">this week</span>
+                    <span className="truncate text-[8px] font-black uppercase tracking-[0.08em] text-[var(--sample-muted)]">streetwear product wall · 24 styles</span>
+                  </div>
+                  <div className="hidden shrink-0 items-center gap-1 sm:flex">
+                    {["all", "tops", "outerwear", "caps"].map((f, index) => (
+                      <span className={cn("px-1.5 py-0.5 text-[7px] font-black uppercase tracking-[0.06em]", index === 0 ? "bg-[var(--sample-text)] text-[var(--sample-base)]" : "text-[var(--sample-muted)]")} key={f}>{f}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className={cn("grid min-h-0 flex-1 gap-1.5", compact ? "grid-cols-2 grid-rows-2" : "grid-cols-3 grid-rows-2")}>
+                  {shown.map((product) => (
+                    <article className="relative flex min-h-0 min-w-0 flex-col overflow-hidden rounded-[1px] border border-[var(--sample-border-soft)] bg-white" key={product.name}>
+                      <div className="relative min-h-0 flex-1 overflow-hidden bg-[var(--sample-base)]">
+                        <span aria-hidden="true" className="absolute inset-0">
+                          <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position={product.pos} slug="streetwear" style={{ backgroundSize: "330%", filter: product.sold ? "grayscale(0.55) opacity(0.7)" : "none" }} />
+                        </span>
+                        {product.tag && (
+                          <span className={cn("absolute left-1 top-1 px-1 py-0.5 text-[6px] font-black uppercase tracking-[0.06em]", product.tag === "sold out" ? "bg-[var(--sample-accent-3)] text-[var(--sample-text)]" : product.tag === "new" ? "bg-[var(--sample-accent)] text-white" : "bg-[var(--sample-text)] text-[var(--sample-base)]")}>
+                            {product.tag}
+                          </span>
+                        )}
+                        <div className="absolute bottom-1 left-1 flex gap-0.5">
+                          {product.dots.map((dot, di) => (
+                            <span className="h-1.5 w-1.5 rounded-full border border-[rgb(255_255_255/0.7)]" key={di} style={{ background: dot }} />
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between gap-1 px-1.5 py-1">
+                        <span className="min-w-0 truncate text-[8px] font-black uppercase tracking-[0.03em] text-[var(--sample-text)]">{product.name}</span>
+                        <span className="shrink-0 text-[8px] font-black tabular-nums text-[var(--sample-text)]">{product.price}</span>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+
+              <div aria-label="lookbook strip" className={cn(compact && "hidden")}>
+                <div className="mb-1 flex items-center justify-between">
+                  <span className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">lookbook strip</span>
+                  <span className="text-[7px] font-black uppercase tracking-[0.06em] text-[var(--sample-muted)]">fw · vol.06</span>
+                </div>
+                <div className="grid grid-cols-5 gap-1.5">
+                  {["8% 28%", "30% 52%", "52% 34%", "70% 60%", "88% 40%"].map((pos, index) => (
+                    <div className="relative aspect-[3/4] overflow-hidden rounded-[1px] border border-[var(--sample-border-soft)]" key={pos}>
+                      <span aria-hidden="true" className="absolute inset-0">
+                        <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position={pos} slug="streetwear" style={{ backgroundSize: "270%" }} />
+                      </span>
+                      {index === 0 && <span className="absolute bottom-0.5 left-0.5 bg-[var(--sample-text)] px-1 text-[6px] font-black uppercase text-[var(--sample-base)]">01</span>}
+                    </div>
                   ))}
                 </div>
               </div>
-              <div className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-base)] p-3">
-                <p className="text-[9px] font-black uppercase tracking-[0.14em]">size run matrix</p>
-                <div className="mt-2 grid grid-cols-4 gap-1">
-                  {sizes.map((size, index) => (
-                    <span className={cn("grid h-8 place-items-center border-2 border-[var(--sample-border)] text-[9px] font-black", index === 2 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-surface)]")} key={size}>
-                      {size}
-                    </span>
+            </div>
+
+            {/* ── Sidebar: release clock, drop ledger, size matrix ── */}
+            <div className={cn("flex min-h-0 min-w-0 flex-col gap-2", compact && "hidden")}>
+              <div aria-label="release clock" className="border border-[var(--sample-border)] bg-[var(--sample-text)] p-2 text-[var(--sample-base)]">
+                <div className="flex items-center justify-between">
+                  <span className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent)]">drop 06 · this thu</span>
+                  <span className="text-[7px] font-bold uppercase tracking-[0.06em] text-[rgb(241_240_236/0.55)]">11:00 est</span>
+                </div>
+                <div className="mt-1.5 grid grid-cols-4 gap-1 text-center">
+                  {[["02", "days"], ["10", "hrs"], ["45", "min"], ["12", "sec"]].map(([n, u]) => (
+                    <div key={u}>
+                      <span className="block bg-[rgb(241_240_236/0.08)] py-1 text-[15px] font-black leading-none tabular-nums text-white">{n}</span>
+                      <span className="mt-0.5 block text-[6px] font-bold uppercase tracking-[0.1em] text-[rgb(241_240_236/0.55)]">{u}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div aria-label="DROP LEDGER" className="border border-[var(--sample-border-soft)] bg-white p-2">
+                <div className="mb-1.5 flex items-center justify-between">
+                  <span className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">DROP LEDGER</span>
+                  <span className="bg-[var(--sample-accent-3)] px-1.5 py-0.5 text-[7px] font-black uppercase text-[var(--sample-text)]">wk 06</span>
+                </div>
+                <div className="grid gap-1">
+                  {ledger.map(([item, price, status]) => (
+                    <div className="grid grid-cols-[1fr_auto_auto] items-center gap-2 border-b border-[var(--sample-border-soft)] pb-1 text-[8px] font-black uppercase" key={item}>
+                      <span className="min-w-0 truncate text-[var(--sample-text)]">{item}</span>
+                      <span className="tabular-nums text-[var(--sample-muted)]">{price}</span>
+                      <span className={cn("px-1 py-0.5 text-[6px] leading-none", status === "live" ? "bg-[var(--sample-accent)] text-white" : status === "restock" ? "bg-[var(--sample-accent-3)] text-[var(--sample-text)]" : "border border-[var(--sample-border-soft)] text-[var(--sample-muted)]")}>{status}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div aria-label="size run matrix" className="min-h-0 flex-1 border border-[var(--sample-border-soft)] bg-white p-2">
+                <div className="mb-1.5 flex items-center justify-between">
+                  <span className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">size run matrix</span>
+                  <span className="text-[7px] font-black uppercase text-[var(--sample-muted)]">stock</span>
+                </div>
+                <div className="grid grid-cols-[1fr_repeat(4,0.85rem)] items-center gap-1">
+                  <span />
+                  {["s", "m", "l", "xl"].map((s) => (
+                    <span className="text-center text-[6px] font-black uppercase text-[var(--sample-muted)]" key={s}>{s}</span>
+                  ))}
+                  {matrix.map(([item, cells]) => (
+                    <Fragment key={item}>
+                      <span className="min-w-0 truncate text-[8px] font-black uppercase text-[var(--sample-text)]">{item}</span>
+                      {cells.map((v, ci) => (
+                        <span
+                          className={cn("grid h-3.5 place-items-center rounded-[1px] text-[6px] font-black leading-none", v === 2 ? "bg-[var(--sample-text)] text-white" : v === 1 ? "bg-[var(--sample-accent-3)] text-[var(--sample-text)]" : "border border-[var(--sample-border-soft)] text-[rgb(22_22_26/0.35)]")}
+                          key={ci}
+                        >
+                          {v === 0 ? "×" : ""}
+                        </span>
+                      ))}
+                    </Fragment>
                   ))}
                 </div>
               </div>
             </div>
-          </section>
-        </div>
-        <div className="grid grid-cols-4 gap-2 text-[9px] font-black uppercase tracking-[0.12em]">
-          {["drop ledger", "release clock", "lookbook strip", "size run matrix"].map((label) => (
-            <span className="min-w-0 truncate border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-2 text-center" key={label}>{label}</span>
-          ))}
+          </div>
         </div>
       </div>
     </SampleFrame>

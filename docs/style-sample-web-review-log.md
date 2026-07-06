@@ -94,7 +94,7 @@
 | 60 | 귀여움 / 캐주얼 | playful-design | kawaii-app | queued | friendly motion, asymmetric fun, approachable app UI |
 | 61 | 귀여움 / 캐주얼 | pastel-style | kawaii-app | queued | pale soft palette, airy cute restraint, no generic candy overload |
 | 62 | 귀여움 / 캐주얼 | bubble-design | kawaii-app | queued | inflated shapes, bubble volume, soft rounded depth |
-| 63 | 스트리트 / 서브컬처 | streetwear | street-campaign | queued | drop commerce, label blocks, product wall |
+| 63 | 스트리트 / 서브컬처 | streetwear | street-campaign | verified | 프리미엄 드롭 커머스 페이지 재설계(Supreme/Kith/Stussy식): 실제 리테일 컴포넌트 — 가먼트 사진 상품 월(가격·컬러웨이 도트·NEW/1of1/SOLD OUT 상태), 카운트다운 release clock, DROP LEDGER 스케줄, size run matrix(재고 셀), lookbook strip. 부티크 랙 히어로(codex image gen) 크롭을 상품 타일로 사용. 갤러리 화이트+레드 톤·리테일 상품-그리드 골격으로 이웃 graffiti(이미지 문서화)·기타 스트리트와 구조·톤 차별화. 5 trait 마커 유지, full/compact QA(overflow 0)·lint·check 통과 |
 | 64 | 스트리트 / 서브컬처 | graffiti | street-campaign | verified | WALLDEX 스트리트아트 문서화 UI. 캐노니컬 5 trait 라벨(Graffiti wall scanner/Wall tag index/Spray color rack/Mural route map/Crew tag archive) 반영, check 마커 통과. full/compact QA·lint 통과 |
 | 65 | 스트리트 / 서브컬처 | hiphop-style | street-campaign | verified | Black & Gold Album Studio 리디자인: 전용 팔레트+토큰, 스튜디오 히어로 이미지, 5 trait 전부. full/compact QA·lint·street-subculture 마커 통과 |
 | 66 | 스트리트 / 서브컬처 | skate-culture | street-campaign | verified | 스팟 클립 플레이어 페이지 재설계(Berrics/Thrasher식): 실제 미디어-UI 컴포넌트 — 트랜스포트 컨트롤+스크러버 비디오 플레이어, 트릭 챕터 라인, 관련 클립 레일(실사 썸네일), SPOT CHECKLIST·덱 셋업·스티커 슬랩 사이드바. 콘크리트 그레이 톤+미디어-플레이어 골격으로 앞뒤 hiphop-style(다크 앨범 스틸)·punk(본페이퍼 신문)와 구조·톤 차별화. 페이키 스팟 히어로(codex image gen), 5 trait 마커 유지, full/compact QA(overflow 0)·lint·check 통과 |
