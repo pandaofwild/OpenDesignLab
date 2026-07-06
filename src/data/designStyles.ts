@@ -1026,6 +1026,17 @@ const palettes: Record<string, DesignStylePalette> = {
     accent3: "#B8F05C",
     border: "#2B6A78",
   },
+  graffiti: {
+    base: "#E4E2DC",
+    surface: "#F2F0EA",
+    text: "#141414",
+    mutedText: "#5C5A54",
+    primary: "#141414",
+    accent: "#F0257C",
+    accent2: "#1F6BFF",
+    accent3: "#FFCE1F",
+    border: "#141414",
+  },
   streetwear: {
     base: "#EDE9DC",
     surface: "#F8F3E5",
@@ -1036,6 +1047,19 @@ const palettes: Record<string, DesignStylePalette> = {
     accent2: "#C7FF00",
     accent3: "#2D5BFF",
     border: "#111111",
+  },
+  grunge: {
+    // Distressed music archive: warm charcoal base, aged-paper text,
+    // oxidized rust + muted moss + faded denim. Low saturation, worn.
+    base: "#16130E",
+    surface: "#231E16",
+    text: "#D9D1BF",
+    mutedText: "#8A8271",
+    primary: "#C7BEA8",
+    accent: "#A8482D",
+    accent2: "#5E6B53",
+    accent3: "#4C5D6E",
+    border: "#3A3327",
   },
   "editorial-design": {
     base: "#F3F2EF",
@@ -2880,6 +2904,15 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     space: { density: "tight", gap: "0.42rem", padScale: 0.8 },
     decoration: { shadow: "4px 0 0 var(--st-accent), -4px 0 0 var(--st-accent-2), 0 0 20px rgb(var(--st-accent-rgb) / 0.32)", effect: "glitch" },
     layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
+  },
+  grunge: {
+    // Worn condensed display, aged serif body, heavy photocopy grain. Loose,
+    // low-polish music archive — not punk's high-contrast ransom aggression.
+    typography: { displayFont: '"Clash Display", sans-serif', bodyFont: '"Georgia", "Times New Roman", serif', weightDisplay: 800, weightBody: 400, tracking: "-0.02em", headingScale: 1.26 },
+    shape: { radius: "1px", radiusPill: "1px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.7rem", padScale: 0.95 },
+    decoration: { shadow: "0 16px 34px rgb(0 0 0 / 0.5)", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "underline", alignment: "left" },
   },
   deconstructivism: {
     typography: { weightDisplay: 900, weightBody: 500, tracking: "0em", headingScale: 1.18 },

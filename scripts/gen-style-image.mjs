@@ -1,0 +1,81 @@
+// One-off generator for design-style sample backdrop images.
+// Uses an OpenAI-compatible /responses endpoint with the built-in
+// image_generation tool, then writes a webp into public/generated/design-styles.
+//
+// Usage: node scripts/gen-style-image.mjs <slug> [<slug> ...]
+import { mkdir } from "node:fs/promises";
+import path from "node:path";
+import sharp from "sharp";
+
+const BASE = process.env.OPENAI_BASE_URL || "http://127.0.0.1:10632/v1";
+const KEY = process.env.OPENAI_API_KEY || "local";
+const MODEL = process.env.OPENAI_IMAGE_MODEL || "gpt-5.5";
+
+// Scene (not flat-lay) prompts: domain product/interior photography that crops
+// cleanly into the sample image block. Palettes mirror src/data/designStyles.ts.
+const PROMPTS = {
+  botanical:
+    "A bright botanical plant shop interior. Lush green leafy potted plants and trailing foliage on pale wooden shelves, soft natural daylight from a window, fresh chlorophyll greens, terracotta pots, shallow depth of field. Calm editorial product photography, realistic, clean composition. Palette: cream, chlorophyll green, deep leaf green, sage, pale terracotta. No text, no letters, no logos, no watermark, no people, no UI.",
+  "organic-design":
+    "A natural apothecary product still life. Amber and frosted glass bottles of botanical oils and extracts with soft organic rounded silhouettes, arranged on a warm stone surface with a sprig of dried herb. Soft earthy diffuse light, muted sage, olive and terracotta palette. Editorial product photography, realistic, calm. No text, no letters, no logos, no watermark, no UI.",
+  natural:
+    "Undyed natural material goods arranged on a warm neutral linen surface: folded raw cotton and linen cloth, a rattan basket, a pale stone soap bar, a jar of raw honey. Soft daylight, gentle shadows, calm earthy oat-and-clay palette. Editorial product photography, realistic, tactile. No text, no letters, no logos, no watermark, no UI.",
+  craft:
+    "Handmade ceramic stoneware on a potter's workshop table. Several thrown clay bowls and a tall vase with matte earthy speckled glaze, a little raw clay and a wooden trimming tool nearby. Soft natural window light, warm clay, cream and umber palette, shallow depth of field. Editorial craft photography, realistic. No text, no letters, no logos, no watermark, no UI.",
+  handmade:
+    "Small-batch handmade goods on a craft worktable: a stack of deckle-edge handmade paper, natural soap bars wrapped in kraft, a ball of cotton twine, stamped blank kraft tags. Soft warm light, uneven artisanal textures, warm neutral palette with one muted accent. Editorial product photography, realistic, tactile imperfection. No text, no letters, no logos, no watermark, no UI.",
+  "wabi-sabi":
+    "A single imperfect wabi-sabi ceramic tea bowl on a quiet neutral surface, rough uneven texture and a subtle kintsugi repair line, soft directional light and a long calm shadow, lots of negative space, asymmetric composition. Muted stone, clay and ash palette. Minimal still-life editorial photography, realistic, serene. No text, no letters, no logos, no watermark, no UI.",
+  kawaii:
+    "A soft studio photograph of several adorable pastel plush toy characters arranged together: a round blush-pink bunny plush, a baby-blue cat plush, a butter-yellow star plush, and a mint round puff plush, each with simple embroidered cute faces and rosy cheeks, plus a few small felt star and heart props scattered around. Soft pastel pink seamless background, gentle soft daylight, fluffy chenille and velvet textures, shallow depth of field, soft shadows. Cute editorial kawaii product photography, realistic, professional, wide composition, plenty of charm. Palette: pastel pink, cream, baby blue, butter yellow, mint, lavender, soft coral. No text, no letters, no logos, no watermark, no people, no UI.",
+  graffiti:
+    "A wide daylight photograph of a large legal graffiti wall in an urban paint yard. One dominant wildstyle burner piece painted across weathered concrete: abstract interlocking letter-like shapes that are NOT readable as any word, chrome-silver fills, heavy black outlines, hot pink and electric blue color blends, yellow highlights, paint drips and soft overspray halos. Around it, faded older layers of throw-ups and tags, a strip of brick at the edge, cracked asphalt below with a few used spray cans. Slightly low camera angle, crisp editorial documentary photography, realistic. Palette: concrete grey, chrome silver, black, hot pink, electric blue, cab yellow. No readable words, no real letters, no numbers, no logos, no watermark, no people, no UI.",
+  grunge:
+    "A dark, grainy, moody photograph of a worn basement rock rehearsal space, early-90s Seattle grunge mood. A battered tube guitar amplifier stack and a scuffed electric guitar leaning against a dirty scratched concrete wall, a coiled cable and a strip of worn gaffer tape on the floor, a single dim warm work-light from one side, deep shadows, heavy film grain and dust, low saturation with a faint rust and cold-denim tint. Distressed analog documentary photography, desaturated, high grain, shallow depth of field. Palette: warm charcoal, dirty near-black, aged bone, oxidized rust brown, muted moss green, faded denim blue. No text, no letters, no logos, no watermark, no people, no UI.",
+  kitsch:
+    "A vibrant kitsch novelty-shop product photograph with fun maximalist commercial styling. A playful arrangement of quirky lifestyle objects spread across bold clashing color-block panels (hot pink, lemon yellow, violet): a wavy bright-orange ceramic bud vase, a glossy smiley-face mug, a checkerboard tote bag, retro heart-shaped sunglasses, a squiggle candle, a stack of enamel pin badges, and a small disco-ball trinket. Bright even studio lighting, glossy ceramic and plastic surfaces, saturated playful colors, crisp clean shadows, objects clearly separated with space around them. Realistic high-quality editorial product photography, wide composition. Palette: hot pink, hot orange, violet, lemon yellow, cream, glossy black. No text, no letters, no logos, no watermark, no people, no UI.",
+};
+
+async function generate(slug) {
+  const prompt = PROMPTS[slug];
+  if (!prompt) throw new Error(`No prompt configured for slug: ${slug}`);
+
+  const res = await fetch(`${BASE}/responses`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${KEY}` },
+    body: JSON.stringify({
+      model: MODEL,
+      input: [{ role: "user", content: `Generate a single high-quality photographic image. ${prompt}` }],
+      tools: [{ type: "image_generation", size: "1536x1024", quality: "high", output_format: "png" }],
+    }),
+  });
+
+  const json = await res.json();
+  if (!res.ok) throw new Error(`HTTP ${res.status}: ${JSON.stringify(json).slice(0, 400)}`);
+
+  const call = (json.output || []).find((o) => o.type === "image_generation_call");
+  if (!call?.result) {
+    throw new Error(`No image in response: ${JSON.stringify(json).slice(0, 400)}`);
+  }
+
+  const png = Buffer.from(call.result, "base64");
+  const outDir = path.join(process.cwd(), "public", "generated", "design-styles");
+  await mkdir(outDir, { recursive: true });
+  const outPath = path.join(outDir, `${slug}.webp`);
+  const meta = await sharp(png).webp({ quality: 86 }).toFile(outPath);
+  console.log(`✓ ${slug}: ${meta.width}x${meta.height} -> ${outPath} (${meta.size} bytes)`);
+}
+
+const slugs = process.argv.slice(2);
+if (!slugs.length) {
+  console.error("Usage: node scripts/gen-style-image.mjs <slug> [<slug> ...]");
+  process.exit(1);
+}
+for (const slug of slugs) {
+  try {
+    await generate(slug);
+  } catch (err) {
+    console.error(`✗ ${slug}: ${err.message}`);
+    process.exitCode = 1;
+  }
+}

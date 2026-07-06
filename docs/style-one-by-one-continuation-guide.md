@@ -6,61 +6,18 @@
 
 ## Current status snapshot
 
+This is the single source for "where we are". Do not restate the current style number or queue position elsewhere in this document. Per-style status and markers live only in the queue table of `docs/style-sample-web-review-log.md`.
+
 - Workspace: `F:\coding\design_pan`
 - Main rule: do not batch multiple styles. Pick one style slug, inspect it, improve it, validate it, then move to the next slug.
 - Verified through: No. 26, `bauhaus`
 - Next style to handle: No. 27, `futurism`
 - Current active category: `미래 / 디지털`
-- Completed category blocks:
-  - `모던 / 미니멀`: complete, 9 of 9
-  - `강렬 / 실험`: complete, 8 of 8
-  - `레트로 / 빈티지`: complete, 9 of 9
-
-## Completed so far
-
-| No. | Style slug | Category | Current status | Visible markers or final distinction |
-| --- | --- | --- | --- | --- |
-| 01 | `minimalism` | 모던 / 미니멀 | Verified | blank-space ratio, product-first composition, thin-rule material index |
-| 02 | `modernism` | 모던 / 미니멀 | Verified | rational grid, primary accents, functional geometry |
-| 03 | `swiss-design` | 모던 / 미니멀 | Verified | baseline grid, red signal bars, objective typography |
-| 04 | `international-style` | 모던 / 미니멀 | Verified | universal signage modules, neutral information system |
-| 05 | `scandinavian` | 모던 / 미니멀 | Verified | bright Nordic product commerce, light wood, practical warmth |
-| 06 | `japandi` | 모던 / 미니멀 | Verified | low horizontal rhythm, muted wood, ceramic quietness |
-| 07 | `warm-minimal` | 모던 / 미니멀 | Verified | cream warmth, approachable premium product hierarchy |
-| 08 | `soft-minimal` | 모던 / 미니멀 | Verified | low contrast, gentle rounded UI, frosted paper softness |
-| 09 | `high-end-minimal` | 모던 / 미니멀 | Verified | gallery spacing, severe product crop, quiet luxury commerce |
-| 10 | `brutalism` | 강렬 / 실험 | Verified | exposed structure, raw blocks, hard poster energy |
-| 11 | `new-brutalism` | 강렬 / 실험 | Verified | native web controls, thick borders, raw app UI |
-| 12 | `anti-design` | 강렬 / 실험 | Verified | broken convention, off-grid navigation, deliberate awkwardness |
-| 13 | `maximalism` | 강렬 / 실험 | Verified | dense layers, abundant pattern, overloaded discovery |
-| 14 | `glitch-art` | 강렬 / 실험 | Verified | net-art error surface, ASCII rupture feed, codec forensics rail |
-| 15 | `deconstructivism` | 강렬 / 실험 | Verified | structural fault, fracture section index, displaced project axis |
-| 16 | `avant-garde` | 강렬 / 실험 | Verified | manifesto program, critical lecture rail, art-into-life agenda |
-| 17 | `postmodernism` | 강렬 / 실험 | Verified | classical quote, mixed-era object index, Memphis anti-functional shop |
-| 18 | `retro` | 레트로 / 빈티지 | Verified | `RETRO BROADCAST SHOP`, time-travel media dial, analog merch queue |
-| 19 | `vintage` | 레트로 / 빈티지 | Verified | `PAPER CATALOG`, repair ticket ledger, patina material register |
-| 20 | `seventies-retro` | 레트로 / 빈티지 | Verified | `GROOVY LANDING`, wavy campaign shelf, corduroy product rhythm |
-| 21 | `eighties-retro` | 레트로 / 빈티지 | Verified | `SYNTH CONSOLE`, arcade control strip, VHS mix queue |
-| 22 | `nineties-graphic` | 레트로 / 빈티지 | Verified | `DESKTOP ZINE`, sticker link grid, halftone scrap wall |
-| 23 | `y2k` | 레트로 / 빈티지 | Verified | `GLOSS PORTAL`, bubble widget stack, sparkle guestbook rail |
-| 24 | `retro-futurism` | 레트로 / 빈티지 | Verified | `FLIGHT DECK`, destination poster rail, chrome capsule timetable |
-| 25 | `mid-century-modern` | 레트로 / 빈티지 | Verified | `MIDCENTURY STUDIO`, walnut slat product rail, Girard textile swatch wall |
-| 26 | `bauhaus` | 레트로 / 빈티지 | Verified | `BAUHAUS SCHOOL`, workshop method grid, circle square triangle lab |
-
-## Immediate queue
-
-Continue in this order unless `src/data/designStyles.ts` has changed:
-
-1. `futurism`
-2. Then continue through `미래 / 디지털` in `docs/style-sample-web-review-log.md`
-
-For `futurism`, compare directly against `retro-futurism`, `high-tech`, `ai-aesthetic`, and `cyberpunk`. The existing distinction row says:
-
-| Style slug | Core identity | Moodboard signals | Reference-site UI grammar | Easy overlap | Must differ by | Current marker |
-| --- | --- | --- | --- | --- | --- | --- |
-| `futurism` | Aerospace velocity | aluminum, carbon, launch diagrams | mission hero, launch window, telemetry strip | `retro-futurism`, `high-tech` | orbital civic-science framing | `ORBITAL` |
-
-Do not decide the final implementation before re-opening the moodboard and current reference sites. `ORBITAL` can remain the primary marker, but add two more visible markers after inspecting the real refs.
+- Category blocks:
+  - `모던 / 미니멀`: 9 of 9 verified, category QA verified
+  - `강렬 / 실험`: 8 of 8 verified, category QA pending — run it before starting `futurism`
+  - `레트로 / 빈티지`: 9 of 9 verified, category QA pending — run it before starting `futurism`
+- Completed-category detail records are archived under `docs/review-log-archive/`. The pending category QA checklists are in the review log's "미해결 category QA" section.
 
 ## Files to inspect before each style
 
@@ -75,7 +32,8 @@ Read these before changing a style:
 | `F:\coding\design_pan\scripts\style-references.json` | Reference-site source of truth. Keep it synced with style metadata. |
 | `F:\coding\design_pan\src\components\design-style\DesignStyleSampleRenderer.tsx` | Main sample implementation. Most style UI changes happen here. |
 | `F:\coding\design_pan\docs\style-category-distinction-table.md` | Category-level comparison table. Update this when a style's distinction changes. |
-| `F:\coding\design_pan\docs\style-sample-web-review-log.md` | One-by-one progress log. Update only after validating that style. |
+| `F:\coding\design_pan\docs\style-sample-web-review-log.md` | One-by-one progress log and queue table (single source of truth for status and markers). Update only after validating that style. |
+| `F:\coding\design_pan\docs\review-log-archive\` | Detail records of completed categories, moved out of the main log. |
 | `F:\coding\design_pan\scripts\check-data.mjs` | Data integrity check. |
 | `F:\coding\design_pan\scripts\check-style-references.mjs` | Reference-site and metadata consistency check. |
 | `F:\coding\design_pan\scripts\check-style-distinction.mjs` | Marker check for style distinction. Add each style's markers here. |
@@ -107,6 +65,16 @@ Use this checklist for every single style. Do not start the next style until thi
 18. Mark the style verified in the review log only after the browser view and checks pass.
 19. Write a short note in the review log about what changed and which adjacent styles it now differs from.
 20. Only then move to the next style.
+
+## Category completion workflow
+
+A category is not complete when its last style is verified. After the final style of a category:
+
+1. Run category filter QA: `/en/styles?category=<filter>` on desktop and mobile, confirm only that category's cards appear, every style's markers are present, and horizontal overflow is `0`.
+2. Save screenshots under `output/playwright/category-review/<category>/`.
+3. Write a category QA section with status `verified` in the review log.
+4. Move the category's per-style detail sections into `docs/review-log-archive/<category>.md` and add the row to the archive table in the review log.
+5. Only then update "Current status snapshot" to mark the category block complete.
 
 ## Screenshot and browser QA targets
 
@@ -193,9 +161,17 @@ Use image generation only when a moodboard is missing, too generic, or materiall
 - Do not rely on `uppercase` styling for marker text if the check expects lowercase text.
 - Do not mark the overall goal complete while unverified styles remain.
 
-## Next exact handoff
+## Handoff notes for the next style
 
-Start with `futurism`.
+The next style slug is defined once in "Current status snapshot". The notes below cover that style; rewrite this section when moving on.
+
+For `futurism`, compare directly against `retro-futurism`, `high-tech`, `ai-aesthetic`, and `cyberpunk`. The existing distinction row says:
+
+| Style slug | Core identity | Moodboard signals | Reference-site UI grammar | Easy overlap | Must differ by | Current marker |
+| --- | --- | --- | --- | --- | --- | --- |
+| `futurism` | Aerospace velocity | aluminum, carbon, launch diagrams | mission hero, launch window, telemetry strip | `retro-futurism`, `high-tech` | orbital civic-science framing | `ORBITAL` |
+
+Do not decide the final implementation before re-opening the moodboard and current reference sites. `ORBITAL` can remain the primary marker, but add two more visible markers after inspecting the real refs.
 
 First pass questions:
 

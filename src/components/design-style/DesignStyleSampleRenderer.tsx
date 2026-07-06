@@ -2,6 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import type { DesignStyle } from "@/data/designStyles";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
 import { cn } from "@/lib/utils";
+import { GlitchArtInterface } from "./GlitchArtInterface";
 
 type Props = {
   className?: string;
@@ -15,7 +16,7 @@ function withAlpha(color: string, alpha: string) {
   return /^#[\da-f]{6}$/i.test(color) ? `${color}${alpha}` : color;
 }
 
-function sampleVariables(style: DesignStyle): SampleVariables {
+export function sampleVariables(style: DesignStyle): SampleVariables {
   const { palette } = style;
 
   return {
@@ -85,7 +86,7 @@ function AccentOrb({ className }: { className?: string }) {
  * pages instead of flat wireframe blocks.
  * ------------------------------------------------------------------ */
 
-const GRAIN_URI =
+export const GRAIN_URI =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
 /**
@@ -122,9 +123,9 @@ const PHOTO_SCENES = {
     "linear-gradient(180deg, color-mix(in srgb, var(--sample-surface) 94%, #ffffff) 0%, var(--sample-surface) 48%, color-mix(in srgb, var(--sample-surface) 80%, var(--sample-accent-2)) 100%)",
 } as const;
 
-type PhotoScene = keyof typeof PHOTO_SCENES;
+export type PhotoScene = keyof typeof PHOTO_SCENES;
 
-function PhotoSurface({
+export function PhotoSurface({
   scene = "interior",
   className,
   grain = true,
@@ -164,27 +165,37 @@ const GENERATED_STYLE_IMAGES = {
   "art-deco": "/generated/design-styles/art-deco.webp",
   "avant-garde": "/generated/design-styles/avant-garde.webp",
   baroque: "/generated/design-styles/baroque.webp",
+  botanical: "/generated/design-styles/botanical.webp",
   brutalism: "/generated/design-styles/brutalism.webp",
   classic: "/generated/design-styles/classic.webp",
+  craft: "/generated/design-styles/craft.webp",
   deconstructivism: "/generated/design-styles/deconstructivism.webp",
   "glitch-art": "/generated/design-styles/glitch-art.webp",
+  graffiti: "/generated/design-styles/graffiti.webp",
+  grunge: "/generated/design-styles/grunge.webp",
+  handmade: "/generated/design-styles/handmade.webp",
   "high-end-minimal": "/generated/design-styles/high-end-minimal.webp",
   japandi: "/generated/design-styles/japandi.webp",
+  kawaii: "/generated/design-styles/kawaii.webp",
+  kitsch: "/generated/design-styles/kitsch.webp",
   luxury: "/generated/design-styles/luxury.webp",
   maximalism: "/generated/design-styles/maximalism.webp",
+  natural: "/generated/design-styles/natural.webp",
   "new-brutalism": "/generated/design-styles/new-brutalism.webp",
   neoclassic: "/generated/design-styles/neoclassic.webp",
   "old-money": "/generated/design-styles/old-money.webp",
+  "organic-design": "/generated/design-styles/organic-design.webp",
   postmodernism: "/generated/design-styles/postmodernism.webp",
   rococo: "/generated/design-styles/rococo.webp",
   scandinavian: "/generated/design-styles/scandinavian.webp",
   "soft-minimal": "/generated/design-styles/soft-minimal.webp",
+  "wabi-sabi": "/generated/design-styles/wabi-sabi.webp",
   "warm-minimal": "/generated/design-styles/warm-minimal.webp",
 } as const;
 
-type GeneratedStyleImageSlug = keyof typeof GENERATED_STYLE_IMAGES;
+export type GeneratedStyleImageSlug = keyof typeof GENERATED_STYLE_IMAGES;
 
-function GeneratedStyleImageSurface({
+export function GeneratedStyleImageSurface({
   children,
   className,
   overlay = "warm",
@@ -1509,131 +1520,141 @@ function RawBrutalistIndex({ className, compact = false, style }: Props) {
 
 function NeoBrutalistApp({ className, compact = false, style }: Props) {
   const box = "border-[3px] border-[var(--sample-border)]";
+  const box2 = "border-2 border-[var(--sample-border)]";
   const hardShadow = { boxShadow: "6px 6px 0 var(--sample-border)" };
   const smallShadow = { boxShadow: "4px 4px 0 var(--sample-border)" };
-  const salesRows: Array<[string, string, string]> = [
-    ["brush pack", "$19", "yellow"],
-    ["template", "$8", "blue"],
-    ["mini course", "$31", "coral"],
+  const products: Array<{ name: string; meta: string; price: string; tone: "yellow" | "blue" | "coral" }> = [
+    { name: "Brush Pack 04", meta: "47 stamps · instant files", price: "$19", tone: "yellow" },
+    { name: "Creator Template", meta: "Notion OS · 1 license", price: "$8", tone: "blue" },
+    { name: "Mini Course", meta: "6 lessons · 2h video", price: "$31", tone: "coral" },
   ];
-  const toggles: Array<[string, string, boolean]> = [
-    ["instant files", "ON", true],
-    ["creator notes", "ON", true],
-    ["soft polish", "OFF", false],
+  const payouts: Array<[string, string]> = [
+    ["Stripe", "ON"],
+    ["Instant payout", "ON"],
   ];
+  const toneBg = (tone: string) =>
+    tone === "yellow" ? "bg-[var(--sample-accent)]" : tone === "blue" ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-accent-2)]";
 
   return (
     <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.18]"
-        style={{ backgroundImage: "linear-gradient(var(--sample-border) 1px, transparent 1px), linear-gradient(90deg, var(--sample-border) 1px, transparent 1px)", backgroundSize: "26px 26px" }}
+        className="pointer-events-none absolute inset-0 opacity-[0.12]"
+        style={{
+          backgroundImage:
+            "linear-gradient(var(--sample-border) 1px, transparent 1px), linear-gradient(90deg, var(--sample-border) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
       />
 
       <div className="relative flex h-full min-h-0 flex-col gap-4">
-        <div className="flex items-center gap-2">
-          <span className={cn("grid h-7 w-7 place-items-center bg-[var(--sample-accent-3)] font-display text-sm font-black", box)}>N</span>
-          <span className="font-display text-sm font-black" style={{ letterSpacing: "0" }}>CREATOR STOREFRONT KIT</span>
-          <nav className={cn("ml-3 items-center gap-3 text-[10px] font-black", compact ? "hidden" : "flex")}>
-            <span>RAW COMPONENT KIT</span>
-            <span>native form controls</span>
-            <span>pricing table</span>
-            <span>checkout</span>
+        {/* storefront header */}
+        <header className="flex items-center gap-2">
+          <span className={cn("grid h-7 w-7 place-items-center bg-[var(--sample-accent-3)] font-display text-sm font-black", box)} style={smallShadow}>
+            N
+          </span>
+          <span className="font-display text-sm font-black" style={{ letterSpacing: "-0.01em" }}>
+            GUMSTAND
+          </span>
+          <nav className={cn("ml-2 items-center gap-3 text-[10px] font-black uppercase", compact ? "hidden" : "flex")}>
+            <span>Products</span>
+            <span>Pricing</span>
+            <span>Pages</span>
           </nav>
           <div className="ml-auto flex items-center gap-2 text-[10px] font-black">
-            <span className={cn("items-center gap-1.5 bg-[var(--sample-surface)] px-2 py-1", box, compact ? "hidden" : "flex")}>
-              <IconSearch size={11} /> Search
-            </span>
-            <span className={cn("flex items-center gap-1 bg-[var(--sample-surface)] px-2 py-1", box)}>
+            <span className={cn("items-center gap-1 bg-[var(--sample-accent)] px-2 py-1", box, compact ? "hidden" : "flex")}>
               <IconStar size={10} /> $2.1k
             </span>
-            <span className={cn("bg-[var(--sample-text)] px-2.5 py-1 text-[var(--sample-base)]", box)}>Start selling</span>
+            <span className={cn("bg-[var(--sample-text)] px-2.5 py-1 text-[var(--sample-base)]", box)} style={smallShadow}>
+              Start selling
+            </span>
+          </div>
+        </header>
+
+        {/* hero + featured product */}
+        <div className={cn("grid min-h-0 gap-4", compact ? "grid-cols-[1.05fr_0.95fr]" : "grid-cols-1 md:grid-cols-[1.1fr_0.9fr] md:gap-6")}>
+          <div className="grid min-w-0 content-start gap-3">
+            <span className={cn("w-max bg-[var(--sample-accent-2)] px-2 py-1 text-[9px] font-black uppercase", box)} style={smallShadow}>
+              ◆ creator drop live
+            </span>
+            <h3
+              className={cn("font-display uppercase leading-[0.95]", compact ? "text-[1.5rem]" : "text-[2.1rem] md:text-[2.75rem]")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "0" }}
+            >
+              Go from zero
+              <br />
+              to your first{" "}
+              <span className={cn("inline-block bg-[var(--sample-accent)] px-2", box)} style={smallShadow}>
+                $1K
+              </span>
+              .
+            </h3>
+            <p className={cn("font-bold text-[var(--sample-muted)]", compact ? "line-clamp-2 text-[10px] leading-4" : "max-w-sm text-[13px] leading-6")}>
+              A loud little storefront for digital goods — checkout, pricing and instant payouts, all one tap away.
+            </p>
+            <div className={cn("flex-wrap gap-2", compact ? "hidden" : "flex")}>
+              <span className={cn("inline-flex items-center gap-1.5 bg-[var(--sample-text)] px-4 py-2 text-xs font-black text-[var(--sample-base)]", box)} style={smallShadow}>
+                Start selling <IconArrow size={13} />
+              </span>
+              <span className={cn("inline-flex items-center bg-[var(--sample-surface)] px-3 py-2 text-xs font-black", box)} style={smallShadow}>
+                See demo
+              </span>
+            </div>
+            <div className={cn("items-center gap-3 text-[10px] font-black", compact ? "hidden" : "flex")}>
+              <span className="flex items-center gap-1">
+                <IconStar size={11} /> 4.9 / 5
+              </span>
+              <span className="text-[var(--sample-muted)]">1,204 creators paid out</span>
+            </div>
+          </div>
+
+          <div className={cn("grid content-start gap-2.5 bg-[var(--sample-accent)] p-3", box)} style={hardShadow}>
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-black uppercase">Featured drop</span>
+              <span className={cn("bg-[var(--sample-surface)] px-2 py-0.5 text-[8px] font-black", box)}>#04</span>
+            </div>
+            <GeneratedStyleImageSurface className={cn("aspect-[16/10] w-full bg-[var(--sample-surface)]", box)} overlay="none" position="50% 50%" slug="new-brutalism" />
+            <div className="flex items-end justify-between gap-2">
+              <div className="min-w-0">
+                <p className="text-[11px] font-black">Brush Pack No.4</p>
+                <p className="truncate text-[9px] font-bold text-[var(--sample-muted)]">47 stamps · instant files</p>
+              </div>
+              <span className={cn("bg-[var(--sample-surface)] px-2 py-0.5 text-[11px] font-black", box)}>$19</span>
+            </div>
+            <button type="button" className={cn("flex items-center justify-center gap-1.5 bg-[var(--sample-text)] px-3 py-2 text-[10px] font-black uppercase text-[var(--sample-base)]", box)} style={smallShadow}>
+              <IconBag size={12} /> Add to cart — $19
+            </button>
           </div>
         </div>
 
-        <div className={cn("grid min-h-0 flex-1 gap-4", compact ? "grid-cols-[1.05fr_0.95fr]" : "grid-cols-1 md:grid-cols-[1.06fr_0.94fr] md:gap-6")}>
-          <div className="grid min-w-0 content-start gap-3">
-            <span className={cn("w-max bg-[var(--sample-accent-2)] px-2 py-1 text-[9px] font-black uppercase", box)} style={smallShadow}>
-              creator drop live
-            </span>
-            <h3
-              className={cn("max-w-[10ch] font-display uppercase leading-[0.96]", compact ? "text-[1.55rem]" : "text-[2.05rem] md:text-[2.7rem]")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "0" }}
-            >
-              Sell the{" "}
-              <span className="relative inline-block">
-                <span className={cn("bg-[var(--sample-accent)] px-1.5 py-0.5", box)} style={smallShadow}>
-                  noisy
-                </span>
-              </span>{" "}
-              side project.
-            </h3>
-            <p className={cn("font-bold text-[var(--sample-muted)]", compact ? "line-clamp-2 text-[10px] leading-4" : "max-w-sm text-[13px] leading-6")}>
-              A chunky storefront where products, checkout, pricing, inputs and toggles stay loud enough to touch.
-            </p>
-            <div className={cn("grid gap-2", compact ? "hidden" : "grid-cols-[1fr_auto]")}>
-              <span className={cn("inline-flex items-center gap-1.5 bg-[var(--sample-text)] px-4 py-2 text-xs font-black text-[var(--sample-base)]", box)} style={smallShadow}>
-                Open storefront <IconArrow size={13} />
+        {/* product grid (full only) */}
+        <div className={cn("grid-cols-3 gap-3", compact ? "hidden" : "grid")}>
+          {products.map((product) => (
+            <div className={cn("grid content-between gap-2 p-2.5", box, toneBg(product.tone))} key={product.name} style={smallShadow}>
+              <div className="flex items-center justify-between">
+                <span className={cn("grid h-6 w-6 place-items-center bg-[var(--sample-surface)] text-[10px] font-black", box2)}>★</span>
+                <span className={cn("bg-[var(--sample-surface)] px-1.5 py-0.5 text-[10px] font-black", box2)}>{product.price}</span>
+              </div>
+              <div className="min-w-0">
+                <p className="truncate text-[11px] font-black">{product.name}</p>
+                <p className="truncate text-[8px] font-bold text-[var(--sample-muted)]">{product.meta}</p>
+              </div>
+              <button type="button" className={cn("bg-[var(--sample-text)] px-2 py-1 text-[9px] font-black uppercase text-[var(--sample-base)]", box2)}>
+                Add +
+              </button>
+            </div>
+          ))}
+        </div>
+
+        {/* payout strip (full only) */}
+        <div className={cn("items-center justify-between gap-2 bg-[var(--sample-surface)] px-3 py-2 text-[9px] font-black", box, compact ? "hidden" : "flex")} style={smallShadow}>
+          <span className="uppercase">instant payouts</span>
+          <div className="flex items-center gap-2">
+            {payouts.map(([label, value]) => (
+              <span className="flex items-center gap-1" key={label}>
+                {label}
+                <span className={cn("grid h-4 w-8 place-items-center bg-[var(--sample-accent-3)]", box2)}>{value}</span>
               </span>
-              <span className={cn("inline-flex items-center bg-[var(--sample-surface)] px-3 py-2 text-xs font-black", box)} style={smallShadow}>
-                Share link
-              </span>
-            </div>
-
-            <div className={cn("grid gap-2 bg-[var(--sample-accent-3)] p-2", box)} style={hardShadow}>
-              <div className="grid grid-cols-[4.5rem_1fr] gap-2">
-                <GeneratedStyleImageSurface className={cn("min-h-[70px] bg-[var(--sample-surface)]", box)} overlay="none" position="50% 50%" slug="new-brutalism" />
-                <div className="grid content-between">
-                  <p className="text-[9px] font-black uppercase">Brush Kit No. 04</p>
-                  <p className="text-[8px] font-bold leading-3">47 stamps, messy previews, instant files.</p>
-                  <span className={cn("w-max bg-[var(--sample-accent)] px-2 py-0.5 text-[9px] font-black", box)}>$19</span>
-                </div>
-              </div>
-              <div className="grid grid-cols-3 gap-1 text-[8px] font-black">
-                {salesRows.map(([label, price, tone]) => (
-                  <span className={cn("border-2 border-[var(--sample-border)] px-1 py-0.5", tone === "yellow" ? "bg-[var(--sample-accent)]" : tone === "blue" ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-accent-2)]")} key={label}>
-                    {label} {price}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="grid min-h-0 content-start gap-3">
-            <div className={cn("bg-[var(--sample-accent)] p-3", box)} style={hardShadow}>
-              <div className="mb-2 flex items-center justify-between gap-2">
-                <p className="text-[10px] font-black">thick-border checkout</p>
-                <span className={cn("bg-[var(--sample-surface)] px-2 py-0.5 text-[8px] font-black", box)}>cart 03</span>
-              </div>
-              <div className="grid gap-1.5 text-[9px] font-black">
-                {["Digital brush pack", "Creator license", "Tip jar"].map((row, index) => (
-                  <span className={cn("flex justify-between bg-[var(--sample-surface)] px-2 py-1", box)} key={row}>
-                    <span>{row}</span>
-                    <span>{index === 0 ? "$19" : index === 1 ? "$6" : "$3"}</span>
-                  </span>
-                ))}
-                <label className="grid gap-1">
-                  <span>delivery email</span>
-                  <input className={cn("w-full bg-white px-2 py-1 text-[9px] text-[var(--sample-text)]", box)} defaultValue="buyer@mail.com" />
-                </label>
-                <button className={cn("bg-[var(--sample-text)] px-3 py-2 text-left text-[10px] font-black uppercase text-[var(--sample-base)]", box)} style={smallShadow} type="button">
-                  Pay now - $28
-                </button>
-              </div>
-            </div>
-
-            <div className={cn("bg-[var(--sample-accent-2)] p-2.5", box, compact ? "hidden" : "")} style={smallShadow}>
-              <p className="mb-2 text-[10px] font-black">hard-shadow toggle stack</p>
-              <div className="grid gap-1.5 text-[9px] font-black">
-                {toggles.map(([label, value, active]) => (
-                  <div className={cn("flex items-center justify-between bg-[var(--sample-surface)] px-2 py-1", box)} key={label}>
-                    <span>{label}</span>
-                    <span className={cn("grid h-5 w-10 place-items-center border-2 border-[var(--sample-border)]", active ? "bg-[var(--sample-accent-3)] text-[var(--sample-text)]" : "bg-white text-[var(--sample-muted)]")}>
-                      {value}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -1886,125 +1907,6 @@ function MaximalistPatternMarket({ className, compact = false, style }: Props) {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-20 opacity-[0.1] mix-blend-overlay"
         style={{ backgroundImage: GRAIN_URI, backgroundSize: "120px 120px" }}
-      />
-    </SampleFrame>
-  );
-}
-
-function GlitchHeading({ text, className }: { text: string; className?: string }) {
-  return (
-    <span className={cn("relative inline-block", className)}>
-      <span aria-hidden="true" className="absolute inset-0 translate-x-[2px] text-[var(--sample-accent)] mix-blend-screen" style={{ clipPath: "inset(0 0 52% 0)" }}>
-        {text}
-      </span>
-      <span aria-hidden="true" className="absolute inset-0 -translate-x-[2px] text-[var(--sample-accent-2)] mix-blend-screen" style={{ clipPath: "inset(50% 0 0 0)" }}>
-        {text}
-      </span>
-      <span className="relative text-[var(--sample-text)]">{text}</span>
-    </span>
-  );
-}
-
-function GlitchArtInterface({ className, compact = false, style }: Props) {
-  const faultRows: Array<[string, string, string]> = [
-    ["checksum drift", "0x4F2A", style.palette.accent],
-    ["codec fault", "H264-B", style.palette.accent2],
-    ["buffer tear", "12ms", style.palette.accent3],
-  ];
-  const asciiRows = ["[000] browser canvas lost focus", ":: jodi ascii rupture feed", "//// chroma packet split", "scanline repeats until mute"];
-  const macroBlocks = Array.from({ length: 18 }, (_, index) => index);
-
-  return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span aria-hidden="true" className="absolute inset-0 opacity-45" style={{ backgroundImage: "linear-gradient(90deg, rgb(var(--st-accent-rgb) / 0.18) 0 1px, transparent 1px), linear-gradient(180deg, rgb(var(--st-accent-2-rgb) / 0.14) 0 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
-      <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-30" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent 0 2px, rgb(0 0 0 / 0.62) 2px 3px)" }} />
-
-      <div className="relative flex h-full flex-col font-mono">
-        <div className="flex items-center gap-3 border-b border-[var(--sample-border)] pb-2 text-[10px] text-[var(--sample-muted)]">
-          <span className="font-bold uppercase tracking-[0em] text-[var(--sample-text)]">
-            NET ART ERROR SURFACE
-          </span>
-          <nav className={cn("items-center gap-3 uppercase", compact ? "hidden" : "flex")}>
-            <span>SIGNAL DAMAGE</span>
-            <span>checksum drift</span>
-            <span>macroblock map</span>
-            <span>codec fault</span>
-          </nav>
-          <span className="ml-auto border border-[var(--sample-accent)] px-2.5 py-1 font-bold uppercase text-[var(--sample-accent)]">capture 03</span>
-        </div>
-
-        <div className={cn("grid min-h-0 flex-1 gap-3 pt-3", compact ? "grid-cols-[0.95fr_1.05fr]" : "grid-cols-1 md:grid-cols-[0.94fr_1.06fr] md:gap-4")}>
-          <div className="flex min-w-0 flex-col justify-center">
-            <span className="w-max border border-[var(--sample-accent-2)] px-2 py-0.5 text-[9px] uppercase tracking-[0em] text-[var(--sample-accent-2)]">
-              frame dropped / 00:13:42
-            </span>
-            <h3
-              className={cn("mt-3 font-display uppercase leading-[0.82]", compact ? "text-3xl" : "text-6xl md:text-[4.25rem]")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "0em" }}
-            >
-              <GlitchHeading text="SIGNAL" />
-              <br />
-              <GlitchHeading text="DAMAGE" />
-            </h3>
-            <p className={cn("text-[var(--sample-muted)]", compact ? "mt-2 line-clamp-2 text-[10px] leading-4" : "mt-4 max-w-[34ch] text-[12px] leading-5")}>
-              Corrupted signal analysis for broken video frames, dropped packets, and decoded image residue.
-            </p>
-            <div className={cn("mt-4 grid border border-[var(--sample-border)] bg-[var(--sample-surface)]/80 p-2 text-[8px] leading-4 text-[var(--sample-muted)]", compact ? "max-h-[56px] overflow-hidden" : "")}>
-              <p className="mb-1 font-bold text-[var(--sample-accent-3)]">ASCII rupture feed</p>
-              {asciiRows.map((row) => (
-                <span className="truncate" key={row}>{row}</span>
-              ))}
-            </div>
-            <div className={cn("mt-3 grid gap-1.5", compact ? "hidden" : "")}>
-              {faultRows.map(([label, value, color]) => (
-                <div className="flex items-center justify-between border border-[var(--sample-border)] bg-[var(--sample-surface)] px-2.5 py-1.5 text-[9px] uppercase" key={label}>
-                  <span style={{ color }}>{label}</span>
-                  <span className="font-bold text-[var(--sample-text)]">{value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="relative min-h-0 overflow-hidden border border-[var(--sample-border)] bg-[var(--sample-surface)]">
-            <span aria-hidden="true" className="absolute left-0 top-[22%] h-2.5 w-3/4 translate-x-[-18px] bg-[var(--sample-accent)] opacity-60 mix-blend-screen" />
-            <span aria-hidden="true" className="absolute right-0 top-[38%] h-1.5 w-1/2 translate-x-3 bg-[var(--sample-accent-2)] opacity-60 mix-blend-screen" />
-            <span aria-hidden="true" className="absolute left-[16%] top-[64%] h-5 w-[64%] bg-[var(--sample-accent-3)] opacity-35 mix-blend-screen" />
-            <div className="relative grid h-full grid-cols-6 grid-rows-3 gap-1 p-3">
-              {macroBlocks.map((item) => (
-                <span
-                  aria-hidden="true"
-                  className={cn("border border-[var(--sample-border)]", item % 5 === 0 ? "bg-[var(--sample-accent)]" : item % 4 === 0 ? "bg-[var(--sample-accent-2)]" : "bg-[rgb(var(--st-text-rgb)/0.09)]")}
-                  key={item}
-                  style={{
-                    opacity: item % 5 === 0 ? 0.55 : item % 4 === 0 ? 0.42 : 0.8,
-                    transform: `translate(${item % 3 === 0 ? -3 : item % 3 === 1 ? 2 : 0}px, ${item % 4 === 0 ? 3 : 0}px)`,
-                  }}
-                />
-              ))}
-            </div>
-            <div className="absolute bottom-3 left-3 right-3 border border-[var(--sample-accent)] bg-[rgb(var(--st-base-rgb)/0.82)] p-2 text-[9px] text-[var(--sample-text)]">
-              <div className="flex items-center justify-between">
-                <span className="text-[var(--sample-accent)]">macroblock map</span>
-                <span className="text-[var(--sample-accent-2)]">bad sectors 18</span>
-              </div>
-              <div className="mt-1 h-1.5 bg-[rgb(var(--st-text-rgb)/0.12)]">
-                <span className="block h-full w-[61%] bg-[var(--sample-accent-3)]" />
-              </div>
-              <p className="mt-1 text-[8px] text-[var(--sample-muted)]">codec forensics rail / luma plane misread / chroma channel late</p>
-            </div>
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 opacity-45"
-              style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent 0 2px, rgb(0 0 0 / 0.5) 2px 3px)" }}
-            />
-          </div>
-        </div>
-      </div>
-
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-30 opacity-[0.05] mix-blend-screen"
-        style={{ backgroundImage: GRAIN_URI, backgroundSize: "130px 130px" }}
       />
     </SampleFrame>
   );
@@ -4490,20 +4392,18 @@ function OrganicDesignApothecary({ className, compact = false, style }: Props) {
               </h3>
             </div>
             <div className="grid grid-cols-3 gap-2">
-              {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((color, index) => (
+              {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((color) => (
                 <span
-                  className="aspect-square border border-[var(--sample-border-soft)]"
+                  className="h-4 border border-[var(--sample-border-soft)]"
                   key={color}
-                  style={{ backgroundColor: color, borderRadius: ["58% 42% 48% 52%", "44% 56% 62% 38%", "62% 38% 44% 56%"][index] }}
+                  style={{ backgroundColor: color }}
                 />
               ))}
             </div>
           </div>
-          <PhotoSurface className="min-h-0 border border-[var(--sample-border-soft)]" scene="material">
-            <span className="absolute left-[14%] top-[13%] h-[56%] w-[42%] rounded-[58%_42%_48%_52%] bg-[rgb(var(--st-accent-rgb)_/_0.62)]" />
-            <span className="absolute right-[14%] top-[20%] h-[44%] w-[28%] rounded-[42%_58%_60%_40%] bg-[rgb(var(--st-accent-2-rgb)_/_0.68)]" />
+          <GeneratedStyleImageSurface className="min-h-0 border border-[var(--sample-border-soft)]" overlay="soft" slug="organic-design">
             <span className="absolute bottom-5 left-5 right-5 border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.82)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Root extract collection</span>
-          </PhotoSurface>
+          </GeneratedStyleImageSurface>
         </div>
         <NaturalHandmadeBottomStrip compact={compact} items={[["Shape", "Biomorphic"], ["Tone", "Earth"], ["Use", "Wellness"]]} />
       </div>
@@ -4517,14 +4417,9 @@ function NaturalMarketShelf({ className, compact = false, style }: Props) {
       <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
         <SampleNav brand="Plain Goods" compact={compact} icons={[<IconBag key="bag" size={compact ? 11 : 13} />]} links={["Pantry", "Home", "Notes"]} sub="Daily market" />
         <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1fr_0.82fr]" : "grid-cols-[1.18fr_0.82fr]")}>
-          <PhotoSurface className="min-h-0 border border-[var(--sample-border-soft)]" grain scene="studio">
-            <div className="absolute inset-4 grid grid-cols-3 gap-2">
-              {[style.palette.surface, style.palette.accent, style.palette.accent2, style.palette.accent3, style.palette.base, style.palette.border].map((color, index) => (
-                <span className="border border-[var(--sample-border-soft)]" key={`${color}-${index}`} style={{ backgroundColor: color }} />
-              ))}
-            </div>
-            <span className="absolute bottom-4 left-4 bg-[rgb(var(--st-surface-rgb)_/_0.84)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Undyed cotton / oat / clay</span>
-          </PhotoSurface>
+          <GeneratedStyleImageSurface className="min-h-0 border border-[var(--sample-border-soft)]" overlay="soft" slug="natural">
+            <span className="absolute bottom-4 left-4 bg-[rgb(var(--st-surface-rgb)_/_0.84)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Undyed cotton {"//"} oat {"//"} clay</span>
+          </GeneratedStyleImageSurface>
           <div className="grid min-h-0 grid-rows-[auto_1fr_auto] gap-3">
             <div>
               <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--sample-muted)]">Material first</p>
@@ -4564,28 +4459,21 @@ function BotanicalGlasshouse({ className, compact = false, style }: Props) {
             </div>
             <div className="grid grid-cols-2 gap-2">
               {["Fern", "Moss", "Stem", "Bloom"].map((item, index) => (
-                <div className="border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-2" key={item}>
-                  <span className="block aspect-square rounded-[58%_42%_58%_42%]" style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3, style.palette.base][index] }} />
-                  <span className="mt-2 block text-[8px] uppercase tracking-[0.14em] text-[var(--sample-muted)]">{item}</span>
+                <div className="grid min-h-0 grid-rows-[1fr_auto] overflow-hidden border border-[var(--sample-border-soft)]" key={item}>
+                  <GeneratedStyleImageSurface
+                    className="min-h-[2.5rem]"
+                    overlay="soft"
+                    position={["30% 40%", "60% 30%", "40% 70%", "70% 50%"][index]}
+                    slug="botanical"
+                  />
+                  <span className="block bg-[var(--sample-surface)] px-1.5 py-1 text-[8px] uppercase tracking-[0.14em] text-[var(--sample-muted)]">{item}</span>
                 </div>
               ))}
             </div>
           </div>
-          <PhotoSurface className="min-h-0 border border-[var(--sample-border-soft)]" scene="interior">
-            <span className="absolute bottom-[18%] left-1/2 h-[62%] w-px -translate-x-1/2 bg-[var(--sample-border)]" />
-            {[0, 1, 2, 3, 4].map((item) => (
-              <span
-                className="absolute h-16 w-24 rounded-[64%_36%_64%_36%] border border-[var(--sample-border-soft)] bg-[rgb(var(--st-accent-rgb)_/_0.5)]"
-                key={item}
-                style={{
-                  left: `${18 + item * 12}%`,
-                  top: `${18 + (item % 2) * 16}%`,
-                  transform: `rotate(${item % 2 ? -18 : 16}deg)`,
-                }}
-              />
-            ))}
+          <GeneratedStyleImageSurface className="min-h-0 border border-[var(--sample-border-soft)]" overlay="soft" position="center 40%" slug="botanical">
             <span className="absolute bottom-4 left-4 right-4 border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.86)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Seasonal plant care</span>
-          </PhotoSurface>
+          </GeneratedStyleImageSurface>
         </div>
         <NaturalHandmadeBottomStrip compact={compact} items={[["Motif", "Leaf"], ["Product", "Plant"], ["Rhythm", "Alive"]]} />
       </div>
@@ -4716,21 +4604,10 @@ function HandmadePatchMarket({ className, compact = false, style }: Props) {
             </div>
             <span className="w-fit rotate-[-2deg] border border-dashed border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-3 py-2 text-[10px] font-bold uppercase tracking-[0.16em]">one of one</span>
           </div>
-          <div className="relative min-h-0 border border-dashed border-[var(--sample-border)] bg-[var(--sample-surface)] p-3">
-            <div className="grid h-full grid-cols-3 grid-rows-2 gap-2">
-              {[style.palette.accent, style.palette.accent2, style.palette.accent3, style.palette.base, style.palette.surface, style.palette.mutedText].map((color, index) => (
-                <span
-                  className="border border-[var(--sample-border-soft)]"
-                  key={`${color}-${index}`}
-                  style={{
-                    backgroundColor: color,
-                    borderStyle: index % 2 ? "dashed" : "solid",
-                    transform: `rotate(${[-2, 1, -1, 2, -3, 1][index]}deg)`,
-                  }}
-                />
-              ))}
-            </div>
-            <span className="absolute bottom-4 left-4 right-4 border border-dashed border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.86)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Stamped paper label</span>
+          <div className="relative min-h-0 border border-dashed border-[var(--sample-border)] overflow-hidden">
+            <GeneratedStyleImageSurface className="h-full w-full" overlay="soft" position="center 30%" slug="handmade">
+              <span className="absolute bottom-4 left-4 right-4 border border-dashed border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.86)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Stamped paper label</span>
+            </GeneratedStyleImageSurface>
           </div>
         </div>
         <NaturalHandmadeBottomStrip compact={compact} items={[["Edge", "Uneven"], ["Mark", "Stamped"], ["Batch", "Small"]]} />
@@ -4765,11 +4642,9 @@ function CraftWorkshopLedger({ className, compact = false, style }: Props) {
               ))}
             </div>
           </div>
-          <PhotoSurface className="min-h-0 border border-[var(--sample-border-soft)]" scene="product">
-            <span className="absolute left-[24%] top-[20%] h-[46%] w-[44%] rounded-[48%_52%_18px_18px] border border-[var(--sample-border)] bg-[rgb(var(--st-accent-rgb)_/_0.58)]" />
-            <span className="absolute bottom-[20%] left-[18%] h-8 w-[56%] bg-[var(--sample-accent-2)]" />
+          <GeneratedStyleImageSurface className="min-h-0 border border-[var(--sample-border-soft)]" overlay="soft" position="center 35%" slug="craft">
             <span className="absolute bottom-4 left-4 right-4 border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.84)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Thrown stoneware</span>
-          </PhotoSurface>
+          </GeneratedStyleImageSurface>
         </div>
         <NaturalHandmadeBottomStrip compact={compact} items={[["Material", "Clay"], ["Method", "Kiln"], ["Proof", "Process"]]} />
       </div>
@@ -4792,11 +4667,10 @@ function WabiSabiTeaGallery({ className, compact = false, style }: Props) {
             </div>
             <p className={cn("text-[11px] leading-5 text-[var(--sample-muted)]", compact ? "line-clamp-2" : "")}>Asymmetry, repaired surfaces, and a low, calm hierarchy.</p>
           </div>
-          <div className="relative min-h-0 border border-dashed border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-5">
-            <span className="absolute left-[22%] top-[18%] h-[58%] w-[48%] rounded-[44%_56%_52%_48%] bg-[var(--sample-accent)] opacity-75" />
-            <span className="absolute left-[34%] top-[22%] h-[48%] w-px rotate-[15deg] bg-[var(--sample-border)]" />
-            <span className="absolute left-[44%] top-[30%] h-[32%] w-px rotate-[-18deg] bg-[var(--sample-border)]" />
-            <span className="absolute bottom-5 left-5 right-5 border-t border-[var(--sample-border-soft)] pt-3 text-[10px] uppercase tracking-[0.18em] text-[var(--sample-muted)]">Repaired ceramic bowl</span>
+          <div className="relative min-h-0 border border-dashed border-[var(--sample-border-soft)] overflow-hidden">
+            <GeneratedStyleImageSurface className="h-full w-full" overlay="soft" position="40% 50%" slug="wabi-sabi">
+              <span className="absolute bottom-5 left-5 right-5 border-t border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.80)] px-3 pt-3 pb-2 text-[10px] uppercase tracking-[0.18em] text-[var(--sample-muted)]">Repaired ceramic bowl</span>
+            </GeneratedStyleImageSurface>
           </div>
         </div>
         <NaturalHandmadeBottomStrip compact={compact} items={[["Surface", "Patina"], ["Form", "Asymmetry"], ["Pace", "Quiet"]]} />
@@ -5460,71 +5334,76 @@ function KawaiiApp({ compact = false, style }: Props) {
 }
 
 function KitschNoveltyDrop({ compact = false, style }: Props) {
-  const products = [
-    ["olive vase", "$28", style.palette.accent],
-    ["market tote", "$34", style.palette.accent2],
-    ["sticker book", "$12", style.palette.accent3],
-  ] as const;
-  const countdown = compact ? ["02", "14"] : ["02", "14", "39"];
+  const products: Array<{ name: string; price: string; position: string; tag: string; colorVar: string }> = [
+    { name: "Wiggle", price: "$28", position: "9% 30%", tag: "NEW", colorVar: "var(--sample-accent-3)" },
+    { name: "Smiley", price: "$16", position: "37% 56%", tag: "HOT", colorVar: "var(--sample-accent)" },
+    { name: "Checker", price: "$34", position: "82% 36%", tag: "NEW", colorVar: "var(--sample-accent-2)" },
+    { name: "Hearts", price: "$22", position: "20% 88%", tag: "-20%", colorVar: "var(--sample-primary)" },
+  ];
+  const countdown = ["02", "14", "39"];
 
   return (
     <SampleFrame compact={compact} style={style}>
-      <div
-        className="absolute inset-0 opacity-80"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(90deg, rgb(var(--st-accent-rgb) / 0.14) 0 18px, transparent 18px 36px), repeating-linear-gradient(0deg, rgb(var(--st-accent-2-rgb) / 0.12) 0 16px, transparent 16px 32px)",
-        }}
-      />
-      <div className="absolute -left-10 top-10 h-36 w-36 rounded-full bg-[var(--sample-accent-2)] opacity-50" />
-      <div className="absolute right-7 top-9 h-24 w-5 rotate-12 bg-[var(--sample-accent-3)] opacity-80" />
       <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Clash Cart" compact={compact} icons={[<IconBag key="bag" size={compact ? 11 : 13} />]} links={["Drop", "Home", "Sale"]} sub="novelty market" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.82fr_1.18fr]" : "grid-cols-[0.72fr_1.28fr]")}>
-          <section className="flex min-h-0 flex-col justify-between border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-3 shadow-[5px_5px_0_var(--sample-accent-3)]">
-            <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[var(--sample-accent)]">ODD SHOP DROP</p>
-              <h3 className={cn("mt-2 font-display font-black uppercase leading-[0.8]", compact ? "text-2xl" : "text-[3.6rem]")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                LIMITED ODDITIES
-              </h3>
-              <div className="mt-3 grid grid-cols-3 gap-1 text-center text-[9px] font-black uppercase tracking-[0.1em]">
-                {countdown.map((item) => (
-                  <span className="border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-2" key={item}>{item}</span>
-                ))}
-              </div>
-              <p className="mt-2 text-[9px] font-black uppercase tracking-[0.12em] text-[var(--sample-muted)]">drop countdown</p>
-            </div>
-            <div className="space-y-2">
-              <div className="-rotate-2 border-2 border-[var(--sample-border)] bg-[var(--sample-accent)] px-3 py-2 text-[10px] font-black uppercase tracking-[0.12em] text-[var(--sample-base)] shadow-[4px_4px_0_var(--sample-border)]">
-                sticker price bursts
-              </div>
-              <div className="border-2 border-[var(--sample-border)] bg-[var(--sample-base)] px-3 py-2 text-[9px] font-black uppercase tracking-[0.12em]">
-                giftable product finder
-              </div>
-            </div>
-          </section>
-          <section className="grid min-h-0 grid-rows-[auto_1fr] gap-2">
-            <div className="-rotate-1 border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-3 py-2 text-[9px] font-black uppercase tracking-[0.12em] shadow-[3px_3px_0_var(--sample-border)]">
-              pattern clash rail / clashing pattern strips
-            </div>
-            <div className="grid min-h-0 grid-cols-3 gap-2">
-              {products.map(([label, price, color], index) => (
-                <article className="relative flex min-h-0 flex-col justify-between border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-2 shadow-[3px_3px_0_var(--sample-border)]" key={label} style={{ transform: `rotate(${[-2, 2, -1][index]}deg)` }}>
-                  <span className="absolute -right-2 -top-2 grid h-8 w-8 place-items-center rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] text-[8px] font-black">NEW</span>
-                  <span className="grid min-h-24 place-items-center border-2 border-[var(--sample-border)] bg-[var(--sample-base)]">
-                    <span className="h-16 w-14 rounded-[42%_42%_14px_14px] border-2 border-[var(--sample-border)]" style={{ backgroundColor: color }} />
-                  </span>
-                  <span className="mt-2 text-[9px] font-black uppercase tracking-[0.1em]">{label}</span>
-                  <span className="mt-1 w-fit bg-[var(--sample-text)] px-2 py-1 text-[9px] font-black text-[var(--sample-base)]">{price}</span>
-                </article>
-              ))}
-            </div>
-          </section>
+        {/* sale bar + nav */}
+        <div className="space-y-2">
+          <div className={cn("items-center justify-center gap-2 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-primary)] px-3 py-1 text-center text-[8px] font-black uppercase tracking-[0.14em] text-white", compact ? "hidden" : "flex")}>
+            <span>free shipping over $50</span>
+            <span className="opacity-50">·</span>
+            <span>new drop live now</span>
+            <span className="opacity-50">·</span>
+            <span>10% off your first haul</span>
+          </div>
+          <SampleNav brand="Clash Cart" compact={compact} icons={[<IconBag key="bag" size={compact ? 11 : 13} />]} links={["Drop", "Shop", "Sale"]} sub="novelty market" />
         </div>
-        <div className="grid grid-cols-3 gap-2 text-[9px] font-black uppercase tracking-[0.12em]">
-          {["drop countdown", "pattern clash rail", "giftable product finder"].map((label) => (
-            <span className="border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2" key={label}>{label}</span>
-          ))}
+
+        {/* hero + product grid */}
+        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1fr_1fr]" : "grid-cols-[1.05fr_0.95fr]")}>
+          <GeneratedStyleImageSurface className="rounded-[16px] border-2 border-[var(--sample-border)] shadow-[5px_5px_0_var(--sample-border)]" overlay="none" position="48% 46%" slug="kitsch">
+            <div className="flex h-full w-full flex-col justify-between p-3">
+              <span className="w-max -rotate-3 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.1em] shadow-[2px_2px_0_var(--sample-border)]">
+                ★ odd shop drop
+              </span>
+              <div className="w-max max-w-full border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-2.5 py-2 shadow-[4px_4px_0_var(--sample-border)]">
+                <h3 className={cn("font-display font-black uppercase leading-[0.85]", compact ? "text-[1.5rem]" : "text-[2.5rem]")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.01em" }}>
+                  Limited
+                  <br />
+                  oddities
+                </h3>
+                <span className="mt-2 inline-flex items-center gap-1 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-primary)] px-3 py-1 text-[10px] font-black uppercase text-white">
+                  shop the drop <IconArrow size={12} />
+                </span>
+              </div>
+            </div>
+          </GeneratedStyleImageSurface>
+
+          <div className="grid min-h-0 grid-cols-2 grid-rows-2 gap-2">
+            {products.map(({ name, price, position, tag, colorVar }) => (
+              <div className="relative flex min-h-0 flex-col overflow-hidden rounded-[12px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] shadow-[3px_3px_0_var(--sample-border)]" key={name}>
+                <div className="relative min-h-0 w-full flex-1">
+                  <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position={position} slug="kitsch" />
+                  <span className="absolute right-1 top-1 rotate-12 rounded-full border-2 border-[var(--sample-border)] px-1.5 py-0.5 text-[7px] font-black" style={{ backgroundColor: colorVar }}>
+                    {tag}
+                  </span>
+                  <span className="absolute bottom-1 left-1 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-1.5 py-0.5 text-[9px] font-black">{price}</span>
+                </div>
+                <div className="border-t-2 border-[var(--sample-border)] px-2 py-1">
+                  <span className="block truncate text-[9px] font-black">{name}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* countdown + shop all */}
+        <div className={cn("items-center gap-2 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-3 py-1.5 shadow-[3px_3px_0_var(--sample-border)]", compact ? "hidden" : "flex")}>
+          <span className="text-[9px] font-black uppercase tracking-[0.1em]">drop ends in</span>
+          <div className="flex gap-1">
+            {countdown.map((value) => (
+              <span className="rounded-md border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-1.5 py-0.5 text-[10px] font-black" key={value}>{value}</span>
+            ))}
+          </div>
+          <span className="ml-auto rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-text)] px-3 py-1 text-[9px] font-black uppercase text-[var(--sample-base)]">shop all</span>
         </div>
       </div>
     </SampleFrame>
@@ -5532,124 +5411,166 @@ function KitschNoveltyDrop({ compact = false, style }: Props) {
 }
 
 function KawaiiCharacterClub({ compact = false, style }: Props) {
-  const moods = [
-    [style.palette.accent, "happy"],
-    [style.palette.accent2, "sleepy"],
-    [style.palette.accent3, "snack"],
-  ] as const;
+  const shop: Array<{ name: string; price: string; position: string }> = [
+    { name: "Bun bun", price: "$18", position: "20% 56%" },
+    { name: "Lil star", price: "$16", position: "62% 34%" },
+  ];
+  const friends: Array<{ name: string; position: string }> = [
+    { name: "Mochi", position: "20% 56%" },
+    { name: "Sky", position: "44% 70%" },
+    { name: "Butter", position: "62% 34%" },
+    { name: "Berry", position: "85% 70%" },
+  ];
+  const pills = ["free stickers", "plush club", "daily diary"];
+  const cardShadow = "shadow-[0_10px_22px_-12px_rgb(var(--st-primary-rgb)_/_0.45)]";
 
   return (
     <SampleFrame compact={compact} style={style}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,var(--sample-accent-3)_0_4%,transparent_4%),radial-gradient(circle_at_84%_18%,var(--sample-accent-2)_0_5%,transparent_5%),radial-gradient(circle_at_56%_82%,var(--sample-accent)_0_3%,transparent_3%)] opacity-60" />
       <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
         <SampleNav align="center" brand="Friend Cloud" compact={compact} icons={[<IconStar key="star" size={compact ? 11 : 13} />]} links={["Friends", "Shop", "Diary"]} sub="character world" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.92fr_1.08fr]" : "grid-cols-[0.86fr_1.14fr]")}>
-          <section className="flex min-h-0 flex-col justify-between rounded-[30px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-4 shadow-[4px_4px_0_var(--sample-accent)]">
-            <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--sample-accent)]">CHARACTER CLUB</p>
-              <h3 className={cn("mt-2 font-display font-black uppercase leading-[0.88]", compact ? "text-2xl" : "text-4xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                FRIEND CLUB DASHBOARD
-              </h3>
-            </div>
-            <div className="relative mx-auto mt-3 h-32 w-32 rounded-[34px] border-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)]">
-              <span className="absolute -left-4 top-6 h-10 w-10 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)]" />
-              <span className="absolute -right-4 top-6 h-10 w-10 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)]" />
-              <span className="absolute left-9 top-12 h-2 w-2 rounded-full bg-[var(--sample-text)]" />
-              <span className="absolute right-9 top-12 h-2 w-2 rounded-full bg-[var(--sample-text)]" />
-              <span className="absolute bottom-9 left-1/2 h-2 w-8 -translate-x-1/2 rounded-full bg-[var(--sample-text)]" />
-              <span className="absolute -bottom-3 left-1/2 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent)] px-3 py-1 text-[8px] font-black uppercase text-white">heart badges</span>
-            </div>
-          </section>
-          <section className="grid min-h-0 grid-rows-[auto_1fr_auto] gap-3">
-            <div className="rounded-[24px] border-2 border-[var(--sample-border)] bg-[var(--sample-base)] p-3">
-              <div className="flex items-center justify-between text-[9px] font-black uppercase tracking-[0.12em]">
-                <span>character mood ring</span>
-                <span>stamp rewards</span>
-              </div>
-              <div className="mt-2 grid grid-cols-3 gap-2">
-                {moods.map(([color, label]) => (
-                  <span className="rounded-full border-2 border-[var(--sample-border)] px-2 py-2 text-center text-[8px] font-black uppercase" key={label} style={{ backgroundColor: color }}>
-                    {label}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-2">
-              {moods.map(([color, label], index) => (
-                <div className="rounded-[22px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-2 text-center" key={label}>
-                  <span className="relative mx-auto block h-12 w-12 rounded-full border-2 border-[var(--sample-border)]" style={{ backgroundColor: color }}>
-                    <span className="absolute left-3 top-4 h-1.5 w-1.5 rounded-full bg-[var(--sample-text)]" />
-                    <span className="absolute right-3 top-4 h-1.5 w-1.5 rounded-full bg-[var(--sample-text)]" />
-                  </span>
-                  <span className="mt-2 block text-[9px] font-black uppercase tracking-[0.12em]">mascot tiles</span>
-                  {index === 1 ? <span className="mt-1 block rounded-full bg-[var(--sample-accent)] px-2 py-1 text-[8px] font-black text-white">heart badges</span> : null}
+
+        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1.4fr_0.6fr]" : "grid-cols-[1.45fr_0.55fr]")}>
+          <GeneratedStyleImageSurface className={cn("rounded-[28px]", cardShadow)} overlay="none" position="50% 40%" slug="kawaii">
+            <div className="flex h-full w-full flex-col justify-between p-3">
+              <span className="w-max rounded-full bg-[rgb(var(--st-surface-rgb)_/_0.85)] px-2.5 py-1 text-[9px] font-black lowercase tracking-[0.06em] text-[var(--sample-primary)] backdrop-blur-sm">
+                new drop ♡
+              </span>
+              <div className="rounded-[20px] bg-[rgb(var(--st-surface-rgb)_/_0.86)] p-3 backdrop-blur-sm">
+                <span className="text-[9px] font-black lowercase tracking-[0.08em] text-[var(--sample-primary)]">character club</span>
+                <h3
+                  className={cn("font-display leading-[1.0]", compact ? "text-[1.35rem]" : "text-[1.9rem]")}
+                  style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "0em" }}
+                >
+                  Meet your Friend Cloud.
+                </h3>
+                <div className="mt-2 flex items-center gap-2">
+                  <span className="rounded-full bg-[var(--sample-primary)] px-3 py-1.5 text-[11px] font-black text-white">say hi</span>
+                  <span className="text-[10px] font-bold text-[var(--sample-muted)]">3 new plushies</span>
                 </div>
-              ))}
+              </div>
             </div>
-            <div className="space-y-2">
-              {["shop tiny treats", "plush checkout", "friendship stamps"].map((label) => (
-                <span className="block rounded-full border-2 border-[var(--sample-border)] bg-white px-3 py-2 text-[9px] font-black uppercase tracking-[0.12em]" key={label}>{label}</span>
-              ))}
-            </div>
-          </section>
+          </GeneratedStyleImageSurface>
+
+          <div className="grid min-h-0 grid-rows-2 gap-3">
+            {shop.map(({ name, price, position }) => (
+              <div className={cn("flex min-h-0 flex-col overflow-hidden rounded-[22px] bg-[var(--sample-surface)]", cardShadow)} key={name}>
+                <GeneratedStyleImageSurface className="min-h-0 w-full flex-1" overlay="none" position={position} slug="kawaii" />
+                <div className="flex items-center justify-between gap-1 px-2.5 py-2">
+                  <span className="truncate text-[10px] font-black">{name}</span>
+                  <span className="rounded-full bg-[var(--sample-base)] px-2 py-0.5 text-[9px] font-black text-[var(--sample-primary)]">{price}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="h-4 rounded-full border-2 border-[var(--sample-border)] bg-[linear-gradient(90deg,var(--sample-accent),var(--sample-accent-2),var(--sample-accent-3))]" />
+
+        <div className="flex items-center gap-2">
+          <span className="text-[9px] font-black lowercase tracking-[0.08em] text-[var(--sample-muted)]">friends online</span>
+          <div className="flex gap-1.5">
+            {friends.map(({ name, position }) => (
+              <GeneratedStyleImageSurface className="h-8 w-8 rounded-full border-2 border-[var(--sample-surface)] shadow-[0_4px_10px_-4px_rgb(var(--st-primary-rgb)_/_0.5)]" key={name} overlay="none" position={position} slug="kawaii" />
+            ))}
+          </div>
+          <div className={cn("ml-auto items-center gap-1.5", compact ? "hidden" : "flex")}>
+            {pills.map((label, index) => (
+              <span className={cn("rounded-full px-2.5 py-1 text-[9px] font-black lowercase tracking-[0.04em] text-[var(--sample-text)]", index % 2 === 0 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-accent-2)]")} key={label}>
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </SampleFrame>
   );
 }
 
 function DopamineRewardLoop({ compact = false, style }: Props) {
-  const rewards = [
-    ["move", "18", style.palette.accent],
-    ["learn", "24", style.palette.accent2],
-    ["treat", "31", style.palette.accent3],
-  ] as const;
+  const tags = ["no sugar", "all-natural", "ships free", "good mood"];
 
   return (
     <SampleFrame compact={compact} style={style}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_8%_12%,var(--sample-accent)_0_8%,transparent_9%),radial-gradient(circle_at_88%_18%,var(--sample-accent-2)_0_10%,transparent_11%),radial-gradient(circle_at_78%_86%,var(--sample-accent-3)_0_12%,transparent_13%)] opacity-35" />
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Color Sprint" compact={compact} icons={[<IconArrow key="arrow" size={compact ? 11 : 13} />]} links={["Start", "Streak", "Store"]} sub="reward UX" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.82fr_1.18fr]" : "grid-cols-[0.76fr_1.24fr]")}>
-          <section className="flex min-h-0 flex-col justify-between rounded-[28px] bg-[var(--sample-primary)] p-4 text-[var(--sample-base)] shadow-[0_18px_36px_rgb(var(--st-primary-rgb)_/_0.22)]">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden opacity-25">
+        <span className="absolute -right-10 top-1/3 h-32 w-32 rounded-full bg-[var(--sample-accent-3)]" />
+        <span className="absolute -left-8 -bottom-8 h-28 w-28 rounded-full bg-[var(--sample-accent-2)]" />
+      </div>
+
+      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="grid h-7 w-7 place-items-center rounded-full bg-[var(--sample-accent)] text-white">
+              <IconStar size={14} />
+            </span>
+            <span className="font-display text-base font-black tracking-tight">MOODFUEL</span>
+          </div>
+          <nav className={cn("items-center gap-4 text-[11px] font-bold", compact ? "hidden" : "flex")}>
+            <span>Shop</span>
+            <span>Flavors</span>
+            <span>Joy</span>
+          </nav>
+          <span className="rounded-full bg-[var(--sample-text)] px-3 py-1.5 text-[11px] font-black text-white">Cart · 2</span>
+        </div>
+
+        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1.1fr_0.9fr]" : "grid-cols-[1.15fr_0.85fr] gap-5")}>
+          <section className="flex min-h-0 flex-col justify-between">
             <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--sample-accent-3)]">COLOR REWARD LOOP</p>
-              <h3 className={cn("mt-3 font-display font-black uppercase leading-[0.82]", compact ? "text-2xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                STREAK ENERGY ENGINE
+              <span className="inline-block rounded-full bg-[var(--sample-accent-2)] px-3 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">
+                New drop
+              </span>
+              <h3
+                className={cn("mt-3 font-display leading-[0.84]", compact ? "text-[2.1rem]" : "text-[3.6rem]")}
+                style={{ fontFamily: "var(--st-font-display)", fontWeight: 900, letterSpacing: "-0.02em" }}
+              >
+                Pure
+                <br />
+                <span className="my-1 inline-block rounded-[14px] bg-[var(--sample-accent)] px-2 text-white">good</span>
+                <br />
+                mood.
               </h3>
             </div>
-            <div className="grid grid-cols-3 gap-2">
-              {rewards.map(([label, value, color]) => (
-                <span className="rounded-[18px] bg-[rgb(255_255_255_/_0.14)] p-2 text-[9px] font-black uppercase tracking-[0.1em]" key={label}>
-                  {label}<strong className="mt-2 block text-2xl" style={{ color }}>{value}</strong>
-                </span>
-              ))}
+            <div className={cn(compact ? "hidden" : "block")}>
+              <p className="max-w-[26ch] text-[12px] font-semibold text-[var(--sample-muted)]">
+                Sparkling mood drinks, dialed to max color and zero sugar.
+              </p>
+              <button
+                className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-[var(--sample-text)] px-5 py-2.5 text-[13px] font-black text-white shadow-[0_12px_22px_-10px_rgb(var(--st-accent-rgb)_/_0.8)]"
+                type="button"
+              >
+                Shop the drop <IconArrow size={14} />
+              </button>
             </div>
           </section>
-          <section className="grid min-h-0 grid-rows-[auto_1fr] gap-3 rounded-[28px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-4">
-            <div>
-              <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-[0.14em]">
-                <span>reward meter</span>
-                <span>82%</span>
-              </div>
-              <div className="mt-2 h-4 overflow-hidden rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-base)]">
-                <span className="block h-full w-[82%] rounded-full bg-[linear-gradient(90deg,var(--sample-accent),var(--sample-accent-2),var(--sample-accent-3))]" />
-              </div>
+
+          <section className="grid min-h-0 grid-rows-[1.5fr_1fr] gap-2">
+            <div className="relative overflow-hidden rounded-[24px] bg-[var(--sample-accent)] p-3 text-white">
+              <span className="text-[10px] font-black uppercase tracking-[0.12em] opacity-90">bestseller</span>
+              <p className="mt-1 font-display text-2xl font-black leading-none">Punch</p>
+              <span aria-hidden="true" className="absolute -bottom-6 -right-4 h-24 w-24 rounded-full bg-white/25" />
+              <span className="absolute bottom-3 left-3 rounded-full bg-white px-2.5 py-1 text-[12px] font-black text-[var(--sample-accent)]">$4</span>
             </div>
-            <div className="grid grid-cols-3 gap-2">
-              {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((color, index) => (
-                <div className="rounded-[20px] border-2 border-[var(--sample-border)] p-3" key={color} style={{ backgroundColor: color }}>
-                  <span className="block text-[9px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">{index === 1 ? "color pulse cards" : "dopamine spectrum"}</span>
-                  <span className="mt-8 block text-2xl font-black">{index + 1}</span>
-                </div>
-              ))}
+            <div className="grid grid-cols-2 gap-2">
+              <div className="flex flex-col justify-between rounded-[20px] bg-[var(--sample-accent-2)] p-2.5 text-[var(--sample-text)]">
+                <p className="font-display text-lg font-black leading-none">Kiwi</p>
+                <span className="text-[11px] font-black">$4</span>
+              </div>
+              <div className="flex flex-col justify-between rounded-[20px] bg-[var(--sample-accent-3)] p-2.5 text-[var(--sample-text)]">
+                <p className="font-display text-lg font-black leading-none">Mango</p>
+                <span className="text-[11px] font-black">$4</span>
+              </div>
             </div>
           </section>
         </div>
-        <div className="grid grid-cols-4 gap-2">
-          {["reward ladder", "habit orbit", "streak boost", "daily prize"].map((label) => (
-            <span className="rounded-full border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] px-3 py-2 text-center text-[9px] font-black uppercase tracking-[0.12em]" key={label}>{label}</span>
+
+        <div className={cn("flex-wrap items-center gap-2", compact ? "hidden" : "flex")}>
+          {tags.map((tag, index) => (
+            <span
+              className={cn(
+                "rounded-full px-3 py-1.5 text-[11px] font-black",
+                index % 2 === 0 ? "bg-[var(--sample-text)] text-white" : "border border-[var(--sample-border-soft)] bg-white text-[var(--sample-text)]",
+              )}
+              key={tag}
+            >
+              {tag}
+            </span>
           ))}
         </div>
       </div>
@@ -5899,47 +5820,88 @@ function PastelSoftEdit({ compact = false, style }: Props) {
 }
 
 function BubbleFlowCapsules({ compact = false, style }: Props) {
-  const cans = [
-    [style.palette.accent, "lime"],
-    [style.palette.accent2, "berry"],
-    [style.palette.accent3, "melon"],
-  ] as const;
+  const glossy = (colorVar: string): CSSProperties => ({
+    background: `radial-gradient(circle at 32% 26%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.45) 12%, ${colorVar} 46%, color-mix(in srgb, ${colorVar} 62%, #0a2630) 100%)`,
+    boxShadow: `0 14px 26px -8px color-mix(in srgb, ${colorVar} 65%, transparent), inset 0 -10px 16px -8px rgba(8,30,40,0.4), inset 0 10px 16px -6px rgba(255,255,255,0.85)`,
+  });
+  const softShadow: CSSProperties = {
+    boxShadow: "0 6px 14px -8px rgba(8,30,40,0.35), inset 0 1px 1px rgba(255,255,255,0.9)",
+  };
+  const flavors: Array<{ label: string; price: string; colorVar: string; lift: string }> = [
+    { label: "lime", price: "$5", colorVar: "var(--sample-accent-3)", lift: "translate-y-1" },
+    { label: "berry", price: "$6", colorVar: "var(--sample-accent-2)", lift: "-translate-y-2.5" },
+    { label: "soda", price: "$5", colorVar: "var(--sample-accent)", lift: "translate-y-2" },
+  ];
+  const features = ["flavor pops", "fizz meter", "bubble cart", "free refill"];
 
   return (
     <SampleFrame compact={compact} style={style}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_28%,rgb(var(--st-accent-rgb)_/_0.34)_0_9%,transparent_10%),radial-gradient(circle_at_82%_70%,rgb(var(--st-accent-2-rgb)_/_0.32)_0_12%,transparent_13%)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <span className="absolute -left-8 top-12 h-28 w-28 rounded-full opacity-60 blur-[2px]" style={glossy("var(--sample-accent)")} />
+        <span className="absolute -top-6 right-6 h-20 w-20 rounded-full opacity-50 blur-[2px]" style={glossy("var(--sample-accent-2)")} />
+        <span className="absolute bottom-4 left-1/2 h-16 w-16 rounded-full opacity-40 blur-[2px]" style={glossy("var(--sample-accent-3)")} />
+      </div>
+
       <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
         <SampleNav align="center" brand="Sip Capsule" compact={compact} icons={[<IconStar key="star" size={compact ? 11 : 13} />]} links={["Flavors", "Drops", "Find"]} sub="bubble drink" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.9fr_1.1fr]" : "grid-cols-[0.72fr_1.28fr]")}>
-          <section className="flex min-h-0 flex-col justify-between">
+
+        <div className={cn("grid min-h-0 items-center gap-4", compact ? "grid-cols-[1fr_1fr]" : "grid-cols-[0.92fr_1.08fr]")}>
+          <section className="flex min-h-0 flex-col justify-center gap-3">
             <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--sample-primary)]">BUBBLE FLOW</p>
-              <h3 className={cn("mt-3 font-display font-black uppercase leading-[0.86]", compact ? "text-2xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                EFFERVESCENT FLAVOR LAB
+              <span className="inline-block rounded-full bg-[rgb(var(--st-surface-rgb)_/_0.78)] px-3 py-1 text-[9px] font-black uppercase tracking-[0.18em] text-[var(--sample-primary)]" style={softShadow}>
+                bubble flow
+              </span>
+              <h3
+                className={cn("mt-3 font-display leading-[0.95]", compact ? "text-[1.7rem]" : "text-[2.9rem]")}
+                style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "-0.01em" }}
+              >
+                Sip the
+                <br />
+                <span className="text-[var(--sample-primary)]">bubbles.</span>
               </h3>
+              <p className={cn("mt-3 font-semibold text-[var(--sample-muted)]", compact ? "line-clamp-2 text-[10px] leading-4" : "max-w-[24ch] text-[12px] leading-5")}>
+                Sparkling capsule drinks in three squishy, fizzy flavors.
+              </p>
             </div>
-            <div className="rounded-full border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-2">
-              <div className="h-6 overflow-hidden rounded-full bg-[var(--sample-base)]">
+            <button
+              className={cn("w-max rounded-full px-5 py-2.5 text-center text-[12px] font-black text-[var(--sample-text)]", compact ? "hidden" : "")}
+              style={{
+                background:
+                  "linear-gradient(180deg, color-mix(in srgb, var(--sample-accent) 85%, #ffffff) 0%, var(--sample-accent) 55%, color-mix(in srgb, var(--sample-accent) 70%, var(--sample-primary)) 100%)",
+                boxShadow:
+                  "0 12px 20px -10px color-mix(in srgb, var(--sample-accent) 75%, transparent), inset 0 2px 2px rgba(255,255,255,0.85), inset 0 -5px 7px -3px rgba(8,30,40,0.28)",
+              }}
+              type="button"
+            >
+              Shop flavors →
+            </button>
+            <div className="rounded-full bg-[rgb(var(--st-surface-rgb)_/_0.78)] p-1.5" style={softShadow}>
+              <div className="h-3 overflow-hidden rounded-full bg-[var(--sample-base)]">
                 <span className="block h-full w-[68%] rounded-full bg-[linear-gradient(90deg,var(--sample-accent),var(--sample-accent-2))]" />
               </div>
-              <span className="mt-2 block text-center text-[9px] font-black uppercase tracking-[0.12em]">liquid progress</span>
             </div>
           </section>
-          <section className="grid min-h-0 grid-cols-3 gap-2">
-            {cans.map(([color, label], index) => (
-              <div className="relative flex min-h-0 flex-col justify-end overflow-hidden rounded-[999px] border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-3" key={color}>
-                <span className="absolute left-1/2 top-[16%] h-16 w-16 -translate-x-1/2 rounded-full opacity-85" style={{ backgroundColor: color }} />
-                <span className="absolute left-1/2 top-[46%] h-10 w-10 -translate-x-1/2 rounded-full bg-[rgb(var(--st-surface-rgb)_/_0.68)]" />
-                <span className="relative z-10 text-center text-[9px] font-black uppercase tracking-[0.12em]">inflated capsules</span>
-                <span className="relative z-10 mt-2 text-center text-2xl font-black">0{index + 1}</span>
-                <span className="relative z-10 text-center text-[8px] font-black uppercase tracking-[0.1em]">{label}</span>
+
+          <section className="grid min-h-0 grid-cols-3 items-center gap-2">
+            {flavors.map(({ label, price, colorVar, lift }) => (
+              <div className={cn("flex min-h-0 flex-col items-center gap-2", compact ? "" : lift)} key={label}>
+                <span className={cn("relative aspect-square w-full rounded-full", compact ? "max-w-[3.5rem]" : "max-w-[5.5rem]")} style={glossy(colorVar)}>
+                  <span aria-hidden="true" className="absolute left-[22%] top-[16%] h-[24%] w-[30%] -rotate-12 rounded-full bg-white/85 blur-[1px]" />
+                </span>
+                <span className="text-[10px] font-black uppercase tracking-[0.1em] text-[var(--sample-text)]">{label}</span>
+                <span className="-mt-1 rounded-full bg-[rgb(var(--st-surface-rgb)_/_0.85)] px-2 py-0.5 text-[9px] font-black text-[var(--sample-primary)]" style={softShadow}>
+                  {price}
+                </span>
               </div>
             ))}
           </section>
         </div>
-        <div className="grid grid-cols-4 gap-2 text-[9px] font-black uppercase tracking-[0.12em]">
-          {["flavor carousel", "nutrition bubbles", "can shelf", "liquid progress"].map((item) => (
-            <span className="rounded-full border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.72)] px-2 py-2 text-center" key={item}>{item}</span>
+
+        <div className="grid grid-cols-4 gap-2 text-[9px] font-black uppercase tracking-[0.1em]">
+          {features.map((item) => (
+            <span className="rounded-full bg-[rgb(var(--st-surface-rgb)_/_0.78)] px-2 py-2 text-center text-[var(--sample-text)]" key={item} style={softShadow}>
+              {item}
+            </span>
           ))}
         </div>
       </div>
@@ -6034,151 +5996,128 @@ function StreetwearDropEditorial({ compact = false, style }: Props) {
 }
 
 function GraffitiWallArchive({ compact = false, style }: Props) {
-  const cans = [
-    [style.palette.accent, "oxide"],
-    [style.palette.accent2, "chrome"],
-    [style.palette.accent3, "signal"],
-    [style.palette.primary, "marker"],
+  const walls = [
+    ["Chrome burner", "Berlin · Yard 04", "212", "16% 34%"],
+    ["Pink fade piece", "São Paulo · Rooftop", "167", "58% 52%"],
+    ["Rail line throwie", "NYC · Freight spur", "134", "88% 68%"],
   ] as const;
-  const tags = ["AERO-17", "KAPS", "YARD-04", "CREW-9"];
-  const drips = [10, 28, 74] as const;
-  const pins = [
-    ["left-[18%] top-[62%]", "yard"],
-    ["left-[48%] top-[34%]", "wall"],
-    ["left-[73%] top-[53%]", "tunnel"],
+  const cities = [
+    ["BER", "214"],
+    ["NYC", "187"],
+    ["SAO", "166"],
+    ["LDN", "149"],
+  ] as const;
+  const sprayRack = [
+    [style.palette.accent, "P-3020"],
+    [style.palette.accent2, "B-5015"],
+    [style.palette.accent3, "Y-1021"],
+    ["#C7C9CE", "CHROME"],
+    ["#141414", "BLACK"],
   ] as const;
 
   return (
     <SampleFrame compact={compact} style={style}>
       <div
-        className="absolute inset-0 opacity-65"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, rgb(var(--st-text-rgb) / 0.11) 0 1px, transparent 1px 24px), repeating-linear-gradient(90deg, transparent 0 38px, rgb(var(--st-text-rgb) / 0.1) 38px 40px, transparent 40px 76px)",
-        }}
+        className="absolute inset-0 opacity-40"
+        style={{ backgroundImage: GRAIN_URI, backgroundSize: "140px 140px" }}
       />
-      <div className="absolute -left-12 top-10 h-36 w-36 rotate-[-18deg] rounded-full bg-[var(--sample-accent)] opacity-70 blur-[1px]" />
-      <div className="absolute -right-10 bottom-12 h-32 w-32 rotate-[10deg] rounded-full bg-[var(--sample-accent-2)] opacity-55 blur-[2px]" />
-      <div className="relative grid h-full min-w-0 grid-rows-[auto_1fr_auto] gap-3">
+      <div className={cn("relative grid h-full min-w-0", compact ? "grid-rows-[auto_1fr] gap-2" : "grid-rows-[auto_1fr_auto] gap-3")}>
         <SampleNav
-          brand="Wall Index"
+          brand="WALLDEX"
           compact={compact}
-          icons={[<IconSearch key="search" size={compact ? 11 : 13} />]}
-          links={["Walls", "Caps", "Crews"]}
-          sub="graffiti wall scanner"
+          icons={[<IconSearch key="search" size={compact ? 11 : 13} />, <IconGlobe key="globe" size={compact ? 11 : 13} />]}
+          links={["Walls", "Artists", "Cities", "Map"]}
+          sub="street art documentation"
         />
-        <div className={cn("grid min-h-0 min-w-0 gap-3", compact ? "grid-cols-[1fr_0.95fr]" : "grid-rows-[1.08fr_0.92fr] sm:grid-cols-[1.05fr_0.95fr] sm:grid-rows-none")}>
-          <section
-            className="relative min-h-0 min-w-0 overflow-hidden border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] shadow-[5px_5px_0_var(--sample-text)]"
-            style={{
-              backgroundImage:
-                "linear-gradient(90deg, rgb(var(--st-surface-rgb) / 0.52), rgb(var(--st-surface-rgb) / 0.32)), url('/generated/design-styles/graffiti-wall-texture.webp')",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-          >
-            <div
-              className="absolute inset-0 opacity-80"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, transparent 0 44%, rgb(var(--st-surface-rgb) / 0.72) 44% 56%, transparent 56%), repeating-linear-gradient(12deg, rgb(var(--st-text-rgb) / 0.08) 0 2px, transparent 2px 13px)",
-              }}
-            />
-            {drips.map((left, index) => (
-              <span
-                aria-hidden="true"
-                className="absolute top-0 w-2 rounded-b-full bg-[var(--sample-accent-3)]"
-                key={left}
-                style={{ height: `${44 + index * 22}px`, left: `${left}%` }}
-              />
-            ))}
-            <div className="relative flex h-full min-h-0 flex-col justify-between p-3">
-              <div className="flex items-start justify-between gap-2">
-                <span className="border-2 border-[var(--sample-border)] bg-[var(--sample-text)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-base)]">
-                  WALL TAG INDEX
-                </span>
-                <span className="border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">
-                  scan 142
-                </span>
-              </div>
-              <div className="min-w-0">
-                <h3
-                  className={cn("whitespace-nowrap font-display font-black uppercase leading-[0.74] text-[var(--sample-accent)]", compact ? "text-[2.45rem]" : "text-[3.8rem] sm:text-[5.8rem]")}
-                  style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.06em", textShadow: "4px 4px 0 var(--sample-text), 7px 7px 0 var(--sample-accent-2)" }}
-                >
-                  TAGS
-                </h3>
-                <div className="mt-1 flex flex-wrap gap-1">
-                  {["chrome fill", "fat cap", "wet wall"].map((label) => (
-                    <span className="border-2 border-[var(--sample-border)] bg-[var(--sample-base)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.1em]" key={label}>
-                      {label}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="grid grid-cols-[1fr_auto] items-end gap-2">
-                <div className="min-w-0 border-2 border-[var(--sample-border)] bg-[rgb(var(--st-base-rgb)_/_0.86)] p-2">
-                  <p className="text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-muted)]">graffiti wall scanner</p>
-                  <span className="mt-2 block h-2 bg-[var(--sample-text)]">
-                    <span className="block h-full w-[67%] bg-[var(--sample-accent-3)]" />
+        <div className={cn("grid min-h-0 min-w-0 gap-3", compact ? "grid-cols-[1.15fr_0.85fr]" : "grid-rows-[1.15fr_0.85fr] sm:grid-cols-[1.28fr_0.72fr] sm:grid-rows-none")}>
+          <section className="relative min-h-0 min-w-0 overflow-hidden border-[3px] border-[var(--sample-border)] shadow-[6px_6px_0_var(--sample-text)]">
+            <GeneratedStyleImageSurface className="h-full" overlay="dark" position="center 42%" slug="graffiti">
+              <div className="flex h-full min-h-0 flex-col justify-between p-3">
+                <div className="flex items-start justify-between gap-2">
+                  <span className="rotate-[-2deg] border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)] shadow-[2px_2px_0_var(--sample-text)]">
+                    wall of the week
+                  </span>
+                  <span className="rotate-[1.5deg] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.12em] shadow-[2px_2px_0_var(--sample-text)]">
+                    verified · 142 photos
                   </span>
                 </div>
-                <span className="grid h-12 w-12 place-items-center rounded-full border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-2)] text-[10px] font-black uppercase text-[var(--sample-text)]">
-                  cap
-                </span>
+                <div className="min-w-0">
+                  <p className="mb-1 inline-block bg-[var(--sample-text)] px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.2em] text-[var(--sample-base)]">
+                    Berlin · legal yard 04
+                  </p>
+                  <h3
+                    className={cn("whitespace-nowrap font-display font-black uppercase leading-[0.78] text-[var(--sample-base)]", compact ? "text-[1.7rem]" : "text-[2.6rem] sm:text-[3.9rem]")}
+                    style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.06em", textShadow: "3px 3px 0 var(--sample-text), 6px 6px 0 var(--sample-accent)" }}
+                  >
+                    FRESH PAINT
+                  </h3>
+                  <div className={cn("mt-2 flex flex-wrap items-center gap-2", compact && "gap-1.5")}>
+                    <span className="border-2 border-[var(--sample-border)] bg-[var(--sample-accent)] px-2.5 py-1.5 text-[9px] font-black uppercase tracking-[0.1em] text-[var(--sample-surface)] shadow-[3px_3px_0_var(--sample-text)]">
+                      Open wall map
+                    </span>
+                    <span className="border-2 border-[var(--sample-base)] px-2.5 py-1.5 text-[9px] font-black uppercase tracking-[0.1em] text-[var(--sample-base)]">
+                      KAPS crew · 2h ago
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
+            </GeneratedStyleImageSurface>
           </section>
 
-          <section className="grid min-h-0 min-w-0 grid-rows-[0.9fr_1.1fr] gap-3">
-            <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-border)] bg-[var(--sample-base)] p-2">
-              <div className="mb-2 flex items-center justify-between gap-2">
-                <p className="text-[7px] font-black uppercase leading-[1.05] tracking-[0.1em] sm:text-[8px] sm:tracking-[0.14em]">spray color rack</p>
-                <span className="bg-[var(--sample-text)] px-2 py-1 text-[8px] font-black uppercase text-[var(--sample-base)]">400ml</span>
+          <section className={cn("grid min-h-0 min-w-0 grid-rows-[1fr_auto] overflow-hidden", compact ? "gap-2" : "gap-3")}>
+            <div className="flex min-h-0 min-w-0 flex-col overflow-hidden border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] p-2 shadow-[4px_4px_0_var(--sample-text)]">
+              <div className="mb-1.5 flex items-center justify-between gap-2">
+                <p className="text-[7px] font-black uppercase leading-[1.05] tracking-[0.1em] sm:text-[8px] sm:tracking-[0.14em]">fresh walls this week</p>
+                <span className="bg-[var(--sample-accent)] px-1.5 py-0.5 text-[7px] font-black uppercase text-[var(--sample-surface)]">+38</span>
               </div>
-              <div className="grid h-[calc(100%-1.45rem)] min-h-0 grid-cols-4 gap-1.5">
-                {cans.map(([color, label], index) => (
-                  <div className="relative flex min-h-0 flex-col justify-end overflow-hidden border-2 border-[var(--sample-border)] bg-[var(--sample-surface)]" key={label}>
-                    <span className="absolute left-1/2 top-1 h-[72%] w-[62%] -translate-x-1/2 border-2 border-[var(--sample-border)]" style={{ backgroundColor: color }} />
-                    <span className="relative z-10 border-t-2 border-[var(--sample-border)] bg-[var(--sample-text)] py-1 text-center text-[7px] font-black uppercase tracking-[0.08em] text-[var(--sample-base)]">
-                      {index + 1}
+              <div className="grid min-h-0 flex-1 content-start gap-1.5">
+                {(compact ? walls.slice(0, 2) : walls).map(([title, place, likes, position], index) => (
+                  <div className="grid min-w-0 grid-cols-[auto_1fr_auto] items-center gap-2 border-2 border-[var(--sample-border)] bg-[var(--sample-base)] p-1" key={title}>
+                    <GeneratedStyleImageSurface
+                      className={cn("border border-[var(--sample-border)]", compact ? "h-7 w-9" : "h-9 w-12")}
+                      overlay="none"
+                      position={position}
+                      slug="graffiti"
+                      style={{ backgroundSize: "300%" }}
+                    />
+                    <div className="min-w-0 leading-tight">
+                      <p className="truncate text-[8px] font-black uppercase tracking-[0.04em]">{title}</p>
+                      <p className="truncate text-[7px] font-bold uppercase tracking-[0.08em] text-[var(--sample-muted)]">{place}</p>
+                    </div>
+                    <span className={cn("shrink-0 px-1.5 py-0.5 text-[7px] font-black", index === 0 ? "bg-[var(--sample-accent-3)] text-[var(--sample-text)]" : "bg-[var(--sample-text)] text-[var(--sample-base)]")}>
+                      ♥ {likes}
                     </span>
-                    <span className="relative z-10 truncate bg-[var(--sample-base)] px-1 py-1 text-center text-[7px] font-black uppercase">{label}</span>
                   </div>
+                ))}
+              </div>
+              <div className={cn("mt-1.5 flex flex-wrap items-center gap-1", compact && "hidden")}>
+                {cities.map(([city, count]) => (
+                  <span className="border-2 border-[var(--sample-border)] bg-[var(--sample-base)] px-1.5 py-0.5 text-[7px] font-black uppercase tracking-[0.08em]" key={city}>
+                    {city} <span className="text-[var(--sample-muted)]">{count}</span>
+                  </span>
                 ))}
               </div>
             </div>
 
-            <div className="grid min-h-0 min-w-0 grid-cols-[0.92fr_1.08fr] gap-3">
-              <div className="min-h-0 min-w-0 overflow-hidden border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] p-2">
-                <p className="mb-1.5 text-[7px] font-black uppercase leading-[1.05] tracking-[0.1em] sm:mb-2 sm:text-[8px] sm:tracking-[0.14em]">crew tag archive</p>
-                <div className="grid gap-1">
-                  {tags.map((tag, index) => (
-                    <span className={cn("flex min-w-0 items-center justify-between border-2 border-[var(--sample-border)] px-1.5 py-1 text-[8px] font-black uppercase", index === 1 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-base)]")} key={tag}>
-                      <span className="truncate">{tag}</span>
-                      <span className="shrink-0 text-[7px]">{34 + index * 7}</span>
-                    </span>
-                  ))}
-                </div>
+            <div className="min-w-0 border-[3px] border-[var(--sample-border)] bg-[var(--sample-text)] p-2 text-[var(--sample-base)] shadow-[4px_4px_0_var(--sample-accent)]">
+              <div className="mb-1.5 flex items-center justify-between gap-2">
+                <p className="text-[7px] font-black uppercase tracking-[0.14em]">colors on this wall</p>
+                <span className="text-[7px] font-black uppercase tracking-[0.1em] text-[var(--sample-accent-3)]">400ml</span>
               </div>
-
-              <div className="relative min-h-0 min-w-0 overflow-hidden border-[3px] border-[var(--sample-border)] bg-[var(--sample-text)] p-2 text-[var(--sample-base)]">
-                <p className="relative z-10 text-[7px] font-black uppercase leading-[1.05] tracking-[0.1em] sm:text-[8px] sm:tracking-[0.14em]">mural route map</p>
-                <span className="absolute left-3 top-1/2 h-[3px] w-[72%] rotate-[-18deg] bg-[var(--sample-accent-3)]" />
-                <span className="absolute bottom-5 right-4 h-[3px] w-[55%] rotate-[28deg] bg-[var(--sample-accent)]" />
-                {pins.map(([position, label]) => (
-                  <span className={cn("absolute grid h-7 w-7 place-items-center rounded-full border-2 border-[var(--sample-base)] bg-[var(--sample-accent)] text-[6px] font-black uppercase text-[var(--sample-text)]", position)} key={label}>
-                    {label.slice(0, 2)}
-                  </span>
+              <div className="grid grid-cols-5 gap-1">
+                {sprayRack.map(([color, code]) => (
+                  <div className="min-w-0 text-center" key={code}>
+                    <span className="block h-5 border-2 border-[var(--sample-base)]" style={{ backgroundColor: color }} />
+                    <span className="mt-0.5 block truncate text-[6px] font-black uppercase tracking-[0.04em]">{code}</span>
+                  </div>
                 ))}
               </div>
             </div>
           </section>
         </div>
-        <div className="grid grid-cols-4 gap-2 text-[8px] font-black uppercase tracking-[0.1em]">
-          {["wall index", "spray rack", "crew archive", "route map"].map((label) => (
-            <span className="min-w-0 truncate border-2 border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.82)] px-2 py-2 text-center" key={label}>{label}</span>
-          ))}
+        <div className={cn("flex min-w-0 items-center justify-between gap-2 border-2 border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.85)] px-2.5 py-2 text-[8px] font-black uppercase tracking-[0.1em]", compact && "hidden")}>
+          <span className="truncate">12,408 walls · 3,120 writers · 96 cities</span>
+          <span className="shrink-0 bg-[var(--sample-accent)] px-2 py-0.5 text-[var(--sample-surface)]">submit a wall ↗</span>
         </div>
       </div>
     </SampleFrame>
@@ -6615,148 +6554,218 @@ function PunkZineDispatch({ compact = false, style }: Props) {
 }
 
 function GrungeTapeArchive({ compact = false, style }: Props) {
-  const tapes = ["side a", "live 91", "demo", "room mic"];
-  const photos = ["amp", "set", "floor"];
-  const log = [
-    ["01", "wet cable"],
-    ["02", "basement"],
-    ["03", "broken mic"],
-    ["04", "late van"],
-  ] as const;
+  // Irregular torn-paper deckle for the archive photo (top + bottom edges).
+  const tornEdge =
+    "polygon(0% 3%, 8% 0.5%, 17% 3%, 27% 0.8%, 38% 3.4%, 50% 0.6%, 61% 3%, 72% 0.4%, 83% 3.2%, 92% 0.8%, 100% 3%, 100% 96%, 91% 99.2%, 81% 96.6%, 70% 99.2%, 58% 96.8%, 47% 99.2%, 36% 96.6%, 26% 99%, 16% 96.8%, 7% 99.2%, 0% 96%)";
+  // Muted flannel plaid built from crossed low-saturation bands.
+  const flannel =
+    "repeating-linear-gradient(0deg, rgb(var(--st-accent-rgb) / 0.5) 0 7px, transparent 7px 15px)," +
+    "repeating-linear-gradient(0deg, rgb(var(--st-accent-2-rgb) / 0.42) 0 3px, transparent 3px 22px)," +
+    "repeating-linear-gradient(90deg, rgb(var(--st-accent-rgb) / 0.5) 0 7px, transparent 7px 15px)," +
+    "repeating-linear-gradient(90deg, rgb(var(--st-accent-2-rgb) / 0.42) 0 3px, transparent 3px 22px)," +
+    "linear-gradient(0deg, rgb(var(--st-base-rgb) / 0.92), rgb(var(--st-base-rgb) / 0.92))";
+
+  const tracks: Array<[string, string]> = [
+    ["a1", "rust in the drain"],
+    ["a2", "basement daylight"],
+    ["a3", "worn out again"],
+  ];
+  const gigLog: Array<[string, string, string]> = [
+    ["11.14.91", "the vera basement", "sold out"],
+    ["12.02.91", "old brewery hall", "42 heads"],
+    ["01.19.92", "harbor union rm.", "cancelled"],
+  ];
 
   return (
-    <SampleFrame compact={compact} style={style}>
-      <div
-        className="relative h-full min-w-0"
+    <SampleFrame className="grunge-sample" compact={compact} style={style}>
+      {/* ── Distressed surface stack ── */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
         style={{
-          "--sample-accent": "#8a5f3b",
-          "--sample-accent-2": "#5d6b5a",
-          "--sample-accent-3": "#87929d",
-          "--sample-base": "#d8d0c3",
-          "--sample-border": "#1c1a17",
-          "--sample-border-soft": "#1c1a1733",
-          "--sample-muted": "#5a524a",
-          "--sample-surface": "#ece4d7",
-          "--sample-text": "#191714",
-        } as SampleVariables}
+          background:
+            "radial-gradient(120% 90% at 16% 0%, rgb(var(--st-accent-rgb) / 0.16) 0%, transparent 46%)," +
+            "radial-gradient(120% 120% at 100% 100%, rgb(var(--st-accent-3-rgb) / 0.16) 0%, transparent 52%)",
+        }}
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-50 mix-blend-multiply"
+        style={{ backgroundImage: "repeating-linear-gradient(90deg, transparent 0 3px, rgb(0 0 0 / 0.2) 3px 4px, transparent 4px 9px)" }}
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.16] mix-blend-overlay"
+        style={{ backgroundImage: GRAIN_URI, backgroundSize: "110px 110px" }}
+      />
+      <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ boxShadow: "inset 0 0 90px 22px rgb(0 0 0 / 0.62)" }} />
+
+      {/* ── Left torn archive spine ── */}
+      <div
+        aria-label="torn archive spine"
+        className="absolute bottom-4 left-0 top-4 z-20 grid w-9 place-items-center border border-[var(--sample-border)] bg-[var(--sample-text)] text-[8px] font-black uppercase tracking-[0.3em] text-[var(--sample-base)] [writing-mode:vertical-rl]"
       >
-        <div
-          className="absolute inset-0 opacity-80"
-          style={{
-            backgroundImage:
-              "radial-gradient(70% 80% at 8% 8%, rgb(93 107 90 / 0.32), transparent 58%), radial-gradient(80% 75% at 92% 104%, rgb(138 95 59 / 0.36), transparent 55%), linear-gradient(135deg, var(--sample-base), var(--sample-surface))",
-          }}
+        SB-013
+      </div>
+
+      <div className="relative z-10 grid h-full grid-rows-[auto_1fr_auto] gap-3">
+        {/* Masthead */}
+        <SampleNav
+          brand="Basement Archive"
+          bordered
+          className="pl-12"
+          compact={compact}
+          icons={[<IconSearch key="search" size={compact ? 11 : 13} />]}
+          links={["Releases", "Archive", "Tapes", "Shows"]}
+          sub="seattle · est. 1991"
         />
-        <div className="absolute inset-0 opacity-25" style={{ backgroundImage: GRAIN_URI, backgroundSize: "115px 115px" }} />
-        <div
-          className="absolute -right-10 top-16 h-40 w-48 rotate-[8deg] border-[3px] border-[var(--sample-border)] opacity-35"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(0deg, transparent 0 14px, rgb(28 26 23 / 0.58) 14px 17px), repeating-linear-gradient(90deg, transparent 0 20px, rgb(93 107 90 / 0.72) 20px 24px), linear-gradient(135deg, rgb(135 146 157 / 0.9), rgb(216 208 195 / 0.92))",
-          }}
-        />
-        <div className="absolute bottom-4 left-2 top-14 z-20 grid w-9 place-items-center border-[3px] border-[var(--sample-border)] bg-[var(--sample-text)] text-[7px] font-black uppercase tracking-[0.18em] text-[var(--sample-base)] [writing-mode:vertical-rl]">
-          torn archive spine
-        </div>
-        <div className="relative grid h-full min-w-0 grid-rows-[auto_1fr_auto] gap-3">
-          <SampleNav
-            brand="Basement Archive"
-            bordered={false}
-            className="pl-12"
-            compact={compact}
-            icons={[<IconSearch key="search" size={compact ? 11 : 13} />]}
-            links={["Archive", "Shows"]}
-            sub="flannel texture board"
-          />
-          <div className={cn("grid min-h-0 min-w-0 gap-3 pl-12", compact ? "grid-cols-[0.82fr_1.18fr]" : "grid-rows-none sm:grid-cols-[0.78fr_1.22fr]")}>
-            <section className="relative min-h-0 min-w-0 rotate-[-1deg] overflow-hidden border-[3px] border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.84)] p-3 shadow-[7px_7px_0_rgb(28_26_23_/_0.5)]">
-              <div className="absolute inset-0 opacity-30" style={{ backgroundImage: GRAIN_URI, backgroundSize: "70px 70px" }} />
-              <span className="absolute -right-8 top-10 h-24 w-32 rotate-[9deg] border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-3)] opacity-75" />
-              <span className="absolute bottom-8 left-4 h-5 w-[78%] rotate-[-4deg] bg-[var(--sample-accent)] opacity-80" />
-              <div className="relative flex h-full min-h-0 flex-col justify-between">
-                <div className="flex items-start justify-between gap-2">
-                  <span className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-text)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-base)]">
-                    DISTORTED ARCHIVE
-                  </span>
-                  <span className="rotate-[3deg] border-[3px] border-[var(--sample-border)] bg-[var(--sample-base)] px-2 py-1 text-[8px] font-black uppercase text-[var(--sample-text)]">
-                    seattle 91
-                  </span>
-                </div>
-                <div>
-                  <p className="mb-2 text-[8px] font-black uppercase tracking-[0.14em]">torn photo stack</p>
-                  <h3
-                    className={cn("font-display font-black uppercase leading-[0.86] text-[var(--sample-text)]", compact ? "text-[2.3rem]" : "text-[3.7rem] sm:text-[5.1rem]")}
-                    style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}
-                  >
-                    DUST
-                    <span className="block text-[var(--sample-accent)]">TAPE</span>
-                  </h3>
-                </div>
-                <div className="grid grid-cols-3 gap-2">
-                  {photos.map((photo, index) => (
-                    <span
-                      className={cn("relative h-16 overflow-hidden border-[3px] border-[var(--sample-border)] bg-[var(--sample-base)] p-1", index === 1 ? "rotate-[2deg]" : "rotate-[-2deg]")}
-                      key={photo}
-                    >
-                      <span className="block h-full bg-[var(--sample-text)] opacity-80" />
-                      <span className="absolute bottom-1 left-1 right-1 bg-[var(--sample-base)] px-1 text-[7px] font-black uppercase text-[var(--sample-text)]">{photo}</span>
+
+        {/* Hero */}
+        <div className={cn("grid min-h-0 gap-4 pl-12", compact ? "grid-cols-[0.9fr_1.1fr] gap-3" : "grid-cols-1 sm:grid-cols-[1.04fr_0.96fr]")}>
+          {/* Torn photo stack */}
+          <section aria-label="torn photo stack" className={cn("relative flex flex-col rotate-[-1deg]", compact ? "min-h-[150px]" : "min-h-[210px]")}>
+            <span aria-hidden="true" className="absolute inset-0 bg-[rgb(var(--st-primary-rgb)/0.14)]" style={{ clipPath: tornEdge }} />
+            <div className="relative w-full flex-1 overflow-hidden" style={{ clipPath: tornEdge }}>
+              <GeneratedStyleImageSurface
+                className="h-full w-full"
+                overlay="none"
+                position="70% 60%"
+                slug="grunge"
+                style={{ filter: "brightness(1.32) contrast(1.04) saturate(1.05)" }}
+              />
+              {/* rust colour grade — tints the band photo without crushing it */}
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 opacity-55 mix-blend-soft-light"
+                style={{ background: "linear-gradient(155deg, var(--sample-accent) 0%, transparent 62%)" }}
+              />
+              {/* legibility vignette (top for the stamp, bottom to ground the
+                  panel) — also gives depth if the photo ever fails to load */}
+              <span
+                aria-hidden="true"
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgb(var(--st-base-rgb) / 0.42) 0%, transparent 24%, transparent 60%, rgb(var(--st-base-rgb) / 0.6) 100%)",
+                }}
+              />
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 opacity-[0.18] mix-blend-overlay"
+                style={{ backgroundImage: GRAIN_URI, backgroundSize: "88px 88px" }}
+              />
+              <span className="absolute left-3 top-3 -rotate-2 border border-[var(--sample-accent)] px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-accent)]">
+                DISTORTED ARCHIVE
+              </span>
+            </div>
+            {/* stacked instant photos peeking out */}
+            <span aria-hidden="true" className="absolute -bottom-1 right-2 h-14 w-11 rotate-6 border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-1 shadow-[3px_3px_0_rgb(0_0_0/0.4)]">
+              <span className="block h-9 bg-[rgb(var(--st-text-rgb)/0.55)]" />
+            </span>
+            <span aria-hidden="true" className="absolute -bottom-2 right-8 h-14 w-11 -rotate-6 border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-1 shadow-[3px_3px_0_rgb(0_0_0/0.4)]">
+              <span className="block h-9 bg-[rgb(var(--st-text-rgb)/0.4)]" />
+            </span>
+            {/* tape corner over the torn edge */}
+            <span aria-hidden="true" className="absolute -left-1 -top-1 h-5 w-14 -rotate-[24deg] bg-[rgb(var(--st-primary-rgb)/0.3)] shadow-[0_1px_3px_rgb(0_0_0/0.4)]" />
+          </section>
+
+          {/* Headline + cassette */}
+          <div className="flex min-w-0 flex-col justify-center">
+            <span className="w-max -rotate-1 bg-[var(--sample-accent)] px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.16em] text-[var(--sample-base)]">
+              worn · out of print
+            </span>
+            <h3
+              className={cn("mt-2 max-w-full uppercase leading-[0.82]", compact ? "text-[1.9rem]" : "text-[3.4rem]")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
+            >
+              <span className="relative inline-block max-w-full">
+                <span aria-hidden="true" className="absolute left-[3px] top-[3px] text-[var(--sample-accent)] opacity-70 mix-blend-multiply">
+                  {style.nameEn}
+                </span>
+                <span className="relative block truncate text-[var(--sample-text)]">{style.nameEn}</span>
+              </span>
+            </h3>
+            <span
+              aria-hidden="true"
+              className="mt-2 block h-[3px] w-2/3"
+              style={{ backgroundImage: "repeating-linear-gradient(90deg, var(--sample-accent) 0 8px, transparent 8px 13px, var(--sample-accent) 13px 17px, transparent 17px 24px)" }}
+            />
+            {!compact && (
+              <p className="mt-3 max-w-[34ch] text-[11px] leading-5 text-[var(--sample-muted)]" style={{ fontFamily: "var(--st-font-body)" }}>
+                Damaged tape reissues and basement-show ledgers — a distressed music catalogue, not a polished shop.
+              </p>
+            )}
+
+            {/* Cassette */}
+            <div aria-label="cassette setlist rail" className="mt-3 border border-[var(--sample-border)] bg-[rgb(var(--st-base-rgb)/0.7)] p-2.5">
+              <div className="flex items-center justify-between border-b border-dashed border-[var(--sample-border)] pb-1 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-muted)]">
+                <span className="text-[var(--sample-accent-3)]">side a · setlist</span>
+                <span>90 min</span>
+              </div>
+              <div className="mt-2 flex items-center gap-4">
+                <div className="flex items-center gap-3 rounded-[1px] bg-[rgb(0_0_0/0.35)] px-3 py-2">
+                  {[0, 1].map((r) => (
+                    <span key={r} aria-hidden="true" className="grunge-sample-reel relative grid h-8 w-8 place-items-center rounded-full border-2 border-[var(--sample-muted)]">
+                      <span className="absolute h-full w-[2px] bg-[var(--sample-muted)] opacity-70" />
+                      <span className="absolute h-full w-[2px] bg-[var(--sample-muted)] opacity-70" style={{ transform: "rotate(60deg)" }} />
+                      <span className="absolute h-full w-[2px] bg-[var(--sample-muted)] opacity-70" style={{ transform: "rotate(-60deg)" }} />
+                      <span className="relative h-2 w-2 rounded-full bg-[var(--sample-accent)]" />
                     </span>
                   ))}
                 </div>
-              </div>
-            </section>
-
-            <section className="grid min-h-0 min-w-0 rotate-[1deg] grid-cols-[0.9fr_1.1fr] grid-rows-none gap-3">
-              <div className="grid min-h-0 min-w-0 grid-cols-[1.05fr_0.95fr] gap-3">
-                <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-border)] bg-[var(--sample-text)] p-2 text-[var(--sample-base)]">
-                  <p className="mb-2 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent-3)]">cassette setlist rail</p>
-                  <div className="grid h-[calc(100%-1.35rem)] min-h-0 gap-1">
-                    {tapes.map((tape, index) => (
-                      <span className="grid grid-cols-[auto_1fr_auto] items-center gap-2 border-2 border-[var(--sample-base)] bg-[rgb(216_208_195_/_0.12)] px-1.5 py-1 text-[7px] font-black uppercase" key={tape}>
-                        <span>{index + 1}</span>
-                        <span className="min-w-0 truncate">{tape}</span>
-                        <span className="h-3 w-3 rounded-full border border-[var(--sample-base)]" />
-                      </span>
+                {!compact && (
+                  <ol className="grid flex-1 gap-0.5 text-[9px]">
+                    {tracks.map(([no, title]) => (
+                      <li key={no} className="flex items-center gap-2 border-b border-dotted border-[var(--sample-border)] pb-0.5">
+                        <span className="text-[var(--sample-accent-2)]">{no}</span>
+                        <span className="min-w-0 truncate lowercase text-[var(--sample-muted)]">{title}</span>
+                      </li>
                     ))}
-                  </div>
-                </div>
-                <div
-                  className="min-h-0 min-w-0 border-[3px] border-[var(--sample-border)] p-2"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(0deg, rgb(93 107 90 / 0.88) 0 13px, rgb(28 26 23 / 0.82) 13px 17px, rgb(216 208 195 / 0.72) 17px 31px), repeating-linear-gradient(90deg, transparent 0 16px, rgb(138 95 59 / 0.72) 16px 20px)",
-                  }}
-                >
-                  <p className="bg-[var(--sample-base)] px-1.5 py-1 text-[8px] font-black uppercase tracking-[0.12em]">flannel texture board</p>
-                </div>
+                  </ol>
+                )}
               </div>
+            </div>
+          </div>
+        </div>
 
-              <div className="grid min-h-0 min-w-0 grid-rows-[0.92fr_1.08fr] gap-3">
-                <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-border)] bg-[var(--sample-base)] p-2">
-                  <p className="mb-2 text-[8px] font-black uppercase tracking-[0.12em]">basement gig log</p>
-                  <div className="grid gap-1">
-                    {log.map(([code, label], index) => (
-                      <span className={cn("grid grid-cols-[auto_1fr] gap-2 border-2 border-[var(--sample-border)] px-1.5 py-1 text-[7px] font-black uppercase", index === 1 ? "bg-[var(--sample-accent-2)] text-[var(--sample-base)]" : "bg-[var(--sample-surface)]")} key={label}>
-                        <span>{code}</span>
-                        <span className="min-w-0 truncate">{label}</span>
-                      </span>
-                    ))}
+        {/* Bottom rail: gig log + flannel swatch */}
+        {!compact ? (
+          <div className="grid grid-cols-[1.4fr_0.6fr] gap-3 pl-12">
+            <div className="border border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)/0.5)] p-2.5">
+              <div className="flex items-center justify-between border-b border-[var(--sample-border)] pb-1 text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-muted)]">
+                <span className="text-[var(--sample-text)]">basement gig log</span>
+                <span>1991 — 1992</span>
+              </div>
+              <div className="mt-1.5 grid gap-1">
+                {gigLog.map(([date, venue, note]) => (
+                  <div key={date} className="grid grid-cols-[auto_1fr_auto] items-center gap-2 border-b border-dotted border-[var(--sample-border)] pb-1 text-[9px]">
+                    <span className="text-[var(--sample-accent-3)]">{date}</span>
+                    <span className="min-w-0 truncate lowercase text-[var(--sample-text)]">{venue}</span>
+                    <span className="uppercase text-[var(--sample-accent)]">{note}</span>
                   </div>
-                </div>
-                <div className="relative min-h-0 min-w-0 overflow-hidden border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-3)] p-2">
-                  <p className="relative z-10 text-[8px] font-black uppercase tracking-[0.12em]">tape sleeve index</p>
-                  <span className="absolute left-4 top-10 h-16 w-28 rotate-[-7deg] border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)]" />
-                  <span className="absolute right-4 top-16 h-12 w-24 rotate-[5deg] border-[3px] border-[var(--sample-border)] bg-[var(--sample-base)]" />
-                  <span className="absolute bottom-4 left-6 right-5 h-8 rotate-[-2deg] bg-[var(--sample-text)] opacity-80" />
+                ))}
+              </div>
+            </div>
+            <div aria-label="flannel texture board" className="relative overflow-hidden border border-[var(--sample-border)]">
+              <span aria-hidden="true" className="absolute inset-0" style={{ backgroundImage: flannel }} />
+              <span aria-hidden="true" className="absolute inset-0 opacity-[0.2] mix-blend-overlay" style={{ backgroundImage: GRAIN_URI, backgroundSize: "80px 80px" }} />
+              <div className="relative flex h-full flex-col justify-between p-2">
+                <span className="text-[8px] font-black uppercase tracking-[0.12em] text-[rgb(var(--st-primary-rgb)/0.92)]">flannel</span>
+                <div className="flex gap-1">
+                  {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((c) => (
+                    <span key={c} className="h-4 w-4 border border-[rgb(0_0_0/0.4)]" style={{ background: c }} />
+                  ))}
                 </div>
               </div>
-            </section>
+            </div>
           </div>
-          <div className="ml-12 grid grid-cols-[1.2fr_0.8fr_1fr] gap-2 text-[8px] font-black uppercase tracking-[0.1em]">
-            {["archive", "photo stack", "setlist rail", "gig log"].map((label) => (
-              <span className="min-w-0 truncate border-[3px] border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.82)] px-2 py-2 text-center" key={label}>{label}</span>
-            ))}
-          </div>
+        ) : null}
+
+        {/* Footer catalog ticker */}
+        <div className={cn("grunge-sample-ticker relative overflow-hidden border-t border-[var(--sample-border)] text-[8px] uppercase tracking-[0.1em] text-[var(--sample-muted)]", compact ? "h-4" : "h-5")}>
+          <span className="grunge-sample-ticker-inner absolute whitespace-nowrap pt-1">
+            sb-013 reissue · limited cassette run · dubbed from worn masters · basement archive vol. iii · out of print · sb-013 reissue · limited cassette run · dubbed from worn masters ·
+          </span>
         </div>
       </div>
     </SampleFrame>

@@ -97,17 +97,13 @@ Landscape 16:10, realistic studio flat lay with soft shadows and tactile paper d
 
 ## Style Differentiation Notes
 
-Use these notes when writing the final prompt for each style.
+When writing the final prompt for a style, pull its differentiation traits from these sources instead of this document:
 
-- `minimalism`: reduction, negative space, hairline structure, neutral material restraint.
-- `modernism`: functional geometry, rational grids, primary color accents, industrial material logic.
-- `swiss-design`: strict typographic grid, baseline structure, red signal bars, institutional clarity.
-- `international-style`: universal information systems, neutral signage modules, transport blue, objective standardization.
-- `scandinavian`: bright Nordic practicality, light wood, cozy product commerce, practical home materials.
-- `japandi`: low horizontal rhythm, muted tactile space, ash wood, ceramic, paper, quiet utility.
-- `warm-minimal`: cream neutrals, soft product hierarchy, terracotta or brass accents, approachable premium tone.
-- `soft-minimal`: low contrast, rounded panels, frosted paper, pale grey-blue, gentle UI surfaces.
-- `high-end-minimal`: gallery spacing, black-ivory contrast, premium surfaces, exact crop marks, quiet luxury commerce.
+- `docs/style-category-distinction-table.md` — category-level comparison rows (core identity, moodboard signals, easy overlap, must-differ-by).
+- `docs/style-sample-web-review-log.md` — per-style markers and the queue table.
+- `src/data/designStyles.ts` — `representativeTraits`, `avoidTraits`, palette tokens.
+
+The prompt must state how the style differs from its closest neighbors in the same category, using the "easy overlap" and "must differ by" columns of the distinction table.
 
 ## Acceptance Checklist
 
@@ -125,10 +121,10 @@ Before saving a generated image into the project, check:
 ## Project Workflow
 
 1. Draft the prompt first and compare it against this document.
-2. Generate with the built-in `image_gen` tool.
+2. Generate with whatever image generation tool is available in the current agent environment.
 3. Inspect the output visually.
 4. If it feels too synthetic, revise the prompt toward real research materials and physical flat-lay details.
-5. Copy the selected generated source from `C:\Users\monok\.codex\generated_images\...` into the workspace.
+5. Bring the selected generated image into the workspace (the source location depends on the tool used).
 6. Convert or save the final project asset under `public/generated/moodboards/<slug>.webp`.
 7. Add or update the corresponding `StyleMoodboard` entry in `src/data/designStyles.ts`.
 8. Run `npm run check:data`, `npm run lint`, and `npm run build`.
