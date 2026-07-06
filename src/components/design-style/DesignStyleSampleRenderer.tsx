@@ -5994,53 +5994,165 @@ function ToyPlaysetBuilder({ compact = false, style }: Props) {
   );
 }
 
+function PlayfulMascot({ className }: { className?: string }) {
+  // A friendly Guide Garden sprout character — the one signature illustration,
+  // drawn with care so it reads as an intentional mascot, not a clip-art circle.
+  return (
+    <svg aria-hidden="true" className={className} viewBox="0 0 64 64">
+      <defs>
+        <linearGradient id="playful-mascot-body" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stopColor="var(--sample-accent-3)" />
+          <stop offset="1" stopColor="var(--sample-primary)" />
+        </linearGradient>
+      </defs>
+      <path d="M32 15c0-5 4-7.5 8.5-6.5-1 4.5-3.5 7.5-8.5 8.5Z" fill="var(--sample-accent-2)" />
+      <path d="M32 16c0-4.2-3-6.4-7.2-5.4 1 3.4 3.2 6 7.2 6Z" fill="var(--sample-accent-2)" opacity="0.82" />
+      <rect fill="url(#playful-mascot-body)" height="40" rx="20" width="40" x="12" y="15" />
+      <circle cx="21" cy="39" fill="var(--sample-accent)" opacity="0.5" r="4" />
+      <circle cx="43" cy="39" fill="var(--sample-accent)" opacity="0.5" r="4" />
+      <circle cx="25" cy="33" fill="#3b3945" r="3.4" />
+      <circle cx="39" cy="33" fill="#3b3945" r="3.4" />
+      <circle cx="26.2" cy="31.8" fill="#fff" r="1.1" />
+      <circle cx="40.2" cy="31.8" fill="#fff" r="1.1" />
+      <path d="M27 41c2.6 2.6 7.4 2.6 10 0" fill="none" stroke="#3b3945" strokeLinecap="round" strokeWidth="2.2" />
+    </svg>
+  );
+}
+
 function PlayfulOnboardFlow({ compact = false, style }: Props) {
-  const tasks = [
-    ["choose goal", style.palette.accent],
-    ["try prompt", style.palette.accent2],
-    ["tiny win", style.palette.accent3],
-    ["share note", style.palette.surface],
-  ] as const;
+  // "Guided joy flow": a Duolingo / Headspace / Mailchimp friendly onboarding
+  // app — a mascot coach card with a speech bubble and a soft progress path over
+  // a vertical stack of gentle task cards with real completion states. The
+  // app-onboarding feed skeleton keeps it distinct from its cute/casual
+  // neighbours kawaii (collection grid), pastel-style (editorial image bands)
+  // and dopamine-design (circular reward dashboard).
+  const cardShadow: CSSProperties = { boxShadow: "0 12px 28px -18px rgba(67,65,79,0.42), inset 0 1px 1px rgba(255,255,255,0.75)" };
+  const tasks: Array<{ label: string; note: string; state: "done" | "active" | "todo" }> = [
+    { label: "pick your focus", note: "calm mornings", state: "done" },
+    { label: "meet your guide", note: "say hi to sprout", state: "done" },
+    { label: "try a 2-min step", note: "breathe, then plant one seed", state: "active" },
+    { label: "set a gentle reminder", note: "we'll nudge you softly", state: "todo" },
+  ];
+  const steps: Array<"done" | "active" | "todo"> = ["done", "done", "active", "todo"];
 
   return (
     <SampleFrame compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Guide Garden" bordered={false} compact={compact} icons={[<IconArrow key="arrow" size={compact ? 11 : 13} />]} links={["Plan", "Learn", "Done"]} sub="playful UX" />
-        <div className={cn("grid min-h-0 gap-4", compact ? "grid-cols-[0.88fr_1.12fr]" : "grid-cols-[0.72fr_1.28fr]")}>
-          <section className="flex min-h-0 flex-col justify-between rounded-[26px] bg-[var(--sample-accent-3)] p-4">
-            <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[var(--sample-text)]">PLAYFUL ONBOARD</p>
-              <h3 className={cn("mt-3 font-display font-bold leading-[0.9]", compact ? "text-2xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                GUIDED JOY FLOW
-              </h3>
+      <div
+        className={cn("absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
+        style={{
+          "--sample-accent": "#8ea6ff",
+          "--sample-accent-2": "#5fc9a6",
+          "--sample-accent-3": "#ffd166",
+          "--sample-base": "#fff6ee",
+          "--sample-border": "#43414f",
+          "--sample-border-soft": "rgba(67,65,79,0.1)",
+          "--sample-muted": "#9a97a8",
+          "--sample-primary": "#ff8a5c",
+          "--sample-surface": "#ffffff",
+          "--sample-text": "#43414f",
+          "--st-base-rgb": "255 246 238",
+          "--st-surface-rgb": "255 255 255",
+          "--st-text-rgb": "67 65 79",
+          "--st-primary-rgb": "255 138 92",
+          "--st-accent-rgb": "142 166 255",
+          "--st-accent-2-rgb": "95 201 166",
+          "--st-accent-3-rgb": "255 209 102",
+          "--st-border-rgb": "67 65 79",
+          background:
+            "radial-gradient(44% 40% at 4% 2%, rgb(255 209 102 / 0.22), transparent 60%), radial-gradient(42% 40% at 98% 6%, rgb(142 166 255 / 0.18), transparent 60%), radial-gradient(52% 46% at 92% 100%, rgb(95 201 166 / 0.18), transparent 62%), linear-gradient(180deg, #fff9f3, #fff4ea)",
+        } as SampleVariables}
+      >
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_auto_1fr_auto] gap-2.5">
+          {/* ── app header ── */}
+          <header className="flex items-center gap-2">
+            <span className="grid h-6 w-6 place-items-center rounded-[9px] bg-[var(--sample-accent-2)] text-[10px]">🌱</span>
+            <div className="min-w-0 leading-none">
+              <span className="block text-[10px] font-black lowercase text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)" }}>guide garden</span>
+              <span className="block text-[6.5px] font-bold uppercase tracking-[0.16em] text-[var(--sample-muted)]">playful UX</span>
             </div>
-            <div className="relative h-20 rounded-[22px] bg-[var(--sample-surface)]">
-              <span className="absolute bottom-4 left-5 h-9 w-9 rounded-full bg-[var(--sample-accent)]" />
-              <span className="absolute bottom-7 left-9 h-3 w-3 rounded-full bg-[var(--sample-text)]" />
-              <span className="absolute bottom-9 left-16 rounded-full bg-[rgb(var(--st-base-rgb)_/_0.72)] px-3 py-1 text-[8px] font-black uppercase tracking-[0.1em]">mascot walkthrough</span>
-              <span className="absolute bottom-4 left-16 rounded-full border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] px-3 py-1 text-[9px] font-black uppercase">mascot helper</span>
+            <span className="ml-auto flex items-center gap-1 rounded-full bg-[var(--sample-surface)] px-2 py-1 text-[7.5px] font-black text-[var(--sample-text)]" style={cardShadow}>
+              <span className="text-[var(--sample-accent-3)]">✦</span> day 3 · +40 xp
+            </span>
+          </header>
+
+          {/* ── mascot coach card + soft progress path ── */}
+          <div aria-label="mascot helper" className="rounded-[20px] bg-white p-2.5" style={cardShadow}>
+            <p className="text-[6.5px] font-black uppercase tracking-[0.2em] text-[var(--sample-primary)]">PLAYFUL ONBOARD</p>
+            <div className="mt-1 flex items-center gap-2.5">
+              <PlayfulMascot className={cn("shrink-0 drop-shadow-[0_4px_8px_rgba(255,138,92,0.3)]", compact ? "h-10 w-10" : "h-12 w-12")} />
+              <div className="min-w-0">
+                <h3 aria-label="GUIDED JOY FLOW" className="font-black lowercase leading-none text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "15px" : "19px" }}>guided joy flow</h3>
+                <div aria-label="mascot walkthrough" className="mt-1 w-max max-w-full rounded-[12px] rounded-tl-[3px] bg-[var(--sample-base)] px-2 py-1">
+                  <span className="text-[7.5px] font-bold lowercase text-[var(--sample-text)]">nice start! let&apos;s plant one tiny goal together 🌱</span>
+                </div>
+              </div>
             </div>
-          </section>
-          <section className="grid min-h-0 grid-rows-[auto_1fr] gap-3">
-            <div className="flex items-center justify-between rounded-full border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] px-4 py-3 text-[10px] font-black uppercase tracking-[0.12em]">
-              <span>gentle task cards</span>
-              <span className="text-[var(--sample-accent)]">3/4</span>
+            <div aria-label="soft progress path" className="mt-2.5 flex items-center gap-1">
+              {steps.map((state, index) => (
+                <Fragment key={index}>
+                  <span
+                    className={cn(
+                      "grid h-4 w-4 shrink-0 place-items-center rounded-full text-[7px] font-black",
+                      state === "done" && "bg-[var(--sample-accent-2)] text-white",
+                      state === "active" && "bg-white text-[var(--sample-primary)] ring-2 ring-[var(--sample-primary)]",
+                      state === "todo" && "bg-[var(--sample-base)] text-[var(--sample-muted)] ring-1 ring-[var(--sample-border-soft)]",
+                    )}
+                  >
+                    {state === "done" ? "✓" : index + 1}
+                  </span>
+                  {index < steps.length - 1 && (
+                    <span className={cn("h-[3px] flex-1 rounded-full", index < 2 ? "bg-[var(--sample-accent-2)]" : "bg-[var(--sample-border-soft)]")} />
+                  )}
+                </Fragment>
+              ))}
             </div>
-            <div className="grid grid-cols-2 gap-3">
-              {tasks.map(([label, color]) => (
-                <div className="rounded-[24px] border border-[var(--sample-border-soft)] p-4 shadow-[0_10px_22px_rgb(var(--st-text-rgb)_/_0.07)]" key={label} style={{ backgroundColor: color }}>
-                  <span className="block h-8 w-8 rounded-full bg-[rgb(var(--st-surface-rgb)_/_0.62)]" />
-                  <span className="mt-5 block text-[10px] font-black uppercase tracking-[0.12em]">{label}</span>
+          </div>
+
+          {/* ── gentle task cards / task completion stack ── */}
+          <section aria-label="gentle task cards" className="flex min-h-0 min-w-0 flex-col gap-1.5">
+            <div className="flex items-center justify-between">
+              <span className="text-[8px] font-black lowercase tracking-[0.06em] text-[var(--sample-text)]">today&apos;s gentle steps</span>
+              <span className="rounded-full bg-[var(--sample-accent)] px-1.5 py-0.5 text-[7px] font-black lowercase text-white">2 / 4 done</span>
+            </div>
+            <div aria-label="task completion stack" className="flex min-h-0 flex-1 flex-col justify-between gap-1.5">
+              {tasks.map(({ label, note, state }) => (
+                <div className={cn("flex items-center gap-2 rounded-[13px] bg-white px-2 py-1.5", state === "active" && "ring-1 ring-[var(--sample-primary)]")} style={cardShadow} key={label}>
+                  <span
+                    className={cn(
+                      "grid h-5 w-5 shrink-0 place-items-center rounded-full text-[9px] font-black",
+                      state === "done" && "bg-[var(--sample-accent-2)] text-white",
+                      state === "active" && "bg-[var(--sample-primary)] text-white",
+                      state === "todo" && "bg-[var(--sample-base)] text-[var(--sample-muted)]",
+                    )}
+                  >
+                    {state === "done" ? "✓" : state === "active" ? "▶" : "○"}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className={cn("block truncate text-[8.5px] font-black lowercase", state === "done" ? "text-[var(--sample-muted)] line-through" : "text-[var(--sample-text)]")}>{label}</span>
+                    <span className="block truncate text-[6.5px] font-bold lowercase text-[var(--sample-muted)]">{note}</span>
+                  </span>
+                  <span
+                    className={cn(
+                      "shrink-0 rounded-full px-1.5 py-0.5 text-[6.5px] font-black lowercase",
+                      state === "done" && "bg-[var(--sample-base)] text-[var(--sample-muted)]",
+                      state === "active" && "bg-[var(--sample-primary)] text-white",
+                      state === "todo" && "bg-[var(--sample-base)] text-[var(--sample-muted)]",
+                    )}
+                  >
+                    {state === "done" ? "done" : state === "active" ? "resume" : "+15 xp"}
+                  </span>
                 </div>
               ))}
             </div>
           </section>
-        </div>
-        <div className="grid grid-cols-[1fr_auto] items-center gap-3">
-          <div className="h-3 overflow-hidden rounded-full bg-[var(--sample-surface)]">
-            <span className="block h-full w-[76%] rounded-full bg-[linear-gradient(90deg,var(--sample-accent),var(--sample-accent-2),var(--sample-accent-3))]" />
+
+          {/* ── continue CTA / soft progress path ── */}
+          <div className={cn("items-center gap-2", compact ? "hidden" : "flex")}>
+            <span className="text-[7px] font-bold lowercase text-[var(--sample-muted)]">soft progress path · no streak pressure</span>
+            <span className="ml-auto flex items-center gap-1 rounded-full bg-[var(--sample-primary)] px-3 py-1.5 text-[8px] font-black lowercase text-white shadow-[0_6px_14px_-6px_rgba(255,138,92,0.7)]">
+              continue <IconArrow size={9} />
+            </span>
           </div>
-          <span className="text-[9px] font-black uppercase tracking-[0.12em]">task completion stack / soft progress path</span>
         </div>
       </div>
     </SampleFrame>
