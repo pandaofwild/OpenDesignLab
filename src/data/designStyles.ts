@@ -1037,6 +1037,17 @@ const palettes: Record<string, DesignStylePalette> = {
     accent3: "#FFCE1F",
     border: "#141414",
   },
+  "hiphop-style": {
+    base: "#0D0B08",
+    surface: "#1C1712",
+    text: "#F3EAD8",
+    mutedText: "#A2937A",
+    primary: "#E9B93A",
+    accent: "#E4322B",
+    accent2: "#2F6BFF",
+    accent3: "#F2C94C",
+    border: "#2A2118",
+  },
   streetwear: {
     base: "#EDE9DC",
     surface: "#F8F3E5",
@@ -2913,6 +2924,13 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     space: { density: "normal", gap: "0.7rem", padScale: 0.95 },
     decoration: { shadow: "0 16px 34px rgb(0 0 0 / 0.5)", effect: "grain" },
     layout: { heroVariant: "split", navStyle: "underline", alignment: "left" },
+  },
+  "hiphop-style": {
+    typography: { displayFont: '"Bricolage Grotesque", sans-serif', bodyFont: '"Hanken Grotesk", sans-serif', weightDisplay: 800, weightBody: 500, tracking: "-0.03em", headingScale: 1.3 },
+    shape: { radius: "2px", radiusPill: "2px", borderWidth: "2px", borderStyle: "solid" },
+    space: { density: "normal", gap: "0.7rem", padScale: 1 },
+    decoration: { shadow: "0 18px 40px rgb(0 0 0 / 0.55)", effect: "grain" },
+    layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
   },
   deconstructivism: {
     typography: { weightDisplay: 900, weightBody: 500, tracking: "0em", headingScale: 1.18 },

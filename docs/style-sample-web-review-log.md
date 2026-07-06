@@ -96,7 +96,7 @@
 | 62 | 귀여움 / 캐주얼 | bubble-design | kawaii-app | queued | inflated shapes, bubble volume, soft rounded depth |
 | 63 | 스트리트 / 서브컬처 | streetwear | street-campaign | queued | drop commerce, label blocks, product wall |
 | 64 | 스트리트 / 서브컬처 | graffiti | street-campaign | queued | wall mark energy, spray layers, urban authorship |
-| 65 | 스트리트 / 서브컬처 | hiphop-style | street-campaign | queued | music culture, rhythm, poster/album commerce |
+| 65 | 스트리트 / 서브컬처 | hiphop-style | street-campaign | verified | Black & Gold Album Studio 리디자인: 전용 팔레트+토큰, 스튜디오 히어로 이미지, 5 trait 전부. full/compact QA·lint·street-subculture 마커 통과 |
 | 66 | 스트리트 / 서브컬처 | skate-culture | street-campaign | queued | deck catalog, spot map, sticker scrape |
 | 67 | 스트리트 / 서브컬처 | punk | street-campaign | queued | zine aggression, torn paper, anti-authority UI |
 | 68 | 스트리트 / 서브컬처 | grunge | street-campaign | queued | distressed texture, muted dirt, rough band archive |

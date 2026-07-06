@@ -89,7 +89,7 @@ const requiredSites = {
 const sampleFunctions = {
   streetwear: "StreetwearDropEditorial",
   graffiti: "GraffitiWallArchive",
-  "hiphop-style": "HipHopMixtapeConsole",
+  "hiphop-style": "HipHopAlbumStudio",
   "skate-culture": "SkateCultureSpotBoard",
   punk: "PunkZineDispatch",
   grunge: "GrungeTapeArchive",
@@ -114,11 +114,11 @@ const requiredSampleMarkers = {
     "graffiti wall scanner",
   ],
   "hiphop-style": [
-    "TRACKLIST INDEX",
-    "beat grid mixer",
-    "artist card stack",
-    "lyric annotation rail",
-    "release waveform",
+    "Tracklist index",
+    "Beat grid mixer",
+    "Artist card stack",
+    "Lyric annotation rail",
+    "Release waveform",
   ],
   "skate-culture": [
     "SPOT CHECKLIST",

@@ -174,6 +174,7 @@ const GENERATED_STYLE_IMAGES = {
   graffiti: "/generated/design-styles/graffiti.webp",
   grunge: "/generated/design-styles/grunge.webp",
   handmade: "/generated/design-styles/handmade.webp",
+  "hiphop-style": "/generated/design-styles/hiphop-style.webp",
   "high-end-minimal": "/generated/design-styles/high-end-minimal.webp",
   japandi: "/generated/design-styles/japandi.webp",
   kawaii: "/generated/design-styles/kawaii.webp",
@@ -6124,122 +6125,169 @@ function GraffitiWallArchive({ compact = false, style }: Props) {
   );
 }
 
-function HipHopMixtapeConsole({ compact = false, style }: Props) {
+function HipHopAlbumStudio({ compact = false, style }: Props) {
   const tracks = [
     ["01", "Intro heat", "2:14"],
     ["02", "City verse", "3:08"],
     ["03", "Low end", "2:57"],
     ["04", "Outro cuts", "1:46"],
   ] as const;
+  const bars = [52, 78, 34, 90, 46, 68, 28, 82, 40, 72, 30, 88, 44, 64, 36] as const;
   const pads = [
+    style.palette.primary,
     style.palette.accent,
+    style.palette.accent3,
     style.palette.accent2,
     style.palette.accent3,
     style.palette.primary,
-    style.palette.surface,
-    style.palette.base,
   ];
-  const bars = [58, 24, 82, 43, 68, 31, 76, 49, 91, 35, 64, 52] as const;
+  const goldFoil: CSSProperties = {
+    backgroundImage: "linear-gradient(172deg, var(--sample-accent-3) 0%, var(--sample-primary) 46%, #9a7216 100%)",
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent",
+    filter: "drop-shadow(0 2px 1px rgb(0 0 0 / 0.6))",
+  };
 
   return (
-    <SampleFrame compact={compact} style={style}>
+    <SampleFrame className="hiphop-sample" compact={compact} style={style}>
+      <div aria-hidden="true" className="absolute inset-0">
+        <GeneratedStyleImageSurface className="h-full w-full" overlay="dark" position="center" slug="hiphop-style" />
+      </div>
       <div
+        aria-hidden="true"
         className="absolute inset-0"
-        style={{
-          backgroundImage:
-            "linear-gradient(90deg, rgb(var(--st-text-rgb) / 0.9), rgb(var(--st-text-rgb) / 0.42)), url('/generated/design-styles/hiphop-mixtape-console.webp')",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
+        style={{ backgroundImage: "linear-gradient(180deg, rgb(0 0 0 / 0.5), rgb(0 0 0 / 0.14) 46%, rgb(0 0 0 / 0.72))" }}
       />
-      <div className="absolute inset-0 opacity-35" style={{ backgroundImage: "repeating-linear-gradient(90deg, transparent 0 19px, rgb(var(--st-surface-rgb) / 0.14) 19px 20px)" }} />
-      <div className="relative grid h-full min-w-0 grid-rows-[auto_1fr_auto] gap-3 text-[var(--sample-base)]">
-        <SampleNav
-          brand="Verse Radio"
-          bordered={false}
-          compact={compact}
-          icons={[<IconSearch key="search" size={compact ? 11 : 13} />]}
-          links={["Tracks", "Videos", "Lyrics"]}
-          sub="release waveform"
-        />
-        <div className={cn("grid min-h-0 min-w-0 gap-3", compact ? "grid-cols-[1fr_0.94fr]" : "grid-rows-[1.02fr_0.98fr] sm:grid-cols-[1.04fr_0.96fr] sm:grid-rows-none")}>
-          <section className="relative min-h-0 min-w-0 overflow-hidden border-[3px] border-[var(--sample-base)] bg-[rgb(var(--st-text-rgb)_/_0.68)] p-3 shadow-[5px_5px_0_var(--sample-accent)]">
-            <div className="absolute right-3 top-3 border-2 border-[var(--sample-base)] bg-[var(--sample-accent-3)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">
-              live 88
-            </div>
-            <div className="flex h-full min-h-0 flex-col justify-between">
-              <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--sample-accent-3)]">TRACKLIST INDEX</p>
-                <h3
-                  className={cn("mt-3 whitespace-nowrap font-display font-black uppercase leading-[0.72] text-[var(--sample-base)]", compact ? "text-[2.6rem]" : "text-[4rem] sm:text-[6rem]")}
-                  style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.06em", textShadow: "4px 4px 0 var(--sample-accent), 8px 8px 0 var(--sample-text)" }}
-                >
-                  BARS
-                </h3>
-                <div className="mt-3 flex items-end gap-1 border-2 border-[var(--sample-base)] bg-[rgb(var(--st-text-rgb)_/_0.72)] p-2">
-                  {bars.map((height, index) => (
-                    <span className="flex-1 bg-[var(--sample-accent-3)]" key={`${height}-${index}`} style={{ height: `${Math.max(10, Math.round(height / 2))}px` }} />
-                  ))}
-                </div>
-                <p className="mt-1 text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-base)]">release waveform</p>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 opacity-25"
+        style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent 0 3px, rgb(var(--st-base-rgb) / 0.55) 3px 4px)" }}
+      />
+      <div className="relative grid h-full min-w-0 grid-rows-[auto_1fr_auto] gap-2.5 text-[var(--sample-text)]">
+        <div className="flex items-center justify-between gap-2 border-b border-[rgb(var(--st-accent-3-rgb)/0.4)] pb-2">
+          <div className="flex min-w-0 items-baseline gap-2">
+            <span
+              className="font-display font-black uppercase tracking-[0.12em]"
+              style={{ fontFamily: "var(--st-font-display)", color: "var(--sample-primary)", fontSize: compact ? "13px" : "17px" }}
+            >
+              VERSE
+            </span>
+            <span className="hidden text-[8px] font-black uppercase tracking-[0.18em] text-[var(--sample-muted)] sm:inline">records</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="grid place-items-center border-2 border-white bg-black px-1.5 py-0.5 text-center text-[6px] font-black uppercase leading-[1.05] tracking-[0.02em] text-white">
+              <span>Parental Advisory</span>
+              <span className="text-[5px] tracking-[0.12em] text-[var(--sample-muted)]">Explicit Content</span>
+            </span>
+            <span className="text-[var(--sample-primary)]" aria-hidden="true">
+              <IconSearch size={compact ? 12 : 14} />
+            </span>
+          </div>
+        </div>
+
+        <div className={cn("grid min-h-0 min-w-0 gap-2.5", compact ? "grid-cols-[1.1fr_0.9fr]" : "sm:grid-cols-[1.05fr_0.95fr]")}>
+          <section className="relative grid min-h-0 min-w-0 grid-rows-[auto_auto_1fr] gap-2 overflow-hidden border border-[rgb(var(--st-accent-3-rgb)/0.5)] bg-[rgb(var(--st-base-rgb)/0.68)] p-3">
+            <span className="w-fit bg-[var(--sample-primary)] px-2 py-0.5 text-[7px] font-black uppercase tracking-[0.16em] text-[var(--sample-base)]">New Album</span>
+            <h3
+              className={cn("font-display font-black uppercase leading-[0.82]", compact ? "text-[1.9rem]" : "text-[2.6rem] sm:text-[3.4rem]")}
+              style={{ ...goldFoil, fontFamily: "var(--st-font-display)", letterSpacing: "-0.03em" }}
+            >
+              The Come
+              <br />
+              Up
+            </h3>
+            <div className="relative min-h-0 min-w-0 overflow-hidden border border-[rgb(var(--st-accent-3-rgb)/0.4)]">
+              <div aria-hidden="true" className="absolute inset-0">
+                <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position="58% 42%" slug="hiphop-style" />
               </div>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="border-2 border-[var(--sample-base)] bg-[var(--sample-accent)] p-2 text-[var(--sample-text)]">
-                  <p className="text-[8px] font-black uppercase tracking-[0.12em]">artist card stack</p>
-                  <div className="mt-2 grid grid-cols-3 gap-1">
-                    {[style.palette.accent2, style.palette.accent3, style.palette.base].map((color, index) => (
-                      <span className="h-8 border-2 border-[var(--sample-text)]" key={`${color}-${index}`} style={{ backgroundColor: color }} />
+              <div aria-hidden="true" className="absolute inset-0" style={{ backgroundImage: "linear-gradient(180deg, rgb(0 0 0 / 0.06), rgb(0 0 0 / 0.74))" }} />
+              <div className="absolute inset-x-2 bottom-2 flex items-center gap-2">
+                <div
+                  aria-hidden="true"
+                  className="h-11 w-11 shrink-0 rounded-full border border-[rgb(var(--st-accent-3-rgb)/0.7)]"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle at 50% 50%, var(--sample-primary) 0 15%, #0a0a0a 15% 18%, transparent 18%), repeating-radial-gradient(circle at 50% 50%, #17110a 0 2px, #241a10 2px 4px)",
+                  }}
+                />
+                <div className="min-w-0 flex-1">
+                  <div aria-hidden="true" className="flex items-end gap-[3px]">
+                    {bars.map((height, index) => (
+                      <span
+                        className="flex-1"
+                        key={`${height}-${index}`}
+                        style={{ height: `${Math.max(5, Math.round(height / 4))}px`, backgroundColor: index % 4 === 0 ? "var(--sample-accent)" : "var(--sample-primary)" }}
+                      />
                     ))}
                   </div>
-                </div>
-                <div className="border-2 border-[var(--sample-base)] bg-[rgb(var(--st-surface-rgb)_/_0.88)] p-2 text-[var(--sample-text)]">
-                  <p className="text-[8px] font-black uppercase tracking-[0.12em]">lyric annotation rail</p>
-                  <span className="mt-2 block h-2 w-[88%] bg-[var(--sample-accent-3)]" />
-                  <span className="mt-1 block h-2 w-[58%] bg-[var(--sample-text)]" />
+                  <p className="mt-1 text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-text)]">Release waveform</p>
                 </div>
               </div>
             </div>
           </section>
 
-          <section className="grid min-h-0 min-w-0 grid-rows-[0.9fr_1.1fr] gap-3">
-            <div className="grid min-h-0 min-w-0 grid-cols-[1fr_0.76fr] gap-3">
-              <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-base)] bg-[rgb(var(--st-surface-rgb)_/_0.92)] p-2 text-[var(--sample-text)]">
-                <div className="mb-2 flex items-center justify-between gap-2">
-                  <p className="text-[8px] font-black uppercase tracking-[0.12em]">tracklist index</p>
-                  <span className="bg-[var(--sample-text)] px-2 py-1 text-[7px] font-black uppercase text-[var(--sample-base)]">side a</span>
-                </div>
-                <div className="grid gap-1">
-                  {tracks.map(([num, title, time], index) => (
-                    <span className={cn("grid grid-cols-[auto_1fr_auto] gap-2 border-2 border-[var(--sample-text)] px-1.5 py-1 text-[8px] font-black uppercase", index === 1 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-base)]")} key={title}>
-                      <span>{num}</span>
-                      <span className="min-w-0 truncate">{title}</span>
-                      <span>{time}</span>
-                    </span>
-                  ))}
-                </div>
+          <section className="grid min-h-0 min-w-0 grid-rows-[auto_1fr] gap-2.5">
+            <div className="min-w-0 border border-[rgb(var(--st-accent-3-rgb)/0.4)] bg-[rgb(var(--st-surface-rgb)/0.82)] p-2">
+              <div className="mb-1.5 flex items-center justify-between gap-2">
+                <p className="text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-primary)]">Tracklist index</p>
+                <span className="bg-[var(--sample-primary)] px-1.5 py-0.5 text-[7px] font-black uppercase text-[var(--sample-base)]">Side A</span>
               </div>
-              <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-base)] bg-[var(--sample-text)] p-2">
-                <p className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent-3)]">beat grid mixer</p>
-                <div className="mt-2 grid h-[calc(100%-1.35rem)] min-h-0 grid-cols-3 gap-1.5">
-                  {pads.map((color, index) => (
-                    <span className="border-2 border-[var(--sample-base)]" key={`${color}-${index}`} style={{ backgroundColor: color }} />
-                  ))}
-                </div>
+              <div className="grid gap-1">
+                {tracks.map(([num, title, time], index) => (
+                  <span
+                    className={cn(
+                      "grid grid-cols-[auto_1fr_auto] items-center gap-2 border px-1.5 py-1 text-[8px] font-black uppercase",
+                      index === 1
+                        ? "border-transparent bg-[var(--sample-primary)] text-[var(--sample-base)]"
+                        : "border-[rgb(var(--st-accent-3-rgb)/0.25)] text-[var(--sample-text)]",
+                    )}
+                    key={title}
+                  >
+                    <span>{num}</span>
+                    <span className="min-w-0 truncate">{title}</span>
+                    <span className="tabular-nums">{time}</span>
+                  </span>
+                ))}
               </div>
             </div>
-
-            <div className="grid min-h-0 min-w-0 grid-cols-[0.86fr_1.14fr] gap-3">
-              <div className="relative min-h-0 min-w-0 overflow-hidden border-[3px] border-[var(--sample-base)] bg-[var(--sample-accent-2)] p-2 text-[var(--sample-base)]">
-                <p className="relative z-10 text-[8px] font-black uppercase tracking-[0.12em]">artist card stack</p>
-                <div className="absolute bottom-3 left-3 h-14 w-14 rounded-full border-[3px] border-[var(--sample-base)] bg-[var(--sample-text)]" />
-                <div className="absolute bottom-6 right-4 h-20 w-12 border-[3px] border-[var(--sample-base)] bg-[var(--sample-accent)]" />
-                <span className="absolute left-3 top-9 bg-[var(--sample-base)] px-2 py-1 text-[7px] font-black uppercase text-[var(--sample-text)]">artist 24</span>
+            <div className={cn("grid min-h-0 min-w-0 gap-2.5", compact ? "hidden" : "grid-cols-[0.92fr_1.08fr]")}>
+              <div className="grid min-h-0 min-w-0 grid-rows-[auto_auto] gap-2.5">
+                <div className="min-w-0 border border-[rgb(var(--st-accent-3-rgb)/0.4)] bg-[rgb(var(--st-base-rgb)/0.7)] p-2">
+                  <p className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-primary)]">Beat grid mixer</p>
+                  <div className="mt-1.5 grid grid-cols-3 gap-1.5">
+                    {pads.map((color, index) => (
+                      <span className="aspect-square border border-[rgb(var(--st-base-rgb)/0.8)]" key={`${color}-${index}`} style={{ backgroundColor: color }} />
+                    ))}
+                  </div>
+                </div>
+                <div className="min-w-0 border border-[rgb(var(--st-accent-3-rgb)/0.4)] bg-[rgb(var(--st-surface-rgb)/0.82)] p-2">
+                  <p className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-primary)]">Artist card stack</p>
+                  <div className="mt-1.5 flex items-center gap-1.5">
+                    {["24", "MC", "DJ"].map((tag, index) => (
+                      <span
+                        className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-[rgb(var(--st-accent-3-rgb)/0.6)] text-[8px] font-black"
+                        key={tag}
+                        style={{ backgroundColor: index === 0 ? "var(--sample-accent)" : "rgb(var(--st-base-rgb) / 0.7)", color: index === 0 ? "var(--sample-text)" : "var(--sample-primary)" }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                    <span className="min-w-0 flex-1 truncate text-[7px] font-black uppercase tracking-[0.1em] text-[var(--sample-muted)]">feat. roster</span>
+                  </div>
+                </div>
               </div>
-              <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-base)] bg-[rgb(var(--st-text-rgb)_/_0.72)] p-2">
-                <p className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent-3)]">lyric annotation rail</p>
-                <div className="mt-2 grid gap-1.5">
+              <div className="min-w-0 border border-[rgb(var(--st-accent-3-rgb)/0.4)] bg-[rgb(var(--st-surface-rgb)/0.82)] p-2">
+                <p className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-primary)]">Lyric annotation rail</p>
+                <div className="mt-1.5 grid gap-1">
                   {["bar highlight", "context card", "reader note"].map((label, index) => (
-                    <span className={cn("grid grid-cols-[auto_1fr] items-center gap-2 border-2 border-[var(--sample-base)] px-2 py-1 text-[8px] font-black uppercase", index === 0 ? "bg-[var(--sample-accent-3)] text-[var(--sample-text)]" : "bg-[rgb(var(--st-surface-rgb)_/_0.92)] text-[var(--sample-text)]")} key={label}>
+                    <span
+                      className={cn(
+                        "grid grid-cols-[auto_1fr] items-center gap-2 px-1.5 py-1 text-[8px] font-black uppercase",
+                        index === 0 ? "bg-[var(--sample-accent-3)] text-[var(--sample-base)]" : "bg-[rgb(var(--st-base-rgb)/0.55)] text-[var(--sample-text)]",
+                      )}
+                      key={label}
+                    >
                       <span>{index + 1}</span>
                       <span className="min-w-0 truncate">{label}</span>
                     </span>
@@ -6249,9 +6297,16 @@ function HipHopMixtapeConsole({ compact = false, style }: Props) {
             </div>
           </section>
         </div>
-        <div className="grid grid-cols-4 gap-2 text-[8px] font-black uppercase tracking-[0.1em] text-[var(--sample-base)]">
-          {["tracklist", "beat grid", "artist cards", "lyric rail"].map((label) => (
-            <span className="min-w-0 truncate border-2 border-[var(--sample-base)] bg-[rgb(var(--st-text-rgb)_/_0.72)] px-2 py-2 text-center" key={label}>{label}</span>
+
+        <div className="grid grid-cols-3 gap-2 text-[8px] font-black uppercase tracking-[0.1em]">
+          {[["Merch", "$38"], ["Tour", "24 dates"], ["Stream", "now"]].map(([label, value]) => (
+            <span
+              className="grid min-w-0 grid-cols-[1fr_auto] items-center gap-1 border border-[rgb(var(--st-accent-3-rgb)/0.4)] bg-[rgb(var(--st-base-rgb)/0.6)] px-2 py-1.5"
+              key={label}
+            >
+              <span className="truncate text-[var(--sample-muted)]">{label}</span>
+              <span className="text-[var(--sample-primary)]">{value}</span>
+            </span>
           ))}
         </div>
       </div>
@@ -7495,7 +7550,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "hiphop-style") {
-    return <HipHopMixtapeConsole {...props} />;
+    return <HipHopAlbumStudio {...props} />;
   }
 
   if (style.slug === "skate-culture") {
