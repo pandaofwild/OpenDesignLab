@@ -97,7 +97,7 @@
 | 63 | 스트리트 / 서브컬처 | streetwear | street-campaign | queued | drop commerce, label blocks, product wall |
 | 64 | 스트리트 / 서브컬처 | graffiti | street-campaign | verified | WALLDEX 스트리트아트 문서화 UI. 캐노니컬 5 trait 라벨(Graffiti wall scanner/Wall tag index/Spray color rack/Mural route map/Crew tag archive) 반영, check 마커 통과. full/compact QA·lint 통과 |
 | 65 | 스트리트 / 서브컬처 | hiphop-style | street-campaign | verified | Black & Gold Album Studio 리디자인: 전용 팔레트+토큰, 스튜디오 히어로 이미지, 5 trait 전부. full/compact QA·lint·street-subculture 마커 통과 |
-| 66 | 스트리트 / 서브컬처 | skate-culture | street-campaign | queued | deck catalog, spot map, sticker scrape |
+| 66 | 스트리트 / 서브컬처 | skate-culture | street-campaign | verified | 스팟 클립 플레이어 페이지 재설계(Berrics/Thrasher식): 실제 미디어-UI 컴포넌트 — 트랜스포트 컨트롤+스크러버 비디오 플레이어, 트릭 챕터 라인, 관련 클립 레일(실사 썸네일), SPOT CHECKLIST·덱 셋업·스티커 슬랩 사이드바. 콘크리트 그레이 톤+미디어-플레이어 골격으로 앞뒤 hiphop-style(다크 앨범 스틸)·punk(본페이퍼 신문)와 구조·톤 차별화. 페이키 스팟 히어로(codex image gen), 5 trait 마커 유지, full/compact QA(overflow 0)·lint·check 통과 |
 | 67 | 스트리트 / 서브컬처 | punk | street-campaign | verified | 제록스 팬진 1면 재설계: 전용 종이 팔레트(잉크/블러드레드/애시드라임)+토큰 오버라이드, 랜섬노트 헤드라인, 배틀재킷 하프톤 히어로(codex image gen), 실제 멀티컬럼 신문 골격(리드/레코드리뷰/공연·패치·메일오더 사이드바). 앞뒤 skate(모듈그리드)·grunge(이미지분할)와 구조 차별화. 5 trait 마커 유지, full/compact QA(overflow 0)·lint·check 통과 |
 | 68 | 스트리트 / 서브컬처 | grunge | street-campaign | queued | distressed texture, muted dirt, rough band archive |
 | 69 | 스트리트 / 서브컬처 | indie-sleaze | street-campaign | verified | 실제 플래시 파티 사진 히어로(codex image gen) 추가: 중앙 FLASH FEED·디스포저블 카메라 그리드·미러 플래시 스택을 실제 사진 크롭으로 교체. 네온 팔레트·5 trait·구조 마커 유지, full/compact QA·lint·check 통과 |

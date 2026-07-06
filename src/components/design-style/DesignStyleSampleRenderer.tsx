@@ -192,6 +192,7 @@ const GENERATED_STYLE_IMAGES = {
   "rave-style": "/generated/design-styles/rave-style.webp",
   rococo: "/generated/design-styles/rococo.webp",
   scandinavian: "/generated/design-styles/scandinavian.webp",
+  "skate-culture": "/generated/design-styles/skate-culture.webp",
   "soft-minimal": "/generated/design-styles/soft-minimal.webp",
   "wabi-sabi": "/generated/design-styles/wabi-sabi.webp",
   "warm-minimal": "/generated/design-styles/warm-minimal.webp",
@@ -6318,145 +6319,248 @@ function HipHopAlbumStudio({ compact = false, style }: Props) {
 }
 
 function SkateCultureSpotBoard({ compact = false, style }: Props) {
-  const deckColors = [style.palette.accent, style.palette.accent2, style.palette.accent3, style.palette.primary];
-  const clips = ["roll in", "ledge", "kickflip", "manual"];
-  const checklist = [
-    ["curb wax", "ok"],
-    ["rail line", "dry"],
-    ["deck wall", "new"],
-    ["spot light", "4pm"],
-  ] as const;
-  const stickers = ["shop", "crew", "vx", "spot"];
+  // "Spot clip player": a real skate-video watch page (The Berrics / Thrasher
+  // clip page) built from genuine media-UI components — video player with
+  // transport controls + scrubber, trick chapter line, related-clip rail, and a
+  // spot-info sidebar. Concrete-grey tone and media-player skeleton keep it
+  // distinct from its neighbours hiphop-style (dark album still) and punk
+  // (bone-paper newsprint).
+  const chapters: Array<[string, string]> = [
+    ["0:00", "roll-in"],
+    ["0:14", "bs 50-50"],
+    ["0:41", "kickflip"],
+    ["1:12", "manual"],
+  ];
+  const upNext: Array<[string, string, string]> = [
+    ["ledger line", "0:48", "24k"],
+    ["rail bump", "1:12", "8.6k"],
+    ["gap ollie", "0:32", "51k"],
+    ["manny pad", "0:57", "12k"],
+  ];
+  const conditions: Array<[string, string, boolean]> = [
+    ["ledge waxed", "ready", true],
+    ["ground dry", "good", true],
+    ["security", "low", true],
+    ["best light", "4pm", false],
+    ["bust factor", "med", false],
+  ];
+  const setups: Array<[string, string, string]> = [
+    ["blank pro", "8.25", "linear-gradient(180deg, var(--sample-accent) 0 32%, #17171b 32% 68%, var(--sample-accent) 68%)"],
+    ["shop deck", "8.0", "linear-gradient(180deg, var(--sample-accent-2) 0 46%, #efe9dd 46%)"],
+    ["cruiser", "8.5", "linear-gradient(180deg, #2a2a30 0 52%, var(--sample-accent) 52%)"],
+    ["street", "8.38", "linear-gradient(180deg, #c39a46 0 40%, #17171b 40%)"],
+  ];
+  const stickers: Array<[string, Tone2]> = [
+    ["shop", "ink"], ["crew", "yellow"], ["vx1000", "paper"], ["spot", "red"], ["wax", "paper"], ["diy", "yellow"],
+    ["curb", "ink"], ["local", "red"], ["grip", "paper"], ["session", "yellow"], ["pool", "ink"], ["raw", "paper"],
+  ];
+  type Tone2 = "ink" | "yellow" | "paper" | "red";
+  const stickerTone: Record<Tone2, string> = {
+    ink: "bg-[#efe9dd] text-[#17171b] border-[#17171b]",
+    yellow: "bg-[var(--sample-accent)] text-[#17171b] border-[#17171b]",
+    paper: "bg-[#e9e5da] text-[#17171b] border-[#17171b]",
+    red: "bg-[var(--sample-accent-2)] text-[#efe9dd] border-[#17171b]",
+  };
+  const iconStroke = compact ? 9 : 10;
 
   return (
     <SampleFrame compact={compact} style={style}>
       <div
-        className="absolute inset-0 opacity-90"
+        className={cn("absolute inset-0 min-w-0 overflow-hidden bg-[var(--sample-base)] text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
         style={{
-          backgroundImage:
-            "radial-gradient(circle at 18% 62%, rgb(var(--st-surface-rgb) / 0.58) 0 0.5%, transparent 16%), radial-gradient(circle at 72% 28%, rgb(var(--st-text-rgb) / 0.2) 0 0.5%, transparent 18%), linear-gradient(128deg, var(--sample-surface) 0 48%, color-mix(in srgb, var(--sample-accent-2) 44%, var(--sample-base)) 48% 54%, var(--sample-base) 54% 100%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, rgb(var(--st-text-rgb) / 0.12) 0 1px, transparent 1px 17px), repeating-linear-gradient(90deg, transparent 0 31px, rgb(var(--st-text-rgb) / 0.1) 31px 32px)",
-        }}
-      />
-      <div className="absolute -left-16 bottom-4 h-36 w-64 rotate-[-16deg] rounded-[50%] border-[10px] border-[var(--sample-text)] opacity-35" />
-      <div className="relative grid h-full min-w-0 grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav
-          brand="Spot Ledger"
-          compact={compact}
-          icons={[<IconSearch key="search" size={compact ? 11 : 13} />]}
-          links={["Clips", "Decks", "Spots"]}
-          sub="clip sequence rail"
-        />
-        <div className={cn("grid min-h-0 min-w-0 gap-3", compact ? "grid-cols-[1fr_0.94fr]" : "grid-rows-[1fr_0.95fr] sm:grid-cols-[1.08fr_0.92fr] sm:grid-rows-none")}>
-          <section className="relative min-h-0 min-w-0 overflow-hidden border-[3px] border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.82)] p-3 shadow-[5px_5px_0_var(--sample-accent)]">
-            <span className="absolute -right-10 top-8 h-28 w-28 rounded-full border-[12px] border-[var(--sample-accent-3)] opacity-70" />
-            <span className="absolute bottom-5 left-5 h-2 w-[72%] rotate-[-12deg] bg-[var(--sample-accent)]" />
-            <div className="relative flex h-full min-h-0 flex-col justify-between">
-              <div className="flex items-start justify-between gap-2">
-                <span className="border-2 border-[var(--sample-border)] bg-[var(--sample-text)] px-2 py-1 text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-base)]">
-                  SPOT CHECKLIST
+          "--sample-accent": "#ffce17",
+          "--sample-accent-2": "#e63329",
+          "--sample-accent-3": "#2a2a30",
+          "--sample-base": "#d6d3ca",
+          "--sample-border": "#17171b",
+          "--sample-border-soft": "#17171b2e",
+          "--sample-muted": "#6a675e",
+          "--sample-primary": "#ffce17",
+          "--sample-surface": "#ecebe3",
+          "--sample-text": "#17171b",
+          "--st-base-rgb": "214 211 202",
+          "--st-surface-rgb": "236 235 227",
+          "--st-text-rgb": "23 23 27",
+          "--st-primary-rgb": "255 206 23",
+          "--st-accent-rgb": "255 206 23",
+          "--st-accent-2-rgb": "230 51 41",
+          "--st-accent-3-rgb": "42 42 48",
+          "--st-border-rgb": "23 23 27",
+        } as SampleVariables}
+      >
+        <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.1] mix-blend-multiply" style={{ backgroundImage: GRAIN_URI, backgroundSize: "118px 118px" }} />
+
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_1fr] gap-2.5">
+          {/* ── Site nav ── */}
+          <header className="flex items-center justify-between gap-2 border-b border-[var(--sample-border-soft)] pb-2">
+            <div className="flex min-w-0 items-center gap-2">
+              <span className="grid h-5 w-5 shrink-0 place-items-center bg-[var(--sample-text)] text-[10px] font-black text-[var(--sample-accent)]">S</span>
+              <span className="font-black uppercase tracking-[0.04em] text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "12px" : "15px" }}>Spot TV</span>
+              <nav className="ml-1 hidden items-center gap-3 text-[9px] font-black uppercase tracking-[0.08em] text-[var(--sample-muted)] sm:flex">
+                <span className="text-[var(--sample-text)]">Clips</span>
+                <span>Spots</span>
+                <span>Decks</span>
+              </nav>
+            </div>
+            <div className="flex items-center gap-2 text-[var(--sample-text)]">
+              <IconSearch size={compact ? 12 : 13} />
+              <span className="bg-[var(--sample-accent)] px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.06em] text-[var(--sample-text)]">post clip</span>
+            </div>
+          </header>
+
+          <div className={cn("grid min-h-0 min-w-0 gap-2.5", compact ? "grid-cols-1" : "sm:grid-cols-[1.6fr_0.92fr]")}>
+            {/* ── Main column: player + meta + clip rail ── */}
+            <div className="flex min-h-0 min-w-0 flex-col gap-2">
+              {/* video player */}
+              <div aria-label="spot clip player" className="relative min-h-0 flex-1 overflow-hidden rounded-[3px] border border-[var(--sample-border)] bg-[#17171b]">
+                <span aria-hidden="true" className="absolute inset-0">
+                  <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position="50% 56%" slug="skate-culture" />
                 </span>
-                <span className="border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-1 text-[8px] font-black uppercase text-[var(--sample-text)]">
-                  session 05
+                <span aria-hidden="true" className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgb(23 23 27 / 0.42) 0%, transparent 24%, transparent 52%, rgb(23 23 27 / 0.85) 100%)" }} />
+                <div className="absolute inset-x-2 top-2 flex items-start justify-between gap-2">
+                  <span className="flex items-center gap-1 bg-[rgb(23_23_27/0.62)] px-1.5 py-0.5 text-[8px] font-black uppercase tracking-[0.06em] text-[#efe9dd] backdrop-blur-[2px]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[var(--sample-accent-2)]" />
+                    spot · marble ledge
+                  </span>
+                  <span className="border border-[rgb(239_233_221/0.5)] bg-[rgb(23_23_27/0.5)] px-1.5 py-0.5 text-[7px] font-black uppercase tracking-[0.08em] text-[var(--sample-accent)]">fisheye · vx</span>
+                </div>
+                <span className="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-[rgb(239_233_221/0.85)] bg-[rgb(23_23_27/0.4)] backdrop-blur-[2px]">
+                  <span className="ml-0.5 h-0 w-0 border-y-[6px] border-y-transparent border-l-[10px] border-l-[#efe9dd]" />
                 </span>
-              </div>
-              <div>
-                <h3
-                  className={cn("whitespace-nowrap font-display font-black uppercase leading-[0.72] text-[var(--sample-text)]", compact ? "text-[2.35rem]" : "text-[3.9rem] sm:text-[5.8rem]")}
-                  style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.06em", textShadow: "4px 4px 0 var(--sample-accent-3), 7px 7px 0 var(--sample-accent)" }}
-                >
-                  SPOT
-                </h3>
-                <div className="mt-2 grid grid-cols-4 gap-1">
-                  {clips.map((clip, index) => (
-                    <span className={cn("border-2 border-[var(--sample-border)] px-1 py-1 text-center text-[7px] font-black uppercase", index === 2 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-base)]")} key={clip}>
-                      {clip}
-                    </span>
-                  ))}
+                {/* transport controls */}
+                <div className="absolute inset-x-0 bottom-0 flex items-center gap-1.5 px-2 py-1.5 text-[#efe9dd]">
+                  <span aria-hidden="true" className="h-0 w-0 shrink-0 border-y-[4px] border-y-transparent border-l-[7px] border-l-[#efe9dd]" />
+                  <span className="shrink-0 text-[7px] font-black tabular-nums">01:12</span>
+                  <div className="relative h-1 min-w-0 flex-1 rounded-full bg-[rgb(239_233_221/0.28)]">
+                    <span className="absolute inset-y-0 left-0 w-[62%] rounded-full bg-[rgb(239_233_221/0.4)]" />
+                    <span className="absolute inset-y-0 left-0 w-[46%] rounded-full bg-[var(--sample-accent)]" />
+                    <span className="absolute left-[46%] top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--sample-accent)] shadow-[0_0_0_2px_rgb(23_23_27/0.55)]" />
+                  </div>
+                  <span className="shrink-0 text-[7px] font-black tabular-nums text-[rgb(239_233_221/0.6)]">02:14</span>
+                  <span className="shrink-0"><GlyphIcon size={iconStroke}><path d="M4 9v6h4l5 4V5L8 9H4Z" /><path d="M16 8.5a4 4 0 0 1 0 7" /></GlyphIcon></span>
+                  <span className="shrink-0 border border-[rgb(239_233_221/0.5)] px-1 text-[7px] font-black uppercase leading-tight">hd</span>
+                  <span className="shrink-0"><GlyphIcon size={iconStroke}><path d="M4 9V4h5M20 15v5h-5M15 4h5v5M9 20H4v-5" /></GlyphIcon></span>
                 </div>
               </div>
-              <div className="grid grid-cols-[1fr_auto] items-end gap-2">
-                <div className="border-2 border-[var(--sample-border)] bg-[rgb(var(--st-base-rgb)_/_0.78)] p-2">
-                  <p className="text-[8px] font-black uppercase tracking-[0.12em]">trick line map</p>
-                  <div className="relative mt-2 h-12 border-2 border-[var(--sample-border)] bg-[var(--sample-surface)]">
-                    <span className="absolute left-3 top-7 h-[3px] w-[72%] rotate-[-14deg] bg-[var(--sample-text)]" />
-                    <span className="absolute left-[22%] top-3 h-4 w-4 rounded-full bg-[var(--sample-accent)]" />
-                    <span className="absolute left-[55%] top-5 h-4 w-4 rounded-full bg-[var(--sample-accent-3)]" />
-                    <span className="absolute right-4 top-2 h-4 w-4 rounded-full bg-[var(--sample-accent-2)]" />
+
+              {/* title + meta */}
+              <div className={cn("flex items-start justify-between gap-2", compact && "hidden")}>
+                <div className="min-w-0">
+                  <h3 className="truncate font-black uppercase leading-[1.05] text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "12px" : "15px", letterSpacing: "-0.01em" }}>Downtown Marble — Line of the Day</h3>
+                  <div className="mt-0.5 flex items-center gap-1.5 text-[8px] font-black uppercase tracking-[0.04em] text-[var(--sample-muted)]">
+                    <span className="grid h-4 w-4 shrink-0 place-items-center rounded-full bg-[var(--sample-text)] text-[6px] text-[var(--sample-accent)]">TS</span>
+                    <span className="truncate text-[var(--sample-text)]">@thrash_sesh</span>
+                    <span className="truncate">· 128k views · 2d</span>
                   </div>
                 </div>
-                <span className="grid h-12 w-12 place-items-center rounded-full border-[3px] border-[var(--sample-border)] bg-[var(--sample-text)] text-[8px] font-black uppercase text-[var(--sample-base)]">
-                  fisheye
+                <span className="flex shrink-0 items-center gap-1 border border-[var(--sample-border-soft)] px-1.5 py-1 text-[8px] font-black uppercase text-[var(--sample-text)]">
+                  <GlyphIcon size={iconStroke}><path d="M12 20C7 16 4 13 4 9.5A3.5 3.5 0 0 1 10 7a3.5 3.5 0 0 1 6 2.5C16 13 13 16 12 20Z" /></GlyphIcon>
+                  4.2k
                 </span>
               </div>
-            </div>
-          </section>
 
-          <section className="grid min-h-0 min-w-0 grid-rows-[0.92fr_1.08fr] gap-3">
-            <div className="grid min-h-0 min-w-0 grid-cols-[1fr_0.78fr] gap-3">
-              <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-border)] bg-[var(--sample-base)] p-2">
-                <div className="mb-2 flex items-center justify-between gap-2">
-                  <p className="text-[8px] font-black uppercase tracking-[0.12em]">deck wall grid</p>
-                  <span className="bg-[var(--sample-text)] px-2 py-1 text-[7px] font-black uppercase text-[var(--sample-base)]">8.25</span>
+              {/* trick chapter line */}
+              <div aria-label="trick line map" className={cn("rounded-[3px] border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)/0.65)] px-2 py-1.5", compact && "hidden")}>
+                <div className="mb-1.5 flex items-center justify-between">
+                  <span className="text-[7px] font-black uppercase tracking-[0.12em] text-[var(--sample-muted)]">trick line map</span>
+                  <span className="text-[7px] font-black uppercase text-[var(--sample-accent-2)]">4 tricks · 2:14</span>
                 </div>
-                <div className="grid h-[calc(100%-1.35rem)] min-h-0 grid-cols-4 gap-1.5">
-                  {deckColors.map((color, index) => (
-                    <span className="relative overflow-hidden rounded-[999px] border-2 border-[var(--sample-border)]" key={`${color}-${index}`} style={{ backgroundColor: color }}>
-                      <span className="absolute inset-x-1 top-2 h-1 rounded-full bg-[var(--sample-base)] opacity-75" />
-                      <span className="absolute inset-x-1 bottom-2 h-1 rounded-full bg-[var(--sample-text)] opacity-65" />
+                <div className="relative">
+                  <span aria-hidden="true" className="absolute left-1 right-1 top-[5px] h-[2px] bg-[rgb(23_23_27/0.18)]" />
+                  <span aria-hidden="true" className="absolute left-1 top-[5px] h-[2px] w-[46%] bg-[var(--sample-accent)]" />
+                  <div className="relative flex justify-between">
+                    {chapters.map(([time, name], index) => (
+                      <span className="flex flex-col items-center gap-0.5" key={name}>
+                        <span className={cn("h-2.5 w-2.5 rounded-full border-2 border-[var(--sample-text)]", index <= 1 ? "bg-[var(--sample-accent)]" : "bg-[var(--sample-base)]")} />
+                        <span className="text-[7px] font-black uppercase leading-none text-[var(--sample-text)]">{name}</span>
+                        <span className="text-[6px] font-bold tabular-nums text-[var(--sample-muted)]">{time}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* related clips */}
+              <div aria-label="clip sequence rail">
+                <div className="mb-1 flex items-center justify-between">
+                  <span className="text-[8px] font-black uppercase tracking-[0.1em] text-[var(--sample-text)]">up next</span>
+                  <span className="text-[7px] font-black uppercase tracking-[0.08em] text-[var(--sample-muted)]">clip sequence rail</span>
+                </div>
+                <div className="grid grid-cols-4 gap-1.5">
+                  {upNext.map(([title, dur, views], index) => (
+                    <div className="min-w-0" key={title}>
+                      <div className="relative aspect-video overflow-hidden rounded-[2px] border border-[var(--sample-border-soft)]">
+                        <span aria-hidden="true" className="absolute inset-0">
+                          <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position={`${(index * 29) % 100}% ${(index * 43) % 100}%`} slug="skate-culture" style={{ backgroundSize: "195%", filter: "contrast(1.05)" }} />
+                        </span>
+                        {index === 0 && <span className="absolute left-0.5 top-0.5 bg-[var(--sample-accent)] px-1 text-[6px] font-black uppercase text-[var(--sample-text)]">next</span>}
+                        <span className="absolute bottom-0.5 right-0.5 bg-[rgb(23_23_27/0.82)] px-1 text-[6px] font-black tabular-nums text-[#efe9dd]">{dur}</span>
+                      </div>
+                      <p className="mt-0.5 truncate text-[7px] font-black uppercase text-[var(--sample-text)]">{title}</p>
+                      <p className="truncate text-[6px] font-bold uppercase tracking-[0.04em] text-[var(--sample-muted)]">{views} views</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* ── Sidebar: spot info, setups, stickers ── */}
+            <div className={cn("flex min-h-0 min-w-0 flex-col gap-2.5", compact && "hidden")}>
+              <div aria-label="SPOT CHECKLIST" className="rounded-[3px] border border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)/0.7)] p-2">
+                <div className="mb-1.5 flex items-center justify-between gap-2">
+                  <span className="bg-[var(--sample-text)] px-1.5 py-0.5 text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-base)]">SPOT CHECKLIST</span>
+                  <span className="text-[7px] font-black uppercase text-[var(--sample-accent-2)]">diy spot</span>
+                </div>
+                <div className="grid gap-1">
+                  {conditions.map(([label, value, ok]) => (
+                    <span className="grid grid-cols-[auto_1fr_auto] items-center gap-2 border-b border-[var(--sample-border-soft)] pb-1 text-[8px] font-black uppercase" key={label}>
+                      <span className={cn("grid h-3.5 w-3.5 place-items-center rounded-[2px] border", ok ? "border-[var(--sample-text)] bg-[var(--sample-accent)] text-[var(--sample-text)]" : "border-[var(--sample-border-soft)] text-[var(--sample-muted)]")}>
+                        {ok ? <GlyphIcon size={9}><path d="M4 12l5 5L20 6" /></GlyphIcon> : <span className="h-1.5 w-1.5 rounded-full bg-current" />}
+                      </span>
+                      <span className="min-w-0 truncate text-[var(--sample-text)]">{label}</span>
+                      <span className={cn("tabular-nums", ok ? "text-[var(--sample-text)]" : "text-[var(--sample-muted)]")}>{value}</span>
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-border)] bg-[var(--sample-text)] p-2 text-[var(--sample-base)]">
-                <p className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent-3)]">sticker slap index</p>
-                <div className="mt-2 grid grid-cols-2 gap-1.5">
-                  {stickers.map((label, index) => (
-                    <span className={cn("rotate-[-4deg] border-2 border-[var(--sample-base)] px-1 py-2 text-center text-[7px] font-black uppercase", index % 2 ? "bg-[var(--sample-accent-3)] text-[var(--sample-text)]" : "bg-[var(--sample-base)] text-[var(--sample-text)]")} key={label}>
+
+              <div aria-label="deck wall grid" className="rounded-[3px] border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)/0.55)] p-2">
+                <div className="mb-1.5 flex items-center justify-between gap-2">
+                  <span className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">deck wall grid</span>
+                  <span className="text-[7px] font-black uppercase text-[var(--sample-muted)]">setups</span>
+                </div>
+                <div className="grid grid-cols-4 gap-1.5">
+                  {setups.map(([name, size, art]) => (
+                    <div className="flex flex-col items-center gap-1" key={name}>
+                      <span className="relative h-14 w-6 overflow-hidden rounded-full border border-[var(--sample-border)]" style={{ background: art }}>
+                        <span aria-hidden="true" className="absolute inset-x-[5px] top-2 h-0.5 rounded-full bg-[rgb(23_23_27/0.45)]" />
+                        <span aria-hidden="true" className="absolute inset-x-[5px] bottom-2 h-0.5 rounded-full bg-[rgb(23_23_27/0.45)]" />
+                      </span>
+                      <span className="text-[6px] font-black uppercase tabular-nums text-[var(--sample-muted)]">{size}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div aria-label="sticker slap index" className="relative min-h-0 flex-1 overflow-hidden rounded-[3px] border border-[var(--sample-border-soft)] bg-[#17171b] p-2">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent)]">sticker slap index</span>
+                  <span className="text-[7px] font-black uppercase text-[rgb(239_233_221/0.45)]">12 slaps</span>
+                </div>
+                <div className="mt-2 flex flex-wrap content-start gap-1.5">
+                  {stickers.map(([label, tone], index) => (
+                    <span
+                      className={cn("border px-1.5 py-1 text-[7px] font-black uppercase leading-none shadow-[1px_1px_0_rgb(0_0_0/0.35)]", stickerTone[tone])}
+                      key={label}
+                      style={{ transform: `rotate(${[-5, 4, -3, 6, -4, 3, -6, 2, -2, 5, -3, 4][index % 12]}deg)` }}
+                    >
                       {label}
                     </span>
                   ))}
                 </div>
               </div>
             </div>
-
-            <div className="grid min-h-0 min-w-0 grid-cols-[0.88fr_1.12fr] gap-3">
-              <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.88)] p-2">
-                <p className="mb-2 text-[8px] font-black uppercase tracking-[0.12em]">spot checklist</p>
-                <div className="grid gap-1">
-                  {checklist.map(([label, value], index) => (
-                    <span className={cn("grid grid-cols-[1fr_auto] gap-2 border-2 border-[var(--sample-border)] px-1.5 py-1 text-[8px] font-black uppercase", index === 2 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-base)]")} key={label}>
-                      <span className="min-w-0 truncate">{label}</span>
-                      <span>{value}</span>
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="min-h-0 min-w-0 border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-2)] p-2">
-                <p className="text-[8px] font-black uppercase tracking-[0.12em]">clip sequence rail</p>
-                <div className="mt-2 grid h-[calc(100%-1.35rem)] min-h-0 grid-cols-4 gap-1.5">
-                  {clips.map((clip, index) => (
-                    <span className="relative overflow-hidden border-2 border-[var(--sample-border)] bg-[var(--sample-surface)]" key={clip}>
-                      <span className="absolute inset-x-2 bottom-2 h-1 bg-[var(--sample-text)]" />
-                      <span className="absolute left-1/2 top-[28%] h-7 w-5 -translate-x-1/2 rounded-t-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent)]" />
-                      <span className="absolute left-1 top-1 bg-[var(--sample-text)] px-1 text-[6px] font-black uppercase text-[var(--sample-base)]">{index + 1}</span>
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div className="grid grid-cols-4 gap-2 text-[8px] font-black uppercase tracking-[0.1em]">
-          {["spot list", "deck wall", "trick map", "clip rail"].map((label) => (
-            <span className="min-w-0 truncate border-2 border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.82)] px-2 py-2 text-center" key={label}>{label}</span>
-          ))}
+          </div>
         </div>
       </div>
     </SampleFrame>
