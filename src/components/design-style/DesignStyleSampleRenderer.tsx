@@ -188,6 +188,7 @@ const GENERATED_STYLE_IMAGES = {
   neoclassic: "/generated/design-styles/neoclassic.webp",
   "old-money": "/generated/design-styles/old-money.webp",
   "organic-design": "/generated/design-styles/organic-design.webp",
+  "pastel-style": "/generated/design-styles/pastel-style.webp",
   postmodernism: "/generated/design-styles/postmodernism.webp",
   punk: "/generated/design-styles/punk.webp",
   "rave-style": "/generated/design-styles/rave-style.webp",
@@ -6047,46 +6048,128 @@ function PlayfulOnboardFlow({ compact = false, style }: Props) {
 }
 
 function PastelSoftEdit({ compact = false, style }: Props) {
-  const rows = [
-    ["01", "skin tint planner", style.palette.accent],
-    ["02", "shade story", style.palette.accent2],
-    ["03", "editorial product shelf", style.palette.accent3],
-  ] as const;
+  // "Pastel beauty editorial": a Glossier / Bubble Skincare / Starface soft-tint
+  // magazine — a wide low-contrast product-photo hero above a shade story swatch
+  // rail, an editorial product shelf of skin-tint cards, and a skin tint planner.
+  // The image-dominant horizontal-band editorial skeleton keeps it distinct from
+  // its cute/casual neighbours kitsch (dense novelty storefront), kawaii
+  // (collection grid) and bubble-design (vertical can showcase).
+  const cardShadow: CSSProperties = { boxShadow: "0 12px 30px -20px rgba(120,92,110,0.5), inset 0 1px 1px rgba(255,255,255,0.8)" };
+  const products: Array<{ name: string; shade: string; price: string; pos: string; size: string; dot: string }> = [
+    { name: "tint serum", shade: "lilac 02", price: "$32", pos: "18% 44%", size: "260%", dot: "var(--sample-accent-2)" },
+    { name: "cushion tube", shade: "blush 04", price: "$24", pos: "44% 26%", size: "250%", dot: "var(--sample-accent)" },
+    { name: "cloud jar", shade: "mint 01", price: "$28", pos: "84% 60%", size: "250%", dot: "var(--sample-accent-3)" },
+    { name: "cream pot", shade: "peach 03", price: "$22", pos: "40% 66%", size: "250%", dot: "var(--sample-peach)" },
+  ];
+  const shades: Array<[string, string, string]> = [
+    ["porcelain", "cool", "#f6e4e6"],
+    ["blush", "neutral", "#f4b8c4"],
+    ["peach", "warm", "#f6cbb4"],
+    ["mauve", "rosy", "#d9b3c4"],
+    ["lilac", "cool", "#c9b8e8"],
+    ["mint", "fresh", "#bfe3d0"],
+  ];
 
   return (
     <SampleFrame compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-4">
-        <SampleNav brand="Tint Journal" bordered={false} compact={compact} icons={[<IconBag key="bag" size={compact ? 11 : 13} />]} links={["Skin", "Color", "Journal"]} sub="pastel beauty" />
-        <div className={cn("grid min-h-0 gap-5", compact ? "grid-cols-[1fr_0.9fr]" : "grid-cols-[1.12fr_0.88fr]")}>
-          <section className="flex min-h-0 flex-col justify-between">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--sample-muted)]">SOFT EDIT</p>
-              <h3 className={cn("mt-3 font-serif font-medium leading-[0.92]", compact ? "text-2xl" : "text-5xl")} style={{ letterSpacing: "0em" }}>
-                PASTEL BEAUTY EDIT
-              </h3>
+      <div
+        className={cn("absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
+        style={{
+          "--sample-accent": "#f4b8c4",
+          "--sample-accent-2": "#c9b8e8",
+          "--sample-accent-3": "#bfe3d0",
+          "--sample-peach": "#f6cbb4",
+          "--sample-base": "#fdf2f0",
+          "--sample-border": "#6f5964",
+          "--sample-border-soft": "rgba(111,89,100,0.13)",
+          "--sample-muted": "#b09aa4",
+          "--sample-primary": "#e39ab0",
+          "--sample-surface": "#ffffff",
+          "--sample-text": "#6f5964",
+          "--st-base-rgb": "253 242 240",
+          "--st-surface-rgb": "255 255 255",
+          "--st-text-rgb": "111 89 100",
+          "--st-primary-rgb": "227 154 176",
+          "--st-accent-rgb": "244 184 196",
+          "--st-accent-2-rgb": "201 184 232",
+          "--st-accent-3-rgb": "191 227 208",
+          "--st-border-rgb": "111 89 100",
+          background:
+            "radial-gradient(50% 40% at 6% 0%, rgb(201 184 232 / 0.2), transparent 62%), radial-gradient(46% 42% at 98% 4%, rgb(244 184 196 / 0.2), transparent 60%), radial-gradient(54% 46% at 92% 100%, rgb(191 227 208 / 0.18), transparent 64%), linear-gradient(180deg, #fef6f4, #fdf1ef)",
+        } as SampleVariables}
+      >
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_auto_1fr_auto] gap-2.5">
+          {/* ── editorial masthead ── */}
+          <header className="flex items-baseline justify-between gap-2">
+            <div className="min-w-0">
+              <p className="text-[7px] font-semibold uppercase tracking-[0.28em] text-[var(--sample-muted)]">SOFT EDIT</p>
+              <h4 className="font-serif text-[13px] font-medium leading-none text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)" }}>Tint Journal</h4>
             </div>
-            <div className="space-y-2">
-              {rows.map(([num, label, color]) => (
-                <div className="grid grid-cols-[48px_1fr_auto] items-center gap-3 rounded-full border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] px-3 py-2" key={label}>
-                  <span className="grid h-8 place-items-center rounded-full text-[9px] font-semibold" style={{ backgroundColor: color }}>{num}</span>
-                  <span className="text-[10px] uppercase tracking-[0.12em] text-[var(--sample-muted)]">{label}</span>
-                  <span className="h-2 w-8 rounded-full bg-[var(--sample-accent-2)]" />
+            <span className="shrink-0 text-[7px] font-semibold uppercase tracking-[0.16em] text-[var(--sample-muted)]">no.07 · skin-tint season</span>
+          </header>
+
+          {/* ── wide low-contrast hero ── */}
+          <GeneratedStyleImageSurface className="relative min-h-[104px] overflow-hidden rounded-[20px] border border-[var(--sample-border-soft)]" overlay="none" position="50% 40%" slug="pastel-style" style={{ backgroundSize: "cover", ...cardShadow }}>
+            <div className="flex h-full flex-col justify-end p-3">
+              <div className="w-max max-w-[86%] rounded-[14px] bg-[rgb(255_255_255/0.7)] px-3 py-1.5 backdrop-blur-[3px]">
+                <p className="text-[6.5px] font-semibold uppercase tracking-[0.2em] text-[var(--sample-muted)]">the low-contrast set</p>
+                <h3 aria-label="PASTEL BEAUTY EDIT" className="font-serif font-medium leading-[0.95] text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "17px" : "23px" }}>PASTEL BEAUTY EDIT</h3>
+              </div>
+            </div>
+          </GeneratedStyleImageSurface>
+
+          {/* ── shade story + editorial product shelf ── */}
+          <section aria-label="editorial product shelf" className="flex min-h-0 min-w-0 flex-col gap-2">
+            <div aria-label="shade story" className="flex items-center gap-2">
+              <span className="shrink-0 text-[7.5px] font-semibold lowercase tracking-[0.08em] text-[var(--sample-text)]">shade story</span>
+              <div className="flex min-w-0 flex-1 items-center justify-between gap-1">
+                {shades.map(([name, undertone, color]) => (
+                  <span className="flex min-w-0 items-center gap-1" key={name}>
+                    <span className="h-3.5 w-3.5 shrink-0 rounded-full ring-1 ring-[var(--sample-border-soft)]" style={{ background: color }} />
+                    {!compact && <span className="truncate text-[6px] font-semibold lowercase text-[var(--sample-muted)]">{name} · {undertone}</span>}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid min-h-0 flex-1 grid-cols-4 gap-2">
+              {products.map(({ name, shade, price, pos, size, dot }) => (
+                <div className="flex min-h-0 flex-col overflow-hidden rounded-[15px] border border-[var(--sample-border-soft)] bg-white" style={cardShadow} key={name}>
+                  <div className="relative min-h-0 flex-1 overflow-hidden bg-[var(--sample-base)]">
+                    <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position={pos} slug="pastel-style" style={{ backgroundSize: size }} />
+                    <span className="absolute right-1 top-1 h-2.5 w-2.5 rounded-full ring-1 ring-[rgb(255_255_255/0.8)]" style={{ background: dot }} />
+                  </div>
+                  <div className="px-1.5 py-1">
+                    <span className="block truncate text-[8px] font-semibold lowercase text-[var(--sample-text)]">{name}</span>
+                    <div className="flex items-center justify-between">
+                      <span className="truncate text-[6.5px] font-semibold lowercase text-[var(--sample-muted)]">{shade}</span>
+                      <span className="text-[7.5px] font-semibold text-[var(--sample-text)]">{price}</span>
+                    </div>
+                  </div>
                 </div>
               ))}
-              <p className="text-[9px] uppercase tracking-[0.18em] text-[var(--sample-muted)]">airy product rows / low-contrast set</p>
             </div>
+            <p className="text-[6.5px] font-semibold lowercase tracking-[0.1em] text-[var(--sample-muted)]">airy product rows · low-contrast set</p>
           </section>
-          <section className="relative min-h-0 rounded-[34px] border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-5 shadow-[0_18px_44px_rgb(var(--st-text-rgb)_/_0.05)]">
-            <span className="absolute left-[15%] top-[18%] h-[58%] w-[24%] rounded-[999px] bg-[var(--sample-accent)] shadow-[0_24px_36px_rgb(var(--st-accent-rgb)_/_0.16)]" />
-            <span className="absolute left-[39%] top-[28%] h-[48%] w-[24%] rounded-[999px] bg-[var(--sample-accent-2)] shadow-[0_24px_36px_rgb(var(--st-accent-2-rgb)_/_0.14)]" />
-            <span className="absolute right-[13%] top-[20%] h-[56%] w-[24%] rounded-[999px] bg-[var(--sample-accent-3)] shadow-[0_24px_36px_rgb(var(--st-accent-3-rgb)_/_0.14)]" />
-            <span className="absolute bottom-5 left-5 right-5 rounded-full bg-[var(--sample-base)] px-4 py-3 text-[10px] uppercase tracking-[0.14em] text-[var(--sample-muted)]">editorial product shelf</span>
-          </section>
-        </div>
-        <div className="grid grid-cols-4 gap-2">
-          {[style.palette.accent, style.palette.accent2, style.palette.accent3, style.palette.surface].map((color) => (
-            <span className="h-3 rounded-full border border-[var(--sample-border-soft)]" key={color} style={{ backgroundColor: color }} />
-          ))}
+
+          {/* ── skin tint planner ── */}
+          <div aria-label="skin tint planner" className={cn("items-center gap-2 rounded-full bg-white px-3 py-1.5", compact ? "hidden" : "flex")} style={cardShadow}>
+            <span className="text-[7.5px] font-semibold lowercase tracking-[0.06em] text-[var(--sample-text)]">skin tint planner</span>
+            <span className="flex items-center gap-1">
+              {["cool", "neutral", "warm"].map((undertone, index) => (
+                <span className={cn("rounded-full px-1.5 py-0.5 text-[6.5px] font-semibold lowercase", index === 1 ? "bg-[var(--sample-primary)] text-white" : "bg-[var(--sample-base)] text-[var(--sample-muted)]")} key={undertone}>{undertone}</span>
+              ))}
+            </span>
+            <span className="hidden items-center gap-1 sm:flex">
+              {["dewy", "soft"].map((finish) => (
+                <span className="rounded-full bg-[var(--sample-base)] px-1.5 py-0.5 text-[6.5px] font-semibold lowercase text-[var(--sample-muted)]" key={finish}>{finish}</span>
+              ))}
+            </span>
+            <span className="ml-auto flex items-center gap-1.5">
+              <span className="text-[7px] font-semibold lowercase text-[var(--sample-muted)]">matched 06</span>
+              <span className="rounded-full bg-[var(--sample-text)] px-2.5 py-1 text-[7.5px] font-semibold lowercase text-white">find my tint</span>
+            </span>
+          </div>
         </div>
       </div>
     </SampleFrame>
