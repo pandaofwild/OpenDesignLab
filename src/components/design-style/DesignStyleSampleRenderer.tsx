@@ -168,6 +168,7 @@ const GENERATED_STYLE_IMAGES = {
   baroque: "/generated/design-styles/baroque.webp",
   botanical: "/generated/design-styles/botanical.webp",
   brutalism: "/generated/design-styles/brutalism.webp",
+  "bubble-design": "/generated/design-styles/bubble-design.webp",
   classic: "/generated/design-styles/classic.webp",
   "comic-book-style": "/generated/design-styles/comic-book-style.webp",
   craft: "/generated/design-styles/craft.webp",
@@ -6598,185 +6599,191 @@ function PastelSoftEdit({ compact = false, style }: Props) {
 }
 
 function BubbleFlowCapsules({ compact = false, style }: Props) {
-  // "Effervescent flavor lab": a poppi / bubly sparkling-drink product page.
-  // A centre-stage glossy can with orbiting nutrition bubbles over a flavor
-  // carousel and can shelf — a vertical product-showcase skeleton distinct from
-  // its neighbours playful-design (card grid) and pastel-style (airy pill panel).
-  const glossy = (colorVar: string): CSSProperties => ({
-    background: `radial-gradient(circle at 32% 24%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.4) 14%, ${colorVar} 48%, color-mix(in srgb, ${colorVar} 66%, #2a1440) 100%)`,
-    boxShadow: `0 12px 22px -10px color-mix(in srgb, ${colorVar} 60%, transparent), inset 0 -8px 14px -8px rgba(30,10,50,0.4), inset 0 8px 14px -6px rgba(255,255,255,0.85)`,
+  // "Aqua Desktop": a Frutiger Aero / Mac OS X Aqua-era operating-system
+  // desktop for a fictional water OS. A translucent menu bar, floating glossy
+  // glass windows and a reflective aqua dock of inflated gel icons sit over a
+  // real macro-water wallpaper — an OS/window-UI skeleton that shares no shape
+  // with any neighbour (playful onboarding, pastel editorial, kitsch store).
+  // The five bubble traits survive as aqua modules: inflated gel dock capsules,
+  // a liquid gel slider, a circular droplet widget, a sparkling glass surface
+  // and floating window cards.
+  const gel = (color: string): CSSProperties => ({
+    background: `radial-gradient(125% 125% at 32% 20%, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.4) 16%, ${color} 52%, color-mix(in srgb, ${color} 60%, #06364c) 100%)`,
+    boxShadow: `0 6px 12px -6px color-mix(in srgb, ${color} 62%, transparent), inset 0 -4px 8px -4px rgba(4,40,60,0.5), inset 0 4px 8px -3px rgba(255,255,255,0.92)`,
   });
-  const softShadow: CSSProperties = {
-    boxShadow: "0 8px 18px -10px rgba(30,10,50,0.3), inset 0 1px 1px rgba(255,255,255,0.9)",
+  const glass: CSSProperties = {
+    background: "linear-gradient(180deg, rgba(255,255,255,0.82), rgba(233,247,252,0.5))",
+    backdropFilter: "blur(9px)",
+    WebkitBackdropFilter: "blur(9px)",
+    border: "1px solid rgba(255,255,255,0.72)",
+    boxShadow: "0 20px 42px -20px rgba(8,52,74,0.55), inset 0 1px 0 rgba(255,255,255,0.92), inset 0 -16px 26px -20px rgba(8,60,92,0.28)",
   };
-  const flavors: Array<{ name: string; color: string; cal: string }> = [
-    { name: "wild berry", color: "#ff5f8d", cal: "18" },
-    { name: "citrus pop", color: "#ffc93c", cal: "16" },
-    { name: "lime mint", color: "#43c98a", cal: "15" },
-    { name: "grape fizz", color: "#a06cff", cal: "18" },
-    { name: "aqua yuzu", color: "#2fb8c6", cal: "14" },
+  const titlePinstripe: CSSProperties = {
+    backgroundImage:
+      "repeating-linear-gradient(180deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 1px, rgba(206,232,244,0.32) 2px, rgba(206,232,244,0.32) 3px), linear-gradient(180deg, #f0f9fd, #cfe6f1)",
+  };
+  const files: Array<[string, string, string, string]> = [
+    ["Aqua Reef.jpg", "Image", "4.2 MB", "#39b9d6"],
+    ["Bubble Stream.mov", "Movie", "88 MB", "#4fc98a"],
+    ["Splash Kit", "Folder", "12 items", "#6cb8ff"],
+    ["Droplet Pack", "Folder", "6 items", "#8f7dff"],
+    ["Waves.aiff", "Audio", "9.1 MB", "#ff7fbf"],
   ];
-  const hero = flavors[0];
-  const nutrition: Array<[string, string, string]> = [
-    ["prebiotic", "left-[3%] top-[12%]", "#2fb8c6"],
-    ["18 cal", "right-[4%] top-[8%]", "#ffc93c"],
-    ["5g sugar", "left-[6%] bottom-[14%]", "#ff5f8d"],
-    ["vit c", "right-[6%] bottom-[10%]", "#43c98a"],
+  const shownFiles = compact ? files.slice(0, 3) : files;
+  const dockIcons: Array<[string, string, boolean]> = [
+    ["#3aa9ff", "M4 13h16M4 13l4-6M20 13l-4-6", true],
+    ["#4fc98a", "M6 5h12v14H6zM6 9h12", false],
+    ["#ffc247", "M12 4l2.4 5.2L20 10l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-.8z", false],
+    ["#ff6fae", "M12 20s-7-4.6-7-9.3A3.7 3.7 0 0 1 12 8a3.7 3.7 0 0 1 7 2.7C19 15.4 12 20 12 20z", false],
+    ["#8f7dff", "M5 12a7 7 0 0 0 14 0M12 5v9", true],
+    ["#16b6c4", "M4 7h16v10H4zM4 11h16", false],
   ];
-
-  const renderCan = (color: string, name: string, big: boolean) => (
-    <div className={cn("relative", big ? (compact ? "h-[3.5rem] w-[1.7rem]" : "h-[9.5rem] w-[4.4rem]") : "h-[3.4rem] w-[1.55rem]")}>
-      {/* body */}
-      <div
-        className={cn("absolute inset-0 overflow-hidden", big ? (compact ? "rounded-[11px]" : "rounded-[18px]") : "rounded-[7px]")}
-        style={{ background: `linear-gradient(180deg, color-mix(in srgb, ${color} 74%, #ffffff) 0%, ${color} 44%, color-mix(in srgb, ${color} 70%, #201038) 100%)` }}
-      >
-        <span aria-hidden="true" className="absolute inset-y-0 left-[16%] w-[14%] bg-white/55 blur-[1px]" />
-        <span aria-hidden="true" className="absolute inset-y-0 right-[12%] w-[9%] bg-black/15" />
-        {/* label band */}
-        <span className="absolute inset-x-0 top-[33%] flex h-[34%] flex-col items-center justify-center bg-white/88">
-          <span className={cn("px-0.5 text-center font-black uppercase leading-none", big ? (compact ? "text-[6px] tracking-[0.01em]" : "text-[10px] tracking-[0.02em]") : "text-[0px]")} style={{ color }}>{big ? name : ""}</span>
-          {big && <span className={cn("mt-1 rounded-full", compact ? "h-0.5 w-3.5" : "h-1 w-6")} style={{ background: color }} />}
-        </span>
-      </div>
-      {/* top rim + tab */}
-      <span aria-hidden="true" className={cn("absolute left-1/2 -translate-x-1/2 rounded-[50%] bg-[linear-gradient(180deg,#eef0f6,#a9adba)]", big ? "-top-[3px] h-[8px] w-[82%]" : "-top-[1.5px] h-[4px] w-[80%]")} />
-      {big && <span aria-hidden="true" className="absolute -top-[5px] left-1/2 h-[4px] w-[26%] -translate-x-1/2 rounded-[3px] bg-[#c7cad6]" />}
-      {/* bottom shadow */}
-      <span aria-hidden="true" className={cn("absolute left-1/2 -translate-x-1/2 rounded-[50%] bg-black/20 blur-[2px]", big ? "-bottom-[6px] h-[8px] w-[74%]" : "-bottom-[3px] h-[4px] w-[72%]")} />
-    </div>
-  );
 
   return (
     <SampleFrame compact={compact} style={style}>
       <div
-        className={cn("absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
+        aria-label="AQUA DESKTOP"
+        className="absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]"
         style={{
-          "--sample-accent": "#ff5f8d",
-          "--sample-accent-2": "#2fb8c6",
-          "--sample-accent-3": "#ffc93c",
-          "--sample-base": "#fff3ef",
-          "--sample-border": "#33264d",
-          "--sample-border-soft": "#33264d1f",
-          "--sample-muted": "#8b7fa3",
-          "--sample-primary": "#ff5f8d",
+          "--sample-accent": "#24a7c9",
+          "--sample-accent-2": "#6fd0ec",
+          "--sample-accent-3": "#7fd66a",
+          "--sample-base": "#dff2fb",
+          "--sample-border": "#0e5771",
+          "--sample-border-soft": "#0e577126",
+          "--sample-muted": "#3f7488",
+          "--sample-primary": "#0e8fb8",
           "--sample-surface": "#ffffff",
-          "--sample-text": "#33264d",
-          "--st-base-rgb": "255 243 239",
+          "--sample-text": "#0c3a4c",
+          "--st-base-rgb": "223 242 251",
           "--st-surface-rgb": "255 255 255",
-          "--st-text-rgb": "51 38 77",
-          "--st-primary-rgb": "255 95 141",
-          "--st-accent-rgb": "255 95 141",
-          "--st-accent-2-rgb": "47 184 198",
-          "--st-accent-3-rgb": "255 201 60",
-          "--st-border-rgb": "51 38 77",
-          background:
-            "radial-gradient(60% 46% at 18% 8%, rgb(255 95 141 / 0.16), transparent 60%), radial-gradient(56% 50% at 92% 14%, rgb(47 184 198 / 0.16), transparent 60%), radial-gradient(60% 50% at 74% 104%, rgb(255 201 60 / 0.18), transparent 62%), linear-gradient(180deg, #fff8f4, #fff0ef)",
+          "--st-text-rgb": "12 58 76",
+          "--st-primary-rgb": "14 143 184",
+          "--st-accent-rgb": "36 167 201",
+          "--st-accent-2-rgb": "111 208 236",
+          "--st-accent-3-rgb": "127 214 106",
+          "--st-border-rgb": "12 58 76",
         } as SampleVariables}
       >
-        {/* floating background bubbles */}
+        {/* macro-water wallpaper */}
+        <span className="absolute inset-0">
+          <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position="50% 50%" slug="bubble-design" style={{ backgroundSize: "cover" }} />
+        </span>
+        {/* top sky light + soft aqua wash so the glass chrome reads */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(120% 60% at 50% -8%, rgba(255,255,255,0.5), transparent 60%), linear-gradient(180deg, rgba(120,205,235,0.12), rgba(10,70,95,0.14))",
+          }}
+        />
+        {/* stray gel bubbles floating over the desktop */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-          <span className="absolute -left-6 top-16 h-24 w-24 rounded-full opacity-40 blur-[1px]" style={glossy("#ff5f8d")} />
-          <span className="absolute right-8 top-6 h-14 w-14 rounded-full opacity-40 blur-[1px]" style={glossy("#2fb8c6")} />
-          <span className="absolute bottom-24 right-1/3 h-10 w-10 rounded-full opacity-35 blur-[1px]" style={glossy("#ffc93c")} />
+          <span className="absolute left-[6%] top-[46%] h-9 w-9 rounded-full opacity-70 blur-[0.4px]" style={gel("#7fd0ec")} />
+          <span className="absolute right-[30%] top-[20%] h-5 w-5 rounded-full opacity-70" style={gel("#a9e6ff")} />
+          <span className="absolute bottom-[24%] left-[40%] h-3.5 w-3.5 rounded-full opacity-60" style={gel("#c8f0ff")} />
         </div>
 
-        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_1fr_auto] gap-2.5">
-          <SampleNav
-            align="center"
-            bordered={false}
-            brand="Pop Fizz"
-            compact={compact}
-            icons={[<IconStar key="star" size={compact ? 11 : 13} />]}
-            links={["Flavors", "Lab", "Shop"]}
-            sub="sparkling drinks co."
-          />
+        <div className={cn("relative grid h-full min-h-0 min-w-0 grid-rows-[auto_1fr_auto]", compact ? "gap-2 p-2.5" : "gap-3 p-3.5")}>
+          {/* ── translucent menu bar ── */}
+          <div className="flex min-w-0 items-center justify-between rounded-[11px] px-2.5 py-1" style={glass}>
+            <div className="flex min-w-0 items-center gap-2.5">
+              <span className="grid h-4 w-4 shrink-0 place-items-center rounded-full" style={gel("#3aa9ff")}>
+                <span className="h-1.5 w-1.5 rounded-full bg-white/85" />
+              </span>
+              <span className="text-[8.5px] font-black uppercase tracking-[0.16em] text-[var(--sample-text)]">BUBBLE FLOW</span>
+              <span className={cn("flex items-center gap-2.5 text-[8px] font-semibold text-[var(--sample-muted)]", compact && "hidden")}>
+                <span>File</span><span>Edit</span><span>View</span><span>Window</span>
+              </span>
+            </div>
+            <div className="flex shrink-0 items-center gap-2 text-[var(--sample-primary)]">
+              {/* aqua wifi arcs */}
+              <svg aria-hidden="true" fill="none" height="10" stroke="currentColor" strokeLinecap="round" strokeWidth="1.6" viewBox="0 0 24 24" width="12"><path d="M4 9a13 13 0 0 1 16 0M7 12.5a8 8 0 0 1 10 0M10 16a3 3 0 0 1 4 0" /><circle cx="12" cy="19" fill="currentColor" r="1" stroke="none" /></svg>
+              {/* gel battery */}
+              <span className="relative flex h-2.5 w-5 items-center rounded-[2px] border border-[var(--sample-border-soft)] bg-white/60 px-[1px]"><span className="h-[6px] w-[70%] rounded-[1px]" style={{ background: "linear-gradient(180deg,#8fe0a0,#3fb56a)" }} /><span className="absolute -right-[3px] h-1 w-[2px] rounded-r bg-[var(--sample-border-soft)]" /></span>
+              <span className="text-[8px] font-black tabular-nums text-[var(--sample-text)]">9:41</span>
+            </div>
+          </div>
 
-          {/* ── Hero: centre can + orbiting nutrition bubbles ── */}
-          <section aria-label="EFFERVESCENT FLAVOR LAB" className="relative grid min-h-0 min-w-0 place-items-center">
-            <div aria-label="nutrition bubbles" className="pointer-events-none absolute inset-0">
-              {nutrition.map(([label, pos, color]) => (
-                <span
-                  className={cn("absolute grid place-items-center rounded-full text-center text-[6.5px] font-black uppercase leading-[1.05] text-white", compact ? "h-9 w-9" : "h-11 w-11", pos)}
-                  key={label}
-                  style={glossy(color)}
-                >
-                  {label}
+          {/* ── desktop: floating glass windows over the wallpaper ── */}
+          <div className="relative min-h-0 min-w-0">
+            {/* primary Finder-style window */}
+            <div className={cn("absolute left-0 top-[3%] flex flex-col overflow-hidden rounded-[13px]", compact ? "w-[70%]" : "w-[60%]")} style={{ ...glass, height: "90%" }}>
+              <div className="flex items-center gap-2 px-2 py-1.5" style={titlePinstripe}>
+                <span className="flex items-center gap-1">
+                  <span className="h-2 w-2 rounded-full" style={gel("#ff6b60")} />
+                  <span className="h-2 w-2 rounded-full" style={gel("#ffc247")} />
+                  <span className="h-2 w-2 rounded-full" style={gel("#4fc98a")} />
                 </span>
-              ))}
-            </div>
-
-            <div className="relative z-10 flex flex-col items-center gap-2 text-center">
-              <span className={cn("rounded-full bg-white px-3 py-1 text-[8px] font-black uppercase tracking-[0.2em] text-[var(--sample-primary)]", compact && "hidden")} style={softShadow}>
-                BUBBLE FLOW
-              </span>
-              <h3
-                className={cn("font-black uppercase leading-[0.86]", compact ? "text-[0.95rem]" : "text-[1.6rem] sm:text-[1.9rem]")}
-                style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.01em" }}
-              >
-                EFFERVESCENT<br />FLAVOR LAB
-              </h3>
-              <div aria-label="inflated capsules" className="relative mt-0.5">
-                {renderCan(hero.color, hero.name, true)}
+                <span className="ml-0.5 truncate text-[8px] font-bold text-[var(--sample-text)]">Bubbles</span>
+                <span className="ml-auto hidden h-3 items-center rounded-full bg-white/70 px-1.5 text-[6.5px] font-semibold text-[var(--sample-muted)] ring-1 ring-[var(--sample-border-soft)] sm:flex">search</span>
               </div>
-              <span className={cn("rounded-full bg-white px-3 py-1 text-[9px] font-black uppercase tracking-[0.08em] text-[var(--sample-text)]", compact && "hidden")} style={softShadow}>
-                {hero.name} · {hero.cal} cal · prebiotic soda
-              </span>
-            </div>
-          </section>
-
-          {/* ── Flavor carousel + can shelf ── */}
-          <div className="rounded-[22px] bg-[rgb(255_255_255/0.72)] p-2.5 backdrop-blur-[2px]" style={softShadow}>
-            <div className={cn("grid min-w-0 gap-3", compact ? "grid-cols-1" : "grid-cols-[1.2fr_0.8fr]")}>
-              <div aria-label="flavor carousel" className="min-w-0">
-                <div className="mb-1.5 flex items-center justify-between">
-                  <span className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">flavor carousel</span>
-                  <span className="text-[7px] font-black uppercase tracking-[0.08em] text-[var(--sample-muted)]">inflated capsules · 5</span>
-                </div>
-                <div className="flex items-center justify-between gap-1.5">
-                  {flavors.map((flavor, index) => (
-                    <span className="relative flex flex-col items-center gap-1" key={flavor.name}>
-                      <span
-                        className={cn("relative rounded-full", index === 0 ? (compact ? "h-8 w-8" : "h-10 w-10") : (compact ? "h-6 w-6" : "h-8 w-8"))}
-                        style={glossy(flavor.color)}
-                      >
-                        {index === 0 && <span aria-hidden="true" className="absolute -inset-1 rounded-full border-2 border-[var(--sample-primary)] opacity-70" />}
-                      </span>
+              <div className="flex min-h-0 flex-1">
+                {/* favourites sidebar */}
+                <div className={cn("shrink-0 border-r border-[var(--sample-border-soft)] bg-white/35 px-1.5 py-1.5", compact ? "hidden" : "w-[30%]")}>
+                  <p className="mb-1 text-[6px] font-black uppercase tracking-[0.12em] text-[var(--sample-muted)]">Favorites</p>
+                  {["Desktop", "Documents", "Music", "Photos"].map((item, i) => (
+                    <span className={cn("mb-0.5 flex items-center gap-1.5 rounded-[5px] px-1 py-[3px]", i === 0 && "bg-[color-mix(in_srgb,var(--sample-accent)_30%,white)]")} key={item}>
+                      <span className="h-2 w-2 shrink-0 rounded-[3px]" style={gel(["#3aa9ff", "#8f7dff", "#ff6fae", "#4fc98a"][i])} />
+                      <span className="truncate text-[7px] font-semibold text-[var(--sample-text)]">{item}</span>
                     </span>
                   ))}
                 </div>
-                <div className="mt-1.5 flex items-center justify-center gap-1">
-                  {flavors.map((flavor, index) => (
-                    <span className={cn("h-1.5 rounded-full", index === 0 ? "w-4 bg-[var(--sample-primary)]" : "w-1.5 bg-[var(--sample-border-soft)]")} key={flavor.name} />
-                  ))}
-                </div>
-                <div aria-label="liquid progress" className="mt-2 flex items-center gap-2">
-                  <span className="shrink-0 text-[7px] font-black uppercase tracking-[0.1em] text-[var(--sample-muted)]">batch 07</span>
-                  <span className="relative h-2.5 min-w-0 flex-1 overflow-hidden rounded-full bg-[var(--sample-base)]">
-                    <span className="absolute inset-y-0 left-0 w-[72%] rounded-full" style={{ background: "linear-gradient(90deg, var(--sample-accent-2), var(--sample-accent))" }} />
-                    <span aria-hidden="true" className="absolute left-[14%] top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-white/80" />
-                    <span aria-hidden="true" className="absolute left-[40%] top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-white/70" />
-                    <span aria-hidden="true" className="absolute left-[62%] top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-white/80" />
-                  </span>
-                  <span className="shrink-0 text-[7px] font-black tabular-nums text-[var(--sample-primary)]">72%</span>
-                </div>
-              </div>
-
-              <div aria-label="can shelf" className={cn("min-w-0", compact && "hidden")}>
-                <div className="mb-1.5 flex items-center justify-between">
-                  <span className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-text)]">can shelf</span>
-                  <span className="rounded-full bg-[var(--sample-accent-3)] px-1.5 py-0.5 text-[7px] font-black uppercase text-[var(--sample-text)]">12-pack</span>
-                </div>
-                <div className="flex items-end justify-between gap-1 rounded-[14px] bg-[rgb(255_243_239/0.7)] px-2 pb-1 pt-2">
-                  {flavors.map((flavor) => (
-                    <div className="flex flex-col items-center gap-0.5" key={flavor.name}>
-                      {renderCan(flavor.color, flavor.name, false)}
+                {/* file list — a shelf of window items */}
+                <div aria-label="window shelf" className="min-w-0 flex-1 px-1.5 py-1">
+                  <div className="mb-0.5 flex items-center justify-between px-1 text-[6px] font-black uppercase tracking-[0.1em] text-[var(--sample-muted)]">
+                    <span>Name</span><span className={cn(compact && "hidden")}>Size</span>
+                  </div>
+                  {shownFiles.map(([name, kind, size, color], i) => (
+                    <div className={cn("flex items-center gap-1.5 rounded-[5px] px-1 py-[3px]", i % 2 === 0 && "bg-white/45")} key={name}>
+                      <span className="grid h-3.5 w-3.5 shrink-0 place-items-center rounded-[4px]" style={gel(color)}>
+                        <span className="h-1 w-1 rounded-full bg-white/85" />
+                      </span>
+                      <span className="min-w-0 flex-1 truncate text-[7px] font-semibold text-[var(--sample-text)]">{name}</span>
+                      <span className={cn("shrink-0 text-[6.5px] text-[var(--sample-muted)]", compact ? "hidden" : "hidden sm:inline")}>{kind}</span>
+                      <span className={cn("w-9 shrink-0 text-right text-[6.5px] tabular-nums text-[var(--sample-muted)]", compact && "hidden")}>{size}</span>
                     </div>
                   ))}
                 </div>
-                <div aria-hidden="true" className="mx-1 h-1 rounded-b-full bg-[var(--sample-border-soft)]" />
               </div>
             </div>
+
+            {/* circular droplet weather widget */}
+            <div aria-label="droplet widget" className={cn("absolute right-0 top-[2%] grid place-items-center rounded-full text-center", compact ? "h-[52px] w-[52px]" : "h-[74px] w-[74px]")} style={{ ...glass, borderRadius: "9999px" }}>
+              <span className="pointer-events-none absolute left-[18%] top-[12%] h-[26%] w-[42%] rounded-full bg-white/70 blur-[1px]" />
+              <span className="relative flex flex-col items-center leading-none">
+                <svg aria-hidden="true" fill="none" height={compact ? 11 : 15} stroke="var(--sample-primary)" strokeWidth="1.6" viewBox="0 0 24 24" width={compact ? 11 : 15}><path d="M12 3c3 4 6 6.6 6 10a6 6 0 0 1-12 0c0-3.4 3-6 6-10z" /></svg>
+                <span className={cn("mt-0.5 font-black tabular-nums text-[var(--sample-text)]", compact ? "text-[12px]" : "text-[17px]")}>21°</span>
+                <span className={cn("text-[6px] font-bold uppercase tracking-[0.08em] text-[var(--sample-muted)]", compact && "hidden")}>Aqua Bay</span>
+              </span>
+            </div>
+
+            {/* liquid gel volume slider */}
+            <div aria-label="liquid progress" className={cn("absolute bottom-[4%] right-0 flex items-center gap-2 rounded-[11px] px-2.5 py-1.5", compact ? "w-[46%]" : "w-[36%]")} style={glass}>
+              <svg aria-hidden="true" className="shrink-0 text-[var(--sample-primary)]" fill="currentColor" height="12" viewBox="0 0 24 24" width="12"><path d="M4 9v6h4l5 4V5L8 9H4z" /><path d="M16 8.5a4 4 0 0 1 0 7" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="1.6" /></svg>
+              <span className="relative h-2.5 min-w-0 flex-1 overflow-hidden rounded-full bg-white/60 ring-1 ring-[var(--sample-border-soft)]">
+                <span className="absolute inset-y-0 left-0 w-[72%] overflow-hidden rounded-full" style={{ backgroundImage: "repeating-linear-gradient(180deg, rgba(255,255,255,0.55) 0px, rgba(255,255,255,0.55) 1px, transparent 2px, transparent 3px), linear-gradient(90deg, var(--sample-accent-2), var(--sample-primary))" }}>
+                  <span className="absolute inset-x-0 top-0 h-1/2 bg-white/40" />
+                </span>
+                <span className="absolute left-[72%] top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full" style={gel("#eafaff")} />
+              </span>
+              <span className="shrink-0 text-[8px] font-black tabular-nums text-[var(--sample-primary)]">72%</span>
+            </div>
+          </div>
+
+          {/* ── reflective aqua dock ── */}
+          <div aria-label="glass dock" className={cn("relative mx-auto flex items-end justify-center rounded-[15px]", compact ? "gap-1.5 px-2 py-1.5" : "gap-2.5 px-3 py-2")} style={glass}>
+            <span aria-label="inflated capsules" className={cn("flex items-end", compact ? "gap-1.5" : "gap-2.5")}>
+              {(compact ? dockIcons.slice(0, 5) : dockIcons).map(([color, path, running], i) => (
+                <span className="relative flex flex-col items-center" key={i}>
+                  <span className={cn("grid place-items-center rounded-[8px]", compact ? "h-6 w-6" : "h-8 w-8", i === 2 && !compact && "h-9 w-9")} style={gel(color)}>
+                    <svg aria-hidden="true" fill="none" height={compact ? 12 : 15} stroke="rgba(255,255,255,0.95)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.7" viewBox="0 0 24 24" width={compact ? 12 : 15}><path d={path} /></svg>
+                  </span>
+                  {running ? <span className="mt-0.5 h-[3px] w-[3px] rounded-full bg-[var(--sample-primary)]" /> : <span className="mt-0.5 h-[3px] w-[3px]" />}
+                </span>
+              ))}
+            </span>
           </div>
         </div>
       </div>

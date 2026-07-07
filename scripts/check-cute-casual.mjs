@@ -48,7 +48,7 @@ const requiredExperienceMarkers = {
   "toy-design": ["MODULAR PLAYSET SHOP", "age range selector", "instruction rail", "build pattern chooser"],
   "playful-design": ["GUIDED JOY FLOW", "mascot walkthrough", "task completion stack", "soft progress path"],
   "pastel-style": ["PASTEL BEAUTY EDIT", "shade story", "skin tint planner", "editorial product shelf"],
-  "bubble-design": ["EFFERVESCENT FLAVOR LAB", "flavor carousel", "nutrition bubbles", "can shelf"],
+  "bubble-design": ["AQUA DESKTOP", "glass dock", "droplet widget", "window shelf"],
 };
 
 const forbiddenSampleMarkers = {
@@ -72,7 +72,7 @@ const forbiddenPrototypeCopy = {
   "toy-design": ["Brick Lab", "Build kit"],
   "playful-design": ["Sunny Steps", "Start light", "Ship today"],
   "pastel-style": ["Soft Shelf", "Calm product notes", "cream finish", "soft beauty shelf"],
-  "bubble-design": ["Fizz Lab", "Float fresh"],
+  "bubble-design": ["Pop Fizz", "sparkling drinks", "EFFERVESCENT FLAVOR LAB", "can shelf"],
 };
 
 const requiredSites = {
