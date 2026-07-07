@@ -6027,54 +6027,195 @@ function ComicIssueDrop({ compact = false, style }: Props) {
   );
 }
 
+function ToyBrick({ color, className, studs = 2, style, children }: { color: string; className?: string; studs?: number; style?: CSSProperties; children?: ReactNode }) {
+  // A glossy plastic construction brick with top studs — the toy-design object,
+  // drawn as a real brick (sheen + inset + shadow) rather than a flat block.
+  return (
+    <span
+      className={cn("relative block rounded-[4px]", className)}
+      style={{
+        backgroundColor: color,
+        backgroundImage: "linear-gradient(180deg, rgba(255,255,255,0.42), rgba(255,255,255,0) 44%)",
+        boxShadow: "inset 0 -3px 0 rgba(15,23,60,0.16), 0 3px 5px -2px rgba(15,23,60,0.3)",
+        ...style,
+      }}
+    >
+      <span aria-hidden="true" className="pointer-events-none absolute -top-[3px] left-0 right-0 flex justify-evenly px-[3px]">
+        {Array.from({ length: studs }).map((_, index) => (
+          <span className="h-[6px] w-[6px] rounded-full" key={index} style={{ backgroundColor: color, backgroundImage: "linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0))" }} />
+        ))}
+      </span>
+      {children}
+    </span>
+  );
+}
+
 function ToyPlaysetBuilder({ compact = false, style }: Props) {
-  const blocks = [
-    [style.palette.accent, "wide"],
-    [style.palette.accent2, "tall"],
-    [style.palette.accent3, "wide"],
-    [style.palette.surface, "square"],
-  ] as const;
+  // "Modular playset shop": a LEGO / Play-Doh / Fisher-Price build configurator.
+  // An assembly-tray build canvas (a stepped stack of glossy plastic bricks with
+  // a ghost next-slot) is flanked by a block-parts bin and a build-pattern
+  // chooser, and closed by a numbered instruction rail. The configurator-
+  // workspace skeleton keeps it distinct from every cute/casual neighbour —
+  // storefront (kitsch), collection grid (kawaii), reward dashboard (dopamine),
+  // vertical showcase (bubble), editorial bands (pastel), onboarding feed
+  // (playful) and gallery wall (pop-art).
+  const cardShadow: CSSProperties = { boxShadow: "0 10px 24px -16px rgba(15,23,60,0.4), inset 0 1px 1px rgba(255,255,255,0.8)" };
+  const parts: Array<[string, string, string]> = [
+    ["var(--sample-primary)", "2×2", "×6"],
+    ["var(--sample-accent-2)", "1×4", "×4"],
+    ["var(--sample-accent-3)", "2×3", "×5"],
+    ["var(--sample-accent-3-alt)", "1×2", "×8"],
+  ];
+  const steps: Array<[string, string]> = [["base", "🟦"], ["walls", "🟩"], ["roof", "🟨"], ["done", "🟥"]];
 
   return (
     <SampleFrame compact={compact} style={style}>
-      <div className="absolute inset-x-0 bottom-0 h-20 bg-[linear-gradient(90deg,var(--sample-accent)_0_33%,var(--sample-accent-2)_33%_66%,var(--sample-accent-3)_66%)] opacity-18" />
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Playset Works" compact={compact} icons={[<IconBag key="bag" size={compact ? 11 : 13} />]} links={["Age", "Theme", "Parts"]} sub="toy commerce" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.9fr_1.1fr]" : "grid-cols-[0.78fr_1.22fr]")}>
-          <section className="flex min-h-0 flex-col justify-between rounded-[20px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-4 shadow-[0_10px_0_rgb(var(--st-text-rgb)_/_0.08)]">
-            <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[var(--sample-accent)]">PLAYSET BUILDER</p>
-              <h3 className={cn("mt-3 font-display font-black uppercase leading-[0.86]", compact ? "text-2xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                MODULAR PLAYSET SHOP
-              </h3>
+      <div
+        className={cn("absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
+        style={{
+          "--sample-accent": "#ffd23f",
+          "--sample-accent-2": "#2f9bff",
+          "--sample-accent-3": "#37c97a",
+          "--sample-accent-3-alt": "#ffd23f",
+          "--sample-base": "#e9f2ff",
+          "--sample-border": "#1f2a4a",
+          "--sample-border-soft": "rgba(31,42,74,0.12)",
+          "--sample-muted": "#8a93ab",
+          "--sample-primary": "#ff5a5a",
+          "--sample-surface": "#ffffff",
+          "--sample-text": "#1f2a4a",
+          "--st-base-rgb": "233 242 255",
+          "--st-surface-rgb": "255 255 255",
+          "--st-text-rgb": "31 42 74",
+          "--st-primary-rgb": "255 90 90",
+          "--st-accent-rgb": "255 210 63",
+          "--st-accent-2-rgb": "47 155 255",
+          "--st-accent-3-rgb": "55 201 122",
+          "--st-border-rgb": "31 42 74",
+          background:
+            "radial-gradient(42% 40% at 4% 2%, rgb(47 155 255 / 0.16), transparent 60%), radial-gradient(42% 40% at 98% 4%, rgb(255 90 90 / 0.14), transparent 60%), radial-gradient(50% 46% at 94% 100%, rgb(55 201 122 / 0.16), transparent 62%), linear-gradient(180deg, #f2f8ff, #eaf2fe)",
+        } as SampleVariables}
+      >
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_1fr_auto] gap-2.5">
+          {/* ── header + age range selector ── */}
+          <header className="flex items-center gap-2">
+            <span className="grid h-6 w-6 place-items-center rounded-[8px] bg-[var(--sample-accent-2)] text-[11px]">🧱</span>
+            <div className="min-w-0 leading-none">
+              <span className="block text-[10px] font-black lowercase text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)" }}>playset works</span>
+              <span className="block text-[6px] font-black uppercase tracking-[0.2em] text-[var(--sample-primary)]">PLAYSET BUILDER</span>
             </div>
-            <p className="text-[9px] font-black uppercase tracking-[0.12em] text-[var(--sample-muted)]">age range selector</p>
-            <div className="grid grid-cols-3 gap-2">
-              {["3+", "6+", "9+"].map((label) => (
-                <span className="rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-base)] px-3 py-2 text-center text-[10px] font-black" key={label}>{label}</span>
+            <div aria-label="age range selector" className="ml-auto flex items-center gap-1">
+              {["3+", "6+", "9+"].map((age, index) => (
+                <span className={cn("rounded-full px-2 py-1 text-[7.5px] font-black", index === 1 ? "bg-[var(--sample-accent-2)] text-white shadow-[0_2px_0_rgba(15,23,60,0.18)]" : "bg-white text-[var(--sample-muted)] ring-1 ring-[var(--sample-border-soft)]")} key={age}>{age}</span>
               ))}
             </div>
-          </section>
-          <section className="rounded-[24px] border-2 border-[var(--sample-border)] bg-[var(--sample-base)] p-4">
-            <div className="grid h-full grid-cols-4 grid-rows-3 gap-2 rounded-[18px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-3">
-              <span className="col-span-4 text-[9px] font-black uppercase tracking-[0.12em]">assembly tray</span>
-              {blocks.map(([color, shape], index) => (
-                <span
-                  className={cn("relative rounded-[12px] border-2 border-[var(--sample-border)]", shape === "wide" ? "col-span-2" : "", shape === "tall" ? "row-span-2" : "")}
-                  key={`${color}-${index}`}
-                  style={{ backgroundColor: color }}
-                >
-                  <span className="absolute left-2 top-2 h-3 w-3 rounded-full border border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.5)]" />
-                  <span className="absolute right-2 top-2 h-3 w-3 rounded-full border border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.5)]" />
+          </header>
+
+          {/* ── assembly tray + parts / pattern rail ── */}
+          <div className={cn("grid min-h-0 min-w-0 gap-2.5", compact ? "grid-cols-1" : "grid-cols-[1.32fr_0.68fr]")}>
+            <section aria-label="assembly tray" className="relative min-h-[120px] overflow-hidden rounded-[16px] bg-[var(--sample-base)] ring-1 ring-[var(--sample-border-soft)]" style={{ ...cardShadow, backgroundImage: "radial-gradient(circle, rgba(31,42,74,0.1) 0 1.6px, transparent 2.4px)", backgroundSize: "13px 13px" }}>
+              <span className="absolute left-2.5 top-2.5 z-10 rounded-[9px] bg-[var(--sample-text)] px-2 py-1">
+                <span className="block text-[6px] font-black uppercase tracking-[0.14em] text-[var(--sample-accent)]">build your own</span>
+                <span aria-label="MODULAR PLAYSET SHOP" className="block font-black uppercase leading-[0.82] text-white" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "14px" : "18px" }}>
+                  MODULAR
+                  <br />
+                  PLAYSET SHOP
                 </span>
-              ))}
-              <span className="col-span-4 text-[9px] font-black uppercase tracking-[0.12em]">block parts</span>
-            </div>
-          </section>
-        </div>
-        <div className="grid grid-cols-2 gap-2 text-[9px] font-black uppercase tracking-[0.12em]">
-          <span className="rounded-full bg-[var(--sample-accent-3)] px-3 py-2 text-center">instruction rail</span>
-          <span className="rounded-full bg-[var(--sample-surface)] px-3 py-2 text-center">build pattern chooser</span>
+              </span>
+              {/* sky: sun + clouds turn the empty plate into a play-set diorama */}
+              <span aria-hidden="true" className="absolute right-6 top-5 h-9 w-9 rounded-full" style={{ backgroundColor: "var(--sample-accent)", backgroundImage: "linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0))", boxShadow: "0 0 0 6px rgb(255 210 63 / 0.18), inset 0 -3px 0 rgba(15,23,60,0.1)" }} />
+              <span aria-hidden="true" className="absolute left-[34%] top-[22%] h-3 w-12 rounded-full bg-white/85 shadow-[0_4px_10px_-6px_rgba(15,23,60,0.4)]" />
+              <span aria-hidden="true" className="absolute left-[52%] top-[36%] h-2.5 w-9 rounded-full bg-white/70" />
+              {/* a built modular playset: brick house + tree + loose parts on a baseplate */}
+              <div className="absolute inset-x-3 bottom-3">
+                <div className="flex items-end justify-center gap-2.5 pb-1">
+                  {/* loose parts waiting to be placed */}
+                  <div className="relative mr-1 hidden flex-col items-center gap-[3px] self-end sm:flex">
+                    <ToyBrick className="-rotate-[8deg]" color="var(--sample-accent-3)" studs={3} style={{ width: "34px", height: "15px" }} />
+                    <ToyBrick className="rotate-[6deg]" color="var(--sample-primary)" studs={2} style={{ width: "26px", height: "15px" }} />
+                  </div>
+                  {/* house */}
+                  <div className="relative flex flex-col items-center">
+                    {/* loose brick being snapped on */}
+                    <ToyBrick className="absolute -right-7 top-1 -rotate-[16deg]" color="var(--sample-accent-2)" studs={2} style={{ width: "28px", height: "14px" }} />
+                    {/* pitched roof */}
+                    <span aria-hidden="true" className="relative -mb-[2px]" style={{ width: compact ? "86px" : "112px", height: compact ? "30px" : "42px" }}>
+                      <span className="absolute inset-0" style={{ clipPath: "polygon(50% 0, 100% 100%, 0 100%)", backgroundColor: "var(--sample-primary)", backgroundImage: "linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0) 55%)", boxShadow: "inset 0 -3px 0 rgba(15,23,60,0.14)" }} />
+                      <span className="absolute left-1/2 top-[7px] h-[7px] w-[7px] -translate-x-1/2 rounded-full" style={{ backgroundColor: "var(--sample-primary)", backgroundImage: "linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0))" }} />
+                    </span>
+                    {/* walls with door + window */}
+                    <ToyBrick color="var(--sample-accent)" studs={compact ? 5 : 7} style={{ width: compact ? "86px" : "112px", height: compact ? "50px" : "66px", borderRadius: "6px" }}>
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 rounded-t-[6px] bg-[var(--sample-text)]" style={{ width: compact ? "20px" : "26px", height: compact ? "28px" : "38px" }}>
+                        <span className="absolute right-1.5 top-1/2 h-[4px] w-[4px] -translate-y-1/2 rounded-full bg-[var(--sample-accent-3)]" />
+                      </span>
+                      <span className="absolute right-2.5 top-2.5 grid grid-cols-2 gap-[2px] rounded-[3px] bg-[var(--sample-accent-2)] p-[2px] ring-2 ring-[var(--sample-surface)]" style={{ width: compact ? "18px" : "24px", height: compact ? "18px" : "24px" }}>
+                        {Array.from({ length: 4 }).map((_, index) => (
+                          <span className="rounded-[1px] bg-[rgb(255_255_255/0.55)]" key={index} />
+                        ))}
+                      </span>
+                    </ToyBrick>
+                  </div>
+                  {/* tree */}
+                  <div className="relative flex flex-col items-center self-end">
+                    <ToyBrick color="var(--sample-accent-3)" studs={3} style={{ width: "38px", height: "28px", borderRadius: "13px 13px 7px 7px" }} />
+                    <ToyBrick color="var(--sample-accent-3)" studs={2} className="-mt-[3px]" style={{ width: "28px", height: "15px" }} />
+                    <span className="-mt-[1px] rounded-b-[3px] bg-[#b5764a]" style={{ width: "11px", height: "18px" }} />
+                  </div>
+                </div>
+                {/* baseplate */}
+                <ToyBrick color="var(--sample-accent-2)" studs={compact ? 10 : 14} style={{ width: "100%", height: compact ? "13px" : "16px", borderRadius: "6px" }} />
+              </div>
+              <span className="absolute bottom-3 right-2.5 z-10 flex items-center gap-1 rounded-full bg-white/85 px-1.5 py-0.5 text-[7px] font-black text-[var(--sample-text)] shadow-[0_2px_5px_-2px_rgba(15,23,60,0.4)] backdrop-blur-[2px]">
+                <span className="grid h-3.5 w-3.5 place-items-center rounded-full bg-[var(--sample-base)]">−</span>
+                <span className="tabular-nums">24</span>
+                <span className="grid h-3.5 w-3.5 place-items-center rounded-full bg-[var(--sample-primary)] text-white">+</span>
+                <span className="lowercase text-[var(--sample-muted)]">pcs</span>
+              </span>
+            </section>
+
+            <section className={cn("flex min-h-0 min-w-0 flex-col gap-2.5", compact && "hidden")}>
+              <div aria-label="block parts" className="rounded-[14px] bg-white p-2" style={cardShadow}>
+                <div className="mb-1.5 flex items-center justify-between">
+                  <span className="text-[7.5px] font-black lowercase tracking-[0.06em]">block parts</span>
+                  <span className="text-[6.5px] font-black lowercase text-[var(--sample-muted)]">23 in bin</span>
+                </div>
+                <div className="grid grid-cols-2 gap-1.5">
+                  {parts.map(([color, size, qty], index) => (
+                    <div className="flex items-center gap-1.5 rounded-[9px] bg-[var(--sample-base)] px-1.5 py-1" key={index}>
+                      <ToyBrick color={color} studs={2} style={{ width: "18px", height: "11px" }} />
+                      <span className="min-w-0 leading-none">
+                        <span className="block text-[7px] font-black text-[var(--sample-text)]">{size}</span>
+                        <span className="block text-[6px] font-black lowercase text-[var(--sample-muted)]">{qty}</span>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div aria-label="build pattern chooser" className="min-h-0 flex-1 rounded-[14px] bg-white p-2" style={cardShadow}>
+                <span className="text-[7.5px] font-black lowercase tracking-[0.06em]">build pattern chooser</span>
+                <div className="mt-1.5 grid grid-cols-3 gap-1.5">
+                  {(["🏠", "🚀", "🚗"] as string[]).map((icon, index) => (
+                    <span className={cn("grid aspect-square place-items-center rounded-[10px] text-[15px]", index === 0 ? "bg-[var(--sample-accent-2)] ring-2 ring-[var(--sample-border)]" : "bg-[var(--sample-base)] ring-1 ring-[var(--sample-border-soft)]")} key={index}>{icon}</span>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </div>
+
+          {/* ── instruction rail ── */}
+          <div aria-label="instruction rail" className="flex items-center gap-1.5 rounded-full bg-white px-2 py-1.5" style={cardShadow}>
+            {steps.map(([label, icon], index) => (
+              <Fragment key={label}>
+                <span className="flex items-center gap-1">
+                  <span className={cn("grid h-4 w-4 place-items-center rounded-full text-[7px] font-black", index < 2 ? "bg-[var(--sample-accent-3)] text-white" : "bg-[var(--sample-base)] text-[var(--sample-muted)]")}>{index < 2 ? "✓" : index + 1}</span>
+                  <span className="text-[7px] font-black lowercase text-[var(--sample-text)]">{icon} {label}</span>
+                </span>
+                {index < steps.length - 1 && <span className="h-[3px] flex-1 rounded-full bg-[var(--sample-border-soft)]" />}
+              </Fragment>
+            ))}
+            <span className="ml-1 shrink-0 rounded-full bg-[var(--sample-primary)] px-2.5 py-1 text-[7.5px] font-black lowercase text-white shadow-[0_2px_0_rgba(15,23,60,0.2)]">add set · $39</span>
+          </div>
         </div>
       </div>
     </SampleFrame>
