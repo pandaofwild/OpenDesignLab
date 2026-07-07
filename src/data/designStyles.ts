@@ -2381,10 +2381,10 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         { title: "Awwwards - Retro Websites", url: "https://www.awwwards.com/websites/retro/", note: "Gallery reference for modern retro sites that reinterpret 90s web energy, collage density, and graphic nostalgia." },
         { title: "Dribbble - 90s Website Design", url: "https://dribbble.com/search/90s%20website%20design", note: "UI reference for 90s landing pages, desktop windows, bold stickers, and high-energy graphic modules." },
       ],
-      representativeTraits: ["DESKTOP ZINE window", "Sticker link grid", "Halftone scrap wall", "Loud checker pattern", "Early web campaign navigation"],
+      representativeTraits: ["Bevelled multimedia chrome", "WordArt title", "Clip-art topic explorer", "Media viewer with transport", "Memphis pop accents"],
       avoidTraits: ["Y2K chrome gloss", "80s neon synth grid", "Vintage paper catalog"],
       tokenIntent:
-        "Use a DESKTOP ZINE browser frame, sticker link grid, halftone scrap wall, torn-paper shapes, checkerboard texture, visitor counter, and saturated teal/violet/orange/acid accents so the style reads as nineties graphic rather than 80s neon or Y2K chrome.",
+        "Use a grey bevelled multimedia CD-ROM window on a teal desktop, a WordArt title, a clip-art topic explorer, a media viewer with a QuickTime-style transport, hypertext article links, a NOW LOADING gauge, and saturated teal/violet/orange/acid Memphis accents so the style reads as nineties graphic rather than 80s neon or Y2K chrome.",
     },
   },
   y2k: {

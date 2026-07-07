@@ -187,6 +187,7 @@ const GENERATED_STYLE_IMAGES = {
   luxury: "/generated/design-styles/luxury.webp",
   maximalism: "/generated/design-styles/maximalism.webp",
   natural: "/generated/design-styles/natural.webp",
+  "nineties-graphic": "/generated/design-styles/nineties-graphic.webp",
   "new-brutalism": "/generated/design-styles/new-brutalism.webp",
   neoclassic: "/generated/design-styles/neoclassic.webp",
   "old-money": "/generated/design-styles/old-money.webp",
@@ -2780,111 +2781,180 @@ function EightiesVideoRental({ className, compact = false, style }: Props) {
     </SampleFrame>
   );
 }
-function NinetiesGraphicZine({ className, compact = false, style }: Props) {
-  const links: Array<[string, string, string]> = [
-    ["flyers", "04", "var(--sample-accent-3)"],
-    ["mix tape", "11", "var(--sample-accent)"],
-    ["guestbook", "88", "var(--sample-accent-2)"],
-    ["downloads", "23", "var(--sample-surface)"],
+function NinetiesMultimediaCdRom({ className, compact = false, style }: Props) {
+  // "Mega Media": a 90s interactive multimedia encyclopedia CD-ROM (Encarta /
+  // Living Books era). A grey beveled multimedia application floats on the iconic
+  // teal Win95 desktop — a WordArt title bar, a clip-art topic explorer, a media
+  // viewer showing a real animal photo with a QuickTime-style transport, an
+  // article with hypertext links, and a CD-ROM status bar with a NOW LOADING
+  // gauge. The media-viewer multimedia-app skeleton is distinct from the flat
+  // desktop-zine web page it replaces and from the glossy Y2K portal.
+  const raised: CSSProperties = { background: "#cdcdcd", boxShadow: "inset -1px -1px 0 #3a3a3a, inset 1px 1px 0 #ffffff, inset -2px -2px 0 #808080, inset 2px 2px 0 #ececec" };
+  const sunken: CSSProperties = { background: "#c4c4c4", boxShadow: "inset 1px 1px 0 #3a3a3a, inset -1px -1px 0 #ffffff, inset 2px 2px 0 #808080, inset -2px -2px 0 #ececec" };
+  const link = "text-[#1a2ee6] underline decoration-[#1a2ee6]";
+  const glyphs: Record<string, ReactNode> = {
+    Pets: <svg fill="currentColor" height="12" viewBox="0 0 24 24" width="12"><circle cx="6.5" cy="9" r="2" /><circle cx="11" cy="6.5" r="2" /><circle cx="16" cy="8" r="2" /><ellipse cx="11.5" cy="16" rx="4.6" ry="3.6" /></svg>,
+    Farm: <svg fill="currentColor" height="12" viewBox="0 0 24 24" width="12"><path d="M12 3 4 8v12h16V8Z" /><path d="M10 13h4v7h-4Z" fill="#cdcdcd" /></svg>,
+    Ocean: <svg fill="none" height="12" stroke="currentColor" strokeWidth="2.4" viewBox="0 0 24 24" width="12"><path d="M2 9q3-4 6 0t6 0 6 0M2 16q3-4 6 0t6 0 6 0" /></svg>,
+    Birds: <svg fill="none" height="12" stroke="currentColor" strokeLinecap="round" strokeWidth="2.4" viewBox="0 0 24 24" width="12"><path d="M2 13q3.5-6 6 0M12 13q3.5-6 6 0" /></svg>,
+    Bugs: <svg fill="currentColor" height="12" viewBox="0 0 24 24" width="12"><ellipse cx="12" cy="13" rx="6" ry="7" /><path d="M12 6v14" stroke="#cdcdcd" strokeWidth="1.4" /><circle cx="8.5" cy="11" fill="#cdcdcd" r="1" /><circle cx="15.5" cy="15" fill="#cdcdcd" r="1" /></svg>,
+    Music: <svg fill="currentColor" height="12" viewBox="0 0 24 24" width="12"><path d="M9 5v10.5A3 3 0 1 1 7 13V7h9V5Z" /><circle cx="16" cy="15" r="2.6" /></svg>,
+  };
+  const topics: Array<[string, string]> = [
+    ["Pets", "var(--sample-accent-2)"],
+    ["Farm", "var(--sample-accent)"],
+    ["Ocean", "#0f8f8d"],
+    ["Birds", "var(--sample-accent-3)"],
+    ["Bugs", "var(--sample-accent)"],
+    ["Music", "var(--sample-accent-2)"],
   ];
-  const scraps: Array<[string, string, string]> = [
-    ["left-[9%] top-[14%] h-12 w-20 rotate-[-8deg]", "var(--sample-accent-3)", "repeating-linear-gradient(45deg, #000 0 4px, transparent 4px 8px)"],
-    ["right-[10%] top-[10%] h-16 w-16 rotate-[10deg]", "var(--sample-accent)", "radial-gradient(circle, #000 0 1px, transparent 1px)"],
-    ["left-[24%] bottom-[16%] h-14 w-24 rotate-[7deg]", "var(--sample-accent-2)", "linear-gradient(90deg, #000 50%, transparent 50%)"],
-    ["right-[21%] bottom-[14%] h-12 w-20 rotate-[-12deg]", "var(--sample-text)", "repeating-linear-gradient(0deg, #fff 0 3px, transparent 3px 7px)"],
-  ];
+  const winBtn = (label: string) => (
+    <span className="grid h-3.5 w-3.5 place-items-center text-[8px] font-black leading-none text-[#222]" style={raised}>{label}</span>
+  );
 
   return (
     <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span aria-hidden="true" className="absolute inset-0 opacity-30" style={{ backgroundImage: "linear-gradient(45deg, var(--sample-border) 25%, transparent 25%, transparent 75%, var(--sample-border) 75%), linear-gradient(45deg, var(--sample-border) 25%, transparent 25%, transparent 75%, var(--sample-border) 75%)", backgroundPosition: "0 0, 9px 9px", backgroundSize: "18px 18px" }} />
-      <span aria-hidden="true" className="absolute -right-8 top-12 h-24 w-24 rotate-12 bg-[var(--sample-accent-3)]" style={{ clipPath: "polygon(15% 0, 100% 0, 88% 100%, 0 80%)" }} />
-      <span aria-hidden="true" className="absolute bottom-7 left-6 h-14 w-24 rotate-[-10deg] bg-[var(--sample-accent)]" style={{ clipPath: "polygon(0 20%, 100% 0, 86% 100%, 10% 78%)" }} />
+      {/* teal desktop texture — clipped so it never adds scroll width */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <span className="absolute inset-0 opacity-[0.14]" style={{ backgroundImage: "radial-gradient(#053f3e 0 1px, transparent 1.4px)", backgroundSize: "12px 12px" }} />
+      </div>
 
-      <div className="relative flex h-full w-full flex-col border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)]" style={{ boxShadow: "6px 6px 0 var(--sample-border)" }}>
-        <header className="grid grid-cols-[auto_1fr_auto] items-center gap-2 border-b-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-2)] px-2 py-1 text-[9px] font-black text-white">
-          <span>DESKTOP ZINE</span>
-          <span className={cn("min-w-0 truncate text-center", compact ? "hidden" : "")}>zineos://drop-culture/index.html</span>
-          <span className="flex gap-0.5">
-            <span className="grid h-3 w-3 place-items-center border border-white text-[7px] leading-none">_</span>
-            <span className="grid h-3 w-3 place-items-center border border-white text-[7px] leading-none">x</span>
+      {/* CD-ROM application window (grey bevelled chrome) */}
+      <div className="relative flex h-full w-full flex-col p-[3px]" style={raised}>
+        {/* title bar */}
+        <div className="flex items-center gap-1.5 px-1.5 py-1" style={{ background: "linear-gradient(90deg, var(--sample-accent-2), var(--sample-accent))" }}>
+          {/* CD disc icon */}
+          <span aria-hidden="true" className="grid h-4 w-4 shrink-0 place-items-center rounded-full" style={{ background: "radial-gradient(circle at 40% 35%, #fff, #b9c6d6 40%, #7d8ba0 75%)", boxShadow: "0 0 0 1px #1b1b1b" }}>
+            <span className="h-1 w-1 rounded-full bg-[#1b1b1b]" />
           </span>
-        </header>
-
-        <div className="border-b-[3px] border-[var(--sample-border)] bg-[var(--sample-accent)] px-2 py-0.5 text-[8px] font-black text-white">
-          <span className="block truncate">new flyers uploaded / guestbook open / best viewed loud</span>
+          <span className="min-w-0">
+            <span
+              className={cn("block font-display font-black italic uppercase leading-none", compact ? "text-[0.92rem]" : "text-[1.25rem]")}
+              style={{
+                fontFamily: "var(--st-font-display)",
+                letterSpacing: "0.01em",
+                backgroundImage: "linear-gradient(90deg, #ff4d29, #ffd21e, #34e07a, #22c9ff, #a15bff)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+                WebkitTextStroke: "0.6px #17110b",
+                filter: "drop-shadow(1.4px 1.4px 0 #17110b)",
+                transform: "skewX(-7deg)",
+              }}
+            >
+              Mega Media
+            </span>
+          </span>
+          <span className={cn("min-w-0 truncate text-[7.5px] font-bold uppercase tracking-[0.08em] text-white/90", compact && "hidden")}>Interactive Encyclopedia · CD-ROM</span>
+          <span className="ml-auto flex shrink-0 gap-1">{winBtn("_")}{winBtn("□")}{winBtn("×")}</span>
         </div>
 
-        <main className={cn("grid min-h-0 flex-1 gap-2 p-2", compact ? "grid-cols-[1fr_0.74fr]" : "grid-cols-1 md:grid-cols-[1.08fr_0.92fr]")}>
-          <section className="relative min-w-0 overflow-hidden border-[3px] border-[var(--sample-border)] bg-white p-2">
-            <p className="relative z-10 mb-1 inline-block border-2 border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-1.5 py-0.5 text-[8px] font-black text-[var(--sample-border)]">halftone scrap wall</p>
-            <div className="relative h-full min-h-[7.75rem] overflow-hidden bg-[var(--sample-text)]">
-              <span aria-hidden="true" className="absolute inset-0 opacity-60" style={{ backgroundImage: "radial-gradient(circle, #ffffff 0 1px, transparent 1.5px)", backgroundSize: "7px 7px" }} />
-              {scraps.map(([pos, color, pattern], index) => (
-                <span
-                  aria-hidden="true"
-                  className={cn("absolute border-2 border-[var(--sample-border)]", pos)}
-                  key={index}
-                  style={{
-                    backgroundColor: color,
-                    backgroundImage: pattern,
-                    backgroundSize: index === 1 ? "8px 8px" : "16px 16px",
-                    boxShadow: "3px 3px 0 var(--sample-border)",
-                  }}
-                />
-              ))}
-              <div className="absolute left-3 top-1/2 max-w-[9rem] -translate-y-1/2">
-                <h3
-                  className={cn("font-display uppercase leading-[0.82]", compact ? "text-[1.85rem]" : "text-5xl md:text-[3.35rem]")}
-                  style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)", color: "var(--sample-accent-3)", textShadow: "3px 3px 0 var(--sample-accent), -2px -2px 0 var(--sample-accent-2)" }}
-                >
-                  Drop
-                  <br />
-                  Files
-                </h3>
-              </div>
-              <span className={cn("absolute bottom-2 right-2 border-2 border-[var(--sample-border)] bg-white px-2 py-1 text-[8px] font-black text-[var(--sample-border)]", compact ? "hidden" : "")}>photocopy pack 1997</span>
-            </div>
-          </section>
+        {/* menu strip */}
+        <div className={cn("flex items-center gap-3 border-y border-[#8a8a8a] px-2 py-0.5 text-[8px] font-bold text-[#222]", compact ? "hidden" : "")} style={{ background: "#cdcdcd" }}>
+          {["File", "Edit", "Go", "Bookmark", "Help"].map((m) => (
+            <span key={m}><span className="underline">{m.charAt(0)}</span>{m.slice(1)}</span>
+          ))}
+        </div>
 
-          <aside className="grid min-h-0 gap-2">
-            <section className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-3)] p-2">
-              <p className="mb-1.5 border-2 border-[var(--sample-border)] bg-white px-1.5 py-0.5 text-[8px] font-black text-[var(--sample-border)]">sticker link grid</p>
-              <div className="grid grid-cols-2 gap-1.5">
-                {links.map(([label, count, color], index) => (
-                  <span
-                    className="min-w-0 border-2 border-[var(--sample-border)] px-1.5 py-1 text-[8px] font-black text-[var(--sample-border)]"
-                    key={label}
-                    style={{
-                      backgroundColor: color,
-                      boxShadow: "3px 3px 0 var(--sample-border)",
-                      transform: index % 2 === 0 ? "rotate(-2deg)" : "rotate(2deg)",
-                    }}
-                  >
-                    <span className="block truncate">{label}</span>
-                    <span className="block text-[10px]">{count}</span>
+        {/* body */}
+        <div className="flex min-h-0 flex-1 gap-1.5 p-1.5">
+          {/* topic explorer rail */}
+          <aside aria-label="topic explorer" className="flex w-[26%] shrink-0 flex-col p-1" style={sunken}>
+            <p className="mb-1 px-0.5 text-[7.5px] font-black uppercase tracking-[0.1em] text-[#333]">Topics</p>
+            <div className="flex min-h-0 flex-1 flex-col gap-1">
+              {topics.map(([name, color], i) => (
+                <button
+                  className="flex min-w-0 items-center gap-1.5 px-1 py-1 text-left"
+                  key={name}
+                  style={i === 0 ? { ...sunken, background: "#d7d7d7" } : raised}
+                  type="button"
+                >
+                  <span className="grid h-4 w-4 shrink-0 place-items-center rounded-[2px] text-white" style={{ background: color, boxShadow: "0 0 0 1px #1b1b1b" }}>{glyphs[name]}</span>
+                  <span className={cn("truncate text-[8px] font-bold text-[#1b1b1b]", i === 0 && "text-[#000]")}>{name}</span>
+                  {i === 0 ? <span className="ml-auto text-[7px] font-black text-[var(--sample-accent-2)]">▶</span> : null}
+                </button>
+              ))}
+            </div>
+          </aside>
+
+          {/* media viewer + article */}
+          <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+            {/* media viewer */}
+            <section aria-label="media viewer" className="relative min-h-0 flex-1 overflow-hidden p-1" style={sunken}>
+              <div className="relative h-full w-full overflow-hidden" style={{ boxShadow: "inset 0 0 0 1px #3a3a3a" }}>
+                <span className="absolute inset-0">
+                  <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position="50% 42%" slug="nineties-graphic" style={{ backgroundSize: "cover" }} />
+                </span>
+                <span className="absolute left-1 top-1 flex items-center gap-1 bg-[#111]/75 px-1 py-0.5 text-[6.5px] font-black uppercase tracking-[0.08em] text-[#34e07a]">
+                  <span className="h-1.5 w-1.5 bg-[#34e07a]" /> quicktime movie
+                </span>
+                {/* transport bar */}
+                <div className="absolute inset-x-1 bottom-1 flex items-center gap-1.5 px-1 py-1" style={raised}>
+                  <span className="grid h-3.5 w-4 place-items-center text-[8px] leading-none text-[#111]" style={sunken}>▶</span>
+                  <span className="relative h-2 min-w-0 flex-1" style={sunken}>
+                    <span className="absolute inset-y-0 left-0 w-[34%]" style={{ background: "var(--sample-accent-2)" }} />
+                    <span className="absolute top-1/2 h-3 w-2 -translate-y-1/2" style={{ left: "34%", ...raised }} />
                   </span>
+                  <span className={cn("shrink-0 text-[6.5px] font-bold tabular-nums text-[#222]", compact && "hidden")}>0:42/2:10</span>
+                </div>
+              </div>
+            </section>
+
+            {/* article panel */}
+            <section className={cn("p-1.5", compact ? "hidden" : "")} style={{ background: "#e9e9e9", boxShadow: "inset 0 0 0 1px #8a8a8a" }}>
+              <div className="mb-0.5 flex items-baseline justify-between">
+                <h3 className="font-display text-[0.92rem] font-black uppercase leading-none text-[#111]" style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.01em" }}>Golden Retriever</h3>
+                <span className="text-[6.5px] font-bold uppercase text-[#555]">article 1 of 214</span>
+              </div>
+              <p className="text-[8px] leading-[1.35] text-[#222]">
+                A friendly, gentle <span className={link}>dog</span> bred to <span className={link}>retrieve</span> — smart, playful and endlessly patient, the golden is a favourite family <span className={link}>pet</span> around the world.
+              </p>
+              <div className="mt-1 flex items-center gap-1">
+                <span className="text-[6.5px] font-black uppercase text-[#555]">see also</span>
+                {["Puppies", "Training", "Breeds"].map((s) => (
+                  <span className="px-1 py-0.5 text-[6.5px] font-bold text-[#111]" key={s} style={raised}>{s}</span>
                 ))}
               </div>
             </section>
+          </div>
 
-            <section className={cn("border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] p-2", compact ? "hidden" : "")}>
-              <p className="mb-1 text-[8px] font-black text-[var(--sample-border)]">browser scraps</p>
-              <div className="grid grid-cols-[0.72fr_1fr] gap-1.5">
-                <span className="h-8 border-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)]" />
-                <span className="h-8 border-2 border-[var(--sample-border)] bg-[var(--sample-text)]" style={{ backgroundImage: "repeating-linear-gradient(90deg, #fff 0 4px, transparent 4px 8px)" }} />
-                <span className="col-span-2 h-5 border-2 border-[var(--sample-border)] bg-white" />
-              </div>
-            </section>
+          {/* did you know fact box */}
+          <aside className={cn("flex w-[22%] shrink-0 flex-col p-1", compact ? "hidden" : "")} style={sunken}>
+            <p className="mb-1 flex items-center gap-1 text-[7.5px] font-black uppercase tracking-[0.06em] text-[#333]">
+              <span aria-hidden="true" className="grid h-3.5 w-3.5 place-items-center rounded-full text-[8px] text-white" style={{ background: "var(--sample-accent-3)", boxShadow: "0 0 0 1px #1b1b1b" }}>💡</span>
+              Did you know?
+            </p>
+            <p className="text-[7.5px] leading-[1.3] text-[#222]">A golden retriever can carry a raw egg in its mouth without cracking the shell.</p>
+            <div className="mt-auto grid grid-cols-3 gap-0.5 pt-1">
+              {[topics[1][1], topics[2][1], topics[3][1]].map((c, i) => (
+                <span className="h-3" key={i} style={{ background: c, boxShadow: "0 0 0 1px #1b1b1b" }} />
+              ))}
+            </div>
           </aside>
-        </main>
+        </div>
 
-        <footer className={cn("flex items-center justify-between border-t-[3px] border-[var(--sample-border)] bg-white px-2 py-1 text-[8px] font-black text-[var(--sample-border)]", compact ? "hidden" : "")}>
-          <span className="flex items-center gap-1">
-            visitors
-            <span className="bg-[var(--sample-border)] px-1 text-[var(--sample-accent-3)]">000947</span>
+        {/* CD-ROM status bar */}
+        <div className={cn("flex items-center gap-1.5 px-1.5 py-1 text-[7px] font-bold text-[#222]", compact ? "hidden" : "")} style={{ background: "#cdcdcd", boxShadow: "inset 0 1px 0 #fff, inset 0 -1px 0 #8a8a8a" }}>
+          <span className="flex shrink-0 items-center gap-1 px-1" style={sunken}>
+            <span aria-hidden="true" className="h-2 w-2 rounded-full" style={{ background: "radial-gradient(circle at 40% 35%, #fff, #9db0c4 60%)", boxShadow: "0 0 0 1px #1b1b1b" }} />
+            CD-ROM DRIVE D:
           </span>
-          <span className="underline">webring / street scans / site map</span>
-        </footer>
+          <span className="flex shrink-0 items-center gap-0.5">
+            {["◄◄", "▶", "►►"].map((c) => (<span className="grid h-3.5 w-4 place-items-center text-[7px] leading-none text-[#111]" key={c} style={raised}>{c}</span>))}
+            <span className="ml-1 tabular-nums">TRACK 03 · 3:12</span>
+          </span>
+          <span className="ml-auto flex min-w-0 items-center gap-1">
+            <span className="shrink-0 uppercase tracking-[0.06em]">now loading</span>
+            <span className="relative h-2.5 w-16 shrink-0 p-[1px]" style={sunken}>
+              <span className="flex h-full gap-[1px]">
+                {Array.from({ length: 10 }).map((_, i) => (
+                  <span className="h-full flex-1" key={i} style={{ background: i < 7 ? "var(--sample-accent-2)" : "transparent" }} />
+                ))}
+              </span>
+            </span>
+            <span className="shrink-0 tabular-nums">8 MB RAM</span>
+          </span>
+        </div>
       </div>
     </SampleFrame>
   );
@@ -8943,7 +9013,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "nineties-graphic") {
-    return <NinetiesGraphicZine {...props} />;
+    return <NinetiesMultimediaCdRom {...props} />;
   }
 
   if (style.slug === "y2k") {
