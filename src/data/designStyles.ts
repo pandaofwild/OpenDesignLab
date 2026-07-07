@@ -2351,10 +2351,10 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         { title: "Awwwards - Retro Websites", url: "https://www.awwwards.com/websites/retro/", note: "Gallery reference for retro-futurist and 80s-inspired sites, neon motion, dark stages, and nostalgic interaction cues." },
         { title: "Dribbble - Synthwave Website", url: "https://dribbble.com/search/synthwave%20website", note: "UI reference for synthwave dashboards, neon panels, arcade buttons, and dark retro digital layouts." },
       ],
-      representativeTraits: ["Neon synth grid", "Dark media console", "VHS mix queue", "Arcade control strip", "Black plastic status bay"],
-      avoidTraits: ["General warm retro", "Glitch corruption", "Y2K glossy plastic"],
+      representativeTraits: ["Neon store signage", "VHS new-release wall", "Rental membership card", "Genre neon chips", "Dark navy + neon glow"],
+      avoidTraits: ["General warm retro", "Glitch corruption", "Y2K glossy plastic", "Cyberpunk city dystopia"],
       tokenIntent:
-        "Use a SYNTH CONSOLE header, VHS mix queue, arcade control strip, black plastic status bay, neon grid perspective, mono labels, and magenta/cyan glow shadows so the style reads as eighties retro rather than warm retro, 90s graphic, or Y2K gloss.",
+        "Use a neon video-rental storefront sign, a VHS new-release wall of horror tape cases with rental states, a rental membership card, a be-kind-rewind reminder, genre neon chips, a dark navy stage and magenta/cyan/yellow glow so the style reads as eighties retro rather than warm retro, 90s graphic, Y2K gloss, or cyberpunk city.",
     },
   },
   "nineties-graphic": {

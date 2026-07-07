@@ -173,6 +173,7 @@ const GENERATED_STYLE_IMAGES = {
   "comic-book-style": "/generated/design-styles/comic-book-style.webp",
   craft: "/generated/design-styles/craft.webp",
   deconstructivism: "/generated/design-styles/deconstructivism.webp",
+  "eighties-retro": "/generated/design-styles/eighties-retro.webp",
   "glitch-art": "/generated/design-styles/glitch-art.webp",
   graffiti: "/generated/design-styles/graffiti.webp",
   grunge: "/generated/design-styles/grunge.webp",
@@ -2605,149 +2606,176 @@ function SeventiesRecipeCookbook({ className, compact = false, style }: Props) {
   );
 }
 
-function EightiesSynthConsole({ className, compact = false, style }: Props) {
-  const tracks: Array<[string, string, string, string]> = [
-    ["A1", "Midnight Drive", "118 BPM", "var(--sample-accent)"],
-    ["A2", "Neon Tokyo", "04:12", "var(--sample-accent-2)"],
-    ["B1", "Chrome Sunset", "VHS", "var(--sample-accent-3)"],
+function EightiesVideoRental({ className, compact = false, style }: Props) {
+  // "Neon Nights Video": an 80s VHS horror video-rental store, Be Kind Rewind /
+  // Blockbuster era. A neon storefront sign, a featured staff-pick panel built
+  // on a real neon rental-aisle photo, a VHS new-release wall of horror tape
+  // cases with rental states, and a rental desk with a club membership card and
+  // a "be kind rewind" reminder. The video-rental retail skeleton keeps the dark
+  // neon 80s identity while sharing no shape with the synthwave console it
+  // replaces (or the retro TV shop / cyberpunk city).
+  const mag = "rgb(var(--st-accent-rgb)";
+  const cyan = "rgb(var(--st-accent-2-rgb)";
+  const yel = "rgb(var(--st-accent-3-rgb)";
+  const tapes: Array<[string, string, string, string]> = [
+    ["Neon Slasher", "slasher", "IN", cyan],
+    ["Grave Shift", "zombie", "OUT", mag],
+    ["Prom Night Terror", "slasher", "DUE", yel],
+    ["Static Screams", "sci-fi horror", "IN", cyan],
+    ["Cassette from Hell", "cult", "IN", cyan],
+    ["Chrome Nightmare", "creature", "OUT", mag],
   ];
-  const controls: Array<[string, string, string]> = [
-    ["PLAY", "queued", "var(--sample-accent-2)"],
-    ["TAPE", "loaded", "var(--sample-accent)"],
-    ["COIN", "2 left", "var(--sample-accent-3)"],
+  const shownTapes = compact ? tapes.slice(0, 4) : tapes;
+  const rentals: Array<[string, string]> = [
+    ["Blood Arcade", "due FRI"],
+    ["VHS Vampire", "due SUN"],
   ];
+  const genres = ["Horror", "Slasher", "Sci-Fi", "Cult", "B-Movie"];
+  const statusColor: Record<string, string> = { IN: cyan, OUT: mag, DUE: yel };
 
   return (
     <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span
-        aria-hidden="true"
-        className="absolute -right-8 top-8 h-28 w-28 rounded-full opacity-85 blur-[1px]"
-        style={{ backgroundImage: "linear-gradient(180deg, var(--sample-accent) 0%, var(--sample-accent-3) 100%)" }}
-      >
-        <span className="absolute inset-x-0 bottom-0 h-1/2" style={{ backgroundImage: "repeating-linear-gradient(0deg, var(--sample-base) 0 3px, transparent 3px 9px)" }} />
-      </span>
-      <span
-        aria-hidden="true"
-        className="absolute inset-x-[-18%] bottom-0 h-[48%] origin-bottom skew-x-[-10deg] opacity-55"
-        style={{
-          backgroundImage: "linear-gradient(var(--sample-accent-2) 1px, transparent 1px), linear-gradient(90deg, var(--sample-accent-2) 1px, transparent 1px), linear-gradient(180deg, transparent, rgb(var(--st-accent-2-rgb) / 0.28))",
-          backgroundSize: "30px 22px",
-          maskImage: "linear-gradient(transparent, #000 60%)",
-          WebkitMaskImage: "linear-gradient(transparent, #000 60%)",
-        }}
-      />
-      <span aria-hidden="true" className="absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(circle at 12px 14px, rgb(var(--st-accent-rgb) / 0.35) 0 1px, transparent 1px)", backgroundSize: "26px 30px" }} />
+      {/* decorative layer — clipped so it never adds scroll width */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden font-mono">
+        {/* neon perspective grid floor */}
+        <span
+          className="absolute inset-x-[-20%] bottom-0 h-[42%] origin-bottom skew-x-[-8deg] opacity-40"
+          style={{
+            backgroundImage: `linear-gradient(${cyan} / 1) 1px, transparent 1px), linear-gradient(90deg, ${cyan} / 1) 1px, transparent 1px)`,
+            backgroundSize: "32px 22px",
+            maskImage: "linear-gradient(transparent, #000 70%)",
+            WebkitMaskImage: "linear-gradient(transparent, #000 70%)",
+          }}
+        />
+        {/* magenta glow + scanlines */}
+        <span className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-30 blur-[2px]" style={{ background: `radial-gradient(circle, ${mag} / 0.7), transparent 70%)` }} />
+        <span className="absolute inset-0 opacity-[0.12]" style={{ backgroundImage: "repeating-linear-gradient(0deg, #fff 0 1px, transparent 1px 3px)" }} />
+      </div>
 
-      <div className="relative flex h-full flex-col gap-2 font-mono">
+      <div className="relative flex h-full min-h-0 flex-col gap-2 font-mono">
+        {/* ── neon storefront header ── */}
         <header
-          className="grid grid-cols-[auto_1fr_auto] items-center gap-2 border border-[var(--sample-accent-2)] bg-[rgb(var(--st-surface-rgb)/0.78)] px-2.5 py-1.5 text-[9px] text-[var(--sample-text)]"
-          style={{ boxShadow: "0 0 14px rgb(var(--st-accent-2-rgb) / 0.45), inset 0 1px 0 rgb(255 255 255 / 0.12)" }}
+          className="flex min-w-0 items-center gap-2 border border-[var(--sample-accent-2)] bg-[rgb(var(--st-surface-rgb)/0.82)] px-2.5 py-1.5"
+          style={{ boxShadow: `0 0 14px ${cyan} / 0.4), inset 0 1px 0 rgb(255 255 255 / 0.1)` }}
         >
-          <span className="font-black text-[var(--sample-accent-2)]">SYNTH CONSOLE</span>
-          <nav className={cn("min-w-0 items-center gap-2 text-[var(--sample-muted)]", compact ? "hidden" : "flex")}>
-            <span>mixes</span>
-            <span>arcade</span>
-            <span>tickets</span>
+          <div className="min-w-0">
+            <p
+              className={cn("font-display font-black uppercase leading-none text-[var(--sample-text)]", compact ? "text-[0.82rem]" : "text-[1.15rem]")}
+              style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0.02em", textShadow: `0 0 8px ${mag} / 0.95), 0 0 2px ${mag} / 1)` }}
+            >
+              Neon Nights Video
+            </p>
+            <p className="mt-0.5 text-[7px] font-bold uppercase tracking-[0.18em] text-[var(--sample-accent-2)]">VHS horror · open till 2am</p>
+          </div>
+          <nav className={cn("ml-auto items-center gap-2 text-[8px] uppercase tracking-[0.08em] text-[var(--sample-muted)]", compact ? "hidden" : "flex")}>
+            <span>New</span>
+            <span className="text-[var(--sample-accent)]" style={{ textShadow: `0 0 6px ${mag} / 0.8)` }}>Horror</span>
+            <span>Members</span>
           </nav>
-          <span className="justify-self-end text-[var(--sample-accent)]">88.9 FM</span>
+          <span
+            className={cn("shrink-0 border px-1.5 py-0.5 text-[7.5px] font-black uppercase text-[var(--sample-accent-3)]", compact && "ml-auto")}
+            style={{ borderColor: `${yel} / 0.7)`, boxShadow: `0 0 8px ${yel} / 0.4)` }}
+          >
+            ● open
+          </span>
         </header>
 
-        <main className={cn("grid min-h-0 flex-1 gap-2", compact ? "grid-cols-[1fr_0.72fr]" : "grid-cols-1 md:grid-cols-[1.18fr_0.82fr]")}>
-          <section
-            className="relative min-w-0 overflow-hidden border border-[var(--sample-border)] bg-[#050513] p-2.5"
-            style={{
-              boxShadow: "0 0 0 1px rgb(var(--st-accent-rgb) / 0.25), inset 0 0 22px rgb(var(--st-accent-2-rgb) / 0.2)",
-              backgroundImage: "linear-gradient(135deg, rgb(255 255 255 / 0.06), transparent 30%), linear-gradient(180deg, #0b0925, #04040f)",
-            }}
-          >
-            <div className="relative z-10 flex h-full flex-col justify-between">
-              <div className="flex items-center gap-2 text-[8px] text-[var(--sample-accent-3)]">
-                <span className="h-2 w-2 bg-[var(--sample-accent)] shadow-[0_0_10px_var(--sample-accent)]" />
-                <span>night-drive radio deck</span>
-                <span className={cn("ml-auto text-[var(--sample-muted)]", compact ? "hidden" : "")}>grid perspective ON</span>
-              </div>
-
-              <div className="min-w-0 py-2">
-                <p className="mb-1 text-[8px] tracking-[0.16em] text-[var(--sample-accent-2)]">VHS-A / SIDE 88 / LIVE LOOP</p>
-                <h3
-                  className={cn("font-display uppercase leading-[0.82]", compact ? "text-[1.72rem]" : "text-5xl md:text-[3.45rem]")}
-                  style={{
-                    fontFamily: "var(--st-font-display)",
-                    fontWeight: "var(--st-weight-display)",
-                    letterSpacing: "var(--st-tracking)",
-                    color: "var(--sample-text)",
-                    textShadow: "0 0 9px rgb(var(--st-accent-rgb) / 0.95), 3px 2px 0 var(--sample-accent-2), -2px -1px 0 var(--sample-accent-3)",
-                  }}
-                >
-                  Midnight
-                  <br />
-                  drive
-                </h3>
-              </div>
-
-              <div className="grid grid-cols-[1fr_auto] items-end gap-2">
-                <div className="grid h-10 grid-cols-12 items-end gap-[2px] border border-[var(--sample-accent-2)] bg-black/35 p-1.5">
-                  {[34, 72, 48, 88, 55, 100, 62, 82, 40, 76, 58, 92].map((height, index) => (
-                    <span
-                      aria-hidden="true"
-                      className="w-full"
-                      key={index}
-                      style={{
-                        height: `${height}%`,
-                        backgroundColor: index % 3 === 0 ? "var(--sample-accent)" : index % 3 === 1 ? "var(--sample-accent-2)" : "var(--sample-accent-3)",
-                        boxShadow: "0 0 8px currentColor",
-                      }}
-                    />
-                  ))}
-                </div>
-                <span className={cn("border border-[var(--sample-accent)] bg-[rgb(var(--st-accent-rgb)/0.12)] px-2 py-1 text-[8px] font-black text-[var(--sample-accent)]", compact ? "hidden" : "")}>REC 1986</span>
+        {/* ── featured staff pick + new-release wall ── */}
+        <main className={cn("grid min-h-0 flex-1 gap-2", compact ? "grid-cols-[1fr_1.05fr]" : "grid-cols-[1.05fr_1.2fr]")}>
+          {/* featured staff pick on the neon store photo */}
+          <section className="relative min-w-0 overflow-hidden border border-[var(--sample-border)]" style={{ boxShadow: `0 0 12px ${cyan} / 0.3)` }}>
+            <span className="absolute inset-0">
+              <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position="50% 45%" slug="eighties-retro" style={{ backgroundSize: "cover" }} />
+            </span>
+            {/* bottom scrim only, so the photo stays revealed */}
+            <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-2/3" style={{ background: "linear-gradient(180deg, transparent, rgb(4 4 15 / 0.9))" }} />
+            <span
+              className="absolute left-2 top-2 border px-1.5 py-0.5 text-[7px] font-black uppercase tracking-[0.1em] text-[var(--sample-accent)]"
+              style={{ borderColor: `${mag} / 0.8)`, background: "rgb(4 4 15 / 0.6)", textShadow: `0 0 6px ${mag} / 0.9)` }}
+            >
+              staff pick
+            </span>
+            <div className="absolute inset-x-2 bottom-2">
+              <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-[var(--sample-accent-2)]">midnight screening</p>
+              <h3
+                className={cn("font-display font-black uppercase leading-[0.85] text-[var(--sample-text)]", compact ? "text-[1.05rem]" : "text-[1.6rem]")}
+                style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.01em", textShadow: `0 0 10px ${mag} / 0.8)` }}
+              >
+                The Midnight Tape
+              </h3>
+              <div className="mt-1 flex items-center gap-1.5">
+                <span className="text-[7px] font-bold uppercase text-[var(--sample-muted)]">slasher · 1986 · 98 min</span>
+                <span aria-hidden="true" className="text-[9px] leading-none text-[var(--sample-accent-3)]" style={{ letterSpacing: "0.04em" }}>★★★★<span style={{ color: "rgb(255 255 255 / 0.28)" }}>★</span></span>
+                <span className="ml-auto border px-1.5 py-0.5 text-[7.5px] font-black uppercase text-[var(--sample-accent-3)]" style={{ borderColor: `${yel} / 0.8)`, boxShadow: `0 0 8px ${yel} / 0.4)` }}>rent $2</span>
               </div>
             </div>
-            <span aria-hidden="true" className="absolute -bottom-10 left-1/2 h-32 w-52 -translate-x-1/2 rounded-t-full border border-[var(--sample-accent-2)] opacity-35" />
           </section>
 
-          <aside className="grid min-h-0 gap-2">
-            <section
-              className="min-w-0 border border-[var(--sample-accent-2)] bg-[rgb(var(--st-surface-rgb)/0.76)] p-2"
-              style={{ boxShadow: "0 0 12px rgb(var(--st-accent-2-rgb) / 0.32)" }}
-            >
-              <p className="mb-1.5 text-[9px] font-black text-[var(--sample-accent-2)]">VHS mix queue</p>
-              <div className="grid gap-1.5">
-                {tracks.map(([num, name, meta, color]) => (
-                  <div className="grid grid-cols-[1.6rem_1fr_auto] items-center gap-1.5 border border-[rgb(var(--st-border-rgb)/0.9)] bg-black/35 px-1.5 py-1 text-[8px]" key={name}>
-                    <span className="font-black" style={{ color }}>{num}</span>
-                    <span className="min-w-0 truncate text-[var(--sample-text)]">{name}</span>
-                    <span className="text-[var(--sample-muted)]">{meta}</span>
+          {/* new-release wall of VHS tape cases */}
+          <aside aria-label="new-release wall" className="flex min-w-0 flex-col border border-[var(--sample-accent-2)] bg-[rgb(var(--st-surface-rgb)/0.7)] p-2" style={{ boxShadow: `0 0 12px ${cyan} / 0.24)` }}>
+            <div className="mb-1.5 flex items-center justify-between">
+              <p className="text-[8.5px] font-black uppercase tracking-[0.1em] text-[var(--sample-accent-2)]">new-release wall</p>
+              <span className="text-[7px] font-bold uppercase text-[var(--sample-accent)]" style={{ textShadow: `0 0 6px ${mag} / 0.7)` }}>horror</span>
+            </div>
+            <div className={cn("grid min-h-0 flex-1 gap-1.5", compact ? "grid-cols-2" : "grid-cols-3")}>
+              {shownTapes.map(([title, genre, status, color]) => (
+                <article className="flex min-w-0 flex-col overflow-hidden border border-[rgb(var(--st-border-rgb)/0.8)] bg-[rgb(4_4_15/0.55)]" key={title}>
+                  {/* VHS case top band */}
+                  <span className="h-1.5 w-full shrink-0" style={{ background: `${color} / 1)`, boxShadow: `0 0 6px ${color} / 0.7)` }} />
+                  <div className="flex min-w-0 flex-1 flex-col justify-between p-1">
+                    <p className="line-clamp-2 text-[7.5px] font-black uppercase leading-[1.05] text-[var(--sample-text)]">{title}</p>
+                    <div className="mt-1 flex items-center justify-between gap-1">
+                      <span className={cn("truncate text-[6px] font-bold uppercase text-[var(--sample-muted)]", compact && "hidden")}>{genre}</span>
+                      <span className="flex shrink-0 items-center gap-0.5 text-[6.5px] font-black uppercase" style={{ color: `${statusColor[status]} / 1)` }}>
+                        <span className="h-1 w-1 rounded-full" style={{ background: `${statusColor[status]} / 1)`, boxShadow: `0 0 5px ${statusColor[status]} / 0.9)` }} />
+                        {status}
+                      </span>
+                    </div>
                   </div>
-                ))}
-              </div>
-            </section>
-
-            <section className={cn("grid gap-1.5 border border-[var(--sample-border)] bg-black/35 p-2", compact ? "hidden" : "")}>
-              <p className="text-[8px] text-[var(--sample-muted)]">black plastic status bay</p>
-              <div className="grid grid-cols-3 gap-1">
-                <span className="h-8 rounded-[3px] bg-[linear-gradient(180deg,#343449,#07070c)] shadow-[inset_0_2px_0_rgb(255_255_255_/_0.16)]" />
-                <span className="h-8 rounded-[3px] bg-[linear-gradient(180deg,#321047,#080713)] shadow-[inset_0_2px_0_rgb(255_255_255_/_0.16)]" />
-                <span className="h-8 rounded-[3px] bg-[linear-gradient(180deg,#062c4a,#050712)] shadow-[inset_0_2px_0_rgb(255_255_255_/_0.16)]" />
-              </div>
-            </section>
+                </article>
+              ))}
+            </div>
           </aside>
         </main>
 
-        <footer className={cn("grid grid-cols-[auto_1fr] items-center gap-2 border border-[var(--sample-accent)] bg-[rgb(var(--st-accent-rgb)/0.1)] p-1.5", compact ? "hidden" : "")}>
-          <span className="px-1 text-[8px] font-black text-[var(--sample-accent)]">arcade control strip</span>
-          <div className="grid grid-cols-3 gap-1.5">
-            {controls.map(([label, state, color]) => (
-              <span className="grid min-w-0 grid-cols-[auto_1fr] items-center gap-1 border border-[var(--sample-border)] bg-black/45 px-1.5 py-1 text-[8px]" key={label}>
-                <span className="h-3 w-3 rounded-full" style={{ backgroundColor: color, boxShadow: `0 0 8px ${color}` }} />
-                <span className="min-w-0">
-                  <span className="block font-black text-[var(--sample-text)]">{label}</span>
-                  <span className="block truncate text-[var(--sample-muted)]">{state}</span>
-                </span>
-              </span>
+        {/* ── rental desk: membership card + rentals + be kind rewind ── */}
+        <section className={cn("grid gap-2", compact ? "hidden" : "grid-cols-[0.95fr_1.05fr_auto]")}>
+          <div className="min-w-0 border border-[var(--sample-accent)] bg-[rgb(var(--st-accent-rgb)/0.1)] px-2 py-1.5" style={{ boxShadow: `0 0 10px ${mag} / 0.28)` }}>
+            <p className="text-[7px] font-black uppercase tracking-[0.14em] text-[var(--sample-accent)]" style={{ textShadow: `0 0 6px ${mag} / 0.8)` }}>Neon Nights Video Club</p>
+            <p className="mt-0.5 font-display text-[0.95rem] font-black uppercase leading-none text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0.06em" }}>Member 0286</p>
+            <p className="mt-0.5 text-[6.5px] font-bold uppercase tracking-[0.1em] text-[var(--sample-muted)]">since {"'"}86 · gold tier</p>
+          </div>
+          <div className="min-w-0 border border-[var(--sample-accent-2)] bg-black/30 px-2 py-1.5">
+            <p className="mb-1 text-[7px] font-black uppercase tracking-[0.1em] text-[var(--sample-accent-2)]">your rentals</p>
+            {rentals.map(([name, due]) => (
+              <div className="flex items-center justify-between gap-2 border-b border-[rgb(var(--st-border-rgb)/0.35)] py-[3px] last:border-0" key={name}>
+                <span className="min-w-0 truncate text-[8px] font-bold text-[var(--sample-text)]">{name}</span>
+                <span className="shrink-0 text-[7px] font-black uppercase text-[var(--sample-accent-3)]">{due}</span>
+              </div>
             ))}
           </div>
-        </footer>
+          <div className="flex flex-col justify-center gap-1 border border-[rgb(var(--st-border-rgb)/0.6)] bg-black/30 px-2 py-1.5 text-center">
+            <span className="whitespace-nowrap text-[8px] font-black uppercase tracking-[0.08em] text-[var(--sample-accent-3)]" style={{ textShadow: `0 0 6px ${yel} / 0.7)` }}>be kind rewind</span>
+            <span className="whitespace-nowrap text-[6.5px] font-bold uppercase text-[var(--sample-muted)]">late fee $1/day</span>
+          </div>
+        </section>
+
+        {/* genre neon chips */}
+        <div className={cn("flex flex-wrap items-center gap-1.5", compact ? "hidden" : "")}>
+          {genres.map((g, i) => (
+            <span
+              className="border px-1.5 py-0.5 text-[7px] font-black uppercase tracking-[0.06em]"
+              key={g}
+              style={{
+                borderColor: `${[mag, cyan, yel][i % 3]} / 0.6)`,
+                color: `${[mag, cyan, yel][i % 3]} / 1)`,
+                boxShadow: `0 0 7px ${[mag, cyan, yel][i % 3]} / 0.28)`,
+              }}
+            >
+              {g}
+            </span>
+          ))}
+        </div>
       </div>
     </SampleFrame>
   );
@@ -8911,7 +8939,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "eighties-retro") {
-    return <EightiesSynthConsole {...props} />;
+    return <EightiesVideoRental {...props} />;
   }
 
   if (style.slug === "nineties-graphic") {
