@@ -2321,10 +2321,10 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         { title: "Awwwards - Retro Websites", url: "https://www.awwwards.com/websites/retro/", note: "Gallery reference for contemporary retro sites that reinterpret 70s color, soft shapes, and nostalgic campaign structure." },
         { title: "Dribbble - 70s Website Design", url: "https://dribbble.com/search/70s%20website%20design", note: "UI reference for 70s landing pages, groovy badges, wavy modules, and warm product cards." },
       ],
-      representativeTraits: ["Warm orange palette", "Groovy curves", "Wavy campaign shelf", "Corduroy product rhythm", "Relaxed lifestyle commerce"],
+      representativeTraits: ["Warm harvest palette", "Groovy rounded type", "Recipe card index", "Ingredient checklist & method", "70s community cookbook"],
       avoidTraits: ["Generic retro badges", "80s neon grid", "Vintage paper archive"],
       tokenIntent:
-        "Use warm 70s colors, rounded shapes, soft badges, wavy campaign shelves, corduroy product rhythm, walnut/amber material chips, and relaxed lifestyle commerce cards so the style reads as seventies retro.",
+        "Use warm harvest-gold, avocado-green and burnt-orange 70s colors, rounded groovy type, a featured recipe card on real food photography, a recipe-card index, an ingredient checklist and numbered method, and a harvest-gold pantry swatch rail so the style reads as a seventies community cookbook rather than generic retro commerce.",
     },
   },
   "eighties-retro": {
