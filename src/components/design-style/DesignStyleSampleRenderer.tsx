@@ -5853,43 +5853,130 @@ function DopamineRewardLoop({ compact = false, style }: Props) {
   );
 }
 
+function PopArtFlower({ petal, center, className }: { petal: string; center: string; className?: string }) {
+  // A Warhol-Flowers style silkscreen bloom — the repeated object of the serial
+  // wall, drawn once and recoloured per edition tile.
+  return (
+    <svg aria-hidden="true" className={className} viewBox="0 0 64 64">
+      <g fill={petal}>
+        <circle cx="24" cy="24" r="13" />
+        <circle cx="40" cy="24" r="13" />
+        <circle cx="24" cy="40" r="13" />
+        <circle cx="40" cy="40" r="13" />
+      </g>
+      <circle cx="32" cy="32" fill={center} r="7" />
+    </svg>
+  );
+}
+
 function PopArtObjectArchive({ compact = false, style }: Props) {
-  const halftone = "radial-gradient(circle, var(--sample-text) 0 12%, transparent 13%)";
-  const editions = [style.palette.accent, style.palette.accent2, style.palette.accent3, style.palette.surface] as const;
+  // "Serial pop wall": a Warhol / Haring / Guggenheim-Pop museum edition shop.
+  // A silkscreen wall repeats one flower object across a colour-permuted edition
+  // grid (with one Ben-Day halftone tile) above a museum-shop edition rail and a
+  // halftone caption rail. The gallery-wall skeleton keeps it distinct from its
+  // cute/casual neighbours kawaii (product collection grid), kitsch (novelty
+  // storefront) and comic-book-style (paneled cover shelf).
+  const ink = "#17151a";
+  const halftone = `radial-gradient(circle, ${ink} 0 30%, transparent 34%)`;
+  const flowers: Array<{ petal: string; center: string; bg: string }> = [
+    { petal: "var(--sample-primary)", center: "var(--sample-accent-3)", bg: "var(--sample-accent)" },
+    { petal: "var(--sample-accent-3)", center: "var(--sample-primary)", bg: "var(--sample-accent-2)" },
+    { petal: "var(--sample-accent)", center: "var(--sample-primary)", bg: "var(--sample-accent-3)" },
+    { petal: "var(--sample-accent-2)", center: "var(--sample-accent-3)", bg: "var(--sample-primary)" },
+    { petal: "var(--sample-base)", center: "var(--sample-primary)", bg: "var(--sample-text)" },
+    { petal: "var(--sample-primary)", center: "var(--sample-accent)", bg: "var(--sample-base)" },
+    { petal: "var(--sample-accent-3)", center: "var(--sample-accent-2)", bg: "var(--sample-accent)" },
+  ];
+  const editionsRail: Array<[string, string, string]> = [
+    ["flowers serigraph", "ed. 250", "$95"],
+    ["ben-day tote", "shop", "$38"],
+    ["soup can mug", "shop", "$24"],
+    ["pop pin set", "ed. 500", "$12"],
+  ];
 
   return (
     <SampleFrame compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Edition Wall" compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />]} links={["Works", "Store", "Visit"]} sub="archive shop" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.78fr_1.22fr]" : "grid-cols-[0.64fr_1.36fr]")}>
-          <section className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent)] p-4 text-[var(--sample-base)]">
-            <p className="text-[10px] font-black uppercase tracking-[0.15em]">POP OBJECT ARCHIVE</p>
-            <h3 className={cn("mt-3 font-display font-black uppercase leading-[0.78]", compact ? "text-3xl" : "text-6xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-              SERIAL POP WALL
-            </h3>
-            <p className="mt-4 border-t-[3px] border-[var(--sample-border)] pt-3 text-[9px] font-black uppercase tracking-[0.12em]">museum shop wall</p>
-          </section>
-          <section className="grid min-h-0 grid-cols-[1fr_0.72fr] gap-3">
-            <div className="grid grid-cols-2 gap-2">
-              {editions.map((color, index) => (
-                <div className="relative border-[3px] border-[var(--sample-border)] p-3" key={`${color}-${index}`} style={{ backgroundColor: color }}>
-                  <span className="absolute inset-3 rounded-full border-[3px] border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.72)]" />
-                  <span className="absolute bottom-3 right-3 h-8 w-8 rounded-full bg-[var(--sample-accent-3)]" style={{ backgroundImage: halftone, backgroundSize: "8px 8px" }} />
-                  <span className="relative z-10 text-[9px] font-black uppercase tracking-[0.12em]">repeated object</span>
-                  <span className="relative z-10 mt-14 block text-[8px] font-black uppercase tracking-[0.1em]">object edition grid</span>
+      <div
+        className={cn("absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
+        style={{
+          "--sample-accent": "#19b6d8",
+          "--sample-accent-2": "#2f4fd6",
+          "--sample-accent-3": "#ffcf1a",
+          "--sample-base": "#f6efe0",
+          "--sample-border": "#17151a",
+          "--sample-border-soft": "rgba(23,21,26,0.14)",
+          "--sample-muted": "#8f8a86",
+          "--sample-primary": "#ff2d87",
+          "--sample-surface": "#ffffff",
+          "--sample-text": "#17151a",
+          "--st-base-rgb": "246 239 224",
+          "--st-surface-rgb": "255 255 255",
+          "--st-text-rgb": "23 21 26",
+          "--st-primary-rgb": "255 45 135",
+          "--st-accent-rgb": "25 182 216",
+          "--st-accent-2-rgb": "47 79 214",
+          "--st-accent-3-rgb": "255 207 26",
+          "--st-border-rgb": "23 21 26",
+          background: "linear-gradient(180deg, #f8f2e6, #f4ecdd)",
+        } as SampleVariables}
+      >
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_1fr_auto_auto] gap-2.5">
+          {/* ── gallery masthead ── */}
+          <header className="flex items-center gap-2">
+            <div className="min-w-0 leading-none">
+              <span className="block text-[11px] font-black uppercase tracking-[0.04em] text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)" }}>Edition Wall</span>
+              <span className="block text-[6.5px] font-black uppercase tracking-[0.2em] text-[var(--sample-primary)]">POP OBJECT ARCHIVE</span>
+            </div>
+            <span className="ml-auto flex items-center gap-2 text-[7px] font-black uppercase tracking-[0.12em] text-[var(--sample-muted)]">
+              <span>museum shop wall</span>
+              <IconSearch size={compact ? 11 : 12} />
+            </span>
+          </header>
+
+          {/* ── serial pop wall / object edition grid ── */}
+          <section aria-label="object edition grid" className="relative min-h-0 overflow-hidden rounded-[6px] ring-2 ring-[var(--sample-border)]">
+            <div className="grid h-full grid-cols-4 grid-rows-2 gap-[2px] bg-[var(--sample-border)]">
+              {flowers.map(({ petal, center, bg }, index) => (
+                <div aria-label="repeated object" className="relative grid place-items-center overflow-hidden" key={index} style={{ backgroundColor: bg }}>
+                  <PopArtFlower center={center} className="h-[76%] w-[76%]" petal={petal} />
                 </div>
               ))}
+              <div aria-label="halftone block" className="grid place-items-center bg-[var(--sample-accent-3)]" style={{ backgroundImage: halftone, backgroundSize: compact ? "9px 9px" : "12px 12px" }}>
+                <span className="rounded-full bg-[var(--sample-text)] px-1.5 py-0.5 text-[6px] font-black uppercase tracking-[0.1em] text-[var(--sample-base)]">ben-day</span>
+              </div>
             </div>
-            <div className="grid min-h-0 grid-rows-[1fr_auto] gap-2 border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] p-3">
-              <div className="min-h-0 bg-[var(--sample-accent-3)]" style={{ backgroundImage: halftone, backgroundSize: compact ? "10px 10px" : "14px 14px" }} />
-              <span className="mt-2 block text-[9px] font-black uppercase tracking-[0.12em]">halftone block</span>
+            <div className="absolute left-2 top-2 max-w-[70%] bg-[var(--sample-text)] px-2 py-1">
+              <p className="text-[6px] font-black uppercase tracking-[0.16em] text-[var(--sample-accent-3)]">serial silkscreen · 1 of 7</p>
+              <h3 aria-label="SERIAL POP WALL" className="font-black uppercase leading-[0.82] text-[var(--sample-base)]" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "17px" : "24px" }}>
+                SERIAL
+                <br />
+                POP WALL
+              </h3>
             </div>
           </section>
-        </div>
-        <div className="grid grid-cols-3 border-[3px] border-[var(--sample-border)] text-[9px] font-black uppercase tracking-[0.12em]">
-          {["halftone caption rail", "museum shop wall", "object edition grid"].map((label) => (
-            <span className="border-r-[3px] border-[var(--sample-border)] px-3 py-2 last:border-r-0" key={label}>{label}</span>
-          ))}
+
+          {/* ── museum shop edition rail ── */}
+          <div className={cn("grid grid-cols-4 gap-2", compact && "hidden")}>
+            {editionsRail.map(([name, meta, price], index) => (
+              <div className="flex items-center gap-1.5 rounded-[10px] bg-white px-1.5 py-1 ring-1 ring-[var(--sample-border-soft)]" key={name}>
+                <span className="h-5 w-5 shrink-0 rounded-[6px] ring-1 ring-[var(--sample-border)]" style={{ backgroundColor: [flowers[0].bg, flowers[2].bg, flowers[3].bg, flowers[1].bg][index], backgroundImage: index === 1 ? halftone : undefined, backgroundSize: "6px 6px" }} />
+                <span className="min-w-0">
+                  <span className="block truncate text-[7.5px] font-black lowercase text-[var(--sample-text)]">{name}</span>
+                  <span className="flex items-center gap-1">
+                    <span className="text-[6px] font-black uppercase tracking-[0.08em] text-[var(--sample-muted)]">{meta}</span>
+                    <span className="text-[7px] font-black text-[var(--sample-primary)]">{price}</span>
+                  </span>
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* ── halftone caption rail ── */}
+          <div aria-label="halftone caption rail" className="flex items-center gap-2 overflow-hidden rounded-full bg-[var(--sample-text)] px-3 py-1.5">
+            <span aria-hidden="true" className="h-3 w-8 shrink-0 rounded-full" style={{ backgroundImage: `radial-gradient(circle, var(--sample-accent-3) 0 34%, transparent 38%)`, backgroundSize: "5px 5px" }} />
+            <span className="truncate text-[7px] font-black uppercase tracking-[0.12em] text-[var(--sample-base)]">object edition grid · hand-pulled screenprint · museum shop wall</span>
+            <span className="ml-auto shrink-0 rounded-full bg-[var(--sample-primary)] px-2.5 py-1 text-[7.5px] font-black uppercase text-white">shop editions</span>
+          </div>
         </div>
       </div>
     </SampleFrame>
