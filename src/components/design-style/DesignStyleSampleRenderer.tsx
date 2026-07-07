@@ -169,6 +169,7 @@ const GENERATED_STYLE_IMAGES = {
   botanical: "/generated/design-styles/botanical.webp",
   brutalism: "/generated/design-styles/brutalism.webp",
   classic: "/generated/design-styles/classic.webp",
+  "comic-book-style": "/generated/design-styles/comic-book-style.webp",
   craft: "/generated/design-styles/craft.webp",
   deconstructivism: "/generated/design-styles/deconstructivism.webp",
   "glitch-art": "/generated/design-styles/glitch-art.webp",
@@ -5984,43 +5985,123 @@ function PopArtObjectArchive({ compact = false, style }: Props) {
 }
 
 function ComicIssueDrop({ compact = false, style }: Props) {
+  // "Comic issue reader": a Marvel / DC / Webtoons issue page — an inked splash
+  // cover panel (generated Silver-Age rocket art) with a speech balloon and
+  // burst, a row of sequential preview panels, and a right rail with the cover
+  // reader shelf (series queue), creator credit line and episode metadata. The
+  // irregular paneled comic-page skeleton keeps it distinct from its neighbour
+  // pop-art (uniform serial silkscreen grid) and the rest of cute/casual.
+  const inkPanel: CSSProperties = { boxShadow: "0 0 0 2.5px var(--sample-border), 3px 4px 0 rgba(23,21,26,0.28)" };
+  const queue: Array<[string, string, string]> = [
+    ["#041", "Nightfall", "44% 20%"],
+    ["#042", "Liftoff", "52% 52%"],
+    ["#043", "Cosmos", "60% 84%"],
+  ];
+
   return (
     <SampleFrame compact={compact} style={style}>
-      <div className="absolute inset-0 opacity-25" style={{ backgroundImage: "radial-gradient(circle, var(--sample-text) 0 10%, transparent 11%)", backgroundSize: "13px 13px" }} />
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Issue Shelf" compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />]} links={["Issues", "Cast", "Read"]} sub="comic store" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.92fr_1.08fr]" : "grid-cols-[0.84fr_1.16fr]")}>
-          <section className="flex min-h-0 flex-col justify-between border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] p-3 shadow-[5px_5px_0_var(--sample-accent-3)]">
-            <div className="border-[3px] border-[var(--sample-border)] bg-[linear-gradient(135deg,var(--sample-accent)_0_48%,var(--sample-accent-2)_48%_100%)] p-3 text-[var(--sample-base)]">
-              <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[var(--sample-base)]">ISSUE DROP</p>
-              <h3 className={cn("mt-2 font-display font-black uppercase leading-[0.82] text-[var(--sample-base)]", compact ? "text-2xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                COVER READER SHELF
-              </h3>
+      <div
+        className={cn("absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
+        style={{
+          "--sample-accent": "#f24aa1",
+          "--sample-accent-2": "#2b5bd7",
+          "--sample-accent-3": "#ffcf1a",
+          "--sample-base": "#f6edd8",
+          "--sample-border": "#17161c",
+          "--sample-border-soft": "rgba(23,22,28,0.16)",
+          "--sample-muted": "#8b8577",
+          "--sample-primary": "#e4322f",
+          "--sample-surface": "#ffffff",
+          "--sample-text": "#17161c",
+          "--st-base-rgb": "246 237 216",
+          "--st-surface-rgb": "255 255 255",
+          "--st-text-rgb": "23 22 28",
+          "--st-primary-rgb": "228 50 47",
+          "--st-accent-rgb": "242 74 161",
+          "--st-accent-2-rgb": "43 91 215",
+          "--st-accent-3-rgb": "255 207 26",
+          "--st-border-rgb": "23 22 28",
+          background:
+            "radial-gradient(circle, rgba(23,22,28,0.05) 0 1.4px, transparent 2px) 0 0 / 9px 9px, linear-gradient(180deg, #f8f0dd, #f3ebd4)",
+        } as SampleVariables}
+      >
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_1fr_auto] gap-2.5">
+          {/* ── masthead ── */}
+          <header className="flex items-center gap-2">
+            <div className="min-w-0 leading-none">
+              <span className="block text-[11px] font-black uppercase tracking-[0.02em] text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)" }}>Issue Shelf</span>
+              <span className="block text-[6.5px] font-black uppercase tracking-[0.18em] text-[var(--sample-primary)]">ISSUE DROP · new this week</span>
             </div>
-            <div className="mt-3 grid grid-cols-2 gap-2 text-[9px] font-black uppercase tracking-[0.12em]">
-              <span className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-2 py-2">creator credit line</span>
-              <span className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-base)] px-2 py-2">episode metadata</span>
+            <span className="ml-auto flex items-center gap-2 text-[7px] font-black uppercase tracking-[0.12em] text-[var(--sample-muted)]">
+              <span>vol.4 · #042</span>
+              <IconSearch size={compact ? 11 : 12} />
+            </span>
+          </header>
+
+          {/* ── comic page: splash + panels | reader rail ── */}
+          <div className={cn("grid min-h-0 min-w-0 gap-2.5", compact ? "grid-cols-1" : "grid-cols-[1.42fr_0.58fr]")}>
+            <section className="grid min-h-0 min-w-0 grid-rows-[1.55fr_1fr] gap-2.5">
+              {/* splash cover panel */}
+              <div className="relative min-h-0 overflow-hidden rounded-[3px]" style={inkPanel}>
+                <span className="absolute inset-0"><GeneratedStyleImageSurface className="h-full w-full" overlay="none" position="50% 32%" slug="comic-book-style" /></span>
+                <span className="absolute left-1.5 top-1.5 -rotate-3 bg-[var(--sample-accent-3)] px-1.5 py-0.5 text-[7px] font-black uppercase tracking-[0.08em] text-[var(--sample-text)]" style={{ boxShadow: "0 0 0 2px var(--sample-border)" }}>★ ISSUE DROP #042</span>
+                <span aria-label="speech balloon" className="absolute right-1.5 top-1.5 max-w-[52%] rounded-[12px] bg-[var(--sample-surface)] px-2 py-1 text-[7px] font-black uppercase leading-tight tracking-[0.02em] text-[var(--sample-text)]" style={{ boxShadow: "0 0 0 2px var(--sample-border)" }}>
+                  to the stars — at last!
+                  <span className="absolute -bottom-1 left-4 h-2 w-2 rotate-45 bg-[var(--sample-surface)]" style={{ boxShadow: "2px 2px 0 0 var(--sample-border)" }} />
+                </span>
+                <span className="absolute bottom-1.5 left-1.5 bg-[var(--sample-text)] px-1.5 py-0.5 text-[8px] font-black uppercase tracking-[0.06em] text-[var(--sample-base)]" style={{ fontFamily: "var(--st-font-display)" }}>ROCKET CITY: LIFTOFF</span>
+              </div>
+              {/* sequential preview panels */}
+              <div aria-label="panel preview" className={cn("grid min-h-0 grid-cols-3 gap-2.5", compact && "grid-cols-3")}>
+                {[["18% 30%", "meanwhile…"], ["62% 62%", "vroooom!"], ["48% 90%", "look up!"]].map(([pos, caption], index) => (
+                  <div className="relative min-h-0 overflow-hidden rounded-[3px]" key={index} style={inkPanel}>
+                    <span className="absolute inset-0"><GeneratedStyleImageSurface className="h-full w-full" overlay="none" position={pos} slug="comic-book-style" style={{ backgroundSize: "180%" }} /></span>
+                    <span className={cn("absolute left-1 top-1 bg-[var(--sample-surface)] px-1 py-0.5 text-[6px] font-black uppercase tracking-[0.04em] text-[var(--sample-text)]", index === 1 && "left-auto right-1 bg-[var(--sample-accent-3)]")} style={{ boxShadow: "0 0 0 1.5px var(--sample-border)" }}>{caption}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* reader rail */}
+            <section className={cn("flex min-h-0 min-w-0 flex-col gap-2", compact && "hidden")}>
+              <div aria-label="COVER READER SHELF" className="min-h-0 flex-1 rounded-[10px] bg-white p-1.5" style={{ boxShadow: "0 0 0 2px var(--sample-border)" }}>
+                <div className="mb-1 flex items-center justify-between">
+                  <span className="text-[7px] font-black uppercase tracking-[0.08em]">series queue</span>
+                  <span className="text-[6px] font-black uppercase text-[var(--sample-muted)]">42 issues</span>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  {queue.map(([no, title, pos], index) => (
+                    <div className={cn("flex items-center gap-1.5 rounded-[6px] p-1", index === 1 ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-base)]")} key={no}>
+                      <span className="relative h-7 w-5 shrink-0 overflow-hidden rounded-[2px]" style={{ boxShadow: "0 0 0 1.5px var(--sample-border)" }}>
+                        <span className="absolute inset-0"><GeneratedStyleImageSurface className="h-full w-full" overlay="none" position={pos} slug="comic-book-style" style={{ backgroundSize: "220%" }} /></span>
+                      </span>
+                      <span className="min-w-0 leading-none">
+                        <span className="block text-[7px] font-black text-[var(--sample-text)]">{no}</span>
+                        <span className="block truncate text-[6.5px] font-black lowercase text-[var(--sample-muted)]">{title}</span>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div aria-label="episode metadata" className="rounded-[10px] bg-[var(--sample-text)] px-2 py-1.5 text-[var(--sample-base)]" style={{ boxShadow: "0 0 0 2px var(--sample-border)" }}>
+                <div className="flex items-center justify-between text-[7px] font-black uppercase tracking-[0.06em]">
+                  <span>#042 · 22 pp</span>
+                  <span className="text-[var(--sample-accent-3)]">★ 4.8</span>
+                </div>
+                <p aria-label="creator credit line" className="mt-1 truncate text-[6px] font-black uppercase tracking-[0.04em] text-[rgb(246_237_216/0.7)]">script r.vane · art k.oda · colors m.dot</p>
+              </div>
+            </section>
+          </div>
+
+          {/* ── reader controls ── */}
+          <div className="flex items-center gap-2 rounded-full bg-white px-2.5 py-1.5" style={{ boxShadow: "0 0 0 2px var(--sample-border)" }}>
+            <span className="text-[7px] font-black uppercase tracking-[0.1em] text-[var(--sample-muted)]">‹ prev</span>
+            <div className="flex min-w-0 flex-1 items-center gap-1">
+              <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-[var(--sample-base)]"><span className="block h-full w-[38%] rounded-full bg-[var(--sample-primary)]" /></span>
+              <span className="shrink-0 text-[6.5px] font-black uppercase text-[var(--sample-muted)]">p.8 / 22</span>
             </div>
-          </section>
-          <section className="grid min-h-0 grid-cols-2 grid-rows-[1fr_0.76fr] gap-2">
-            <div className="relative col-span-2 border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-2)] p-3">
-              <span className="absolute right-4 top-4 rounded-[55%] border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-2 text-[9px] font-black uppercase tracking-[0.1em]">speech balloon</span>
-              <span className="absolute bottom-3 left-3 text-[9px] font-black uppercase tracking-[0.12em]">panel preview</span>
-            </div>
-            <div className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent)] p-3 text-[var(--sample-base)]">
-              <span className="block text-[9px] font-black uppercase tracking-[0.12em]">series queue</span>
-              <span className="mt-7 block text-3xl font-black">08</span>
-            </div>
-            <div className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-accent-3)] p-3">
-              <span className="block text-[9px] font-black uppercase tracking-[0.12em]">episode metadata</span>
-              <span className="mt-7 block text-3xl font-black">7.12</span>
-            </div>
-          </section>
-        </div>
-        <div className="grid grid-cols-4 gap-2 text-[9px] font-black uppercase tracking-[0.12em]">
-          {["cover shelf", "panel preview", "credit line", "series queue"].map((label) => (
-            <span className="border-[3px] border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-2" key={label}>{label}</span>
-          ))}
+            <span className="shrink-0 rounded-full bg-[var(--sample-primary)] px-2.5 py-1 text-[7.5px] font-black uppercase tracking-[0.04em] text-white">read issue</span>
+          </div>
         </div>
       </div>
     </SampleFrame>
