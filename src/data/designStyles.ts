@@ -2124,7 +2124,7 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     visualFeatures: ["고전적 오브젝트, 사진, 세리프 인용문, 팝 상품 라벨이 서로 다른 시대의 언어를 섞습니다.", "Memphis 패턴은 강한 악센트로 쓰되 전체 정체성을 독점하지 않습니다.", "문화 아카이브, 오브젝트 인덱스, 숍 노트가 한 화면에 아이러니한 질서를 만듭니다."],
     colorPalette: ["크림과 검정 구조 위에 코발트, 레드, 노랑, 민트 같은 충돌색을 얹습니다.", "밝은 색만으로 채우기보다 사진과 중립 표면을 함께 둡니다.", "색면은 장식이 아니라 카드와 정보 구역을 나누는 장치로 씁니다."],
     typography: ["굵은 산세리프 제목과 작은 아카이브 라벨을 대비시킵니다.", "필요하면 세리프 문장을 섞어 역사적 인용감을 만듭니다.", "번호, 에디션, 섹션명 같은 기능 텍스트를 그래픽 리듬으로 활용합니다."],
-    layoutTraits: ["전시, 아카이브, 숍이 섞인 문화 포털처럼 구성합니다.", "고전 인용 블록, 문화 콜라주, 오브젝트 인덱스를 중심으로 배치합니다.", "모바일에서는 장식보다 카드 순서와 텍스트 대비를 우선합니다."],
+    layoutTraits: ["경매 카탈로그 스프레드처럼 구성합니다 — 세리프 서문, 대표 롯, 다음 롯 인덱스가 한 화면에 놓입니다.", "고전 인용 블록, 문화 콜라주, 오브젝트 인덱스를 중심으로 배치합니다.", "모바일에서는 장식보다 카드 순서와 텍스트 대비를 우선합니다."],
     useCases: ["디자인 아카이브", "전시 웹", "컬처 커머스", "브랜드 에디토리얼"],
     goodFor: ["디자인 역사와 현대 상품을 함께 보여주는 프로젝트", "엄격한 모더니즘보다 혼합과 해석이 중요한 브랜드", "문화 기관, 오브젝트 숍, 전시 캠페인", "유머와 지적 레퍼런스를 함께 쓰는 웹 경험"],
     cautions: ["Memphis만 반복하면 포스트모더니즘이 아니라 Memphis 리바이벌처럼 보입니다.", "Maximalism처럼 패턴 과잉으로 흐르지 않게 해야 합니다.", "Anti-Design처럼 무질서해지면 의도적인 혼합이 사라집니다.", "텍스트 대비와 실제 탐색 구조를 반드시 유지해야 합니다."],
@@ -2144,7 +2144,7 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
       representativeTraits: ["Classical quotation", "Culture collage", "Ironic object index", "Mixed cultural forms", "Editorial commerce"],
       avoidTraits: ["Neo-brutalist component kit", "Native form controls", "Memphis-only revival", "Generic colorful UI", "Raw brutalist severity"],
       tokenIntent:
-        "Use classical quotation, culture collage, ironic object indexes, selective Memphis geometry, museum labels, and cultural commerce modules so the style reads as broader postmodernism rather than neo-brutalist UI.",
+        "Use classical quotation, culture collage, ironic lot indexes, selective Memphis geometry, auction catalogue labels, and live-sale commerce modules so the style reads as broader postmodernism rather than neo-brutalist UI.",
     },
   },
   classic: {
