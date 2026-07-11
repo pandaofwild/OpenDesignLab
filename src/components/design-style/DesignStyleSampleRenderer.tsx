@@ -1531,22 +1531,36 @@ function RawBrutalistIndex({ className, compact = false, style }: Props) {
   );
 }
 
-function NeoBrutalistApp({ className, compact = false, style }: Props) {
+function NeoBrutalistLaundromat({ className, compact = false, style }: Props) {
   const box = "border-[3px] border-[var(--sample-border)]";
   const box2 = "border-2 border-[var(--sample-border)]";
   const hardShadow = { boxShadow: "6px 6px 0 var(--sample-border)" };
   const smallShadow = { boxShadow: "4px 4px 0 var(--sample-border)" };
-  const products: Array<{ name: string; meta: string; price: string; tone: "yellow" | "blue" | "coral" }> = [
-    { name: "Brush Pack 04", meta: "47 stamps · instant files", price: "$19", tone: "yellow" },
-    { name: "Creator Template", meta: "Notion OS · 1 license", price: "$8", tone: "blue" },
-    { name: "Mini Course", meta: "6 lessons · 2h video", price: "$31", tone: "coral" },
+  const machines: Array<{ id: string; kind: string; state: "busy" | "free" | "out"; big: string; note: string }> = [
+    { id: "W1", kind: "WASH 8KG", state: "free", big: "READY", note: "door open" },
+    { id: "W2", kind: "WASH 8KG", state: "busy", big: "32 MIN", note: "ends 2:14 PM" },
+    { id: "W3", kind: "WASH 12KG", state: "free", big: "READY", note: "big loads" },
+    { id: "D1", kind: "DRY", state: "busy", big: "8 MIN", note: "ends 1:50 PM" },
+    { id: "D2", kind: "DRY", state: "free", big: "READY", note: "lint tray ok" },
+    { id: "W4", kind: "WASH 8KG", state: "out", big: "OUT", note: "parts coming" },
   ];
-  const payouts: Array<[string, string]> = [
-    ["Stripe", "ON"],
-    ["Instant payout", "ON"],
+  const temps: Array<[string, boolean]> = [
+    ["hot", true],
+    ["warm", false],
+    ["cold", false],
   ];
-  const toneBg = (tone: string) =>
-    tone === "yellow" ? "bg-[var(--sample-accent)]" : tone === "blue" ? "bg-[var(--sample-accent-3)]" : "bg-[var(--sample-accent-2)]";
+  const extras: Array<[string, string, boolean]> = [
+    ["softener", "+$0.50", true],
+    ["turbo dry", "+$1.00", false],
+  ];
+  const rates: Array<[string, string]> = [
+    ["normal wash", "$4.50"],
+    ["heavy soil", "+$1.00"],
+    ["express", "+$2.00"],
+    ["dry 15 min", "$2.25"],
+  ];
+  const stateBg = (state: string) =>
+    state === "free" ? "bg-[var(--sample-accent-3)]" : state === "busy" ? "bg-[var(--sample-accent)]" : "bg-[var(--sample-surface)]";
 
   return (
     <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
@@ -1559,117 +1573,109 @@ function NeoBrutalistApp({ className, compact = false, style }: Props) {
         }}
       />
 
-      <div className="relative flex h-full min-h-0 flex-col gap-4">
-        {/* storefront header */}
-        <header className="flex items-center gap-2">
-          <span className={cn("grid h-7 w-7 place-items-center bg-[var(--sample-accent-3)] font-display text-sm font-black", box)} style={smallShadow}>
-            N
+      <div className="relative flex h-full min-h-0 flex-col gap-3">
+        <header className="flex min-w-0 items-center gap-2">
+          <span className={cn("grid h-7 w-7 shrink-0 place-items-center bg-[var(--sample-accent)] font-display text-sm font-black", box)} style={smallShadow}>
+            LL
           </span>
-          <span className="font-display text-sm font-black" style={{ letterSpacing: "-0.01em" }}>
-            GUMSTAND
-          </span>
-          <nav className={cn("ml-2 items-center gap-3 text-[10px] font-black uppercase", compact ? "hidden" : "flex")}>
-            <span>Products</span>
-            <span>Pricing</span>
-            <span>Pages</span>
-          </nav>
-          <div className="ml-auto flex items-center gap-2 text-[10px] font-black">
-            <span className={cn("items-center gap-1 bg-[var(--sample-accent)] px-2 py-1", box, compact ? "hidden" : "flex")}>
-              <IconStar size={10} /> $2.1k
+          <div className="min-w-0">
+            <span className="block font-display text-sm font-black leading-none" style={{ letterSpacing: "-0.01em" }}>
+              LOUD LAUNDRY
             </span>
-            <span className={cn("bg-[var(--sample-text)] px-2.5 py-1 text-[var(--sample-base)]", box)} style={smallShadow}>
-              Start selling
+            <span className="block truncate text-[8px] font-black uppercase text-[var(--sample-muted)]">24h · Elm St. corner · self service</span>
+          </div>
+          <div className="ml-auto flex shrink-0 items-center gap-2 text-[9px] font-black uppercase">
+            <span className={cn("bg-[var(--sample-accent-3)] px-2 py-1", box2, compact ? "hidden" : "")}>card ok</span>
+            <span className={cn("bg-[var(--sample-text)] px-2 py-1 text-[var(--sample-base)]", box2)} style={smallShadow}>
+              no coins
             </span>
           </div>
         </header>
 
-        {/* hero + featured product */}
-        <div className={cn("grid min-h-0 gap-4", compact ? "grid-cols-[1.05fr_0.95fr]" : "grid-cols-1 md:grid-cols-[1.1fr_0.9fr] md:gap-6")}>
-          <div className="grid min-w-0 content-start gap-3">
-            <span className={cn("w-max bg-[var(--sample-accent-2)] px-2 py-1 text-[9px] font-black uppercase", box)} style={smallShadow}>
-              ◆ creator drop live
+        <div className={cn("grid min-h-0 flex-1 gap-3", compact ? "grid-cols-[1.05fr_0.95fr]" : "grid-cols-[1.35fr_1fr] gap-4")}>
+          <section className="flex min-h-0 min-w-0 flex-col gap-2">
+            <div className="flex items-center justify-between text-[9px] font-black uppercase">
+              <span className={cn("bg-[var(--sample-accent-2)] px-2 py-1", box2)} style={smallShadow}>
+                machine status
+              </span>
+              <span className={cn(compact ? "hidden" : "")}>3 free · 2 busy · 1 down</span>
+            </div>
+            <div className={cn("grid min-h-0 flex-1 gap-2", compact ? "grid-cols-2" : "grid-cols-3")}>
+              {machines.map((machine, index) => (
+                <div className={cn("relative grid min-w-0 content-between gap-1 overflow-hidden p-2", box, stateBg(machine.state), compact && index > 3 ? "hidden" : "")} key={machine.id} style={smallShadow}>
+                  {machine.state === "out" ? (
+                    <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-40" style={{ backgroundImage: "repeating-linear-gradient(45deg, var(--sample-border) 0 6px, transparent 6px 14px)" }} />
+                  ) : null}
+                  <div className="relative flex items-center justify-between gap-1 text-[9px] font-black">
+                    <span className={cn("bg-[var(--sample-surface)] px-1.5 py-0.5", box2)}>{machine.id}</span>
+                    <span className="truncate uppercase">{machine.kind}</span>
+                  </div>
+                  <p className={cn("relative font-display font-black leading-none", compact ? "text-lg" : "text-2xl")}>{machine.big}</p>
+                  <p className="relative truncate text-[8px] font-bold uppercase text-[var(--sample-muted)]">{machine.note}</p>
+                </div>
+              ))}
+            </div>
+            <div className={cn("items-stretch text-[9px] font-black uppercase", box, compact ? "hidden" : "grid grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)]")} style={smallShadow}>
+              <span className="flex items-center bg-[var(--sample-text)] px-2 py-1.5 text-[var(--sample-base)]">wash rates</span>
+              {rates.map(([label, price], index) => (
+                <span className={cn("flex min-w-0 items-center justify-between gap-1 bg-[var(--sample-surface)] px-2 py-1.5", index < 3 ? "border-r-2 border-[var(--sample-border)]" : "")} key={label}>
+                  <span className="truncate">{label}</span>
+                  <span className={cn("shrink-0 bg-[var(--sample-accent)] px-1 py-0.5", box2)}>{price}</span>
+                </span>
+              ))}
+            </div>
+          </section>
+
+          <aside className={cn("grid min-h-0 min-w-0 content-start gap-2 bg-[var(--sample-surface)] p-3", box)} style={hardShadow}>
+            <div className="flex items-center justify-between gap-1">
+              <span className={cn("bg-[var(--sample-accent)] px-2 py-1 text-[9px] font-black uppercase", box2)}>cycle builder</span>
+              <span className="shrink-0 text-[8px] font-black uppercase text-[var(--sample-muted)]">step 2/3</span>
+            </div>
+            <div className="grid gap-1">
+              <span className="text-[8px] font-black uppercase">machine</span>
+              <span className={cn("flex items-center justify-between gap-1 bg-[var(--sample-base)] px-2 py-1.5 text-[10px] font-black", box2)}>
+                <span className="truncate">W3 — 12kg, ready</span>
+                <span className="shrink-0">▾</span>
+              </span>
+            </div>
+            <div className={cn("grid gap-1", compact ? "hidden" : "")}>
+              <span className="text-[8px] font-black uppercase">water temp</span>
+              <div className="flex flex-wrap gap-1.5 text-[9px] font-black">
+                {temps.map(([label, on]) => (
+                  <span className={cn("flex items-center gap-1 px-1.5 py-1", box2, on ? "bg-[var(--sample-accent)]" : "bg-[var(--sample-surface)]")} key={label}>
+                    <span className={cn("grid h-3 w-3 place-items-center rounded-full bg-[var(--sample-surface)]", box2)}>
+                      {on ? <span className="h-1.5 w-1.5 rounded-full bg-[var(--sample-text)]" /> : null}
+                    </span>
+                    {label}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className={cn("grid gap-1", compact ? "hidden" : "")}>
+              <span className="text-[8px] font-black uppercase">extras</span>
+              {extras.map(([label, price, on]) => (
+                <span className="flex items-center gap-1.5 text-[9px] font-black" key={label}>
+                  <span className={cn("grid h-3.5 w-3.5 shrink-0 place-items-center bg-[var(--sample-surface)] text-[9px] leading-none", box2)}>{on ? "✕" : ""}</span>
+                  {label}
+                  <span className="ml-auto text-[var(--sample-muted)]">{price}</span>
+                </span>
+              ))}
+            </div>
+            <div className="mt-1 flex items-center justify-between border-t-[3px] border-[var(--sample-border)] pt-2">
+              <span className="text-[9px] font-black uppercase">total</span>
+              <span className="font-display text-xl font-black">$5.50</span>
+            </div>
+            <span className={cn("flex items-center justify-center bg-[var(--sample-text)] px-3 py-2.5 text-[11px] font-black uppercase text-[var(--sample-base)]", box)} style={smallShadow}>
+              Start W3 — $5.50
             </span>
-            <h3
-              className={cn("font-display uppercase leading-[0.95]", compact ? "text-[1.5rem]" : "text-[2.1rem] md:text-[2.75rem]")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "0" }}
-            >
-              Go from zero
-              <br />
-              to your first{" "}
-              <span className={cn("inline-block bg-[var(--sample-accent)] px-2", box)} style={smallShadow}>
-                $1K
-              </span>
-              .
-            </h3>
-            <p className={cn("font-bold text-[var(--sample-muted)]", compact ? "line-clamp-2 text-[10px] leading-4" : "max-w-sm text-[13px] leading-6")}>
-              A loud little storefront for digital goods — checkout, pricing and instant payouts, all one tap away.
-            </p>
-            <div className={cn("flex-wrap gap-2", compact ? "hidden" : "flex")}>
-              <span className={cn("inline-flex items-center gap-1.5 bg-[var(--sample-text)] px-4 py-2 text-xs font-black text-[var(--sample-base)]", box)} style={smallShadow}>
-                Start selling <IconArrow size={13} />
-              </span>
-              <span className={cn("inline-flex items-center bg-[var(--sample-surface)] px-3 py-2 text-xs font-black", box)} style={smallShadow}>
-                See demo
-              </span>
-            </div>
-            <div className={cn("items-center gap-3 text-[10px] font-black", compact ? "hidden" : "flex")}>
-              <span className="flex items-center gap-1">
-                <IconStar size={11} /> 4.9 / 5
-              </span>
-              <span className="text-[var(--sample-muted)]">1,204 creators paid out</span>
-            </div>
-          </div>
-
-          <div className={cn("grid content-start gap-2.5 bg-[var(--sample-accent)] p-3", box)} style={hardShadow}>
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-black uppercase">Featured drop</span>
-              <span className={cn("bg-[var(--sample-surface)] px-2 py-0.5 text-[8px] font-black", box)}>#04</span>
-            </div>
-            <GeneratedStyleImageSurface className={cn("aspect-[16/10] w-full bg-[var(--sample-surface)]", box)} overlay="none" position="50% 50%" slug="new-brutalism" />
-            <div className="flex items-end justify-between gap-2">
-              <div className="min-w-0">
-                <p className="text-[11px] font-black">Brush Pack No.4</p>
-                <p className="truncate text-[9px] font-bold text-[var(--sample-muted)]">47 stamps · instant files</p>
-              </div>
-              <span className={cn("bg-[var(--sample-surface)] px-2 py-0.5 text-[11px] font-black", box)}>$19</span>
-            </div>
-            <button type="button" className={cn("flex items-center justify-center gap-1.5 bg-[var(--sample-text)] px-3 py-2 text-[10px] font-black uppercase text-[var(--sample-base)]", box)} style={smallShadow}>
-              <IconBag size={12} /> Add to cart — $19
-            </button>
-          </div>
+            <span className={cn("text-center text-[7px] font-bold uppercase text-[var(--sample-muted)]", compact ? "hidden" : "")}>tap card on machine to confirm</span>
+          </aside>
         </div>
 
-        {/* product grid (full only) */}
-        <div className={cn("grid-cols-3 gap-3", compact ? "hidden" : "grid")}>
-          {products.map((product) => (
-            <div className={cn("grid content-between gap-2 p-2.5", box, toneBg(product.tone))} key={product.name} style={smallShadow}>
-              <div className="flex items-center justify-between">
-                <span className={cn("grid h-6 w-6 place-items-center bg-[var(--sample-surface)] text-[10px] font-black", box2)}>★</span>
-                <span className={cn("bg-[var(--sample-surface)] px-1.5 py-0.5 text-[10px] font-black", box2)}>{product.price}</span>
-              </div>
-              <div className="min-w-0">
-                <p className="truncate text-[11px] font-black">{product.name}</p>
-                <p className="truncate text-[8px] font-bold text-[var(--sample-muted)]">{product.meta}</p>
-              </div>
-              <button type="button" className={cn("bg-[var(--sample-text)] px-2 py-1 text-[9px] font-black uppercase text-[var(--sample-base)]", box2)}>
-                Add +
-              </button>
-            </div>
-          ))}
-        </div>
-
-        {/* payout strip (full only) */}
-        <div className={cn("items-center justify-between gap-2 bg-[var(--sample-surface)] px-3 py-2 text-[9px] font-black", box, compact ? "hidden" : "flex")} style={smallShadow}>
-          <span className="uppercase">instant payouts</span>
-          <div className="flex items-center gap-2">
-            {payouts.map(([label, value]) => (
-              <span className="flex items-center gap-1" key={label}>
-                {label}
-                <span className={cn("grid h-4 w-8 place-items-center bg-[var(--sample-accent-3)]", box2)}>{value}</span>
-              </span>
-            ))}
-          </div>
-        </div>
+        <footer className={cn("items-center justify-between gap-2 bg-[var(--sample-accent-2)] px-3 py-1.5 text-[8px] font-black uppercase", box, compact ? "hidden" : "flex")} style={smallShadow}>
+          <span className="truncate">house rule: leave the machine how you found it</span>
+          <span className={cn("flex shrink-0 items-center gap-1 bg-[var(--sample-surface)] px-2 py-0.5", box2)}>punch card 07/10</span>
+        </footer>
       </div>
     </SampleFrame>
   );
@@ -8918,7 +8924,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "new-brutalism") {
-    return <NeoBrutalistApp {...props} />;
+    return <NeoBrutalistLaundromat {...props} />;
   }
 
   if (style.slug === "anti-design") {

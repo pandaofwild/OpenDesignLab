@@ -16,7 +16,7 @@ function functionBody(name) {
 
 const cyberpunkBody = functionBody("CyberpunkCity");
 const glitchBody = functionBody("GlitchArtInterface");
-const neoBrutalistBody = functionBody("NeoBrutalistApp");
+const neoBrutalistBody = functionBody("NeoBrutalistLaundromat");
 const postmodernBody = functionBody("PostmodernAuctionHouse");
 
 const categorySlugOrder = {
@@ -141,7 +141,7 @@ const styleSampleFunctions = {
   "soft-minimal": "SoftMinimalService",
   "high-end-minimal": "HighEndMinimalProduct",
   brutalism: "RawBrutalistIndex",
-  "new-brutalism": "NeoBrutalistApp",
+  "new-brutalism": "NeoBrutalistLaundromat",
   "anti-design": "AntiDesignLanding",
   maximalism: "MaximalistPatternMarket",
   "glitch-art": "GlitchArtInterface",
@@ -232,7 +232,7 @@ const requiredFamilyMarkers = {
   "soft-minimal": ["SOFT SERVICE FLOW", "frosted consultation card", "low-contrast session rail"],
   "high-end-minimal": ["QUIET COMMERCE FRAME", "severe product crop", "material provenance rail"],
   brutalism: ["RAW WEB INDEX", "default submit queue", "institutional link map"],
-  "new-brutalism": ["CREATOR STOREFRONT KIT", "thick-border checkout", "hard-shadow toggle stack"],
+  "new-brutalism": ["LOUD LAUNDRY", "machine status", "cycle builder"],
   "anti-design": ["OFF-GRID PORTFOLIO", "wrong-way project rail", "scribble navigation path"],
   maximalism: ["PATTERN MARKET", "campaign tile stack", "ornamental category wall"],
   "glitch-art": ["NET ART ERROR SURFACE", "ASCII rupture feed", "codec forensics rail"],
@@ -310,7 +310,7 @@ for (const [slug, functionName] of Object.entries(styleSampleFunctions)) {
 
 assert(cyberpunkBody, "CyberpunkCity function is missing");
 assert(glitchBody, "GlitchArtInterface function is missing");
-assert(neoBrutalistBody, "NeoBrutalistApp function is missing");
+assert(neoBrutalistBody, "NeoBrutalistLaundromat function is missing");
 assert(postmodernBody, "PostmodernAuctionHouse function is missing");
 
 for (const marker of ["BRAINDANCE", "black-market deck", "city protocol", "Night market", "Ripper lane"]) {
@@ -329,8 +329,8 @@ for (const marker of ["neon-noir action RPG", "night city grid", "Pre-order", "W
   assert(!glitchBody.includes(marker), `GlitchArtInterface still contains cyberpunk/game marker "${marker}"`);
 }
 
-for (const marker of ["RAW COMPONENT KIT", "native form controls", "pricing table"]) {
-  assert(neoBrutalistBody.includes(marker), `NeoBrutalistApp missing new-brutalism marker "${marker}"`);
+for (const marker of ["LOUD LAUNDRY", "machine status", "cycle builder", "wash rates"]) {
+  assert(neoBrutalistBody.includes(marker), `NeoBrutalistLaundromat missing new-brutalism marker "${marker}"`);
 }
 
 for (const marker of ["PALLADIO & POP", "The Quotation Sale", "catalogue foreword"]) {
@@ -338,10 +338,10 @@ for (const marker of ["PALLADIO & POP", "The Quotation Sale", "catalogue forewor
 }
 
 for (const marker of ["PALLADIO & POP", "The Quotation Sale", "browse by era", "catalogue foreword"]) {
-  assert(!neoBrutalistBody.includes(marker), `NeoBrutalistApp still contains postmodern marker "${marker}"`);
+  assert(!neoBrutalistBody.includes(marker), `NeoBrutalistLaundromat still contains postmodern marker "${marker}"`);
 }
 
-for (const marker of ["RAW COMPONENT KIT", "native form controls", "pricing table", "BRUTAL/UI"]) {
+for (const marker of ["LOUD LAUNDRY", "machine status", "cycle builder", "wash rates"]) {
   assert(!postmodernBody.includes(marker), `PostmodernAuctionHouse still contains new-brutalism marker "${marker}"`);
 }
 
