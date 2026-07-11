@@ -2125,9 +2125,9 @@ function AvantGardeEditorial({ className, compact = false, style }: Props) {
 
 function PostmodernAuctionHouse({ className, compact = false, style }: Props) {
   const upcomingLots: Array<{ lot: string; title: string; era: string; estimate: string; crop: string }> = [
-    { lot: "13", title: "Roman bust, after the antique", era: "Antiquity, quoted", estimate: "$4,000–6,000", crop: "14% 24%" },
-    { lot: "14", title: "Warhol, Brillo screenprint", era: "Pop, 1968", estimate: "$18,000–24,000", crop: "82% 30%" },
-    { lot: "15", title: "Sottsass 'Carlton' divider", era: "Memphis, 1981", estimate: "$22,000–28,000", crop: "62% 84%" },
+    { lot: "13", title: "Roman bust, after the antique", era: "Antiquity, quoted", estimate: "$4,000–6,000", crop: "58% 14%" },
+    { lot: "14", title: "Warhol, Brillo screenprint", era: "Pop, 1968", estimate: "$18,000–24,000", crop: "86% 54%" },
+    { lot: "15", title: "Sottsass 'Carlton' divider", era: "Memphis, 1981", estimate: "$22,000–28,000", crop: "46% 62%" },
   ];
   const eras = ["Antiquity", "Baroque", "Pop", "Memphis", "Tomorrow"];
   const bidSteps = ["+250", "+500", "+1,000"];
@@ -2178,16 +2178,14 @@ function PostmodernAuctionHouse({ className, compact = false, style }: Props) {
             </div>
           </aside>
 
-          <section className="relative grid min-h-0 min-w-0 grid-rows-[1fr_auto] overflow-hidden">
+          <section className="relative grid min-h-0 min-w-0 grid-cols-[minmax(0,1fr)] grid-rows-[1fr_auto] overflow-hidden">
             <GeneratedStyleImageSurface className="min-h-[72px]" overlay="soft" position="50% 42%" slug="postmodernism">
               <span className="absolute left-2 top-2 bg-[var(--sample-surface)]/92 px-1.5 py-0.5 font-serif text-[9px] font-bold">LOT 12</span>
               <span className="absolute right-2 top-2 bg-[var(--sample-accent-3)] px-1.5 py-0.5 text-[7px] font-black uppercase">on view</span>
             </GeneratedStyleImageSurface>
             <div className="border-t-2 border-[var(--sample-text)] bg-[var(--sample-surface)] p-2">
-              <div className="flex items-baseline justify-between gap-2">
-                <h3 className={cn("min-w-0 truncate font-serif font-bold leading-none", compact ? "text-[13px]" : "text-[17px]")}>Graves kettle, whistling bird spout</h3>
-                <span className="shrink-0 text-[7px] text-[var(--sample-muted)]">Alessi, 1985</span>
-              </div>
+              <h3 className={cn("font-serif font-bold", compact ? "truncate text-[13px] leading-none" : "text-[17px] leading-[1.05]")}>Graves kettle, whistling bird spout</h3>
+              <p className="mt-0.5 truncate text-[7px] text-[var(--sample-muted)]">Michael Graves for Alessi, 1985 · stainless steel, polyamide bird</p>
               <div className="mt-1.5 flex items-center gap-2">
                 <span className="min-w-0 truncate text-[7.5px] text-[var(--sample-muted)]">
                   est. $9,000–12,000 · current <span className="font-black text-[var(--sample-text)]">$9,500</span>
@@ -2198,7 +2196,7 @@ function PostmodernAuctionHouse({ className, compact = false, style }: Props) {
                 {bidSteps.map((step) => (
                   <span className="border border-[var(--sample-border-soft)] px-1.5 py-0.5" key={step}>{step}</span>
                 ))}
-                <span className="ml-auto text-[var(--sample-muted)]">14 bidders on the book</span>
+                <span className="ml-auto min-w-0 truncate text-[var(--sample-muted)]">14 bidders on the book</span>
               </div>
             </div>
           </section>
