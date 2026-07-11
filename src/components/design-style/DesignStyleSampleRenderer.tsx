@@ -8695,43 +8695,70 @@ function LoFiLoopDesk({ compact = false, style }: Props) {
             </div>
           </div>
 
-          <div className="lofi-os-mixer grid grid-cols-[auto_1fr_auto] items-center gap-2 rounded-[4px] border border-[rgb(247_237_215_/_0.45)] bg-[rgb(32_27_22_/_0.64)] px-2.5 py-2 backdrop-blur-[3px] sm:gap-3">
-            <div className="flex shrink-0 items-center gap-1">
-              <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full border border-[rgb(247_237_215_/_0.4)] bg-[rgb(247_237_215_/_0.08)]">
-                <span className="flex items-center gap-[2px]">
-                  <span className="h-2.5 w-[1.5px] bg-[var(--sample-surface)]" />
-                  <span className="h-0 w-0 border-y-[4px] border-y-transparent border-r-[6px] border-r-[var(--sample-surface)]" />
-                </span>
-              </span>
-              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-[var(--sample-surface)] bg-[var(--sample-accent)] shadow-[0_4px_10px_rgb(0_0_0/0.35)]">
-                <span className="flex items-center gap-[2.5px]">
-                  <span className="h-2.5 w-[2.5px] rounded-[0.5px] bg-[var(--sample-surface)]" />
-                  <span className="h-2.5 w-[2.5px] rounded-[0.5px] bg-[var(--sample-surface)]" />
-                </span>
-              </span>
-              <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full border border-[rgb(247_237_215_/_0.4)] bg-[rgb(247_237_215_/_0.08)]">
-                <span className="flex items-center gap-[2px]">
-                  <span className="h-0 w-0 border-y-[4px] border-y-transparent border-l-[6px] border-l-[var(--sample-surface)]" />
-                  <span className="h-2.5 w-[1.5px] bg-[var(--sample-surface)]" />
-                </span>
-              </span>
+          <div className="lofi-os-mixer grid grid-cols-[auto_1fr_auto] items-center gap-2.5 rounded-[4px] border border-[rgb(247_237_215_/_0.45)] bg-[rgb(32_27_22_/_0.7)] px-2.5 py-2 backdrop-blur-[3px] sm:gap-3">
+            <div className="flex min-w-0 shrink-0 items-center gap-1.5">
+              <span
+                aria-hidden="true"
+                className="h-7 w-7 shrink-0 rounded-[3px] border border-[rgb(247_237_215_/_0.4)] bg-cover shadow-[0_2px_8px_rgb(0_0_0/0.45)] sm:h-8 sm:w-8"
+                style={{ backgroundImage: "url('/generated/lofi-listening-room.png')", backgroundPosition: "72% 58%" }}
+              />
+              <div className={cn("min-w-0 leading-tight", compact && "hidden")}>
+                <p className="truncate text-[7px] font-black uppercase tracking-[0.04em]">warm tape</p>
+                <p className="truncate text-[6.5px] font-bold uppercase tracking-[0.08em] text-[rgb(247_237_215_/_0.58)]">rainy desk</p>
+              </div>
             </div>
+
             <div className="min-w-0">
-              <div className="mb-1 flex items-center justify-between gap-2">
-                <p className="min-w-0 truncate text-[7px] font-black uppercase tracking-[0.1em] text-[var(--sample-accent-3)]">cassette progress rail · warm tape</p>
-                <span className="shrink-0 text-[7px] font-black uppercase tracking-[0.08em] text-[rgb(247_237_215_/_0.6)]">1:18 / 3:22</span>
+              <p className={cn("mb-1 text-center text-[6px] font-black uppercase tracking-[0.16em] text-[var(--sample-accent-3)]", compact && "hidden")}>cassette progress rail</p>
+              <div className="mb-1 flex items-center justify-center gap-1.5">
+                <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full border border-[rgb(247_237_215_/_0.4)] bg-[rgb(247_237_215_/_0.08)]">
+                  <span className="flex items-center gap-[2px]">
+                    <span className="h-2.5 w-[1.5px] bg-[var(--sample-surface)]" />
+                    <span className="h-0 w-0 border-y-[4px] border-y-transparent border-r-[6px] border-r-[var(--sample-surface)]" />
+                  </span>
+                </span>
+                <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-[var(--sample-surface)] bg-[var(--sample-accent)] shadow-[0_4px_10px_rgb(0_0_0/0.35)]">
+                  <span className="flex items-center gap-[2.5px]">
+                    <span className="h-2.5 w-[2.5px] rounded-[0.5px] bg-[var(--sample-surface)]" />
+                    <span className="h-2.5 w-[2.5px] rounded-[0.5px] bg-[var(--sample-surface)]" />
+                  </span>
+                </span>
+                <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full border border-[rgb(247_237_215_/_0.4)] bg-[rgb(247_237_215_/_0.08)]">
+                  <span className="flex items-center gap-[2px]">
+                    <span className="h-0 w-0 border-y-[4px] border-y-transparent border-l-[6px] border-l-[var(--sample-surface)]" />
+                    <span className="h-2.5 w-[1.5px] bg-[var(--sample-surface)]" />
+                  </span>
+                </span>
               </div>
-              <div className="grid h-5 grid-cols-12 items-end gap-1 sm:h-6">
-                {waves.map((height, index) => (
+              <div className="flex items-center gap-1.5">
+                <span className="shrink-0 text-[6.5px] font-black tabular-nums text-[rgb(247_237_215_/_0.55)]">1:18</span>
+                <div className="relative grid h-4 min-w-0 flex-1 grid-cols-12 items-end gap-[3px] sm:h-5">
+                  {waves.map((height, index) => (
+                    <span
+                      className={cn("block rounded-[1px]", index < playedBars ? "bg-[var(--sample-accent-2)]" : "bg-[rgb(247_237_215_/_0.26)]")}
+                      key={`lofi-wave-${height}-${index}`}
+                      style={{ height: `${Math.max(22, height)}%` }}
+                    />
+                  ))}
                   <span
-                    className={cn("block rounded-[1px]", index < playedBars ? "bg-[var(--sample-accent-2)]" : "bg-[rgb(247_237_215_/_0.28)]")}
-                    key={`lofi-wave-${height}-${index}`}
-                    style={{ height: `${Math.max(18, height)}%` }}
+                    aria-hidden="true"
+                    className="absolute -top-0.5 h-[calc(100%+4px)] w-[1.5px] rounded-full bg-[var(--sample-surface)] shadow-[0_0_4px_rgb(0_0_0/0.5)]"
+                    style={{ left: `${(playedBars / waves.length) * 100}%` }}
                   />
-                ))}
+                </div>
+                <span className="shrink-0 text-[6.5px] font-black tabular-nums text-[rgb(247_237_215_/_0.55)]">3:22</span>
               </div>
             </div>
-            <span className="shrink-0 text-[7px] font-black uppercase tracking-[0.08em] text-[rgb(247_237_215_/_0.6)]">vol 68%</span>
+
+            <div className={cn("flex shrink-0 items-center gap-1", compact && "hidden")}>
+              <GlyphIcon className="text-[rgb(247_237_215_/_0.6)]" size={9}>
+                <path d="M4 9v6h4l5 4V5L8 9H4Z" />
+                <path d="M16 8.5a4 4 0 0 1 0 7" />
+              </GlyphIcon>
+              <div className="relative h-1 w-8 rounded-full bg-[rgb(247_237_215_/_0.2)]">
+                <span className="absolute inset-y-0 left-0 w-[68%] rounded-full bg-[rgb(247_237_215_/_0.65)]" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
