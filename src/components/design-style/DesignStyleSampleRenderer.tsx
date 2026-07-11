@@ -2123,100 +2123,123 @@ function AvantGardeEditorial({ className, compact = false, style }: Props) {
   );
 }
 
-function PostmodernArchivePortal({ className, compact = false, style }: Props) {
-  const works: Array<[string, string, string]> = [
-    ["Graves bridge", "architecture", style.palette.accent],
-    ["Warhol box", "popular culture", style.palette.accent2],
-    ["Koons object", "ornament", style.palette.accent3],
+function PostmodernAuctionHouse({ className, compact = false, style }: Props) {
+  const upcomingLots: Array<{ lot: string; title: string; era: string; estimate: string; crop: string }> = [
+    { lot: "13", title: "Roman bust, after the antique", era: "Antiquity, quoted", estimate: "$4,000–6,000", crop: "14% 24%" },
+    { lot: "14", title: "Warhol, Brillo screenprint", era: "Pop, 1968", estimate: "$18,000–24,000", crop: "82% 30%" },
+    { lot: "15", title: "Sottsass 'Carlton' divider", era: "Memphis, 1981", estimate: "$22,000–28,000", crop: "62% 84%" },
   ];
-  const shelf: Array<[string, string]> = [
-    ["Beverly", "sideboard"],
-    ["Super", "lamp"],
-    ["Bel-Air", "chair"],
-  ];
+  const eras = ["Antiquity", "Baroque", "Pop", "Memphis", "Tomorrow"];
+  const bidSteps = ["+250", "+500", "+1,000"];
 
   return (
     <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span aria-hidden="true" className="absolute inset-0 opacity-[0.2]" style={{ backgroundImage: "linear-gradient(90deg, var(--sample-border-soft) 1px, transparent 1px), linear-gradient(0deg, var(--sample-border-soft) 1px, transparent 1px)", backgroundSize: "46px 46px" }} />
-      <span aria-hidden="true" className="absolute -left-10 bottom-5 h-40 w-40 rounded-full border-[20px] border-[var(--sample-accent-2)] opacity-75" />
-      <span aria-hidden="true" className="absolute right-4 top-12 h-28 w-5 rotate-[21deg] bg-[var(--sample-accent)]" />
-      <span aria-hidden="true" className="absolute left-[46%] top-4 h-8 w-8 rotate-45 border border-[var(--sample-border)] bg-[var(--sample-accent-3)]" />
-      <span aria-hidden="true" className="absolute left-[8%] top-[26%] h-28 w-16 border border-[var(--sample-border)] bg-[var(--sample-surface)]" style={{ clipPath: "polygon(18% 0, 82% 0, 82% 12%, 70% 12%, 70% 100%, 30% 100%, 30% 12%, 18% 12%)" }} />
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 opacity-[0.05]"
+        style={{ backgroundImage: "radial-gradient(rgb(var(--st-text-rgb) / 0.9) 1px, transparent 1.4px)", backgroundSize: "26px 26px" }}
+      />
 
-      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-2.5">
-        <header className="flex min-w-0 items-center gap-2 text-[9px] font-black">
-          <span className="shrink-0 border border-[var(--sample-border)] bg-[var(--sample-surface)] px-2.5 py-1 font-serif">CLASSICAL QUOTE</span>
-          <nav className={cn("min-w-0 flex-1 items-center gap-2 text-[8px]", compact ? "hidden" : "flex")}>
-            <span>culture collage</span>
-            <span style={{ color: "var(--sample-accent)" }}>works</span>
-            <span>shop</span>
+      <div className="relative grid h-full min-h-0 grid-rows-[auto_auto_1fr_auto] gap-2">
+        <header className="flex min-w-0 items-end justify-between gap-2 pb-0.5">
+          <div className="min-w-0">
+            <span className={cn("block font-serif font-bold leading-none tracking-tight", compact ? "text-[15px]" : "text-[19px]")}>PALLADIO & POP</span>
+            <span className="mt-0.5 block truncate text-[7px] uppercase tracking-[0.18em] text-[var(--sample-muted)]">Auctioneers of the recent past — est. 1981</span>
+          </div>
+          <nav className={cn("items-center gap-2.5 text-[8px] font-bold", compact ? "hidden" : "flex")}>
+            <span className="text-[var(--sample-accent-2)]">sales</span>
+            <span>departments</span>
+            <span>results</span>
           </nav>
-          <span className="ml-auto grid h-6 w-6 shrink-0 place-items-center border border-[var(--sample-border)] bg-[var(--sample-accent)] text-[10px]">04</span>
+          <span className="shrink-0 bg-[var(--sample-accent-3)] px-2 py-1 text-[8px] font-black">PADDLE 204</span>
         </header>
 
-        <main className={cn("grid min-h-0 gap-2.5", compact ? "grid-cols-[1.03fr_0.97fr]" : "grid-cols-[1.08fr_0.92fr]")}>
-          <div
-            className="relative grid min-w-0 grid-rows-[auto_1fr_auto] overflow-hidden border border-[var(--sample-border)] bg-[var(--sample-surface)] p-3"
-            style={{
-              backgroundImage: `linear-gradient(180deg, rgb(var(--st-surface-rgb) / 0.54), rgb(var(--st-surface-rgb) / 0.24)), url('${GENERATED_STYLE_IMAGES.postmodernism}')`,
-              backgroundPosition: "50% 52%",
-              backgroundSize: "cover",
-              boxShadow: compact ? "5px 6px 0 rgb(var(--st-accent-2-rgb) / 0.28)" : "9px 11px 0 rgb(var(--st-accent-2-rgb) / 0.32)",
-            }}
-          >
-            <span className="w-fit border border-[var(--sample-border)] bg-[var(--sample-accent)] px-2 py-0.5 text-[8px] font-black">ironic object index</span>
-            <h3
-              className={cn("self-center max-w-[10ch] font-serif leading-[0.86]", compact ? "text-[1.65rem]" : "text-[2.85rem] sm:text-[3.4rem]")}
-              style={{ textShadow: "0 2px 14px rgb(255 253 246 / 0.78)" }}
-            >
-              Past forms
-              <br />
-              misbehave.
-            </h3>
-            <div className="flex items-end justify-between gap-2">
-              <p className={cn("max-w-[12rem] border border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-1.5 text-[8px] font-bold leading-3.5", compact ? "line-clamp-2" : "")}>
-                Museum label, shop shelf, and pop joke share one page.
-              </p>
-              <span className="h-7 w-7 shrink-0 border border-[var(--sample-border)] bg-[var(--sample-accent-3)]" style={{ clipPath: "polygon(50% 0, 100% 100%, 0 100%)" }} />
-            </div>
-          </div>
+        <div className="flex min-w-0 items-center gap-2 bg-[var(--sample-accent-2)] px-2.5 py-1.5 text-[8px] font-bold text-[var(--sample-surface)]">
+          <span className="flex shrink-0 items-center gap-1">
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--sample-accent)]" />
+            LIVE
+          </span>
+          <span className="truncate font-serif italic">Design Sale No.44 — The Quotation Sale</span>
+          <span className={cn("ml-auto shrink-0", compact ? "hidden" : "")}>Lot 12 of 48</span>
+          <span className={cn("shrink-0 border-l border-[var(--sample-surface)]/40 pl-2", compact ? "ml-auto" : "")}>next lot 02:14</span>
+        </div>
 
-          <div className="grid min-h-0 grid-rows-[auto_1fr_auto] gap-2">
-            <div className="border border-[var(--sample-border)] bg-[var(--sample-surface)] p-2.5" style={{ boxShadow: "6px 7px 0 rgb(var(--st-accent-rgb) / 0.26)" }}>
-              <p className="text-[8px] font-black" style={{ color: "var(--sample-accent)" }}>mixed-era object index</p>
-              <p className={cn("mt-1 font-serif font-bold leading-[0.95]", compact ? "line-clamp-2 text-[14px]" : "text-[18px]")}>Quotation becomes navigation.</p>
+        <main className={cn("grid min-h-0 gap-2.5", compact ? "grid-cols-[1.3fr_1fr]" : "grid-cols-[0.6fr_1.5fr_0.9fr]")}>
+          <aside className={cn("min-w-0 border-t-2 border-[var(--sample-text)] pt-1.5", compact ? "hidden" : "flex flex-col")}>
+            <span className="text-[7px] font-black uppercase tracking-[0.16em] text-[var(--sample-accent)]">catalogue foreword</span>
+            <p className="mt-1.5 text-[8.5px] leading-[1.5]">
+              <span className="float-left mr-1 font-serif text-[24px] font-bold leading-[0.8]">E</span>
+              very object in this sale has already quoted something older. The gavel simply makes the joke official.
+            </p>
+            <div className="mt-auto grid gap-1 border-t border-[var(--sample-border-soft)] pt-1.5 text-[7px]">
+              <span className="flex justify-between gap-2"><span className="text-[var(--sample-muted)]">Viewing</span><span className="font-bold">Sat–Sun, 10–18</span></span>
+              <span className="flex justify-between gap-2"><span className="text-[var(--sample-muted)]">Salesroom</span><span className="font-bold">Gallery II</span></span>
+              <span className="flex justify-between gap-2"><span className="text-[var(--sample-muted)]">Premium</span><span className="font-bold">26%</span></span>
             </div>
+          </aside>
 
+          <section className="relative grid min-h-0 min-w-0 grid-rows-[1fr_auto] overflow-hidden">
+            <GeneratedStyleImageSurface className="min-h-[72px]" overlay="soft" position="50% 42%" slug="postmodernism">
+              <span className="absolute left-2 top-2 bg-[var(--sample-surface)]/92 px-1.5 py-0.5 font-serif text-[9px] font-bold">LOT 12</span>
+              <span className="absolute right-2 top-2 bg-[var(--sample-accent-3)] px-1.5 py-0.5 text-[7px] font-black uppercase">on view</span>
+            </GeneratedStyleImageSurface>
+            <div className="border-t-2 border-[var(--sample-text)] bg-[var(--sample-surface)] p-2">
+              <div className="flex items-baseline justify-between gap-2">
+                <h3 className={cn("min-w-0 truncate font-serif font-bold leading-none", compact ? "text-[13px]" : "text-[17px]")}>Graves kettle, whistling bird spout</h3>
+                <span className="shrink-0 text-[7px] text-[var(--sample-muted)]">Alessi, 1985</span>
+              </div>
+              <div className="mt-1.5 flex items-center gap-2">
+                <span className="min-w-0 truncate text-[7.5px] text-[var(--sample-muted)]">
+                  est. $9,000–12,000 · current <span className="font-black text-[var(--sample-text)]">$9,500</span>
+                </span>
+                <span className="ml-auto shrink-0 bg-[var(--sample-accent)] px-2.5 py-1 text-[8px] font-black text-[var(--sample-surface)]">BID $9,750</span>
+              </div>
+              <div className={cn("mt-1.5 flex items-center gap-1 text-[7px] font-bold text-[var(--sample-accent-2)]", compact ? "hidden" : "")}>
+                {bidSteps.map((step) => (
+                  <span className="border border-[var(--sample-border-soft)] px-1.5 py-0.5" key={step}>{step}</span>
+                ))}
+                <span className="ml-auto text-[var(--sample-muted)]">14 bidders on the book</span>
+              </div>
+            </div>
+          </section>
+
+          <aside className="grid min-h-0 min-w-0 grid-rows-[auto_1fr_auto] gap-1.5">
+            <span className="border-t-2 border-[var(--sample-text)] pt-1.5 text-[7px] font-black uppercase tracking-[0.16em]">next in sale</span>
             <div className="grid min-h-0 content-start gap-1.5">
-              {works.map(([name, meta, color], index) => (
-                <div className={cn("grid min-h-0 grid-cols-[48px_minmax(0,1fr)] border border-[var(--sample-border)] bg-[var(--sample-surface)] p-1.5", compact && index === 2 ? "hidden" : "")} style={{ boxShadow: "4px 5px 0 rgb(var(--st-accent-3-rgb) / 0.34)" }} key={name}>
-                  <span className="block min-h-[34px] border border-[var(--sample-border)]" style={{ backgroundColor: color, backgroundImage: "linear-gradient(135deg, rgb(var(--st-surface-rgb) / 0.72) 0 38%, transparent 38% 100%)" }} />
-                  <span className="flex min-w-0 flex-col justify-between pl-2">
-                    <span className="truncate text-[9px] font-black leading-tight">{name}</span>
-                    <span className="text-[7px] font-bold" style={{ color: "var(--sample-accent)" }}>{meta}</span>
+              {upcomingLots.map((item, index) => (
+                <div className={cn("grid grid-cols-[38px_minmax(0,1fr)] gap-2 border-b border-[var(--sample-border-soft)] pb-1.5", compact && index === 2 ? "hidden" : "")} key={item.lot}>
+                  <span
+                    className="h-[34px] w-[38px]"
+                    style={{ backgroundImage: `url('${GENERATED_STYLE_IMAGES.postmodernism}')`, backgroundPosition: item.crop, backgroundSize: "320%" }}
+                  />
+                  <span className="min-w-0">
+                    <span className="block truncate font-serif text-[9px] font-bold leading-tight">Lot {item.lot} · {item.title}</span>
+                    <span className="mt-0.5 flex items-baseline justify-between gap-1 text-[7px]">
+                      <span className="truncate italic text-[var(--sample-accent-2)]">{item.era}</span>
+                      <span className="shrink-0 font-bold text-[var(--sample-muted)]">{item.estimate}</span>
+                    </span>
                   </span>
                 </div>
               ))}
             </div>
-
-            <div className="border border-[var(--sample-border)] bg-[var(--sample-base)]">
-              <p className="border-b border-[var(--sample-border)] px-2 py-1 text-[8px] font-black text-[var(--sample-accent-2)]">Memphis anti-functional shop</p>
-              <div className="grid grid-cols-3">
-                {shelf.map(([name, kind], index) => (
-                  <span className="min-w-0 border-r border-[var(--sample-border)] px-1.5 py-1.5 text-[7px] font-bold last:border-r-0" key={name}>
-                    <span className="block truncate" style={{ color: index === 1 ? "var(--sample-accent)" : "var(--sample-text)" }}>{name}</span>
-                    <span className="block truncate text-[var(--sample-muted)]">{kind}</span>
-                  </span>
-                ))}
-              </div>
+            <div className="bg-[var(--sample-accent)]/10 px-1.5 py-1 text-[7px]">
+              <span className="font-black text-[var(--sample-accent)]">SOLD</span>{" "}
+              <span className="font-bold">Lot 11 · Venturi chair — $13,750</span>
             </div>
-          </div>
+          </aside>
         </main>
 
-        <footer className={cn("grid grid-cols-3 border border-[var(--sample-border)] bg-[var(--sample-surface)] text-[7px] font-black", compact ? "hidden" : "")}>
-          <span className="border-r border-[var(--sample-border)] px-2 py-1.5">culture collage</span>
-          <span className="border-r border-[var(--sample-border)] px-2 py-1.5">popular culture</span>
-          <span className="px-2 py-1.5">kitsch / elegance</span>
+        <footer className="flex min-w-0 items-center gap-1.5 border-t-2 border-[var(--sample-text)] pt-1.5 text-[7px] font-bold">
+          <span className="shrink-0 uppercase tracking-[0.14em] text-[var(--sample-muted)]">browse by era</span>
+          {eras.map((era, index) => (
+            <span
+              className={cn("border border-[var(--sample-border-soft)] px-1.5 py-0.5", index === 3 ? "bg-[var(--sample-text)] text-[var(--sample-base)]" : "", compact && index > 2 ? "hidden" : "")}
+              key={era}
+            >
+              {era}
+            </span>
+          ))}
+          <span className={cn("ml-auto shrink-0 text-[var(--sample-accent-2)]", compact ? "hidden" : "")}>results archive →</span>
         </footer>
       </div>
     </SampleFrame>
@@ -8921,7 +8944,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "postmodernism") {
-    return <PostmodernArchivePortal {...props} />;
+    return <PostmodernAuctionHouse {...props} />;
   }
 
   if (style.slug === "classic") {

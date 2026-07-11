@@ -17,7 +17,7 @@ function functionBody(name) {
 const cyberpunkBody = functionBody("CyberpunkCity");
 const glitchBody = functionBody("GlitchArtInterface");
 const neoBrutalistBody = functionBody("NeoBrutalistApp");
-const postmodernBody = functionBody("PostmodernArchivePortal");
+const postmodernBody = functionBody("PostmodernAuctionHouse");
 
 const categorySlugOrder = {
   "모던 / 미니멀": [
@@ -147,7 +147,7 @@ const styleSampleFunctions = {
   "glitch-art": "GlitchArtInterface",
   deconstructivism: "DeconstructiveExhibition",
   "avant-garde": "AvantGardeEditorial",
-  postmodernism: "PostmodernArchivePortal",
+  postmodernism: "PostmodernAuctionHouse",
   retro: "RetroDinerShop",
   vintage: "VintagePaperCatalog",
   "seventies-retro": "SeventiesRecipeCookbook",
@@ -238,7 +238,7 @@ const requiredFamilyMarkers = {
   "glitch-art": ["NET ART ERROR SURFACE", "ASCII rupture feed", "codec forensics rail"],
   deconstructivism: ["STRUCTURAL FAULT", "fracture section index", "displaced project axis"],
   "avant-garde": ["MANIFESTO PROGRAM", "critical lecture rail", "art-into-life agenda"],
-  postmodernism: ["CLASSICAL QUOTE", "mixed-era object index", "Memphis anti-functional shop"],
+  postmodernism: ["PALLADIO & POP", "The Quotation Sale", "browse by era"],
   retro: ["RETRO BROADCAST SHOP", "time-travel media dial", "analog merch queue"],
   vintage: ["PAPER CATALOG", "repair ticket ledger", "patina material register"],
   "seventies-retro": ["The Groovy Kitchen", "recipe card index", "harvest-gold pantry"],
@@ -311,7 +311,7 @@ for (const [slug, functionName] of Object.entries(styleSampleFunctions)) {
 assert(cyberpunkBody, "CyberpunkCity function is missing");
 assert(glitchBody, "GlitchArtInterface function is missing");
 assert(neoBrutalistBody, "NeoBrutalistApp function is missing");
-assert(postmodernBody, "PostmodernArchivePortal function is missing");
+assert(postmodernBody, "PostmodernAuctionHouse function is missing");
 
 for (const marker of ["BRAINDANCE", "black-market deck", "city protocol", "Night market", "Ripper lane"]) {
   assert(cyberpunkBody.includes(marker), `CyberpunkCity missing cyberpunk marker "${marker}"`);
@@ -333,16 +333,16 @@ for (const marker of ["RAW COMPONENT KIT", "native form controls", "pricing tabl
   assert(neoBrutalistBody.includes(marker), `NeoBrutalistApp missing new-brutalism marker "${marker}"`);
 }
 
-for (const marker of ["CLASSICAL QUOTE", "culture collage", "ironic object index"]) {
-  assert(postmodernBody.includes(marker), `PostmodernArchivePortal missing postmodern marker "${marker}"`);
+for (const marker of ["PALLADIO & POP", "The Quotation Sale", "catalogue foreword"]) {
+  assert(postmodernBody.includes(marker), `PostmodernAuctionHouse missing postmodern marker "${marker}"`);
 }
 
-for (const marker of ["CLASSICAL QUOTE", "culture collage", "ironic object index", "Mixed canon"]) {
+for (const marker of ["PALLADIO & POP", "The Quotation Sale", "browse by era", "catalogue foreword"]) {
   assert(!neoBrutalistBody.includes(marker), `NeoBrutalistApp still contains postmodern marker "${marker}"`);
 }
 
 for (const marker of ["RAW COMPONENT KIT", "native form controls", "pricing table", "BRUTAL/UI"]) {
-  assert(!postmodernBody.includes(marker), `PostmodernArchivePortal still contains new-brutalism marker "${marker}"`);
+  assert(!postmodernBody.includes(marker), `PostmodernAuctionHouse still contains new-brutalism marker "${marker}"`);
 }
 
 if (errors.length) {
