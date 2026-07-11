@@ -82,8 +82,8 @@
   라우팅 분기(`style.slug === "art-deco"`) 갱신.
 - `scripts/check-style-distinction.mjs`:
   - styleSampleFunctions 맵: `"art-deco": "ArtDecoLinerBooking"`.
-  - requiredFamilyMarkers에 art-deco 추가: "MERIDIAN LINE", "sailings board",
-    "stateroom classes", "grand salon" (본문 카피에 실재하는 문자열).
+  - requiredFamilyMarkers에 art-deco 추가: "Meridian Line", "Sailings board",
+    "Stateroom classes", "Grand salon" (소스 카피의 정확한 대소문자 — 화면 표시는 CSS uppercase).
 - `src/data/designStyles.ts`:
   - 팔레트·representativeTraits·referenceSites 무변경.
   - layoutTraits[0]과 tokenIntent의 "호텔 모듈" 프레이밍만 라이너 예약 프레이밍으로 소폭 갱신.
