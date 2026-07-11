@@ -1554,10 +1554,9 @@ function NeoBrutalistLaundromat({ className, compact = false, style }: Props) {
     ["turbo dry", "+$1.00", false],
   ];
   const rates: Array<[string, string]> = [
-    ["normal wash", "$4.50"],
-    ["heavy soil", "+$1.00"],
-    ["express", "+$2.00"],
-    ["dry 15 min", "$2.25"],
+    ["wash", "$4.50"],
+    ["dry", "$2.25"],
+    ["heavy", "+$1.00"],
   ];
   const stateBg = (state: string) =>
     state === "free" ? "bg-[var(--sample-accent-3)]" : state === "busy" ? "bg-[var(--sample-accent)]" : "bg-[var(--sample-surface)]";
@@ -1615,10 +1614,10 @@ function NeoBrutalistLaundromat({ className, compact = false, style }: Props) {
                 </div>
               ))}
             </div>
-            <div className={cn("items-stretch text-[9px] font-black uppercase", box, compact ? "hidden" : "grid grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)]")} style={smallShadow}>
+            <div className={cn("items-stretch text-[9px] font-black uppercase", box, compact ? "hidden" : "grid grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)]")} style={smallShadow}>
               <span className="flex items-center bg-[var(--sample-text)] px-2 py-1.5 text-[var(--sample-base)]">wash rates</span>
               {rates.map(([label, price], index) => (
-                <span className={cn("flex min-w-0 items-center justify-between gap-1 bg-[var(--sample-surface)] px-2 py-1.5", index < 3 ? "border-r-2 border-[var(--sample-border)]" : "")} key={label}>
+                <span className={cn("flex min-w-0 items-center justify-between gap-1 bg-[var(--sample-surface)] px-2 py-1.5", index < 2 ? "border-r-2 border-[var(--sample-border)]" : "")} key={label}>
                   <span className="truncate">{label}</span>
                   <span className={cn("shrink-0 bg-[var(--sample-accent)] px-1 py-0.5", box2)}>{price}</span>
                 </span>
@@ -1626,13 +1625,13 @@ function NeoBrutalistLaundromat({ className, compact = false, style }: Props) {
             </div>
           </section>
 
-          <aside className={cn("grid min-h-0 min-w-0 content-start gap-2 bg-[var(--sample-surface)] p-3", box)} style={hardShadow}>
+          <aside className={cn("grid min-h-0 min-w-0 content-start bg-[var(--sample-surface)]", box, compact ? "gap-1.5 p-2" : "gap-2 p-3")} style={hardShadow}>
             <div className="flex items-center justify-between gap-1">
               <span className={cn("bg-[var(--sample-accent)] px-2 py-1 text-[9px] font-black uppercase", box2)}>cycle builder</span>
               <span className="shrink-0 text-[8px] font-black uppercase text-[var(--sample-muted)]">step 2/3</span>
             </div>
             <div className="grid gap-1">
-              <span className="text-[8px] font-black uppercase">machine</span>
+              <span className={cn("text-[8px] font-black uppercase", compact ? "hidden" : "")}>machine</span>
               <span className={cn("flex items-center justify-between gap-1 bg-[var(--sample-base)] px-2 py-1.5 text-[10px] font-black", box2)}>
                 <span className="truncate">W3 — 12kg, ready</span>
                 <span className="shrink-0">▾</span>
