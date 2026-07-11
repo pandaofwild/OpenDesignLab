@@ -8584,14 +8584,24 @@ function RaveStagePulse({ compact = false, style }: Props) {
 }
 
 function LoFiLoopDesk({ compact = false, style }: Props) {
-  const pads = ["kick", "hiss", "rain", "keys", "dust", "room", "tape", "soft"];
   const queue = [
-    ["07:12", "window loop"],
-    ["12:44", "late study"],
-    ["18:03", "warm tape"],
-    ["23:18", "night bus"],
-  ] as const;
+    { time: "07:12", title: "window loop", duration: "3:04", active: false },
+    { time: "12:44", title: "late study", duration: "2:41", active: false },
+    { time: "18:03", title: "warm tape", duration: "3:22", active: true },
+    { time: "23:18", title: "night bus", duration: "2:58", active: false },
+  ];
+  const pads = [
+    { label: "kick", active: false },
+    { label: "snare", active: false },
+    { label: "hat", active: true },
+    { label: "clap", active: false },
+    { label: "perc", active: false },
+    { label: "tape", active: true },
+    { label: "vox", active: false },
+    { label: "fx", active: false },
+  ];
   const waves = [22, 44, 30, 68, 38, 56, 26, 48, 34, 60, 28, 42];
+  const playedBars = 5;
 
   return (
     <SampleFrame compact={compact} style={style}>
@@ -8627,8 +8637,11 @@ function LoFiLoopDesk({ compact = false, style }: Props) {
         <div className={cn("relative grid h-full min-w-0 grid-rows-[auto_1fr_auto] text-[var(--sample-surface)]", compact ? "gap-1.5 p-2.5" : "gap-2 p-3 sm:p-4")}>
           <div className="flex items-start justify-between gap-2">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-[rgb(247_237_215_/_0.5)] bg-[rgb(32_27_22_/_0.55)] px-2.5 py-1 text-[8px] font-black uppercase tracking-[0.14em] backdrop-blur-[2px]">
-              <span className="h-2 w-2 rounded-full bg-[var(--sample-accent-2)]" />
-              LO-FI LOOP DESK
+              <span className="relative flex h-1.5 w-1.5 shrink-0">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--sample-accent-2)] opacity-70" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--sample-accent-2)]" />
+              </span>
+              LO-FI LOOP DESK · LIVE
             </span>
             <span className={cn("rotate-[2deg] rounded-[2px] border border-[rgb(41_35_29_/_0.5)] bg-[var(--sample-base)] text-[var(--sample-text)] shadow-[0_6px_16px_rgb(0_0_0/0.25)]", compact ? "max-w-[5.5rem] p-1.5" : "max-w-[9rem] p-2")}>
               <p className="text-[7px] font-black uppercase tracking-[0.1em] sm:text-[8px]">paper note texture</p>
@@ -8638,7 +8651,7 @@ function LoFiLoopDesk({ compact = false, style }: Props) {
 
           <div className="grid min-h-0 min-w-0 grid-cols-[1fr_auto] items-end gap-3">
             <div className="min-w-0">
-              <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[var(--sample-accent-3)]" style={{ textShadow: "0 1px 3px rgb(0 0 0 / 0.6)" }}>lo-fi radio · 64 bpm</p>
+              <p className="text-[8px] font-black uppercase tracking-[0.18em] text-[var(--sample-accent-3)]" style={{ textShadow: "0 1px 3px rgb(0 0 0 / 0.6)" }}>on air now · session 12</p>
               <h3
                 className={cn("font-display font-black uppercase leading-[0.82]", compact ? "text-[2.1rem]" : "text-[3.2rem] sm:text-[4.6rem]")}
                 style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.01em", textShadow: "0 3px 14px rgb(0 0 0 / 0.6)" }}
@@ -8646,23 +8659,35 @@ function LoFiLoopDesk({ compact = false, style }: Props) {
                 SOFT
                 <span className="block text-[var(--sample-accent-2)]">LOOP</span>
               </h3>
+              <p className={cn("mt-1 text-[7px] font-bold uppercase tracking-[0.1em] text-[rgb(247_237_215_/_0.68)]", compact && "hidden")}>quiet loops for late study nights</p>
             </div>
             <div className={cn("grid w-[9.5rem] gap-2", compact && "hidden")}>
               <div className="rounded-[3px] border border-[rgb(247_237_215_/_0.4)] bg-[rgb(32_27_22_/_0.56)] p-2 backdrop-blur-[2px]">
-                <p className="mb-1.5 text-[7px] font-black uppercase tracking-[0.12em]">dusty sampler pads</p>
-                <div className="grid grid-cols-4 gap-1">
-                  {pads.map((pad, index) => (
-                    <span className={cn("aspect-square rounded-[2px] border border-[rgb(247_237_215_/_0.4)]", index === 2 ? "bg-[var(--sample-accent-3)]" : index === 5 ? "bg-[var(--sample-accent)]" : "bg-[rgb(247_237_215_/_0.16)]")} key={pad} />
+                <p className="mb-1.5 text-[7px] font-black uppercase tracking-[0.12em]">bedroom radio queue</p>
+                <div className="grid gap-1">
+                  {queue.map((track) => (
+                    <div className={cn("grid grid-cols-[auto_1fr_auto] items-center gap-1.5 px-1 py-0.5 text-[7px] font-black uppercase", track.active && "bg-[rgb(216_182_106_/_0.32)]")} key={track.title}>
+                      <span className="text-[var(--sample-accent-3)]">{track.time}</span>
+                      <span className="min-w-0 truncate">{track.title}</span>
+                      <span className="shrink-0 text-[rgb(247_237_215_/_0.55)]">{track.duration}</span>
+                    </div>
                   ))}
                 </div>
               </div>
               <div className="rounded-[3px] border border-[rgb(247_237_215_/_0.4)] bg-[rgb(32_27_22_/_0.56)] p-2 backdrop-blur-[2px]">
-                <p className="mb-1.5 text-[7px] font-black uppercase tracking-[0.12em]">bedroom radio queue</p>
-                <div className="grid gap-1">
-                  {queue.map(([time, track], index) => (
-                    <span className={cn("grid grid-cols-[auto_1fr] gap-1.5 px-1 py-0.5 text-[7px] font-black uppercase", index === 2 ? "bg-[rgb(216_182_106_/_0.34)]" : "")} key={track}>
-                      <span className="text-[var(--sample-accent-3)]">{time}</span>
-                      <span className="min-w-0 truncate">{track}</span>
+                <p className="mb-1.5 text-[7px] font-black uppercase tracking-[0.12em]">dusty sampler pads</p>
+                <div className="grid grid-cols-4 gap-1">
+                  {pads.map((pad) => (
+                    <span
+                      className={cn(
+                        "grid aspect-square place-items-center rounded-[2px] border text-[5.5px] font-black uppercase leading-none",
+                        pad.active
+                          ? "border-[var(--sample-accent-3)] bg-[var(--sample-accent-3)] text-[var(--sample-text)]"
+                          : "border-[rgb(247_237_215_/_0.35)] bg-[rgb(247_237_215_/_0.1)] text-[rgb(247_237_215_/_0.65)]",
+                      )}
+                      key={pad.label}
+                    >
+                      {pad.label}
                     </span>
                   ))}
                 </div>
@@ -8671,22 +8696,42 @@ function LoFiLoopDesk({ compact = false, style }: Props) {
           </div>
 
           <div className="lofi-os-mixer grid grid-cols-[auto_1fr_auto] items-center gap-2 rounded-[4px] border border-[rgb(247_237_215_/_0.45)] bg-[rgb(32_27_22_/_0.64)] px-2.5 py-2 backdrop-blur-[3px] sm:gap-3">
-            <div className="flex items-center gap-1.5">
-              <span className="h-6 w-6 aspect-square rounded-full border-[3px] border-[var(--sample-surface)] bg-[radial-gradient(circle,var(--sample-accent-3)_0_28%,transparent_30%)]" />
-              <span className="h-6 w-6 aspect-square rounded-full border-[3px] border-[var(--sample-surface)] bg-[radial-gradient(circle,var(--sample-accent)_0_28%,transparent_30%)]" />
+            <div className="flex shrink-0 items-center gap-1">
+              <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full border border-[rgb(247_237_215_/_0.4)] bg-[rgb(247_237_215_/_0.08)]">
+                <span className="flex items-center gap-[2px]">
+                  <span className="h-2.5 w-[1.5px] bg-[var(--sample-surface)]" />
+                  <span className="h-0 w-0 border-y-[4px] border-y-transparent border-r-[6px] border-r-[var(--sample-surface)]" />
+                </span>
+              </span>
+              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border-2 border-[var(--sample-surface)] bg-[var(--sample-accent)] shadow-[0_4px_10px_rgb(0_0_0/0.35)]">
+                <span className="flex items-center gap-[2.5px]">
+                  <span className="h-2.5 w-[2.5px] rounded-[0.5px] bg-[var(--sample-surface)]" />
+                  <span className="h-2.5 w-[2.5px] rounded-[0.5px] bg-[var(--sample-surface)]" />
+                </span>
+              </span>
+              <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full border border-[rgb(247_237_215_/_0.4)] bg-[rgb(247_237_215_/_0.08)]">
+                <span className="flex items-center gap-[2px]">
+                  <span className="h-0 w-0 border-y-[4px] border-y-transparent border-l-[6px] border-l-[var(--sample-surface)]" />
+                  <span className="h-2.5 w-[1.5px] bg-[var(--sample-surface)]" />
+                </span>
+              </span>
             </div>
             <div className="min-w-0">
               <div className="mb-1 flex items-center justify-between gap-2">
-                <p className="text-[7px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent-3)]">cassette progress rail</p>
-                <span className="h-1.5 w-24 max-w-[42%] rounded-full bg-[linear-gradient(90deg,var(--sample-accent)_0_58%,rgb(247_237_215_/_0.22)_58%_100%)]" />
+                <p className="min-w-0 truncate text-[7px] font-black uppercase tracking-[0.1em] text-[var(--sample-accent-3)]">cassette progress rail · warm tape</p>
+                <span className="shrink-0 text-[7px] font-black uppercase tracking-[0.08em] text-[rgb(247_237_215_/_0.6)]">1:18 / 3:22</span>
               </div>
               <div className="grid h-5 grid-cols-12 items-end gap-1 sm:h-6">
                 {waves.map((height, index) => (
-                  <span className="block rounded-[1px] bg-[var(--sample-accent-2)]" style={{ height: `${Math.max(18, height)}%` }} key={`lofi-wave-${height}-${index}`} />
+                  <span
+                    className={cn("block rounded-[1px]", index < playedBars ? "bg-[var(--sample-accent-2)]" : "bg-[rgb(247_237_215_/_0.28)]")}
+                    key={`lofi-wave-${height}-${index}`}
+                    style={{ height: `${Math.max(18, height)}%` }}
+                  />
                 ))}
               </div>
             </div>
-            <span className="shrink-0 border border-[var(--sample-surface)] bg-[var(--sample-accent)] px-2 py-1 text-[7px] font-black uppercase text-[var(--sample-surface)]">play</span>
+            <span className="shrink-0 text-[7px] font-black uppercase tracking-[0.08em] text-[rgb(247_237_215_/_0.6)]">vol 68%</span>
           </div>
         </div>
       </div>
