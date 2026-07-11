@@ -2185,7 +2185,7 @@ function PostmodernAuctionHouse({ className, compact = false, style }: Props) {
             </GeneratedStyleImageSurface>
             <div className="border-t-2 border-[var(--sample-text)] bg-[var(--sample-surface)] p-2">
               <h3 className={cn("font-serif font-bold", compact ? "truncate text-[13px] leading-none" : "text-[17px] leading-[1.05]")}>Graves kettle, whistling bird spout</h3>
-              <p className="mt-0.5 truncate text-[7px] text-[var(--sample-muted)]">Michael Graves for Alessi, 1985 · stainless steel, polyamide bird</p>
+              <p className={cn("mt-0.5 truncate text-[7px] text-[var(--sample-muted)]", compact ? "hidden" : "")}>Michael Graves for Alessi, 1985 · stainless steel, polyamide bird</p>
               <div className="mt-1.5 flex items-center gap-2">
                 <span className="min-w-0 truncate text-[7.5px] text-[var(--sample-muted)]">
                   est. $9,000–12,000 · current <span className="font-black text-[var(--sample-text)]">$9,500</span>
