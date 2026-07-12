@@ -2453,10 +2453,10 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     description:
       "미드센추리 모던은 막연한 빈티지 감성이 아니라 실제 가구와 인테리어 물성에서 출발해야 합니다. Eames Lounge Chair의 성형 합판과 가죽 쿠션, Nelson Platform Bench의 직선 목재 슬랫, Noguchi Coffee Table의 유기적인 유리와 목재 다리, Alexander Girard의 색과 패턴처럼 기능적인 구조와 따뜻한 장식이 함께 보여야 웹 화면에서도 스타일이 분명해집니다.",
     visualFeatures: [
-      "MIDCENTURY STUDIO처럼 성형 합판 라운지 체어와 생활감 있는 쇼룸 이미지가 중심 신호가 됩니다.",
-      "walnut slat product rail은 Nelson bench처럼 반복되는 목재 슬랫과 제품 레일의 수평 리듬을 만듭니다.",
-      "Noguchi식 유리 테이블, 가느다란 금속 다리, 원형 시계 모티프가 화면을 가볍게 합니다.",
-      "Girard textile swatch wall은 전체 배경이 아니라 작은 직물 샘플과 색면으로 제한할 때 실제 인테리어처럼 보입니다.",
+      "MONO HOUSE listening room은 월넛 오디오 콘솔, 성형 합판 체어, 유리 테이블을 하나의 실제 라운지 장면으로 보여줍니다.",
+      "SIDE A / SIDE B receiver는 큰 공간 이미지와 주파수 눈금, 튜닝 니들, 재생 컨트롤을 비대칭으로 맞물립니다.",
+      "Walnut source rail은 반복되는 목재 슬랫 위에서 FM, PHONO, TAPE 소스를 고르는 실제 컨트롤입니다.",
+      "Girard acoustic cloth는 직물 색과 패턴을 작은 선택 버튼과 스피커 그릴 표면으로 제한해 보여줍니다.",
     ],
     colorPalette: [
       "크림과 오래된 종이색을 배경으로 두고 화면을 따뜻하게 시작합니다.",
@@ -2470,12 +2470,12 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
       "본문은 장식보다 읽기 편한 비례를 우선하고 자간은 0에 가깝게 유지합니다.",
     ],
     layoutTraits: [
-      "큰 가구 실루엣 하나와 작은 오브젝트 카탈로그를 나란히 배치하면 실제 쇼룸 같은 구조가 됩니다.",
-      "walnut slat product rail, 벤치, 하단 레일을 활용해 화면 아래쪽에 안정감을 줍니다.",
-      "Girard textile swatch wall은 전체 배경이 아니라 작은 직물 샘플, 카드, 배지로 써야 과해지지 않습니다.",
-      "모바일에서는 가구 실루엣, 핵심 라벨, 컬렉션 항목 순서로 단순화합니다.",
+      "전체 화면은 약 3:2의 SIDE A 이미지와 SIDE B 리시버가 맞물리는 비대칭 레코드 재킷 구성을 사용합니다.",
+      "주파수 눈금, 소스 선택, 재생 상태, 진행 표시가 실제 하이파이 리시버의 정보 위계를 만듭니다.",
+      "하단에는 Walnut source rail, Girard acoustic cloth, Session queue를 밀도 있게 묶어 프로그램과 재료 정보를 연결합니다.",
+      "compact에서는 내부 2열을 유지하고 좁은 상세 화면에서는 SIDE A 다음 SIDE B 순서로 쌓아 이미지와 컨트롤을 모두 보존합니다.",
     ],
-    useCases: ["가구 쇼룸", "라이프스타일 브랜드", "인테리어 포트폴리오", "레트로 제품 랜딩"],
+    useCases: ["하이엔드 하이파이 리스닝 클럽", "음악 아카이브와 레코드 프로그램", "오디오와 가구 브랜드 경험", "레트로 호스피탈리티 예약"],
     goodFor: ["따뜻하지만 세련된 제품 이미지를 만들 때", "생활감 있는 모던 인테리어를 보여줄 때", "가구, 조명, 오브젝트 카탈로그", "레트로 감성을 쓰되 과장된 노스탤지어를 피하고 싶을 때"],
     cautions: [
       "70s Retro처럼 굵은 곡선과 주황색만 키우면 시대가 뒤로 밀려 보입니다.",
@@ -2483,23 +2483,23 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
       "목재, 유리, 직물 중 최소 두 가지 물성이 보여야 단순한 빈티지 카드가 되지 않습니다.",
     ],
     imagePrompt:
-      "A mid-century modern interior commerce website reference image with walnut molded plywood lounge chair shapes, dark leather cushions, thin Nelson-style wood slats, organic glass coffee table, cream paper background, tomato orange, deep teal and mustard textile accents, catalog labels, no logo, no watermark",
+      "A sophisticated early-1960s hi-fi listening lounge with a walnut speaker console, turntable and reel-to-reel deck, molded plywood lounge chair, organic glass table, cream walls, dark olive upholstery, burnt orange and muted teal acoustic textile accents, warm architectural light, no people, no text, no logo, no watermark",
     research: {
       referenceSites: [
-        { title: "MoMA - Eames Lounge Chair and Ottoman", url: "https://www.moma.org/collection/works/3325", note: "Object reference for 1956 molded rosewood, plywood, leather, aluminum, and the iconic low lounge silhouette." },
-        { title: "Herman Miller - Nelson Platform Bench", url: "https://www.hermanmiller.com/products/seating/benches/nelson-platform-bench/", note: "Official product reference for George Nelson's rectilinear bench, wood slats, simple legs, and functional modern archetype." },
-        { title: "MoMA - Noguchi Coffee Table", url: "https://www.moma.org/collection/works/86474", note: "Object reference for Isamu Noguchi's 1944 coffee table, useful for glass surface, organic wood base, and sculptural restraint." },
-        { title: "Vitra Design Museum - Alexander Girard", url: "https://www.design-museum.de/en/exhibitions/detailpages/alexander-girard-a-designers-universe.html", note: "Archive reference for Girard's coordinated interiors, textiles, color, pattern, and warm decorative modernism." },
+        { title: "MoMA - Eames Lounge Chair and Ottoman", url: "https://www.moma.org/collection/works/3325", note: "Furniture reference for the molded plywood lounge chair anchoring the MONO HOUSE listening room beside the audio console." },
+        { title: "Herman Miller - Nelson Platform Bench", url: "https://www.hermanmiller.com/products/seating/benches/nelson-platform-bench/", note: "Audio-furniture reference for the rectilinear wood slats and simple legs translated into the Walnut source rail." },
+        { title: "MoMA - Noguchi Coffee Table", url: "https://www.moma.org/collection/works/86474", note: "Listening-room reference for the organic glass table that lightens the MONO HOUSE furniture and equipment arrangement." },
+        { title: "Vitra Design Museum - Alexander Girard", url: "https://www.design-museum.de/en/exhibitions/detailpages/alexander-girard-a-designers-universe.html", note: "Acoustic-surface reference for the restrained textile color and pattern used in speaker cloth and source controls." },
       ],
       referenceGalleries: [
-        { title: "Pinterest - Mid-Century Modern Website Design", url: "https://www.pinterest.com/search/pins/?q=Mid-Century%20Modern%20website%20design", note: "Moodboard reference for warm furniture pages, catalog layouts, wood tones, textile accents, and modern vintage web direction." },
-        { title: "Awwwards - Retro Websites", url: "https://www.awwwards.com/websites/retro/", note: "Gallery reference for contemporary retro web execution, motion restraint, product staging, and polished nostalgic layouts." },
-        { title: "Dribbble - Mid-Century Modern Website Design", url: "https://dribbble.com/search/Mid-Century%20Modern%20website%20design", note: "UI reference for mid-century landing pages, furniture cards, warm palettes, geometric motifs, and compact catalog modules." },
+        { title: "Pinterest - Mid-Century Modern Website Design", url: "https://www.pinterest.com/search/pins/?q=Mid-Century%20Modern%20website%20design", note: "Moodboard reference for warm listening-room scenes, walnut audio furniture, acoustic textiles, and record-program presentation." },
+        { title: "Awwwards - Retro Websites", url: "https://www.awwwards.com/websites/retro/", note: "Gallery reference for contemporary listening-room interfaces, restrained motion, immersive equipment imagery, and polished audio controls." },
+        { title: "Dribbble - Mid-Century Modern Website Design", url: "https://dribbble.com/search/Mid-Century%20Modern%20website%20design", note: "UI reference for receiver scales, source selectors, session queues, and compact audio-furniture modules in warm mid-century palettes." },
       ],
-      representativeTraits: ["MIDCENTURY STUDIO showroom", "Walnut slat product rail", "Noguchi glass table index", "Girard textile swatch wall", "Catalog-like product labels"],
+      representativeTraits: ["MONO HOUSE listening room", "SIDE A / SIDE B receiver", "Walnut source rail", "Girard acoustic cloth", "Session queue"],
       avoidTraits: ["General sepia vintage", "70s groovy overload", "Bauhaus primary-color poster"],
       tokenIntent:
-        "Use a MIDCENTURY STUDIO showroom, walnut slat product rail, Noguchi glass table index, Girard textile swatch wall, cream paper surfaces, espresso text, walnut primary color, tomato orange, deep teal, mustard accents, thin borders, restrained radius, no heavy shadows, and grain so the style reads as real mid-century furniture and textile design.",
+        "Use a MONO HOUSE listening room, SIDE A / SIDE B receiver, Walnut source rail, Girard acoustic cloth, Session queue, cream paper surfaces, espresso text, walnut audio furniture, dark olive, burnt orange, muted mustard, brushed brass, thin borders, restrained radius, and real equipment controls so the style reads as Mid-Century Modern rather than 1970s groovy commerce, retro-futurist travel posters or capsule UI, Bauhaus primary geometry, or quiet Japandi interiors.",
     },
   },
 };

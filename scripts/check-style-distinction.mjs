@@ -246,7 +246,7 @@ const requiredFamilyMarkers = {
   "nineties-graphic": ["Mega Media", "topic explorer", "now loading"],
   y2k: ["GLOSS PORTAL", "bubble widget stack", "sparkle guestbook rail"],
   "retro-futurism": ["FLIGHT DECK", "destination poster rail", "chrome capsule timetable"],
-  "mid-century-modern": ["MIDCENTURY STUDIO", "walnut slat product rail", "Girard textile swatch wall"],
+  "mid-century-modern": ["MONO HOUSE", "SIDE A / SIDE B", "Walnut source rail", "Girard acoustic cloth", "Session queue"],
   bauhaus: ["BAUHAUS SCHOOL", "workshop method grid", "circle square triangle lab"],
   futurism: ["ORBITAL VELOCITY", "aerodynamic launch window", "carbon telemetry spine"],
   "typography-focused": ["TYPE SCALE SPECIMEN", "baseline strips", "font pairing shelf"],

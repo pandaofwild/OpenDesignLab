@@ -4,6 +4,7 @@ import type { DesignStyle } from "@/data/designStyles";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
 import { cn } from "@/lib/utils";
 import { GlitchArtInterface } from "./GlitchArtInterface";
+import { MidCenturyListeningRoom } from "./MidCenturyListeningRoom";
 
 type Props = {
   className?: string;
@@ -3352,103 +3353,11 @@ function BauhausSchool({ className, compact = false, style }: Props) {
   );
 }
 
-const MID_CENTURY_MODERN_IMAGE = "url('/generated/design-styles/mid-century-modern.webp')";
-
 function MidCenturyModernStudio({ className, compact = false, style }: Props) {
-  const collection: Array<[string, string, string]> = [
-    ["Lounge shell", "1956", "molded plywood"],
-    ["Platform bench", "1947", "walnut slats"],
-    ["Textile field", "1961", "woven color"],
-  ];
-  const textileBlocks = ["var(--sample-accent)", "var(--sample-accent-2)", "var(--sample-accent-3)", "var(--sample-primary)"];
-
+  // MONO HOUSE · SIDE A / SIDE B · Walnut source rail · Girard acoustic cloth · Session queue
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span
-        aria-hidden="true"
-        className="absolute inset-0 opacity-[0.16]"
-        style={{ backgroundImage: "repeating-linear-gradient(90deg, transparent 0 18px, rgb(var(--st-border-rgb) / 0.18) 18px 19px), repeating-linear-gradient(0deg, transparent 0 18px, rgb(var(--st-border-rgb) / 0.12) 18px 19px)" }}
-      />
-      <div className="relative flex h-full flex-col">
-        <div className={cn("flex items-center gap-3 border-b border-[var(--sample-border)] pb-2 font-bold uppercase", compact ? "text-[8px]" : "text-[10px]")}>
-          <span className={cn("flex items-center gap-2 font-display", compact ? "text-[10px]" : "text-sm")} style={{ fontFamily: "var(--st-font-display)" }}>
-            <span className="h-3 w-3 rounded-full bg-[var(--sample-accent-3)]" />
-            MIDCENTURY STUDIO
-          </span>
-          <nav className={cn("items-center gap-3 text-[var(--sample-muted)]", compact ? "hidden" : "flex")}>
-            <span>Seating</span>
-            <span>Objects</span>
-            <span>Textiles</span>
-          </nav>
-          <span className={cn("ml-auto rounded-[var(--st-radius-pill)] border border-[var(--sample-border)] bg-[var(--sample-surface)] text-[var(--sample-text)]", compact ? "px-1.5 py-0.5 text-[8px]" : "px-3 py-1")}>1954 index</span>
-        </div>
-
-        <div className={cn("grid min-h-0 flex-1 gap-3 pt-3", compact ? "grid-cols-[1.08fr_0.92fr]" : "grid-cols-1 md:grid-cols-[1.18fr_0.82fr] md:gap-5")}>
-          <div
-            className="relative min-h-0 overflow-hidden border border-[var(--sample-border)] bg-[var(--sample-surface)]"
-            style={{
-              backgroundImage: `linear-gradient(180deg, rgb(var(--st-base-rgb) / 0), rgb(var(--st-text-rgb) / 0.18)), ${MID_CENTURY_MODERN_IMAGE}`,
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-          >
-            <div className={cn("absolute left-3 top-3 max-w-[14ch] bg-[rgb(var(--st-surface-rgb)/0.76)] px-2 py-1 backdrop-blur-[1px]", compact ? "hidden" : "")}>
-              <p className="text-[10px] font-bold uppercase text-[var(--sample-accent)]">molded plywood lounge hero</p>
-            </div>
-            <div className="absolute bottom-3 left-3 right-3 grid grid-cols-5 gap-1">
-              {[style.palette.surface, style.palette.accent, style.palette.accent2, style.palette.accent3, style.palette.border].map((color) => (
-                <span className="h-2 border border-[rgb(var(--st-border-rgb)/0.45)]" key={color} style={{ backgroundColor: color }} />
-              ))}
-            </div>
-          </div>
-
-          <div className={cn("grid min-h-0 gap-2.5", compact ? "grid-rows-[auto_1fr_auto]" : "grid-rows-[auto_auto_1fr]")}>
-            <div className={cn("border border-[var(--sample-border)] bg-[var(--sample-surface)]", compact ? "p-2" : "p-3")}>
-              <p className={cn("font-bold uppercase text-[var(--sample-accent)]", compact ? "text-[8px]" : "text-[10px]")}>walnut slat product rail</p>
-              <h3
-                className={cn("mt-1 font-display leading-[0.95]", compact ? "text-base" : "text-2xl")}
-                style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "0em" }}
-              >
-                Walnut,
-                <br />
-                glass, textile.
-              </h3>
-              <div className={cn("mt-2 grid gap-1", compact ? "hidden" : "")}>
-                {[0, 1, 2, 3].map((index) => (
-                  <span className="h-1.5 bg-[var(--sample-border)]" key={index} style={{ opacity: 0.85 - index * 0.12 }} />
-                ))}
-              </div>
-            </div>
-
-            <div className="grid gap-1.5">
-              {collection.map(([name, year, detail], index) => (
-                <div className={cn("grid grid-cols-[auto_1fr] items-center gap-2 border border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)/0.76)] px-2 py-1.5", compact && index === 2 ? "hidden" : "")} key={name}>
-                  <span className={cn("flex items-center justify-center rounded-full bg-[var(--sample-accent-3)] font-black text-[var(--sample-text)]", compact ? "h-6 w-6 text-[8px]" : "h-8 w-8 text-[9px]")}>{year.slice(2)}</span>
-                  <span className="min-w-0">
-                    <span className={cn("block truncate font-bold uppercase", compact ? "text-[8px]" : "text-[10px]")}>{name}</span>
-                    <span className={cn("block truncate text-[var(--sample-muted)]", compact ? "text-[7px]" : "text-[9px]")}>{detail}</span>
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <div className="relative min-h-0 overflow-hidden border border-[var(--sample-border)] bg-[var(--sample-base)]">
-              <p className={cn("absolute left-2 top-2 z-10 bg-[rgb(var(--st-base-rgb)/0.78)] px-1.5 py-0.5 font-bold uppercase text-[var(--sample-text)]", compact ? "text-[7px]" : "text-[9px]")}>Girard textile swatch wall</p>
-              <div className="grid h-full grid-cols-4 grid-rows-3">
-                {Array.from({ length: 12 }).map((_, index) => (
-                  <span
-                    aria-hidden="true"
-                    className="border-r border-b border-[rgb(var(--st-border-rgb)/0.28)]"
-                    key={index}
-                    style={{ backgroundColor: textileBlocks[index % textileBlocks.length] }}
-                  />
-                ))}
-              </div>
-              <span aria-hidden="true" className="absolute inset-0 opacity-30 mix-blend-multiply" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent 0 6px, rgb(var(--st-text-rgb) / 0.22) 6px 7px)" }} />
-            </div>
-          </div>
-        </div>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <MidCenturyListeningRoom compact={compact} />
     </SampleFrame>
   );
 }
