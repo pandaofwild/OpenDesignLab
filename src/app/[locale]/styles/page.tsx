@@ -1,7 +1,7 @@
 export { metadata } from "../../styles/page";
 
 import { notFound } from "next/navigation";
-import { DesignStylesPageContent } from "../../styles/page";
+import { DesignStylesPageContent } from "../../styles/page-content";
 import { isLocale } from "@/lib/i18n";
 
 export default async function LocalizedDesignStylesPage({

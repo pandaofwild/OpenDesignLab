@@ -1,7 +1,7 @@
 export { metadata } from "../../../layouts/compare/page";
 
 import { notFound } from "next/navigation";
-import { ComparePageContent } from "../../../layouts/compare/page";
+import { ComparePageContent } from "../../../layouts/compare/page-content";
 import { isLocale } from "@/lib/i18n";
 
 export default async function LocalizedComparePage({

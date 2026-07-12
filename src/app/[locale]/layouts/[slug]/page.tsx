@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { locales } from "@/lib/i18n";
 import { getLayoutBySlug, webLayouts } from "@/data/webLayouts";
-import { LayoutDetailPageContent } from "../../../layouts/[slug]/page";
+import { LayoutDetailPageContent } from "../../../layouts/[slug]/page-content";
 import { isLocale } from "@/lib/i18n";
 import { layoutForLocale } from "@/lib/localizedContent";
 

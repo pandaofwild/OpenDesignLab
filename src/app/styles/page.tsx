@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
-import { DesignStyleCoreScreen } from "@/components/design-style/DesignStyleCoreScreen";
-import { defaultLocale, type Locale } from "@/lib/i18n";
+import { defaultLocale } from "@/lib/i18n";
+import { DesignStylesPageContent } from "./page-content";
 
 export const metadata: Metadata = {
   title: "Design Style Lab",
@@ -10,16 +9,4 @@ export const metadata: Metadata = {
 
 export default function DesignStylesPage() {
   return <DesignStylesPageContent locale={defaultLocale} />;
-}
-
-export function DesignStylesPageContent({ locale }: { locale: Locale }) {
-  void locale;
-
-  return (
-    <main className="min-h-screen bg-background px-3 py-4 text-[var(--specimen-ink)] lg:px-5">
-      <Suspense fallback={null}>
-        <DesignStyleCoreScreen />
-      </Suspense>
-    </main>
-  );
 }

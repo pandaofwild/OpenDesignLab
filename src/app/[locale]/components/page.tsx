@@ -1,7 +1,7 @@
 export { metadata } from "../../components/page";
 
 import { notFound } from "next/navigation";
-import { ComponentsPageContent } from "../../components/page";
+import { ComponentsPageContent } from "../../components/page-content";
 import { isLocale } from "@/lib/i18n";
 
 export default async function LocalizedComponentsPage({

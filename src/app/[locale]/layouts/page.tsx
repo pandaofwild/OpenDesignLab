@@ -1,7 +1,7 @@
 export { metadata } from "../../layouts/page";
 
 import { notFound } from "next/navigation";
-import { WebLayoutsPageContent } from "../../layouts/page";
+import { WebLayoutsPageContent } from "../../layouts/page-content";
 import { isLocale } from "@/lib/i18n";
 
 export default async function LocalizedWebLayoutsPage({

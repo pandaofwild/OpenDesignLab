@@ -1,7 +1,7 @@
 export { metadata } from "../../brand/page";
 
 import { notFound } from "next/navigation";
-import { BrandPageContent } from "../../brand/page";
+import { BrandPageContent } from "../../brand/page-content";
 import { isLocale } from "@/lib/i18n";
 
 export default async function LocalizedBrandPage({

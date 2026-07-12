@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
-import { LayoutCoreScreen } from "@/components/web-layout/LayoutCoreScreen";
-import { defaultLocale, type Locale } from "@/lib/i18n";
+import { defaultLocale } from "@/lib/i18n";
+import { WebLayoutsPageContent } from "./page-content";
 
 export const metadata: Metadata = {
   title: "Layout Library",
@@ -10,14 +9,4 @@ export const metadata: Metadata = {
 
 export default function WebLayoutsPage() {
   return <WebLayoutsPageContent locale={defaultLocale} />;
-}
-
-export function WebLayoutsPageContent({ locale }: { locale: Locale }) {
-  return (
-    <main className="min-h-screen bg-background px-3 py-4 text-[var(--specimen-ink)] lg:px-5">
-      <Suspense fallback={null}>
-        <LayoutCoreScreen locale={locale} />
-      </Suspense>
-    </main>
-  );
 }
