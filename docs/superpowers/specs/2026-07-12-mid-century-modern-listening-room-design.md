@@ -42,7 +42,7 @@ The hero shows a walnut speaker console, molded plywood seating, a turntable or 
 
 ### Receiver
 
-The receiver must look operable. It includes a marked frequency band, a precise tuning needle, source selection, a volume value, real transport controls, elapsed and total time, and a progress scrubber.
+The receiver is a small client-side leaf component with local sample state. Its source buttons change the active source and tuning-needle position, the play control toggles the playing state, and the acoustic-cloth presets change the selected swatch. These interactions do not persist, navigate, or alter application-level state. It includes a marked frequency band, a precise tuning needle, source selection, a volume value, real transport controls, elapsed and total time, and a progress scrubber.
 
 ### Session queue
 
@@ -52,13 +52,17 @@ The queue includes three believable programmed sessions. Each row exposes a star
 
 Existing project traits remain present as real modules so distinction guardrails continue to express the style:
 
-- `MIDCENTURY STUDIO showroom` becomes the visible listening lounge and club identity.
-- `Walnut slat product rail` becomes a walnut equipment or source-selection rail.
-- `Noguchi glass table index` becomes a material or room-object annotation associated with the hero.
-- `Girard textile swatch wall` becomes selectable acoustic-panel or speaker-cloth presets.
-- `Catalog-like product labels` become equipment metadata and session labels.
+- `MONO HOUSE listening room` is the visible lounge and club identity.
+- `SIDE A / SIDE B receiver` is the asymmetric image and tuning-console composition.
+- `Walnut source rail` is the equipment and source-selection control.
+- `Girard acoustic cloth` is the selectable acoustic-panel and speaker-cloth preset.
+- `Session queue` is the believable program and seat-availability module.
 
-Marker text may be updated where necessary, but the corresponding guardrail must be updated in the same change and continue to distinguish this sample from `seventies-retro`, `retro-futurism`, `bauhaus`, and `japandi`.
+Update `representativeTraits`, `tokenIntent`, directly related visual-feature, layout, use-case, image-prompt, reference-note, and distinction-table copy from the previous showroom framing to these five exact target traits. Update the style-distinction function and structure markers in the same change while keeping the routing slug unchanged. The rewritten copy must continue to distinguish this sample from `seventies-retro`, `retro-futurism`, `bauhaus`, and `japandi`.
+
+## Generated Image Requirement
+
+Replace `public/generated/design-styles/mid-century-modern.webp` with a freshly generated 1536 by 1024 listening-room scene. Add the approved scene prompt to `scripts/gen-style-image.mjs`, then run `OPENAI_BASE_URL=http://127.0.0.1:18632/v1 node scripts/gen-style-image.mjs mid-century-modern`. The image must show a walnut speaker console, a turntable or reel-to-reel unit, molded plywood seating, a glass table, warm architectural lighting, and restrained Girard-like textile color. Inspect the result before accepting it. Reject readable text, logos, people, 1970s groovy staging, Bauhaus primary geometry, dark synthwave styling, and any crop that hides the audio equipment.
 
 ## Responsive Behavior
 
@@ -72,15 +76,15 @@ Marker text may be updated where necessary, but the corresponding guardrail must
 - Keep the redesign localized to the Mid-Century Modern sample and its directly related data, generated style image, guardrail markers, and review documentation.
 - Preserve unrelated dirty work in the shared renderer and other files.
 - Reuse the existing `SampleFrame`, style tokens, and routing branch.
-- Do not introduce a new application-level interaction model or shared abstraction unless the existing component structure requires it.
+- Keep sample interactions isolated in a dedicated client leaf. Do not add persistence, routing, network calls, or shared application state.
 - Use real DOM and CSS for every control and module. Generated imagery may support the room scene but must not fake the receiver, queue, labels, or controls.
 
 ## Verification
 
-- Run the relevant style distinction and data guardrails.
+- Run `npm run check:style-distinction`, `npm run check:data`, and `npm run check:style-refs`.
 - Run `npm run lint` and the project build or the strongest safe equivalent available in the current shared worktree.
-- Render `/en/styles/mid-century-modern` with `next dev --webpack` in desktop and narrow viewports.
-- Render the filtered styles listing so the compact card is inspected at its real size.
+- Render `/en/styles/mid-century-modern` with `next dev --webpack` at 1280px desktop, 768px tablet, and 375px narrow viewports.
+- Render the filtered styles listing at 1280px so the compact card is inspected at its real size.
 - Confirm marker presence, usable component anatomy, horizontal overflow of `0`, clean browser console, and no clipping in full or compact modes.
 - Record the fresh verification in `docs/style-sample-web-review-log.md`.
 - Commit and push only the files belonging to this redesign, preserving unrelated workspace changes.
