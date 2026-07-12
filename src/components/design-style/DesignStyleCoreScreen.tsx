@@ -576,8 +576,15 @@ function CoreStyleCard({
       )}
     >
       <div className="border-b border-[var(--specimen-line)] p-2">
-        <div className="aspect-[16/7] overflow-hidden border border-[var(--specimen-line-soft)] bg-[var(--specimen-card)]">
+        <div className="relative aspect-[16/7] overflow-hidden border border-[var(--specimen-line-soft)] bg-[var(--specimen-card)]">
           <DesignStyleSampleRenderer compact style={localizedStyle} />
+          <LocalizedLink
+            aria-label={locale === "ko" ? `${localizedStyle.nameKo} 자세히 보기` : `View ${localizedStyle.nameEn} details`}
+            className="absolute inset-0 z-20 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--specimen-ink)]"
+            href={styleDetailHref}
+          >
+            <span className="sr-only">{locale === "ko" ? "자세히 보기" : "View details"}</span>
+          </LocalizedLink>
         </div>
       </div>
       <div className="space-y-3 p-3">

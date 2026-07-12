@@ -27,8 +27,15 @@ export function DesignStyleCard({ isSelected, onSelect, style }: Props) {
           : "border-[var(--specimen-line)] bg-[rgb(251_250_246_/_0.72)] text-[var(--specimen-ink)] hover:border-[var(--specimen-ink)]",
       )}
     >
-      <div className="aspect-[4/3] min-h-[220px] min-w-0 overflow-hidden border border-[var(--specimen-line-soft)] bg-[rgb(234_230_220_/_0.58)]">
+      <div className="relative aspect-[4/3] min-h-[220px] min-w-0 overflow-hidden border border-[var(--specimen-line-soft)] bg-[rgb(234_230_220_/_0.58)]">
         <DesignStyleSampleRenderer compact style={localizedStyle} />
+        <LocalizedLink
+          aria-label={locale === "ko" ? `${localizedStyle.nameKo} 자세히 보기` : `View ${localizedStyle.nameEn} details`}
+          className="absolute inset-0 z-20 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--specimen-signal)]"
+          href={`/styles/${style.slug}`}
+        >
+          <span className="sr-only">{locale === "ko" ? "자세히 보기" : "View details"}</span>
+        </LocalizedLink>
       </div>
       <div className="flex min-w-0 flex-1 flex-col gap-4 p-3 pt-4">
         <div>
