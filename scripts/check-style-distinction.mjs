@@ -7,7 +7,17 @@ const rendererSource = readFileSync(
   "utf8",
 );
 
+// Sample components that live in their own client files (hooks-based
+// interactivity); routing still happens in DesignStyleSampleRenderer.tsx.
+const externalSampleSources = {
+  GlitchArtEditionsGallery: readFileSync(
+    new URL("../src/components/design-style/GlitchArtEditionsGallery.tsx", import.meta.url),
+    "utf8",
+  ),
+};
+
 function functionBody(name) {
+  if (externalSampleSources[name]) return externalSampleSources[name];
   const start = rendererSource.indexOf(`function ${name}`);
   if (start === -1) return "";
   const nextFunction = rendererSource.indexOf("\nfunction ", start + 1);
@@ -15,7 +25,7 @@ function functionBody(name) {
 }
 
 const cyberpunkBody = functionBody("CyberpunkCity");
-const glitchBody = functionBody("GlitchArtInterface");
+const glitchBody = functionBody("GlitchArtEditionsGallery");
 const neoBrutalistBody = functionBody("NeoBrutalistLaundromat");
 const postmodernBody = functionBody("PostmodernAuctionHouse");
 
@@ -143,8 +153,8 @@ const styleSampleFunctions = {
   brutalism: "RawBrutalistIndex",
   "new-brutalism": "NeoBrutalistLaundromat",
   "anti-design": "AntiDesignLanding",
-  maximalism: "MaximalistPatternMarket",
-  "glitch-art": "GlitchArtInterface",
+  maximalism: "MaximalistPatternAtelier",
+  "glitch-art": "GlitchArtEditionsGallery",
   deconstructivism: "DeconstructiveExhibition",
   "avant-garde": "AvantGardeEditorial",
   postmodernism: "PostmodernAuctionHouse",
@@ -170,7 +180,7 @@ const styleSampleFunctions = {
   neoclassic: "NeoclassicHotelHome",
   luxury: "LuxuryEditorialProduct",
   "old-money": "OldMoneyClubShop",
-  "art-deco": "ArtDecoHotelPortal",
+  "art-deco": "ArtDecoLinerBooking",
   "art-nouveau": "ArtNouveauBotanicalShop",
   baroque: "BaroqueGalleryCommerce",
   rococo: "RococoSalonMarket",
@@ -195,7 +205,7 @@ const styleSampleFunctions = {
   "bubble-design": "BubbleFlowCapsules",
   streetwear: "StreetwearDropEditorial",
   graffiti: "GraffitiWallArchive",
-  "hiphop-style": "HipHopMixtapeConsole",
+  "hiphop-style": "HipHopAlbumStudio",
   "skate-culture": "SkateCultureSpotBoard",
   punk: "PunkZineDispatch",
   grunge: "GrungeTapeArchive",
@@ -234,11 +244,12 @@ const requiredFamilyMarkers = {
   brutalism: ["RAW WEB INDEX", "default submit queue", "institutional link map"],
   "new-brutalism": ["LOUD LAUNDRY", "machine status", "cycle builder"],
   "anti-design": ["OFF-GRID PORTFOLIO", "wrong-way project rail", "scribble navigation path"],
-  maximalism: ["PATTERN MARKET", "campaign tile stack", "ornamental category wall"],
-  "glitch-art": ["NET ART ERROR SURFACE", "ASCII rupture feed", "codec forensics rail"],
+  maximalism: ["PAVONE HOUSE", "Print index", "Pattern clash console"],
+  "glitch-art": ["UNSTABLE MEDIA", "file integrity manifest", "edition activity"],
   deconstructivism: ["STRUCTURAL FAULT", "fracture section index", "displaced project axis"],
   "avant-garde": ["MANIFESTO PROGRAM", "critical lecture rail", "art-into-life agenda"],
   postmodernism: ["PALLADIO & POP", "The Quotation Sale", "browse by era"],
+  "art-deco": ["Meridian Line", "Sailings board", "Stateroom classes", "Grand salon"],
   retro: ["RETRO BROADCAST SHOP", "time-travel media dial", "analog merch queue"],
   vintage: ["PAPER CATALOG", "repair ticket ledger", "patina material register"],
   "seventies-retro": ["The Groovy Kitchen", "recipe card index", "harvest-gold pantry"],
@@ -309,7 +320,7 @@ for (const [slug, functionName] of Object.entries(styleSampleFunctions)) {
 }
 
 assert(cyberpunkBody, "CyberpunkCity function is missing");
-assert(glitchBody, "GlitchArtInterface function is missing");
+assert(glitchBody, "GlitchArtEditionsGallery function is missing");
 assert(neoBrutalistBody, "NeoBrutalistLaundromat function is missing");
 assert(postmodernBody, "PostmodernAuctionHouse function is missing");
 
@@ -317,16 +328,16 @@ for (const marker of ["BRAINDANCE", "black-market deck", "city protocol", "Night
   assert(cyberpunkBody.includes(marker), `CyberpunkCity missing cyberpunk marker "${marker}"`);
 }
 
-for (const marker of ["SIGNAL DAMAGE", "checksum drift", "macroblock map", "codec fault"]) {
-  assert(glitchBody.includes(marker), `GlitchArtInterface missing glitch marker "${marker}"`);
+for (const marker of ["Dropped Frames", "sha-256", "macroblock", "channel drift"]) {
+  assert(glitchBody.includes(marker), `GlitchArtEditionsGallery missing glitch marker "${marker}"`);
 }
 
-for (const marker of ["GlitchHeading", "SIGNAL DAMAGE", "checksum drift", "macroblock map"]) {
+for (const marker of ["UNSTABLE MEDIA", "file integrity manifest", "sha-256", "Dropped Frames"]) {
   assert(!cyberpunkBody.includes(marker), `CyberpunkCity still contains glitch marker "${marker}"`);
 }
 
 for (const marker of ["neon-noir action RPG", "night city grid", "Pre-order", "Watch trailer", "BRAINDANCE", "black-market deck"]) {
-  assert(!glitchBody.includes(marker), `GlitchArtInterface still contains cyberpunk/game marker "${marker}"`);
+  assert(!glitchBody.includes(marker), `GlitchArtEditionsGallery still contains cyberpunk/game marker "${marker}"`);
 }
 
 for (const marker of ["LOUD LAUNDRY", "machine status", "cycle builder", "wash rates"]) {

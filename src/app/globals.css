@@ -1175,109 +1175,64 @@ textarea {
   animation: st-glitch 3s steps(1) infinite;
 }
 
-/* ── Glitch Sample: rich interactive glitch-art panel ─────────────── */
+/* ── Glitch gallery: UNSTABLE MEDIA editions viewer ───────────────────
+   The corruption is confined to the artwork stage; platform chrome stays
+   still. Jitter runs at long periods with brief, small displacements so
+   it reads as codec damage, not strobing (photosensitivity caution). */
 
-/* RGB channel split on heading ghost layers */
-@keyframes glitch-sample-rgb {
-  0%, 100% { transform: translateX(2px); opacity: 0.9; }
-  18%       { transform: translateX(-4px) skewX(-2deg); opacity: 0.75; }
-  36%       { transform: translateX(5px); opacity: 0.95; }
-  54%       { transform: translateX(-2px) skewX(1deg); opacity: 0.8; }
-  72%       { transform: translateX(3px); opacity: 0.85; }
+.glitch-gallery .gg-wordmark {
+  text-shadow: 1px 0 rgb(25 247 255 / 0.55), -1px 0 rgb(255 42 138 / 0.45);
 }
 
-.glitch-sample .glitch-sample-ch-cyan {
-  animation: glitch-sample-rgb 2.4s steps(1) infinite;
-  animation-delay: 0s;
+@keyframes gg-live {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
 }
-.glitch-sample .glitch-sample-ch-magenta {
-  animation: glitch-sample-rgb 2.4s steps(1) infinite;
-  animation-delay: -1.1s;
-  transform-origin: left center;
+.glitch-gallery .gg-live { animation: gg-live 1.8s steps(2) infinite; }
+
+/* Pointer-driven channel drift eases; playback adds sparse jumps */
+.glitch-gallery .gg-drift-c,
+.glitch-gallery .gg-drift-m {
+  transition: transform 120ms linear;
+  will-change: transform;
 }
 
-/* Horizontal slice bands jump */
-@keyframes glitch-sample-slice {
-  0%, 100% { transform: translateX(calc(var(--glitch-intensity, 0.18) * -22px)); }
-  25%       { transform: translateX(calc(var(--glitch-intensity, 0.18) * 14px)); }
-  50%       { transform: translateX(calc(var(--glitch-intensity, 0.18) * -30px)); }
-  75%       { transform: translateX(calc(var(--glitch-intensity, 0.18) * 8px)); }
+@keyframes gg-jitter-c {
+  0%, 86%, 100% { transform: translateX(calc(var(--gg-drift, 0) * 7px)); }
+  88%            { transform: translateX(calc(var(--gg-drift, 0) * 7px + 5px)); }
+  93%            { transform: translateX(calc(var(--gg-drift, 0) * 7px - 3px)); }
 }
+@keyframes gg-jitter-m {
+  0%, 89%, 100% { transform: translateX(calc(var(--gg-drift, 0) * -5px)); }
+  91%            { transform: translateX(calc(var(--gg-drift, 0) * -5px - 4px)); }
+  95%            { transform: translateX(calc(var(--gg-drift, 0) * -5px + 3px)); }
+}
+.glitch-gallery[data-playing="on"] .gg-drift-c { animation: gg-jitter-c 2.8s steps(1) infinite; }
+.glitch-gallery[data-playing="on"] .gg-drift-m { animation: gg-jitter-m 2.8s steps(1) infinite; }
 
-.glitch-sample .glitch-sample-slice   { animation: glitch-sample-slice 1.6s steps(1) infinite; }
-.glitch-sample .glitch-sample-slice-2 { animation: glitch-sample-slice 1.6s steps(1) infinite; animation-delay: -0.5s; }
-.glitch-sample .glitch-sample-slice-3 { animation: glitch-sample-slice 1.6s steps(1) infinite; animation-delay: -1.0s; }
+/* Displaced scan rows surface briefly during playback */
+@keyframes gg-slice {
+  0%, 90%, 100% { opacity: 0; transform: translateX(0); }
+  92%            { opacity: 0.55; transform: translateX(-14px); }
+  96%            { opacity: 0.4;  transform: translateX(10px); }
+}
+.glitch-gallery[data-playing="on"] .gg-slice   { animation: gg-slice 3.6s steps(1) infinite; }
+.glitch-gallery[data-playing="on"] .gg-slice-2 { animation: gg-slice 3.6s steps(1) infinite; animation-delay: -1.7s; }
 
-/* Scanline drift */
-@keyframes glitch-sample-scan {
-  0%   { background-position: 0 0; }
-  100% { background-position: 0 -6px; }
+/* Exhibition ticker */
+@keyframes gg-ticker {
+  to { transform: translateX(-50%); }
 }
-.glitch-sample .glitch-sample-scan {
-  animation: glitch-sample-scan 0.28s linear infinite;
-}
+.glitch-gallery .gg-ticker { animation: gg-ticker 36s linear infinite; }
 
-/* Screen flicker */
-@keyframes glitch-sample-flicker {
-  0%, 100% { opacity: 0.02; }
-  33%       { opacity: 0.05; }
-  66%       { opacity: 0.01; }
-}
-.glitch-sample .glitch-sample-flicker {
-  animation: glitch-sample-flicker 3.5s steps(1) infinite;
-}
-
-/* Hex marquee scroll */
-@keyframes glitch-sample-marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.glitch-sample .glitch-sample-marquee-inner {
-  animation: glitch-sample-marquee 28s linear infinite;
-}
-
-/* Waveform bar pulse */
-@keyframes glitch-sample-bar {
-  0%, 100% { transform: scaleY(1); }
-  50%       { transform: scaleY(0.55); }
-}
-.glitch-sample .glitch-sample-bar {
-  animation: glitch-sample-bar 1.2s ease-in-out infinite;
-  transform-origin: bottom;
-}
-.glitch-sample .glitch-sample-bar:nth-child(2n)   { animation-delay: -0.4s; }
-.glitch-sample .glitch-sample-bar:nth-child(3n)   { animation-delay: -0.8s; }
-
-/* Burst mode: macro block extra jitter */
-@keyframes glitch-sample-burst {
-  0%   { transform: translate(-3px,  2px) skewX(-2deg); }
-  20%  { transform: translate( 5px, -3px) skewX( 3deg); }
-  40%  { transform: translate(-6px,  1px); }
-  60%  { transform: translate( 4px,  4px) skewX(-1deg); }
-  80%  { transform: translate(-2px, -4px); }
-  100% { transform: translate( 0,    0); }
-}
-.glitch-sample[data-glitch-burst="on"] .glitch-sample-block {
-  animation: glitch-sample-burst 0.12s steps(1) infinite;
-}
-
-/* ── Reduced-motion: freeze all glitch-sample animations ─────────────
-   Note: the global *{animation-duration:0.001ms} block above already
-   collapses most animations; these explicit none rules ensure the
-   marquee, scan, and burst don't leak.                              */
 @media (prefers-reduced-motion: reduce) {
-  .glitch-sample .glitch-sample-ch-cyan,
-  .glitch-sample .glitch-sample-ch-magenta,
-  .glitch-sample .glitch-sample-slice,
-  .glitch-sample .glitch-sample-slice-2,
-  .glitch-sample .glitch-sample-slice-3,
-  .glitch-sample .glitch-sample-scan,
-  .glitch-sample .glitch-sample-flicker,
-  .glitch-sample .glitch-sample-marquee-inner,
-  .glitch-sample .glitch-sample-bar,
-  .glitch-sample[data-glitch-burst="on"] .glitch-sample-block {
+  .glitch-gallery .gg-live,
+  .glitch-gallery .gg-ticker,
+  .glitch-gallery[data-playing="on"] .gg-drift-c,
+  .glitch-gallery[data-playing="on"] .gg-drift-m,
+  .glitch-gallery[data-playing="on"] .gg-slice,
+  .glitch-gallery[data-playing="on"] .gg-slice-2 {
     animation: none;
-    transform: none;
   }
 }
 

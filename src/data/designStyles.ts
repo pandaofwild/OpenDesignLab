@@ -478,14 +478,14 @@ const palettes: Record<string, DesignStylePalette> = {
   },
   maximalism: {
     base: "#241336",
-    surface: "#FFF0B8",
+    surface: "#2F1A45",
     text: "#FFF0B8",
     mutedText: "#D8B7DA",
     primary: "#FFF0B8",
     accent: "#FF4D88",
     accent2: "#00B894",
     accent3: "#F7C948",
-    border: "#FFF0B8",
+    border: "#53356F",
   },
   "glitch-art": {
     base: "#02030A",
@@ -1484,7 +1484,7 @@ const luxuryClassicResearch: Record<string, StyleResearchBrief> = {
     ],
     representativeTraits: ["Fan geometry", "Stepped vertical rhythm", "Black and brass contrast", "Evening hospitality", "Marquee-like modules"],
     avoidTraits: ["Random gold clutter", "Baroque scrollwork", "Cyber neon nightlife", "Flat retro poster styling"],
-    tokenIntent: "Use black lacquer, brass, emerald, double borders, fan arcs, and symmetrical hotel modules so Art Deco reads as polished geometric glamour.",
+    tokenIntent: "Use black lacquer, brass, emerald, double borders, fan arcs, and symmetrical ocean-liner booking modules so Art Deco reads as polished geometric glamour.",
   },
   "art-nouveau": {
     referenceSites: [
@@ -2022,7 +2022,7 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
       representativeTraits: ["Layered pattern", "Saturated campaign color", "Dense product world", "Decorative badges", "Clear high-contrast CTA"],
       avoidTraits: ["Random clutter", "Muted vintage catalog", "Single-color dopamine UI"],
       tokenIntent:
-        "Use saturated palettes, patterned blocks, compact spacing, strong borders, and layered commerce modules so the style reads as maximalist.",
+        "Use deep jewel palettes, layered pattern surfaces, dense commerce modules, hairline gilt dividers, and one gold high-contrast CTA so the style reads as contemporary maximalism.",
     },
   },
   "glitch-art": {
@@ -2192,7 +2192,7 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     description:
       "아르데코는 금색을 많이 쓰는 스타일이 아니라 기하학적 질서가 먼저 보여야 합니다. Claridge's, The Savoy, The Carlyle, Radio City Music Hall, Empire State Building처럼 팬 아치, 수직 리듬, 블랙 라커, 브라스, 에메랄드 포인트가 실제 호텔/바 예약 화면과 결합될 때 스타일이 분명해집니다.",
     visualFeatures: ["팬 아치와 계단형 라인이 대표 신호가 됩니다.", "검정, 브라스, 에메랄드, 버건디가 저녁의 고급감을 만듭니다.", "카드와 CTA는 장식보다 기하학적 질서에 맞춰 배치합니다."],
-    layoutTraits: ["중앙 정렬 내비게이션, 큰 호텔 히어로, 하단 카드 그리드가 잘 맞습니다.", "기하학 장식은 배경이 아니라 예약, 룸 카드, 바 카드의 구조에 붙습니다.", "모바일에서는 팬 장식을 단순화하고 CTA 대비를 우선합니다."],
+    layoutTraits: ["세로 포스터 패널과 예약 컬럼의 비대칭 분할, 마퀴형 스케줄 보드가 잘 맞습니다.", "기하학 장식은 배경이 아니라 예약, 룸 카드, 바 카드의 구조에 붙습니다.", "모바일에서는 팬 장식을 단순화하고 CTA 대비를 우선합니다."],
     imagePrompt:
       "An Art Deco hotel and cocktail bar website reference image with black lacquer, brass fan geometry, emerald accents, stepped room cards, symmetrical luxury navigation, no logo, no watermark",
     research: luxuryClassicResearch["art-deco"],
@@ -2903,10 +2903,10 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
   },
   "maximalism": {
-    typography: { weightDisplay: 800, weightBody: 500, tracking: "0em", headingScale: 1.12 },
-    shape: { radius: "4px", radiusPill: "4px", borderWidth: "2px", borderStyle: "double" },
-    space: { density: "tight", gap: "0.55rem", padScale: 0.92 },
-    decoration: { shadow: "4px 4px 0 var(--st-accent), -4px -4px 0 var(--st-accent-2)", effect: "grain" },
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 600, weightBody: 400, tracking: "0.01em", headingScale: 1.14 },
+    shape: { radius: "6px", radiusPill: "999px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "tight", gap: "0.6rem", padScale: 0.95 },
+    decoration: { shadow: "0 24px 48px rgb(10 4 20 / 0.45)", effect: "grain" },
     layout: { heroVariant: "center", navStyle: "boxed", alignment: "left" },
   },
   "glitch-art": {

@@ -44,8 +44,8 @@
 | 10 | 강렬 / 실험 | brutalism | brutalist-poster | verified | exposed structure, raw blocks, hard poster energy |
 | 11 | 강렬 / 실험 | new-brutalism | brutalist-poster | verified | LOUD LAUNDRY kiosk — machine status grid, cycle builder form, wash rates table |
 | 12 | 강렬 / 실험 | anti-design | magazine-layout | verified | broken convention, off-grid navigation, deliberate awkwardness |
-| 13 | 강렬 / 실험 | maximalism | street-campaign | verified | dense layers, abundant pattern, overloaded discovery |
-| 14 | 강렬 / 실험 | glitch-art | cyber-dashboard | verified | net-art error surface, ASCII rupture feed, codec forensics rail |
+| 13 | 강렬 / 실험 | maximalism | street-campaign | verified | PAVONE HOUSE interiors atelier — salon-wall hero, interactive pattern clash console, print index swatches, product shelf |
+| 14 | 강렬 / 실험 | glitch-art | cyber-dashboard | verified | UNSTABLE MEDIA editions gallery — artwork viewer with rgb channel drift, file integrity manifest (sha-256), edition activity feed |
 | 15 | 강렬 / 실험 | deconstructivism | brutalist-poster | verified | structural fault, fracture section index, displaced project axis |
 | 16 | 강렬 / 실험 | avant-garde | magazine-layout | verified | manifesto program, critical lecture rail, art-into-life agenda |
 | 17 | 강렬 / 실험 | postmodernism | retro-commerce | verified | PALLADIO & POP auction house — live sale ticker, featured lot bid module, browse-by-era chips |
