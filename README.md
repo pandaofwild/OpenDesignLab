@@ -84,10 +84,24 @@ OpenDesignLab turns design intent into inspectable choices:
 
 ## Quick Start
 
+### 실행 방법
+
 Requirements:
 
 - Node.js 22 or later
 - npm
+
+Check your Node.js version:
+
+```bash
+node -v
+```
+
+If the version is lower than 22, install Node.js 22 or switch versions with your Node version manager. This repository includes `.nvmrc`, so nvm users can run:
+
+```bash
+nvm use
+```
 
 Install dependencies:
 
@@ -95,20 +109,85 @@ Install dependencies:
 npm install
 ```
 
-Run the dev server:
+Run the local development server:
 
 ```bash
 npm run dev
 ```
 
-Open in your browser:
+The `dev` script runs:
+
+```bash
+next dev --webpack
+```
+
+Open one of these URLs in your browser:
 
 ```text
-http://localhost:3000/en/layouts
+http://localhost:3000/
 http://localhost:3000/ko/layouts
+http://localhost:3000/en/layouts
 ```
 
 The root path (`/`) redirects to `/ko/layouts`. Unprefixed app routes redirect to the Korean route by default.
+
+### 실행 체크리스트
+
+1. Node.js is version 22 or later.
+2. Dependencies are installed with `npm install`.
+3. The development server is running with `npm run dev`.
+4. The browser can open `http://localhost:3000/ko/layouts`.
+
+### 자주 쓰는 명령어
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the local development server with webpack |
+| `npm run lint` | Run ESLint |
+| `npm run build` | Create a production build |
+| `npm run start` | Run the production server after `npm run build` |
+| `npm run check:data` | Validate layout and design-style data |
+| `npm run check:style-refs` | Validate style reference data |
+| `npm run check:style-distinction` | Validate style distinction markers |
+
+### Production build
+
+To test the production build locally:
+
+```bash
+npm run build
+npm run start
+```
+
+Then open:
+
+```text
+http://localhost:3000/
+```
+
+### 환경 변수
+
+Most pages run without environment variables. Image generation admin routes require OpenAI API settings. Create a local `.env.local` only when you need `/styles/generate` or `/api/design-style-images`:
+
+```bash
+OPENAI_API_KEY=sk-...
+OPENAI_IMAGE_MODEL=gpt-image-1.5
+```
+
+### 문제 해결
+
+- If `npm run dev` fails because Node.js is too old, switch to Node.js 22 or later.
+- If port `3000` is already in use, stop the other process or run Next.js on another port:
+
+```bash
+npm run dev -- -p 3001
+```
+
+- If dependencies look stale or broken, reinstall them:
+
+```bash
+npm install
+```
 
 ## Main Routes
 
