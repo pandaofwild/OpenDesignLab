@@ -1996,30 +1996,30 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     },
   },
   maximalism: {
-    summary: "맥시멀리즘은 색, 패턴, 이미지, 장식 모티프를 풍부하게 쌓아 브랜드 세계관을 한 화면에 밀도 있게 보여주는 스타일입니다.",
+    summary: "맥시멀리즘은 '더 많은 것이 더 좋다'는 태도로 색, 패턴, 장식, 이미지를 겹겹이 쌓되, 반복과 위계로 과잉을 통제해 몰입감을 만드는 스타일입니다.",
     description:
-      "맥시멀리즘은 단순히 많은 요소를 넣는 방식이 아니라, 반복 패턴과 강한 색으로 몰입형 브랜드 무대를 만드는 방식입니다. FARM Rio, Meow Wolf, Liberty London처럼 제품 카드, 캠페인 배너, 장식 패턴, 배지가 동시에 보이지만 중심 행동은 분명해야 합니다.",
-    visualFeatures: ["패턴과 색면이 화면의 빈 공간을 적극적으로 채웁니다.", "상품/이미지/라벨이 여러 층으로 겹쳐 브랜드 세계관을 만듭니다.", "장식적이지만 가격, 컬렉션, CTA 같은 정보가 살아 있어야 합니다."],
-    colorPalette: ["짙은 보라나 버건디 같은 깊은 배경을 사용할 수 있습니다.", "핑크, 그린, 골드처럼 강한 액센트를 함께 씁니다.", "패턴이 많을수록 텍스트 대비를 의식적으로 확보합니다."],
-    typography: ["굵은 제목과 장식적 라벨을 함께 사용합니다.", "본문은 짧게 유지해 장식 밀도에 묻히지 않게 합니다.", "가격과 CTA는 고대비 박스로 분명하게 처리합니다."],
-    layoutTraits: ["캠페인 히어로, 패턴 영역, 상품 카드, 배지가 한 화면에 공존합니다.", "대칭보다 풍부한 레이어와 시선 이동을 우선합니다.", "모바일에서는 레이어 수를 줄이고 핵심 카드부터 보여줍니다."],
-    useCases: ["패션 캠페인", "패턴 브랜드", "라이프스타일 편집숍", "한정 컬렉션"],
+      "맥시멀리즘은 미니멀리즘의 절제 대신 풍요를 선택하는 언어입니다. 핵심은 무작정 채우는 것이 아니라 통제된 과잉 — 패턴 위에 패턴을 겹치고 시대와 모티프를 절충적으로 섞으면서도, 반복 리듬과 명확한 초점으로 시선을 이끕니다. House of Hackney, FARM Rio, Meow Wolf처럼 화면이 가득 차 있어도 중심 행동은 분명해야 합니다.",
+    visualFeatures: ["패턴 위에 패턴을 겹치는 클래시를 두려움 없이 쓰되, 반복 리듬으로 통제합니다.", "이미지, 장식 프레임, 라벨이 여러 층으로 쌓여 밀도 자체가 스타일이 됩니다.", "장식 사이에서도 가격, 컬렉션, CTA 같은 정보 위계는 살아 있어야 합니다."],
+    colorPalette: ["짙은 플럼, 보틀 그린, 버건디 같은 주얼톤을 바탕색으로 씁니다.", "골드·황동 액센트가 헤어라인과 장식에서 리듬을 만듭니다.", "패턴이 많을수록 텍스트 대비를 의식적으로 확보합니다."],
+    typography: ["장식적 세리프 디스플레이와 절제된 라벨을 대비시켜 씁니다.", "본문은 짧게 유지해 장식 밀도에 묻히지 않게 합니다.", "CTA는 하나만 강하게 — 골드처럼 확실한 고대비로 처리합니다."],
+    layoutTraits: ["살롱월처럼 밀집된 콜라주 구성이지만 초점 모듈은 분명합니다.", "대칭보다 풍부한 레이어와 시선 이동을 우선합니다.", "모바일에서는 레이어 수를 줄이고 핵심 모듈부터 보여줍니다."],
+    useCases: ["패턴·인테리어 하우스", "패션 캠페인", "라이프스타일 편집숍", "한정 컬렉션"],
     goodFor: ["브랜드 세계관이 강한 커머스", "시각 자산이 풍부한 캠페인", "고객이 둘러보는 재미를 느껴야 하는 페이지", "평범한 제품 목록을 무대로 바꾸고 싶을 때"],
     cautions: ["정보 위계 없이 쌓으면 혼잡한 화면이 됩니다.", "모든 색을 같은 비중으로 쓰면 CTA가 사라집니다.", "성능과 이미지 로딩도 함께 고려해야 합니다."],
     imagePrompt:
-      "A maximalist fashion campaign website reference image with layered textile patterns, saturated jewel colors, product cards, ornate badges, dense but readable ecommerce hierarchy, no logo, no watermark",
+      "A maximalist pattern-house website reference image with layered botanical wallpaper, jewel-tone velvet, gilt frames, ornate badges, dense but readable commerce hierarchy, no logo, no watermark",
     research: {
       referenceSites: [
+        { title: "House of Hackney", url: "https://www.houseofhackney.com/", note: "Interiors maximalism reference for pattern-on-pattern wallpaper, jewel palettes, ornate serif branding, and dense yet controlled commerce." },
         { title: "FARM Rio", url: "https://farmrio.com/", note: "Fashion maximalism reference for saturated prints, joyful pattern density, tropical color, and expressive product storytelling." },
         { title: "Meow Wolf", url: "https://meowwolf.com/", note: "Immersive arts reference for maximal color, layered worlds, dense visual storytelling, and experience-led web composition." },
-        { title: "Liberty London", url: "https://www.libertylondon.com", note: "Retail reference for textile pattern density, floral maximalism, heritage color, and layered commerce modules." },
       ],
       referenceGalleries: [
         { title: "Pinterest - Maximalist Website Design", url: "https://www.pinterest.com/search/pins/?q=maximalist%20website%20design", note: "Moodboard reference for saturated color, layered pattern, dense composition, eclectic type, and decorative web scenes." },
         { title: "Awwwards - Colorful Websites", url: "https://www.awwwards.com/websites/colorful/", note: "Closest gallery reference for award-level maximal color, bold visual systems, ornamental motion, and dense campaign pages." },
         { title: "Dribbble - Maximalism", url: "https://dribbble.com/tags/maximalism", note: "UI reference for pattern-rich landing pages, expressive product cards, layered hero modules, and decorative component systems." },
       ],
-      representativeTraits: ["Layered pattern", "Saturated campaign color", "Dense product world", "Decorative badges", "Clear high-contrast CTA"],
+      representativeTraits: ["Layered pattern", "Saturated jewel color", "Dense product world", "Decorative badges", "Clear high-contrast CTA"],
       avoidTraits: ["Random clutter", "Muted vintage catalog", "Single-color dopamine UI"],
       tokenIntent:
         "Use deep jewel palettes, layered pattern surfaces, dense commerce modules, hairline gilt dividers, and one gold high-contrast CTA so the style reads as contemporary maximalism.",
@@ -3365,13 +3365,13 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
       "Create a realistic editorial moodboard for Anti-Design in web design. The board should look like a real designer's experimental research board photographed from above on a white studio table. Include printed off-grid portfolio page references without readable text, awkwardly cropped hero panels, intentionally misaligned card layouts, torn paper scraps, acetate overlays, neon marker gesture swatches, rough tape, photocopied image fragments, clashing color chips, irregular black paper shapes, skewed layout proofs, and small registration marks drawn as abstract symbols only. The board should feel intentionally wrong but still curated and useful for a design team. Use tape corners, pin marks, folded paper, ripped edges, uneven crop edges, varied paper thickness, subtle dust, and real shadows. Palette: white, black, acidic lime, neon pink, cobalt, dirty grey, off-red. Absolutely no readable text, no letters, no numbers, no brand names, no logos, no watermarks, no fake UI gibberish, no pretty balanced grid, no decorative poster filler, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
   maximalism: {
-    alt: "Maximalism moodboard with dense campaign proofs, product-card grids, jewel color chips, saturated textile swatches, ornate badge shapes, ribbons, and glossy samples.",
-    caption: "Abundant but directed: stack pattern, product cards, color, ribbon, and ornament around a clear campaign-commerce rhythm.",
-    directionKeywords: ["real campaign board", "dense commerce rhythm", "jewel color layering", "textile pattern density", "ornamental hierarchy"],
+    alt: "Maximalism moodboard with gilt frame corners, tiger and botanical wallpaper samples layered pattern-on-pattern, emerald and plum velvet swatches, gold fringe trim, jewel color chips, ornate badge silhouettes, and dense layout proofs.",
+    caption: "Controlled abundance: layer pattern on pattern over deep jewel grounds, let gilt ornament set the rhythm, and keep one clear focal hierarchy.",
+    directionKeywords: ["pattern-on-pattern layering", "deep jewel grounds", "gilt ornament rhythm", "interiors-and-fashion mix", "deliberate focal hierarchy"],
     generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/maximalism-realistic-v2.webp",
+    imageSrc: "/generated/moodboards/maximalism-realistic-v3.webp",
     prompt:
-      "Create a realistic editorial moodboard for Maximalism in web design. The board should look like a real designer's research board photographed from above on a charcoal studio table. Make it feel like a maximalist web campaign and ecommerce reference board, not a luxury decor board. Include printed dense website layout references without readable text, layered product-card studies, category grid fragments, campaign tile arrangements, saturated textile swatches, bold floral and geometric pattern samples, jewel-tone color chips, glossy lacquer color samples, ribbon strips, ornate abstract badge silhouettes with no letters, sticker-like paper shapes, decorative border studies, packaging color blanks, and abundant layered paper cutouts. The composition should feel abundant but curated, with a clear commerce rhythm and hierarchy. Use tape corners, pin marks, folded paper, slight paper curl, varied paper thickness, fabric texture, glossy reflections, subtle dust, and real shadows. Palette: emerald, ruby, cobalt, deep violet, saffron, ivory, black, small metallic accent. Absolutely no readable text, no letters, no numbers, no brand names, no logos, no watermarks, no fake UI gibberish, no human faces, no fashion model, no old luxury interior, no classical palace imagery, no plain minimal composition, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
+      "Create a realistic editorial moodboard for Maximalism in web design. The board should look like a real designer's research board photographed from above on a charcoal studio table. It is pattern-house research for a maximalist web project spanning interiors and fashion: include printed dense website layout references without readable text, a salon-wall arrangement study made of small ornate gilt frame corners, botanical and tiger-stripe wallpaper samples layered pattern-on-pattern, saturated velvet and silk swatches in emerald and plum, gold fringe and braided trim pieces, jewel-tone color chips, ornate abstract badge silhouettes with no letters, layered product-card studies, a folded floral chintz fragment, and abundant overlapping paper cutouts arranged with one clear focal cluster. The visual language should communicate controlled abundance: pattern on pattern, deep jewel grounds, gilded ornament, and dense layering that still reads with deliberate rhythm and hierarchy. It should feel useful for designing a maximalist interiors-and-fashion web experience, not like kitsch novelty clutter, not like a postmodern classical quotation board, and not like a pastel rococo palace. Use real-world imperfections: tape corners, pin marks, slight paper curl, varied paper thickness, fabric texture, soft shadows, subtle dust. Palette: deep plum, bottle emerald, burgundy, peony pink, antique gold, cobalt, ivory, black. Absolutely no readable text, no letters, no numbers, no brand names, no logos, no watermarks, no fake UI gibberish, no human faces, no floating cards, no minimal blank space. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
   "glitch-art": {
     alt: "Glitch Art moodboard with diagnostic interface proofs, corrupted image cells, RGB acetate layers, scanline strips, macroblocks, and anti-static material.",
