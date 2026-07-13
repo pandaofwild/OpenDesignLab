@@ -161,13 +161,13 @@
 
   "maximalism": {
     "sites": [
+      { "url": "https://www.houseofhackney.com/", "title": "House of Hackney", "note": "Interiors maximalism reference for pattern-on-pattern wallpaper, jewel palettes, ornate serif branding, and dense yet controlled commerce." },
       { "url": "https://farmrio.com/", "title": "FARM Rio", "note": "Fashion maximalism reference for saturated prints, joyful pattern density, tropical color, and expressive product storytelling." },
-      { "url": "https://meowwolf.com/", "title": "Meow Wolf", "note": "Immersive arts reference for maximal color, layered worlds, dense visual storytelling, and experience-led web composition." },
-      { "url": "https://www.libertylondon.com", "title": "Liberty London", "note": "Retail reference for textile pattern density, floral maximalism, heritage color, and layered commerce modules." }
+      { "url": "https://meowwolf.com/", "title": "Meow Wolf", "note": "Immersive arts reference for maximal color, layered worlds, dense visual storytelling, and experience-led web composition." }
     ],
     "galleries": [
       { "url": "https://www.pinterest.com/search/pins/?q=maximalist%20website%20design", "title": "Pinterest - Maximalist Website Design", "note": "Moodboard reference for saturated color, layered pattern, dense composition, eclectic type, and decorative web scenes." },
-      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery fit: 패턴과 색면이 화면의 빈 공간을 적극적으로 채웁니다, 캠페인 히어로, 패턴 영역, 상품 카드, 배지가 한 화면에 공존합니다, 굵은 제목과 장식적 라벨을 함께 사용합니다, 짙은 보라나 버건디 같은 깊은 배경을 사용할 수 있습니다 make this relevant to Maximalism; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from glitch-art / deconstructivism; require maximal, dense, expressive cues instead of broad polish." },
+      { "url": "https://www.awwwards.com/websites/colorful/", "title": "Awwwards - Colorful Websites", "note": "Gallery fit: 패턴 위에 패턴을 겹치는 클래시를 두려움 없이 쓰되 반복 리듬으로 통제합니다, 살롱월처럼 밀집된 콜라주 구성이지만 초점 모듈은 분명합니다, 장식적 세리프 디스플레이와 절제된 라벨을 대비시켜 씁니다, 짙은 플럼과 보틀 그린 같은 주얼톤을 바탕색으로 씁니다 make this relevant to Maximalism; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from glitch-art / deconstructivism; require maximal, dense, expressive cues instead of broad polish." },
       { "url": "https://dribbble.com/tags/maximalism", "title": "Dribbble - Maximalism", "note": "UI reference for pattern-rich landing pages, expressive product cards, layered hero modules, and decorative component systems." }
     ]
   },
