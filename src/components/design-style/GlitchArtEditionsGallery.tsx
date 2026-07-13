@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import type { DesignStyle } from "@/data/designStyles";
 import { cn } from "@/lib/utils";
 import {
@@ -23,6 +23,11 @@ type Props = {
  * ---------------------------------------------------------------------- */
 
 const ARTWORK_SRC = "/generated/design-styles/glitch-art.webp";
+const ARTWORK_LAYER: CSSProperties = {
+  backgroundImage: `url('${ARTWORK_SRC}')`,
+  backgroundPosition: "50% 42%",
+  backgroundSize: "cover",
+};
 const DURATION = 461; // 07:41
 
 const HAIRLINE = "border-[rgb(var(--st-text-rgb)/0.13)]";
@@ -101,9 +106,15 @@ const RELATED_WORKS = [
 const TICKER =
   "EXH 07 — SIGNAL LOSS · curated by R. Aldous · 12 works · 9 artists · closes in 04d 11h 22m — next: EXH 08 — PACKET GARDEN · opens 02 AUG · ";
 
-export function GlitchArtEditionsGallery({ className, compact = false, style }: Props) {
-  const [drift, setDrift] = useState(0);
-  const [playing, setPlaying] = useState(false);
+function TransportBar({
+  compact,
+  onTogglePlaying,
+  playing,
+}: {
+  readonly compact: boolean;
+  readonly onTogglePlaying: () => void;
+  readonly playing: boolean;
+}) {
   const [playhead, setPlayhead] = useState(156);
 
   useEffect(() => {
@@ -111,14 +122,6 @@ export function GlitchArtEditionsGallery({ className, compact = false, style }: 
     const id = setInterval(() => setPlayhead((t) => (t + 1) % DURATION), 1000);
     return () => clearInterval(id);
   }, [playing]);
-
-  const onStageMove = useCallback((e: React.PointerEvent<HTMLElement>) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width;
-    setDrift(Math.min(1, Math.abs(x - 0.5) * 2.4));
-  }, []);
-
-  const onStageLeave = useCallback(() => setDrift(0), []);
 
   const onSeek = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const r = e.currentTarget.getBoundingClientRect();
@@ -129,13 +132,7 @@ export function GlitchArtEditionsGallery({ className, compact = false, style }: 
   const progress = playhead / DURATION;
   const buffered = Math.min(1, progress + 0.22);
 
-  const artworkLayer: CSSProperties = {
-    backgroundImage: `url('${ARTWORK_SRC}')`,
-    backgroundPosition: "50% 42%",
-    backgroundSize: "cover",
-  };
-
-  const playerBar = (
+  return (
     <div
       className={cn(
         "absolute inset-x-0 bottom-0 z-10 flex items-center gap-2.5 border-t bg-[rgb(var(--st-base-rgb)/0.87)] backdrop-blur-sm",
@@ -146,7 +143,7 @@ export function GlitchArtEditionsGallery({ className, compact = false, style }: 
       <button
         aria-label={playing ? "Pause artwork playback" : "Play artwork"}
         className="flex h-5 w-5 shrink-0 items-center justify-center border border-[rgb(var(--st-text-rgb)/0.22)] text-[var(--sample-text)] transition-colors hover:border-[var(--sample-accent)] hover:text-[var(--sample-accent)]"
-        onClick={() => setPlaying((p) => !p)}
+        onClick={onTogglePlaying}
         type="button"
       >
         <PlayIcon paused={playing} />
@@ -184,6 +181,24 @@ export function GlitchArtEditionsGallery({ className, compact = false, style }: 
       </span>
     </div>
   );
+}
+
+export function GlitchArtEditionsGallery({ className, compact = false, style }: Props) {
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  const onStageMove = useCallback((e: React.PointerEvent<HTMLElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width;
+    const drift = Math.min(1, Math.abs(x - 0.5) * 2.4);
+    galleryRef.current?.style.setProperty("--gg-drift", drift.toFixed(3));
+  }, []);
+
+  const onStageLeave = useCallback(() => {
+    galleryRef.current?.style.setProperty("--gg-drift", "0");
+  }, []);
+
+  const onTogglePlaying = useCallback(() => setPlaying((current) => !current), []);
 
   const stage = (
     <figure
@@ -191,13 +206,13 @@ export function GlitchArtEditionsGallery({ className, compact = false, style }: 
       onPointerLeave={compact ? undefined : onStageLeave}
       onPointerMove={compact ? undefined : onStageMove}
     >
-      <span aria-hidden="true" className="absolute inset-0" style={artworkLayer} />
+      <span aria-hidden="true" className="absolute inset-0" style={ARTWORK_LAYER} />
       {/* rgb channel drift — the one loud move, on the artwork only */}
       <span
         aria-hidden="true"
         className="gg-drift-c absolute inset-0 mix-blend-screen"
         style={{
-          ...artworkLayer,
+          ...ARTWORK_LAYER,
           filter: "saturate(2.6) hue-rotate(140deg)",
           opacity: 0.4,
           transform: "translateX(calc(var(--gg-drift, 0) * 7px))",
@@ -207,7 +222,7 @@ export function GlitchArtEditionsGallery({ className, compact = false, style }: 
         aria-hidden="true"
         className="gg-drift-m absolute inset-0 mix-blend-screen"
         style={{
-          ...artworkLayer,
+          ...ARTWORK_LAYER,
           filter: "saturate(2.6) hue-rotate(305deg)",
           opacity: 0.32,
           transform: "translateX(calc(var(--gg-drift, 0) * -5px))",
@@ -217,12 +232,12 @@ export function GlitchArtEditionsGallery({ className, compact = false, style }: 
       <span
         aria-hidden="true"
         className="gg-slice absolute left-0 h-[5px] w-[72%] opacity-0"
-        style={{ ...artworkLayer, backgroundPosition: "38% 42%", top: "31%" }}
+        style={{ ...ARTWORK_LAYER, backgroundPosition: "38% 42%", top: "31%" }}
       />
       <span
         aria-hidden="true"
         className="gg-slice-2 absolute right-0 h-[3px] w-[54%] opacity-0"
-        style={{ ...artworkLayer, backgroundPosition: "64% 40%", top: "58%" }}
+        style={{ ...ARTWORK_LAYER, backgroundPosition: "64% 40%", top: "58%" }}
       />
       <span
         aria-hidden="true"
@@ -240,7 +255,7 @@ export function GlitchArtEditionsGallery({ className, compact = false, style }: 
           </span>
         </div>
       )}
-      {playerBar}
+      <TransportBar compact={compact} onTogglePlaying={onTogglePlaying} playing={playing} />
     </figure>
   );
 
@@ -268,7 +283,8 @@ export function GlitchArtEditionsGallery({ className, compact = false, style }: 
         className,
       )}
       data-playing={playing ? "on" : "off"}
-      style={{ ...sampleVariables(style), "--gg-drift": drift.toFixed(3) } as CSSProperties}
+      ref={galleryRef}
+      style={{ ...sampleVariables(style), "--gg-drift": "0" } as CSSProperties}
     >
       <span
         aria-hidden="true"

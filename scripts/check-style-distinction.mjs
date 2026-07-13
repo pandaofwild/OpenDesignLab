@@ -16,12 +16,20 @@ const externalSampleSources = {
   ),
 };
 
+const delegatedSampleSources = {
+  MaximalistPatternAtelier: "../src/components/design-style/MaximalistSalonWall.tsx",
+  MidCenturyModernStudio: "../src/components/design-style/MidCenturyListeningRoom.tsx",
+};
+
 function functionBody(name) {
   if (externalSampleSources[name]) return externalSampleSources[name];
   const start = rendererSource.indexOf(`function ${name}`);
   if (start === -1) return "";
   const nextFunction = rendererSource.indexOf("\nfunction ", start + 1);
-  return rendererSource.slice(start, nextFunction === -1 ? rendererSource.length : nextFunction);
+  const wrapperSource = rendererSource.slice(start, nextFunction === -1 ? rendererSource.length : nextFunction);
+  return delegatedSampleSources[name]
+    ? `${wrapperSource}\n${readFileSync(new URL(delegatedSampleSources[name], import.meta.url), "utf8")}`
+    : wrapperSource;
 }
 
 const cyberpunkBody = functionBody("CyberpunkCity");
@@ -257,7 +265,7 @@ const requiredFamilyMarkers = {
   "nineties-graphic": ["Mega Media", "topic explorer", "now loading"],
   y2k: ["GLOSS PORTAL", "bubble widget stack", "sparkle guestbook rail"],
   "retro-futurism": ["FLIGHT DECK", "destination poster rail", "chrome capsule timetable"],
-  "mid-century-modern": ["MONO HOUSE", "SIDE A / SIDE B", "Walnut source rail", "Girard acoustic cloth", "Session queue"],
+  "mid-century-modern": ["MONO HOUSE", "SIDE A / LISTENING FLOOR", "SIDE B / CONTROL RECEIVER", "Walnut source rail", "Girard acoustic cloth", "Session queue"],
   bauhaus: ["BAUHAUS SCHOOL", "workshop method grid", "circle square triangle lab"],
   futurism: ["ORBITAL VELOCITY", "aerodynamic launch window", "carbon telemetry spine"],
   "typography-focused": ["TYPE SCALE SPECIMEN", "baseline strips", "font pairing shelf"],

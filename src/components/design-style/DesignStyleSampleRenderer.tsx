@@ -1803,7 +1803,6 @@ function AntiDesignLanding({ className, compact = false, style }: Props) {
 }
 
 function MaximalistPatternAtelier({ className, compact = false, style }: Props) {
-  // PAVONE HOUSE · Print index · Pattern clash console
   return (
     <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
       <MaximalistSalonWall compact={compact} />
@@ -3234,7 +3233,6 @@ function BauhausSchool({ className, compact = false, style }: Props) {
 }
 
 function MidCenturyModernStudio({ className, compact = false, style }: Props) {
-  // MONO HOUSE · SIDE A / SIDE B · Walnut source rail · Girard acoustic cloth · Session queue
   return (
     <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
       <MidCenturyListeningRoom compact={compact} />

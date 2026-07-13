@@ -28,7 +28,9 @@ export function DesignStyleCard({ isSelected, onSelect, style }: Props) {
       )}
     >
       <div className="relative aspect-[4/3] min-h-[220px] min-w-0 overflow-hidden border border-[var(--specimen-line-soft)] bg-[rgb(234_230_220_/_0.58)]">
-        <DesignStyleSampleRenderer compact style={localizedStyle} />
+        <div inert className="h-full">
+          <DesignStyleSampleRenderer compact style={localizedStyle} />
+        </div>
         <LocalizedLink
           aria-label={locale === "ko" ? `${localizedStyle.nameKo} 자세히 보기` : `View ${localizedStyle.nameEn} details`}
           className="absolute inset-0 z-20 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--specimen-signal)]"
