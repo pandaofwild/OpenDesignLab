@@ -19,6 +19,7 @@ const externalSampleSources = {
 const delegatedSampleSources = {
   AiAestheticStudio: "../src/components/design-style/LatentStudioPanel.tsx",
   ChromecoreFaceplateShop: "../src/components/design-style/ChromeworksFaceplateShop.tsx",
+  FuturismMachCorridor: "../src/components/design-style/OrbitalTransitConsole.tsx",
   MaximalistPatternAtelier: "../src/components/design-style/MaximalistSalonWall.tsx",
   MidCenturyModernStudio: "../src/components/design-style/MidCenturyListeningRoom.tsx",
 };
@@ -182,7 +183,7 @@ const styleSampleFunctions = {
   "retro-futurism": "RetroFuturismFlightDeck",
   "mid-century-modern": "MidCenturyModernStudio",
   bauhaus: "BauhausSchool",
-  futurism: "FuturismVelocity",
+  futurism: "FuturismMachCorridor",
   cyberpunk: "CyberpunkCity",
   "neon-noir": "NeonNoirCinema",
   techwear: "TechwearSystem",
@@ -276,7 +277,7 @@ const requiredFamilyMarkers = {
   "retro-futurism": ["FLIGHT DECK", "destination poster rail", "chrome capsule timetable"],
   "mid-century-modern": ["MONO HOUSE", "SIDE A / LISTENING FLOOR", "SIDE B / CONTROL RECEIVER", "Walnut source rail", "Girard acoustic cloth", "Session queue"],
   bauhaus: ["BAUHAUS SCHOOL", "workshop method grid", "circle square triangle lab"],
-  futurism: ["ORBITAL VELOCITY", "aerodynamic launch window", "carbon telemetry spine"],
+  futurism: ["ORBITAL TRANSIT", "Mach corridor map", "Launch window board", "Live telemetry"],
   "typography-focused": ["TYPE SCALE SPECIMEN", "baseline strips", "font pairing shelf"],
   "editorial-design": ["LONGFORM EDIT DESK", "pull quote rail", "photo essay stack"],
   "magazine-style": ["ISSUE BROWSER", "cover wall", "contents grid"],

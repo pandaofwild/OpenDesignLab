@@ -8,6 +8,7 @@ import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
 import { LatentStudioPanel } from "./LatentStudioPanel";
 import { MaximalistSalonWall } from "./MaximalistSalonWall";
 import { MidCenturyListeningRoom } from "./MidCenturyListeningRoom";
+import { OrbitalTransitConsole } from "./OrbitalTransitConsole";
 
 type Props = {
   className?: string;
@@ -3244,77 +3245,10 @@ function MidCenturyModernStudio({ className, compact = false, style }: Props) {
 
 const NOTCH = "polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px))";
 
-function FuturismVelocity({ className, compact = false, style }: Props) {
-  const missionStats: Array<[string, string]> = [
-    ["Mach", "3.4"],
-    ["Range", "7,800km"],
-    ["Window", "T+08"],
-  ];
-
+function FuturismMachCorridor({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[#eef2f6] text-[#060910]", className)} compact={compact} style={style}>
-      <span aria-hidden="true" className="absolute inset-0 opacity-75" style={{ backgroundImage: "linear-gradient(100deg, rgb(255 255 255 / 0.9), transparent 34%), linear-gradient(90deg, rgb(4 11 23 / 0.06) 1px, transparent 1px), linear-gradient(0deg, rgb(4 11 23 / 0.05) 1px, transparent 1px)", backgroundSize: "auto, 48px 48px, 48px 48px" }} />
-      <span aria-hidden="true" className="absolute -right-28 top-8 h-36 w-[72%] -skew-x-[24deg] bg-[#0b1220]" style={{ clipPath: "polygon(11% 0, 100% 0, 89% 100%, 0 100%)" }} />
-      <span aria-hidden="true" className="absolute bottom-8 left-0 h-12 w-full opacity-70" style={{ backgroundImage: "repeating-linear-gradient(112deg, transparent 0 18px, rgb(20 93 255 / 0.25) 18px 20px)" }} />
-      <div className="relative flex h-full flex-col">
-        <div className="flex items-center gap-3 border-b border-[#07101f]/20 pb-2 text-[10px] font-bold uppercase tracking-[0.12em]">
-          <span className="font-display text-base italic tracking-tight text-[#07101f]" style={{ fontFamily: "var(--st-font-display)" }}>ORBITAL VELOCITY</span>
-          <nav className={cn("items-center gap-3 text-[#07101f]/58", compact ? "hidden" : "flex")}>
-            <span>Overture</span>
-            <span>Artemis</span>
-            <span>Flight lab</span>
-          </nav>
-          <span className="normal-case ml-auto bg-[#145dff] px-2.5 py-1 text-white" style={{ clipPath: "polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)" }}>aerodynamic launch window</span>
-        </div>
-
-        <div className={cn("grid min-h-0 flex-1 gap-4 pt-3", compact ? "grid-cols-[1fr_1.05fr]" : "grid-cols-1 md:grid-cols-[0.86fr_1.14fr] md:gap-5")}>
-          <div className="flex min-w-0 flex-col justify-center">
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#145dff]">Speed is mission architecture</p>
-            <h3
-              className={cn("mt-2 font-display italic uppercase leading-[0.84] text-[#07101f]", compact ? "text-[2.15rem]" : "text-[2.35rem] sm:text-6xl md:text-[4.4rem]")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
-            >
-              {compact ? "Fast" : "Forward"}
-              <br />
-              <span className="text-[#145dff]">flight.</span>
-            </h3>
-            <div className="mt-4 grid grid-cols-3 gap-1.5">
-              {missionStats.map(([label, value]) => (
-                <div className="border border-[#07101f]/18 bg-white/70 px-2 py-1.5" key={label}>
-                  <p className="text-[8px] uppercase tracking-[0.1em] text-[#07101f]/55">{label}</p>
-                  <p className="font-display text-sm font-black text-[#07101f]" style={{ fontFamily: "var(--st-font-display)" }}>{value}</p>
-                </div>
-              ))}
-            </div>
-            <span className={cn("mt-4 inline-flex w-fit items-center gap-1.5 border border-[#07101f] bg-[#07101f] px-4 py-2 text-[11px] font-bold uppercase text-white", compact ? "hidden" : "")} style={{ clipPath: "polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)" }}>
-              mission brief <IconArrow size={12} />
-            </span>
-          </div>
-
-          <div className="relative min-h-0 overflow-hidden border border-[#07101f]/25 bg-white/80" style={{ clipPath: NOTCH }}>
-            <span aria-hidden="true" className="absolute inset-0" style={{ backgroundImage: "linear-gradient(118deg, transparent 0 20%, rgb(20 93 255 / 0.16) 20% 21%, transparent 21% 52%, rgb(255 92 28 / 0.16) 52% 53%, transparent 53%), linear-gradient(180deg, rgb(255 255 255 / 0.3), rgb(7 16 31 / 0.06))" }} />
-            <span aria-hidden="true" className="absolute left-[10%] top-[28%] h-12 w-[62%] rounded-full bg-[#d8e0ea] shadow-[inset_18px_0_24px_rgb(255_255_255/0.9),inset_-18px_0_24px_rgb(7_16_31/0.28)]" style={{ transform: "skewX(-19deg) rotate(-5deg)" }} />
-            <span aria-hidden="true" className="absolute left-[57%] top-[27%] h-14 w-24 rounded-[999px_16px_16px_999px] bg-[#07101f]" style={{ transform: "skewX(-19deg) rotate(-5deg)" }} />
-            <span aria-hidden="true" className="absolute left-[9%] top-[46%] h-px w-[82%] -rotate-[8deg] bg-[#145dff]" />
-            <span aria-hidden="true" className="absolute left-[15%] top-[55%] h-px w-[76%] -rotate-[8deg] bg-[#07101f]/55" />
-            <div className="normal-case absolute right-3 top-3 w-28 border border-[#07101f]/25 bg-[#07101f] p-2 text-[8px] font-bold text-white">
-              carbon telemetry spine
-              <div className="mt-2 grid gap-1">
-                <span className="h-1 bg-[#145dff]" />
-                <span className="h-1 w-4/5 bg-white/70" />
-                <span className="h-1 w-2/3 bg-[#ff5c1c]" />
-              </div>
-            </div>
-            <div className="absolute bottom-3 left-3 right-3 grid grid-cols-3 gap-2">
-              {["capsule", "vector", "return"].map((item, index) => (
-                <span className="border border-[#07101f]/18 bg-white/72 px-2 py-1 text-[8px] font-bold uppercase text-[#07101f]/72" key={item}>
-                  0{index + 1} {item}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <OrbitalTransitConsole compact={compact} />
     </SampleFrame>
   );
 }
@@ -8866,7 +8800,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "futurism") {
-    return <FuturismVelocity {...props} />;
+    return <FuturismMachCorridor {...props} />;
   }
 
   if (style.slug === "cyberpunk") {

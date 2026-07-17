@@ -58,7 +58,7 @@
 | 24 | 레트로 / 빈티지 | retro-futurism | retro-commerce | verified | FLIGHT DECK, destination poster rail, chrome capsule timetable |
 | 25 | 레트로 / 빈티지 | mid-century-modern | minimal-editorial | verified | MIDCENTURY STUDIO, walnut slat product rail, Girard textile swatch wall |
 | 26 | 레트로 / 빈티지 | bauhaus | magazine-layout | verified | BAUHAUS SCHOOL, workshop method grid, circle square triangle lab |
-| 27 | 미래 / 디지털 | futurism | cyber-dashboard | queued | speed, forward motion, aerodynamic information flow |
+| 27 | 미래 / 디지털 | futurism | cyber-dashboard | verified | ORBITAL TRANSIT 마하 회랑 운행 콘솔 — 실버 포드 히어로+MACH velocity 타이포 웨지, Mach corridor map(회랑 선택 인터랙션), Launch window board, live telemetry 스트립 |
 | 28 | 미래 / 디지털 | cyberpunk | cyber-dashboard | queued | night-market city, commerce, neon worldbuilding |
 | 29 | 미래 / 디지털 | neon-noir | cyber-dashboard | queued | cinematic dark, noir contrast, restrained neon |
 | 30 | 미래 / 디지털 | techwear | cyber-dashboard | queued | modular gear, tactical panels, fabric/strap logic |
@@ -154,3 +154,43 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 ## 진행 중 카테고리: 미래 / 디지털
 
 다음 스타일: No. 27, `futurism`. 스타일별 상세 기록은 아래에 작성한다.
+
+## 27. futurism (미래 / 디지털)
+
+### 현재 판정
+
+- status: `reviewing` → 재설계 착수.
+- 현재 샘플(`FuturismVelocity`): 추상 스큐 도형("carbon telemetry spine" 장식 막대), placeholder 칩("01 capsule / 02 vector / 03 return"), 빈 화이트 패널 위 헤어라인 두 줄로 기체를 흉내 — 소유자 금지 패턴(클립아트 기하 도형 + 빈 app-UI 사각형) 그대로. 전면 재설계 대상.
+- moodboard 신호(`futurism-realistic-v2.webp`): 은색/화이트 베이스, 유선형 초고속 포드(하이퍼루프/초음속 기체), 강한 수평 모션블러, 일렉트릭 블루 스트릭, 카본파이버·브러시드 알루미늄 스와치, 블랙 패널 UI 카드. **우주 로켓이 아니라 지표-대기권 초고속 이동체 미학.**
+- 토큰: base `#ECEFF4`(실버), surface 화이트, text 근블랙, accent 레드 `#FF2D2D`, accent2 블루 `#1E5BFF` — 무드보드와 일치(라이트 실버 + 다크 패널).
+- 인접 구분: retro-futurism(크림 포스터 여행국·capsule timetable·과거가 상상한 미래)과는 라이브 운영 콘솔 + 실버/블루 스피드로 구분. cyberpunk(다크 네온 시장)·high-tech(딥네이비 control plane)와는 라이트 실버 베이스로 구분. art-deco(sailings board)와는 예약 커머스가 아닌 미션 운영 상태판이라는 점으로 구분.
+
+### referenceSites에서 가져올 웹 문법
+
+- SpaceX: 블랙 필드 미션 패널, 대형 수치 타이포(속도/고도), 미션 단계 스트립, GO/HOLD 상태 언어.
+- Boom Supersonic: 라이트 에디토리얼 위 velocity 수치("Mach 1.7"), 도시쌍 노선 스토리(NYC→LDN 3.5h), 유선형 기체 렌더의 여백 사용.
+- NASA Artemis: launch window 개념, 미션 타임라인, 궤도 다이어그램의 시민-과학 신뢰 톤.
+
+### 목표
+
+- 컨셉: **"ORBITAL TRANSIT" — 초음속 포드 트랜짓 라인의 라이브 운행 콘솔**. 정석적 'SpaceX 클론 로켓 랜딩'을 피하고, 마하 회랑을 달리는 포드 노선의 출발 상황판이라는 구체적 성격 부여.
+- 고유 마커 3개: `ORBITAL`(워드마크), `Mach corridor`(회랑 노선도 모듈), `Launch window`(출발 창 보드 모듈) — check-future-digital 계획 마커와 일치.
+- 정보 구조: 마스트헤드(워드마크·nav·시스템 상태 GO) → 히어로 밴드(codex 생성 포드 실사 + velocity 타이포 + 궤도 아크) → Mach corridor 노선도(도시쌍 아크·마하 세그먼트·회랑 상태) + Launch window 보드(창 ID·T-카운트다운·독·GO/HOLD/BOARDING) → 라이브 텔레메트리 스트립(속도/고도/G 미터).
+- 시각 처리: 라이트 실버 페이지 위 다크 미션 패널(civic-science confidence), 대각 velocity 컷, 이탤릭 대형 수치 타이포, 레드/블루 상태 액센트. representativeTraits 5개 전부 실모듈로 존치.
+
+### 검증 계획
+
+- RED: 기존 마커(ORBITAL VELOCITY/aerodynamic launch window/carbon telemetry spine) 제거 확인, check-style-distinction 맵 갱신 전 실패 확인.
+- GREEN: 새 마커 3개 렌더, check:future-digital 전체 통과(futurism 마커 해소), check:style-distinction 통과.
+- browser QA: full(`/ko/styles/futurism`)·compact(`/ko/styles`) Playwright 스크린샷, 가로 overflow 0, 프레임 내부 우측 클리핑 0.
+
+### 구현 및 검증 결과
+
+- status: `verified` (2026-07-17).
+- 변경 요약: `FuturismVelocity` 프로토타입 삭제 → 위임 래퍼 `FuturismMachCorridor` + 분리 컴포넌트 `OrbitalTransitConsole.tsx`(use client, 회랑 선택 useState). codex로 futurism 포드 실사 신규 생성(`public/generated/design-styles/futurism.webp` — 실버 티어드롭 포드·수평 모션블러·블루 스트릭·레드 테일·카본 가이드웨이). 골격: 스피드틱+이탤릭 ORBITAL TRANSIT 마스트헤드(UTC 칩·SYSTEM GO) → 포드 히어로(LIVE 칩·다크 corridor arc 패널(부스트-글라이드 아크 SVG·APO 고도)·전방 기울기 velocity 웨지에 MACH 수치 타이포) → Mach corridor map(4개 회랑 행: 마하 프로파일 스파크·M수치·transit·OPEN/WX ADV/HOLD 칩, aria-pressed 선택) + Launch window board(5행 출발 매트릭스: T-마이너스 카운트다운·독·BOARDING/GO/HOLD, 활성 회랑 행 하이라이트) → 다크 live telemetry 스트립(Velocity/G-load 미터 바·NEXT WINDOW 레드 칩). 회랑 클릭 시 히어로 MACH/노선/LIVE 포드/NEXT WINDOW 연동 갱신 확인. 장식: CUT 평행사변형 클립을 모든 칩에 통일 적용(aerodynamic diagonal cuts), ot-streak 히어로 스피드 스트릭(프레임 안 200%로 제한)·ot-live 펄스(reduced-motion 대응).
+- representativeTraits: Orbital mission framing(corridor arc 패널)·Launch-window modules(보드)·Velocity typography(MACH 웨지)·Aerodynamic diagonal cuts(CUT 칩)·Dark civic-science confidence(다크 arc/telemetry 패널) 전부 실모듈.
+- RED/GREEN: 구 마커(ORBITAL VELOCITY/carbon telemetry spine)는 check-future-digital retired 리스트로 회귀 차단, 신 마커(ORBITAL/Mach corridor/Launch window) GREEN. check-style-distinction 맵 갱신(FuturismMachCorridor + delegatedSampleSources 등록, 마커 ORBITAL TRANSIT/Mach corridor map/Launch window board/Live telemetry).
+- browser QA: full 데스크톱(694px 프레임)·모바일(284px 프레임)·compact 모두 page overflow 0 + 프레임 내부 우측 클리핑 0. 모바일에서 nav/UTC/arc 패널 숨김, 워드마크·MACH 축소, telemetry 미터는 프레임 캡(~700px) 기준 2개 고정. Screenshots: `futurism-orbital-full-final2.png`, `futurism-orbital-mobile.png`, `futurism-orbital-compact.png`.
+- 명령: `npm run lint`·`check:future-digital`(카테고리 마커 첫 전체 통과)·`check:style-distinction`·`check:data` 통과.
+- 남은 의심점: 없음.
+- 다음 style: No. 28 `cyberpunk`.

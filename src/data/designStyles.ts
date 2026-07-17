@@ -1267,7 +1267,7 @@ const futureDigitalResearch: Partial<Record<string, StyleResearchBrief>> = {
     representativeTraits: ["Orbital mission framing", "Launch-window modules", "Velocity typography", "Aerodynamic diagonal cuts", "Dark civic-science confidence"],
     avoidTraits: ["Generic blue tech dashboard", "Cyberpunk dystopia", "Toy rocket illustration", "Unreadable speed-line clutter"],
     tokenIntent:
-      "Use dark aerospace surfaces, white mission text, red/blue launch accents, diagonal velocity cuts, orbital diagrams, and telemetry strips so the style reads as optimistic aerospace futurism.",
+      "Use bright silver speed surfaces with dark mission panels, near-black mission text, red/blue launch accents, forward-leaning diagonal cuts, a mach-corridor route map, launch-window boards, and live telemetry strips so the style reads as optimistic velocity futurism.",
   },
   cyberpunk: {
     referenceSites: [

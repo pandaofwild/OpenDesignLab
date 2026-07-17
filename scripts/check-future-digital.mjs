@@ -28,6 +28,8 @@ const requiredSampleMarkers = {
 };
 
 const retiredSampleMarkers = [
+  "ORBITAL VELOCITY",
+  "carbon telemetry spine",
   "VELOCE",
   "KIROSHI",
   "NOIR",
