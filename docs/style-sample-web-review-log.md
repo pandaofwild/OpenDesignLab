@@ -59,7 +59,7 @@
 | 25 | 레트로 / 빈티지 | mid-century-modern | minimal-editorial | verified | MIDCENTURY STUDIO, walnut slat product rail, Girard textile swatch wall |
 | 26 | 레트로 / 빈티지 | bauhaus | magazine-layout | verified | BAUHAUS SCHOOL, workshop method grid, circle square triangle lab |
 | 27 | 미래 / 디지털 | futurism | cyber-dashboard | verified | ORBITAL TRANSIT 마하 회랑 운행 콘솔 — 실버 포드 히어로+MACH velocity 타이포 웨지, Mach corridor map(회랑 선택 인터랙션), Launch window board, live telemetry 스트립 |
-| 28 | 미래 / 디지털 | cyberpunk | cyber-dashboard | queued | night-market city, commerce, neon worldbuilding |
+| 28 | 미래 / 디지털 | cyberpunk | cyber-dashboard | verified | LUCKY CHROME CLINIC 나이트마켓 리퍼독 터미널 — 네온 골목 실사+사인 스택, implant menu(선택→원장 연동), black-market deck flash, install queue, humanity 게이지, city protocol 해저드 스트립 |
 | 29 | 미래 / 디지털 | neon-noir | cyber-dashboard | queued | cinematic dark, noir contrast, restrained neon |
 | 30 | 미래 / 디지털 | techwear | cyber-dashboard | queued | modular gear, tactical panels, fabric/strap logic |
 | 31 | 미래 / 디지털 | high-tech | saas-landing | queued | precision instrumentation, engineering surfaces |
@@ -194,3 +194,43 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - 명령: `npm run lint`·`check:future-digital`(카테고리 마커 첫 전체 통과)·`check:style-distinction`·`check:data` 통과.
 - 남은 의심점: 없음.
 - 다음 style: No. 28 `cyberpunk`.
+
+## 28. cyberpunk (미래 / 디지털)
+
+### 현재 판정
+
+- status: `reviewing` → 재설계 착수.
+- 현재 샘플(`CyberpunkCity`): "Night Market." 헤드라인 + "enter alley" CTA 랜딩 프로토타입. 우측 패널이 추상 스트라이프 장식 + 떠 있는 라벨 칩("RIPPER DOC booth: B-13", "open late/no warrants")으로, 실제 커머스/터미널 UI가 아님. 소유자 금지 패턴(빈 패널 + 장식 스탠드인).
+- moodboard 신호(`cyberpunk-realistic-v2.webp`): 블랙/차콜 위 네온 마젠타·애시드 그린·시안, **밀도 높은 다크 패널 레이아웃**, 젖은 아스팔트 밤골목, 해저드 스트라이프(옐로/블랙·레드/블랙), 회로기판·케이블 하드웨어, 글리치 스트립. 스카이라인 포스터가 아니라 "언더그라운드 테크 상거래" 보드.
+- 토큰: base `#080A14`, surface `#111628`, accent 시안 `#00E5FF`, accent2 마젠타 `#FF3BF4`, accent3 애시드 `#B7FF3C`, border 시안. tokenIntent: 클립 코너, night-market signage, ripperdoc 라벨, back-alley commerce.
+- 인접 구분: neon-noir(절제된 시네마틱 글로우·단일 광원)와는 밀도·해저드·상거래 라벨로, glitch-art(미디어 손상 갤러리)와는 도시 상거래 문법으로, eighties-retro(신스 네온 렌탈점)와는 다크 디스토피아 톤으로 구분. futurism(라이트 실버 운행 콘솔)과 정반대 명도.
+
+### referenceSites에서 가져올 웹 문법
+
+- Cyberpunk 2077: 옐로 해저드 UI, 클립 코너 패널, 밀도 높은 캠페인 정보 블록, 용병 상거래 언어.
+- Razer/ROG: 블랙 표면 위 네온 액센트 제품 스테이징, 하드웨어 스펙 라벨, 공격적 리테일 위계.
+- Dribbble cyberpunk: black-market 대시보드, 네온 스트리트 라벨, 사이버네틱 숍 모듈.
+
+### 목표
+
+- 컨셉: **"RIPPER LANE 13" — 나이트마켓 뒷골목 리퍼독 클리닉의 임플란트 주문 터미널**. 정석적 '사이버펑크 게임 랜딩'을 피하고, 크롬 임플란트를 고르고 설치 슬롯을 잡는 뒷골목 시술소 커머스로 구체화. 에디(€$) 가격·휴머니티 코스트 게이지·"no warrants" 톤으로 장르 문법을 UI로 번역.
+- 고유 마커: `BRAINDANCE`(시술 항목)·`black-market deck`(덱 플래시 섹션)·`city protocol`(면책 스트립) + `Night market`·`Ripper lane`(주소/지구 라벨) — check-future-digital·check-style-distinction 요구와 일치.
+- 정보 구조: 네온 사인 마스트헤드(클리닉 명·OPEN 24H·지구 라벨) → 좌측 골목 실사 컬럼(codex 생성, 네온 사인 오버레이 스택) + 우측 터미널 컬럼(implant menu 선택 카드: optics/neural port/subdermal/BRAINDANCE rig·에디 가격·humanity cost, black-market deck flash 리스팅: escrow·trust, install queue 슬롯) → 주문 바(합계 에디·humanity 게이지·tonight 슬롯) → 해저드 면책 스트립(cash only·no warrants·city protocol waived).
+- 시각 처리: 블랙 패널 + 시안/마젠타 네온 글로우, 애시드 해저드 스트라이프, 클립 코너, 밀도 높은 프로토콜 마이크로라벨. 네온 사인 플리커는 저속·저강도(광과민 주의).
+
+### 검증 계획
+
+- RED: 구 프로토타입 문자열("enter alley"·"booth: B-13") 제거, 함수 라우팅 갱신 전 distinction 실패 확인.
+- GREEN: 마커 5종 렌더, check:future-digital·check:style-distinction(cyberpunkBody 하드코딩 assertion 포함) 통과, glitch 마커 미포함 유지.
+- browser QA: full/모바일/compact Playwright, 가로 overflow 0, 프레임 내부 클리핑 0.
+
+### 구현 및 검증 결과
+
+- status: `verified` (2026-07-18).
+- 변경 요약: `CyberpunkCity` 프로토타입 삭제 → 위임 래퍼 `CyberpunkNightMarket` + 분리 컴포넌트 `NightMarketClinic.tsx`(use client, 임플란트/슬롯 선택 useState). codex로 세로형 네온 골목 실사 신규 생성(`public/generated/design-styles/cyberpunk.webp` — 빈 네온 패널 마젠타/시안/애시드·젖은 아스팔트·스팀·해저드 바리케이드·시안 발광 출입구). 골격: 네온 사인 마스트헤드(Lucky Chrome Clinic 시안 글로우+cp-flicker 저강도 플리커·Ripper lane 13·Night market district·NO WARRANTS ASKED·OPEN 24H) → 좌 골목 실사 컬럼(Implants/Braindance/Deck flash 네온 사인 스택·lane cam 라벨) + 우 터미널(Implant menu 2×2 선택 카드: spec·출처·grade 틱 5단·stock·€$가격·hum −%·설치시간, black-market deck flash 리스팅: jailbroken·serial scrubbed·escrow·trust ★, Install queue 슬롯 4종: taken 취소선·선택 글로우) → Checkout ledger(선택 임플란트·chair·슬롯·humanity 게이지 바·€$합계·Book the chair 마젠타 CTA) → 해저드 스트립(cash only · city protocol waived …). 클립 코너(CLIP) 실루엣을 전 패널·칩에 통일. 임플란트/슬롯 클릭 연동(원장·humanity·가격) 확인, taken 슬롯 disabled 확인.
+- representativeTraits: Night market signage(사인 스택+주소)·Black-market interface panels(deck flash+클립 다크 패널)·Ripperdoc commerce(implant menu+chair 예약)·Neon hazard contrast(애시드 해저드 스트립+네온 글로우)·Dense city protocol labels(lic #·lane cam·protocol 풋터 마이크로라벨) 전부 실모듈.
+- 마커: 필수(BRAINDANCE/black-market deck/city protocol/Night market/Ripper lane) 전부 소스+렌더 충족, family 마커 신설(Lucky Chrome Clinic/Implant menu/Install queue/Checkout ledger), cyberpunkBody 하드코딩 assertion 함수명 `CyberpunkNightMarket`로 갱신, glitch 마커 미포함 유지. 미사용 NOTCH 상수 제거.
+- browser QA: full 데스크톱(694px)·모바일(284px: 골목 배너 스택 전환·타이틀 축소·보조 칩/trust/anesthesia 숨김·슬롯 flex-wrap)·compact 모두 page overflow 0 + 내부 클리핑 0. cp-flicker는 opacity 0.72 하한 저속(광과민 대응, reduced-motion 시 정지). Screenshots: `cyberpunk-clinic-full-final2.png`, `cyberpunk-clinic-mobile-v2.png`, `cyberpunk-clinic-compact.png`.
+- 명령: `npm run lint`·`check:future-digital`·`check:style-distinction`·`check:data` 통과.
+- 남은 의심점: 없음.
+- 다음 style: No. 29 `neon-noir`.

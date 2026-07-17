@@ -1296,6 +1296,35 @@ html:lang(ko) :where(
   }
 }
 
+/* ── Night market clinic: cyberpunk neon storefront ───────────────────
+   A slow, shallow neon-sign flicker on the clinic name and a calm pulse
+   on the OPEN dot — street-sign atmosphere without strobing
+   (photosensitivity caution: opacity never drops below 0.72). */
+
+@keyframes cp-flicker {
+  0%, 100% { opacity: 1; }
+  7%  { opacity: 0.78; }
+  9%  { opacity: 1; }
+  54% { opacity: 1; }
+  56% { opacity: 0.72; }
+  57% { opacity: 0.95; }
+  60% { opacity: 1; }
+}
+.cyberpunk-clinic .cp-flicker { animation: cp-flicker 7.5s linear infinite; }
+
+@keyframes cp-open {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.cyberpunk-clinic .cp-open { animation: cp-open 2.6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cyberpunk-clinic .cp-flicker,
+  .cyberpunk-clinic .cp-open {
+    animation: none;
+  }
+}
+
 /* ─── Grunge sample: distressed music archive ───────────────────────── */
 /* Cassette reels turn slowly, like a tape playing back in the archive */
 @keyframes grunge-sample-reel {

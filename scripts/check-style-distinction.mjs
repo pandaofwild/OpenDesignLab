@@ -19,6 +19,7 @@ const externalSampleSources = {
 const delegatedSampleSources = {
   AiAestheticStudio: "../src/components/design-style/LatentStudioPanel.tsx",
   ChromecoreFaceplateShop: "../src/components/design-style/ChromeworksFaceplateShop.tsx",
+  CyberpunkNightMarket: "../src/components/design-style/NightMarketClinic.tsx",
   FuturismMachCorridor: "../src/components/design-style/OrbitalTransitConsole.tsx",
   MaximalistPatternAtelier: "../src/components/design-style/MaximalistSalonWall.tsx",
   MidCenturyModernStudio: "../src/components/design-style/MidCenturyListeningRoom.tsx",
@@ -40,7 +41,7 @@ function functionBody(name) {
     : wrapperSource;
 }
 
-const cyberpunkBody = functionBody("CyberpunkCity");
+const cyberpunkBody = functionBody("CyberpunkNightMarket");
 const glitchBody = functionBody("GlitchArtEditionsGallery");
 const neoBrutalistBody = functionBody("NeoBrutalistLaundromat");
 const postmodernBody = functionBody("PostmodernAuctionHouse");
@@ -184,7 +185,7 @@ const styleSampleFunctions = {
   "mid-century-modern": "MidCenturyModernStudio",
   bauhaus: "BauhausSchool",
   futurism: "FuturismMachCorridor",
-  cyberpunk: "CyberpunkCity",
+  cyberpunk: "CyberpunkNightMarket",
   "neon-noir": "NeonNoirCinema",
   techwear: "TechwearSystem",
   "high-tech": "HighTechDashboard",
@@ -278,6 +279,7 @@ const requiredFamilyMarkers = {
   "mid-century-modern": ["MONO HOUSE", "SIDE A / LISTENING FLOOR", "SIDE B / CONTROL RECEIVER", "Walnut source rail", "Girard acoustic cloth", "Session queue"],
   bauhaus: ["BAUHAUS SCHOOL", "workshop method grid", "circle square triangle lab"],
   futurism: ["ORBITAL TRANSIT", "Mach corridor map", "Launch window board", "Live telemetry"],
+  cyberpunk: ["Lucky Chrome Clinic", "Implant menu", "Install queue", "Checkout ledger"],
   "typography-focused": ["TYPE SCALE SPECIMEN", "baseline strips", "font pairing shelf"],
   "editorial-design": ["LONGFORM EDIT DESK", "pull quote rail", "photo essay stack"],
   "magazine-style": ["ISSUE BROWSER", "cover wall", "contents grid"],

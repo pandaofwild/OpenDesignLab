@@ -8,6 +8,7 @@ import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
 import { LatentStudioPanel } from "./LatentStudioPanel";
 import { MaximalistSalonWall } from "./MaximalistSalonWall";
 import { MidCenturyListeningRoom } from "./MidCenturyListeningRoom";
+import { NightMarketClinic } from "./NightMarketClinic";
 import { OrbitalTransitConsole } from "./OrbitalTransitConsole";
 
 type Props = {
@@ -3243,8 +3244,6 @@ function MidCenturyModernStudio({ className, compact = false, style }: Props) {
   );
 }
 
-const NOTCH = "polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px))";
-
 function FuturismMachCorridor({ className, compact = false, style }: Props) {
   return (
     <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
@@ -3253,63 +3252,10 @@ function FuturismMachCorridor({ className, compact = false, style }: Props) {
   );
 }
 
-function CyberpunkCity({ className, compact = false, style }: Props) {
+function CyberpunkNightMarket({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span aria-hidden="true" className="absolute inset-0" style={{ backgroundImage: "radial-gradient(65% 80% at 88% 6%, rgb(var(--st-accent-2-rgb) / 0.42), transparent 58%), radial-gradient(60% 60% at 8% 92%, rgb(var(--st-accent-rgb) / 0.32), transparent 55%)" }} />
-      <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] opacity-45" style={{ backgroundImage: "linear-gradient(180deg, transparent 0%, rgb(var(--st-accent-rgb) / 0.22) 100%)", clipPath: "polygon(0 32%, 12% 28%, 12% 0, 24% 0, 24% 46%, 36% 46%, 36% 12%, 50% 12%, 50% 58%, 65% 58%, 65% 22%, 78% 22%, 78% 62%, 100% 62%, 100% 100%, 0 100%)" }} />
-      <div className="relative flex h-full flex-col font-mono text-[var(--sample-text)]">
-        <div className="flex items-center gap-3 border-b border-[var(--sample-border)] pb-2 text-[10px]">
-          <span className="font-bold text-[var(--sample-accent)]">BRAINDANCE<span className="text-[var(--sample-accent-2)]">{"//"}</span>MARKET</span>
-          <nav className={cn("items-center gap-3 text-[var(--sample-muted)]", compact ? "hidden" : "flex")}>
-            <span>Night market</span>
-            <span>Ripper lane</span>
-            <span>Street ops</span>
-          </nav>
-          <span className="ml-auto bg-[var(--sample-accent-3)] px-2.5 py-1 font-bold text-black" style={{ clipPath: NOTCH }}>city protocol</span>
-        </div>
-
-        <div className={cn("grid min-h-0 flex-1 gap-3 pt-3", compact ? "grid-cols-[1.1fr_0.9fr]" : "grid-cols-1 md:grid-cols-[1.12fr_0.88fr]")}>
-          <div className="flex min-w-0 flex-col justify-center">
-            <p className="text-[9px] text-[var(--sample-accent-3)]">{"// status: online / black-market deck"}</p>
-            <h3
-              className={cn("mt-2 font-display uppercase leading-[0.82]", compact ? "text-4xl" : "text-6xl md:text-[4.2rem]")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
-            >
-              <span className="text-[var(--sample-text)]">Night</span>
-              <br />
-              <span className="text-[var(--sample-accent)]" style={{ textShadow: "0 0 18px rgb(var(--st-accent-rgb) / 0.85)" }}>Market.</span>
-            </h3>
-            <p className={cn("mt-3 max-w-[26ch] text-[10px] leading-4 text-[var(--sample-muted)]", compact ? "hidden" : "")}>
-              {">"} contraband decks, optic mods, back-alley firmware, Ripper lane installs.
-            </p>
-            <span className={cn("mt-4 inline-flex w-fit items-center gap-1.5 border border-[var(--sample-accent-2)] px-4 py-2 text-[11px] font-bold uppercase text-[var(--sample-accent-2)]", compact ? "hidden" : "")} style={{ clipPath: NOTCH, boxShadow: "0 0 12px rgb(var(--st-accent-2-rgb) / 0.5)" }}>
-              enter alley <IconArrow size={12} />
-            </span>
-          </div>
-
-          <div className="relative min-h-0 overflow-hidden border border-[var(--sample-accent)]" style={{ clipPath: NOTCH, boxShadow: "0 0 16px rgb(var(--st-accent-rgb) / 0.3)" }}>
-            <span aria-hidden="true" className="absolute inset-0" style={{ backgroundImage: "linear-gradient(180deg, rgb(var(--st-accent-rgb) / 0.16), transparent 42%), linear-gradient(90deg, transparent 0 18%, rgb(var(--st-accent-2-rgb) / 0.28) 18% 20%, transparent 20% 52%, rgb(var(--st-accent-rgb) / 0.24) 52% 54%, transparent 54%)" }} />
-            <div className="absolute left-4 top-4 w-24 border border-[var(--sample-accent-2)] bg-black/45 p-2 text-[8px] text-[var(--sample-accent-2)]" style={{ boxShadow: "0 0 12px rgb(var(--st-accent-2-rgb) / 0.42)" }}>
-              RIPPER DOC
-              <br />
-              booth: B-13
-            </div>
-            <div className="absolute right-4 top-8 grid gap-1 text-right text-[8px] uppercase">
-              <span className="bg-[var(--sample-accent-3)] px-2 py-1 font-bold text-black">open late</span>
-              <span className="border border-[var(--sample-accent)] bg-black/50 px-2 py-1 text-[var(--sample-accent)]">no warrants</span>
-            </div>
-            <div className="absolute bottom-2 left-2 right-2 grid gap-1.5">
-              {["optic shard", "reflex patch", "drone ghost"].map((item) => (
-                <div className="flex items-center justify-between border border-[var(--sample-accent)] bg-[rgb(var(--st-base-rgb)/0.78)] px-2 py-1 text-[9px]" key={item}>
-                  <span className="text-[var(--sample-accent)]">{item}</span>
-                  <span className="font-bold">cr. 4200</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <NightMarketClinic compact={compact} />
     </SampleFrame>
   );
 }
@@ -8804,7 +8750,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "cyberpunk") {
-    return <CyberpunkCity {...props} />;
+    return <CyberpunkNightMarket {...props} />;
   }
 
   if (style.slug === "neon-noir") {
