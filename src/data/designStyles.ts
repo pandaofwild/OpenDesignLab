@@ -3020,6 +3020,13 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     space: { density: "tight", gap: "0.55rem", padScale: 0.9 },
     decoration: { shadow: "0 0 28px rgb(var(--st-accent-rgb) / 0.7)", effect: "scanline" },
   },
+  "ai-aesthetic": {
+    typography: { weightDisplay: 600, tracking: "-0.01em", headingScale: 1.04 },
+    shape: { radius: "14px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
+    space: { density: "airy", gap: "0.85rem", padScale: 1.05 },
+    decoration: { shadow: "0 0 32px rgb(var(--st-accent-rgb) / 0.35)", effect: "gradient" },
+    layout: { heroVariant: "center", navStyle: "underline", alignment: "left" },
+  },
   kitsch: {
     typography: { displayFont: '"Trebuchet MS", "Arial", sans-serif', weightDisplay: 900, weightBody: 600, tracking: "0em", headingScale: 1.18 },
     shape: { radius: "12px", radiusPill: "9999px", borderWidth: "2px", borderStyle: "solid" },

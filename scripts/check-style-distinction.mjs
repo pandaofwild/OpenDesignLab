@@ -17,6 +17,7 @@ const externalSampleSources = {
 };
 
 const delegatedSampleSources = {
+  AiAestheticStudio: "../src/components/design-style/LatentStudioPanel.tsx",
   MaximalistPatternAtelier: "../src/components/design-style/MaximalistSalonWall.tsx",
   MidCenturyModernStudio: "../src/components/design-style/MidCenturyListeningRoom.tsx",
 };
@@ -258,6 +259,7 @@ const requiredFamilyMarkers = {
   "avant-garde": ["MANIFESTO PROGRAM", "critical lecture rail", "art-into-life agenda"],
   postmodernism: ["PALLADIO & POP", "The Quotation Sale", "browse by era"],
   "art-deco": ["Meridian Line", "Sailings board", "Stateroom classes", "Grand salon"],
+  "ai-aesthetic": ["MODEL CANVAS", "World-model preview", "Prompt bar", "Latent queue"],
   retro: ["RETRO BROADCAST SHOP", "time-travel media dial", "analog merch queue"],
   vintage: ["PAPER CATALOG", "repair ticket ledger", "patina material register"],
   "seventies-retro": ["The Groovy Kitchen", "recipe card index", "harvest-gold pantry"],

@@ -4,6 +4,7 @@ import type { DesignStyle } from "@/data/designStyles";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
 import { cn } from "@/lib/utils";
 import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
+import { LatentStudioPanel } from "./LatentStudioPanel";
 import { MaximalistSalonWall } from "./MaximalistSalonWall";
 import { MidCenturyListeningRoom } from "./MidCenturyListeningRoom";
 
@@ -3547,50 +3548,10 @@ function HighTechDashboard({ className, compact = false, style }: Props) {
 }
 
 function AiAestheticStudio({ className, compact = false, style }: Props) {
-  const fields = ["MODEL CANVAS", "latent queue", "scene synthesis", "world model"];
-
+  // MODEL CANVAS · World-model preview · Prompt bar · Latent queue
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span
-        aria-hidden="true"
-        className="absolute inset-0"
-        style={{ backgroundImage: "radial-gradient(70% 80% at 60% 30%, rgb(var(--st-accent-2-rgb) / 0.55), transparent 60%), radial-gradient(60% 70% at 18% 85%, rgb(var(--st-accent-rgb) / 0.45), transparent 60%), radial-gradient(50% 60% at 90% 95%, rgb(var(--st-accent-3-rgb) / 0.4), transparent 55%), linear-gradient(160deg, color-mix(in srgb, var(--sample-surface) 80%, #000) 0%, var(--sample-base) 100%)" }}
-      />
-      <span aria-hidden="true" className="absolute inset-0 opacity-30" style={{ backgroundImage: "repeating-linear-gradient(58deg, transparent 0 5px, rgb(var(--st-accent-3-rgb) / 0.35) 5px 6px, transparent 6px 14px)", maskImage: "radial-gradient(50% 50% at 60% 55%, #000, transparent 75%)", WebkitMaskImage: "radial-gradient(50% 50% at 60% 55%, #000, transparent 75%)" }} />
-      <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-overlay" style={{ backgroundImage: GRAIN_URI, backgroundSize: "120px 120px" }} />
-
-      <div className="relative flex h-full flex-col text-[var(--sample-text)]">
-        <div className="flex items-center gap-3 text-[10px] font-medium">
-          <span className="font-display text-sm font-bold tracking-tight" style={{ fontFamily: "var(--st-font-display)" }}>MODEL CANVAS</span>
-          <nav className={cn("items-center gap-3 text-[var(--sample-text)]/75", compact ? "hidden" : "flex")}>
-            <span>Generate</span>
-            <span>Refine</span>
-            <span>Render</span>
-          </nav>
-          <span className="ml-auto rounded-[var(--st-radius)] bg-[var(--sample-text)] px-3 py-1 font-semibold text-[var(--sample-base)]">Prompt</span>
-        </div>
-
-        <div className="mt-auto flex items-end justify-between gap-3">
-          <div className="min-w-0">
-            <h3
-              className={cn("font-display leading-[0.98] tracking-tight", compact ? "text-2xl" : "text-4xl md:text-[3rem]")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
-            >
-              Shape a
-              <br />
-              synthetic scene.
-            </h3>
-            <span className="mt-4 inline-flex items-center gap-1.5 rounded-[var(--st-radius-pill)] bg-[var(--sample-text)] px-4 py-1.5 text-[11px] font-bold text-[var(--sample-base)]">
-              Run model <IconArrow size={12} />
-            </span>
-          </div>
-          <div className={cn("shrink-0 space-y-1 text-right text-[10px] font-semibold uppercase tracking-[0.06em] text-[var(--sample-text)]/70", compact ? "hidden" : "")}>
-            {fields.map((field) => (
-              <p key={field}>{field}</p>
-            ))}
-          </div>
-        </div>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <LatentStudioPanel compact={compact} />
     </SampleFrame>
   );
 }

@@ -1236,6 +1236,24 @@ textarea {
   }
 }
 
+/* ── Latent studio: AI Aesthetic model-canvas sweep ───────────────────
+   A slow, quiet denoise-sweep bar reads as a generation in progress
+   without ever strobing (photosensitivity caution kept minimal/slow). */
+
+@keyframes latent-scan {
+  0%   { transform: translateY(-8px); opacity: 0; }
+  15%  { opacity: 0.7; }
+  85%  { opacity: 0.7; }
+  100% { transform: translateY(210px); opacity: 0; }
+}
+.latent-studio .latent-scan { animation: latent-scan 5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .latent-studio .latent-scan {
+    animation: none;
+  }
+}
+
 /* ─── Grunge sample: distressed music archive ───────────────────────── */
 /* Cassette reels turn slowly, like a tape playing back in the archive */
 @keyframes grunge-sample-reel {
