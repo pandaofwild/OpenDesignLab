@@ -132,13 +132,6 @@ html:lang(ko) :where(
   background: transparent;
 }
 
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
 @keyframes raw-slide-up {
   from {
     opacity: 0;
