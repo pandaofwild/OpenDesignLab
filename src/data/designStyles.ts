@@ -3027,6 +3027,11 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     decoration: { shadow: "0 16px 36px rgb(var(--st-accent-rgb) / 0.18)", effect: "gradient" },
     layout: { heroVariant: "center", navStyle: "underline", alignment: "left" },
   },
+  chromecore: {
+    typography: { weightDisplay: 800, tracking: "-0.02em", headingScale: 1.12 },
+    shape: { radius: "16px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
+    decoration: { shadow: "0 14px 30px rgb(var(--st-text-rgb) / 0.22), inset 0 1px 0 rgb(255 255 255 / 0.9)" },
+  },
   kitsch: {
     typography: { displayFont: '"Trebuchet MS", "Arial", sans-serif', weightDisplay: 900, weightBody: 600, tracking: "0em", headingScale: 1.18 },
     shape: { radius: "12px", radiusPill: "9999px", borderWidth: "2px", borderStyle: "solid" },

@@ -3,6 +3,7 @@ import type { CSSProperties, ReactNode } from "react";
 import type { DesignStyle } from "@/data/designStyles";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
 import { cn } from "@/lib/utils";
+import { ChromeworksFaceplateShop } from "./ChromeworksFaceplateShop";
 import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
 import { LatentStudioPanel } from "./LatentStudioPanel";
 import { MaximalistSalonWall } from "./MaximalistSalonWall";
@@ -3548,7 +3549,6 @@ function HighTechDashboard({ className, compact = false, style }: Props) {
 }
 
 function AiAestheticStudio({ className, compact = false, style }: Props) {
-  // MODEL CANVAS · World-model preview · Prompt bar · Latent queue
   return (
     <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
       <LatentStudioPanel compact={compact} />
@@ -3617,94 +3617,10 @@ function HologramInterface({ className, compact = false, style }: Props) {
   );
 }
 
-function ChromecoreStudio({ className, compact = false, style }: Props) {
-  const chromeText = {
-    backgroundImage: "linear-gradient(180deg, #ffffff 0%, #b9c0cc 18%, #727b90 34%, #ffffff 48%, #9da7b8 64%, #f8fbff 78%, #6f788a 100%)",
-    WebkitBackgroundClip: "text" as const,
-    backgroundClip: "text" as const,
-    color: "transparent",
-  };
-  const chromeSurface = "linear-gradient(135deg, #ffffff 0%, #dce2eb 13%, #80899a 25%, #f9fbff 38%, #a5adbc 52%, #ffffff 64%, #697180 77%, #eef2f8 100%)";
-  const blueLens = "radial-gradient(circle at 34% 26%, #ffffff 0%, #8ee7ff 18%, #4a63ff 46%, #12172a 78%)";
-
+function ChromecoreFaceplateShop({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span
-        aria-hidden="true"
-        className="absolute inset-0 opacity-80"
-        style={{
-          backgroundImage:
-            "radial-gradient(45% 55% at 78% 18%, rgb(var(--st-accent-2-rgb) / 0.22), transparent 65%), radial-gradient(42% 45% at 18% 86%, #ffffff99, transparent 62%), linear-gradient(135deg, #f8faff 0%, var(--sample-base) 44%, #aab2bf 100%)",
-        }}
-      />
-      <span
-        aria-hidden="true"
-        className="absolute inset-0 opacity-35"
-        style={{
-          backgroundImage: "linear-gradient(90deg, rgb(var(--st-text-rgb) / 0.12) 1px, transparent 1px), linear-gradient(180deg, rgb(var(--st-text-rgb) / 0.08) 1px, transparent 1px)",
-          backgroundSize: "22px 22px",
-        }}
-      />
-
-      <div className="relative flex h-full flex-col text-[var(--sample-text)]">
-        <div className="flex items-center gap-3 border-b border-[var(--sample-border)] pb-2 text-[10px] font-bold uppercase tracking-[0em]">
-          <span className="font-display text-sm tracking-[0em]" style={{ fontFamily: "var(--st-font-display)" }}>Y2K CHROME</span>
-          <nav className={cn("items-center gap-3 text-[var(--sample-muted)]", compact ? "hidden" : "flex")}>
-            <span>molded chrome shell</span>
-            <span>specular flash</span>
-            <span>blue lens</span>
-          </nav>
-          <span className="ml-auto rounded-[var(--st-radius-pill)] border border-[var(--sample-border)] px-3 py-1 text-[var(--sample-text)]" style={{ backgroundImage: chromeSurface }}>2003 kit</span>
-        </div>
-
-        <div className={cn("grid min-h-0 flex-1 items-center gap-3 pt-3", compact ? "grid-cols-[0.92fr_1fr]" : "grid-cols-1 md:grid-cols-[0.95fr_1.05fr]")}>
-          <div className="min-w-0">
-            <p className="text-[10px] font-bold uppercase tracking-[0em] text-[var(--sample-accent-2)]">silver plastic / flash era</p>
-            <h3
-              className={cn("mt-2 font-display uppercase leading-[0.84]", compact ? "text-3xl" : "text-6xl md:text-[4.1rem]")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "0em", ...chromeText }}
-            >
-              Chrome
-              <br />
-              signal.
-            </h3>
-            <div className={cn("mt-4 grid gap-1.5 text-[10px] font-bold uppercase", compact ? "hidden" : "max-w-[12rem]")}>
-              <span className="rounded-[var(--st-radius-pill)] border border-[var(--sample-border)] bg-white/55 px-3 py-1">mini disc nav</span>
-              <span className="rounded-[var(--st-radius-pill)] border border-[var(--sample-border)] px-3 py-1" style={{ backgroundImage: chromeSurface }}>portable tech skin</span>
-            </div>
-          </div>
-
-          <div className="relative grid min-h-0 place-items-center">
-            <div
-              className="relative aspect-[1.22/1] w-[92%] max-w-[13rem] rounded-[2rem] border border-white/80 p-3"
-              style={{
-                backgroundImage: chromeSurface,
-                boxShadow: "0 18px 36px rgb(var(--st-text-rgb) / 0.28), inset 0 2px 4px #ffffff, inset 0 -8px 18px rgb(var(--st-text-rgb) / 0.22)",
-              }}
-            >
-              <div className="grid h-full grid-cols-[0.9fr_1.1fr] gap-2">
-                <div className="rounded-[1.15rem] border border-[var(--sample-border)] bg-[var(--sample-surface)] p-2" style={{ boxShadow: "inset 0 1px 0 #ffffff" }}>
-                  <div className="h-11 rounded-[0.8rem] border border-[var(--sample-border)]" style={{ backgroundImage: blueLens }} />
-                  <div className="mt-2 grid grid-cols-3 gap-1">
-                    {[0, 1, 2].map((item) => (
-                      <span key={item} className="h-2 rounded-full border border-[var(--sample-border)] bg-white/55" />
-                    ))}
-                  </div>
-                </div>
-                <div className="relative rounded-[1.35rem] border border-[var(--sample-border)] bg-white/45 p-2">
-                  <div className="absolute right-2 top-2 h-4 w-4 rounded-full" style={{ backgroundImage: blueLens, boxShadow: "0 0 12px rgb(var(--st-accent-2-rgb) / 0.75)" }} />
-                  <div className="absolute bottom-2 left-2 aspect-square w-[58%] rounded-full border border-[var(--sample-border)]" style={{ backgroundImage: "radial-gradient(circle, #ffffff 0 12%, #9da7b8 13% 24%, #f7faff 25% 42%, #6b7484 43% 56%, #ffffff 57% 76%, #8993a5 77% 100%)" }} />
-                  <div className="ml-auto mt-8 h-12 w-[52%] rounded-[1rem] border border-[var(--sample-border)]" style={{ backgroundImage: chromeSurface }} />
-                </div>
-              </div>
-              <span aria-hidden="true" className="absolute left-7 top-5 h-5 w-5 rotate-45 bg-white" style={{ clipPath: "polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%)", filter: "drop-shadow(0 0 10px #fff)" }} />
-              <span aria-hidden="true" className="absolute right-10 top-9 h-3 w-3 rotate-45 bg-white" style={{ clipPath: "polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%)", filter: "drop-shadow(0 0 8px #fff)" }} />
-              <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-[var(--st-radius-pill)] border border-[var(--sample-border)] bg-[var(--sample-surface)] px-3 py-1 text-[9px] font-bold uppercase">molded chrome shell</span>
-            </div>
-            <span className="absolute bottom-2 right-2 rounded-[var(--st-radius-pill)] border border-[var(--sample-border)] bg-white/75 px-2 py-0.5 text-[9px] font-bold uppercase">specular flash</span>
-          </div>
-        </div>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <ChromeworksFaceplateShop compact={compact} />
     </SampleFrame>
   );
 }
@@ -8978,7 +8894,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "chromecore") {
-    return <ChromecoreStudio {...props} />;
+    return <ChromecoreFaceplateShop {...props} />;
   }
 
   if (style.slug === "metaverse-style") {

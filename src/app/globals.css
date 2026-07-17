@@ -1247,6 +1247,25 @@ html:lang(ko) :where(
   }
 }
 
+/* ── Chromeworks: Y2K faceplate shop specular glint ───────────────────
+   One slow highlight sweep across the selected shell only — the chrome
+   "flash" cue without strobing (photosensitivity caution). */
+
+@keyframes cw-glint {
+  0%   { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
+  18%  { opacity: 0.8; }
+  62%  { opacity: 0.8; }
+  100% { transform: translateX(320%) skewX(-18deg); opacity: 0; }
+}
+.chromeworks .cw-glint { animation: cw-glint 4.2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .chromeworks .cw-glint {
+    animation: none;
+    opacity: 0;
+  }
+}
+
 /* ─── Grunge sample: distressed music archive ───────────────────────── */
 /* Cassette reels turn slowly, like a tape playing back in the archive */
 @keyframes grunge-sample-reel {

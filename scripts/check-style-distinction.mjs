@@ -18,16 +18,22 @@ const externalSampleSources = {
 
 const delegatedSampleSources = {
   AiAestheticStudio: "../src/components/design-style/LatentStudioPanel.tsx",
+  ChromecoreFaceplateShop: "../src/components/design-style/ChromeworksFaceplateShop.tsx",
   MaximalistPatternAtelier: "../src/components/design-style/MaximalistSalonWall.tsx",
   MidCenturyModernStudio: "../src/components/design-style/MidCenturyListeningRoom.tsx",
 };
 
-function functionBody(name) {
-  if (externalSampleSources[name]) return externalSampleSources[name];
+function wrapperSlice(name) {
   const start = rendererSource.indexOf(`function ${name}`);
   if (start === -1) return "";
   const nextFunction = rendererSource.indexOf("\nfunction ", start + 1);
-  const wrapperSource = rendererSource.slice(start, nextFunction === -1 ? rendererSource.length : nextFunction);
+  return rendererSource.slice(start, nextFunction === -1 ? rendererSource.length : nextFunction);
+}
+
+function functionBody(name) {
+  if (externalSampleSources[name]) return externalSampleSources[name];
+  const wrapperSource = wrapperSlice(name);
+  if (!wrapperSource) return "";
   return delegatedSampleSources[name]
     ? `${wrapperSource}\n${readFileSync(new URL(delegatedSampleSources[name], import.meta.url), "utf8")}`
     : wrapperSource;
@@ -183,7 +189,7 @@ const styleSampleFunctions = {
   "high-tech": "HighTechDashboard",
   "ai-aesthetic": "AiAestheticStudio",
   "hologram-style": "HologramInterface",
-  chromecore: "ChromecoreStudio",
+  chromecore: "ChromecoreFaceplateShop",
   "metaverse-style": "MetaverseWorld",
   classic: "ClassicHeritageCommerce",
   neoclassic: "NeoclassicHotelHome",
@@ -260,6 +266,7 @@ const requiredFamilyMarkers = {
   postmodernism: ["PALLADIO & POP", "The Quotation Sale", "browse by era"],
   "art-deco": ["Meridian Line", "Sailings board", "Stateroom classes", "Grand salon"],
   "ai-aesthetic": ["MODEL CANVAS", "World-model preview", "Prompt bar", "Latent queue"],
+  chromecore: ["CHROMEWORKS", "Faceplate carousel", "Fitment rail", "Order bar"],
   retro: ["RETRO BROADCAST SHOP", "time-travel media dial", "analog merch queue"],
   vintage: ["PAPER CATALOG", "repair ticket ledger", "patina material register"],
   "seventies-retro": ["The Groovy Kitchen", "recipe card index", "harvest-gold pantry"],
@@ -326,6 +333,22 @@ for (const [slug, functionName] of Object.entries(styleSampleFunctions)) {
 
   for (const marker of requiredFamilyMarkers[slug] ?? []) {
     assert(body.includes(marker), `${functionName} missing distinction marker "${marker}"`);
+  }
+}
+
+// A delegated wrapper must not carry its own markers. Twice now a wrapper has
+// listed them in a comment, which kept this check green while the real UI
+// drifted — markers have to be satisfied by the component file itself.
+for (const [functionName, sourcePath] of Object.entries(delegatedSampleSources)) {
+  const slug = Object.entries(styleSampleFunctions).find(([, name]) => name === functionName)?.[0];
+  assert(slug, `delegatedSampleSources entry ${functionName} maps to no slug in styleSampleFunctions`);
+  const wrapperOnly = wrapperSlice(functionName);
+
+  for (const marker of requiredFamilyMarkers[slug] ?? []) {
+    assert(
+      !wrapperOnly.includes(marker),
+      `${functionName} wrapper itself contains distinction marker "${marker}"; keep markers in ${sourcePath} so a stale comment cannot satisfy this check`,
+    );
   }
 }
 
