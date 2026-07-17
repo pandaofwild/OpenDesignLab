@@ -103,9 +103,9 @@ export function LatentStudioPanel({ compact = false }: LatentStudioPanelProps) {
           aria-label="World-model preview"
           className={compact ? "relative min-h-0 overflow-hidden rounded-[14px] border border-[rgb(var(--st-accent-rgb)/0.3)] bg-cover" : "relative min-h-[220px] overflow-hidden rounded-[14px] border border-[rgb(var(--st-accent-rgb)/0.3)] bg-cover md:min-h-0"}
           style={{
-            backgroundImage: `linear-gradient(180deg, rgb(8 6 20 / 0.05), rgb(8 6 20 / 0.32)), url('${CANVAS_IMAGE}')`,
+            backgroundImage: `linear-gradient(180deg, rgb(255 255 255 / 0.04), rgb(70 55 100 / 0.22)), url('${CANVAS_IMAGE}')`,
             backgroundPosition: "50% 42%",
-            boxShadow: compact ? undefined : "0 0 46px rgb(var(--st-accent-rgb) / 0.28)",
+            boxShadow: compact ? undefined : "0 16px 46px rgb(var(--st-accent-rgb) / 0.2)",
           }}
         >
           <span aria-hidden="true" className="pointer-events-none absolute inset-1.5 rounded-[10px] border border-[rgb(var(--st-primary-rgb)/0.14)]" />
@@ -130,7 +130,7 @@ export function LatentStudioPanel({ compact = false }: LatentStudioPanelProps) {
           <section aria-label="Prompt bar" className={compact ? "min-w-0 rounded-[14px] border border-[var(--sample-border)] bg-[var(--sample-surface)] p-2" : "min-w-0 rounded-[14px] border border-[var(--sample-border)] bg-[var(--sample-surface)] p-3"}>
             <div className={compact ? "flex min-w-0 items-center gap-1.5 rounded-full border border-[rgb(var(--st-accent-rgb)/0.35)] bg-[var(--sample-base)] px-2 py-1" : "flex min-w-0 items-center gap-2 rounded-full border border-[rgb(var(--st-accent-rgb)/0.35)] bg-[var(--sample-base)] px-3 py-1.5"}>
               <SparkIcon className={compact ? "shrink-0 text-[var(--sample-accent)]" : "shrink-0 text-[var(--sample-accent)]"} />
-              <p className={compact ? "min-w-0 flex-1 truncate text-[6px] text-[var(--sample-muted)]" : "min-w-0 flex-1 truncate text-[9px] text-[var(--sample-muted)]"}>bioluminescent atrium, volumetric fog, cinematic light, 8k</p>
+              <p className={compact ? "min-w-0 flex-1 truncate text-[6px] text-[var(--sample-muted)]" : "min-w-0 flex-1 truncate text-[9px] text-[var(--sample-muted)]"}>pastel gradient atrium, soft diffusion glow, dreamy mesh light, 8k</p>
               <button aria-label="Run prompt" className={`${FOCUS} flex shrink-0 items-center justify-center rounded-full bg-[var(--sample-accent)] text-[var(--sample-base)] ${compact ? "h-4 w-4" : "h-5 w-5"}`} type="button">
                 <SendIcon />
               </button>
