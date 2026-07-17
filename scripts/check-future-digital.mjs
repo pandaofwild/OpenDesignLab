@@ -1,5 +1,5 @@
 // scripts/check-future-digital.mjs
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { designStyles } from "../src/data/designStyles.ts";
 import references from "./style-references.json" with { type: "json" };
 
@@ -21,9 +21,9 @@ const requiredSampleMarkers = {
   "neon-noir": ["RED ROOM", "rain index", "case file"],
   techwear: ["SHELL SYSTEM", "garment matrix", "storm proof"],
   "high-tech": ["CONTROL PLANE", "deploy graph", "edge regions"],
-  "ai-aesthetic": ["MODEL CANVAS", "latent queue", "world model"],
+  "ai-aesthetic": ["MODEL CANVAS", "Latent queue", "World-model preview"],
   "hologram-style": ["LIGHT FIELD", "depth layer", "prism stack"],
-  chromecore: ["Y2K CHROME", "molded chrome shell", "specular flash"],
+  chromecore: ["CHROMEWORKS", "Faceplate carousel", "Fitment rail"],
   "metaverse-style": ["SPATIAL LOBBY", "avatar mesh", "world shard"],
 };
 
@@ -74,7 +74,14 @@ for (const slug of futureDigitalSlugs) {
   assert(jsonSites.length + jsonGalleries.length >= 6, `${slug} needs at least 6 total references in style-references.json`);
 }
 
-const rendererSource = readFileSync(new URL("../src/components/design-style/DesignStyleSampleRenderer.tsx", import.meta.url), "utf8");
+// Samples live in DesignStyleSampleRenderer.tsx plus per-style extracted
+// components (e.g. ChromeworksFaceplateShop, LatentStudioPanel), so marker
+// checks scan every component source in the design-style folder.
+const componentDir = new URL("../src/components/design-style/", import.meta.url);
+const rendererSource = readdirSync(componentDir)
+  .filter((file) => file.endsWith(".tsx"))
+  .map((file) => readFileSync(new URL(file, componentDir), "utf8"))
+  .join("\n");
 
 for (const [slug, markers] of Object.entries(requiredSampleMarkers)) {
   for (const marker of markers) {

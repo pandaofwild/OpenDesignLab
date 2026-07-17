@@ -18,10 +18,13 @@ const CHROME_TEXT: CSSProperties = {
   backgroundClip: "text",
   color: "transparent",
 };
+/* Controls get anodised metal, not mirror chrome: a multi-band 135° mirror
+   crammed into a 20px pill reads as WordArt rather than hardware, so the
+   control surface keeps a single soft horizon flip and stays in the lights. */
 const CHROME_SURFACE =
-  "linear-gradient(135deg, #ffffff 0%, #dce2eb 13%, #80899a 25%, #f9fbff 38%, #a5adbc 52%, #ffffff 64%, #697180 77%, #eef2f8 100%)";
+  "linear-gradient(180deg, #ffffff 0%, #f3f6fb 44%, #dae1eb 54%, #eaeff6 82%, #dce3ed 100%)";
 const RAIL_SURFACE =
-  "linear-gradient(180deg, #f8fbff 0%, #c9d0dc 34%, #798294 60%, #dbe1ea 82%, #aab2c0 100%)";
+  "linear-gradient(180deg, #fdfeff 0%, #e6ebf3 38%, #c2cbd8 56%, #e9eef5 78%, #d2d9e4 100%)";
 const BLUE_LENS = "radial-gradient(circle at 34% 26%, #ffffff 0%, #8ee7ff 18%, #4a63ff 46%, #12172a 78%)";
 const STAR_CLIP = "polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%)";
 
