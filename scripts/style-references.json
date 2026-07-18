@@ -365,7 +365,7 @@
       { "url": "https://rog.asus.com", "title": "Republic of Gamers", "note": "Gaming-tech reference for angular neon panels, hardware telemetry, dark product staging, and high-contrast interface language." }
     ],
     "galleries": [
-      { "url": "https://www.awwwards.com/websites/sci-fi/", "title": "Awwwards - Sci-Fi Websites", "note": "Gallery fit: 디지털 광원을 핵심 신호로 사용합니다, 어두운 대시보드, 각진 디스플레이 타입, 어두운 베이스을 기본 배경으로 사용합니다 make this relevant to Cyberpunk; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from neon-noir / techwear; require cyberpunk, neon, dark cues instead of broad polish." },
+      { "url": "https://www.awwwards.com/websites/sci-fi/", "title": "Awwwards - Sci-Fi Websites", "note": "Gallery fit: 디지털 광원을 핵심 신호로 사용합니다, 어두운 대시보드, 각진 디스플레이 타입, 어두운 베이스을 기본 배경으로 사용합니다 make this relevant to Cyberpunk; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from neon-noir / hud; require cyberpunk, neon, dark cues instead of broad polish." },
       { "url": "https://dribbble.com/search/cyberpunk-website", "title": "Dribbble - Cyberpunk Website", "note": "UI reference for black-market dashboards, neon labels, glitch cards, and dense cyber interface modules." },
       { "url": "https://www.pinterest.com/search/pins/?q=Cyberpunk%20website%20design", "title": "Pinterest - Cyberpunk Website Design", "note": "Moodboard reference for dystopian city color, neon signage, hacked terminal surfaces, and cyber commerce pages." }
     ]
@@ -378,22 +378,23 @@
       { "url": "https://refikanadol.com", "title": "Refik Anadol", "note": "Media-art reference for luminous data atmospheres, gallery darkness, single-source glow, and immersive digital abstraction." }
     ],
     "galleries": [
-      { "url": "https://www.awwwards.com/websites/dark/", "title": "Awwwards - Dark Websites", "note": "Gallery fit: 디지털 광원을 핵심 신호로 사용합니다, 어두운 대시보드, 각진 디스플레이 타입, 어두운 베이스을 기본 배경으로 사용합니다 make this relevant to Neon Noir; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from techwear / high-tech; require neon, noir, dark cues instead of broad polish." },
+      { "url": "https://www.awwwards.com/websites/dark/", "title": "Awwwards - Dark Websites", "note": "Gallery fit: 디지털 광원을 핵심 신호로 사용합니다, 어두운 대시보드, 각진 디스플레이 타입, 어두운 베이스을 기본 배경으로 사용합니다 make this relevant to Neon Noir; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from hud / high-tech; require neon, noir, dark cues instead of broad polish." },
       { "url": "https://dribbble.com/search/neon-noir", "title": "Dribbble - Neon Noir", "note": "UI reference for noir poster framing, red-blue lighting, rain-soaked overlays, and case-file style cards." },
       { "url": "https://www.pinterest.com/search/pins/?q=Neon%20Noir%20website%20design", "title": "Pinterest - Neon Noir Website Design", "note": "Moodboard reference for night streets, neon reflections, film still layouts, and red room visual motifs." }
     ]
   },
 
-  "techwear": {
+  "hud": {
     "sites": [
-      { "url": "https://acrnm.com", "title": "ACRONYM", "note": "Canonical techwear reference for utility catalog grids, monospace product codes, severe black surfaces, and garment-system logic." },
-      { "url": "https://www.stoneisland.com", "title": "Stone Island", "note": "Technical apparel reference for material research, product indexing, subdued industrial color, and functional clothing presentation." },
-      { "url": "https://arcteryx.com/us/en/c/mens/veilance", "title": "Arc'teryx Veilance", "note": "Minimal technical apparel reference for weatherproof shells, modular garment systems, restrained utility, and black-on-black retail rhythm." }
+      { "url": "https://www.hudsandguis.com", "title": "HUDS+GUIS", "note": "Canonical FUI archive for heads-up display graphics, fictional interface reels, instrument overlays, and screen-graphic craft across film and games." },
+      { "url": "https://territorystudio.com", "title": "Territory Studio", "note": "Screen-graphics studio reference for cinematic HUD overlays, thin-stroke instrument geometry, and diegetic interface worldbuilding." },
+      { "url": "https://www.experienceperception.com", "title": "Perception", "note": "FUI studio reference for hero HUD sequences, reticle and target-lock language, and future-vision interface prototyping." }
     ],
     "galleries": [
-      { "url": "https://www.awwwards.com/websites/fashion/", "title": "Awwwards - Fashion Websites", "note": "Gallery fit: 디지털 광원을 핵심 신호로 사용합니다, 어두운 대시보드, 각진 디스플레이 타입, 어두운 베이스을 기본 배경으로 사용합니다 make this relevant to Techwear; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from high-tech / ai-aesthetic; require techwear, utility, dark cues instead of broad polish." },
-      { "url": "https://dribbble.com/search/techwear", "title": "Dribbble - Techwear", "note": "UI reference for utility labels, modular grids, spec sheets, hazard accents, and garment matrix interfaces." },
-      { "url": "https://www.pinterest.com/search/pins/?q=Techwear%20website%20design", "title": "Pinterest - Techwear Website Design", "note": "Moodboard reference for black shells, strap systems, cargo modules, industrial labels, and tactical apparel layouts." }
+      { "url": "https://www.behance.net/search/projects/fui", "title": "Behance - FUI", "note": "Gallery reference for fictional UI boards, HUD overlay studies, instrument cluster compositions, and phosphor-glow screen graphics." },
+      { "url": "https://www.awwwards.com/websites/sci-fi/", "title": "Awwwards - Sci-Fi Websites", "note": "Web-gallery reference for comparing cinematic scene-led sci-fi layouts while rejecting card dashboards, cyberpunk commerce, and decorative hologram clutter." },
+      { "url": "https://dribbble.com/search/hud-interface", "title": "Dribbble - HUD Interface", "note": "UI reference for reticles, data tapes, corner brackets, radar rings, and first-person overlay layouts." },
+      { "url": "https://www.pinterest.com/search/pins/?q=HUD%20interface%20design", "title": "Pinterest - HUD Interface Design", "note": "Moodboard reference for cockpit symbology, AR windshield overlays, monoline instrument graphics, and glowing scale rulers." }
     ]
   },
 

@@ -61,7 +61,7 @@
 | 27 | 미래 / 디지털 | futurism | cyber-dashboard | verified | ORBITAL TRANSIT 마하 회랑 운행 콘솔 — 실버 포드 히어로+MACH velocity 타이포 웨지, Mach corridor map(회랑 선택 인터랙션), Launch window board, live telemetry 스트립 |
 | 28 | 미래 / 디지털 | cyberpunk | cyber-dashboard | verified | LUCKY CHROME CLINIC 나이트마켓 리퍼독 터미널 — 네온 골목 실사+사인 스택, implant menu(선택→원장 연동), black-market deck flash, install queue, humanity 게이지, city protocol 해저드 스트립 |
 | 29 | 미래 / 디지털 | neon-noir | cyber-dashboard | verified | RED ROOM 심야 탐정 케이스 데스크 — 붉은 네온 비창 실사 풀블리드 스틸, case file 레일(선택→히어로 캡션 연동), rain index 위젯, 절제된 단일광원 누아르 |
-| 30 | 미래 / 디지털 | techwear | cyber-dashboard | queued | modular gear, tactical panels, fabric/strap logic |
+| 30 | 미래 / 디지털 | hud | cyber-dashboard | verified | KESTREL GCS 시네마틱 드론 관제 HUD — first-person scene, pitch ladder·roll arc·flight-path vector, calibrated data tapes, waypoint guidance+telemetry rail, ice-blue phosphor·amber caution |
 | 31 | 미래 / 디지털 | high-tech | saas-landing | queued | precision instrumentation, engineering surfaces |
 | 32 | 미래 / 디지털 | ai-aesthetic | saas-landing | verified | MODEL CANVAS generative studio — world-model preview with denoise sweep, prompt bar with style presets, latent queue job states, model index |
 | 33 | 미래 / 디지털 | hologram-style | cyber-dashboard | queued | translucent spectral layers, prism depth, not chrome |
@@ -273,4 +273,41 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - browser QA: full 데스크톱(694px)·모바일(284px: nav/night desk/surveillance 태그 숨김·워드마크 축소·케이스 레일 세로 스택)·compact 모두 page overflow 0 + 내부 클리핑 0. Screenshots: `neon-noir-redroom-full-final2.png`, `neon-noir-redroom-mobile-v2.png`, `neon-noir-redroom-compact.png`.
 - 명령: `npm run lint`·`check:future-digital`·`check:style-distinction`·`check:data` 통과.
 - 남은 의심점: 없음.
-- 다음 style: No. 30 `techwear`.
+- 다음 style: No. 30 `hud` (구 techwear — 스타일 자체 교체).
+
+## 30. hud (미래 / 디지털) — 구 techwear 스타일 교체
+
+### 현재 판정
+
+- status: `reviewing` → **스타일 자체 교체(소유자 지시: "테크웨어를 hud로 아예 바꿔버리고 싶어")**.
+- 기존 techwear는 스타일 로우·팔레트·리서치·무드보드·style-references.json·체크 2종·구분표에서 제거하고 `hud`(헤드업 디스플레이/FUI)로 대체. 기존 `TechwearSystem` 샘플(SHELL SYSTEM 가먼트 그리드 프로토타입)도 삭제.
+- 새 정체성: first-person overlay framing — 장면 위에 계기(레티클·pitch ladder·데이터 테이프·코너 클러스터)를 얇은 모노라인+아이스 블루 글로우로 겹쳐 그리는 FUI. 카드 대시보드가 아니라 "장면 위 오버레이"가 골격.
+- 팔레트 신설: base `#04080A`, accent 아이스 블루 `#4FA9FF`, accent2 페일 시안 `#8FE9FF`, accent3 앰버 코션 `#FFB13B`. 토큰 오버라이드(모노 폰트·radius 2px·glow) 추가.
+- 인접 구분: high-tech(카드형 control plane 대시보드)와는 오버레이-온-신 심볼로지로, hologram-style(프리즘 깊이)과는 단색 콜드 블루 규율로, cyberpunk(도시 상거래)와는 계기 로직으로 구분.
+
+### referenceSites에서 가져올 웹 문법
+
+- HUDS+GUIS: FUI 아카이브 — 계기 오버레이·스크린 그래픽 문법의 정본.
+- Territory Studio / Perception: 시네마틱 HUD 시퀀스, 얇은 스트로크 계기 기하, 레티클/타겟록 언어.
+
+### 목표
+
+- 컨셉: **"KESTREL GCS" — 웹 기반 드론 그라운드 컨트롤 스테이션의 라이브 FPV Flight OSD**. 정석적 '전투기 조종석 HUD'를 피하고, 실존 장르(Betaflight OSD/GCS)의 첫인칭 오버레이로 구체화.
+- 고유 마커: `FLIGHT OSD`·`pitch ladder`·`battery cell`(check-future-digital), family `KESTREL GCS`/`FLIGHT OSD`/`pitch ladder`/`waypoint`(check-style-distinction).
+- 정보 구조: 얇은 GCS 앱 크롬(KESTREL GCS·Flight OSD/Missions/Replay/Fleet·LINK LQ·ARMED 블링크) → 풀블리드 FPV 뷰포트(codex 항공 실사) 위 오버레이 — 코너 브래킷, FLIGHT OSD 미션 클러스터(MSN·T+타이머), heading tape(042° 박스), 좌/우 speed·alt 데이터 테이프, 중앙 레티클+pitch ladder(±10 눈금·수평선), 장면에 핀된 waypoint 마커 2종(WP 3/HOME, 클릭 선택→우하단 readout 연동), 좌하단 battery cells(4셀 바·앰버 저전압), 하단 상태줄(ARMED·GPS HOLD·WIND 앰버) — 전부 얇은 모노라인+아이스 블루 글로우(소유자 지시로 그린→블루 전환), 채운 카드 금지.
+
+### 검증 계획
+
+- RED: techwear 마커(SHELL SYSTEM/garment matrix)를 retired 리스트로 회귀 차단, techwear 슬러그 라우팅/체크 제거 확인.
+- GREEN: hud 마커 렌더, check:data·check:future-digital·check:style-distinction 통과, /ko/styles/hud 라우팅 + 목록에서 techwear 카드 소멸 확인.
+- browser QA: full/모바일/compact overflow 0, waypoint 선택 연동. 이미지 2장(FPV 배경·무드보드) 생성 후 최종 시각 QA.
+
+### 최종 검증 (2026-07-18)
+
+- status: `verified`.
+- 시네마틱 실전 관제형으로 보강: 중앙 pitch ladder·roll arc·flight-path vector, 좌우 숫자형 speed/alt data tape, 선택 waypoint guidance line, 선택값 연동 telemetry rail(distance/ETA/target altitude/action), 배터리 앰버 caution과 절제된 scanline을 실제 DOM 계기로 구현.
+- waypoint QA: `WP 3`(210 M/ETA 00:48/TGT 132 M/SURVEY PASS)에서 `HOME`(320 M/ETA 01:12/TGT 090 M/RTH READY)으로 클릭 시 `aria-pressed`, marker, guidance, telemetry가 함께 전환됨.
+- image QA: 새 `public/generated/design-styles/hud.webp`(1536×1024)와 `public/generated/moodboards/hud-realistic-v2.webp`(1536×960) 생성·직접 검사. 장면에는 baked-in UI가 없고, 무드보드는 읽을 수 있는 문구·로고 없이 실제 아세테이트/광학 유리/금속 계기 리서치 보드로 판정.
+- browser QA: `/ko/styles/hud` 1280×900 full과 375×812 mobile, `/ko/styles` compact에서 page overflow `0`; compact에서도 KESTREL GCS·현재값·중앙 계기·waypoint·battery caution 유지. `prefers-reduced-motion`에서 HUD animation-name `none` 확인.
+- console: 깨끗하게 재시작한 HUD 상세 페이지는 error 0. 목록 페이지의 기존 중복 React key 경고(`distortion rail`, `soft 3D modules`, `feature proof grid`, `funnel sequence`, `no-depth buttons`)는 다른 스타일 데이터에서 발생하며 HUD 범위 밖으로 분리.
+- screenshots: `.playwright-cli/page-2026-07-18T06-37-48-836Z.png`(full), `.playwright-cli/page-2026-07-18T06-38-32-557Z.png`(mobile), `.playwright-cli/element-2026-07-18T06-42-27-324Z.png`(compact).

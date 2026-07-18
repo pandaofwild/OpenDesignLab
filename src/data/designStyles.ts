@@ -652,16 +652,16 @@ const palettes: Record<string, DesignStylePalette> = {
     accent3: "#FF8FB1",
     border: "#2A2A3C",
   },
-  techwear: {
-    base: "#14151A",
-    surface: "#1E2027",
-    text: "#E7E8EC",
-    mutedText: "#9097A1",
-    primary: "#E7E8EC",
-    accent: "#C6FF3A",
-    accent2: "#FF5C00",
-    accent3: "#8A8F99",
-    border: "#3A3D45",
+  hud: {
+    base: "#040810",
+    surface: "#0A1220",
+    text: "#D9EEFF",
+    mutedText: "#5F7F9F",
+    primary: "#D9EEFF",
+    accent: "#4FA9FF",
+    accent2: "#8FE9FF",
+    accent3: "#FFB13B",
+    border: "#1E3A5A",
   },
   "high-tech": {
     base: "#0A0F15",
@@ -1174,7 +1174,7 @@ const styleSeedTuples: DesignStyleSeedTuple[] = [
   ["futurism", "퓨처리즘", "Futurism", "미래 / 디지털", "속도감과 기술 낙관주의를 시각화하는 미래지향적 스타일", ["future", "speed", "tech"], "cyber-dashboard"],
   ["cyberpunk", "사이버펑크", "Cyberpunk", "미래 / 디지털", "어두운 도시, 네온, 디지털 반항성을 결합한 강한 테크 스타일", ["cyberpunk", "neon", "dark"], "cyber-dashboard"],
   ["neon-noir", "네온 누아르", "Neon Noir", "미래 / 디지털", "느와르의 어둠과 네온 광원을 결합한 분위기 중심 스타일", ["neon", "noir", "dark"], "cyber-dashboard"],
-  ["techwear", "테크웨어", "Techwear", "미래 / 디지털", "기능성 의류와 산업적 디테일을 웹 그래픽으로 옮긴 스타일", ["techwear", "utility", "dark"], "cyber-dashboard"],
+  ["hud", "HUD", "HUD", "미래 / 디지털", "시야 위에 계기 그래픽을 겹쳐 그리는 헤드업 디스플레이(FUI) 스타일", ["hud", "fui", "overlay"], "cyber-dashboard"],
   ["high-tech", "하이테크", "High-Tech", "미래 / 디지털", "정밀한 패널과 데이터 시각화로 첨단 이미지를 만드는 스타일", ["high-tech", "interface", "data"], "saas-landing"],
   ["ai-aesthetic", "AI 에스테틱", "AI Aesthetic", "미래 / 디지털", "생성형 이미지, 빛나는 그라데이션, 계산적 패턴을 결합한 스타일", ["ai", "generated", "gradient"], "saas-landing"],
   ["hologram-style", "홀로그램 스타일", "Hologram Style", "미래 / 디지털", "반투명 빛과 분광 색으로 입체적 디지털 감각을 만드는 스타일", ["hologram", "iridescent", "future"], "cyber-dashboard"],
@@ -1301,21 +1301,22 @@ const futureDigitalResearch: Partial<Record<string, StyleResearchBrief>> = {
     tokenIntent:
       "Use near-black backgrounds, red and blue neon accents, rain streaks, cinematic still frames, case-file modules, and restrained glow so the style reads as neon noir.",
   },
-  techwear: {
+  hud: {
     referenceSites: [
-      { title: "ACRONYM", url: "https://acrnm.com", note: "Canonical techwear reference for utility catalog grids, monospace product codes, severe black surfaces, and garment-system logic." },
-      { title: "Stone Island", url: "https://www.stoneisland.com", note: "Technical apparel reference for material research, product indexing, subdued industrial color, and functional clothing presentation." },
-      { title: "Arc'teryx Veilance", url: "https://arcteryx.com/us/en/c/mens/veilance", note: "Minimal technical apparel reference for weatherproof shells, modular garment systems, restrained utility, and black-on-black retail rhythm." },
+      { title: "HUDS+GUIS", url: "https://www.hudsandguis.com", note: "Canonical FUI archive for heads-up display graphics, fictional interface reels, instrument overlays, and screen-graphic craft across film and games." },
+      { title: "Territory Studio", url: "https://territorystudio.com", note: "Screen-graphics studio reference for cinematic HUD overlays, thin-stroke instrument geometry, and diegetic interface worldbuilding." },
+      { title: "Perception", url: "https://www.experienceperception.com", note: "FUI studio reference for hero HUD sequences, reticle and target-lock language, and future-vision interface prototyping." },
     ],
     referenceGalleries: [
-      { title: "Awwwards - Fashion Websites", url: "https://www.awwwards.com/websites/fashion/", note: "Gallery reference for advanced fashion commerce, technical product staging, editorial utility pages, and high-detail garment presentation." },
-      { title: "Dribbble - Techwear", url: "https://dribbble.com/search/techwear", note: "UI reference for utility labels, modular grids, spec sheets, hazard accents, and garment matrix interfaces." },
-      { title: "Pinterest - Techwear Website Design", url: "https://www.pinterest.com/search/pins/?q=Techwear%20website%20design", note: "Moodboard reference for black shells, strap systems, cargo modules, industrial labels, and tactical apparel layouts." },
+      { title: "Behance - FUI", url: "https://www.behance.net/search/projects/fui", note: "Gallery reference for fictional UI boards, HUD overlay studies, instrument cluster compositions, and phosphor-glow screen graphics." },
+      { title: "Awwwards - Sci-Fi Websites", url: "https://www.awwwards.com/websites/sci-fi/", note: "Web-gallery reference for comparing cinematic scene-led sci-fi layouts while rejecting card dashboards, cyberpunk commerce, and decorative hologram clutter." },
+      { title: "Dribbble - HUD Interface", url: "https://dribbble.com/search/hud-interface", note: "UI reference for reticles, data tapes, corner brackets, radar rings, and first-person overlay layouts." },
+      { title: "Pinterest - HUD Interface Design", url: "https://www.pinterest.com/search/pins/?q=HUD%20interface%20design", note: "Moodboard reference for cockpit symbology, AR windshield overlays, monoline instrument graphics, and glowing scale rulers." },
     ],
-    representativeTraits: ["Garment matrix", "Weatherproof shell systems", "Utility product codes", "Industrial orange labels", "Dense technical catalog"],
-    avoidTraits: ["Generic streetwear drop", "Luxury fashion softness", "Cyberpunk neon city", "Random tactical decoration"],
+    representativeTraits: ["First-person overlay framing", "Corner-anchored instrument clusters", "Pitch ladder and reticle symbology", "Data tapes and scale rulers", "Ice-blue monochrome glow"],
+    avoidTraits: ["Card-based dashboard layout", "Cyberpunk city commerce", "Glassmorphism blur panels", "Decorative sci-fi clutter without instrument logic"],
     tokenIntent:
-      "Use black technical surfaces, mono product codes, utility labels, lime or orange hazard accents, modular garment grids, and material spec panels so the style reads as techwear.",
+      "Use a first-person scene with corner-anchored ice-blue instrument overlays, a center reticle and pitch ladder, heading and altitude tapes, thin-stroke mono geometry, and amber caution states so the style reads as a heads-up display rather than a dashboard.",
   },
   "high-tech": {
     referenceSites: [
@@ -1557,6 +1558,34 @@ const luxuryClassicResearch: Record<string, StyleResearchBrief> = {
 };
 
 const styleContentOverrides: Record<string, StyleContentOverride> = {
+  hud: {
+    summary: "HUD는 실제 장면 위에 비행 계기와 경로 정보를 직접 겹쳐, 시선을 떼지 않고 상태와 목표를 읽게 만드는 헤드업 디스플레이(FUI) 스타일입니다.",
+    description:
+      "HUD는 카드형 대시보드가 아니라 카메라나 시야 장면 자체를 주 화면으로 사용합니다. KESTREL GCS 샘플처럼 중앙의 pitch ladder·flight-path vector·레티클, 양쪽 속도·고도 테이프, 모서리 임무 상태, 장면에 고정된 waypoint가 하나의 계기 체계로 작동해야 합니다. 아이스 블루 모노라인은 정상 계기, 앰버는 실제 주의 상태에만 제한해 정보 밀도가 높아도 시선 경로가 흐트러지지 않게 합니다.",
+    visualFeatures: [
+      "첫인칭 장면 위에 얇은 아이스 블루 계기선을 직접 겹쳐 표시합니다.",
+      "중앙 pitch ladder, roll arc, flight-path vector가 같은 광학 중심을 공유합니다.",
+      "속도·고도 데이터 테이프와 waypoint 유도선이 실제 운항 상태를 설명합니다.",
+      "앰버는 배터리와 풍속 같은 주의 신호에만 작은 면적으로 사용합니다.",
+    ],
+    colorPalette: ["근흑색 광학 프레임", "아이스 블루 주 계기", "페일 시안 보조 텔레메트리", "앰버 주의 상태"],
+    typography: ["좁은 모노스페이스 라벨", "탭형 숫자 판독값", "값보다 어두운 단위와 상태 메타"],
+    layoutTraits: [
+      "풀블리드 장면 위 중앙 비행 계기",
+      "좌우에 고정된 속도·고도 데이터 테이프",
+      "네 모서리에 분산된 임무·링크·배터리 상태",
+      "선택 waypoint와 연동되는 하단 telemetry rail",
+    ],
+    useCases: ["드론 관제", "차량·항공 AR", "시뮬레이션", "실시간 임무 모니터링"],
+    goodFor: ["장면을 보면서 동시에 상태를 판단해야 하는 관제 화면", "공간 좌표와 목표물의 관계가 중요한 인터페이스", "비행·주행·시뮬레이션용 실시간 시각화"],
+    cautions: [
+      "장식용 원과 선을 무작위로 늘리지 말고 모든 계기에 값·단위·상태 목적을 부여해야 합니다.",
+      "글로우가 장면을 덮지 않도록 활성 계기 주변에만 좁게 사용해야 합니다.",
+      "모바일에서는 눈금 수를 먼저 줄이고 현재값·중앙 계기·선택 목표는 남겨야 합니다.",
+    ],
+    imagePrompt:
+      "A cinematic realistic first-person survey-drone view over a coastal harbor at blue hour, cold graphite and ice-blue atmosphere, open central field for flight symbology, tiny amber shoreline lights, no UI baked into the image, no text, no logo, no watermark",
+  },
   minimalism: {
     summary: "미니멀리즘은 장식을 덜어내고 여백, 얇은 선, 정밀한 타이포 위계로 제품과 메시지를 선명하게 보이게 하는 디자인입니다.",
     description:
@@ -3014,6 +3043,13 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     shape: { radius: "2px", borderWidth: "1px" },
     decoration: { shadow: "0 0 24px rgb(var(--st-accent-rgb) / 0.6)", effect: "glow" },
   },
+  hud: {
+    typography: { displayFont: '"SFMono-Regular", "Consolas", monospace', bodyFont: '"SFMono-Regular", "Consolas", monospace', weightDisplay: 600, tracking: "0.08em", headingScale: 0.96 },
+    shape: { radius: "2px", radiusPill: "2px", borderWidth: "1px" },
+    space: { density: "tight", gap: "0.6rem", padScale: 0.9 },
+    decoration: { shadow: "0 0 18px rgb(var(--st-accent-rgb) / 0.5)", effect: "glow" },
+    layout: { heroVariant: "center", navStyle: "boxed", alignment: "left" },
+  },
   "neon-noir": {
     typography: { bodyFont: '"SFMono-Regular", monospace', weightDisplay: 700, tracking: "0.04em", headingScale: 1.08 },
     shape: { radius: "2px", radiusPill: "2px", borderWidth: "1px" },
@@ -3529,14 +3565,14 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
     prompt:
       "Create a realistic editorial moodboard for Neon Noir in web design. The board should look like a real designer's nocturnal light-and-shadow research board photographed from above on a black glass studio table. Include printed neon-noir landing page and editorial layout references without readable text, moody black content panels with empty bars only, rain-streaked window photo crops with no signs, noir alley light fragments with no people, magenta and cyan neon reflection strips, smoky translucent vellum, dark glossy paper, black leather-like swatches, mirror acrylic fragments, deep violet and red color chips, cinematic crop studies, and small physical objects like a blank black film slide frame and clear glass shard. The visual language should communicate noir atmosphere, low-key lighting, neon reflections, suspense, and cinematic contrast for web pages, not dense cyberpunk hardware or clean high-tech dashboards. Use tape corners, pin marks, slight paper curl, glass reflections, soft haze, dust, varied paper thickness, and real shadows. Palette: black, deep charcoal, neon magenta, cyan, violet, blood red, smoke grey, wet glass. Absolutely no readable text, no tiny text, no letters, no numbers, no labels, no signs, no brand names, no logos, no watermarks, no people, no faces, no fake UI gibberish, no city skyline poster, no circuit-board clutter, no floating holograms. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
-  techwear: {
-    alt: "Techwear moodboard with utility product-page proofs, black ripstop nylon, waterproof fabric, carbon fiber, matte rubber, buckles, zippers, reflective tape, and grid paper.",
-    caption: "Functional utility: translate protective fabric, modular pockets, buckles, zippers, carbon fiber, reflective tape, and tactical chips into a web layout system.",
-    directionKeywords: ["real utility material board", "black ripstop nylon", "modular product panels", "industrial hardware", "reflective tactical accents"],
+  hud: {
+    alt: "HUD moodboard with first-person overlay proofs, ice-blue line diagrams on acetate, reticle and bracket cutouts, scale-ruler strips, dark glass, and a night cockpit photo fragment.",
+    caption: "Instrument overlay: anchor thin monoline clusters to the corners of a first-person scene — reticles, pitch ladders, data tapes, ice blue on near-black — instead of stacking dashboard cards.",
+    directionKeywords: ["real instrument research board", "ice blue acetate diagrams", "reticle and bracket cutouts", "scale ruler strips", "night cockpit glow fragment"],
     generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/techwear-realistic-v2.webp",
+    imageSrc: "/generated/moodboards/hud-realistic-v2.webp",
     prompt:
-      "Create a realistic editorial moodboard for Techwear in web design. The board should look like a real designer's functional utility and material research board photographed from above on a dark grey technical fabric studio surface. Include printed techwear-inspired product page and dashboard layout references without readable text, modular utility card studies with empty bars only, black ripstop nylon swatches, waterproof fabric samples, matte rubber, carbon fiber, black metal buckles, zipper pulls with no brand marks, translucent smoky plastic, reflective tape strips, grid overlay paper, pocket-panel crop studies, tactical color chips, and cropped technical garment details with no people or logos. The visual language should communicate utility, protection, modularity, weather resistance, and industrial precision for web pages, not cyberpunk neon city or outdoor hiking catalog. Use tape corners, pin marks, paper curl, fabric fibers, scuffed hardware, varied paper thickness, subtle dust, and real shadows. Palette: black, charcoal, slate grey, asphalt, reflective silver, muted olive, safety orange, cool white. Absolutely no readable text, no tiny text, no letters, no numbers, no labels, no brand names, no logos, no watermarks, no people, no faces, no mannequins, no fake UI gibberish, no neon skyline, no floating cards, no fashion model. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
+      "Create a realistic editorial moodboard for HUD heads-up display design in web design. The board should look like a real designer's instrument-overlay research board photographed from above on a matte black instrument bench. Include printed first-person overlay layout references made only of thin ruled lines, empty corner brackets and unlabeled bars with no readable text, transparent acetate sheets silk-printed with ice-blue monoline diagrams such as reticles, arc gauges and horizon ladders without numbers, a cropped night cockpit or windshield photo fragment glowing cold blue with no readable instruments, dark smoked glass panel samples, a brushed aluminum bezel fragment, translucent blue and amber acetate color chips, fine grid film strips, paper cutouts of crosshair and bracket shapes, and a thin metal calibration ruler with plain ticks and no digits. The visual language should communicate first-person overlay graphics, thin monoline instrument geometry, cold luminous glow discipline, and corner-anchored composition for web pages, not cyberpunk neon city clutter, not techwear fabric, not a generic dark dashboard of cards. Use tape corners, pin marks, paper curl, acetate reflections, subtle dust, varied paper thickness, and real shadows. Palette: near-black, graphite, ice blue, electric cyan, pale glacier blue, amber, smoked glass grey. Absolutely no readable text, no tiny text, no letters, no numbers, no labels, no brand names, no logos, no watermarks, no people, no faces, no fake UI gibberish, no city skyline poster, no floating holograms. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
   "high-tech": {
     alt: "High-Tech moodboard with precision dashboard proofs, abstract data panels, technical grids, sensor crops, dark glass, brushed titanium, circuits, and status chips.",

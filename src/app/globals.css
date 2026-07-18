@@ -1341,6 +1341,41 @@ html:lang(ko) :where(
   }
 }
 
+/* ── Flight OSD: HUD armed-state pulse ────────────────────────────────
+   One slow status blink, phosphor discipline — instruments themselves
+   never flash (photosensitivity caution). */
+
+@keyframes hud-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.hud-osd .hud-blink { animation: hud-blink 2.2s ease-in-out infinite; }
+
+@keyframes hud-caution {
+  0%, 100% { opacity: 1; filter: brightness(1); }
+  50% { opacity: 0.55; filter: brightness(1.35); }
+}
+@keyframes hud-scanline {
+  from { transform: translateY(0); }
+  to { transform: translateY(520px); }
+}
+@keyframes hud-guidance {
+  from { opacity: 0.25; scale: 0.94 1; }
+  to { opacity: 1; scale: 1 1; }
+}
+.hud-osd .hud-caution { animation: hud-caution 3.2s ease-in-out infinite; }
+.hud-osd .hud-scanline { animation: hud-scanline 8s linear infinite; }
+.hud-osd .hud-guidance { animation: hud-guidance 180ms ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hud-osd .hud-blink,
+  .hud-osd .hud-caution,
+  .hud-osd .hud-scanline,
+  .hud-osd .hud-guidance {
+    animation: none;
+  }
+}
+
 /* ─── Grunge sample: distressed music archive ───────────────────────── */
 /* Cassette reels turn slowly, like a tape playing back in the archive */
 @keyframes grunge-sample-reel {

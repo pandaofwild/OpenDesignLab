@@ -50,7 +50,7 @@ This table is the working comparison sheet for keeping styles inside the same ca
 | futurism | Aerospace velocity | aluminum, carbon, launch diagrams | mission hero, launch window, telemetry strip | retro-futurism, high-tech | orbital civic-science framing | ORBITAL |
 | cyberpunk | Night-market cyber commerce | wet asphalt, neon acetate, hardware | dense city protocol panels, black-market shop | glitch-art, neon-noir | urban culture and ripper-lane commerce | BRAINDANCE |
 | neon-noir | Cinematic case mood | red room, rain, dark photo crops | film still, case file, single glow source | cyberpunk, dark-mode-design | noir restraint and case investigation | RED ROOM |
-| techwear | Technical garment system | black fabric, straps, orange labels | product matrix, shell specs, utility catalog | streetwear, high-tech | apparel codes and garment matrix | SHELL SYSTEM |
+| hud | First-person instrument overlay | ice-blue acetate, reticles, night cockpit glow | corner clusters, pitch ladder, data tapes over a scene | high-tech, hologram-style | overlay-on-scene symbology, not card dashboard | FLIGHT OSD |
 | high-tech | Infrastructure control plane | graphs, dark product panels | deploy graph, edge regions, telemetry cards | saas-style, cyber-dashboard | precise software ops, not fantasy | CONTROL PLANE |
 | ai-aesthetic | Model canvas workflow | synthetic gradients, prompt surfaces | prompt bar, latent queue, generated preview | startup-landing-page, high-tech | AI workflow and model canvas | MODEL CANVAS |
 | hologram-style | Light-field interface depth | prism acrylic, translucent layers | spatial labels, depth panels, refraction | glassmorphism, chromecore | spectral depth, not flat glass blur | LIGHT FIELD |

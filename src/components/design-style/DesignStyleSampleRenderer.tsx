@@ -4,6 +4,7 @@ import type { DesignStyle } from "@/data/designStyles";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
 import { cn } from "@/lib/utils";
 import { ChromeworksFaceplateShop } from "./ChromeworksFaceplateShop";
+import { FlightOsdConsole } from "./FlightOsdConsole";
 import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
 import { LatentStudioPanel } from "./LatentStudioPanel";
 import { MaximalistSalonWall } from "./MaximalistSalonWall";
@@ -3269,40 +3270,10 @@ function NeonNoirCaseDesk({ className, compact = false, style }: Props) {
   );
 }
 
-function TechwearSystem({ className, compact = false, style }: Props) {
-  const codes = compact
-    ? ["SH-01", "VNT-7", "MTRX", "WR-3", "DRP-2", "LYR-4"]
-    : ["SH-01", "VNT-7", "MTRX", "WR-3", "DRP-2", "LYR-4", "KNEE", "PKT-8", "TAPE", "ZIP-R", "LOAD", "VENT"];
-  const scenes: PhotoScene[] = ["portrait", "studio", "interior", "material"];
-
+function HudFlightOsd({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <div className="flex h-full flex-col font-mono text-[var(--sample-text)]">
-        <div className="flex items-center gap-3 pb-2 text-[10px] font-bold uppercase tracking-[0.04em]">
-          <span className="font-display text-base" style={{ fontFamily: "var(--st-font-display)" }}>SHELL SYSTEM</span>
-          <nav className={cn("items-center gap-3 text-[var(--sample-muted)]", compact ? "hidden" : "flex")}>
-            <span>garment matrix</span>
-            <span>spec</span>
-            <span>fit</span>
-          </nav>
-          <span className="ml-auto flex items-center gap-3 text-[var(--sample-muted)]">
-            <span className={compact ? "hidden" : ""}>storm proof</span>
-            <span className="text-[var(--sample-accent)]">drop 04</span>
-          </span>
-        </div>
-
-        <div className={cn("grid min-h-0 flex-1 gap-1.5", compact ? "grid-cols-3 grid-rows-2" : "grid-cols-6 grid-rows-2")}>
-          {codes.map((code, index) => (
-            <div className="flex min-w-0 flex-col" key={code}>
-              <div className="relative flex-1 overflow-hidden border border-[var(--sample-border)] bg-[var(--sample-surface)]">
-                <PhotoSurface className="h-full w-full" grain={false} scene={scenes[index % scenes.length]} />
-                {index === 2 ? <span className="absolute right-1 top-1 bg-[var(--sample-accent)] px-1 text-[7px] font-bold text-[var(--sample-base)]">SEAM</span> : null}
-              </div>
-              <span className="mt-0.5 truncate text-[8px] uppercase text-[var(--sample-muted)]">{code}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <FlightOsdConsole compact={compact} />
     </SampleFrame>
   );
 }
@@ -8718,8 +8689,8 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
     return <NeonNoirCaseDesk {...props} />;
   }
 
-  if (style.slug === "techwear") {
-    return <TechwearSystem {...props} />;
+  if (style.slug === "hud") {
+    return <HudFlightOsd {...props} />;
   }
 
   if (style.slug === "high-tech") {
