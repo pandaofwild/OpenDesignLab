@@ -12,7 +12,6 @@ const futureDigitalSlugs = [
   "ai-aesthetic",
   "hologram-style",
   "chromecore",
-  "metaverse-style",
 ];
 
 const requiredSampleMarkers = {
@@ -24,7 +23,6 @@ const requiredSampleMarkers = {
   "ai-aesthetic": ["MODEL CANVAS", "Latent queue", "World-model preview"],
   "hologram-style": ["LIGHT FIELD", "depth layer", "prism stack"],
   chromecore: ["CHROMEWORKS", "Faceplate carousel", "Fitment rail"],
-  "metaverse-style": ["SPATIAL LOBBY", "avatar mesh", "world shard"],
 };
 
 const retiredSampleMarkers = [

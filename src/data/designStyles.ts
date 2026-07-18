@@ -707,17 +707,6 @@ const palettes: Record<string, DesignStylePalette> = {
     accent3: "#AEB6C4",
     border: "#16181D",
   },
-  "metaverse-style": {
-    base: "#0A0820",
-    surface: "#150F3A",
-    text: "#EFEBFF",
-    mutedText: "#A79EDC",
-    primary: "#EFEBFF",
-    accent: "#6C4DFF",
-    accent2: "#00E0FF",
-    accent3: "#FF5FE0",
-    border: "#2E2563",
-  },
   cyberpunk: {
     base: "#080A14",
     surface: "#111628",
@@ -1179,8 +1168,6 @@ const styleSeedTuples: DesignStyleSeedTuple[] = [
   ["ai-aesthetic", "AI 에스테틱", "AI Aesthetic", "미래 / 디지털", "생성형 이미지, 빛나는 그라데이션, 계산적 패턴을 결합한 스타일", ["ai", "generated", "gradient"], "saas-landing"],
   ["hologram-style", "홀로그램 스타일", "Hologram Style", "미래 / 디지털", "반투명 빛과 분광 색으로 입체적 디지털 감각을 만드는 스타일", ["hologram", "iridescent", "future"], "cyber-dashboard"],
   ["chromecore", "크롬코어", "Chromecore", "미래 / 디지털", "금속성 광택과 반사 질감을 중심으로 한 미래적 스타일", ["chrome", "metal", "gloss"], "luxury-product"],
-  ["metaverse-style", "메타버스 스타일", "Metaverse Style", "미래 / 디지털", "가상 공간, 아바타, 3D 인터페이스 감각을 보여주는 스타일", ["metaverse", "virtual", "3d"], "cyber-dashboard"],
-
   ["classic", "클래식", "Classic", "럭셔리 / 클래식", "균형 잡힌 비례와 전통적 타이포그래피로 안정감을 주는 스타일", ["classic", "balanced", "timeless"], "luxury-product"],
   ["neoclassic", "네오클래식", "Neoclassic", "럭셔리 / 클래식", "고전적 장식과 현대적 여백을 절충한 우아한 스타일", ["neoclassic", "elegant", "modern"], "luxury-product"],
   ["luxury", "럭셔리", "Luxury", "럭셔리 / 클래식", "절제된 소재감과 고급 색감으로 프리미엄 이미지를 만드는 스타일", ["luxury", "premium", "gold"], "luxury-product"],
@@ -1382,22 +1369,6 @@ const futureDigitalResearch: Partial<Record<string, StyleResearchBrief>> = {
     avoidTraits: ["Generic luxury CGI", "Flat silver cards", "Holographic rainbow plastic", "Dark WebGL sculpture without Y2K hardware cues"],
     tokenIntent:
       "Use Y2K chrome lettering, molded silver device shells, bright specular flashes, gray-white metal gradients, blue lens accents, and early-2000s interface modules so the style reads as Chromecore instead of generic metallic luxury.",
-  },
-  "metaverse-style": {
-    referenceSites: [
-      { title: "Spatial", url: "https://www.spatial.io", note: "Virtual-space reference for 3D rooms, avatar presence, gallery-like spatial UI, and creator collaboration surfaces." },
-      { title: "The Sandbox", url: "https://www.sandbox.game", note: "Metaverse game reference for voxel worlds, avatar identity, land cards, marketplace modules, and playful spatial navigation." },
-      { title: "Meta Quest", url: "https://www.meta.com/quest/", note: "Consumer VR reference for headset product hierarchy, virtual worlds, immersive experiences, and spatial interaction framing." },
-    ],
-    referenceGalleries: [
-      { title: "Awwwards - WebGL Websites", url: "https://www.awwwards.com/websites/webgl/", note: "Gallery reference for immersive WebGL pages, virtual-space navigation, 3D scenes, and spatial interface craft." },
-      { title: "Dribbble - Metaverse", url: "https://dribbble.com/search/metaverse", note: "UI reference for avatars, lobby screens, virtual land cards, world shards, and social spatial dashboards." },
-      { title: "Pinterest - Metaverse Style Website Design", url: "https://www.pinterest.com/search/pins/?q=Metaverse%20Style%20website%20design", note: "Moodboard reference for avatar meshes, glowing world maps, virtual rooms, and playful 3D interface layouts." },
-    ],
-    representativeTraits: ["Spatial lobby", "Avatar mesh", "World shard cards", "Virtual room grid", "Social presence labels"],
-    avoidTraits: ["Flat SaaS dashboard", "Cyberpunk city mood", "Generic gaming landing", "3D decoration without navigation"],
-    tokenIntent:
-      "Use virtual room depth, avatar cards, neon world shards, spatial navigation, purple/cyan ambience, and social presence modules so the style reads as metaverse interface design.",
   },
 };
 
@@ -3609,15 +3580,6 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
     imageSrc: "/generated/moodboards/chromecore-realistic-v2.webp",
     prompt:
       "Create a realistic editorial moodboard for Chromecore in web design. The board should look like a real designer's reflective metal and futuristic product research board photographed from above on a dark neutral studio table. Include printed chromecore landing page and luxury product layout references without readable text, chrome product-detail crop fragments with no logos, mirror-polished metal swatches, liquid metal abstract photo crops, reflective silver paper, black glossy card stock, rounded chrome button studies with empty bars only, cold blue and black color chips, brushed steel strips, clear acrylic spacers, distorted reflection studies, and small physical objects like blank chrome discs and smooth metal capsules. The visual language should communicate metallic gloss, reflection, futuristic luxury, and polished surface tension for web pages, not Y2K jelly plastic or hologram rainbow film. Use tape corners, pin marks, slight paper curl, mirror reflections, metal highlights, soft dust, varied paper thickness, and real shadows. Palette: chrome silver, black, cold white, graphite, icy blue, gunmetal, small cobalt accent. Absolutely no readable text, no tiny text, no letters, no numbers, no labels, no brand names, no logos, no watermarks, no people, no faces, no fake UI gibberish, no colorful hologram dominance, no cyberpunk city, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
-  },
-  "metaverse-style": {
-    alt: "Metaverse Style moodboard with 3D platform web proofs, isometric virtual-space crops, avatar tokens, grid studies, low-poly objects, VR controller details, and foam blocks.",
-    caption: "Immersive spatial UI: translate virtual rooms, avatar tokens, isometric grids, low-poly objects, foam blocks, and translucent interface cards into web structure.",
-    directionKeywords: ["real virtual world board", "isometric spatial UI", "abstract avatar tokens", "3D grid studies", "miniature foam blocks"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/metaverse-style-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for Metaverse Style in web design. The board should look like a real designer's virtual world and 3D interface research board photographed from above on a neutral light grey studio table. Include printed metaverse-inspired landing page and 3D platform layout references without readable text, isometric virtual-space crops with no logos, abstract avatar silhouette tokens with no faces, 3D grid paper studies, low-poly object photo crops, VR controller detail crops with no brand marks, translucent purple and blue acetate, miniature foam blocks, matte plastic samples, spatial UI card studies with empty bars only, virtual room color chips, and wireframe overlay sheets with no numbers. The visual language should communicate immersive space, avatar systems, 3D navigation, and playful virtual presence for web pages, not gaming battle scenes or corporate VR stock imagery. Use tape corners, pin marks, slight paper curl, small physical shadows from foam blocks, acetate reflections, varied paper thickness, subtle dust, and real surface texture. Palette: soft grey, white, violet, electric blue, mint, black, soft pink, translucent cyan. Absolutely no readable text, no tiny text, no letters, no numbers, no labels, no brand names, no logos, no watermarks, no real people, no faces, no fake UI gibberish, no game characters, no weapons, no city skyline, no floating holograms. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
   classic: {
     alt: "Classic moodboard with balanced editorial web proofs, classical architecture crops, ivory papers, marble samples, dark wood, muted chips, brass strips, and black ribbon.",

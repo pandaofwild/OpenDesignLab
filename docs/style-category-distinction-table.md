@@ -55,7 +55,6 @@ This table is the working comparison sheet for keeping styles inside the same ca
 | ai-aesthetic | Model canvas workflow | synthetic gradients, prompt surfaces | prompt bar, latent queue, generated preview | startup-landing-page, high-tech | AI workflow and model canvas | MODEL CANVAS |
 | hologram-style | Light-field interface depth | prism acrylic, translucent layers | spatial labels, depth panels, refraction | glassmorphism, chromecore | spectral depth, not flat glass blur | LIGHT FIELD |
 | chromecore | Y2K molded chrome hardware | silver shells, star flashes, blue lenses | faceplate carousel, finish/fitment rails, order bar | y2k, luxury | molded hardware and specular chrome | CHROMEWORKS |
-| metaverse-style | Social spatial lobby | avatar mesh, room grid, world shards | virtual room navigation and presence labels | gaming, hologram-style | avatar/world navigation, not dashboard | SPATIAL LOBBY |
 
 ## 럭셔리 / 클래식
 

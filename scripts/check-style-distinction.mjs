@@ -90,7 +90,6 @@ const categorySlugOrder = {
     "ai-aesthetic",
     "hologram-style",
     "chromecore",
-    "metaverse-style",
   ],
   "럭셔리 / 클래식": [
     "classic",
@@ -194,7 +193,6 @@ const styleSampleFunctions = {
   "ai-aesthetic": "AiAestheticStudio",
   "hologram-style": "HologramInterface",
   chromecore: "ChromecoreFaceplateShop",
-  "metaverse-style": "MetaverseWorld",
   classic: "ClassicHeritageCommerce",
   neoclassic: "NeoclassicHotelHome",
   luxury: "LuxuryEditorialProduct",

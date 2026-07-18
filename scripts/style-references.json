@@ -431,7 +431,7 @@
       { "url": "https://lookingglassfactory.com", "title": "Looking Glass Factory", "note": "Holographic display reference for light-field depth, volumetric objects, prism surfaces, and floating 3D product cues." }
     ],
     "galleries": [
-      { "url": "https://www.awwwards.com/websites/3d/", "title": "Awwwards - 3D Websites", "note": "Gallery fit: 디지털 광원을 핵심 신호로 사용합니다, 어두운 대시보드, 각진 디스플레이 타입, 어두운 베이스을 기본 배경으로 사용합니다 make this relevant to Hologram Style; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from chromecore / metaverse-style; require hologram, iridescent, future cues instead of broad polish." },
+      { "url": "https://www.awwwards.com/websites/3d/", "title": "Awwwards - 3D Websites", "note": "Gallery fit: 디지털 광원을 핵심 신호로 사용합니다, 어두운 대시보드, 각진 디스플레이 타입, 어두운 베이스을 기본 배경으로 사용합니다 make this relevant to Hologram Style; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from chromecore / gaming; require hologram, iridescent, future cues instead of broad polish." },
       { "url": "https://dribbble.com/search/holographic", "title": "Dribbble - Holographic", "note": "UI reference for iridescent gradients, glass panels, prism stacks, and translucent holographic interface cards." },
       { "url": "https://www.pinterest.com/search/pins/?q=Hologram%20Style%20website%20design", "title": "Pinterest - Hologram Style Website Design", "note": "Moodboard reference for spectral light, transparent surfaces, holographic labels, and dimensional UI effects." }
     ]
@@ -447,19 +447,6 @@
       { "url": "https://www.pinterest.com/search/pins/?q=Chromecore%20website%20design", "title": "Pinterest - Chromecore Website Design", "note": "Gallery fit: use this board search to compare chrome typography, reflective 3D objects, silver gradients, glossy black staging; it is useful for web moodboard clustering, not as proof of a single live site, and stays distinct from hologram-style, which is translucent and spectral rather than dense metallic." },
       { "url": "https://www.awwwards.com/websites/silver/", "title": "Awwwards - Chromecore References", "note": "Gallery fit: filter award examples for chrome typography, reflective 3D objects, silver gradients, glossy black staging; use it to study responsive hero, navigation, and section pacing, while rejecting generic polished pages closer to hologram-style, which is translucent and spectral rather than dense metallic." },
       { "url": "https://dribbble.com/search/y2k%20chrome%20website", "title": "Dribbble - Chromecore Website Design", "note": "Gallery fit: compare component-level treatments such as chrome typography, reflective 3D objects, silver gradients, glossy black staging; useful for buttons, cards, and landing sections, but less authoritative than the live sites for final style matching." }
-    ]
-  },
-
-  "metaverse-style": {
-    "sites": [
-      { "url": "https://www.spatial.io", "title": "Spatial", "note": "Virtual-space reference for 3D rooms, avatar presence, gallery-like spatial UI, and creator collaboration surfaces." },
-      { "url": "https://www.sandbox.game", "title": "The Sandbox", "note": "Metaverse game reference for voxel worlds, avatar identity, land cards, marketplace modules, and playful spatial navigation." },
-      { "url": "https://www.meta.com/quest/", "title": "Meta Quest", "note": "Consumer VR reference for headset product hierarchy, virtual worlds, immersive experiences, and spatial interaction framing." }
-    ],
-    "galleries": [
-      { "url": "https://www.awwwards.com/websites/webgl/", "title": "Awwwards - WebGL Websites", "note": "Gallery fit: 디지털 광원을 핵심 신호로 사용합니다, 어두운 대시보드, 각진 디스플레이 타입, 어두운 베이스을 기본 배경으로 사용합니다 make this relevant to Metaverse Style; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from futurism / cyberpunk; require metaverse, virtual, 3d cues instead of broad polish." },
-      { "url": "https://dribbble.com/search/metaverse", "title": "Dribbble - Metaverse", "note": "UI reference for avatars, lobby screens, virtual land cards, world shards, and social spatial dashboards." },
-      { "url": "https://www.pinterest.com/search/pins/?q=Metaverse%20Style%20website%20design", "title": "Pinterest - Metaverse Style Website Design", "note": "Moodboard reference for avatar meshes, glowing world maps, virtual rooms, and playful 3D interface layouts." }
     ]
   },
 

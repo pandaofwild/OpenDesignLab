@@ -159,7 +159,7 @@ function StudioViewInner() {
       >
         <div className="grid min-h-[calc(100dvh-96px)] lg:grid-cols-[258px_minmax(0,1fr)_300px]">
           <aside className="space-y-7 border-b border-[var(--specimen-line)] p-4 lg:border-b-0 lg:border-r">
-            <SpecimenSideSection title="Style · 088">
+            <SpecimenSideSection title="Style · 087">
               <div className="space-y-2">
                 {visibleStyleOptions.length ? visibleStyleOptions.map((style, index) => {
                   const item = designStyleForLocale(style, locale);

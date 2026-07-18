@@ -3437,51 +3437,6 @@ function ChromecoreFaceplateShop({ className, compact = false, style }: Props) {
   );
 }
 
-function MetaverseWorld({ className, compact = false, style }: Props) {
-  return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span aria-hidden="true" className="absolute inset-0" style={{ backgroundImage: "radial-gradient(60% 70% at 30% 25%, rgb(var(--st-accent-rgb) / 0.6), transparent 60%), radial-gradient(55% 65% at 82% 35%, rgb(var(--st-accent-2-rgb) / 0.55), transparent 60%), radial-gradient(60% 60% at 70% 100%, rgb(var(--st-accent-3-rgb) / 0.5), transparent 60%), linear-gradient(180deg, var(--sample-surface), var(--sample-base))" }} />
-      <span aria-hidden="true" className="absolute bottom-0 left-[6%] h-[62%] w-[26%]" style={{ backgroundImage: "radial-gradient(50% 40% at 50% 22%, rgb(var(--st-accent-rgb) / 0.9), transparent 60%), linear-gradient(180deg, color-mix(in srgb, var(--sample-accent) 70%, #000) 0%, transparent 85%)", clipPath: "polygon(30% 0, 70% 0, 80% 100%, 20% 100%)" }} />
-      <span aria-hidden="true" className="absolute bottom-0 right-[8%] h-[70%] w-[28%]" style={{ backgroundImage: "radial-gradient(50% 40% at 50% 20%, rgb(var(--st-accent-2-rgb) / 0.9), transparent 60%), linear-gradient(180deg, color-mix(in srgb, var(--sample-accent-2) 70%, #000) 0%, transparent 85%)", clipPath: "polygon(28% 0, 72% 0, 82% 100%, 18% 100%)" }} />
-      <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ boxShadow: "inset 0 -50px 60px -20px rgb(var(--st-base-rgb) / 0.9), inset 0 40px 50px -20px rgb(var(--st-base-rgb) / 0.7)" }} />
-
-      <div className="relative flex h-full flex-col text-[var(--sample-text)]">
-        <div className="flex items-center gap-3 text-[10px] font-semibold">
-          <span className="flex items-center gap-1.5 font-display text-sm tracking-tight" style={{ fontFamily: "var(--st-font-display)" }}>
-            <span className="h-3.5 w-3.5 rounded-[5px] bg-[var(--sample-accent)]" /> SPATIAL LOBBY
-          </span>
-          <nav className={cn("items-center gap-3 text-[var(--sample-text)]/80", compact ? "hidden" : "flex")}>
-            <span>avatar mesh</span>
-            <span>world shard</span>
-            <span>rooms</span>
-          </nav>
-          <span className="ml-auto rounded-[var(--st-radius-pill)] border border-white/40 px-3 py-1">Sign in</span>
-        </div>
-
-        <div className="flex min-h-0 flex-1 flex-col items-center justify-center text-center">
-          <h3
-            className={cn("font-display leading-[0.9] tracking-tight", compact ? "text-3xl" : "text-5xl md:text-[3.8rem]")}
-            style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)", textShadow: "0 2px 20px rgb(var(--st-base-rgb) / 0.8)" }}
-          >
-            Pick a room.
-            <br />
-            Bring a body.
-          </h3>
-          <div className="mt-5 flex items-center gap-2.5">
-            <span className="inline-flex items-center gap-1.5 rounded-[var(--st-radius-pill)] bg-[var(--sample-accent)] px-4 py-2 text-[11px] font-bold text-white" style={{ boxShadow: "0 0 18px rgb(var(--st-accent-rgb) / 0.6)" }}>
-              Enter lobby
-            </span>
-            <span className={cn("inline-flex items-center rounded-[var(--st-radius-pill)] border border-white/40 px-4 py-2 text-[11px] font-bold", compact ? "hidden" : "")}>
-              Mint avatar
-            </span>
-          </div>
-          <p className={cn("mt-3 text-[9px] uppercase tracking-[0.14em] text-[var(--sample-text)]/70", compact ? "hidden" : "")}>36 friends online / 12 live worlds</p>
-        </div>
-      </div>
-    </SampleFrame>
-  );
-}
-
 function LuxuryClassicBottomStrip({ compact = false, items }: { compact?: boolean; items: Array<[string, string]> }) {
   return (
     <div className={cn("grid border-t border-[var(--sample-border-soft)]", compact ? "grid-cols-3 text-[8px]" : "grid-cols-3 text-[10px]")}>
@@ -8707,10 +8662,6 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
 
   if (style.slug === "chromecore") {
     return <ChromecoreFaceplateShop {...props} />;
-  }
-
-  if (style.slug === "metaverse-style") {
-    return <MetaverseWorld {...props} />;
   }
 
   if (style.slug === "typography-focused") {
