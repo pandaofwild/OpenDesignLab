@@ -686,15 +686,15 @@ const palettes: Record<string, DesignStylePalette> = {
     border: "#E3D8F6",
   },
   "hologram-style": {
-    base: "#080C18",
-    surface: "#101A30",
-    text: "#EAF6FF",
-    mutedText: "#8FB3CF",
-    primary: "#EAF6FF",
-    accent: "#7CF5FF",
-    accent2: "#B388FF",
-    accent3: "#FF9CEE",
-    border: "#27405C",
+    base: "#F4F7F7",
+    surface: "#FFFFFF",
+    text: "#263543",
+    mutedText: "#71838C",
+    primary: "#173C4A",
+    accent: "#3AC6DE",
+    accent2: "#8B74D9",
+    accent3: "#D89B4A",
+    border: "#C8D8DC",
   },
   chromecore: {
     base: "#CDD2DA",
@@ -1339,19 +1339,19 @@ const futureDigitalResearch: Partial<Record<string, StyleResearchBrief>> = {
   },
   "hologram-style": {
     referenceSites: [
-      { title: "Apple Vision Pro", url: "https://www.apple.com/apple-vision-pro/", note: "Spatial-computing reference for glassy depth, floating interfaces, soft refraction, premium translucency, and layered light." },
-      { title: "Magic Leap", url: "https://www.magicleap.com", note: "AR hardware reference for mixed-reality overlays, depth layers, transparent UI, and spatial interface language." },
-      { title: "Looking Glass Factory", url: "https://lookingglassfactory.com", note: "Holographic display reference for light-field depth, volumetric objects, prism surfaces, and floating 3D product cues." },
+      { title: "Apple Vision Pro", url: "https://www.apple.com/apple-vision-pro/", note: "Spatial-computing reference for legible depth hierarchy, precise optical anchoring, and restrained translucent surfaces that remain readable in a bright environment." },
+      { title: "Magic Leap", url: "https://www.magicleap.com", note: "Mixed-reality reference for registering labels and controls to a spatial subject instead of arranging generic floating cards." },
+      { title: "Looking Glass Factory", url: "https://lookingglassfactory.com", note: "Light-field display reference for a genuinely volumetric central object, visible depth separation, and multiple view planes." },
     ],
     referenceGalleries: [
-      { title: "Awwwards - 3D Websites", url: "https://www.awwwards.com/websites/3d/", note: "Gallery reference for depth-rich web execution, translucent 3D objects, spectral materials, and immersive product staging." },
-      { title: "Dribbble - Holographic", url: "https://dribbble.com/search/holographic", note: "UI reference for iridescent gradients, glass panels, prism stacks, and translucent holographic interface cards." },
-      { title: "Pinterest - Hologram Style Website Design", url: "https://www.pinterest.com/search/pins/?q=Hologram%20Style%20website%20design", note: "Moodboard reference for spectral light, transparent surfaces, holographic labels, and dimensional UI effects." },
+      { title: "Awwwards - 3D Websites", url: "https://www.awwwards.com/websites/3d/", note: "Compare depth-rich web execution, but retain only examples where a scientific or anatomical volume has clear spatial hierarchy and controls." },
+      { title: "Dribbble - Holographic", url: "https://dribbble.com/search/holographic", note: "Component reference for spectral edge light, slice controls, orientation aids, and spatial measurements; reject flat glass cards and decorative rainbow gradients." },
+      { title: "Pinterest - Hologram Style Website Design", url: "https://www.pinterest.com/search/pins/?q=Hologram%20Style%20website%20design", note: "Moodboard reference for clinical optics, translucent scan layers, and scientific volumes distinct from chromecore hardware or HUD reticles." },
     ],
-    representativeTraits: ["Light-field depth", "Prism stack", "Translucent panels", "Floating spatial labels", "Spectral edge light"],
-    avoidTraits: ["Opaque glassmorphism cards only", "Chrome metal surfaces", "Flat neon dashboard", "Rainbow decoration without depth"],
+    representativeTraits: ["Clinical volume chamber", "Four-plane light field", "Tissue-mode segmentation", "Slice and depth controls", "Spatial measurement labels"],
+    avoidTraits: ["Generic frosted glass cards", "Dark cyberpunk command center", "Chrome hardware spectacle", "Decorative rainbow gradients without depth logic"],
     tokenIntent:
-      "Use transparent panels, spectral gradients, light-field depth, prism cards, floating labels, and soft refraction so the style reads as holographic interface design.",
+      "Use pearl clinical surfaces, restrained cyan/violet spectral edges, pale amber measurement focus, hairline optics, four explicit depth planes, and real scan controls so holography reads as volumetric light rather than flat glass blur.",
   },
   chromecore: {
     referenceSites: [
@@ -1556,6 +1556,24 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     ],
     imagePrompt:
       "A cinematic realistic first-person survey-drone view over a coastal harbor at blue hour, cold graphite and ice-blue atmosphere, open central field for flight symbology, tiny amber shoreline lights, no UI baked into the image, no text, no logo, no watermark",
+  },
+  "hologram-style": {
+    summary: "홀로그램 스타일은 한 장의 반투명 카드가 아니라, 스캔 단면과 재구성 볼륨·측정 좌표가 서로 다른 깊이에 놓이는 광학 인터페이스입니다.",
+    description:
+      "LUMA VOLUME은 밝은 임상 연구실의 해부학 볼륨 뷰어로 홀로그램의 핵심을 보여줍니다. 후면 좌표 그리드, coronal slice, 중앙 해부학 볼륨, 전면 공간 측정의 네 평면이 분리되고 Tissue·Vessel·Bone 모드와 slice control이 실제 시각 상태를 바꿉니다. 펄 화이트 바탕 위 시안과 바이올렛은 깊이 경계에만, 페일 앰버는 측정 초점에만 써서 글래스모피즘이나 메타버스식 네온 패널과 구분합니다.",
+    visualFeatures: [
+      "후면 그리드, coronal slice, 재구성 볼륨, 측정 레이어가 네 깊이 평면으로 분리됩니다.",
+      "Tissue·Vessel·Bone 모드가 조직 강조와 스캔 시리즈·측정값을 함께 바꿉니다.",
+      "slice control, orientation cube, spatial measurement가 실제 의료 영상 도구처럼 작동합니다.",
+      "펄 화이트 환경에서 시안·바이올렛 분광 가장자리와 작은 페일 앰버 측정광만 사용합니다.",
+    ],
+    colorPalette: ["펄 화이트 임상 표면", "절제된 시안 광학선", "바이올렛 깊이 경계", "페일 앰버 측정 초점", "쿨 그레이 좌표선"],
+    typography: ["좁고 정밀한 대문자 메타", "탭형 수치와 단위", "판독값보다 약한 임상 라벨"],
+    layoutTraits: ["중앙 해부학 볼륨 중심의 진단 챔버", "좌측 스캔 메타와 우측 모드·슬라이스 제어", "하단 reconstruction sequence", "장면에 고정된 orientation과 측정 좌표"],
+    useCases: ["의료 영상", "과학 볼류메트릭 데이터", "공간 시뮬레이션", "3D 검사"],
+    goodFor: ["단면과 전체 볼륨을 동시에 비교하는 진단 도구", "깊이별 데이터 관계를 조작해야 하는 과학 인터페이스", "3D 모델의 방향과 치수를 판독하는 검사 화면"],
+    cautions: ["반투명 카드만 겹치면 글래스모피즘으로 보이므로 깊이 평면마다 정보 역할을 부여해야 합니다.", "분광색을 넓은 무지개 면으로 쓰지 말고 물체 가장자리와 활성 단면에 제한해야 합니다.", "해부학 이미지는 비고어 임상 시각화로 유지하고 장식적 SF 인체로 과장하지 않아야 합니다."],
+    imagePrompt: "Bright pearl-white clinical research laboratory, one central translucent non-gory human torso anatomical reconstruction from medical scan slices, visible coronal slice separation and genuine volumetric depth, restrained cyan and violet spectral edges, one pale amber measurement highlight, precision optical imaging, quiet clean atmosphere, no readable text, no gore, no dark cyberpunk, no floating glass dashboard, no chrome hardware, landscape 16:10",
   },
   minimalism: {
     summary: "미니멀리즘은 장식을 덜어내고 여백, 얇은 선, 정밀한 타이포 위계로 제품과 메시지를 선명하게 보이게 하는 디자인입니다.",

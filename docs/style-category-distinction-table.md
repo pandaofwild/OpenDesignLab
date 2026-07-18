@@ -53,7 +53,7 @@ This table is the working comparison sheet for keeping styles inside the same ca
 | hud | First-person instrument overlay | ice-blue acetate, reticles, night cockpit glow | corner clusters, pitch ladder, data tapes over a scene | high-tech, hologram-style | overlay-on-scene symbology, not card dashboard | FLIGHT OSD |
 | high-tech | Infrastructure control plane | graphs, dark product panels | deploy graph, edge regions, telemetry cards | saas-style, cyber-dashboard | precise software ops, not fantasy | CONTROL PLANE |
 | ai-aesthetic | Model canvas workflow | synthetic gradients, prompt surfaces | prompt bar, latent queue, generated preview | startup-landing-page, high-tech | AI workflow and model canvas | MODEL CANVAS |
-| hologram-style | Light-field interface depth | prism acrylic, translucent layers | spatial labels, depth panels, refraction | glassmorphism, chromecore | spectral depth, not flat glass blur | LIGHT FIELD |
+| hologram-style | Clinical volumetric light field | anatomical volume, optical slices, spectral edge light | four depth planes, tissue modes, slice control, spatial measurement | glassmorphism, HUD, high-tech, chromecore | reconstructed volume with depth-aware controls, not flat translucent cards | LUMA VOLUME |
 | chromecore | Y2K molded chrome hardware | silver shells, star flashes, blue lenses | faceplate carousel, finish/fitment rails, order bar | y2k, luxury | molded hardware and specular chrome | CHROMEWORKS |
 
 ## 럭셔리 / 클래식

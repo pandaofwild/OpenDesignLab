@@ -426,14 +426,14 @@
 
   "hologram-style": {
     "sites": [
-      { "url": "https://www.apple.com/apple-vision-pro/", "title": "Apple Vision Pro", "note": "Spatial-computing reference for glassy depth, floating interfaces, soft refraction, premium translucency, and layered light." },
-      { "url": "https://www.magicleap.com", "title": "Magic Leap", "note": "AR hardware reference for mixed-reality overlays, depth layers, transparent UI, and spatial interface language." },
-      { "url": "https://lookingglassfactory.com", "title": "Looking Glass Factory", "note": "Holographic display reference for light-field depth, volumetric objects, prism surfaces, and floating 3D product cues." }
+      { "url": "https://www.apple.com/apple-vision-pro/", "title": "Apple Vision Pro", "note": "Spatial-computing reference for legible depth hierarchy, precise optical anchoring, and restrained translucent surfaces in a bright environment." },
+      { "url": "https://www.magicleap.com", "title": "Magic Leap", "note": "Mixed-reality reference for registering labels and controls to a spatial subject instead of arranging generic floating cards." },
+      { "url": "https://lookingglassfactory.com", "title": "Looking Glass Factory", "note": "Light-field display reference for a genuinely volumetric central object, visible depth separation, and multiple view planes." }
     ],
     "galleries": [
-      { "url": "https://www.awwwards.com/websites/3d/", "title": "Awwwards - 3D Websites", "note": "Gallery fit: 디지털 광원을 핵심 신호로 사용합니다, 어두운 대시보드, 각진 디스플레이 타입, 어두운 베이스을 기본 배경으로 사용합니다 make this relevant to Hologram Style; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from chromecore / gaming; require hologram, iridescent, future cues instead of broad polish." },
-      { "url": "https://dribbble.com/search/holographic", "title": "Dribbble - Holographic", "note": "UI reference for iridescent gradients, glass panels, prism stacks, and translucent holographic interface cards." },
-      { "url": "https://www.pinterest.com/search/pins/?q=Hologram%20Style%20website%20design", "title": "Pinterest - Hologram Style Website Design", "note": "Moodboard reference for spectral light, transparent surfaces, holographic labels, and dimensional UI effects." }
+      { "url": "https://www.awwwards.com/websites/3d/", "title": "Awwwards - 3D Websites", "note": "Compare depth-rich web execution, retaining examples where a scientific or anatomical volume has clear spatial hierarchy and controls." },
+      { "url": "https://dribbble.com/search/holographic", "title": "Dribbble - Holographic", "note": "Component reference for spectral edge light, slice controls, orientation aids, and spatial measurements; reject flat glass cards and decorative rainbow gradients." },
+      { "url": "https://www.pinterest.com/search/pins/?q=Hologram%20Style%20website%20design", "title": "Pinterest - Hologram Style Website Design", "note": "Moodboard reference for clinical optics, translucent scan layers, and scientific volumes distinct from chromecore hardware or HUD reticles." }
     ]
   },
 
