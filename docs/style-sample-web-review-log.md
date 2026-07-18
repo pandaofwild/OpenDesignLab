@@ -64,7 +64,7 @@
 | 30 | 미래 / 디지털 | hud | cyber-dashboard | verified | KESTREL GCS 시네마틱 드론 관제 HUD — first-person scene, pitch ladder·roll arc·flight-path vector, calibrated data tapes, waypoint guidance+telemetry rail, ice-blue phosphor·amber caution |
 | 31 | 미래 / 디지털 | high-tech | saas-landing | queued | precision instrumentation, engineering surfaces |
 | 32 | 미래 / 디지털 | ai-aesthetic | saas-landing | verified | MODEL CANVAS generative studio — world-model preview with denoise sweep, prompt bar with style presets, latent queue job states, model index |
-| 33 | 미래 / 디지털 | hologram-style | cyber-dashboard | queued | translucent spectral layers, prism depth, not chrome |
+| 33 | 미래 / 디지털 | hologram-style | cyber-dashboard | verified | LUMA VOLUME clinical anatomy viewer — four-plane volume chamber, tissue modes, slice control, orientation cube, scan series, pearl/cyan/violet clinical optics |
 | 34 | 미래 / 디지털 | chromecore | luxury-product | verified | CHROMEWORKS faceplate shop — chrome-type nameplate, shells standing on a chrome rail (carousel), fitment rail with stock states, order bar |
 | 36 | 럭셔리 / 클래식 | classic | luxury-product | queued | symmetrical heritage, serif restraint, traditional trust |
 | 37 | 럭셔리 / 클래식 | neoclassic | luxury-product | queued | columns, museum spacing, disciplined ornament |
@@ -310,3 +310,17 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - browser QA: `/ko/styles/hud` 1280×900 full과 375×812 mobile, `/ko/styles` compact에서 page overflow `0`; compact에서도 KESTREL GCS·현재값·중앙 계기·waypoint·battery caution 유지. `prefers-reduced-motion`에서 HUD animation-name `none` 확인.
 - console: 깨끗하게 재시작한 HUD 상세 페이지는 error 0. 목록 페이지의 기존 중복 React key 경고(`distortion rail`, `soft 3D modules`, `feature proof grid`, `funnel sequence`, `no-depth buttons`)는 다른 스타일 데이터에서 발생하며 HUD 범위 밖으로 분리.
 - screenshots: `.playwright-cli/page-2026-07-18T06-37-48-836Z.png`(full), `.playwright-cli/page-2026-07-18T06-38-32-557Z.png`(mobile), `.playwright-cli/element-2026-07-18T06-42-27-324Z.png`(compact).
+
+## 33. hologram-style (미래 / 디지털)
+
+### 최종 검증 (2026-07-18)
+
+- status: `verified`.
+- 컨셉: **LUMA VOLUME · Clinical Anatomy Viewer**. 기존 `LIGHT FIELD` 프리즘 카드 히어로를 제거하고 밝은 임상 연구실의 볼류메트릭 진단 챔버로 재구축. 후면 grid plane → coronal slice → anatomical volume → 전면 spatial measurement의 네 깊이 평면을 실제 DOM 구조와 3D transform으로 분리.
+- 상호작용 QA: Tissue(AX T2/Soft tissue/42.8 mm) → Vessel(CE-MRA/Vascular tree/18.4 mm) → Bone(CT B70/Cortical bone/31.6 mm) 전환 시 `aria-pressed`, series, focus, measurement가 함께 갱신. slice control을 72%로 이동했을 때 출력값·Depth·coronal clip이 함께 갱신. 키보드 Tab으로 slider 도달, `:focus-visible` 2px solid outline 확인.
+- 이미지 QA: built-in ImageGen으로 `public/generated/design-styles/hologram-style.webp`와 `public/generated/moodboards/hologram-style-realistic-v2.webp` 생성 후 원본 해상도 직접 검사. 주제 이미지는 비고어 중앙 해부 볼륨·분리 스캔 평면·밝은 연구실, 무드보드는 실제 종이·스캔 필름·아크릴 광학 재료의 top-down 연구 보드이며 로고·워터마크·크롬 지배·어두운 메타버스 인상 없음.
+- browser QA: production build 기준 `/ko/styles/hologram-style` 1280×900 full과 375×812 mobile, `/ko/styles` compact desktop/mobile 모두 page overflow `0`. mobile chamber 447px·잘린 control 0. compact는 lazy image 로드 후 anatomical volume이 선명하고 orientation cube가 card 경계 안에 완전히 노출됨.
+- reduced-motion: `prefers-reduced-motion: reduce`에서 reconstruction sweep과 volume image의 `animation-name` 모두 `none`.
+- console: production 상세·목록 페이지 error 0. 최초 dev QA의 HMR WebSocket 오류는 같은 checkout의 기존 중복 dev 서버 lock에서 발생했으며, 해당 프로세스를 종료하고 production 서버로 재검증해 애플리케이션 오류가 아님을 분리 확인.
+- screenshots: `.playwright-cli/page-2026-07-18T08-43-13-472Z.png`(full), `.playwright-cli/page-2026-07-18T08-52-21-556Z.png`(mobile), `.playwright-cli/element-2026-07-18T08-50-18-346Z.png`(compact).
+- 자동 검증: `check:data` 87 styles/10 categories, `check:future-digital` 8 styles, `check:style-distinction` 87 styles, `check:style-refs` 87 styles, TypeScript, ESLint, `next build` 577 static pages 통과.
