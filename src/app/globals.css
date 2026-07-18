@@ -9,6 +9,192 @@
   src: local("Bricolage Grotesque"), local("BricolageGrotesque-Bold");
 }
 
+/* Hologram / LUMA VOLUME clinical light-field viewer */
+.hologram-clinical {
+  --holo-cyan: #3ac6de;
+  --holo-violet: #8b74d9;
+  --holo-amber: #d89b4a;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100%;
+  min-height: 480px;
+  overflow: hidden;
+  color: #263543;
+  background:
+    radial-gradient(circle at 52% 46%, rgb(94 210 224 / 0.12), transparent 32%),
+    linear-gradient(135deg, #fbfcfc 0%, #eef3f4 54%, #f8f7fb 100%);
+  font-family: var(--st-font-body);
+}
+
+.hologram-clinical::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image: linear-gradient(rgb(57 80 92 / 0.035) 1px, transparent 1px), linear-gradient(90deg, rgb(57 80 92 / 0.035) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.hologram-clinical-header,
+.hologram-clinical-series {
+  position: relative;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-color: rgb(46 76 91 / 0.16);
+}
+
+.hologram-clinical-header { padding: 12px 16px; border-bottom-width: 1px; }
+.hologram-clinical-brand, .hologram-clinical-study { display: flex; align-items: baseline; gap: 14px; }
+.hologram-clinical-kicker { color: #173c4a; font: 700 12px/1 var(--st-font-display); letter-spacing: .14em; }
+.hologram-clinical-title, .hologram-clinical-study { color: #63747d; font-size: 8px; letter-spacing: .13em; text-transform: uppercase; }
+.hologram-clinical-live { display: inline-flex; align-items: center; gap: 5px; color: #357082; }
+.hologram-clinical-live i { width: 5px; height: 5px; border-radius: 50%; background: var(--holo-cyan); box-shadow: 0 0 8px rgb(58 198 222 / .8); }
+
+.hologram-clinical-layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(132px, .58fr) minmax(240px, 1.45fr) minmax(150px, .66fr);
+  min-height: 0;
+  padding: 12px 14px;
+}
+
+.hologram-clinical-meta,
+.hologram-clinical-controls { position: relative; z-index: 9; padding: 14px 10px; }
+.hologram-clinical-meta { display: flex; flex-direction: column; gap: 20px; border-right: 1px solid rgb(46 76 91 / .13); }
+.hologram-clinical-meta > div:not(.hologram-clinical-vitals) { display: grid; gap: 5px; }
+.hologram-clinical-meta strong { color: #304a56; font-size: 10px; font-weight: 600; letter-spacing: .04em; }
+.hologram-clinical-micro { color: #84929a; font-size: 7px; letter-spacing: .18em; text-transform: uppercase; }
+.hologram-clinical-vitals { display: grid; gap: 8px; margin-top: auto; }
+.hologram-clinical-vitals span { display: grid; grid-template-columns: 5px 1fr auto; align-items: center; gap: 6px; color: #778992; font-size: 7px; text-transform: uppercase; }
+.hologram-clinical-vitals i { width: 3px; height: 3px; border-radius: 50%; background: var(--holo-cyan); }
+.hologram-clinical-vitals b { color: #435b66; font-weight: 600; }
+
+.hologram-clinical-chamber {
+  position: relative;
+  min-height: 330px;
+  overflow: hidden;
+  isolation: isolate;
+  perspective: 900px;
+  transform-style: preserve-3d;
+  background: radial-gradient(ellipse at center, rgb(255 255 255 / .86), rgb(225 237 239 / .3) 58%, transparent 76%);
+}
+
+.hologram-clinical-grid-plane,
+.hologram-clinical-coronal-plane,
+.hologram-clinical-volume-plane,
+.hologram-clinical-measure-plane { position: absolute; inset: 6% 8%; transform-style: preserve-3d; }
+.hologram-clinical-grid-plane {
+  transform: translateZ(-32px) scale(.94);
+  border: 1px solid rgb(51 119 135 / .18);
+  background-image: linear-gradient(rgb(48 120 134 / .1) 1px, transparent 1px), linear-gradient(90deg, rgb(48 120 134 / .1) 1px, transparent 1px);
+  background-size: 22px 22px;
+  clip-path: polygon(10% 5%, 90% 5%, 100% 50%, 90% 95%, 10% 95%, 0 50%);
+}
+.hologram-clinical-coronal-plane {
+  --slice: 48%;
+  inset: 10% 13%;
+  transform: translateZ(-12px);
+  clip-path: inset(0 calc(100% - var(--slice)) 0 0);
+  border-right: 1px solid rgb(139 116 217 / .5);
+  background: repeating-linear-gradient(0deg, rgb(80 182 200 / .06) 0 2px, transparent 2px 7px), linear-gradient(90deg, transparent, rgb(139 116 217 / .12));
+  box-shadow: 9px 0 20px rgb(139 116 217 / .08);
+  transition: clip-path 220ms ease;
+}
+.hologram-clinical-volume-plane { transform: translateZ(18px); mix-blend-mode: multiply; transition: filter 240ms ease, opacity 240ms ease; }
+.hologram-clinical-volume-plane img { object-fit: contain; filter: saturate(.78) contrast(1.05) drop-shadow(0 7px 16px rgb(54 154 173 / .22)); animation: hologram-clinical-spectrum 7s ease-in-out infinite alternate; }
+.hologram-clinical[data-mode="vessel"] .hologram-clinical-volume-plane { filter: hue-rotate(28deg) saturate(1.12); }
+.hologram-clinical[data-mode="bone"] .hologram-clinical-volume-plane { filter: sepia(.14) saturate(.72) contrast(1.12); }
+.hologram-clinical-measure-plane { transform: translateZ(42px); pointer-events: none; }
+.hologram-clinical-measure-plane::before,
+.hologram-clinical-measure-plane::after { position: absolute; content: ""; background: var(--holo-amber); opacity: .7; }
+.hologram-clinical-measure-plane::before { top: 48%; left: 24%; width: 52%; height: 1px; }
+.hologram-clinical-measure-plane::after { top: calc(48% - 8px); left: 24%; width: 1px; height: 17px; box-shadow: calc(52cqw - 1px) 0 0 var(--holo-amber); }
+.hologram-clinical-measure-plane span { position: absolute; color: #8d632d; font: 600 7px/1 var(--st-font-body); letter-spacing: .08em; }
+.hologram-clinical-measure-plane span:first-child { top: calc(48% - 13px); left: 45%; }
+.hologram-clinical-measure-plane span:nth-child(2) { top: calc(48% + 6px); left: 24%; }
+.hologram-clinical-measure-plane span:last-child { right: 3%; bottom: 6%; color: #58757f; }
+.hologram-clinical-sweep { position: absolute; z-index: 6; top: -8%; bottom: auto; left: 11%; width: 78%; height: 1px; background: linear-gradient(90deg, transparent, var(--holo-cyan), transparent); box-shadow: 0 6px 16px rgb(58 198 222 / .24); animation: hologram-clinical-scan 4.8s linear infinite; }
+.hologram-clinical-crosshair { position: absolute; z-index: 7; top: 50%; left: 50%; width: 12px; height: 12px; border: 1px solid rgb(43 136 153 / .45); border-radius: 50%; transform: translate(-50%, -50%); }
+.hologram-clinical-crosshair::before, .hologram-clinical-crosshair::after { position: absolute; content: ""; background: rgb(43 136 153 / .5); }
+.hologram-clinical-crosshair::before { top: 5px; left: -7px; width: 24px; height: 1px; }
+.hologram-clinical-crosshair::after { top: -7px; left: 5px; width: 1px; height: 24px; }
+
+.hologram-clinical-controls { display: flex; flex-direction: column; gap: 19px; border-left: 1px solid rgb(46 76 91 / .13); }
+.hologram-clinical-mode-group { display: grid; gap: 8px; }
+.hologram-clinical-mode-group > div { display: grid; gap: 3px; }
+.hologram-clinical-mode-group button { position: relative; display: flex; align-items: center; gap: 7px; padding: 7px 5px; border-bottom: 1px solid rgb(46 76 91 / .11); color: #73858e; font-size: 8px; text-align: left; transition: color 180ms ease, background-color 180ms ease; }
+.hologram-clinical-mode-group button i { width: 9px; height: 2px; background: #a9b7bc; transition: width 180ms ease, background 180ms ease; }
+.hologram-clinical-mode-group button[aria-pressed="true"] { color: #245565; background: linear-gradient(90deg, rgb(58 198 222 / .09), transparent); }
+.hologram-clinical-mode-group button[aria-pressed="true"] i { width: 18px; background: linear-gradient(90deg, var(--holo-cyan), var(--holo-violet)); }
+.hologram-clinical-mode-group button:focus-visible, .hologram-clinical-slice input:focus-visible, .hologram-clinical-thumbnails button:focus-visible { outline: 2px solid var(--holo-cyan); outline-offset: 2px; }
+.hologram-clinical-slice { display: grid; gap: 7px; }
+.hologram-clinical-slice > div { display: flex; justify-content: space-between; color: #657882; font-size: 7px; letter-spacing: .1em; text-transform: uppercase; }
+.hologram-clinical-slice output { color: #2e6c7b; font-weight: 700; }
+.hologram-clinical-slice input { width: 100%; height: 12px; appearance: none; background: transparent; }
+.hologram-clinical-slice input::-webkit-slider-runnable-track { height: 1px; background: linear-gradient(90deg, var(--holo-cyan), #9daeb4); }
+.hologram-clinical-slice input::-webkit-slider-thumb { width: 8px; height: 8px; margin-top: -3.5px; appearance: none; border: 1px solid white; border-radius: 50%; background: var(--holo-violet); box-shadow: 0 0 0 2px rgb(139 116 217 / .2); }
+.hologram-clinical-axis { color: #9aa7ac !important; font-size: 6px !important; }
+.hologram-clinical-orientation { display: grid; place-items: center; gap: 7px; margin-top: auto; perspective: 160px; }
+.hologram-clinical-cube { position: relative; width: 30px; height: 30px; transform: rotateX(-20deg) rotateY(32deg); transform-style: preserve-3d; }
+.hologram-clinical-cube span { position: absolute; inset: 0; display: grid; place-items: center; border: 1px solid rgb(55 128 143 / .38); color: #397080; background: rgb(238 249 250 / .58); font-size: 7px; }
+.hologram-clinical-cube-front { transform: translateZ(15px); }
+.hologram-clinical-cube-back { transform: rotateY(180deg) translateZ(15px); }
+.hologram-clinical-cube-right { transform: rotateY(90deg) translateZ(15px); }
+.hologram-clinical-cube-left { transform: rotateY(-90deg) translateZ(15px); }
+
+.hologram-clinical-series { padding: 9px 16px; border-top-width: 1px; }
+.hologram-clinical-series > div:first-child { display: grid; gap: 3px; }
+.hologram-clinical-series strong { color: #4c626c; font-size: 8px; font-weight: 600; }
+.hologram-clinical-thumbnails { display: flex; gap: 5px; }
+.hologram-clinical-thumbnails button { display: grid; grid-template-columns: 17px auto; align-items: center; gap: 4px; padding: 3px 5px; border: 1px solid rgb(55 98 112 / .13); color: #84949b; font-size: 6px; }
+.hologram-clinical-thumbnails button i { width: 17px; height: 15px; background: radial-gradient(ellipse, rgb(68 171 187 / calc(.15 + var(--scan-index) * .025)), transparent 68%), repeating-linear-gradient(90deg, transparent 0 3px, rgb(86 126 136 / .09) 3px 4px); }
+.hologram-clinical-thumbnails button[aria-current="true"] { border-color: rgb(58 198 222 / .55); color: #2c6473; box-shadow: inset 0 -1px var(--holo-cyan); }
+.hologram-clinical-coordinate { display: flex; gap: 8px; color: #78909a; font-size: 6px; letter-spacing: .08em; }
+
+.hologram-clinical--compact { min-height: 0; grid-template-rows: auto 1fr; }
+.hologram-clinical--compact .hologram-clinical-header { padding: 7px 9px; }
+.hologram-clinical--compact .hologram-clinical-title, .hologram-clinical--compact .hologram-clinical-study > span:first-child { display: none; }
+.hologram-clinical--compact .hologram-clinical-kicker { font-size: 9px; }
+.hologram-clinical--compact .hologram-clinical-layout { grid-template-columns: 1fr 92px; padding: 4px; }
+.hologram-clinical--compact .hologram-clinical-meta { position: absolute; z-index: 10; top: 9px; left: 9px; padding: 0; border: 0; }
+.hologram-clinical--compact .hologram-clinical-meta > div:first-child { display: none; }
+.hologram-clinical--compact .hologram-clinical-meta strong { font-size: 7px; }
+.hologram-clinical--compact .hologram-clinical-chamber { min-height: 170px; }
+.hologram-clinical--compact .hologram-clinical-controls { gap: 9px; padding: 5px; }
+.hologram-clinical--compact .hologram-clinical-mode-group { gap: 3px; }
+.hologram-clinical--compact .hologram-clinical-mode-group button { padding: 3px 2px; font-size: 6px; }
+.hologram-clinical--compact .hologram-clinical-slice { gap: 2px; }
+.hologram-clinical--compact .hologram-clinical-orientation { margin-top: 1px; transform: scale(.72); }
+
+@keyframes hologram-clinical-scan { from { top: 5%; opacity: 0; } 12% { opacity: .7; } 88% { opacity: .7; } to { top: 94%; opacity: 0; } }
+@keyframes hologram-clinical-spectrum { from { filter: saturate(.7) hue-rotate(-6deg) drop-shadow(0 7px 16px rgb(54 154 173 / .18)); } to { filter: saturate(.9) hue-rotate(7deg) drop-shadow(0 8px 20px rgb(125 94 198 / .2)); } }
+
+@media (max-width: 720px) {
+  .hologram-clinical:not(.hologram-clinical--compact) { min-height: 680px; }
+  .hologram-clinical:not(.hologram-clinical--compact) .hologram-clinical-header { align-items: flex-start; }
+  .hologram-clinical:not(.hologram-clinical--compact) .hologram-clinical-study > span:not(.hologram-clinical-live) { display: none; }
+  .hologram-clinical:not(.hologram-clinical--compact) .hologram-clinical-layout { grid-template-columns: 1fr; grid-template-rows: auto minmax(280px, 1fr) auto; padding: 8px; }
+  .hologram-clinical:not(.hologram-clinical--compact) .hologram-clinical-meta { flex-direction: row; padding: 8px; border-right: 0; border-bottom: 1px solid rgb(46 76 91 / .13); }
+  .hologram-clinical:not(.hologram-clinical--compact) .hologram-clinical-vitals { display: none; }
+  .hologram-clinical:not(.hologram-clinical--compact) .hologram-clinical-controls { display: grid; grid-template-columns: 1fr 1fr 64px; gap: 10px; padding: 8px; border-top: 1px solid rgb(46 76 91 / .13); border-left: 0; }
+  .hologram-clinical:not(.hologram-clinical--compact) .hologram-clinical-mode-group > div { grid-template-columns: repeat(3, 1fr); }
+  .hologram-clinical:not(.hologram-clinical--compact) .hologram-clinical-orientation { margin-top: 0; }
+  .hologram-clinical-series { overflow: hidden; }
+  .hologram-clinical-thumbnails button:not([aria-current="true"]) { display: none; }
+  .hologram-clinical-coordinate { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hologram-clinical-sweep,
+  .hologram-clinical-volume-plane img { animation: none !important; transition: none !important; }
+}
+
 @font-face {
   font-family: "Hanken Grotesk";
   font-style: normal;
