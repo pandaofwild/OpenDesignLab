@@ -21,7 +21,14 @@ const requiredSampleMarkers = {
   hud: ["FLIGHT OSD", "pitch ladder", "battery cell", "flight path vector", "telemetry rail"],
   "high-tech": ["CONTROL PLANE", "deploy graph", "edge regions"],
   "ai-aesthetic": ["MODEL CANVAS", "Latent queue", "World-model preview"],
-  "hologram-style": ["LIGHT FIELD", "depth layer", "prism stack"],
+    "hologram-style": [
+      "LUMA VOLUME",
+      "clinical volume chamber",
+      "tissue mode",
+      "slice control",
+      "orientation cube",
+      "spatial measurement",
+    ],
   chromecore: ["CHROMEWORKS", "Faceplate carousel", "Fitment rail"],
 };
 
@@ -29,7 +36,9 @@ const retiredSampleMarkers = [
   "ORBITAL VELOCITY",
   "carbon telemetry spine",
   "SHELL SYSTEM",
-  "garment matrix",
+    "garment matrix",
+    "prism stack,",
+    "Volumetric layer",
   "VELOCE",
   "KIROSHI",
   "NOIR",

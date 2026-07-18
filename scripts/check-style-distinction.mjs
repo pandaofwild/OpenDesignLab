@@ -191,7 +191,7 @@ const styleSampleFunctions = {
   hud: "HudFlightOsd",
   "high-tech": "HighTechDashboard",
   "ai-aesthetic": "AiAestheticStudio",
-  "hologram-style": "HologramInterface",
+  "hologram-style": "HologramClinicalVolumeSample",
   chromecore: "ChromecoreFaceplateShop",
   classic: "ClassicHeritageCommerce",
   neoclassic: "NeoclassicHotelHome",
