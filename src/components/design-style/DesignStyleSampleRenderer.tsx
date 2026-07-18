@@ -14,6 +14,7 @@ import { MidCenturyListeningRoom } from "./MidCenturyListeningRoom";
 import { NightMarketClinic } from "./NightMarketClinic";
 import { OrbitalTransitConsole } from "./OrbitalTransitConsole";
 import { RedRoomCaseDesk } from "./RedRoomCaseDesk";
+import { RolleramaRink } from "./RolleramaRink";
 
 type Props = {
   className?: string;
@@ -2367,160 +2368,13 @@ function VintagePaperCatalog({ className, compact = false, style }: Props) {
   );
 }
 
-function SeventiesRecipeCookbook({ className, compact = false, style }: Props) {
-  // "The Groovy Kitchen": a 1970s community-cookbook recipe reader. A warm
-  // harvest-gold masthead, a featured-recipe card built on a real fondue food
-  // photo, a recipe-card index list, and an ingredient checklist + method with
-  // a harvest-gold pantry swatch rail. The recipe/index-card editorial skeleton
-  // shares no shape with its retro/vintage neighbours (broadcast shop, paper
-  // catalogue, synth console, desktop zine, flight deck, design studio).
-  const index: Array<[string, string, string, number]> = [
-    ["Avocado Ambrosia", "salad", "15 min", 5],
-    ["Harvest Pot Roast", "main", "3 hr", 4],
-    ["Orange Bundt", "sweet", "55 min", 5],
-    ["Deviled Eggs", "starter", "20 min", 3],
-  ];
-  const ingredients = ["aged cheddar", "dry white wine", "garlic clove", "grated nutmeg", "crusty baguette"];
-  const method = [
-    "Rub the pot with garlic, pour in the wine to warm.",
-    "Melt cheddar in slowly, stirring slow figure-eights.",
-    "Season with nutmeg; keep it gently bubbling to serve.",
-  ];
-  const pantry: Array<[string, string]> = [
-    ["harvest gold", "var(--sample-base)"],
-    ["avocado", "var(--sample-accent-2)"],
-    ["burnt orange", "var(--sample-accent)"],
-    ["dusty rose", "var(--sample-accent-3)"],
-  ];
-  const stars = (n: number, size = 9) => (
-    <span aria-hidden="true" className="leading-none" style={{ fontSize: `${size}px`, letterSpacing: "0.04em" }}>
-      <span className="text-[var(--sample-accent)]">{"★".repeat(n)}</span>
-      <span style={{ color: "rgb(var(--st-text-rgb) / 0.24)" }}>{"★".repeat(5 - n)}</span>
-    </span>
-  );
-
+function SeventiesRollerDisco({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      {/* decorative layer — clipped so it never adds scroll width */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* groovy sunrise rings, bleeding off the top-right corner */}
-        <span
-          className="absolute -right-14 -top-16 h-48 w-48 rounded-full opacity-60"
-          style={{
-            backgroundImage:
-              "repeating-radial-gradient(circle, transparent 0 11px, var(--sample-accent) 11px 15px, transparent 15px 26px, var(--sample-accent-2) 26px 30px, transparent 30px 41px, var(--sample-accent-3) 41px 45px)",
-          }}
-        />
-        {/* faint paper grain */}
-        <span className="absolute inset-0 opacity-[0.06] mix-blend-multiply" style={{ backgroundImage: GRAIN_URI, backgroundSize: "150px 150px" }} />
-      </div>
-
-      <div className="relative flex h-full min-h-0 flex-col gap-2">
-        {/* ── masthead ── */}
-        <header className="flex min-w-0 items-end gap-2 border-b-2 border-[var(--sample-border)] pb-1.5">
-          <div className="min-w-0">
-            <h1
-              className={cn("font-display font-black uppercase leading-[0.82] text-[var(--sample-text)]", compact ? "text-[1.05rem]" : "text-[1.7rem] md:text-[2.05rem]")}
-              style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.02em" }}
-            >
-              The Groovy Kitchen
-            </h1>
-            <p className="mt-0.5 text-[7.5px] font-black uppercase tracking-[0.22em] text-[var(--sample-accent)]">70s community cookbook</p>
-          </div>
-          <nav className={cn("ml-auto items-center gap-1.5 text-[8px] font-black uppercase tracking-[0.06em]", compact ? "hidden" : "flex")}>
-            {["Starters", "Mains", "Fondue", "Sweets"].map((tab, i) => (
-              <span className={cn("rounded-[var(--st-radius-pill)] px-2 py-0.5", i === 2 ? "bg-[var(--sample-text)] text-[var(--sample-base)]" : "text-[var(--sample-muted)]")} key={tab}>{tab}</span>
-            ))}
-          </nav>
-          <span className={cn("shrink-0 rounded-[var(--st-radius-pill)] border-2 border-[var(--sample-border)] px-2 py-0.5 text-[8px] font-black uppercase text-[var(--sample-text)]", compact && "hidden")}>no. 7</span>
-        </header>
-
-        {/* ── main: featured recipe + recipe card index ── */}
-        <main className={cn("grid min-h-0 flex-1 gap-2", compact ? "grid-cols-[1.06fr_0.94fr]" : "grid-cols-1 md:grid-cols-[1.12fr_0.88fr] md:gap-3")}>
-          {/* featured recipe card on the fondue photo */}
-          <section className="relative min-w-0 overflow-hidden rounded-[100px_100px_22px_22px] border-2 border-[var(--sample-border)]">
-            <span className="absolute inset-0">
-              <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position="50% 56%" slug="seventies-retro" style={{ backgroundSize: "cover" }} />
-            </span>
-            <span className="absolute left-2.5 top-2.5 rounded-[var(--st-radius-pill)] bg-[var(--sample-base)] px-2 py-0.5 text-[8px] font-black uppercase tracking-[0.1em] text-[var(--sample-text)] shadow-[0_2px_0_rgb(var(--st-text-rgb)/0.25)]">
-              fondue night
-            </span>
-            <div className="absolute inset-x-2 bottom-2 rounded-[16px] border-2 border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)/0.94)] px-2.5 py-1.5 backdrop-blur-[2px]">
-              <div className="flex items-center justify-between gap-2">
-                <h3 className={cn("min-w-0 truncate font-display font-black leading-none text-[var(--sample-text)]", compact ? "text-[0.95rem]" : "text-[1.25rem]")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.01em" }}>
-                  Cheddar Fondue Night
-                </h3>
-                {stars(4, compact ? 8 : 10)}
-              </div>
-              <div className="mt-1 flex flex-wrap items-center gap-1">
-                {[["serves 6", "var(--sample-accent-2)"], ["45 min", "var(--sample-accent)"], ["easy", "var(--sample-accent-3)"]].map(([label, c]) => (
-                  <span className="rounded-[var(--st-radius-pill)] px-1.5 py-[2px] text-[7px] font-black uppercase tracking-[0.05em] text-[var(--sample-surface)]" key={label} style={{ background: c }}>{label}</span>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* recipe card index */}
-          <aside aria-label="recipe card index" className="flex min-w-0 flex-col rounded-[20px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-2">
-            <div className="mb-1.5 flex items-baseline justify-between">
-              <p className="text-[8px] font-black uppercase tracking-[0.12em] text-[var(--sample-accent)]">recipe card index</p>
-              <span className={cn("text-[7px] font-bold text-[var(--sample-muted)]", compact && "hidden")}>24 cards</span>
-            </div>
-            <div className="flex min-h-0 flex-1 flex-col justify-between gap-1">
-              {(compact ? index.slice(0, 3) : index).map(([name, cat, time, rating], i) => (
-                <article className={cn("flex min-w-0 items-center gap-2 rounded-[12px] px-1.5 py-1", i % 2 === 0 ? "bg-[var(--sample-base)]" : "bg-[rgb(var(--st-base-rgb)/0.55)]")} key={name}>
-                  <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border-2 border-[var(--sample-border)] text-[9px] font-black text-[var(--sample-text)]" style={{ background: pantry[i % pantry.length][1] }}>
-                    {name.charAt(0)}
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block truncate text-[8.5px] font-black leading-tight text-[var(--sample-text)]">{name}</span>
-                    <span className="block truncate text-[7px] font-bold uppercase tracking-[0.06em] text-[var(--sample-muted)]">{cat} · {time}</span>
-                  </span>
-                  <span className="shrink-0">{stars(rating, 7)}</span>
-                </article>
-              ))}
-            </div>
-          </aside>
-        </main>
-
-        {/* ── ingredient checklist + method + harvest-gold pantry ── */}
-        <section className={cn("grid gap-2 rounded-[18px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-2", compact ? "hidden" : "grid-cols-[0.82fr_1.18fr_auto]")}>
-          <div className="min-w-0">
-            <p className="mb-1 text-[8px] font-black uppercase tracking-[0.1em] text-[var(--sample-accent)]">ingredients</p>
-            <ul className="space-y-[3px]">
-              {ingredients.map((item) => (
-                <li className="flex items-center gap-1.5 text-[8px] font-bold text-[var(--sample-text)]" key={item}>
-                  <span className="grid h-2.5 w-2.5 shrink-0 place-items-center rounded-[3px] border-2 border-[var(--sample-border)] text-[6px] leading-none text-[var(--sample-accent-2)]">{"✓"}</span>
-                  <span className="truncate">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="min-w-0 border-l-2 border-[rgb(var(--st-text-rgb)/0.14)] pl-2">
-            <p className="mb-1 text-[8px] font-black uppercase tracking-[0.1em] text-[var(--sample-accent)]">method</p>
-            <ol className="space-y-[3px]">
-              {method.map((step, i) => (
-                <li className="flex gap-1.5 text-[8px] leading-[1.25] text-[var(--sample-text)]" key={step}>
-                  <span className="shrink-0 font-display text-[9px] font-black text-[var(--sample-accent)]" style={{ fontFamily: "var(--st-font-display)" }}>{i + 1}</span>
-                  <span className="min-w-0">{step}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-          <div aria-label="harvest-gold pantry" className="flex flex-col justify-center gap-1">
-            {pantry.map(([label, c]) => (
-              <span className="flex items-center gap-1.5" key={label}>
-                <span className="h-3.5 w-3.5 shrink-0 rounded-full border-2 border-[var(--sample-border)]" style={{ background: c }} />
-                <span className="whitespace-nowrap text-[7px] font-black uppercase tracking-[0.05em] text-[var(--sample-muted)]">{label}</span>
-              </span>
-            ))}
-          </div>
-        </section>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <RolleramaRink compact={compact} />
     </SampleFrame>
   );
 }
-
 function EightiesVideoRental({ className, compact = false, style }: Props) {
   // "Neon Nights Video": an 80s VHS horror video-rental store, Be Kind Rewind /
   // Blockbuster era. A neon storefront sign, a featured staff-pick panel built
@@ -8480,7 +8334,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "seventies-retro") {
-    return <SeventiesRecipeCookbook {...props} />;
+    return <SeventiesRollerDisco {...props} />;
   }
 
   if (style.slug === "eighties-retro") {

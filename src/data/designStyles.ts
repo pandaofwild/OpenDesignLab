@@ -2347,10 +2347,10 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     summary: "70년대 레트로는 따뜻한 오렌지, 아보카도 그린, 둥근 곡선, 그루비한 배지를 사용해 편안하고 낙관적인 웹 무드를 만듭니다.",
     description:
       "70년대 레트로는 일반 Retro보다 시대 신호가 더 분명해야 합니다. Houseplant, Rolling Stone, Web Design Museum 같은 레퍼런스처럼 둥근 프로모션 카드, 물결형 섹션, 따뜻한 제품/이벤트 배지가 실제 브랜드 랜딩으로 작동해야 합니다.",
-    visualFeatures: ["오렌지와 머스터드가 화면의 기본 온도를 만듭니다.", "곡선, 물결, 둥근 배지가 70년대 감각을 드러냅니다.", "상품이나 이벤트 카드가 느긋한 라이프스타일처럼 보입니다."],
+    visualFeatures: ["오렌지와 머스터드가 화면의 기본 온도를 만듭니다.", "수퍼그래픽 레인보우 아치와 스트라이프 밴드가 장식이 아니라 골격으로 쓰입니다.", "둥근 팻 타이포와 필 배지, 아치형 프레임이 70년대 감각을 즉시 드러냅니다."],
     colorPalette: ["머스터드, 오렌지, 크림을 넓게 사용합니다.", "아보카도 그린과 먼지 낀 핑크를 보조색으로 둡니다.", "텍스트는 짙은 브라운으로 인쇄물 같은 안정감을 줍니다."],
     typography: ["둥글고 굵은 제목이 잘 어울립니다.", "라벨과 버튼은 부드러운 알약 형태와 맞춥니다.", "본문은 너무 복고적이지 않게 읽기 쉬운 산세리프를 유지합니다."],
-    layoutTraits: ["히어로, 물결형 캠페인 선반, corduroy/walnut/amber 제품 리듬이 느긋하게 이어집니다.", "직선 그리드 안에 아치형 카드와 곡선 배지를 섞어 시대감을 냅니다.", "모바일에서는 큰 곡선 장식보다 캠페인 제목, 제품 리듬, 소재 칩을 우선합니다."],
+    layoutTraits: ["수퍼그래픽 아치 히어로와 아치형 실사 창이 화면의 첫인상을 만듭니다.", "세션 보드·필 CTA·스트라이프 밴드가 포스터 리듬으로 이어집니다.", "모바일에서는 큰 곡선 장식보다 헤드라인, 세션 보드, 아치 창을 우선합니다."],
     useCases: ["라이프스타일 브랜드", "음악/이벤트", "식음료", "굿즈 커머스"],
     goodFor: ["따뜻하고 즐거운 브랜드 첫인상", "음악/카페/홈 제품 캠페인", "너무 세련된 느낌보다 인간적인 분위기", "계절 프로모션"],
     cautions: ["Retro와 구분하려면 70s 색과 곡선을 분명히 해야 합니다.", "패턴이 과하면 Maximalism으로 흐릅니다.", "곡선 장식이 CTA를 가리지 않게 해야 합니다."],
@@ -2367,10 +2367,10 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         { title: "Awwwards - Retro Websites", url: "https://www.awwwards.com/websites/retro/", note: "Gallery reference for contemporary retro sites that reinterpret 70s color, soft shapes, and nostalgic campaign structure." },
         { title: "Dribbble - 70s Website Design", url: "https://dribbble.com/search/70s%20website%20design", note: "UI reference for 70s landing pages, groovy badges, wavy modules, and warm product cards." },
       ],
-      representativeTraits: ["Warm harvest palette", "Groovy rounded type", "Recipe card index", "Ingredient checklist & method", "70s community cookbook"],
+      representativeTraits: ["Supergraphic rainbow arch", "Groovy rounded type", "Warm harvest palette", "Arch-topped photo frame", "Session board & pill badges"],
       avoidTraits: ["Generic retro badges", "80s neon grid", "Vintage paper archive"],
       tokenIntent:
-        "Use warm harvest-gold, avocado-green and burnt-orange 70s colors, rounded groovy type, a featured recipe card on real food photography, a recipe-card index, an ingredient checklist and numbered method, and a harvest-gold pantry swatch rail so the style reads as a seventies community cookbook rather than generic retro commerce.",
+        "Use warm harvest-gold, avocado-green, burnt-orange and dusty-rose 70s colors, supergraphic rainbow arch rings, fat rounded display type, arch-topped photo frames, pill badges, stripe bands, and brown 2px borders with hard offset shadows so the 70s graphic language itself is the layout, not a decoration on a neutral card UI.",
     },
   },
   "eighties-retro": {

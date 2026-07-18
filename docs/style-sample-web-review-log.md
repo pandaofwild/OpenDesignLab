@@ -51,7 +51,7 @@
 | 17 | 강렬 / 실험 | postmodernism | retro-commerce | verified | PALLADIO & POP auction house — live sale ticker, featured lot bid module, browse-by-era chips |
 | 18 | 레트로 / 빈티지 | retro | retro-commerce | verified | retro broadcast shop, time-travel media dial, analog merch queue |
 | 19 | 레트로 / 빈티지 | vintage | retro-commerce | verified | paper catalog, repair ticket ledger, patina material register |
-| 20 | 레트로 / 빈티지 | seventies-retro | retro-commerce | verified | **정석적 '70s 라이프스타일 커머스' 폐기 → 'THE GROOVY KITCHEN' 70s 커뮤니티 쿡북 리더로 전면 재설계**(Concept originality 원칙 첫 적용): Houseplant식 홈굿즈 커머스(GROOVY LANDING·wavy campaign shelf·corduroy product rhythm)를 버리고 레시피/인덱스카드 에디토리얼로 재구성. codex로 70s 부엌 퐁뒤 실사(하베스트 골드·아보카도 세라믹·우드패널·Kodachrome 톤) 신규 생성해 GENERATED_STYLE_IMAGES 등록. 골격: 그루비 마스트헤드(THE GROOVY KITCHEN·70s community cookbook·챕터탭 Starters/Mains/Fondue/Sweets·no.7·그루비 sunrise 링) + 아치형 히어로 레시피 카드(퐁뒤 실사 위 Cheddar Fondue Night·★4·serves 6/45 min/easy 칩·fondue night 뱃지) + recipe card index(Avocado Ambrosia/Harvest Pot Roast/Orange Bundt/Deviled Eggs·컬러 이니셜 뱃지·카테고리·시간·별점) + ingredient checklist(체크박스 5종)+numbered method(3스텝)+harvest-gold pantry 스와치(골드/아보카도/오렌지/로즈). 팔레트는 기존 70s 온기 유지(머스터드 베이스·브라운 텍스트). 레시피 에디토리얼 골격이라 이웃 전부(방송숍/종이카탈로그/신스콘솔/데스크탑진/flight deck/디자인스튜디오/워크숍그리드)와 구조 차별화. 함수명 SeventiesGroovyLanding→SeventiesRecipeCookbook(라우팅+check-style-distinction 맵 갱신), family 마커 갱신(The Groovy Kitchen/recipe card index/harvest-gold pantry), representativeTraits/tokenIntent를 쿡북 컨셉으로 갱신. 장식 sunburst는 inset-0 overflow-hidden 래퍼로 감싸 scrollWidth 오버플로우 제거. full/compact QA(overflow 0)·lint·check:style-distinction(70s 통과) 통과 |
+| 20 | 레트로 / 빈티지 | seventies-retro | retro-commerce | verified | ROLLERAMA '76 롤러 디스코 랜딩(재작업) — 수퍼그래픽 레인보우 아치·팻 라운드 타이포·아치형 링크 실사 창·session board(선택 연동)·skate hire·스트라이프 밴드, 스타일 가시성 우선 |
 | 21 | 레트로 / 빈티지 | eighties-retro | cyber-dashboard | verified | **정석적 synthwave 미디어 콘솔 폐기 → 'NEON NIGHTS VIDEO' 80s VHS 호러 비디오 렌탈점으로 전면 재설계**(Concept originality): 다크 네온 정체성(네이비+마젠타/시안/옐로)은 유지하되 신스웨이브 플레이어(SYNTH CONSOLE·VHS mix queue·arcade control strip)를 버리고 Be Kind Rewind식 심야 렌탈점 리테일로 재구성. 소유자 요청대로 80s 호러 소재. codex로 심야 네온 렌탈점 통로 실사(VHS 선반·네온 사인·CRT 정지화면·블러드레드 반사) 신규 생성해 GENERATED_STYLE_IMAGES 등록. 골격: 네온 스토어프론트 헤더(NEON NIGHTS VIDEO 마젠타 글로우·VHS horror·open till 2am·New/Horror/Members·● OPEN) + STAFF PICK 피처 패널(렌탈점 실사 위 The Midnight Tape·slasher 1986 98min·★4·rent $2, 하단 스크림만으로 이미지 드러냄) + new-release wall(VHS 테이프 케이스 6종 — Neon Slasher/Grave Shift/Prom Night Terror/Static Screams/Cassette from Hell/Chrome Nightmare, 장르 컬러 상단밴드·rental 상태 IN/OUT/DUE 글로우 도트) + rental desk(Neon Nights Video Club 멤버십 카드·Member 0286·since '86 + your rentals due date + be kind rewind·late fee $1/day) + 장르 네온 칩(Horror/Slasher/Sci-Fi/Cult/B-Movie) + 네온 퍼스펙티브 그리드/스캔라인. 비디오 렌탈 리테일 골격이라 이웃(방송숍/종이카탈로그/쿡북/데스크탑진/flight deck/스튜디오/워크숍)과 구조 차별화, Cyberpunk 도시/디스토피아와도 구분. 함수명 EightiesSynthConsole→EightiesVideoRental(라우팅+check-style-distinction 맵), family 마커 갱신(Neon Nights Video/new-release wall/be kind rewind), representativeTraits/tokenIntent 갱신(avoidTraits에 Cyberpunk city dystopia 추가). 장식은 inset-0 overflow-hidden 래퍼로 클리핑. full/compact QA(overflow 0)·lint·check:style-distinction(80s 통과) 통과 |
 | 22 | 레트로 / 빈티지 | nineties-graphic | street-campaign | verified | **정석적 GeoCities '데스크탑 진' 폐기 → 'MEGA MEDIA' 90s 인터랙티브 멀티미디어 백과 CD-ROM으로 전면 재설계**(Concept originality·강한 시대성 요청): 초기웹 브라우저 창(DESKTOP ZINE·sticker link grid·halftone scrap wall)을 버리고 Encarta/Living Books식 CD-ROM 앱으로 재구성. 소유자 요청대로 친근한 주제(귀여운 동물/펫 백과). codex로 친근한 골든리트리버 강아지 실사 신규 생성해 GENERATED_STYLE_IMAGES 등록. 골격: 아이코닉 틸(Win95) 데스크탑 위 회색 3D 베벨 멀티미디어 창 — WordArt 레인보우 로고(Mega Media·skew·블랙 아웃라인) 타이틀바(min/max/close 베벨) + 메뉴 스트립(File/Edit/Go/Bookmark/Help 액셀러레이터 밑줄) + clip-art topic explorer 레일(Pets active/Farm/Ocean/Birds/Bugs/Music·SVG 글리프 베벨 버튼) + media viewer(sunken 스크린에 강아지 실사·QUICKTIME MOVIE 라벨·트랜스포트 바 ▶/스크러버/0:42·2:10) + article 패널(GOLDEN RETRIEVER·article 1 of 214·블루 밑줄 하이퍼텍스트 dog/retrieve/pet·See also 칩) + DID YOU KNOW 팩트박스 + CD-ROM 상태바(CD-ROM DRIVE D:·오디오 ◄◄▶►►·TRACK 03·NOW LOADING 세그먼트 게이지·8MB RAM). Win95 raised/sunken 베벨 헬퍼로 정통 크롬 구현. 미디어-뷰어 멀티미디어 앱 골격이라 이웃(방송숍/쿡북/VHS렌탈/우주 flight deck/스튜디오)·현재 웹 진과 구조 차별, y2k 광택 크롬과도 질감 구분(무광 회색 베벨). 함수명 NinetiesGraphicZine→NinetiesMultimediaCdRom(라우팅+check-style-distinction 맵), family 마커 갱신(Mega Media/topic explorer/now loading), representativeTraits/tokenIntent 갱신. 장식은 inset-0 overflow-hidden 래퍼로 클리핑. full/compact QA(overflow 0)·lint·check:style-distinction(90s 통과) 통과 |
 | 23 | 레트로 / 빈티지 | y2k | cyber-dashboard | verified | GLOSS PORTAL, bubble widget stack, sparkle guestbook rail |
@@ -375,3 +375,38 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - screenshots: `hightech-full-final.jpeg`(데스크톱), `hightech-mobile-v2.jpeg`(모바일), `hightech-compact-v2.jpeg`(compact 카드).
 - 남은 의심점: 없음.
 - 다음 style: No. 36 `classic` (럭셔리 / 클래식 카테고리 시작).
+
+## 20. seventies-retro — 재작업 (소유자 피드백)
+
+### 현재 판정
+
+- status: `reviewing` (verified 롤백).
+- 소유자 판정: "THE GROOVY KITCHEN" 쿡북 리더는 "그냥 특정 목적의 사이트일 뿐" — 레시피 유틸리티라는 목적이 지배하고 70s 그래픽 스타일 자체가 전해지지 않음. "다시 그냥 그 스타일을 보여줄 수 있는 걸로" 지시.
+- 원인 분석: 본문이 중립적 크림 카드 UI(인덱스 리스트·체크리스트·메서드)라 70s 신호가 팔레트·모서리 링 장식에만 실림. 수퍼그래픽·라운드 팻 타이포 같은 시대 조형이 골격이 아니라 장식에 머묾.
+- 방향: 컨셉의 기발함보다 **스타일 가시성 우선**. 모든 표면이 70s 그래픽 언어(수퍼그래픽 레인보우 아치·Cooper Black풍 라운드 팻 타이포·어스톤 스트라이프·아치 프레임·필 배지)로 채워지는 화면.
+
+### 목표
+
+- 컨셉: **"ROLLERAMA '76" — 70s 롤러 디스코 링크의 세션 예약 랜딩**. 이벤트/장소 랜딩은 70s 포스터 그래픽이 가장 자연스럽게 사는 장르 — 스타일이 화면의 주인공.
+- 고유 마커(check-style-distinction): `ROLLERAMA` / `session board` / `skate hire` / `rainbow arch`. 구 마커(The Groovy Kitchen/recipe card index/harvest-gold pantry) 교체.
+- 정보 구조: 팻 라운드 마스트헤드(ROLLERAMA·필 nav·'76 season 배지) → 수퍼그래픽 히어로(코너 레인보우 아치 링 + "Roll into the groove." 대형 헤드라인 + CTA 필) + 아치형(rounded-t-full) 링크 실사 창 → **session board**(Matinee/Disco Night/Sunday Jam 선택 → spinning·floor·요금 연동) → **skate hire** 스트립(사이즈 칩·요금) → 하단 티커 스트립.
+- 시각 처리: harvest gold 바탕, burnt orange·avocado·dusty rose 스트라이프, 브라운 2px 보더 + 하드 오프셋 섀도(토큰), 아치·필 형태 전면 사용.
+- 이미지: codex로 `public/generated/design-styles/seventies-retro.webp` 교체 — 1976 롤러링크 인테리어(메이플 플로어·수퍼그래픽 벽·스웨이드 스케이트, Kodachrome 톤).
+
+### 검증 계획
+
+- RED/GREEN: distinction 구 마커 제거·신 마커 GREEN, `SeventiesRollerDisco` 위임 등록. check:data·check:style-distinction·lint·build 통과.
+- browser QA: full·모바일·compact overflow 0, 세션 선택 연동(aria-pressed) 확인.
+
+### 구현 및 검증 결과 (2026-07-18)
+
+- status: `verified`.
+- 변경 요약: `SeventiesRecipeCookbook` 삭제 → 위임 래퍼 `SeventiesRollerDisco` + 분리 컴포넌트 `RolleramaRink.tsx`(use client, 세션 선택 useState). codex로 롤러링크 실사 교체(`public/generated/design-styles/seventies-retro.webp` — 수퍼그래픽 웨이브 벽화·메이플 플로어·오렌지 샤그 카펫·스웨이드 스케이트, Kodachrome 톤). 골격: 팻 라운드 마스트헤드(ROLLERAMA·필 nav·'76 season) → 코너 레인보우 아치 링 수퍼그래픽 + 2톤 대형 헤드라인("Roll into / the groove.") + CTA 필(선택 세션 라벨 연동) → session board(3세션, 선택→spinning readout·CTA 연동) | 아치형(rounded-t-full) 링크 실사 창 + skate hire(사이즈 칩·요금) → 스트라이프 밴드 + 티커.
+- 스타일 가시성: 수퍼그래픽 아치·팻 라운드 타이포·어스톤 스트라이프·아치 프레임·필 배지·브라운 2px 보더+하드 오프셋 섀도가 장식이 아닌 골격 — 한눈에 70s로 읽힘(소유자 지시 반영: 목적성보다 스타일 우선).
+- 인터랙션 QA: Matinee 클릭 시 `aria-pressed` 전환, spinning readout("bubblegum pop · motown")·CTA("Book Matinee Skate") 연동 갱신 확인.
+- RED/GREEN: distinction 구 마커(The Groovy Kitchen/recipe card index/harvest-gold pantry) 제거, 신 마커(ROLLERAMA/session board/skate hire/rainbow arch) GREEN. 래퍼 식별자 충돌(RolleramaRink ⊃ Rollerama)은 마커를 대문자 리터럴로 통일해 해소.
+- browser QA: 1280 full(614×540)·375 모바일(284×540)·compact 카드(데스크톱) 모두 page overflow 0, 비의도 클리핑 0(의도된 아치 블리드만 overflow-hidden 내부). 모바일은 세션 가격·note·maple 라벨 축약, compact는 세션 2개+readout으로 압축(푸터 스트라이프 프레임 내 확인).
+- 데이터: representativeTraits(Supergraphic rainbow arch 등)/tokenIntent/visualFeatures/layoutTraits 갱신, 구분표 행 ROLLERAMA로 갱신. 무드보드 v2 유지(코듀로이·월넛·웨이비 스트라이프 — 스타일 자체를 이미 표현).
+- 명령: `check:data`(87)·`check:style-distinction`(87)·`npm run lint`·`next build` 통과.
+- screenshots: `seventies-full-final.jpeg`, `seventies-mobile-v2.jpeg`, `seventies-compact-v2.jpeg`.
+- 남은 의심점: 없음.
