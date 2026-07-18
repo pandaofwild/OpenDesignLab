@@ -10,6 +10,7 @@ import { MaximalistSalonWall } from "./MaximalistSalonWall";
 import { MidCenturyListeningRoom } from "./MidCenturyListeningRoom";
 import { NightMarketClinic } from "./NightMarketClinic";
 import { OrbitalTransitConsole } from "./OrbitalTransitConsole";
+import { RedRoomCaseDesk } from "./RedRoomCaseDesk";
 
 type Props = {
   className?: string;
@@ -3260,50 +3261,10 @@ function CyberpunkNightMarket({ className, compact = false, style }: Props) {
   );
 }
 
-function NeonNoirCinema({ className, compact = false, style }: Props) {
+function NeonNoirCaseDesk({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <div className="flex h-full flex-col text-[var(--sample-text)]">
-        <div className="flex items-center gap-3 pb-2 text-[10px] font-bold uppercase tracking-[0.18em]">
-          <span className="font-display text-sm" style={{ fontFamily: "var(--st-font-display)" }}>RED ROOM</span>
-          <nav className={cn("items-center gap-3 text-[var(--sample-muted)]", compact ? "hidden" : "flex")}>
-            <span>Stills</span>
-            <span>Evidence</span>
-            <span>Archive</span>
-          </nav>
-          <span className="ml-auto text-[var(--sample-accent)]">case file 07</span>
-        </div>
-
-        <div className="relative min-h-0 flex-1 overflow-hidden rounded-[2px] border border-[var(--sample-border)]">
-          <span aria-hidden="true" className="absolute inset-0" style={{ backgroundImage: "radial-gradient(46% 52% at 78% 18%, rgb(var(--st-accent-rgb) / 0.62), transparent 62%), radial-gradient(55% 55% at 20% 88%, rgb(var(--st-accent-2-rgb) / 0.4), transparent 60%), linear-gradient(180deg, #050509 0%, var(--sample-base) 100%)" }} />
-          <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-25" style={{ backgroundImage: "repeating-linear-gradient(105deg, transparent 0 7px, rgb(255 255 255 / 0.42) 7px 8px)" }} />
-          <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ boxShadow: "inset 0 0 80px 20px rgb(0 0 0 / 0.7)" }} />
-          <div className="absolute right-3 top-3 border border-[var(--sample-accent)] bg-black/50 px-2 py-1 text-right text-[8px] uppercase text-[var(--sample-accent)]">
-            rain index
-            <br />
-            92 / heavy
-          </div>
-          <div className="absolute inset-x-3 bottom-3">
-            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[var(--sample-accent)]">evidence still / 02</p>
-            <h3
-              className={cn("font-display uppercase leading-[0.86]", compact ? "text-3xl" : "text-5xl md:text-[3.4rem]")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)", textShadow: "0 2px 16px rgb(0 0 0 / 0.8)" }}
-            >
-              Someone left the light on.
-            </h3>
-            <p className={cn("mt-1 text-[10px] text-[var(--sample-muted)]", compact ? "hidden" : "")}>low key / sodium red / wet pavement</p>
-          </div>
-        </div>
-
-        <div className={cn("mt-2 grid grid-cols-4 gap-1.5", compact ? "hidden" : "")}>
-          {["witness", "motel", "signal", "rain"].map((label, index) => (
-            <div className="relative h-9 overflow-hidden rounded-[2px] border border-[var(--sample-border)]" key={label}>
-              <span aria-hidden="true" className="absolute inset-0" style={{ backgroundImage: index % 2 === 0 ? "linear-gradient(130deg, #06070d, rgb(var(--st-accent-rgb) / 0.38))" : "linear-gradient(130deg, #050509, rgb(var(--st-accent-2-rgb) / 0.32))" }} />
-              <span className="absolute bottom-0.5 left-1 text-[7px] font-bold uppercase text-[var(--sample-text)]">{label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <RedRoomCaseDesk compact={compact} />
     </SampleFrame>
   );
 }
@@ -8754,7 +8715,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "neon-noir") {
-    return <NeonNoirCinema {...props} />;
+    return <NeonNoirCaseDesk {...props} />;
   }
 
   if (style.slug === "techwear") {

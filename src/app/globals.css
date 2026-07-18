@@ -1325,6 +1325,22 @@ html:lang(ko) :where(
   }
 }
 
+/* ── Red Room case desk: neon-noir surveillance pulse ─────────────────
+   One slow recording-dot pulse. Nothing else moves — the still is the
+   page and noir restraint is the point. */
+
+@keyframes nn-rec {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.redroom-desk .nn-rec { animation: nn-rec 2.8s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .redroom-desk .nn-rec {
+    animation: none;
+  }
+}
+
 /* ─── Grunge sample: distressed music archive ───────────────────────── */
 /* Cassette reels turn slowly, like a tape playing back in the archive */
 @keyframes grunge-sample-reel {

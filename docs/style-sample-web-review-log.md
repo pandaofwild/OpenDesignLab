@@ -60,7 +60,7 @@
 | 26 | 레트로 / 빈티지 | bauhaus | magazine-layout | verified | BAUHAUS SCHOOL, workshop method grid, circle square triangle lab |
 | 27 | 미래 / 디지털 | futurism | cyber-dashboard | verified | ORBITAL TRANSIT 마하 회랑 운행 콘솔 — 실버 포드 히어로+MACH velocity 타이포 웨지, Mach corridor map(회랑 선택 인터랙션), Launch window board, live telemetry 스트립 |
 | 28 | 미래 / 디지털 | cyberpunk | cyber-dashboard | verified | LUCKY CHROME CLINIC 나이트마켓 리퍼독 터미널 — 네온 골목 실사+사인 스택, implant menu(선택→원장 연동), black-market deck flash, install queue, humanity 게이지, city protocol 해저드 스트립 |
-| 29 | 미래 / 디지털 | neon-noir | cyber-dashboard | queued | cinematic dark, noir contrast, restrained neon |
+| 29 | 미래 / 디지털 | neon-noir | cyber-dashboard | verified | RED ROOM 심야 탐정 케이스 데스크 — 붉은 네온 비창 실사 풀블리드 스틸, case file 레일(선택→히어로 캡션 연동), rain index 위젯, 절제된 단일광원 누아르 |
 | 30 | 미래 / 디지털 | techwear | cyber-dashboard | queued | modular gear, tactical panels, fabric/strap logic |
 | 31 | 미래 / 디지털 | high-tech | saas-landing | queued | precision instrumentation, engineering surfaces |
 | 32 | 미래 / 디지털 | ai-aesthetic | saas-landing | verified | MODEL CANVAS generative studio — world-model preview with denoise sweep, prompt bar with style presets, latent queue job states, model index |
@@ -234,3 +234,43 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - 명령: `npm run lint`·`check:future-digital`·`check:style-distinction`·`check:data` 통과.
 - 남은 의심점: 없음.
 - 다음 style: No. 29 `neon-noir`.
+
+## 29. neon-noir (미래 / 디지털)
+
+### 현재 판정
+
+- status: `reviewing` → 재설계 착수.
+- 현재 샘플(`NeonNoirCinema`): RED ROOM 워드마크·rain index 칩·헤드라인은 있으나 "스틸"이 그라디언트+사선 패턴 가짜 이미지이고, 하단 4타일(witness/motel/signal/rain)이 그라디언트 위 라벨뿐인 placeholder. 시네마틱 실사 없이 분위기를 흉내만 냄.
+- moodboard 신호(`neon-noir-realistic-v2.webp`): 칠흑 배경, 레드/마젠타/블루바이올렛 네온이 반사된 젖은 밤거리, 비 맺힌 유리 매크로, 붉은 블라인드 광선이 드는 방(red room focal light), 연기, 필름 스틸 프레이밍, **이미지+절제된 바 몇 개**뿐인 레이아웃. 밀도가 아니라 절제.
+- 토큰: base `#0A0A10`, surface `#14141F`, accent `#FF2E63`(레드핑크), accent2 `#5B6CFF`(블루바이올렛), accent3 `#FF8FB1`. representativeTraits: Rain-lit case files/Red room focal light/Low-key cinematic framing/Noir typography/Single-source glow.
+- 인접 구분: cyberpunk(방금 구축한 네온 클러터·해저드·상거래 밀도)와 정반대 — 단일 광원, 넓은 암부, 시네마 에디토리얼 페이싱. avoidTraits 명시: Full cyberpunk clutter/Generic dark agency hero. glitch-art(신호 손상)·eighties-retro(신스 옵티미즘)와도 톤 구분.
+
+### referenceSites에서 가져올 웹 문법
+
+- Exo Ape: 이미지 지배 히어로, 드라마틱 명암, 절제된 타이포 오버레이, 무디한 포트폴리오 리듬.
+- Locomotive: 몰입형 다크 스토리텔링, 시네마틱 전환 페이싱, 최소한의 크롬.
+- Dribbble neon-noir: 케이스파일 카드, 레드-블루 라이팅, 필름 스틸 프레임, red room 모티프.
+
+### 목표
+
+- 컨셉: **"RED ROOM" — 심야 사립탐정 사무소의 케이스 데스크**. 정석적 '다크 에이전시 히어로'를 피하고, 열려 있는 사건 파일을 넘겨보는 야간 데스크로 구체화. 시네마 문법(스틸 프레임·슬러그라인·프레임 카운터)을 UI로 번역.
+- 고유 마커: `RED ROOM`(워드마크)·`rain index`(기상 위젯)·`case file`(도시에 캡션/레일) — check-future-digital 요구와 일치.
+- 정보 구조: 콰이어트 마스트헤드(RED ROOM·Cases/Stills/Archive·night desk 라벨) → 풀블리드 시네마틱 스틸(codex 생성: 비 맺힌 창 너머 붉은 네온·블라인드 광선·단일 광원) 위 필름 캡션(case file 번호·노아르 헤드라인·슬러그라인)+rain index 위젯+still 프레임 카운터 → 하단 case file 레일(3건 도시에: 번호·제목·status open/cold/closed·last entry, 선택 시 히어로 캡션·카운터 연동).
+- 시각 처리: 근흑 배경 위 이미지가 주인공, 레드/블루 액센트는 글로우 한 곳씩만, 와이드 레터스페이싱 노아르 타이포, 헤어라인 룰. 밀도 대신 암부와 여백. 비 스트릭은 이미지 실사에 맡기고 UI 장식은 최소.
+
+### 검증 계획
+
+- RED: 구 placeholder 타일(witness/motel/signal/rain 그라디언트) 제거 확인, distinction 맵 갱신.
+- GREEN: 마커 3종 렌더, check:future-digital·check:style-distinction 통과.
+- browser QA: full/모바일/compact Playwright, 가로 overflow 0, 내부 클리핑 0, 케이스 선택 연동 확인.
+
+### 구현 및 검증 결과
+
+- status: `verified` (2026-07-18).
+- 변경 요약: `NeonNoirCinema` 프로토타입(그라디언트 가짜 스틸 + witness/motel/signal/rain placeholder 타일) 삭제 → 위임 래퍼 `NeonNoirCaseDesk` + 분리 컴포넌트 `RedRoomCaseDesk.tsx`(use client, 케이스 선택 useState). codex로 누아르 실사 신규 생성(`public/generated/design-styles/neon-noir.webp` — 비 맺힌 창 너머 붉은 네온 단일 광원·블라인드 광선·로터리 전화기 실루엣·담배 연기·블루바이올렛 보조 반사). 골격: 콰이어트 마스트헤드(RED ROOM 와이드 트래킹+레드 글로우·Cases/Stills/Archive·night desk · open till 4·03:12 AM) → 풀블리드 시네마틱 스틸(하단 42%만 스크림, 이미지가 페이지의 주인공) 위 case file 칩·rain index 위젯(블루 바 그래프·92/heavy)·필름 캡션(still 카운터+슬러그라인·노아르 헤드라인·40mm 크레딧 라인)·surveillance still 레코딩 펄스(nn-rec, reduced-motion 대응) → Case file rail(3건 도시에: Case 07 The Marlow Job OPEN/Case 04 Glass Harbor COLD/Case 11 Vesper Motel CLOSED, 레드 좌측 룰 활성 표시). 케이스 클릭 시 히어로 헤드라인·슬러그·스틸 카운터·case file 칩 연동 갱신 확인.
+- representativeTraits: Rain-lit case files(케이스 레일+비창 스틸)·Red room focal light(붉은 단일 광원 실사)·Low-key cinematic framing(풀블리드 스틸+암부)·Noir typography(와이드 트래킹 워드마크+대형 헤드라인)·Single-source glow(레드 글로우 한 곳 집중) 전부 실모듈. avoidTraits 준수 — cyberpunk 클러터 없음, 위젯 2개·레일 1개로 절제.
+- 마커: 필수(RED ROOM/rain index/case file) 소스+렌더 충족(워드마크 리터럴 대문자로 수정), family 마커 신설(RED ROOM/Case file rail/rain index/night desk).
+- browser QA: full 데스크톱(694px)·모바일(284px: nav/night desk/surveillance 태그 숨김·워드마크 축소·케이스 레일 세로 스택)·compact 모두 page overflow 0 + 내부 클리핑 0. Screenshots: `neon-noir-redroom-full-final2.png`, `neon-noir-redroom-mobile-v2.png`, `neon-noir-redroom-compact.png`.
+- 명령: `npm run lint`·`check:future-digital`·`check:style-distinction`·`check:data` 통과.
+- 남은 의심점: 없음.
+- 다음 style: No. 30 `techwear`.
