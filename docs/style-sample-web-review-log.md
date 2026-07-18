@@ -53,7 +53,7 @@
 | 19 | 레트로 / 빈티지 | vintage | retro-commerce | verified | HOLLOWAY'S APOTHECARY 1874 약제상 포뮬러리(완전 재작업) — 왁스 실 마스트헤드·약제상 실사 창·formulary 인덱스(선택 연동)·조각 apothecary label 카드·materia medica 등록부·이중 괘선, 스타일 가시성 우선 |
 | 20 | 레트로 / 빈티지 | seventies-retro | retro-commerce | verified | ROLLERAMA '76 롤러 디스코 랜딩(재작업) — 수퍼그래픽 레인보우 아치·팻 라운드 타이포·아치형 링크 실사 창·session board(선택 연동)·skate hire·스트라이프 밴드, 스타일 가시성 우선 |
 | 21 | 레트로 / 빈티지 | eighties-retro | cyber-dashboard | verified | **정석적 synthwave 미디어 콘솔 폐기 → 'NEON NIGHTS VIDEO' 80s VHS 호러 비디오 렌탈점으로 전면 재설계**(Concept originality): 다크 네온 정체성(네이비+마젠타/시안/옐로)은 유지하되 신스웨이브 플레이어(SYNTH CONSOLE·VHS mix queue·arcade control strip)를 버리고 Be Kind Rewind식 심야 렌탈점 리테일로 재구성. 소유자 요청대로 80s 호러 소재. codex로 심야 네온 렌탈점 통로 실사(VHS 선반·네온 사인·CRT 정지화면·블러드레드 반사) 신규 생성해 GENERATED_STYLE_IMAGES 등록. 골격: 네온 스토어프론트 헤더(NEON NIGHTS VIDEO 마젠타 글로우·VHS horror·open till 2am·New/Horror/Members·● OPEN) + STAFF PICK 피처 패널(렌탈점 실사 위 The Midnight Tape·slasher 1986 98min·★4·rent $2, 하단 스크림만으로 이미지 드러냄) + new-release wall(VHS 테이프 케이스 6종 — Neon Slasher/Grave Shift/Prom Night Terror/Static Screams/Cassette from Hell/Chrome Nightmare, 장르 컬러 상단밴드·rental 상태 IN/OUT/DUE 글로우 도트) + rental desk(Neon Nights Video Club 멤버십 카드·Member 0286·since '86 + your rentals due date + be kind rewind·late fee $1/day) + 장르 네온 칩(Horror/Slasher/Sci-Fi/Cult/B-Movie) + 네온 퍼스펙티브 그리드/스캔라인. 비디오 렌탈 리테일 골격이라 이웃(방송숍/종이카탈로그/쿡북/데스크탑진/flight deck/스튜디오/워크숍)과 구조 차별화, Cyberpunk 도시/디스토피아와도 구분. 함수명 EightiesSynthConsole→EightiesVideoRental(라우팅+check-style-distinction 맵), family 마커 갱신(Neon Nights Video/new-release wall/be kind rewind), representativeTraits/tokenIntent 갱신(avoidTraits에 Cyberpunk city dystopia 추가). 장식은 inset-0 overflow-hidden 래퍼로 클리핑. full/compact QA(overflow 0)·lint·check:style-distinction(80s 통과) 통과 |
-| 22 | 레트로 / 빈티지 | nineties-graphic | street-campaign | verified | **정석적 GeoCities '데스크탑 진' 폐기 → 'MEGA MEDIA' 90s 인터랙티브 멀티미디어 백과 CD-ROM으로 전면 재설계**(Concept originality·강한 시대성 요청): 초기웹 브라우저 창(DESKTOP ZINE·sticker link grid·halftone scrap wall)을 버리고 Encarta/Living Books식 CD-ROM 앱으로 재구성. 소유자 요청대로 친근한 주제(귀여운 동물/펫 백과). codex로 친근한 골든리트리버 강아지 실사 신규 생성해 GENERATED_STYLE_IMAGES 등록. 골격: 아이코닉 틸(Win95) 데스크탑 위 회색 3D 베벨 멀티미디어 창 — WordArt 레인보우 로고(Mega Media·skew·블랙 아웃라인) 타이틀바(min/max/close 베벨) + 메뉴 스트립(File/Edit/Go/Bookmark/Help 액셀러레이터 밑줄) + clip-art topic explorer 레일(Pets active/Farm/Ocean/Birds/Bugs/Music·SVG 글리프 베벨 버튼) + media viewer(sunken 스크린에 강아지 실사·QUICKTIME MOVIE 라벨·트랜스포트 바 ▶/스크러버/0:42·2:10) + article 패널(GOLDEN RETRIEVER·article 1 of 214·블루 밑줄 하이퍼텍스트 dog/retrieve/pet·See also 칩) + DID YOU KNOW 팩트박스 + CD-ROM 상태바(CD-ROM DRIVE D:·오디오 ◄◄▶►►·TRACK 03·NOW LOADING 세그먼트 게이지·8MB RAM). Win95 raised/sunken 베벨 헬퍼로 정통 크롬 구현. 미디어-뷰어 멀티미디어 앱 골격이라 이웃(방송숍/쿡북/VHS렌탈/우주 flight deck/스튜디오)·현재 웹 진과 구조 차별, y2k 광택 크롬과도 질감 구분(무광 회색 베벨). 함수명 NinetiesGraphicZine→NinetiesMultimediaCdRom(라우팅+check-style-distinction 맵), family 마커 갱신(Mega Media/topic explorer/now loading), representativeTraits/tokenIntent 갱신. 장식은 inset-0 overflow-hidden 래퍼로 클리핑. full/compact QA(overflow 0)·lint·check:style-distinction(90s 통과) 통과 |
+| 22 | 레트로 / 빈티지 | y2k | retro-commerce | verified | CYBERSHOCK 크롬 미디어 플레이어 스킨(재디자인) — 홀로그래픽 데스크톱 위 크롬 윈도우, LCD now playing·spectrum visualizer·transport controls·playlist(선택 연동), OS 윈도우 스킨 골격 |
 | 23 | 레트로 / 빈티지 | y2k | cyber-dashboard | verified | GLOSS PORTAL, bubble widget stack, sparkle guestbook rail |
 | 24 | 레트로 / 빈티지 | retro-futurism | retro-commerce | verified | FLIGHT DECK, destination poster rail, chrome capsule timetable |
 | 25 | 레트로 / 빈티지 | mid-century-modern | minimal-editorial | verified | MIDCENTURY STUDIO, walnut slat product rail, Girard textile swatch wall |
@@ -481,4 +481,40 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - console: 상세 페이지 error 0. 목록 페이지 중복 key 경고 5건(distortion rail 등)은 기존 타 스타일 데이터 이슈로 vintage 범위 밖.
 - 명령: `check:data`(87)·`check:style-distinction`(87)·`npm run lint`·`next build`(577 pages) 통과.
 - screenshots: `vintage-full-v1.jpeg`, `vintage-mobile-v1.jpeg`, `vintage-compact-v1.jpeg`.
+- 남은 의심점: 없음.
+
+## 22. y2k — 재디자인 (소유자 지시: "앞뒤와 다른 레이아웃, 제대로 y2k로 보이게")
+
+### 현재 판정
+
+- status: `reviewing` (verified 롤백).
+- 현재 `Y2KGlossPortal`(GLOSS PORTAL)은 파스텔 Frutiger-Aero 젤리 포털 — 헤더+2열 히어로/위젯+푸터의 랜딩 골격. 부드러운 파스텔 gloss라 진짜 1999–2001 크롬-사이버 Y2K보다 약하고, bubble-design AQUA DESK와 톤 겹침.
+- 소유자 지시 2가지: (1) 앞(No.21 eighties-retro=SYNTH CONSOLE 다크 미디어 콘솔)·뒤(No.23 retro-futurism=FLIGHT DECK 포스터 랜딩)와 다른 레이아웃, (2) 제대로 y2k로 보이는 디자인.
+- 방향: 랜딩/포털이 아닌 **OS 애플리케이션 윈도우 스킨** 골격(레이아웃 다양성 원칙 — 이웃에 없는 window-chrome UI). 크롬 베벨·메탈릭 그라디언트·LCD·스펙트럼 비주얼라이저로 불명확한 크롬-사이버 Y2K를 전면화. [[style-visibility-over-vehicle]] 적용.
+
+### 목표
+
+- 컨셉: **"CYBERSHOCK" — Y2K 크롬 MP3/미디어 플레이어 스킨**(WinAmp/초기 WMP 시대). 홀로그래픽 데스크톱 위에 크롬 베벨 애플리케이션 윈도우.
+- 고유 마커(check-style-distinction): `CYBERSHOCK` / `now playing` / `spectrum visualizer` / `transport controls`. 구 마커(GLOSS PORTAL/bubble widget stack/sparkle guestbook rail) 교체.
+- 정보 구조: 크롬 타이틀바(베벨 + CYBERSHOCK + 픽셀 min/max/close) → 크롬 LCD `now playing`(트랙/아티스트/타임 + `spectrum visualizer` 바) → `transport controls` 클러스터(prev/play/stop/next/eject 베벨 버튼) → playlist(트랙 선택 → LCD·비주얼라이저 연동) + equalizer/skin 미니 패널 → 상태바(bitrate/khz/stereo·online).
+- 팔레트: 기존 유지(ice blue #71D5FF·pink #FF8EE7·lime #B8FF5C·화청 border #8AA7C7·ink #18233D) — 메탈릭 실버/블루 베벨 + 파스텔 사이버 글로우로 크롬코어(하드웨어)와 구분.
+- 이미지: codex로 `public/generated/design-styles/y2k.webp` 신규 — 홀로그래픽/이리데센트 파스텔 데스크톱 월페이퍼(추상, 하드웨어·텍스트 없음).
+
+### 검증 계획
+
+- RED/GREEN: distinction 구 마커 제거·신 마커 GREEN, `Y2KMediaPlayer` 위임 등록. check:data·check:style-distinction·lint·build 통과.
+- browser QA: full·모바일·compact overflow 0, 트랙 선택 → now playing 연동(aria-pressed) 확인.
+
+### 구현 및 검증 결과 (2026-07-18)
+
+- status: `verified`.
+- 변경 요약: `Y2KGlossPortal`(GLOSS PORTAL 파스텔 젤리 포털) 삭제 → 위임 래퍼 `Y2KMediaPlayer` + 분리 컴포넌트 `CybershockPlayer.tsx`(use client, 트랙 선택 useState). codex로 Y2K 홀로그래픽 데스크톱 월페이퍼(`public/generated/design-styles/y2k.webp` — 이리데센트 리퀴드 크롬 스월·파스텔 아이스블루/핑크/라임·버블·렌즈플레어, 텍스트/하드웨어 없음) 신규 생성. 골격(OS 윈도우 스킨): 크롬 타이틀바(베벨 + CYBERSHOCK 크롬 워드마크 + 픽셀 min/max/close) → 크롬 LCD `now playing`(트랙/아티스트/타임/kbps + `spectrum visualizer` 14바) → `transport controls`(prev/play/stop/next/eject 베벨 버튼 + vol 슬라이더) → playlist(5트랙 선택) + equalizer/skins 미니 패널 → 상태바(kbps·khz·stereo·online 27). 얇은 홀로그래픽 데스크톱이 윈도우 주위로 비침.
+- 스타일 가시성: 브러시드 크롬 베벨·LCD 사이버글로우·스펙트럼 비주얼라이저·픽셀 윈도우 버튼이 장식이 아닌 골격 — 한눈에 1999–2001 크롬 사이버 Y2K 소프트웨어 스킨으로 읽힘([[style-visibility-over-vehicle]] 적용, 파스텔 Frutiger-Aero 포털 폐기).
+- 레이아웃 차별: 앞(eighties-retro=다크 신스 콘솔)·뒤(retro-futurism=포스터 랜딩)와 다른 OS 애플리케이션 윈도우 스킨 골격. 크롬코어(미러 하드웨어)·bubble-design(아쿠아 데스크톱)과는 소프트웨어 스킨 윈도우+파스텔 사이버 글로우로 구분.
+- 인터랙션 QA: Dial-Up Angel 클릭 시 `aria-pressed` 전환, LCD가 제목·128 kbps·5:01·"track 4 of 5"로 함께 갱신, 스펙트럼 바 패턴도 트랙별로 전환 확인.
+- RED/GREEN: distinction 구 마커(GLOSS PORTAL/bubble widget stack/sparkle guestbook rail) 제거, 신 마커(CYBERSHOCK/now playing/spectrum visualizer/transport controls) GREEN. 위임 래퍼 등록(마커는 컴포넌트 파일이 워드마크 리터럴·aria-label로 보유, 래퍼 클린).
+- browser QA: 1280 full(614×540)·375 모바일(284×540)·compact 카드 모두 page overflow 0, 비의도 클리핑 0. 모바일은 EQ/skins 숨김·플레이리스트 풀폭, v2.0 skin 칩·online 배지 nowrap 정리. compact는 타이틀/LCD/비주얼라이저/transport/상태바로 압축.
+- console: 상세 페이지 error 0. 목록 페이지 중복 key 경고(distortion rail 등, HMR로 반복 표기)는 기존 타 스타일 데이터 이슈로 y2k 범위 밖.
+- 명령: `check:data`(87)·`check:style-distinction`(87)·`npm run lint`·`next build`(577 pages) 통과.
+- screenshots: `y2k-full-v2.jpeg`, `y2k-mobile-v2.jpeg`, `y2k-compact-v1.jpeg`.
 - 남은 의심점: 없음.

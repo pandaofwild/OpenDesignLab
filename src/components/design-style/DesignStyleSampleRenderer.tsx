@@ -4,6 +4,7 @@ import type { DesignStyle } from "@/data/designStyles";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
 import { cn } from "@/lib/utils";
 import { ChromeworksFaceplateShop } from "./ChromeworksFaceplateShop";
+import { CybershockPlayer } from "./CybershockPlayer";
 import { FlightOsdConsole } from "./FlightOsdConsole";
 import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
 import { HollowayApothecary } from "./HollowayApothecary";
@@ -2514,134 +2515,13 @@ function NinetiesMultimediaCdRom({ className, compact = false, style }: Props) {
   );
 }
 
-function Y2KGlossPortal({ className, compact = false, style }: Props) {
-  const widgets: Array<[string, string, string]> = [
-    ["mood", "sparkly", "var(--sample-accent)"],
-    ["mail", "14 new", "var(--sample-accent-2)"],
-    ["blinkies", "upload", "var(--sample-accent-3)"],
-  ];
-  const dock: Array<[string, string]> = [
-    ["chat", "var(--sample-accent-2)"],
-    ["pics", "var(--sample-accent)"],
-    ["music", "var(--sample-accent-3)"],
-  ];
-
+function Y2KMediaPlayer({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span
-        aria-hidden="true"
-        className="absolute inset-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(34% 48% at 16% 16%, rgb(var(--st-accent-2-rgb) / 0.55), transparent 64%), radial-gradient(40% 45% at 86% 22%, rgb(var(--st-accent-rgb) / 0.46), transparent 62%), radial-gradient(46% 52% at 58% 102%, rgb(var(--st-accent-3-rgb) / 0.42), transparent 64%), linear-gradient(135deg, rgb(255 255 255 / 0.88), rgb(var(--st-accent-2-rgb) / 0.16))",
-        }}
-      />
-      <span aria-hidden="true" className="absolute inset-0 opacity-35" style={{ backgroundImage: "radial-gradient(circle at 10px 10px, rgb(255 255 255 / 0.95) 0 1px, transparent 1.6px)", backgroundSize: "22px 22px" }} />
-
-      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-2">
-        <header
-          className="grid grid-cols-[auto_1fr_auto] items-center gap-2 rounded-[var(--st-radius-pill)] border border-white px-2.5 py-1.5 text-[9px] font-black text-[var(--sample-text)]"
-          style={{
-            backgroundImage: "linear-gradient(180deg, rgb(255 255 255 / 0.95), rgb(var(--st-accent-2-rgb) / 0.24))",
-            boxShadow: "0 5px 16px rgb(var(--st-accent-2-rgb) / 0.28), inset 0 1px 0 #fff",
-          }}
-        >
-          <span
-            className="rounded-[var(--st-radius-pill)] border border-white px-2 py-0.5 font-display text-[10px] text-[var(--sample-accent-2)]"
-            style={{ fontFamily: "var(--st-font-display)", backgroundImage: "linear-gradient(180deg, #fff, rgb(var(--st-accent-rgb) / 0.2))", boxShadow: "inset 0 1px 0 #fff, 0 2px 7px rgb(var(--st-accent-rgb) / 0.26)" }}
-          >
-            GLOSS PORTAL
-          </span>
-          <span className={cn("min-w-0 truncate text-center text-[var(--sample-muted)]", compact ? "hidden" : "")}>profile / glitter / mail / rooms</span>
-          <span className="rounded-[var(--st-radius-pill)] border border-white bg-white/70 px-2 py-0.5 text-[8px]">login</span>
-        </header>
-
-        <main className={cn("grid min-h-0 gap-2", compact ? "grid-cols-[1fr_0.78fr]" : "grid-cols-1 md:grid-cols-[1.04fr_0.96fr]")}>
-          <section
-            className="relative min-w-0 overflow-hidden rounded-[22px] border border-white p-3"
-            style={{
-              backgroundImage: "linear-gradient(160deg, rgb(255 255 255 / 0.8), rgb(var(--st-accent-rgb) / 0.28) 58%, rgb(var(--st-accent-2-rgb) / 0.18))",
-              boxShadow: "0 10px 24px rgb(var(--st-text-rgb) / 0.18), inset 0 2px 0 #fff",
-            }}
-          >
-            <span aria-hidden="true" className="absolute -right-7 top-8 h-28 w-28 rounded-full border border-white/70 bg-white/40 blur-[0.5px]" style={{ boxShadow: "inset 0 8px 20px rgb(var(--st-accent-2-rgb) / 0.3), 0 12px 30px rgb(var(--st-accent-rgb) / 0.24)" }} />
-            <span aria-hidden="true" className="absolute bottom-4 right-8 h-14 w-28 rounded-[999px] bg-[var(--sample-accent-2)] opacity-70 blur-sm" />
-            <div className="relative max-w-[12.5rem]">
-              <p className="mb-2 w-max rounded-[var(--st-radius-pill)] border border-white bg-white/80 px-2 py-0.5 text-[8px] font-black text-[var(--sample-accent-2)]">cyberpop profile hub</p>
-            <h3
-              className={cn("font-display leading-[0.86] text-[var(--sample-text)]", compact ? "text-[2rem]" : "text-5xl md:text-[3.5rem]")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
-            >
-              Shiny web
-              <br />
-              diary
-            </h3>
-              <p className={cn("mt-2 max-w-[23ch] text-[10px] leading-4 text-[var(--sample-muted)]", compact ? "hidden" : "")}>
-                A soft-launch portal for profile charms, blinkie packs, and glossy room updates.
-              </p>
-            </div>
-
-            <div className={cn("relative mt-3 grid grid-cols-3 gap-1.5", compact ? "hidden" : "")}>
-              {dock.map(([label, color]) => (
-                <span
-                  className="rounded-[var(--st-radius-pill)] border border-white px-2 py-1 text-center text-[8px] font-black text-[var(--sample-text)]"
-                  key={label}
-                  style={{ backgroundImage: `linear-gradient(180deg, #fff, ${color})`, boxShadow: "inset 0 1px 0 #fff, 0 3px 8px rgb(var(--st-text-rgb) / 0.14)" }}
-                >
-                  {label}
-                </span>
-              ))}
-            </div>
-          </section>
-
-          <aside className="grid min-h-0 gap-2">
-            <section
-              className="grid gap-1.5 rounded-[20px] border border-white bg-white/58 p-2"
-              style={{ boxShadow: "0 8px 20px rgb(var(--st-text-rgb) / 0.14), inset 0 1px 0 #fff", backdropFilter: "blur(8px)" }}
-            >
-              <p className="text-[8px] font-black text-[var(--sample-accent-2)]">bubble widget stack</p>
-              {widgets.map(([label, value, color]) => (
-                <div
-                  className="grid grid-cols-[auto_1fr_auto] items-center gap-1.5 rounded-[var(--st-radius-pill)] border border-white px-2 py-1 text-[8px] font-black text-[var(--sample-text)]"
-                  key={label}
-                  style={{ backgroundImage: "linear-gradient(180deg, rgb(255 255 255 / 0.96), rgb(255 255 255 / 0.48))", boxShadow: "inset 0 1px 0 #fff, 0 3px 9px rgb(var(--st-text-rgb) / 0.12)" }}
-                >
-                  <span className="h-4 w-4 rounded-full border border-white" style={{ backgroundColor: color, boxShadow: `0 0 10px ${color}` }} />
-                  <span className="truncate">{label}</span>
-                  <span className="text-[var(--sample-muted)]">{value}</span>
-                </div>
-              ))}
-            </section>
-
-            <section className={cn("rounded-[20px] border border-white bg-white/55 p-2", compact ? "hidden" : "")} style={{ boxShadow: "0 8px 20px rgb(var(--st-text-rgb) / 0.13), inset 0 1px 0 #fff" }}>
-              <p className="mb-1.5 text-[8px] font-black text-[var(--sample-accent-2)]">sparkle guestbook rail</p>
-              <div className="grid grid-cols-4 gap-1">
-                {["✦", "♡", "☆", "✧"].map((glyph, index) => (
-                  <span
-                    key={glyph}
-                    className="grid h-7 place-items-center rounded-[9px] border border-white text-[10px] font-black text-white"
-                    style={{
-                      backgroundImage: `linear-gradient(180deg, #fff8, ${[style.palette.accent, style.palette.accent2, style.palette.accent3, "#b8d3ff"][index]})`,
-                      boxShadow: "inset 0 1px 0 #fff, 0 2px 8px rgb(var(--st-accent-rgb) / 0.24)",
-                    }}
-                  >
-                    <IconStar size={10} />
-                  </span>
-                ))}
-              </div>
-            </section>
-          </aside>
-        </main>
-
-        <footer className={cn("grid grid-cols-[1fr_auto] items-center gap-2 rounded-[var(--st-radius-pill)] border border-white bg-white/65 px-2 py-1 text-[8px] font-black text-[var(--sample-text)]", compact ? "hidden" : "")} style={{ boxShadow: "inset 0 1px 0 #fff, 0 5px 14px rgb(var(--st-accent-2-rgb) / 0.2)" }}>
-          <span className="truncate">jelly capsule dock / glitter code / profile skin</span>
-          <span className="rounded-[var(--st-radius-pill)] bg-[var(--sample-accent-3)] px-2 py-0.5">online 27</span>
-        </footer>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <CybershockPlayer compact={compact} />
     </SampleFrame>
   );
 }
-
 function RetroFuturismFlightDeck({ className, compact = false, style }: Props) {
   const destinations: Array<[string, string, string]> = compact
     ? [
@@ -8132,7 +8012,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "y2k") {
-    return <Y2KGlossPortal {...props} />;
+    return <Y2KMediaPlayer {...props} />;
   }
 
   if (style.slug === "retro-futurism") {

@@ -2436,11 +2436,11 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
   y2k: {
     summary: "Y2K는 크롬 광택, 젤리 같은 색, 버블 패널, 초기 인터넷의 미래 낙관주의를 결합한 2000년대 초반 웹 스타일입니다.",
     description:
-      "Y2K는 90년대 그래픽보다 더 매끈하고 미래적인 광택이 중요합니다. Web Design Museum의 Y2K 아카이브, Blingee, Windows 93처럼 반짝이는 버튼, 둥근 포털 카드, 파스텔 사이버 색, 장식적 위젯이 실제 웹 포털로 구성되어야 합니다.",
-    visualFeatures: ["버블형 패널과 글로시한 표면이 핵심 신호입니다.", "파스텔 블루, 핑크, 라임이 밝은 미래감을 만듭니다.", "포털, 프로필, 위젯, 게스트북 같은 작은 모듈이 화면을 채웁니다."],
-    colorPalette: ["아이스 블루와 흰색을 밝은 기본으로 둡니다.", "핑크와 라임을 장식/상태 포인트로 씁니다.", "테두리는 회청색으로 살짝 기술적인 느낌을 줍니다."],
-    typography: ["굵고 둥근 제목이 잘 어울립니다.", "작은 위젯 라벨과 버튼 텍스트는 또렷해야 합니다.", "긴 본문보다 짧은 포털 메뉴와 상태 텍스트가 효과적입니다."],
-    layoutTraits: ["GLOSS PORTAL 헤더, bubble widget stack, sparkle guestbook rail이 함께 보입니다.", "카드는 둥글고 반짝이는 젤리/캡슐 표면처럼 처리합니다.", "모바일에서는 포털 히어로, 위젯 스택, 젤리 캡슐 도크 순서가 명확해야 합니다."],
+      "Y2K는 90년대 그래픽보다 더 매끈하고 미래적인 크롬 광택이 중요합니다. CYBERSHOCK 샘플처럼 브러시드 크롬 애플리케이션 윈도우 스킨, LCD now playing 디스플레이, 스펙트럼 비주얼라이저, 베벨 재생 버튼이 홀로그래픽 데스크톱 위에서 실제 소프트웨어 스킨처럼 작동해야 합니다.",
+    visualFeatures: ["브러시드 크롬 베벨과 LCD 디스플레이가 핵심 신호입니다.", "파스텔 아이스 블루·핑크·라임 사이버 글로우가 밝은 미래감을 만듭니다.", "타이틀바·비주얼라이저·재생 버튼·플레이리스트 같은 소프트웨어 스킨 모듈이 화면을 채웁니다."],
+    colorPalette: ["아이스 블루와 크롬 실버를 밝은 기본으로 둡니다.", "핑크와 라임을 글로우/상태 포인트로 씁니다.", "테두리는 회청색으로 기술적인 크롬 느낌을 줍니다."],
+    typography: ["굵고 둥근 크롬 제목이 잘 어울립니다.", "LCD·플레이리스트의 작은 라벨과 수치는 또렷해야 합니다.", "긴 본문보다 짧은 상태·트랙 텍스트가 효과적입니다."],
+    layoutTraits: ["크롬 타이틀바, LCD now playing, spectrum visualizer, transport controls, playlist이 하나의 윈도우 스킨으로 작동합니다.", "표면은 브러시드 크롬 베벨과 파스텔 사이버 글로우로 처리합니다.", "모바일에서는 타이틀바→LCD/비주얼라이저→재생 버튼→플레이리스트 순서가 명확해야 합니다."],
     useCases: ["음악/패션 캠페인", "커뮤니티 포털", "레트로 테크 브랜드", "Z세대 이벤트"],
     goodFor: ["초기 인터넷과 미래 낙관주의를 함께 보여줄 때", "밝고 장식적인 디지털 브랜드", "작은 위젯이 많은 랜딩", "Y2K 패션/음악/콘텐츠 캠페인"],
     cautions: ["90s Graphic과 구분하려면 스티커보다 광택/버블/포털을 강조합니다.", "반짝임이 과하면 주요 정보가 묻힙니다.", "낮은 대비의 파스텔 텍스트는 피해야 합니다."],
@@ -2457,10 +2457,10 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         { title: "Awwwards - Y2K Websites", url: "https://www.awwwards.com/websites/y2k/", note: "Gallery reference for contemporary Y2K web executions, glossy gradients, nostalgic interfaces, and cyber-pop visual systems." },
         { title: "Dribbble - Y2K Website", url: "https://dribbble.com/search/y2k%20website", note: "UI reference for Y2K landing pages, shiny cards, bubble navigation, chrome-like widgets, and playful web portals." },
       ],
-      representativeTraits: ["GLOSS PORTAL header", "Bubble widget stack", "Sparkle guestbook rail", "Jelly capsule dock", "Pastel cyber gloss"],
+      representativeTraits: ["Chrome window skin", "LCD now-playing display", "Spectrum visualizer", "Bevel transport controls", "Holographic cyber desktop"],
       avoidTraits: ["90s sticker windows", "80s neon darkness", "Chromecore hardware stage"],
       tokenIntent:
-        "Use a GLOSS PORTAL header, bubble widget stack, sparkle guestbook rail, jelly capsule dock, translucent gloss, pastel cyber accents, glitter-profile cues, and rounded early-web portal cards so the style reads as Y2K rather than 90s Graphic or Chromecore.",
+        "Use a brushed-chrome application-window skin, an LCD now-playing readout, a spectrum visualizer, bevel transport controls, and pastel ice-blue/pink/lime cyber glow over a holographic desktop so the style reads as turn-of-millennium Y2K software chrome rather than 90s Graphic stickers or Chromecore hardware.",
     },
   },
   "retro-futurism": {
