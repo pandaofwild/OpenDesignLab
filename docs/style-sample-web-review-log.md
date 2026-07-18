@@ -324,3 +324,10 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - console: production 상세·목록 페이지 error 0. 최초 dev QA의 HMR WebSocket 오류는 같은 checkout의 기존 중복 dev 서버 lock에서 발생했으며, 해당 프로세스를 종료하고 production 서버로 재검증해 애플리케이션 오류가 아님을 분리 확인.
 - screenshots: `.playwright-cli/page-2026-07-18T08-43-13-472Z.png`(full), `.playwright-cli/page-2026-07-18T08-52-21-556Z.png`(mobile), `.playwright-cli/element-2026-07-18T08-50-18-346Z.png`(compact).
 - 자동 검증: `check:data` 87 styles/10 categories, `check:future-digital` 8 styles, `check:style-distinction` 87 styles, `check:style-refs` 87 styles, TypeScript, ESLint, `next build` 577 static pages 통과.
+
+### 무드보드 교체 (2026-07-18, 소유자 피드백)
+
+- 소유자 판정: v2 무드보드(임상 스캔 필름·MRI/X-ray 크롭)는 샘플 컨셉(LUMA VOLUME)을 보여줄 뿐 홀로그램 스타일 자체를 보여주지 못함 — "순수하게 홀로그램 스타일을 보여줄 수 있는 무드보드" 요구.
+- `public/generated/moodboards/hologram-style-realistic-v3.webp` 신규 생성: 홀로포일·회절 필름 시트, 프리즘의 실제 무지개 코스틱 1줄, 다이크로익 글래스 칩(시안↔바이올렛), 레이어드 클리어 아세테이트 스택, 렌티큘러 조각, 분광 그라디언트 레이아웃 크롭, 팔레트 칩(펄/시안/바이올렛/그레이/페일 앰버 1점). 임상·해부 소재 완전 제거, 읽히는 텍스트·로고 없음.
+- `designStyles.ts` moodboard 항목(alt/caption/directionKeywords/imageSrc/prompt) v3로 갱신. 스타일 레코드 팔레트와 일치 확인.
+- 검증: `check:data`·`npm run lint`·`next build` 통과. `/ko/styles/hologram-style` 데스크톱 1280·모바일 375 모두 overflow 0, v3 이미지 로드 확인.
