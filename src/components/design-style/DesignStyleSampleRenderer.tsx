@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ChromeworksFaceplateShop } from "./ChromeworksFaceplateShop";
 import { FlightOsdConsole } from "./FlightOsdConsole";
 import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
+import { HologramClinicalVolume } from "./HologramClinicalVolume";
 import { LatentStudioPanel } from "./LatentStudioPanel";
 import { MaximalistSalonWall } from "./MaximalistSalonWall";
 import { MidCenturyListeningRoom } from "./MidCenturyListeningRoom";
@@ -3368,63 +3369,10 @@ function AiAestheticStudio({ className, compact = false, style }: Props) {
   );
 }
 
-const IRIDESCENT = "linear-gradient(110deg, var(--sample-accent), var(--sample-accent-2), var(--sample-accent-3), var(--sample-accent))";
-
-function HologramInterface({ className, compact = false, style }: Props) {
+function HologramClinicalVolumeSample({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span aria-hidden="true" className="absolute inset-0" style={{ backgroundImage: "radial-gradient(50% 60% at 75% 15%, rgb(var(--st-accent-rgb) / 0.4), transparent 60%), radial-gradient(50% 60% at 15% 90%, rgb(var(--st-accent-2-rgb) / 0.4), transparent 60%)" }} />
-      <span aria-hidden="true" className="absolute inset-0 opacity-25" style={{ backgroundImage: "linear-gradient(90deg, rgb(255 255 255 / 0.12) 1px, transparent 1px), linear-gradient(0deg, rgb(255 255 255 / 0.12) 1px, transparent 1px)", backgroundSize: "34px 34px" }} />
-      <div className="relative flex h-full flex-col text-[var(--sample-text)]">
-        <div className="flex items-center gap-3 pb-2 text-[10px] font-medium uppercase tracking-[0.12em]">
-          <span className="font-display text-sm font-bold tracking-tight" style={{ fontFamily: "var(--st-font-display)" }}>LIGHT FIELD</span>
-          <nav className={cn("items-center gap-3 text-[var(--sample-muted)]", compact ? "hidden" : "flex")}>
-            <span>depth layer</span>
-            <span>volume</span>
-            <span>capture</span>
-          </nav>
-          <span className="ml-auto rounded-[var(--st-radius-pill)] border border-white/30 bg-white/10 px-3 py-1 backdrop-blur">Calibrate</span>
-        </div>
-
-        <div className={cn("grid min-h-0 flex-1 items-center gap-3 pt-2", compact ? "grid-cols-[1fr_0.85fr]" : "grid-cols-1 md:grid-cols-[1.05fr_0.95fr]")}>
-          <div className="min-w-0">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--sample-accent)]">Holographic UI</p>
-            <h3
-              className={cn("mt-2 font-display uppercase leading-[0.86]", compact ? "text-4xl" : "text-6xl md:text-[4rem]")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)", backgroundImage: IRIDESCENT, backgroundSize: "200% 100%", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}
-            >
-              prism stack,
-              <br />
-              real depth.
-            </h3>
-            <span className={cn("mt-4 inline-flex w-fit items-center gap-1.5 rounded-[var(--st-radius-pill)] border border-white/30 bg-white/10 px-4 py-2 text-[11px] font-bold backdrop-blur", compact ? "hidden" : "")} style={{ boxShadow: "0 0 20px rgb(var(--st-accent-rgb) / 0.4)" }}>
-              Focus plane <IconArrow size={12} />
-            </span>
-          </div>
-
-          <div className="relative min-h-0">
-            <div className="absolute inset-x-2 top-2 rounded-[12px] border border-white/25 bg-white/10 p-3 backdrop-blur-md" style={{ boxShadow: "0 8px 30px rgb(var(--st-accent-2-rgb) / 0.3), inset 0 1px 0 rgb(255 255 255 / 0.3)" }}>
-              <div className="h-1.5 w-12 rounded-full" style={{ backgroundImage: IRIDESCENT }} />
-              <p className="mt-2 font-display text-base font-bold" style={{ fontFamily: "var(--st-font-display)" }}>Volumetric layer</p>
-              <p className="text-[9px] text-[var(--sample-muted)]">refraction / realtime / 62%</p>
-              <div className="mt-2 grid grid-cols-3 gap-1.5">
-                {[0, 1, 2].map((i) => (
-                  <span key={i} className="h-6 rounded-[6px] border border-white/20" style={{ backgroundImage: IRIDESCENT, opacity: 0.5 + i * 0.2 }} />
-                ))}
-              </div>
-            </div>
-            <div className={cn("absolute -bottom-1 right-0 w-2/3 translate-y-2 rounded-[10px] border border-white/20 bg-white/10 p-2 backdrop-blur-md", compact ? "hidden" : "")} style={{ boxShadow: "0 8px 24px rgb(var(--st-accent-rgb) / 0.3)" }}>
-              <div className="flex items-center justify-between text-[9px]">
-                <span>opacity</span>
-                <span className="text-[var(--sample-accent)]">62%</span>
-              </div>
-              <div className="mt-1 h-1.5 rounded-full bg-white/15">
-                <span className="block h-full w-[62%] rounded-full" style={{ backgroundImage: IRIDESCENT }} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <HologramClinicalVolume compact={compact} />
     </SampleFrame>
   );
 }
@@ -8657,7 +8605,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "hologram-style") {
-    return <HologramInterface {...props} />;
+    return <HologramClinicalVolumeSample {...props} />;
   }
 
   if (style.slug === "chromecore") {
