@@ -19,7 +19,7 @@ const requiredSampleMarkers = {
   cyberpunk: ["BRAINDANCE", "black-market deck", "city protocol"],
   "neon-noir": ["RED ROOM", "rain index", "case file"],
   hud: ["FLIGHT OSD", "pitch ladder", "battery cell", "flight path vector", "telemetry rail"],
-  "high-tech": ["CONTROL PLANE", "deploy graph", "edge regions"],
+  "high-tech": ["CONTROL PLANE", "qubit lattice", "cryostat", "gate fidelity"],
   "ai-aesthetic": ["MODEL CANVAS", "Latent queue", "World-model preview"],
     "hologram-style": [
       "LUMA VOLUME",
@@ -49,6 +49,8 @@ const retiredSampleMarkers = [
   "CHROME°",
   "MIRROR INDEX",
   "Decentral",
+  "deploy graph",
+  "edge regions",
 ];
 
 const errors = [];

@@ -9,6 +9,7 @@ import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
 import { HologramClinicalVolume } from "./HologramClinicalVolume";
 import { LatentStudioPanel } from "./LatentStudioPanel";
 import { MaximalistSalonWall } from "./MaximalistSalonWall";
+import { MillikelvinControlPlane } from "./MillikelvinControlPlane";
 import { MidCenturyListeningRoom } from "./MidCenturyListeningRoom";
 import { NightMarketClinic } from "./NightMarketClinic";
 import { OrbitalTransitConsole } from "./OrbitalTransitConsole";
@@ -3279,84 +3280,10 @@ function HudFlightOsd({ className, compact = false, style }: Props) {
   );
 }
 
-function HighTechDashboard({ className, compact = false, style }: Props) {
-  const kpis: Array<[string, string, string]> = [
-    ["Build", "42s", "var(--sample-accent)"],
-    ["p95", "84ms", "var(--sample-accent-2)"],
-    ["Edge", "18", "var(--sample-accent-3)"],
-  ];
-
+function HighTechQuantumConsole({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <div className="flex h-full flex-col text-[var(--sample-text)]">
-        <div className="flex items-center gap-3 pb-2 text-[10px] font-medium">
-          <span className="font-display text-sm font-bold tracking-tight" style={{ fontFamily: "var(--st-font-display)" }}>CONTROL PLANE</span>
-          <nav className={cn("items-center gap-3 text-[var(--sample-muted)]", compact ? "hidden" : "flex")}>
-            <span>deploy graph</span>
-            <span>edge regions</span>
-            <span>incidents</span>
-          </nav>
-          <span className="ml-auto rounded-[var(--st-radius)] bg-[var(--sample-accent)] px-2.5 py-1 font-semibold text-[var(--sample-base)]">Live</span>
-        </div>
-
-        <div className={cn("grid min-h-0 flex-1 gap-3 pt-2.5", compact ? "grid-cols-[0.8fr_1.2fr]" : "grid-cols-1 md:grid-cols-[0.82fr_1.18fr]")}>
-          <div className="flex min-w-0 flex-col justify-center">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--sample-accent)]">global infrastructure</p>
-            <h3
-              className={cn("mt-2 font-display leading-[0.96] tracking-tight", compact ? "text-2xl" : "text-4xl md:text-[2.7rem]")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
-            >
-              Ship closer to every user.
-            </h3>
-            <p className={cn("mt-3 max-w-[24ch] text-[11px] leading-5 text-[var(--sample-muted)]", compact ? "hidden" : "")}>
-              Real-time telemetry for every service, region and request.
-            </p>
-          </div>
-
-          {/* dashboard panel */}
-          <div className="grid min-h-0 grid-rows-[auto_auto_1fr] gap-2 rounded-[6px] border border-[var(--sample-border)] bg-[var(--sample-surface)] p-2.5">
-            <div className="grid grid-cols-3 gap-2">
-              {kpis.map(([label, value, color]) => (
-                <div className="rounded-[4px] border border-[var(--sample-border)] bg-[var(--sample-base)] p-2" key={label}>
-                  <p className="text-[8px] uppercase tracking-[0.08em] text-[var(--sample-muted)]">{label}</p>
-                  <p className="mt-1 font-display text-sm font-bold" style={{ fontFamily: "var(--st-font-display)", color }}>{value}</p>
-                </div>
-              ))}
-            </div>
-            <div className="rounded-[4px] border border-[var(--sample-border)] bg-[var(--sample-base)] p-2">
-              <div className="flex items-center justify-between text-[8px] text-[var(--sample-muted)]">
-                <span>deploy graph · 24h</span>
-                <span className="text-[var(--sample-accent)]">● live</span>
-              </div>
-              <svg className="mt-1.5 h-12 w-full" preserveAspectRatio="none" viewBox="0 0 200 48">
-                <defs>
-                  <linearGradient id="htFill" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stopColor="var(--sample-accent)" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="var(--sample-accent)" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-                <path d="M0 40 L20 34 L40 36 L60 26 L80 30 L100 18 L120 22 L140 12 L160 20 L180 8 L200 14 L200 48 L0 48 Z" fill="url(#htFill)" />
-                <path d="M0 40 L20 34 L40 36 L60 26 L80 30 L100 18 L120 22 L140 12 L160 20 L180 8 L200 14" fill="none" stroke="var(--sample-accent)" strokeWidth="1.5" />
-              </svg>
-              <div className={cn("mt-1.5 flex h-8 items-end gap-1", compact ? "hidden" : "")}>
-                {[40, 65, 52, 78, 60, 88, 70, 95, 62, 80, 72, 90].map((h, index) => (
-                  <span key={index} className="flex-1 rounded-t-[1px]" style={{ height: `${h}%`, backgroundColor: index >= 10 ? "var(--sample-accent-2)" : "color-mix(in srgb, var(--sample-accent-2) 35%, transparent)" }} />
-                ))}
-              </div>
-            </div>
-            <div className={cn("rounded-[4px] border border-[var(--sample-border)] bg-[var(--sample-base)] p-2", compact ? "hidden" : "")}>
-              {([["iad1", "42ms", "var(--sample-accent)"], ["fra1", "58ms", "var(--sample-accent)"], ["sin1", "120ms", "var(--sample-accent-3)"]] as Array<[string, string, string]>).map(([region, ms, color]) => (
-                <div className="flex items-center gap-2 border-b border-[var(--sample-border)] py-1 text-[9px] last:border-b-0" key={region}>
-                  <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: color }} />
-                  <span className="text-[var(--sample-text)]">{region}</span>
-                  <span className="ml-auto tabular-nums text-[var(--sample-muted)]">{ms}</span>
-                  <span className="text-[var(--sample-muted)]">healthy</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <MillikelvinControlPlane compact={compact} />
     </SampleFrame>
   );
 }
@@ -8597,7 +8524,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "high-tech") {
-    return <HighTechDashboard {...props} />;
+    return <HighTechQuantumConsole {...props} />;
   }
 
   if (style.slug === "ai-aesthetic") {

@@ -1316,10 +1316,10 @@ const futureDigitalResearch: Partial<Record<string, StyleResearchBrief>> = {
       { title: "Dribbble - Dark Dashboard", url: "https://dribbble.com/search/dashboard-dark", note: "UI reference for deploy graphs, KPI cards, telemetry panels, edge-region maps, and control-plane interaction patterns." },
       { title: "Pinterest - High-Tech Website Design", url: "https://www.pinterest.com/search/pins/?q=High-Tech%20website%20design", note: "Moodboard reference for dark product systems, data grids, technical blue-green accents, and advanced software surfaces." },
     ],
-    representativeTraits: ["Control-plane dashboard", "Deploy graph", "Edge-region status", "Telemetry cards", "Precise engineering copy"],
+    representativeTraits: ["Quantum control plane", "Cryostat stage rail", "Qubit lattice map", "Calibration telemetry", "Precise engineering copy"],
     avoidTraits: ["Cyberpunk fantasy", "Generic KPI dashboard", "Marketing-only gradient hero", "Unlabeled data decoration"],
     tokenIntent:
-      "Use dark product surfaces, blue-green live accents, compact telemetry, deploy graphs, edge-region tables, and crisp typography so the style reads as high-tech software infrastructure.",
+      "Use dark graphite product surfaces, mint live accents, blue data accents, restrained amber caution, tabular mono telemetry, hairline panel borders, and crisp typography so the style reads as precision high-tech infrastructure.",
   },
   "ai-aesthetic": {
     referenceSites: [
@@ -1529,6 +1529,34 @@ const luxuryClassicResearch: Record<string, StyleResearchBrief> = {
 };
 
 const styleContentOverrides: Record<string, StyleContentOverride> = {
+  "high-tech": {
+    summary: "하이테크는 실존 첨단 인프라를 다크 그래파이트 위 정밀 계측 UI로 운영하는 스타일 — 장식이 아니라 값·단위·상태가 첨단 이미지를 만듭니다.",
+    description:
+      "MILLIKELVIN 샘플은 퀀텀 컴퓨팅 클라우드의 QPU 관제 플레인으로 하이테크의 핵심을 보여줍니다. 골드 희석냉동기 실사 위에 겹친 cryostat 스테이지 래더(300 K→12.9 mK), fidelity 컬러로 읽는 qubit lattice, 선택 큐빗과 연동되는 calibration readout과 job queue가 실제 운영 도구처럼 작동합니다. 민트는 live·정상, 블루는 데이터, 앰버는 주의 상태에만 제한하고 모든 수치는 탭형 모노스페이스로 정렬해 '정밀한 소프트웨어 운영'이라는 인상을 만듭니다.",
+    visualFeatures: [
+      "다크 그래파이트 패널과 헤어라인 보더가 계측 장비의 정밀함을 만듭니다.",
+      "실존 장비(희석냉동기) 스키매틱과 실사가 첨단 도메인을 즉시 설명합니다.",
+      "fidelity 컬러 노드의 qubit lattice가 시스템 상태를 한눈에 보여줍니다.",
+      "탭형 모노스페이스 수치와 단위가 모든 값에 붙어 데이터 신뢰를 만듭니다.",
+    ],
+    colorPalette: ["다크 그래파이트 베이스", "민트 라이브 상태", "블루 데이터 강조", "앰버 주의 신호", "쿨 그레이 메타"],
+    typography: ["크리스프 산세리프 헤드라인", "탭형 모노스페이스 판독값", "값보다 약한 대문자 트래킹 라벨"],
+    layoutTraits: [
+      "얇은 앱 크롬 아래 3열 관제 그리드",
+      "실사 배경 위 세로 cryostat 스테이지 래더",
+      "중앙 헤드라인과 qubit lattice 맵",
+      "선택 상태와 연동되는 calibration·queue 컬럼",
+    ],
+    useCases: ["개발자 플랫폼", "인프라 관제 콘솔", "연구 장비 모니터링", "엔터프라이즈 옵저버빌리티"],
+    goodFor: ["첨단 기술력이 곧 브랜드인 제품의 관제 화면", "고밀도 텔레메트리를 신뢰감 있게 보여야 하는 콘솔", "정밀 계측·상태 데이터가 주인공인 인터페이스"],
+    cautions: [
+      "라벨 없는 그래프와 장식용 수치를 늘리지 말고 모든 값에 단위와 상태 목적을 부여해야 합니다.",
+      "민트·앰버 강조가 넓은 면적을 채우면 사이버펑크로 미끄러지므로 상태 신호에만 제한해야 합니다.",
+      "모바일에서는 보조 컬럼을 먼저 접고 시그니처 계기(cryostat 래더·lattice·선택 판독값)는 남겨야 합니다.",
+    ],
+    imagePrompt:
+      "A dramatic vertical photograph of a gold-plated dilution refrigerator chandelier of a superconducting quantum computer in a dark precision laboratory, polished gold discs and neat coaxial cable looms, near-black graphite background, cold blue rim light, no text, no logo, no watermark, no people",
+  },
   hud: {
     summary: "HUD는 실제 장면 위에 비행 계기와 경로 정보를 직접 겹쳐, 시선을 떼지 않고 상태와 목표를 읽게 만드는 헤드업 디스플레이(FUI) 스타일입니다.",
     description:

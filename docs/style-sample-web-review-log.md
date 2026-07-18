@@ -62,7 +62,7 @@
 | 28 | 미래 / 디지털 | cyberpunk | cyber-dashboard | verified | LUCKY CHROME CLINIC 나이트마켓 리퍼독 터미널 — 네온 골목 실사+사인 스택, implant menu(선택→원장 연동), black-market deck flash, install queue, humanity 게이지, city protocol 해저드 스트립 |
 | 29 | 미래 / 디지털 | neon-noir | cyber-dashboard | verified | RED ROOM 심야 탐정 케이스 데스크 — 붉은 네온 비창 실사 풀블리드 스틸, case file 레일(선택→히어로 캡션 연동), rain index 위젯, 절제된 단일광원 누아르 |
 | 30 | 미래 / 디지털 | hud | cyber-dashboard | verified | KESTREL GCS 시네마틱 드론 관제 HUD — first-person scene, pitch ladder·roll arc·flight-path vector, calibrated data tapes, waypoint guidance+telemetry rail, ice-blue phosphor·amber caution |
-| 31 | 미래 / 디지털 | high-tech | saas-landing | queued | precision instrumentation, engineering surfaces |
+| 31 | 미래 / 디지털 | high-tech | saas-landing | verified | MILLIKELVIN quantum control plane — 골드 cryostat rail 실사+스테이지 래더(300 K→12.9 mK), qubit lattice(큐빗 선택→calibration readout 연동), gate fidelity 트렌드, job queue, 모노 텔레메트리 스트립 |
 | 32 | 미래 / 디지털 | ai-aesthetic | saas-landing | verified | MODEL CANVAS generative studio — world-model preview with denoise sweep, prompt bar with style presets, latent queue job states, model index |
 | 33 | 미래 / 디지털 | hologram-style | cyber-dashboard | verified | LUMA VOLUME clinical anatomy viewer — four-plane volume chamber, tissue modes, slice control, orientation cube, scan series, pearl/cyan/violet clinical optics |
 | 34 | 미래 / 디지털 | chromecore | luxury-product | verified | CHROMEWORKS faceplate shop — chrome-type nameplate, shells standing on a chrome rail (carousel), fitment rail with stock states, order bar |
@@ -331,3 +331,47 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - `public/generated/moodboards/hologram-style-realistic-v3.webp` 신규 생성: 홀로포일·회절 필름 시트, 프리즘의 실제 무지개 코스틱 1줄, 다이크로익 글래스 칩(시안↔바이올렛), 레이어드 클리어 아세테이트 스택, 렌티큘러 조각, 분광 그라디언트 레이아웃 크롭, 팔레트 칩(펄/시안/바이올렛/그레이/페일 앰버 1점). 임상·해부 소재 완전 제거, 읽히는 텍스트·로고 없음.
 - `designStyles.ts` moodboard 항목(alt/caption/directionKeywords/imageSrc/prompt) v3로 갱신. 스타일 레코드 팔레트와 일치 확인.
 - 검증: `check:data`·`npm run lint`·`next build` 통과. `/ko/styles/hologram-style` 데스크톱 1280·모바일 375 모두 overflow 0, v3 이미지 로드 확인.
+
+## 31. high-tech (미래 / 디지털)
+
+### 현재 판정
+
+- status: `reviewing`.
+- 현재 `HighTechDashboard`는 avoidTraits의 "Generic KPI dashboard" 그 자체 — KPI 카드 3개(Build/p95/Edge)·미니 라인그래프·리전 테이블 3행의 전형적 템플릿. 실이미지 없음, 정보 밀도 낮음, "CONTROL PLANE" 워드마크 외 정체성 없음.
+- 소유자 지시: "제대로 하이테크라는걸 알 수 있는 샘플 앱 — 꼭 실무가 아니더라도 하이테크 이미지가 전해지도록. 무드보드도 필요 시 교체."
+- 무드보드(v2) 판정: 유지. 다크 대시보드 인쇄물·정밀 기계 크롭·서킷 텍스처·티타늄 스와치·블루/그린 칩으로 하이테크 정체성을 이미 잘 전달함.
+- 인접 구분: hud(장면 위 오버레이 계기)와는 카드·패널 기반 product control plane으로, saas-style(밝은 B2B 운영 홈)과는 다크 정밀 인프라 콘솔로, cyber-dashboard 일반형과는 실존 장비(희석냉동기) 스키매틱으로 구분. "precise software ops, not fantasy" 유지.
+
+### referenceSites에서 가져올 웹 문법
+
+- Vercel: 다크 control-plane 표면, productized infrastructure 언어, 정밀 타이포.
+- Linear: 크리스프 패널, 절제된 그라디언트, 시스템 상태 표시의 페이싱.
+- Grafana: 라이브 메트릭·그래프 패널·고밀도 텔레메트리 문법.
+
+### 목표
+
+- 컨셉: **"MILLIKELVIN" — 퀀텀 컴퓨팅 클라우드의 QPU 관제 플레인**. 정석적 'SaaS 배포 대시보드'를 버리고, 실존 장르(IBM Quantum/IonQ 클라우드 콘솔)의 극저온 양자 인프라 콘솔로 구체화. 희석냉동기(cryostat) 스테이지 래더가 시그니처.
+- 고유 마커: check-future-digital `CONTROL PLANE`·`qubit lattice`·`cryostat`·`gate fidelity`(구 `deploy graph`/`edge regions`는 retired로 이동), check-style-distinction family `MILLIKELVIN`/`CONTROL PLANE`/`qubit lattice`/`cryostat rail`.
+- 정보 구조: 얇은 앱 크롬(MILLIKELVIN·Systems/Jobs/Calibration·QPU online) → 3열 — (A) codex 실사 골드 크라이오스탯 샹들리에를 배경으로 한 세로 **cryostat rail**(300 K→50 K→4 K→Still 800 mK→MXC 13 mK 스테이지 래더, 하단 QPU mounted), (B) 정밀 헤드라인 + **qubit lattice** 맵(fidelity 컬러 노드, 선택 가능 큐빗 3개), (C) 선택 큐빗 연동 **calibration readout**(T1/T2/1Q/2Q/readout)·gate fidelity 바·job queue(running/queued/complete) → 하단 상태 스트립(MXC 온도·fridge cycle·queue).
+- 시각 처리: 다크 그래파이트(#0A0F15) 위 민트(#2DE2A6) live·블루(#4C8DFF) data·앰버(#FFB020) caution, 모노스페이스 탭형 수치, 헤어라인 보더, 채운 원색 블록 금지.
+- representativeTraits 갱신: Quantum control plane / Cryostat stage rail / Qubit lattice map / Calibration telemetry / Precise engineering copy. referenceSites·style-references.json은 변경 없음(하이테크 web 문법 정본 유지).
+
+### 검증 계획
+
+- RED: 구 마커(deploy graph/edge regions)를 retired 리스트로 회귀 차단. 신 마커 GREEN: check:data·check:future-digital·check:style-distinction(HighTechQuantumConsole 위임 등록) 통과.
+- browser QA: full 데스크톱·375 모바일·compact 목록 overflow 0, 큐빗 선택 → lattice 하이라이트·readout 연동 확인, reduced-motion 대응.
+- 이미지: codex로 `public/generated/design-styles/high-tech.webp`(골드 크라이오스탯 샹들리에, 세로 크롭 내성 중앙 구도) 생성 후 직접 검사.
+
+### 구현 및 검증 결과 (2026-07-18)
+
+- status: `verified`.
+- 변경 요약: `HighTechDashboard`(generic KPI 대시보드) 삭제 → 위임 래퍼 `HighTechQuantumConsole` + 분리 컴포넌트 `MillikelvinControlPlane.tsx`(use client, 큐빗 선택 useState). codex로 골드 희석냉동기 샹들리에 실사(`public/generated/design-styles/high-tech.webp`, 864×1821 세로) 신규 생성. 골격: 얇은 앱 크롬(MILLIKELVIN 워드마크+QUANTUM CONTROL PLANE 서브·Systems/Jobs/Calibration/Access·QPU-133 online 펄스) → 3열 — (A) 실사 배경 세로 cryostat rail(6단 스테이지 래더 300 K→12.9 mK, MXC 민트 강조, QPU 칩), (B) 민트 키커+정밀 헤드라인 "Circuits at 12.9 millikelvin." + qubit lattice(오프셋 4×8 heavy-hex 노드, fidelity 3색, Q07/Q52/Q114 선택 버튼), (C) calibration readout(T1/T2/1Q/2Q/readout, caution 앰버)+gate fidelity 트렌드 바+job queue(running/queued/done) → 하단 모노 텔레메트리 스트립 4셀.
+- 인터랙션 QA: Q52 클릭 시 `aria-pressed` 전환, lattice 링 하이라이트, readout이 review 상태(2Q 99.18 %·recalibration queued·헤더 REVIEW)로 연동 갱신 확인. FOCUS 링(focus-visible) 적용, 펄스 dot은 `motion-reduce:animate-none`.
+- RED/GREEN: 구 마커(deploy graph/edge regions) retired 리스트 회귀 차단 통과. 신 마커 — future-digital(CONTROL PLANE/qubit lattice/cryostat/gate fidelity), distinction family(MILLIKELVIN/QUANTUM CONTROL PLANE(aria-label)/qubit lattice/cryostat rail/job queue) — 전부 GREEN. `HighTechQuantumConsole` 위임 등록(마커는 컴포넌트 파일이 보유, 래퍼 클린).
+- browser QA: `/ko/styles/high-tech` 1280(히어로 프레임 614×540)·375(284×540) 모두 page overflow 0 + 프레임/부모 경계 클리핑 0(스크립트 검사). 모바일은 스테이지명·133 physical·QPU 상세·nav를 숨기고 온도 래더+lattice+축약 readout 유지. compact 카드(444px·모바일 308px)는 크롬+rail+헤드라인+lattice로 압축, 클리핑 0.
+- console: 상세 페이지 error 0. 목록 페이지의 중복 React key 경고 5건(distortion rail 등)은 기존 문서화된 타 스타일 데이터 이슈로 high-tech 범위 밖.
+- 데이터: representativeTraits/tokenIntent 갱신, styleContentOverrides["high-tech"] 신설(요약·설명·특징·팔레트·타이포·레이아웃·주의점·imagePrompt), 구분표 high-tech 행 갱신. referenceSites·style-references.json 무변경. 무드보드 v2 유지(하이테크 정체성 이미 충족 판정).
+- 명령: `check:data`(87)·`check:future-digital`(8)·`check:style-distinction`(87)·`check:style-refs`(87)·`npm run lint`·`next build` 통과.
+- screenshots: `hightech-full-final.jpeg`(데스크톱), `hightech-mobile-v2.jpeg`(모바일), `hightech-compact-v2.jpeg`(compact 카드).
+- 남은 의심점: 없음.
+- 다음 style: No. 36 `classic` (럭셔리 / 클래식 카테고리 시작).
