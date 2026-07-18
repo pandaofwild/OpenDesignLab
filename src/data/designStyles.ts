@@ -2316,11 +2316,11 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
   vintage: {
     summary: "빈티지는 오래된 인쇄물, 헤리티지 배지, 종이 질감, 클래식 카탈로그 구조를 활용해 시간의 깊이를 보여주는 스타일입니다.",
     description:
-      "빈티지는 레트로보다 더 오래되고 물성 있는 쪽입니다. Filson, Levi's, Web Design Museum처럼 헤리티지 제품 카드, 카탈로그 표, 잉크색 텍스트, 배지형 인증 요소가 실제 쇼핑/아카이브 화면으로 구성되어야 합니다.",
-    visualFeatures: ["종이색 배경과 잉크 같은 텍스트가 오래된 느낌을 만듭니다.", "헤리티지 배지와 카탈로그 행이 브랜드 신뢰를 줍니다.", "사진 영역은 인쇄물처럼 단정한 프레임 안에 놓입니다."],
+      "빈티지는 레트로보다 더 오래되고 물성 있는 쪽입니다. HOLLOWAY'S APOTHECARY 샘플처럼 왁스 실 마스트헤드, 장식 세리프, 이중 괘선, 조각 인쇄된 아포세카리 라벨, 포뮬러리 인덱스가 실제 아카이브 화면으로 구성되어야 합니다.",
+    visualFeatures: ["바랜 종이색과 잉크 세리프가 시간의 깊이를 만듭니다.", "왁스 실 배지·이중 괘선·조각 라벨이 인쇄물 물성을 드러냅니다.", "사진 영역은 이중 괘선 프레임 안에 단정하게 놓입니다."],
     colorPalette: ["베이지, 크림, 브라운을 기본으로 둡니다.", "딥 레드와 올리브 그린을 오래된 인쇄 포인트로 씁니다.", "새하얀 흰색보다 바랜 종이색이 잘 맞습니다."],
-    typography: ["세리프 또는 세리프 느낌의 제목이 어울립니다.", "카탈로그 번호, 연도, 원산지 같은 작은 정보가 중요합니다.", "본문은 오래된 안내문처럼 안정적으로 읽혀야 합니다."],
-    layoutTraits: ["상품 카탈로그, 수선 티켓, 소재 등록부, 아카이브 리스트가 잘 맞습니다.", "장식보다 배지와 라벨, 표 행 구조가 브랜드의 시간감을 만듭니다.", "모바일에서는 카탈로그 표와 수선 기록을 세로 카드형으로 바꿔 읽기 쉽게 둡니다."],
+    typography: ["장식 세리프 제목이 어울립니다.", "라틴 학명·연도·조제 번호 같은 작은 정보가 중요합니다.", "본문은 오래된 안내문처럼 안정적으로 읽혀야 합니다."],
+    layoutTraits: ["왁스 실 마스트헤드, 약제상 실사 창, 포뮬러리 인덱스, 아포세카리 라벨 카드가 한 화면에서 연결됩니다.", "장식보다 이중 괘선·배지·라벨·등록부 구조가 브랜드의 시간감을 만듭니다.", "모바일에서는 실사 창과 포뮬러리·라벨 카드를 세로로 쌓아 읽기 쉽게 둡니다."],
     useCases: ["헤리티지 브랜드", "빈티지 숍", "아카이브 페이지", "클래식 제품 커머스"],
     goodFor: ["브랜드의 역사와 신뢰를 강조할 때", "제품 원산지와 재료 설명이 중요한 커머스", "아카이브 분위기의 콘텐츠", "새 제품을 오래된 가치로 보이게 할 때"],
     cautions: ["낡은 질감만 넣으면 실제 웹 구조가 약해집니다.", "Retro보다 더 차분하고 인쇄물에 가까워야 합니다.", "색 대비가 낮아져 읽기 어려워지지 않게 합니다."],
@@ -2337,10 +2337,10 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         { title: "Awwwards - Retro Websites", url: "https://www.awwwards.com/websites/retro/", note: "Closest gallery reference for vintage and retro web executions, heritage color, editorial pacing, and archival atmosphere." },
         { title: "Dribbble - Vintage Website", url: "https://dribbble.com/search/vintage%20website", note: "UI reference for vintage catalogs, badges, serif headings, paper-like cards, and heritage product pages." },
       ],
-      representativeTraits: ["Aged paper", "Heritage catalog", "Muted ink palette", "Repair ticket ledger", "Patina material register"],
+      representativeTraits: ["Aged paper & ink serif", "Wax-seal masthead", "Engraved apothecary label", "Formulary index", "Materia medica register"],
       avoidTraits: ["Bright general retro", "70s psychedelic warmth", "Luxury minimal polish"],
       tokenIntent:
-        "Use aged neutrals, serif display type, paper-like grain, heritage catalog rows, repair ticket ledgers, patina material registers, and muted ink accents so the style reads as vintage.",
+        "Use aged ivory paper, ink-brown serif display type, double rules, a wax-seal badge, an engraved apothecary label, a formulary index, and a materia-medica register so the period print language itself is the layout and the style reads as vintage.",
     },
   },
   "seventies-retro": {

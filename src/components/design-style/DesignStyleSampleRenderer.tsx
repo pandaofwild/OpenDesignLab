@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ChromeworksFaceplateShop } from "./ChromeworksFaceplateShop";
 import { FlightOsdConsole } from "./FlightOsdConsole";
 import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
+import { HollowayApothecary } from "./HollowayApothecary";
 import { HologramClinicalVolume } from "./HologramClinicalVolume";
 import { LatentStudioPanel } from "./LatentStudioPanel";
 import { MaximalistSalonWall } from "./MaximalistSalonWall";
@@ -2146,118 +2147,13 @@ function RetroDriveIn({ className, compact = false, style }: Props) {
     </SampleFrame>
   );
 }
-function VintagePaperCatalog({ className, compact = false, style }: Props) {
-  const goods: Array<[string, string, string, PhotoScene]> = [
-    ["Tin Cloth Cruiser", "oil finish", "1897", "material"],
-    ["Rugged Twill Duffel", "brass trim", "1958", "product"],
-    ["501 Archive Jean", "patched knee", "1967", "studio"],
-  ];
-  const materials: Array<[string, string, string]> = [
-    ["Tin cloth", "wax bloom", "dark tan"],
-    ["Rugged twill", "diagonal weave", "tobacco"],
-    ["Selvedge denim", "patched blue", "indigo"],
-  ];
-  const repairs: Array<[string, string, string]> = [
-    ["Darning", "holes reinforced", "visible"],
-    ["Binding", "cuffs protected", "matched"],
-    ["Hardware", "brass replaced", "closest"],
-  ];
-
+function VintageApothecary({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span
-        aria-hidden="true"
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, var(--sample-border) 0 1px, transparent 1.2px), linear-gradient(90deg, rgb(var(--st-text-rgb) / 0.06) 0 1px, transparent 1px)",
-          backgroundSize: "13px 13px, 44px 100%",
-        }}
-      />
-      <div className="relative flex h-full min-h-0 flex-col border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] text-[var(--sample-text)]" style={{ boxShadow: "0 0 0 6px rgb(var(--st-surface-rgb) / 0.55) inset" }}>
-        <header className="grid grid-cols-[1fr_auto] border-b-2 border-[var(--sample-border)] bg-[var(--sample-base)] px-3 py-2">
-          <div className="min-w-0">
-            <p className="text-[8px] font-black uppercase tracking-[0.2em] text-[var(--sample-accent)]">PAPER CATALOG</p>
-            <h3
-              className={cn("font-display uppercase leading-none", compact ? "text-[1.45rem]" : "text-3xl md:text-[2.3rem]")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
-            >
-              Archive supply
-            </h3>
-          </div>
-          <div className="grid place-items-center border-l-2 border-[var(--sample-border)] pl-3 text-center">
-            <span className="text-[7px] font-black uppercase tracking-[0.16em] text-[var(--sample-muted)]">since</span>
-            <span className="font-display text-xl font-black leading-none text-[var(--sample-accent)]" style={{ fontFamily: "var(--st-font-display)" }}>1897</span>
-          </div>
-        </header>
-
-        <main className={cn("grid min-h-0 flex-1 gap-2 p-2", compact ? "grid-cols-[0.94fr_1.06fr]" : "grid-cols-1 md:grid-cols-[0.9fr_1.1fr] md:p-3")}>
-          <section className="grid min-h-0 grid-rows-[1fr_auto] border-2 border-[var(--sample-border)] bg-[var(--sample-base)]">
-            <div className="relative min-h-0 border-b-2 border-[var(--sample-border)]">
-              <PhotoSurface className="h-full min-h-[94px]" scene="material">
-                <span className="absolute left-2 top-2 border border-[var(--sample-border)] bg-[var(--sample-surface)] px-1.5 py-0.5 text-[7px] font-black uppercase text-[var(--sample-accent)]">inspected</span>
-                <span className="absolute bottom-2 right-2 -rotate-3 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-base)] px-2 py-1 text-[7px] font-black uppercase">field worn</span>
-              </PhotoSurface>
-            </div>
-            <div className="p-2">
-              <p className="text-[8px] font-black uppercase tracking-[0.14em] text-[var(--sample-muted)]">heritage catalog rows</p>
-              <div className="mt-1.5 grid border-y border-[var(--sample-border)]">
-                {goods.map(([name, detail, year], index) => (
-                  <div className={cn("grid grid-cols-[1fr_auto] gap-2 py-1.5 text-[9px]", index < goods.length - 1 ? "border-b border-[var(--sample-border)]" : "")} key={name}>
-                    <span className="min-w-0">
-                      <span className="block truncate font-black">{name}</span>
-                      <span className="block truncate text-[7px] uppercase tracking-[0.08em] text-[var(--sample-muted)]">{detail}</span>
-                    </span>
-                    <span className="font-mono text-[9px] font-bold text-[var(--sample-accent)]">{year}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <aside className="grid min-h-0 grid-rows-[auto_1fr_auto] gap-2">
-            <section className="border-2 border-[var(--sample-border)] bg-[var(--sample-surface)]">
-              <p className="border-b-2 border-[var(--sample-border)] bg-[var(--sample-accent)] px-2 py-1 text-[8px] font-black tracking-[0.12em] text-[var(--sample-surface)]">patina material register</p>
-              <div className="grid grid-cols-3">
-                {materials.map(([name, texture, tone], index) => (
-                  <span className={cn("min-w-0 p-2 text-[7px]", index < materials.length - 1 ? "border-r border-[var(--sample-border)]" : "")} key={name}>
-                    <span className="block truncate font-black text-[var(--sample-text)]">{name}</span>
-                    <span className="block truncate uppercase tracking-[0.08em] text-[var(--sample-muted)]">{texture}</span>
-                    <span className="mt-1 block h-2 border border-[var(--sample-border)]" style={{ backgroundColor: index === 0 ? "var(--sample-accent-2)" : index === 1 ? "var(--sample-accent-3)" : "var(--sample-accent)" }} />
-                    <span className={cn("mt-0.5 block truncate text-[var(--sample-muted)]", compact ? "hidden" : "")}>{tone}</span>
-                  </span>
-                ))}
-              </div>
-            </section>
-
-            <section className="min-h-0 overflow-hidden border-2 border-[var(--sample-border)] bg-[var(--sample-base)]">
-              <p className="border-b-2 border-[var(--sample-border)] px-2 py-1 text-[8px] font-black tracking-[0.12em] text-[var(--sample-accent)]">repair ticket ledger</p>
-              <div className="grid min-h-0">
-                {repairs.map(([method, note, mark], index) => (
-                  <div className={cn("grid grid-cols-[auto_1fr_auto] items-center gap-2 px-2 py-1.5 text-[8px]", index < repairs.length - 1 ? "border-b border-[var(--sample-border)]" : "")} key={method}>
-                    <span className="font-mono text-[var(--sample-muted)]">0{index + 1}</span>
-                    <span className="min-w-0">
-                      <span className="block truncate font-black">{method}</span>
-                      <span className={cn("block truncate text-[7px] text-[var(--sample-muted)]", compact ? "hidden" : "")}>{note}</span>
-                    </span>
-                    <span className="rounded-full border border-[var(--sample-border)] bg-[var(--sample-surface)] px-1.5 py-0.5 text-[7px] font-black uppercase text-[var(--sample-accent)]">{mark}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <footer className={cn("grid grid-cols-3 border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] text-center text-[7px] font-black uppercase tracking-[0.08em]", compact ? "hidden" : "")}>
-              <span className="border-r border-[var(--sample-border)] px-2 py-1.5">lifetime guarantee</span>
-              <span className="border-r border-[var(--sample-border)] px-2 py-1.5">visible mending</span>
-              <span className="px-2 py-1.5">archive issue</span>
-            </footer>
-          </aside>
-        </main>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <HollowayApothecary compact={compact} />
     </SampleFrame>
   );
 }
-
 function SeventiesRollerDisco({ className, compact = false, style }: Props) {
   return (
     <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
@@ -8220,7 +8116,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "vintage") {
-    return <VintagePaperCatalog {...props} />;
+    return <VintageApothecary {...props} />;
   }
 
   if (style.slug === "seventies-retro") {

@@ -50,7 +50,7 @@
 | 16 | 강렬 / 실험 | avant-garde | magazine-layout | verified | manifesto program, critical lecture rail, art-into-life agenda |
 | 17 | 강렬 / 실험 | postmodernism | retro-commerce | verified | PALLADIO & POP auction house — live sale ticker, featured lot bid module, browse-by-era chips |
 | 18 | 레트로 / 빈티지 | retro | retro-commerce | verified | SUNNYSIDE 1959 드라이브인 다이너(재작업) — 스타버스트 배지·다이너 실사 창·도티드 리더 menu board(선택 연동)·게스트 체크 car hop ticket·체커보드 밴드, 스타일 가시성 우선 |
-| 19 | 레트로 / 빈티지 | vintage | retro-commerce | verified | paper catalog, repair ticket ledger, patina material register |
+| 19 | 레트로 / 빈티지 | vintage | retro-commerce | verified | HOLLOWAY'S APOTHECARY 1874 약제상 포뮬러리(완전 재작업) — 왁스 실 마스트헤드·약제상 실사 창·formulary 인덱스(선택 연동)·조각 apothecary label 카드·materia medica 등록부·이중 괘선, 스타일 가시성 우선 |
 | 20 | 레트로 / 빈티지 | seventies-retro | retro-commerce | verified | ROLLERAMA '76 롤러 디스코 랜딩(재작업) — 수퍼그래픽 레인보우 아치·팻 라운드 타이포·아치형 링크 실사 창·session board(선택 연동)·skate hire·스트라이프 밴드, 스타일 가시성 우선 |
 | 21 | 레트로 / 빈티지 | eighties-retro | cyber-dashboard | verified | **정석적 synthwave 미디어 콘솔 폐기 → 'NEON NIGHTS VIDEO' 80s VHS 호러 비디오 렌탈점으로 전면 재설계**(Concept originality): 다크 네온 정체성(네이비+마젠타/시안/옐로)은 유지하되 신스웨이브 플레이어(SYNTH CONSOLE·VHS mix queue·arcade control strip)를 버리고 Be Kind Rewind식 심야 렌탈점 리테일로 재구성. 소유자 요청대로 80s 호러 소재. codex로 심야 네온 렌탈점 통로 실사(VHS 선반·네온 사인·CRT 정지화면·블러드레드 반사) 신규 생성해 GENERATED_STYLE_IMAGES 등록. 골격: 네온 스토어프론트 헤더(NEON NIGHTS VIDEO 마젠타 글로우·VHS horror·open till 2am·New/Horror/Members·● OPEN) + STAFF PICK 피처 패널(렌탈점 실사 위 The Midnight Tape·slasher 1986 98min·★4·rent $2, 하단 스크림만으로 이미지 드러냄) + new-release wall(VHS 테이프 케이스 6종 — Neon Slasher/Grave Shift/Prom Night Terror/Static Screams/Cassette from Hell/Chrome Nightmare, 장르 컬러 상단밴드·rental 상태 IN/OUT/DUE 글로우 도트) + rental desk(Neon Nights Video Club 멤버십 카드·Member 0286·since '86 + your rentals due date + be kind rewind·late fee $1/day) + 장르 네온 칩(Horror/Slasher/Sci-Fi/Cult/B-Movie) + 네온 퍼스펙티브 그리드/스캔라인. 비디오 렌탈 리테일 골격이라 이웃(방송숍/종이카탈로그/쿡북/데스크탑진/flight deck/스튜디오/워크숍)과 구조 차별화, Cyberpunk 도시/디스토피아와도 구분. 함수명 EightiesSynthConsole→EightiesVideoRental(라우팅+check-style-distinction 맵), family 마커 갱신(Neon Nights Video/new-release wall/be kind rewind), representativeTraits/tokenIntent 갱신(avoidTraits에 Cyberpunk city dystopia 추가). 장식은 inset-0 overflow-hidden 래퍼로 클리핑. full/compact QA(overflow 0)·lint·check:style-distinction(80s 통과) 통과 |
 | 22 | 레트로 / 빈티지 | nineties-graphic | street-campaign | verified | **정석적 GeoCities '데스크탑 진' 폐기 → 'MEGA MEDIA' 90s 인터랙티브 멀티미디어 백과 CD-ROM으로 전면 재설계**(Concept originality·강한 시대성 요청): 초기웹 브라우저 창(DESKTOP ZINE·sticker link grid·halftone scrap wall)을 버리고 Encarta/Living Books식 CD-ROM 앱으로 재구성. 소유자 요청대로 친근한 주제(귀여운 동물/펫 백과). codex로 친근한 골든리트리버 강아지 실사 신규 생성해 GENERATED_STYLE_IMAGES 등록. 골격: 아이코닉 틸(Win95) 데스크탑 위 회색 3D 베벨 멀티미디어 창 — WordArt 레인보우 로고(Mega Media·skew·블랙 아웃라인) 타이틀바(min/max/close 베벨) + 메뉴 스트립(File/Edit/Go/Bookmark/Help 액셀러레이터 밑줄) + clip-art topic explorer 레일(Pets active/Farm/Ocean/Birds/Bugs/Music·SVG 글리프 베벨 버튼) + media viewer(sunken 스크린에 강아지 실사·QUICKTIME MOVIE 라벨·트랜스포트 바 ▶/스크러버/0:42·2:10) + article 패널(GOLDEN RETRIEVER·article 1 of 214·블루 밑줄 하이퍼텍스트 dog/retrieve/pet·See also 칩) + DID YOU KNOW 팩트박스 + CD-ROM 상태바(CD-ROM DRIVE D:·오디오 ◄◄▶►►·TRACK 03·NOW LOADING 세그먼트 게이지·8MB RAM). Win95 raised/sunken 베벨 헬퍼로 정통 크롬 구현. 미디어-뷰어 멀티미디어 앱 골격이라 이웃(방송숍/쿡북/VHS렌탈/우주 flight deck/스튜디오)·현재 웹 진과 구조 차별, y2k 광택 크롬과도 질감 구분(무광 회색 베벨). 함수명 NinetiesGraphicZine→NinetiesMultimediaCdRom(라우팅+check-style-distinction 맵), family 마커 갱신(Mega Media/topic explorer/now loading), representativeTraits/tokenIntent 갱신. 장식은 inset-0 overflow-hidden 래퍼로 클리핑. full/compact QA(overflow 0)·lint·check:style-distinction(90s 통과) 통과 |
@@ -445,4 +445,40 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - console: 상세 페이지 error 0. 목록 페이지 중복 key 경고 5건(distortion rail 등)은 기존 타 스타일 데이터 이슈로 retro 범위 밖.
 - 명령: `check:data`(87)·`check:style-distinction`(87)·`npm run lint`·`next build`(577 pages) 통과.
 - screenshots: `retro-full-final.jpeg`, `retro-mobile-v2.jpeg`, `retro-compact-v1.jpeg`.
+- 남은 의심점: 없음.
+
+## 19. vintage — 완전 재작업 (소유자 지시: "빈티지 아예 새로 잡아줘")
+
+### 현재 판정
+
+- status: `reviewing` (verified 롤백).
+- 현재 `VintagePaperCatalog`(Archive supply 헤리티지 의류 카탈로그)는 정석적 빈티지 vehicle — 상품 행·소재 등록부·수선 원장이 중립 표 UI이고, PhotoSurface 플레이스홀더만 있어 실이미지 없음. retro(다이너)·seventies(포스터) 재작업과 톤이 겹치는 커머스 표.
+- 적용 원칙: [[style-visibility-over-vehicle]] — 빈티지 조형이 골격이어야 함.
+- 인접 구분: retro(밝은 50s 다이너)·seventies(70s 수퍼그래픽)와는 차분한 아이보리/잉크·장식 세리프·이중 괘선 인쇄물로, rustic(거친 로컬 소재 hospitality)와는 라벨/괘선 인쇄 아카이브로, luxury/minimal과는 낮은 대비 종이 물성으로 구분.
+
+### 목표
+
+- 컨셉: **"HOLLOWAY'S APOTHECARY — Est. 1874" 빈티지 약제상 포뮬러리**. 정석적 헤리티지 의류 카탈로그를 버리고, 장식 세리프·이중 괘선·왁스 실·아포세카리 라벨이 자연스럽게 화면의 주인공이 되는 formulary/register 골격(커머스 표가 아닌 조제 아카이브).
+- 고유 마커(check-style-distinction): `HOLLOWAY'S APOTHECARY` / `formulary` / `apothecary label` / `materia medica`. 구 마커(PAPER CATALOG/repair ticket ledger/patina material register) 교체.
+- 정보 구조: 장식 세리프 마스트헤드(모르타르 딩뱃·EST. 1874·purveyors of tonics & remedies) → 약제상 실사 창(amber 병 선반, DISPENSARY 왁스 실) | **formulary** 인덱스(토닉/레미디 4종, 라틴명·조제 연도, 선택 인터랙션) → 선택 연동 **apothecary label** 카드(이중 괘선·℞·directions·dose) + **materia medica** 소재 3종 등록부 → 하단 guarantee 스트립.
+- 팔레트: 기존 유지(aged cream #EEE0C4·ink #2C2418·faded burgundy #8C3F2B·tarnished brass #B98E45·olive-teal #345A4A·wood #5A432B). 토큰 유지(Georgia serif·double border·grain).
+- 이미지: codex로 `public/generated/design-styles/vintage.webp` 신규 — 빈티지 약제상 인테리어(amber/green 유리병·다크 우드 선반·황동 저울·모르타르, 읽히는 라벨 없음).
+
+### 검증 계획
+
+- RED/GREEN: distinction 구 마커 제거·신 마커 GREEN, `VintageApothecary` 위임 등록. check:data·check:style-distinction·lint·build 통과.
+- browser QA: full·모바일·compact overflow 0, 레미디 선택 → 라벨 카드 연동(aria-pressed) 확인.
+
+### 구현 및 검증 결과 (2026-07-18)
+
+- status: `verified`.
+- 변경 요약: `VintagePaperCatalog`(Archive supply 헤리티지 카탈로그) 삭제 → 위임 래퍼 `VintageApothecary` + 분리 컴포넌트 `HollowayApothecary.tsx`(use client, 레미디 선택 useState). codex로 빈티지 약제상 실사(`public/generated/design-styles/vintage.webp` — amber/cobalt/green 병·다크 우드 선반·황동 저울·모르타르·양피지, 읽히는 라벨 없음) 신규 생성. 골격: 왁스 실+모르타르 딩뱃 마스트헤드(장식 세리프 Holloway's Apothecary·EST. 1874·purveyors of tonics & remedies) → 약제상 실사 창(DISPENSARY 왁스 실) | formulary 인덱스(4레미디, 라틴 학명·조제 연도, 선택 버튼) → 선택 연동 apothecary label 카드(이중 괘선·℞·directions·dose·use 태그) + materia medica 등록부(herb/mineral/tincture 스와치) → guarantee 스트립.
+- 스타일 가시성: 바랜 아이보리·잉크 세리프·이중 괘선·왁스 실·조각 아포세카리 라벨이 장식이 아닌 골격 — 한눈에 19세기 약제상 빈티지 인쇄물로 읽힘([[style-visibility-over-vehicle]] 원칙 적용, 정석적 헤리티지 의류 카탈로그 폐기).
+- 인터랙션 QA: Oil of Eucalyptus 클릭 시 `aria-pressed` 전환, 라벨 카드가 이름·directions(Five drops in hot steam)·No. 052·use("for the chest")로 함께 갱신 확인.
+- RED/GREEN: distinction 구 마커(PAPER CATALOG/repair ticket ledger/patina material register) 제거, 신 마커(HOLLOWAY'S APOTHECARY/formulary/apothecary label/materia medica) GREEN. 위임 래퍼 등록(마커는 컴포넌트 파일이 aria-label로 보유, 래퍼 클린).
+- browser QA: 1280 full(614×540)·375 모바일(284×540)·compact 카드 모두 page overflow 0, 비의도 클리핑 0. 모바일은 단일 컬럼 스택(grid-rows 배분)으로 실사 창→formulary→라벨→축약 materia 순 노출, materia 등록부·guarantee 스트립·부제는 좁은 폭에서 숨김. compact는 formulary 3레미디+라벨 헤더로 압축.
+- 데이터: representativeTraits/tokenIntent/summary/description/visualFeatures/typography/layoutTraits 갱신, 구분표 vintage 행 HOLLOWAY'S APOTHECARY로 갱신. 무드보드 v2 유지(빛바랜 인쇄물·foxed 종이·황동/우드 소재 — 빈티지 물성 표현).
+- console: 상세 페이지 error 0. 목록 페이지 중복 key 경고 5건(distortion rail 등)은 기존 타 스타일 데이터 이슈로 vintage 범위 밖.
+- 명령: `check:data`(87)·`check:style-distinction`(87)·`npm run lint`·`next build`(577 pages) 통과.
+- screenshots: `vintage-full-v1.jpeg`, `vintage-mobile-v1.jpeg`, `vintage-compact-v1.jpeg`.
 - 남은 의심점: 없음.
