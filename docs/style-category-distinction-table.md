@@ -33,7 +33,7 @@ This table is the working comparison sheet for keeping styles inside the same ca
 
 | style slug | 핵심 정체성 | moodboard 시각 신호 | referenceSites 웹 UI 문법 | 겹치기 쉬운 스타일 | 반드시 다르게 보여야 하는 요소 | 샘플 고유 마커 |
 |---|---|---|---|---|---|---|
-| retro | Broad warm broadcast nostalgia | faded cards, halftone, analog media | broadcast landing, decade dial, merch queue | vintage, seventies-retro | cheerful media-commerce without aged patina or 70s groovy curves | RETRO BROADCAST SHOP |
+| retro | Mid-century diner print nostalgia | starburst badge, dotted-leader menu, checkerboard, chrome & vinyl | starburst masthead, menu board, guest-check ticket, checkerboard band | vintage, seventies-retro | cheerful 50s roadside-print graphics without aged patina or 70s groovy supergraphics | SUNNYSIDE |
 | vintage | Archive patina and repaired heritage | foxed paper, sepia, brass, wood, cloth | heritage catalog, repair ticket ledger, patina material register | retro, rustic | aged paper catalog, muted ink, visible mending records | PAPER CATALOG |
 | seventies-retro | Groovy supergraphic poster page | supergraphic arch, harvest gold, shag orange, maple floor | rainbow arch hero, arch-topped rink window, session board, stripe band | retro, mid-century-modern | 70s supergraphics and fat rounded type as the layout itself, not decoration | ROLLERAMA |
 | eighties-retro | Synth-era media console | neon grid, VHS, black plastic | dark media console, VHS mix queue, arcade controls | y2k, cyber-dashboard | magenta/cyan grid, black plastic bay, arcade control strip | SYNTH CONSOLE |

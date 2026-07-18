@@ -2286,11 +2286,11 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
   retro: {
     summary: "레트로는 특정 시대의 색, 배지, 둥근 그래픽, 아날로그 미디어 감각을 현대 웹 커머스나 콘텐츠 화면으로 다시 구성하는 스타일입니다.",
     description:
-      "레트로는 과거를 그대로 복사하기보다 현재 웹 구조 안에 향수를 얹는 방식입니다. Poolside FM, Radiooooo, Web Design Museum처럼 둥근 배지, 따뜻한 색, 음악/상품 카드, 오래된 인터페이스 느낌이 실제 탐색 경험으로 이어져야 합니다.",
-    visualFeatures: ["둥근 배지와 굵은 색면이 향수를 만듭니다.", "상품 카드나 미디어 카드가 아날로그 포스터처럼 보입니다.", "따뜻한 오렌지, 청록, 크림 조합이 첫인상을 잡습니다."],
-    colorPalette: ["크림과 머스터드를 기본으로 둡니다.", "레드 오렌지와 청록을 대표 포인트로 씁니다.", "갈색 텍스트로 인쇄물 같은 온도를 만듭니다."],
+      "레트로는 과거를 그대로 복사하기보다 현재 웹 구조 안에 향수를 얹는 방식입니다. SUNNYSIDE DRIVE-IN 샘플처럼 스타버스트 배지, 도티드 리더 메뉴판, 게스트 체크 티켓, 체커보드 밴드 같은 시대 인쇄 조형이 실제 탐색 경험으로 이어져야 합니다.",
+    visualFeatures: ["스타버스트 배지와 굵은 색면이 인쇄물 같은 향수를 만듭니다.", "도티드 리더 메뉴판과 게스트 체크 스텁이 실제 다이너 인쇄 문법으로 읽힙니다.", "크림·체리 레드·청록 조합이 50s 로드사이드 첫인상을 잡습니다."],
+    colorPalette: ["크림과 머스터드를 기본으로 둡니다.", "체리 레드와 청록을 대표 포인트로 씁니다.", "갈색 텍스트로 인쇄물 같은 온도를 만듭니다."],
     typography: ["둥글고 굵은 제목이 레트로 분위기를 만듭니다.", "짧은 라벨과 배지 텍스트가 잘 어울립니다.", "본문은 현대적인 가독성을 유지해야 합니다."],
-    layoutTraits: ["방송형 랜딩, 시대 선택 다이얼, 상품 큐가 한 화면에서 연결됩니다.", "곡선과 원형 요소를 사용하되 탐색 구조는 단순하게 둡니다.", "모바일에서는 큰 방송 배지, 다이얼, 상품 큐가 먼저 보여야 합니다."],
+    layoutTraits: ["스타버스트 마스트헤드, 다이너 실사 창, 메뉴판, 게스트 체크 티켓이 한 화면에서 연결됩니다.", "도티드 리더·체커보드·대시 스텁 같은 인쇄 조형을 골격으로 씁니다.", "모바일에서는 헤드라인, 메뉴판, 축약 티켓을 먼저 보여줍니다."],
     useCases: ["음악 서비스", "카페/식음료", "굿즈 커머스", "브랜드 캠페인"],
     goodFor: ["친근한 향수를 주고 싶은 브랜드", "문화/음악/식음료 콘텐츠", "과거 감성을 현대적으로 판매하는 커머스", "밝고 쉽게 접근되는 이벤트 페이지"],
     cautions: ["70s, 80s, 90s처럼 특정 시대 스타일과 구분해야 합니다.", "낡은 UI를 그대로 쓰면 사용성이 떨어집니다.", "향수 요소보다 실제 콘텐츠 카드가 중심이어야 합니다."],
@@ -2307,10 +2307,10 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         { title: "Awwwards - Retro Websites", url: "https://www.awwwards.com/websites/retro/", note: "Gallery reference for modern retro web executions, nostalgic imagery, period color, and contemporary interaction polish." },
         { title: "Dribbble - Retro Website", url: "https://dribbble.com/search/retro%20website", note: "UI reference for retro landing pages, badge systems, diner-style cards, and nostalgic product screens." },
       ],
-      representativeTraits: ["Warm nostalgic palette", "Broadcast shop header", "Time-travel media dial", "Analog merch queue", "Friendly retro rhythm"],
+      representativeTraits: ["Warm nostalgic palette", "Starburst diner badge", "Dotted-leader menu board", "Guest-check ticket", "Checkerboard print band"],
       avoidTraits: ["Specific 70s/80s/90s overcoding", "Aged vintage paper", "Y2K gloss"],
       tokenIntent:
-        "Use warm retro colors, rounded badges, medium borders, broadcast media cards, decade dials, analog product queues, and friendly spacing so the style reads as general retro.",
+        "Use warm cream/cherry-red/teal colors, a starburst badge, fat rounded display type, a dotted-leader menu board, a dashed guest-check ticket, and a checkerboard band so the retro print-graphic language itself is the layout, reading as mid-century American diner nostalgia rather than a generic media shop.",
     },
   },
   vintage: {

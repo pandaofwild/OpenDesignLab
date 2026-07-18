@@ -49,7 +49,7 @@
 | 15 | 강렬 / 실험 | deconstructivism | brutalist-poster | verified | structural fault, fracture section index, displaced project axis |
 | 16 | 강렬 / 실험 | avant-garde | magazine-layout | verified | manifesto program, critical lecture rail, art-into-life agenda |
 | 17 | 강렬 / 실험 | postmodernism | retro-commerce | verified | PALLADIO & POP auction house — live sale ticker, featured lot bid module, browse-by-era chips |
-| 18 | 레트로 / 빈티지 | retro | retro-commerce | verified | retro broadcast shop, time-travel media dial, analog merch queue |
+| 18 | 레트로 / 빈티지 | retro | retro-commerce | verified | SUNNYSIDE 1959 드라이브인 다이너(재작업) — 스타버스트 배지·다이너 실사 창·도티드 리더 menu board(선택 연동)·게스트 체크 car hop ticket·체커보드 밴드, 스타일 가시성 우선 |
 | 19 | 레트로 / 빈티지 | vintage | retro-commerce | verified | paper catalog, repair ticket ledger, patina material register |
 | 20 | 레트로 / 빈티지 | seventies-retro | retro-commerce | verified | ROLLERAMA '76 롤러 디스코 랜딩(재작업) — 수퍼그래픽 레인보우 아치·팻 라운드 타이포·아치형 링크 실사 창·session board(선택 연동)·skate hire·스트라이프 밴드, 스타일 가시성 우선 |
 | 21 | 레트로 / 빈티지 | eighties-retro | cyber-dashboard | verified | **정석적 synthwave 미디어 콘솔 폐기 → 'NEON NIGHTS VIDEO' 80s VHS 호러 비디오 렌탈점으로 전면 재설계**(Concept originality): 다크 네온 정체성(네이비+마젠타/시안/옐로)은 유지하되 신스웨이브 플레이어(SYNTH CONSOLE·VHS mix queue·arcade control strip)를 버리고 Be Kind Rewind식 심야 렌탈점 리테일로 재구성. 소유자 요청대로 80s 호러 소재. codex로 심야 네온 렌탈점 통로 실사(VHS 선반·네온 사인·CRT 정지화면·블러드레드 반사) 신규 생성해 GENERATED_STYLE_IMAGES 등록. 골격: 네온 스토어프론트 헤더(NEON NIGHTS VIDEO 마젠타 글로우·VHS horror·open till 2am·New/Horror/Members·● OPEN) + STAFF PICK 피처 패널(렌탈점 실사 위 The Midnight Tape·slasher 1986 98min·★4·rent $2, 하단 스크림만으로 이미지 드러냄) + new-release wall(VHS 테이프 케이스 6종 — Neon Slasher/Grave Shift/Prom Night Terror/Static Screams/Cassette from Hell/Chrome Nightmare, 장르 컬러 상단밴드·rental 상태 IN/OUT/DUE 글로우 도트) + rental desk(Neon Nights Video Club 멤버십 카드·Member 0286·since '86 + your rentals due date + be kind rewind·late fee $1/day) + 장르 네온 칩(Horror/Slasher/Sci-Fi/Cult/B-Movie) + 네온 퍼스펙티브 그리드/스캔라인. 비디오 렌탈 리테일 골격이라 이웃(방송숍/종이카탈로그/쿡북/데스크탑진/flight deck/스튜디오/워크숍)과 구조 차별화, Cyberpunk 도시/디스토피아와도 구분. 함수명 EightiesSynthConsole→EightiesVideoRental(라우팅+check-style-distinction 맵), family 마커 갱신(Neon Nights Video/new-release wall/be kind rewind), representativeTraits/tokenIntent 갱신(avoidTraits에 Cyberpunk city dystopia 추가). 장식은 inset-0 overflow-hidden 래퍼로 클리핑. full/compact QA(overflow 0)·lint·check:style-distinction(80s 통과) 통과 |
@@ -409,4 +409,40 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - 데이터: representativeTraits(Supergraphic rainbow arch 등)/tokenIntent/visualFeatures/layoutTraits 갱신, 구분표 행 ROLLERAMA로 갱신. 무드보드 v2 유지(코듀로이·월넛·웨이비 스트라이프 — 스타일 자체를 이미 표현).
 - 명령: `check:data`(87)·`check:style-distinction`(87)·`npm run lint`·`next build` 통과.
 - screenshots: `seventies-full-final.jpeg`, `seventies-mobile-v2.jpeg`, `seventies-compact-v2.jpeg`.
+- 남은 의심점: 없음.
+
+## 18. retro — 재작업 (소유자 지시: "레트로로 가자")
+
+### 현재 판정
+
+- status: `reviewing` (verified 롤백).
+- 현재 `RetroDinerShop`(실제 내용은 RETRO BROADCAST SHOP)은 seventies 쿡북과 동일 패턴 — 방송 굿즈 숍이라는 목적성 모듈(머치 큐·디케이드 다이얼 칩·아카이브 카드)이 본문이고, 레트로는 도트 그리드 배경·오프셋 섀도 장식에 머묾. PhotoSurface 플레이스홀더만 있고 실이미지 없음.
+- 적용 원칙: [[style-visibility-over-vehicle]] — 스타일 조형이 골격이어야 함.
+- 인접 구분 유지: seventies-retro(70s 수퍼그래픽 롤러 디스코)와는 50s-60s 아메리칸 다이너 인쇄 문법으로, vintage(빛바랜 종이 아카이브)와는 밝고 명랑한 톤으로, mid-century-modern(가구 모더니티)과는 상업 인쇄물 감성으로 구분.
+
+### 목표
+
+- 컨셉: **"SUNNYSIDE DRIVE-IN" — 1959 아메리칸 드라이브인 다이너 랜딩**. 레트로 인쇄 그래픽(도티드 리더 메뉴, 스타버스트 배지, 체커보드, 크롬·레드 비닐)이 자연스럽게 화면의 주인공이 되는 장르.
+- 고유 마커(check-style-distinction): `SUNNYSIDE` / `menu board` / `car hop ticket` / `checkerboard`. 구 마커(RETRO BROADCAST SHOP/time-travel media dial/analog merch queue) 교체.
+- 정보 구조: 스타버스트 배지+팻 워드마크 마스트헤드(필 nav·open till midnight) → 헤드라인("Burgers, malts, chrome.") + 다이너 실사 창(AIR CONDITIONED 배지) | **menu board**(도티드 리더 4품목, 선택 인터랙션) → **car hop ticket**(게스트 체크 스텁 — 선택 품목·사이드·합계·스톨 연동) → 체커보드 밴드 + 티커.
+- 팔레트: 기존 유지(크림 #F8D992·레드 #D94A2B·틸 #2A7A78·앰버 #F2A541·브라운 #3A1F13) — 그대로 50s 다이너.
+- 이미지: codex로 `public/generated/design-styles/retro.webp` 신규 — 1950s 다이너 인테리어(크롬 카운터·레드 비닐 스툴·체커 플로어·틸 벽, 텍스트 없음).
+
+### 검증 계획
+
+- RED/GREEN: distinction 구 마커 제거·신 마커 GREEN, `RetroDriveIn` 위임 등록. check:data·check:style-distinction·lint·build 통과.
+- browser QA: full·모바일·compact overflow 0, 메뉴 선택 → 티켓 연동(aria-pressed) 확인.
+
+### 구현 및 검증 결과 (2026-07-18)
+
+- status: `verified`.
+- 변경 요약: `RetroDinerShop`(방송 굿즈 숍) 삭제 → 위임 래퍼 `RetroDriveIn` + 분리 컴포넌트 `SunnysideDriveIn.tsx`(use client, 메뉴 선택 useState). codex로 1950s 다이너 실사(`public/generated/design-styles/retro.webp` — 크롬 카운터·레드 비닐 스툴·체커 플로어·틸 벽·체리파이) 신규 생성. 골격: 스타버스트 배지(SVG 16포인트)+팻 워드마크 SUNNYSIDE 마스트헤드(필 nav·open till midnight) → 슬로건("Burgers, malts & chrome.")+다이너 실사 창(AIR CONDITIONED 배지) | menu board(도티드 리더 4품목, 선택 버튼) + car hop ticket(게스트 체크 스텁, 대시 보더, Courier 모노) → 체커보드 밴드(repeating-conic-gradient) + 티커.
+- 스타일 가시성: 스타버스트·도티드 리더 메뉴판·게스트 체크 스텁·체커보드·크롬/비닐 실사가 장식이 아닌 골격 — 한눈에 50s 아메리칸 다이너 레트로로 읽힘([[style-visibility-over-vehicle]] 원칙 적용).
+- 인터랙션 QA: Cherry Malt 클릭 시 `aria-pressed` 전환, 티켓이 품목·합계($0.45+fries $0.30=$0.75)·스톨(stall 03)로 함께 갱신 확인.
+- RED/GREEN: distinction 구 마커(RETRO BROADCAST SHOP/time-travel media dial/analog merch queue) 제거, 신 마커(SUNNYSIDE/menu board/car hop ticket/checkerboard) GREEN. 위임 래퍼 등록(마커는 컴포넌트 파일 보유). 워드마크 대문자 리터럴로 통일해 마커 충족.
+- browser QA: 1280 full(614×540)·375 모바일(284×540)·compact 카드 모두 page overflow 0, 비의도 클리핑 0. 모바일은 단일 컬럼 스택(grid-rows 배분)으로 메뉴판 항목명 온전 노출, open-till 배지·car-hop-it 라벨은 좁은 폭에서 숨김. compact는 메뉴 3품목+체커보드로 압축.
+- 데이터: representativeTraits/tokenIntent/summary/description/visualFeatures/layoutTraits 갱신, 구분표 retro 행 SUNNYSIDE로 갱신. 무드보드 v2 유지(빛바랜 커머스·하프톤·아날로그 소재 — 레트로 커머스 톤 표현).
+- console: 상세 페이지 error 0. 목록 페이지 중복 key 경고 5건(distortion rail 등)은 기존 타 스타일 데이터 이슈로 retro 범위 밖.
+- 명령: `check:data`(87)·`check:style-distinction`(87)·`npm run lint`·`next build`(577 pages) 통과.
+- screenshots: `retro-full-final.jpeg`, `retro-mobile-v2.jpeg`, `retro-compact-v1.jpeg`.
 - 남은 의심점: 없음.

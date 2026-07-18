@@ -15,6 +15,7 @@ import { NightMarketClinic } from "./NightMarketClinic";
 import { OrbitalTransitConsole } from "./OrbitalTransitConsole";
 import { RedRoomCaseDesk } from "./RedRoomCaseDesk";
 import { RolleramaRink } from "./RolleramaRink";
+import { SunnysideDriveIn } from "./SunnysideDriveIn";
 
 type Props = {
   className?: string;
@@ -2138,124 +2139,13 @@ function PostmodernAuctionHouse({ className, compact = false, style }: Props) {
   );
 }
 
-function RetroDinerShop({ className, compact = false, style }: Props) {
-  const decadeStops = ["1960", "1970", "1980", "1990"];
-  const merch: Array<[string, string, string, PhotoScene]> = [
-    ["Terry visor", "Pool deck", "$28", "product"],
-    ["Radio tee", "FM cotton", "$42", "studio"],
-    ["Soda tote", "Market run", "$36", "material"],
-  ];
-  const archiveCards: Array<[string, string]> = [
-    ["FM 74.5", "beach mix"],
-    ["DINER 12", "lunch set"],
-    ["VHS CLUB", "late tape"],
-  ];
-
+function RetroDriveIn({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span
-        aria-hidden="true"
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, var(--sample-accent) 0 1px, transparent 1.3px), linear-gradient(90deg, rgb(var(--st-accent-2-rgb) / 0.16) 0 1px, transparent 1px)",
-          backgroundSize: "12px 12px, 42px 100%",
-        }}
-      />
-
-      <div className="relative flex h-full min-h-0 flex-col overflow-hidden rounded-[10px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] text-[var(--sample-text)]" style={{ boxShadow: "6px 6px 0 rgb(58 31 19 / 0.25)" }}>
-        <header className="flex items-center gap-2 border-b-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)] px-2 py-1.5 text-[9px] font-black text-[var(--sample-surface)]">
-          <span className="grid h-4 w-4 place-items-center rounded-full border border-[var(--sample-surface)] text-[7px] leading-none">▶</span>
-          <span className="truncate">RETRO BROADCAST SHOP</span>
-          <nav className={cn("ml-auto items-center gap-2", compact ? "hidden" : "flex")}>
-            <span>Stations</span>
-            <span>Decades</span>
-            <span>Goods</span>
-          </nav>
-          <span className="ml-auto rounded-full bg-[var(--sample-accent)] px-2 py-0.5 text-[var(--sample-surface)] md:ml-0">cart 03</span>
-        </header>
-
-        <main className={cn("grid min-h-0 flex-1 gap-2 p-2", compact ? "grid-cols-[1fr_0.86fr]" : "grid-cols-1 md:grid-cols-[1.08fr_0.92fr] md:gap-3 md:p-3")}>
-          <section className="flex min-w-0 flex-col justify-between overflow-hidden rounded-[8px] border-2 border-[var(--sample-border)] bg-[var(--sample-base)]">
-            <div className="relative min-h-0 flex-1">
-              <PhotoSurface className="h-full min-h-[92px]" scene="interior">
-                <span className="absolute left-2 top-2 rounded-full bg-[var(--sample-surface)]/90 px-2 py-0.5 text-[8px] font-black text-[var(--sample-accent-2)]">FM 74.5</span>
-                <span className="absolute bottom-2 right-2 rounded-full bg-[var(--sample-accent)] px-2 py-0.5 text-[8px] font-black text-[var(--sample-surface)]">summer set</span>
-              </PhotoSurface>
-            </div>
-            <div className="border-t-2 border-[var(--sample-border)] p-2">
-              <p className="text-[8px] font-black text-[var(--sample-accent-2)]">broadcast landing</p>
-              <h3
-                className={cn("mt-1 font-display leading-[0.88]", compact ? "text-2xl" : "text-4xl md:text-[3.1rem]")}
-                style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
-              >
-                Sunny goods,
-                <br />
-                tuned by era.
-              </h3>
-              <div className={cn("mt-2 flex items-center gap-1.5 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-1 text-[9px] font-bold", compact ? "hidden" : "")}>
-                <span>◀</span>
-                <span className="grid h-4 w-4 place-items-center rounded-full bg-[var(--sample-accent-2)] text-[7px] text-[var(--sample-surface)]">▶</span>
-                <span className="truncate">pool radio · mixtape 03</span>
-                <span className="ml-auto">03:24</span>
-              </div>
-            </div>
-          </section>
-
-          <aside className="grid min-w-0 grid-rows-[auto_1fr_auto] gap-2">
-            <section className="rounded-[8px] border-2 border-[var(--sample-border)] bg-[var(--sample-base)] p-2">
-              <p className="text-[9px] font-black text-[var(--sample-accent-2)]">time-travel media dial</p>
-              <div className="mt-2 grid grid-cols-4 gap-1">
-                {decadeStops.map((decade, index) => (
-                  <span
-                    className="grid aspect-square place-items-center rounded-full border-2 border-[var(--sample-border)] text-[8px] font-black"
-                    key={decade}
-                    style={{ backgroundColor: index === 1 ? "var(--sample-accent)" : "var(--sample-surface)", color: index === 1 ? "var(--sample-surface)" : "var(--sample-text)" }}
-                  >
-                    {decade}
-                  </span>
-                ))}
-              </div>
-              <div className={cn("mt-2 grid grid-cols-3 gap-1 text-[8px] font-bold", compact ? "hidden" : "")}>
-                {["BR", "JP", "IT"].map((country) => (
-                  <span className="rounded-full border border-[var(--sample-border)] bg-[var(--sample-surface)] px-1.5 py-0.5 text-center" key={country}>
-                    {country}
-                  </span>
-                ))}
-              </div>
-            </section>
-
-            <section className="min-h-0 overflow-hidden rounded-[8px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)]">
-              <p className="border-b-2 border-[var(--sample-border)] bg-[var(--sample-accent)] px-2 py-1 text-[9px] font-black text-[var(--sample-surface)]">analog merch queue</p>
-              <div className="grid h-full min-h-0 gap-0">
-                {merch.map(([name, detail, price, scene], index) => (
-                  <div className={cn("grid min-h-0 grid-cols-[34px_1fr_auto] items-center gap-1.5 px-2 py-1.5", index < merch.length - 1 ? "border-b border-[var(--sample-border)]" : "")} key={name}>
-                    <PhotoSurface className="h-8 w-8 rounded-[6px] border border-[var(--sample-border)]" grain={false} scene={scene} />
-                    <span className="min-w-0">
-                      <span className="block truncate text-[9px] font-black">{name}</span>
-                      <span className={cn("block truncate text-[7px] text-[var(--sample-muted)]", compact ? "hidden" : "")}>{detail}</span>
-                    </span>
-                    <span className="text-[9px] font-black text-[var(--sample-accent-2)]">{price}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className={cn("grid grid-cols-3 gap-1.5", compact ? "hidden" : "")}>
-              {archiveCards.map(([station, label]) => (
-                <span className="min-w-0 rounded-[6px] border-2 border-[var(--sample-border)] bg-[var(--sample-base)] px-1.5 py-1 text-center" key={station}>
-                  <span className="block truncate text-[8px] font-black text-[var(--sample-accent-2)]">{station}</span>
-                  <span className="block truncate text-[7px] font-bold text-[var(--sample-muted)]">{label}</span>
-                </span>
-              ))}
-            </section>
-          </aside>
-        </main>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <SunnysideDriveIn compact={compact} />
     </SampleFrame>
   );
 }
-
 function VintagePaperCatalog({ className, compact = false, style }: Props) {
   const goods: Array<[string, string, string, PhotoScene]> = [
     ["Tin Cloth Cruiser", "oil finish", "1897", "material"],
@@ -8326,7 +8216,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "retro") {
-    return <RetroDinerShop {...props} />;
+    return <RetroDriveIn {...props} />;
   }
 
   if (style.slug === "vintage") {
