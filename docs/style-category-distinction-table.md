@@ -9,7 +9,7 @@ This table is the working comparison sheet for keeping styles inside the same ca
 | minimalism | Quiet product clarity | white space, thin rules, neutral swatches | Linear/Apple style product-first hero, sparse CTA | soft-minimal, high-end-minimal | 거의 평평한 SaaS workspace, 장식 없음 | focused workspace panel |
 | modernism | Functional grid geometry | primary blocks, black rules, architecture crops | museum/product grid, modular numbered sections | swiss-design, bauhaus | 원색 기하학과 비대칭 기능 모듈 | MODERN GRID |
 | swiss-design | Objective typographic order | baseline overlays, red signal bars | public-service/news grid, numbered modules | international-style, modernism | red marker plus strict asymmetric baseline grid | SWISS GRID |
-| international-style | Global system neutrality | standard panels, blue wayfinding, steel/acrylic | IBM-like repeatable portal panels and tables | swiss-design, saas-style | poster tension 제거, corporate system rows | GLOBAL SYSTEM |
+| international-style | Global system neutrality | standard panels, blue wayfinding, steel/acrylic | IBM-like repeatable portal panels and tables | swiss-design | poster tension 제거, corporate system rows | GLOBAL SYSTEM |
 | scandinavian | Bright Nordic practical commerce | birch, wool, ceramics, pale blue/sage | home product commerce, category and room modules | japandi, warm-minimal | cozy product density and practical shopping cards | NORDIC HOME |
 | japandi | Low quiet tactile space | shoji paper, ash wood, ceramic, stone | interior editorial flow, slow inquiry CTA | scandinavian, wabi-sabi | 낮은 수평 리듬, paper/wood material panels | LOW ROOM |
 | warm-minimal | Approachable warm premium | cream, terracotta, brass, clay | studio portfolio, project cards, consultation CTA | soft-minimal, japandi | terracotta CTA and warm project studio flow | WARM STUDIO |
@@ -49,10 +49,10 @@ This table is the working comparison sheet for keeping styles inside the same ca
 |---|---|---|---|---|---|---|
 | futurism | Aerospace velocity | aluminum, carbon, launch diagrams | mission hero, launch window, telemetry strip | retro-futurism, high-tech | orbital civic-science framing | ORBITAL |
 | cyberpunk | Night-market cyber commerce | wet asphalt, neon acetate, hardware | dense city protocol panels, black-market shop | glitch-art, neon-noir | urban culture and ripper-lane commerce | BRAINDANCE |
-| neon-noir | Cinematic case mood | red room, rain, dark photo crops | film still, case file, single glow source | cyberpunk, dark-mode-design | noir restraint and case investigation | RED ROOM |
+| neon-noir | Cinematic case mood | red room, rain, dark photo crops | film still, case file, single glow source | cyberpunk | noir restraint and case investigation | RED ROOM |
 | hud | First-person instrument overlay | ice-blue acetate, reticles, night cockpit glow | corner clusters, pitch ladder, data tapes over a scene | high-tech, hologram-style | overlay-on-scene symbology, not card dashboard | FLIGHT OSD |
-| high-tech | Infrastructure control plane | precision instrument photography, dark graphite panels | cryostat stage rail, qubit lattice, calibration readout, job queue | saas-style, cyber-dashboard | precise software ops on real advanced hardware, not fantasy | MILLIKELVIN / QUANTUM CONTROL PLANE |
-| ai-aesthetic | Model canvas workflow | synthetic gradients, prompt surfaces | prompt bar, latent queue, generated preview | startup-landing-page, high-tech | AI workflow and model canvas | MODEL CANVAS |
+| high-tech | Infrastructure control plane | precision instrument photography, dark graphite panels | cryostat stage rail, qubit lattice, calibration readout, job queue | cyber-dashboard | precise software ops on real advanced hardware, not fantasy | MILLIKELVIN / QUANTUM CONTROL PLANE |
+| ai-aesthetic | Model canvas workflow | synthetic gradients, prompt surfaces | prompt bar, latent queue, generated preview | high-tech | AI workflow and model canvas | MODEL CANVAS |
 | hologram-style | Clinical volumetric light field | anatomical volume, optical slices, spectral edge light | four depth planes, tissue modes, slice control, spatial measurement | glassmorphism, HUD, high-tech, chromecore | reconstructed volume with depth-aware controls, not flat translucent cards | LUMA VOLUME |
 | chromecore | Y2K molded chrome hardware | silver shells, star flashes, blue lenses | faceplate carousel, finish/fitment rails, order bar | y2k, luxury | molded hardware and specular chrome | CHROMEWORKS |
 
@@ -68,7 +68,7 @@ This table is the working comparison sheet for keeping styles inside the same ca
 | art-nouveau | Botanical ornamental flow | vine lines, perfume card, green gold | framed product/story page with organic lines | botanical, rococo | whiplash line and botanical frame | BOTANICAL ORNAMENT |
 | baroque | Theatrical museum luxury | chiaroscuro, gilded frame, wine/black | gallery commerce, dramatic image staging | rococo, gothic | deep dark drama and ornate frame | GILDED GALLERY |
 | rococo | Light salon ornament | shell curves, porcelain, pastel | delicate product/salon market cards | baroque, pastel-style | pastel shell asymmetry, no darkness | PORCELAIN SALON |
-| gothic | Cathedral verticality | pointed arches, stained glass, stone | visitor/archive modules with vertical sacred mood | baroque, dark-mode-design | vaulted modules and stained-glass grid | CATHEDRAL ARCHIVE |
+| gothic | Cathedral verticality | pointed arches, stained glass, stone | visitor/archive modules with vertical sacred mood | baroque | vaulted modules and stained-glass grid | CATHEDRAL ARCHIVE |
 
 ## 자연 / 수공예
 
@@ -128,11 +128,8 @@ This table is the working comparison sheet for keeping styles inside the same ca
 
 | style slug | 핵심 정체성 | moodboard 시각 신호 | referenceSites 웹 UI 문법 | 겹치기 쉬운 스타일 | 반드시 다르게 보여야 하는 요소 | 샘플 고유 마커 |
 |---|---|---|---|---|---|---|
-| flat-design | Two-dimensional direct UI | solid color modules, matte chips | flat controls, no-depth buttons, color sections | material-design, saas-style | no shadow, solid fill UI board | FLAT CONTROL BOARD |
+| flat-design | Two-dimensional direct UI | solid color modules, matte chips | flat controls, no-depth buttons, color sections | material-design | no shadow, solid fill UI board | FLAT CONTROL BOARD |
 | material-design | Surface and state discipline | elevation paper, ripple circles | layered cards, state rail, component spec | flat-design, neumorphism | real elevation stack and state layers | MATERIAL STATE SHEET |
 | neumorphism | Soft embossed controls | tone-on-tone wells, inset buttons | same-color cards, inner/outer shadows | claymorphism, soft-minimal | low-contrast pressed surface | SOFT EMBOSS PANEL |
-| glassmorphism | Frosted layered depth | acrylic, glass, blurred fields | translucent cards over data/weather backdrop | hologram-style, dark-mode-design | blur/refraction and glass panels | FROSTED DEPTH DESK |
+| glassmorphism | Frosted layered depth | acrylic, glass, blurred fields | translucent cards over data/weather backdrop | hologram-style | blur/refraction and glass panels | FROSTED DEPTH DESK |
 | claymorphism | Friendly soft 3D app | clay blobs, puffy modules | rounded 3D cards, playful task surface | bubble-design, neumorphism | puffy colorful depth, not embossed pale UI | CLAY APP WORKSHOP |
-| dark-mode-design | Accessible dark product UI | contrast chips, OLED cards, focus rings | dark app console, status clarity, contrast audit | cyber-dashboard, high-tech | readability and focus audit, no neon fantasy | DARK MODE OPS |
-| saas-style | B2B operations clarity | dashboard cards, pricing shapes, status chips | feature proof, sidebar, pricing, comparison | startup-landing-page, high-tech | operational home and pricing matrix | SAAS OPERATIONS HOME |
-| startup-landing-page | Conversion story sequence | hero blocks, CTA bars, funnel arrows | hero, proof, feature ladder, CTA repeats | saas-style, ai-aesthetic | marketing funnel and optimistic sequence | STARTUP CONVERSION STORY |

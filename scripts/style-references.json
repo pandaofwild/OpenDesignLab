@@ -1107,44 +1107,5 @@
       { "url": "https://www.awwwards.com/websites/3d/", "title": "Awwwards - Claymorphism References", "note": "Gallery fit: filter award examples for puffy 3D cards, pastel blobs, rounded inflated controls, soft colored shadows; use it to study responsive hero, navigation, and section pacing, while rejecting generic polished pages closer to neumorphism, which stays low-contrast and same-surface." },
       { "url": "https://dribbble.com/search/claymorphism%20website", "title": "Dribbble - Claymorphism Website Design", "note": "Gallery fit: compare component-level treatments such as puffy 3D cards, pastel blobs, rounded inflated controls, soft colored shadows; useful for buttons, cards, and landing sections, but less authoritative than the live sites for final style matching." }
     ]
-  },
-
-  "dark-mode-design": {
-    "sites": [
-      { "url": "https://www.raycast.com/", "title": "Raycast", "note": "Professional fit: near-black base, luminous product screenshots, crisp command UI, and restrained gradient accents make this dark-mode web reference distinct from cyberpunk neon spectacle." },
-      { "url": "https://arc.net", "title": "Arc", "note": "Professional fit: dark product staging, browser chrome screenshots, soft glow accents, and compact feature modules show dark-mode design for productivity UX rather than sci-fi worldbuilding." },
-      { "url": "https://www.warp.dev/", "title": "Warp", "note": "Professional fit: terminal-dark surfaces, code-like panels, gradient edge light, and developer workflow cards give practical dark-mode UI cues, not just black luxury branding." }
-    ],
-    "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Dark%20Mode%20Design%20website%20design", "title": "Pinterest - Dark Mode Design Website Design", "note": "Gallery fit: use this board search to compare near-black surfaces, luminous screenshots, high-contrast text, restrained glow accents; it is useful for web moodboard clustering, not as proof of a single live site, and stays distinct from neon-noir, which is cinematic and atmospheric rather than product-usable." },
-      { "url": "https://www.awwwards.com/websites/dark/", "title": "Awwwards - Dark Mode Design References", "note": "Gallery fit: filter award examples for near-black surfaces, luminous screenshots, high-contrast text, restrained glow accents; use it to study responsive hero, navigation, and section pacing, while rejecting generic polished pages closer to neon-noir, which is cinematic and atmospheric rather than product-usable." },
-      { "url": "https://dribbble.com/search/dark%20mode%20website%20design", "title": "Dribbble - Dark Mode Design Website Design", "note": "Gallery fit: compare component-level treatments such as near-black surfaces, luminous screenshots, high-contrast text, restrained glow accents; useful for buttons, cards, and landing sections, but less authoritative than the live sites for final style matching." }
-    ]
-  },
-
-  "saas-style": {
-    "sites": [
-      { "url": "https://stripe.com", "title": "Stripe", "note": "Professional fit: feature-section hierarchy, dashboard/product screenshots, precise pricing and docs paths, and controlled accent gradients make this SaaS reference distinct from startup hype pages." },
-      { "url": "https://www.intercom.com/", "title": "Intercom", "note": "Professional fit: modular product storytelling, customer-support UI previews, segmented feature navigation, and conversion surfaces show SaaS structure beyond generic clean landing pages." },
-      { "url": "https://www.notion.com/", "title": "Notion", "note": "Professional fit: product-led templates, workspace screenshots, quiet component cards, and use-case navigation make this SaaS reference practical rather than merely minimal." }
-    ],
-    "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=SaaS%20Style%20website%20design", "title": "Pinterest - SaaS Style Website Design", "note": "Gallery fit: use this board search to compare product screenshots, feature grids, pricing sections, integration cards; it is useful for web moodboard clustering, not as proof of a single live site, and stays distinct from startup-landing-page, which often sells a launch story before deep product structure." },
-      { "url": "https://www.awwwards.com/websites/saas/", "title": "Awwwards - SaaS Style References", "note": "Gallery fit: filter award examples for product screenshots, feature grids, pricing sections, integration cards; use it to study responsive hero, navigation, and section pacing, while rejecting generic polished pages closer to startup-landing-page, which often sells a launch story before deep product structure." },
-      { "url": "https://dribbble.com/search/saas%20website%20design", "title": "Dribbble - SaaS Style Website Design", "note": "Gallery fit: compare component-level treatments such as product screenshots, feature grids, pricing sections, integration cards; useful for buttons, cards, and landing sections, but less authoritative than the live sites for final style matching." }
-    ]
-  },
-
-  "startup-landing-page": {
-    "sites": [
-      { "url": "https://mercury.com/", "title": "Mercury", "note": "Professional fit: clear hero promise, product proof modules, trust logos, and conversion-focused banking flows make this startup landing reference distinct from mature SaaS documentation sites." },
-      { "url": "https://ramp.com/", "title": "Ramp", "note": "Professional fit: ROI-led copy blocks, dashboard screenshots, social proof bands, and high-contrast CTA rhythm show startup landing-page mechanics without generic template decoration." },
-      { "url": "https://www.airtable.com/", "title": "Airtable", "note": "Professional fit: use-case segmentation, product visuals, strong onboarding CTAs, and modular benefit sections make this startup-style landing reference more specific than broad SaaS UI." }
-    ],
-    "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Startup%20Landing%20Page%20website%20design", "title": "Pinterest - Startup Landing Page Website Design", "note": "Gallery fit: use this board search to compare hero claim, product proof, social proof bands, CTA and pricing rhythm; it is useful for web moodboard clustering, not as proof of a single live site, and stays distinct from saas-style, which includes deeper product systems and dashboards." },
-      { "url": "https://www.awwwards.com/websites/landing-page/", "title": "Awwwards - Startup Landing Page References", "note": "Gallery fit: filter award examples for hero claim, product proof, social proof bands, CTA and pricing rhythm; use it to study responsive hero, navigation, and section pacing, while rejecting generic polished pages closer to saas-style, which includes deeper product systems and dashboards." },
-      { "url": "https://dribbble.com/search/startup%20landing%20page", "title": "Dribbble - Startup Landing Page Website Design", "note": "Gallery fit: compare component-level treatments such as hero claim, product proof, social proof bands, CTA and pricing rhythm; useful for buttons, cards, and landing sections, but less authoritative than the live sites for final style matching." }
-    ]
   }
 }

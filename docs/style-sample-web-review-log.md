@@ -1,6 +1,6 @@
 # OpenDesignLab Style Sample Web Review Log
 
-이 문서는 85개 디자인 스타일 샘플 웹을 한 번에 묶어 처리하지 않고, 하나씩 프로급 웹 샘플로 점검하고 개선하기 위한 작업대장이다.
+이 문서는 82개 디자인 스타일 샘플 웹을 한 번에 묶어 처리하지 않고, 하나씩 프로급 웹 샘플로 점검하고 개선하기 위한 작업대장이다.
 
 ## 진행 원칙
 
@@ -114,9 +114,6 @@
 | 80 | UI / 웹 | neumorphism | saas-landing | queued | inset controls, double shadow, tone-on-tone tactile UI |
 | 81 | UI / 웹 | glassmorphism | saas-landing | queued | frosted cards, blur depth, translucent layering |
 | 82 | UI / 웹 | claymorphism | kawaii-app | queued | puffy 3D modules, pastel extrusion, playful app commerce |
-| 83 | UI / 웹 | dark-mode-design | cyber-dashboard | queued | readable dark ops, contrast ladder, focus states |
-| 84 | UI / 웹 | saas-style | saas-landing | queued | operations home, product proof grid, pricing matrix |
-| 85 | UI / 웹 | startup-landing-page | saas-landing | queued | conversion story, hero CTA ladder, funnel sequence |
 
 ## 완료 카테고리 상세 기록 아카이브
 
@@ -145,6 +142,18 @@
 - 전체 순회 큐 표를 85행으로 재넘버링(1-85 연속). 기존 아카이브 범위(01-09/10-17/18-26)는 제거된 두 스타일(구 번호 63·66)보다 앞이라 영향 없음.
 - 부수 발견: `check-street-subculture.mjs`의 lo-fi `requiredStructureMarkers`가 `"aspect-square rounded-full"`을 기대했으나 실제 마크업은 이미 `rounded-[2px]`로 리디자인되어 있던 기존 drift(이번 제거와 무관, stash로 사전 존재 확인) — 체크 문자열을 실제 마크업에 맞게 수정.
 - 검증: `check:data`(85 styles/10 categories)·`check:street-subculture`(7/7)·`check:style-distinction`(85)·`check:style-refs`(85)·`check:future-digital`(8)·`check:cute-casual`(9)·`npm run lint`·`next build` 전부 통과.
+- 남은 의심점: 없음.
+- 커밋: `8db6dcf`.
+
+### dark-mode-design · saas-style · startup-landing-page — 완전 제거 (2026-07-19, 소유자 지시)
+
+- 소유자 지시: "다크 모드 디자인, Saas 스타일, 스타트업 랜딩 페이지도 없애줘." 대체 스타일 없이 완전 삭제. 세 스타일 모두 `queued`(미착수) 상태였음.
+- UI / 웹 카테고리 8개 → 5개(flat-design, material-design, neumorphism, glassmorphism, claymorphism)로 축소. 전체 스타일 수 85 → 82.
+- 제거 범위: `src/data/designStyles.ts`(styleSeedTuples 3행·styleMoodboards 3블록 — 이 세 스타일은 palette/research/tokenOverrides 전용 항목이 없어 6곳 중 2곳만 해당), `DesignStyleSampleRenderer.tsx`(`DarkModeOpsConsole`/`SaasStyleOperationsHome`/`StartupLandingStory` 래퍼 함수 3개·라우팅 3건 삭제, 공유 컴포넌트 `UiWebDistinctionSample` 내부의 이제-도달불가능한 `"dark"`/`"saas"` 분기와 기본(`"startup"`) 분기까지 함께 제거하고 `UiWebLayout` 유니언 타입을 5개로 축소, 함수 끝은 `return null;`로 안전 폴백), `check-style-distinction.mjs`(categorySlugOrder·styleSampleFunctions·requiredFamilyMarkers 3곳)·`check-data.mjs`(최소 카운트 가드 85→82)·`style-references.json`(JSON 블록 3건, 파일 끝 trailing comma 정리), 이미지 자산 3개(`public/generated/moodboards/{dark-mode-design,saas-style,startup-landing-page}-realistic-v2.webp`, design-styles 폴더에는 애초에 히어로 이미지 없음) 삭제.
+- 인접 스타일 cross-reference 정리: `docs/style-category-distinction-table.md`에서 세 행 삭제, flat-design·glassmorphism(같은 UI/웹 섹션)과 international-style·neon-noir·high-tech·ai-aesthetic·gothic(다른 카테고리 5곳)의 "겹치기 쉬운 스타일" 컬럼에서 죽은 참조 제거.
+- 전체 순회 큐 표를 82행으로 재넘버링(1-82 연속).
+- 부수 확인: 이번 정리로 `MarkerRail` 중복 React key 경고(`feature proof grid`, `funnel sequence`) 두 건이 함께 사라짐 — `saas-style`/`startup-landing-page`가 삭제된 dead 분기에서 `config.subMarker`/`config.tertiaryMarker` 값이 같은 분기 안의 하드코딩 리터럴과 우연히 같아 발생하던 실제 버그였음(세션 내내 "무관한 기존 경고"로 지나쳤던 것의 진짜 원인). `distortion rail`·`soft 3D modules`·`no-depth buttons` 등 나머지 중복 key 경고는 여전히 남은 다른 스타일(claymorphism 등) 소관이라 미해결 상태 유지, 이번 작업 범위 밖.
+- 검증: `check:data`(82 styles/10 categories)·`check:style-distinction`(82)·`check:style-refs`(82)·`check:street-subculture`(7/7)·`check:future-digital`(8)·`check:cute-casual`(9)·`npm run lint`·`next build` 전부 통과.
 - 남은 의심점: 없음.
 
 ### 강렬 / 실험 category QA

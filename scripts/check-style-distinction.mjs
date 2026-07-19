@@ -156,9 +156,6 @@ const categorySlugOrder = {
     "neumorphism",
     "glassmorphism",
     "claymorphism",
-    "dark-mode-design",
-    "saas-style",
-    "startup-landing-page",
   ],
 };
 
@@ -245,9 +242,6 @@ const styleSampleFunctions = {
   neumorphism: "NeumorphismSoftPanel",
   glassmorphism: "GlassmorphismDepthDesk",
   claymorphism: "ClaymorphismAppWorkshop",
-  "dark-mode-design": "DarkModeOpsConsole",
-  "saas-style": "SaasStyleOperationsHome",
-  "startup-landing-page": "StartupLandingStory",
 };
 
 const requiredFamilyMarkers = {
@@ -299,9 +293,6 @@ const requiredFamilyMarkers = {
   neumorphism: ["SOFT EMBOSS PANEL", "inset controls", "double shadow wells"],
   glassmorphism: ["FROSTED DEPTH DESK", "blurred weather map", "translucent cards"],
   claymorphism: ["CLAY APP WORKSHOP", "puffy task cards", "soft 3D modules"],
-  "dark-mode-design": ["DARK MODE OPS", "contrast ladder", "focus ring audit"],
-  "saas-style": ["SAAS OPERATIONS HOME", "feature proof grid", "pricing matrix"],
-  "startup-landing-page": ["STARTUP CONVERSION STORY", "hero CTA ladder", "funnel sequence"],
 };
 
 const errors = [];

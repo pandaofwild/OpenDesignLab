@@ -1220,9 +1220,6 @@ const styleSeedTuples: DesignStyleSeedTuple[] = [
   ["neumorphism", "뉴모피즘", "Neumorphism", "UI / 웹", "부드러운 안팎 그림자로 눌린 표면감을 만드는 UI 스타일", ["neumorphism", "soft-ui", "surface"], "saas-landing"],
   ["glassmorphism", "글래스모피즘", "Glassmorphism", "UI / 웹", "반투명 유리 패널과 흐림 효과를 중심으로 한 UI 스타일", ["glass", "translucent", "ui"], "saas-landing"],
   ["claymorphism", "클레이모피즘", "Claymorphism", "UI / 웹", "말랑한 3D 카드와 밝은 색으로 친근한 제품 UI를 만드는 스타일", ["clay", "3d", "soft"], "kawaii-app"],
-  ["dark-mode-design", "다크모드 디자인", "Dark Mode Design", "UI / 웹", "어두운 배경에서 정보 대비와 피로도를 관리하는 UI 스타일", ["dark-mode", "ui", "contrast"], "cyber-dashboard"],
-  ["saas-style", "SaaS 스타일", "SaaS Style", "UI / 웹", "기능, 신뢰, 전환을 명확히 보여주는 제품형 웹 스타일", ["saas", "product", "landing"], "saas-landing"],
-  ["startup-landing-page", "스타트업 랜딩페이지", "Startup Landing Page", "UI / 웹", "빠른 가치 전달과 CTA 반복으로 전환을 유도하는 웹 스타일", ["startup", "landing", "conversion"], "saas-landing"],
 ];
 
 const styleSeeds: DesignStyleSeed[] = styleSeedTuples.map(([slug, nameKo, nameEn, category, tone, tags, sampleType]) => ({
@@ -4013,33 +4010,6 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
     imageSrc: "/generated/moodboards/claymorphism-realistic-v2.webp",
     prompt:
       "Create a realistic editorial moodboard for Claymorphism in web design. Photograph a real designer's soft 3D clay interface and casual app research board from above on a warm cream studio table. Include printed claymorphism web layouts made only of blank rounded 3D cards and empty bars, soft extruded paper shapes, pastel clay blobs, matte polymer clay samples, pill control studies with no icons or text, puffy product-module studies, soft shadow tests, bright friendly color chips, rounded toy-like object crops with no labels or characters, and small physical objects like unmarked clay beads, squishy foam blocks, and smooth rounded tokens. The visual language should communicate soft 3D depth, friendly tactility, inflated cards, and casual app commerce for web pages, not neumorphic monochrome embossing, toy product photography, or bubble gel reflections. Use tape corners, pin marks, slight paper curl, clay texture, soft shadows, rounded edges, varied paper thickness, subtle dust, and real surface texture. Palette: cream, peach, lavender, mint, butter yellow, coral, sky blue, soft graphite. Absolutely no readable text, no fake text, no letters, no numbers, no labels, no logos, no faces, no characters, no watermarks, no floating cards. Landscape 16:10 realistic top-down editorial photography.",
-  },
-  "dark-mode-design": {
-    alt: "Dark Mode Design moodboard with blank dark UI proofs, contrast cards, graphite papers, status chips, dark glass, matte plastic, focus-ring studies, and black acrylic tiles.",
-    caption: "Readable dark control: use graphite surfaces, status accents, focus-ring shapes, matte black materials, and contrast studies rather than neon genre styling.",
-    directionKeywords: ["real dark UI board", "readable graphite surfaces", "status accent chips", "focus ring studies", "reduced glare product control"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/dark-mode-design-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for Dark Mode Design in web design. Photograph a real designer's dark interface accessibility and product dashboard research board from above on a matte charcoal studio table. Include printed dark-mode web layouts made only of blank dark panels, empty bars, and unlabeled status blocks, contrast test cards without numbers, OLED-black and graphite paper samples, muted color chips for status states, blue and green accent strips, dark glass and matte plastic swatches, focus-ring shape studies with no icons or text, night product crop fragments with no labels, and small physical objects like black acrylic tiles and unmarked toggle tokens. The visual language should communicate readable dark surfaces, state clarity, reduced glare, and product UI control for web pages, not cyberpunk neon, rave nightlife, or high-tech instrument panels. Use tape corners, pin marks, slight paper curl, dark surface dust, soft edge highlights, varied paper thickness, and real shadows. Palette: black, charcoal, graphite, cool white, muted blue, status green, warning amber, soft violet. Absolutely no readable text, no fake text, no letters, no numbers, no labels, no logos, no watermarks, no people, no floating cards. Landscape 16:10 realistic top-down editorial photography.",
-  },
-  "saas-style": {
-    alt: "SaaS Style moodboard with blank product web proofs, dashboard cards, unlabeled charts, abstract table rows, component sheets, pricing shapes, status chips, and dividers.",
-    caption: "Operational product clarity: use tables, charts, sidebars, status chips, and component sheets for B2B trust rather than marketing hero flow.",
-    directionKeywords: ["real B2B product board", "dashboard component system", "abstract table rows", "status chips", "operational clarity"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/saas-style-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for SaaS Style in web design. Photograph a real designer's B2B product interface and operations web research board from above on a clean light grey office table. Include printed SaaS website and dashboard layouts made only of blank cards, empty bars, unlabeled charts, and abstract table rows with no text or numbers, component library sheets, pricing-card shapes with no currency symbols, status color chips, neutral UI paper samples, sidebar and navigation studies, feature-comparison blocks without labels, matte screen-like acrylic, and small physical objects like blank sticky tabs, clear dividers, and unmarked toggle tokens. The visual language should communicate product trust, operational clarity, repeatable components, and conversion support for web pages, not startup hero marketing, high-tech dashboards, or dark mode surfaces. Use tape corners, pin marks, slight paper curl, clean shadows, varied paper thickness, subtle dust, and real office texture. Palette: white, light grey, navy, cobalt, teal, status green, amber, graphite. Absolutely no readable text, no fake text, no letters, no numbers, no currency, no labels, no logos, no watermarks, no floating cards. Landscape 16:10 realistic top-down editorial photography.",
-  },
-  "startup-landing-page": {
-    alt: "Startup Landing Page moodboard with blank conversion web proofs, hero blocks, CTA bars, feature sections, testimonial shapes, funnel studies, gradient papers, and progress tokens.",
-    caption: "Conversion storytelling: use hero blocks, feature sequences, funnel shapes, optimistic gradients, and progress tokens rather than operations dashboards.",
-    directionKeywords: ["real startup landing board", "hero CTA flow", "conversion funnel studies", "optimistic product story", "marketing sequence"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/startup-landing-page-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for Startup Landing Page style in web design. Photograph a real designer's startup conversion landing page and growth-story research board from above on a bright white studio table. Include printed startup landing layouts made only of blank hero blocks, empty CTA bars, feature sections, testimonial-card shapes with no text, pricing or plan cards with no currency symbols, funnel flow studies with no labels, pitch-deck color chips, optimistic product screenshot placeholders, soft gradient paper samples, clean illustration-shape cutouts with no icons, and small physical objects like blank sticky tabs, clear acrylic arrows, and colored progress tokens. The visual language should communicate fast value communication, conversion flow, founder-product optimism, and marketing page sequencing for web pages, not B2B SaaS operations dashboard, flat design system, or material component library. Use tape corners, pin marks, slight paper curl, clean shadows, varied paper thickness, subtle dust, and real studio texture. Palette: white, navy, bright blue, mint, coral, sunny yellow, pale violet, graphite. Absolutely no readable text, no fake text, no letters, no numbers, no currency, no labels, no logos, no watermarks, no floating cards. Landscape 16:10 realistic top-down editorial photography.",
   },
 };
 

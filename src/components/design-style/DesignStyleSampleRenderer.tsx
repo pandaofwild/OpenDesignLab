@@ -3966,13 +3966,10 @@ function NewspaperEditionGrid(props: Props) {
 
 type UiWebLayout =
   | "clay"
-  | "dark"
   | "flat"
   | "glass"
   | "material"
-  | "neumorphic"
-  | "saas"
-  | "startup";
+  | "neumorphic";
 
 type UiWebDistinctionConfig = {
   deck: string;
@@ -4122,96 +4119,7 @@ function UiWebDistinctionSample({
     );
   }
 
-  if (config.layout === "dark") {
-    return (
-      <SampleFrame className={cn("bg-[var(--sample-text)] text-[var(--sample-base)]", className)} compact={compact} style={style}>
-        <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-          <SampleNav brand="Night Console" bordered compact={compact} links={["Contrast", "States", "Logs"]} sub={config.marker} />
-          <main className="grid min-h-0 grid-cols-[0.72fr_1.28fr] gap-3">
-            <aside className="grid min-h-0 grid-rows-6 gap-2">
-              {["AA", "AAA", "hover", "focus", "error", "ok"].map((item, index) => (
-                <span className={cn("border border-white/20 p-2 text-[8px] font-black uppercase", index === 3 ? "ring-2 ring-[var(--sample-accent)]" : "")} key={item}>
-                  {item}
-                </span>
-              ))}
-            </aside>
-            <section className="grid min-h-0 grid-rows-[auto_1fr_auto] border border-white/20 bg-white/5 p-3">
-              <p className={cn("font-black uppercase tracking-[0.18em] text-[var(--sample-accent)]", label)}>{config.subMarker}</p>
-              <div className="grid content-center gap-2 py-3">
-                {modules.map((item, index) => (
-                  <span className="grid grid-cols-[auto_1fr_auto] items-center gap-2 border border-white/15 bg-black/20 p-2 text-[8px] font-black uppercase" key={item}>
-                    <span className="h-2 w-2 rounded-full bg-[var(--sample-accent)]" />
-                    <span>{item}</span>
-                    <span>{index + 1}</span>
-                  </span>
-                ))}
-              </div>
-              <p className="text-[8px] font-black uppercase tracking-[0.16em]">{config.tertiaryMarker}</p>
-            </section>
-          </main>
-          <MarkerRail compact={compact} items={[config.marker, "contrast ladder", "focus ring audit"]} />
-        </div>
-      </SampleFrame>
-    );
-  }
-
-  if (config.layout === "saas") {
-    return (
-      <SampleFrame className={className} compact={compact} style={style}>
-        <div className="grid h-full grid-cols-[0.34fr_0.66fr] gap-3">
-          <aside className="grid min-h-0 grid-rows-[auto_1fr_auto] border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-3">
-            <p className={cn("font-black uppercase tracking-[0.18em] text-[var(--sample-accent)]", label)}>{config.marker}</p>
-            <div className="mt-4 grid content-start gap-2">
-              {["Pipeline", "Accounts", "Reports", "Settings"].map((item) => (
-                <span className="rounded-[var(--st-radius)] bg-[var(--sample-base)] px-2 py-2 text-[8px] font-bold uppercase" key={item}>{item}</span>
-              ))}
-            </div>
-            <span className="rounded-[var(--st-radius)] bg-[var(--sample-text)] px-2 py-2 text-[8px] font-black uppercase text-[var(--sample-base)]">{config.tertiaryMarker}</span>
-          </aside>
-          <main className="grid min-h-0 grid-rows-[auto_1fr_auto] gap-3">
-            <section className="grid grid-cols-3 gap-2">
-              {modules.map((item) => (
-                <span className="border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-2 text-[8px] font-black uppercase" key={item}>{item}</span>
-              ))}
-            </section>
-            <section className="grid min-h-0 grid-cols-3 gap-2">
-              {["basic", "growth", "scale"].map((item, index) => (
-                <span className={cn("border border-[var(--sample-border-soft)] p-3 text-[8px] font-black uppercase", index === 1 ? "bg-[var(--sample-accent)] text-[var(--sample-base)]" : "bg-[var(--sample-surface)]")} key={item}>{item}</span>
-              ))}
-            </section>
-            <MarkerRail compact={compact} items={[config.subMarker, "feature proof grid", "pricing matrix"]} />
-          </main>
-        </div>
-      </SampleFrame>
-    );
-  }
-
-  return (
-    <SampleFrame className={className} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Launch Story" bordered={false} compact={compact} links={["Product", "Proof", "Pricing"]} sub={config.marker} />
-        <main className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1.1fr_0.9fr]" : "grid-cols-[1.3fr_0.7fr]")}>
-          <section className="flex min-h-0 flex-col justify-center">
-            <p className={cn("font-black uppercase tracking-[0.18em] text-[var(--sample-accent)]", label)}>{config.subMarker}</p>
-            <h3 className={cn("mt-3 font-display font-black leading-[0.95]", compact ? "text-[1.7rem]" : "text-[3.8rem]")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "-0.04em" }}>
-              Ship the first useful signal.
-            </h3>
-            <div className="mt-5 grid grid-cols-2 gap-2">
-              {modules.map((item) => (
-                <span className="rounded-[var(--st-radius)] border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] px-3 py-2 text-[8px] font-black uppercase" key={item}>{item}</span>
-              ))}
-            </div>
-          </section>
-          <section className="grid min-h-0 grid-rows-4 gap-2">
-            {["hero", "proof", "feature", "cta"].map((item, index) => (
-              <span className={cn("rounded-[var(--st-radius)] p-3 text-[8px] font-black uppercase", index === 0 ? "bg-[var(--sample-accent)] text-[var(--sample-base)]" : "bg-[var(--sample-surface)]")} key={item}>{item}</span>
-            ))}
-          </section>
-        </main>
-        <MarkerRail compact={compact} items={[config.tertiaryMarker, "hero CTA ladder", "funnel sequence"]} />
-      </div>
-    </SampleFrame>
-  );
+  return null;
 }
 
 function FlatDesignControlBoard(props: Props) {
@@ -4232,18 +4140,6 @@ function GlassmorphismDepthDesk(props: Props) {
 
 function ClaymorphismAppWorkshop(props: Props) {
   return <UiWebDistinctionSample {...props} config={{ deck: "Claymorphism is puffy, colorful and soft 3D.", layout: "clay", marker: "CLAY APP WORKSHOP", modules: ["puffy task cards", "reward", "profile", "shop"], subMarker: "puffy task cards", tertiaryMarker: "soft 3D modules" }} />;
-}
-
-function DarkModeOpsConsole(props: Props) {
-  return <UiWebDistinctionSample {...props} config={{ deck: "Dark mode is an accessibility and state clarity system.", layout: "dark", marker: "DARK MODE OPS", modules: ["state log", "active row", "dim row", "alert"], subMarker: "contrast ladder", tertiaryMarker: "focus ring audit" }} />;
-}
-
-function SaasStyleOperationsHome(props: Props) {
-  return <UiWebDistinctionSample {...props} config={{ deck: "SaaS style balances feature proof, operations and pricing.", layout: "saas", marker: "SAAS OPERATIONS HOME", modules: ["ARR", "activation", "support"], subMarker: "feature proof grid", tertiaryMarker: "pricing matrix" }} />;
-}
-
-function StartupLandingStory(props: Props) {
-  return <UiWebDistinctionSample {...props} config={{ deck: "Startup landing pages stage a conversion story.", layout: "startup", marker: "STARTUP CONVERSION STORY", modules: ["waitlist", "demo", "proof", "pricing"], subMarker: "hero CTA ladder", tertiaryMarker: "funnel sequence" }} />;
 }
 
 function KawaiiApp({ compact = false, style }: Props) {
@@ -7514,18 +7410,6 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
 
   if (style.slug === "claymorphism") {
     return <ClaymorphismAppWorkshop {...props} />;
-  }
-
-  if (style.slug === "dark-mode-design") {
-    return <DarkModeOpsConsole {...props} />;
-  }
-
-  if (style.slug === "saas-style") {
-    return <SaasStyleOperationsHome {...props} />;
-  }
-
-  if (style.slug === "startup-landing-page") {
-    return <StartupLandingStory {...props} />;
   }
 
   switch (style.sampleType) {
