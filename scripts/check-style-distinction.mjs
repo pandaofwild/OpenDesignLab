@@ -30,7 +30,7 @@ const delegatedSampleSources = {
   RetroFuturismSpecimen: "../src/components/design-style/WorldOfTomorrowSpecimen.tsx",
   SeventiesRollerDisco: "../src/components/design-style/RolleramaRink.tsx",
   MaximalistPatternAtelier: "../src/components/design-style/MaximalistSalonWall.tsx",
-  MidCenturyModernStudio: "../src/components/design-style/MidCenturyListeningRoom.tsx",
+  MidCenturyModernStudio: "../src/components/design-style/AtomicInteriorsJournal.tsx",
 };
 
 function wrapperSlice(name) {
@@ -282,7 +282,7 @@ const requiredFamilyMarkers = {
   "nineties-graphic": ["Mega Media", "topic explorer", "now loading"],
   y2k: ["CYBERSHOCK", "now playing", "spectrum visualizer", "transport controls"],
   "retro-futurism": ["WORLD OF TOMORROW", "exhibit viewer", "motif index", "atomic orbit"],
-  "mid-century-modern": ["MONO HOUSE", "SIDE A / LISTENING FLOOR", "SIDE B / CONTROL RECEIVER", "Walnut source rail", "Girard acoustic cloth", "Session queue"],
+  "mid-century-modern": ["ATOMIC", "mid-century living", "HOUSE STUDY", "the pieces", "Eames Lounge Chair"],
   bauhaus: ["BAUHAUS SCHOOL", "workshop method grid", "circle square triangle lab"],
   futurism: ["ORBITAL TRANSIT", "Mach corridor map", "Launch window board", "Live telemetry"],
   cyberpunk: ["Lucky Chrome Clinic", "Implant menu", "Install queue", "Checkout ledger"],

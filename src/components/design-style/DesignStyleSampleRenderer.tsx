@@ -10,9 +10,9 @@ import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
 import { HollowayApothecary } from "./HollowayApothecary";
 import { HologramClinicalVolume } from "./HologramClinicalVolume";
 import { LatentStudioPanel } from "./LatentStudioPanel";
+import { AtomicInteriorsJournal } from "./AtomicInteriorsJournal";
 import { MaximalistSalonWall } from "./MaximalistSalonWall";
 import { MillikelvinControlPlane } from "./MillikelvinControlPlane";
-import { MidCenturyListeningRoom } from "./MidCenturyListeningRoom";
 import { NightMarketClinic } from "./NightMarketClinic";
 import { OrbitalTransitConsole } from "./OrbitalTransitConsole";
 import { RedRoomCaseDesk } from "./RedRoomCaseDesk";
@@ -2632,7 +2632,7 @@ function BauhausSchool({ className, compact = false, style }: Props) {
 function MidCenturyModernStudio({ className, compact = false, style }: Props) {
   return (
     <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
-      <MidCenturyListeningRoom compact={compact} />
+      <AtomicInteriorsJournal compact={compact} />
     </SampleFrame>
   );
 }

@@ -56,7 +56,7 @@
 | 22 | 레트로 / 빈티지 | y2k | retro-commerce | verified | CYBERSHOCK 크롬 미디어 플레이어 스킨(재디자인) — 홀로그래픽 데스크톱 위 크롬 윈도우, LCD now playing·spectrum visualizer·transport controls·playlist(선택 연동), OS 윈도우 스킨 골격 |
 | 23 | 레트로 / 빈티지 | retro-futurism | retro-commerce | verified | WORLD OF TOMORROW 모티프 스페시멘(재디자인) — 포스터 마스트헤드·exhibit viewer(선택 모티프 확대)·motif index(원자궤도/스타버스트/부메랑/소서/로켓)·Space Age 팔레트 스트립, 특정 사이트 아닌 스타일 어휘 전시 |
 | 24 | 레트로 / 빈티지 | retro-futurism | retro-commerce | verified | FLIGHT DECK, destination poster rail, chrome capsule timetable |
-| 25 | 레트로 / 빈티지 | mid-century-modern | minimal-editorial | verified | MIDCENTURY STUDIO, walnut slat product rail, Girard textile swatch wall |
+| 25 | 레트로 / 빈티지 | mid-century-modern | minimal-editorial | verified | ATOMIC 미드센추리 리빙 저널(재작업) — 케이스 스터디 하우스 실사 에디토리얼, 번호 핀 가구 주석·the pieces 사이드바(선택 연동)·pull quote, 인테리어 에디토리얼 골격 |
 | 26 | 레트로 / 빈티지 | bauhaus | magazine-layout | verified | BAUHAUS SCHOOL, workshop method grid, circle square triangle lab |
 | 27 | 미래 / 디지털 | futurism | cyber-dashboard | verified | ORBITAL TRANSIT 마하 회랑 운행 콘솔 — 실버 포드 히어로+MACH velocity 타이포 웨지, Mach corridor map(회랑 선택 인터랙션), Launch window board, live telemetry 스트립 |
 | 28 | 미래 / 디지털 | cyberpunk | cyber-dashboard | verified | LUCKY CHROME CLINIC 나이트마켓 리퍼독 터미널 — 네온 골목 실사+사인 스택, implant menu(선택→원장 연동), black-market deck flash, install queue, humanity 게이지, city protocol 해저드 스트립 |
@@ -553,4 +553,38 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - console: 상세 페이지 error 0. 목록 페이지 중복 key 경고(distortion rail 등, HMR로 반복 표기)는 기존 타 스타일 데이터 이슈로 retro-futurism 범위 밖.
 - 명령: `check:data`(87)·`check:style-distinction`(87)·`npm run lint`·`next build`(577 pages) 통과.
 - screenshots: `rf-full-v1.jpeg`, `rf-mobile-v1.jpeg`, `rf-compact-v1.jpeg`.
+- 남은 의심점: 없음.
+
+## 24. mid-century-modern — 재작업 (소유자 지시: "다시 잡아줘" → 미드센추리 인테리어 에디토리얼 선택)
+
+### 현재 판정
+
+- status: `reviewing` (verified 롤백).
+- 현재 `MidCenturyListeningRoom`(MONO HOUSE 회원제 청음실 콘솔)은 잘 만들어졌으나 "특정 사이트(청음실 예약 콘솔)" vehicle. 소유자 질문 결과 **미드센추리 인테리어 에디토리얼** 방향 선택.
+- 방향: 하이파이 콘솔 대시보드가 아니라 **매거진/에디토리얼 스프레드** 골격 — 케이스 스터디 하우스 실내 실사 + 기사 칼럼 + pull quote + "이 집의 가구" 사이드바(아이코닉 MCM 가구 선택 연동). 최근 스타일들(diner/apothecary/media-player/specimen)과 레이아웃 중복 회피.
+
+### 목표
+
+- 컨셉: **"ATOMIC — a mid-century living journal" 인테리어 에디토리얼 피처**. 특정 실서비스가 아니라 미드센추리 홈 그 자체를 다루는 잡지 스프레드.
+- 고유 마커(check-style-distinction): `ATOMIC` / `mid-century living` / `HOUSE STUDY` / `the pieces` / `Eames Lounge Chair`. 구 마커(MONO HOUSE/SIDE A/SIDE B/Walnut source rail/Girard acoustic cloth/Session queue) 교체.
+- 정보 구조: ATOMIC 마스트헤드(a mid-century living journal · No.06 · INTERIORS) → 대형 MCM 실내 실사 피처(HOUSE STUDY 06 kicker + 헤드라인 + 크레딧, 선택 가구 위치에 넘버 핀 주석) + 기사 칼럼(에디토리얼 산문 + pull quote + byline) | `the pieces` 사이드바(Eames Lounge Chair·Noguchi Table·Nelson Bench·Girard Textile·Sputnik Lamp 선택 → 디자이너/연도/소재 디테일 연동) → 소재 크레딧 스트립.
+- 팔레트: 기존 유지(크림 #E7D8BD·월넛 #5A321F·버ント오렌지 #C9653A·틸 #2F776B·머스터드 #D4A33A·에스프레소 #2B241A). 무드보드 v2 유지(월넛·우븐·브라스 소재 보드).
+- 이미지: codex로 `public/generated/design-styles/mid-century-modern.webp` 교체 — 넓은 케이스 스터디 하우스 거실(임스 라운지·노구치 테이블·풀높이 유리·거라드 텍스타일·월넛), 텍스트 없음.
+
+### 검증 계획
+
+- RED/GREEN: distinction 구 마커 제거·신 마커 GREEN, `MidCenturyModernStudio` 위임 대상 `AtomicInteriorsJournal.tsx`로 교체, 구 `MidCenturyListeningRoom.tsx` 삭제. check:data·check:style-distinction·lint·build 통과.
+- browser QA: full·모바일·compact overflow 0, 가구 선택 → 디테일·핀 연동(aria-pressed) 확인.
+
+### 구현 및 검증 결과 (2026-07-19)
+
+- status: `verified`.
+- 변경 요약: `MidCenturyListeningRoom.tsx`(MONO HOUSE 청음실 콘솔) 삭제 → 위임 래퍼 `MidCenturyModernStudio` 대상을 신규 `AtomicInteriorsJournal.tsx`(use client, 가구 선택 useState)로 교체. codex로 케이스 스터디 하우스 거실 실사(`public/generated/design-styles/mid-century-modern.webp` 교체 — 임스 라운지·노구치 글래스 테이블·월넛 크레덴자·거라드 텍스타일·풀높이 유리·브라스 램프) 재생성. 골격(매거진 에디토리얼): ATOMIC 마스트헤드(a mid-century living journal · INTERIORS · No.06) → HOUSE STUDY 06 kicker + 헤드라인 + 번호 핀 주석 실내 실사(선택 가구 캡션: 디자이너·연도·소재) + 기사 칼럼·pull quote·byline | `the pieces` 사이드바(Eames/Noguchi/Nelson/Girard/Brass 5가구 선택 rail) → 크레딧 스트립(Photography/Styling/Materials).
+- 소유자 지시 반영: "다시 잡아줘" → 방향 질문 결과 **미드센추리 인테리어 에디토리얼** 선택. 하이파이 콘솔 대시보드 → 잡지 스프레드로 레이아웃 교체, 아이코닉 가구 실사+이름으로 스타일 즉시 인식([[style-visibility-over-vehicle]] 적용). 팔레트·무드보드는 이미 강한 MCM이라 유지.
+- 인터랙션 QA: Girard Textile 클릭 시 `aria-pressed` 전환, 실사 핀 4 하이라이트, 캡션이 Alexander Girard·1959·Handwoven wool로 함께 갱신 확인.
+- RED/GREEN: distinction 구 마커(MONO HOUSE/SIDE A/SIDE B/Walnut source rail/Girard acoustic cloth/Session queue) 제거, 신 마커(ATOMIC/mid-century living/HOUSE STUDY/the pieces/Eames Lounge Chair) GREEN. 위임 대상 파일 교체·구 파일 삭제, 래퍼 클린.
+- browser QA: 1280 full(614×540)·375 모바일(284×540)·compact 카드 모두 page overflow 0, 비의도 클리핑 0. 모바일은 실사 피처→the pieces→크레딧 세로 스택(기사/pull quote는 md↑에서만), compact는 the pieces 4가구로 압축.
+- console: 상세 페이지 error 0. 목록 페이지 중복 key 경고(distortion rail 등, HMR로 반복 표기)는 기존 타 스타일 데이터 이슈로 MCM 범위 밖.
+- 명령: `check:data`(87)·`check:style-distinction`(87)·`npm run lint`·`next build`(577 pages) 통과.
+- screenshots: `mcm-full-v1.jpeg`, `mcm-mobile-v1.jpeg`, `mcm-compact-v1.jpeg`.
 - 남은 의심점: 없음.

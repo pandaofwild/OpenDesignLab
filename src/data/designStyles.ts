@@ -2497,12 +2497,12 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
   "mid-century-modern": {
     summary: "미드센추리 모던은 월넛 목재, 성형 합판 곡선, 얇은 금속선, 유리 표면, 그래픽 직물 색을 조합해 생활감 있는 20세기 중반 모던을 만드는 스타일입니다.",
     description:
-      "미드센추리 모던은 막연한 빈티지 감성이 아니라 실제 가구와 인테리어 물성에서 출발해야 합니다. Eames Lounge Chair의 성형 합판과 가죽 쿠션, Nelson Platform Bench의 직선 목재 슬랫, Noguchi Coffee Table의 유기적인 유리와 목재 다리, Alexander Girard의 색과 패턴처럼 기능적인 구조와 따뜻한 장식이 함께 보여야 웹 화면에서도 스타일이 분명해집니다.",
+      "미드센추리 모던은 막연한 빈티지 감성이 아니라 실제 가구와 인테리어 물성에서 출발해야 합니다. ATOMIC 미드센추리 리빙 저널 샘플처럼 케이스 스터디 하우스 실내 실사에 Eames Lounge Chair·Noguchi Table·Nelson Credenza·Girard Textile 같은 아이코닉 가구를 번호 핀으로 주석하고, 기사 칼럼과 pull quote로 묶으면 웹 화면에서도 스타일이 즉시 분명해집니다.",
     visualFeatures: [
-      "MONO HOUSE listening room은 월넛 오디오 콘솔, 성형 합판 체어, 유리 테이블을 하나의 실제 라운지 장면으로 보여줍니다.",
-      "SIDE A / SIDE B receiver는 큰 공간 이미지와 주파수 눈금, 튜닝 니들, 재생 컨트롤을 비대칭으로 맞물립니다.",
-      "Walnut source rail은 반복되는 목재 슬랫 위에서 FM, PHONO, TAPE 소스를 고르는 실제 컨트롤입니다.",
-      "Girard acoustic cloth는 직물 색과 패턴을 작은 선택 버튼과 스피커 그릴 표면으로 제한해 보여줍니다.",
+      "ATOMIC 마스트헤드와 HOUSE STUDY 에디토리얼 헤드라인이 미드센추리 리빙 저널 스프레드를 만듭니다.",
+      "케이스 스터디 하우스 실내 실사 위에 번호 핀으로 가구를 주석하고, 선택 시 디자이너·연도·소재 캡션이 연동됩니다.",
+      "'the pieces' 사이드바가 Eames·Noguchi·Nelson·Girard 같은 실제 아이코닉 가구를 이름으로 나열합니다.",
+      "월넛·성형합판·유리·우븐 울·브라스의 물성과 크림 종이·에스프레소 잉크가 시대감을 확정합니다.",
     ],
     colorPalette: [
       "크림과 오래된 종이색을 배경으로 두고 화면을 따뜻하게 시작합니다.",
@@ -2516,10 +2516,10 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
       "본문은 장식보다 읽기 편한 비례를 우선하고 자간은 0에 가깝게 유지합니다.",
     ],
     layoutTraits: [
-      "전체 화면은 약 3:2의 SIDE A 이미지와 SIDE B 리시버가 맞물리는 비대칭 레코드 재킷 구성을 사용합니다.",
-      "주파수 눈금, 소스 선택, 재생 상태, 진행 표시가 실제 하이파이 리시버의 정보 위계를 만듭니다.",
-      "하단에는 Walnut source rail, Girard acoustic cloth, Session queue를 밀도 있게 묶어 프로그램과 재료 정보를 연결합니다.",
-      "compact에서는 내부 2열을 유지하고 좁은 상세 화면에서는 SIDE A 다음 SIDE B 순서로 쌓아 이미지와 컨트롤을 모두 보존합니다.",
+      "상단 ATOMIC 마스트헤드 아래 대형 실내 실사 피처와 'the pieces' 사이드바가 맞물리는 매거진 스프레드 구성을 사용합니다.",
+      "실사 위 번호 핀, 선택 가구 캡션, 기사 칼럼, pull quote, 크레딧 스트립이 에디토리얼 정보 위계를 만듭니다.",
+      "가구 이름·디자이너·연도가 실제 디자인 저널의 캡션처럼 배치됩니다.",
+      "모바일에서는 실사 피처, the pieces 목록, 크레딧 순서로 쌓아 이미지와 선택 인터랙션을 모두 보존합니다.",
     ],
     useCases: ["하이엔드 하이파이 리스닝 클럽", "음악 아카이브와 레코드 프로그램", "오디오와 가구 브랜드 경험", "레트로 호스피탈리티 예약"],
     goodFor: ["따뜻하지만 세련된 제품 이미지를 만들 때", "생활감 있는 모던 인테리어를 보여줄 때", "가구, 조명, 오브젝트 카탈로그", "레트로 감성을 쓰되 과장된 노스탤지어를 피하고 싶을 때"],
@@ -2542,10 +2542,10 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         { title: "Awwwards - Retro Websites", url: "https://www.awwwards.com/websites/retro/", note: "Gallery reference for contemporary listening-room interfaces, restrained motion, immersive equipment imagery, and polished audio controls." },
         { title: "Dribbble - Mid-Century Modern Website Design", url: "https://dribbble.com/search/Mid-Century%20Modern%20website%20design", note: "UI reference for receiver scales, source selectors, session queues, and compact audio-furniture modules in warm mid-century palettes." },
       ],
-      representativeTraits: ["MONO HOUSE listening room", "SIDE A / SIDE B receiver", "Walnut source rail", "Girard acoustic cloth", "Session queue"],
+      representativeTraits: ["ATOMIC interiors journal spread", "Annotated Case Study House photo", "Named iconic-furniture pieces", "Editorial pull quote & credits", "Warm walnut / burnt-orange / teal palette"],
       avoidTraits: ["General sepia vintage", "70s groovy overload", "Bauhaus primary-color poster"],
       tokenIntent:
-        "Use a MONO HOUSE listening room, SIDE A / SIDE B receiver, Walnut source rail, Girard acoustic cloth, Session queue, cream paper surfaces, espresso text, walnut audio furniture, dark olive, burnt orange, muted mustard, brushed brass, thin borders, restrained radius, and real equipment controls so the style reads as Mid-Century Modern rather than 1970s groovy commerce, retro-futurist travel posters or capsule UI, Bauhaus primary geometry, or quiet Japandi interiors.",
+        "Use an ATOMIC mid-century living journal masthead, a real Case Study House interior photo with numbered furniture pins, a 'the pieces' sidebar naming iconic designs (Eames Lounge Chair, Noguchi Table, Nelson Credenza, Girard Textile), a pull quote and credits strip, cream paper surfaces, espresso text, walnut, burnt orange, muted teal and mustard so the style reads as an instantly recognizable Mid-Century Modern interiors editorial rather than 1970s groovy commerce, retro-futurist travel posters, Bauhaus primary geometry, or quiet Japandi interiors.",
     },
   },
 };
