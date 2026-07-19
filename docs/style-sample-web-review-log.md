@@ -38,7 +38,7 @@
 | 4 | 모던 / 미니멀 | international-style | minimal-editorial | verified | universal signage modules, neutral information system |
 | 5 | 모던 / 미니멀 | scandinavian | organic-brand | verified | bright Nordic product commerce, light wood, practical warmth |
 | 6 | 모던 / 미니멀 | japandi | minimal-editorial | verified | low horizontal rhythm, muted wood, ceramic quietness |
-| 7 | 모던 / 미니멀 | warm-minimal | minimal-editorial | verified | cream warmth, approachable premium product hierarchy |
+| 7 | 모던 / 미니멀 | warm-minimal | minimal-editorial | verified | Atelier Sol 인테리어 스튜디오(사진 제로 재작업) — 타이포 히어로·아치 니치 3연작(석고 리넨위브/새벽빛+낮은 태양/점토 원형창, 전부 CSS)·linen project stack(아치 글리프)·terracotta CTA·material palette rail |
 | 8 | 모던 / 미니멀 | soft-minimal | minimal-editorial | verified | low contrast, gentle rounded UI, frosted paper softness |
 | 9 | 모던 / 미니멀 | high-end-minimal | luxury-product | verified | gallery spacing, severe product crop, quiet luxury commerce |
 | 10 | 강렬 / 실험 | brutalism | brutalist-poster | verified | exposed structure, raw blocks, hard poster energy |
@@ -126,6 +126,18 @@
 ## 미해결 category QA
 
 `모던 / 미니멀`, `강렬 / 실험`, `레트로 / 빈티지` 세 카테고리 모두 category QA까지 verified다(각 아카이브 파일 참고). 남은 미해결 category QA는 없다.
+
+## 7. warm-minimal — 사진 제로 재작업 (2026-07-20, 소유자 지시)
+
+- 소유자 지시: "이미지 사용을 최대한 줄인 채로 Warm Minimal 분위기를 레이아웃·UI·디자인 형식으로 내라. 하위 모델은 /codex:setup." 기계적 구현은 Codex(codex exec, 함수 단위 정확 치환)에 위임하고 설계·검증은 리드가 수행.
+- 변경 요약: `WarmMinimalStudio`(Atelier Warm — 실사 히어로 + 썸네일 3장) → "Atelier Sol"로 재구축, **사진 요소 0장**. 골격: 좌측 정렬 콰이어트 nav(Atelier Sol · INTERIORS · Projects/Contact) → 타이포 히어로(WARM STUDIO PORTFOLIO 키커·2줄 헤드라인 "Rooms that keep / the morning light."·terracotta consultation CTA 필) + **아치 니치 3연작**(CSS 전용: 석고+리넨 위브 아치 / 새벽빛 그라디언트+낮은 태양+수평선 아치 / 점토+원형 창 아치, 높이 리듬 78%/100%/62%) → linen project stack(썸네일 대신 재질색 미니 아치 글리프, 1행 active) → material palette rail(plaster/linen/clay/terracotta 명명 스와치 + Warsaw 스튜디오 메타).
+- 스타일 가시성: 크림 표면·아치 조형·리넨 위브 텍스처·테라코타 한 점이 골격 그 자체 — 사진 없이 한눈에 웜 미니멀([[style-visibility-over-vehicle]] 적용). 팔레트·토큰·distinction family 마커 3종(WARM STUDIO PORTFOLIO/terracotta consultation CTA/linen project stack)·함수명 유지로 체크 스크립트 무변경.
+- Codex 위임 검증: 치환 결과를 리드가 직접 대조(함수 경계·라우팅·`slug="warm-minimal"` 사용 0건 확인), codex 자체 검증(lint·distinction)도 통과. 이후 리드가 폴리시 3건 수행 — 헤드라인 고아 단어(nbsp+1.9rem로 2줄 고정), 모바일 단일 컬럼 스택(sm 미만, 아치 트리오 min-h-[9rem]), nav 크런치(PL·EN 아이콘 제거·sub "Interiors"·2링크)로 브랜드 트렁케이션 해소.
+- browser QA: 1280 full(614×540)·375 모바일(284)·compact 카드 모두 page overflow 0·비의도 클리핑 0, brand/sub scrollWidth 검사 통과. 사진 요소 0 확인. 콘솔 error는 기존 3건(distortion rail 등, 타 스타일 소관)뿐.
+- 데이터: description/visualFeatures/layoutTraits를 사진 전제 → 조형 전제로 갱신, representativeTraits "Soft project cards"→"Arch niche composition". 구분표 warm-minimal 행 갱신(photography-free arch/material forms). `GENERATED_STYLE_IMAGES` 맵 항목과 webp 자산은 잔존하나 샘플에서 미사용(무해).
+- 명령: `check:data`(78)·`check:style-distinction`(78)·`check:style-refs`(78)·`npm run lint`·`next build` 통과.
+- screenshots: `wm-full-final.jpeg`, `wm-mobile-v3.jpeg`, `wm-compact-v1.jpeg`.
+- 남은 의심점: 없음.
 
 ## 스타일 제거 기록
 

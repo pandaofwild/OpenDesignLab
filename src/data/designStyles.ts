@@ -1819,11 +1819,11 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
   "warm-minimal": {
     summary: "웜 미니멀은 미니멀한 구조 위에 크림, 테라코타, 리넨 같은 따뜻한 색과 질감을 더해 부드럽고 초대하는 웹 경험을 만드는 디자인입니다.",
     description:
-      "웜 미니멀은 차가운 미니멀리즘을 피하고, 감정이 있는 절제를 만듭니다. QUQU Design Studio와 Vellum Studio처럼 크림 배경, 부드러운 실내 사진, 테라코타 포인트, 여유로운 프로젝트 카드가 핵심입니다. Japandi보다 더 부드럽고 감성적이며, Scandinavian보다 커머스보다는 스튜디오/포트폴리오의 초대감에 가깝습니다.",
-    visualFeatures: ["크림, 타우프, 테라코타 계열이 첫인상을 따뜻하게 만듭니다.", "큰 둥근 이미지나 프로젝트 카드가 실제 스튜디오 웹처럼 보입니다.", "그림자는 거의 없지만 레이어 사이에 부드러운 색 차이를 둡니다.", "CTA와 배지는 검정 대신 따뜻한 브라운/테라코타로 처리합니다."],
+      "웜 미니멀은 차가운 미니멀리즘을 피하고, 감정이 있는 절제를 만듭니다. Atelier Sol 샘플처럼 사진 없이도 석고 아치 니치, 새벽빛 그라디언트, 리넨 위브, 점토 톤 같은 조형과 색만으로 따뜻함을 만들 수 있어야 진짜 웜 미니멀입니다. Japandi보다 더 부드럽고 감성적이며, Scandinavian의 커머스보다는 스튜디오/포트폴리오의 초대감에 가깝습니다.",
+    visualFeatures: ["크림, 타우프, 테라코타 계열이 첫인상을 따뜻하게 만듭니다.", "아치 니치·낮은 태양 그라디언트·리넨 위브 같은 조형이 사진 없이 공간감을 만듭니다.", "그림자는 거의 없지만 레이어 사이에 부드러운 색 차이를 둡니다.", "CTA와 배지는 검정 대신 따뜻한 브라운/테라코타로 처리합니다."],
     colorPalette: ["크림과 웜 화이트를 기본 배경으로 사용합니다.", "테라코타는 CTA와 주요 상태에 제한적으로 씁니다.", "리넨 베이지와 따뜻한 브라운을 보조 표면에 둡니다.", "텍스트는 검정보다 부드러운 짙은 브라운에 가깝게 둡니다."],
     typography: ["부드러운 산세리프를 중간 굵기로 사용합니다.", "제목은 크지만 모서리와 행간이 편안하게 느껴져야 합니다.", "본문은 짧고 감성적인 문장으로 프로젝트 분위기를 설명합니다."],
-    layoutTraits: ["스튜디오 포트폴리오처럼 히어로, 프로젝트 카드, 상담 CTA가 이어집니다.", "카드는 둥글고 넉넉하지만 과한 그림자 없이 색 차이로 구분합니다.", "색상 블록보다 이미지/텍스처/여백의 리듬이 중요합니다.", "모바일에서는 상담 CTA가 분명하게 보여야 합니다."],
+    layoutTraits: ["타이포 히어로, 아치 니치 3연작, 프로젝트 스택, 상담 CTA가 이어집니다.", "카드는 둥글고 넉넉하지만 과한 그림자 없이 색 차이로 구분합니다.", "이미지 대신 아치·재질 스와치·여백의 리듬이 화면을 만듭니다.", "모바일에서는 상담 CTA가 분명하게 보여야 합니다."],
     useCases: ["인테리어 스튜디오", "웰니스 브랜드", "프리미엄 로컬 브랜드", "크리에이티브 포트폴리오"],
     goodFor: ["부드러운 고급감과 접근성을 같이 원하는 브랜드", "공간/라이프스타일 사진이 많은 사이트", "상담 전환이 중요한 스튜디오", "차갑지 않은 미니멀 랜딩페이지"],
     cautions: ["베이지 톤만 반복하면 개성이 약해집니다.", "둥근 카드와 그림자가 많아지면 일반 라이프스타일 UI처럼 보입니다.", "Japandi와 구분하려면 목재보다 리넨/테라코타/스튜디오 카드를 강조해야 합니다."],
@@ -1840,7 +1840,7 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         { title: "Awwwards - Minimal Collection", url: "https://www.awwwards.com/awwwards/collections/minimal/", note: "Closest gallery reference for quiet minimal sites, soft portfolio pacing, restrained modules, and polished warm-minimal execution cues." },
         { title: "Dribbble - Minimal Page", url: "https://dribbble.com/search/minimal-page", note: "UI reference for warm minimal product pages, soft conversion modules, spacious hero sections, and gently layered neutral components." },
       ],
-      representativeTraits: ["Cream and taupe warmth", "Terracotta CTA", "Soft project cards", "Linen-like texture", "Welcoming studio rhythm"],
+      representativeTraits: ["Cream and taupe warmth", "Terracotta CTA", "Arch niche composition", "Linen-like texture", "Welcoming studio rhythm"],
       avoidTraits: ["Cool SaaS minimalism", "Nordic product-commerce density", "Japanese wood-heavy stillness"],
       tokenIntent:
         "Use cream surfaces, terracotta accents, warm brown text, rounded cards, airy spacing, and soft studio modules so the style reads as warm minimal rather than generic beige minimalism.",

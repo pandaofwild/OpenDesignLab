@@ -1192,82 +1192,108 @@ function JapandiSpatialLanding({ className, compact = false, style }: Props) {
 }
 
 function WarmMinimalStudio({ className, compact = false, style }: Props) {
-  const works: Array<[string, string, string]> = [
-    ["Linnea Apartment", "Residential · 2025", "30% 58%"],
-    ["Material board", "Studio · 2025", "64% 42%"],
-    ["Terracotta edit", "Objects · 2024", "78% 60%"],
+  // "Atelier Sol" — warm minimal interior studio, photography-free. The warmth
+  // is built from design forms only: plaster arch niches, a CSS dawn gradient
+  // with a low sun, linen weave lines, clay tones, airy type, terracotta CTA.
+  const projects: Array<[string, string, string]> = [
+    ["Linnea Apartment", "Residential · 2025", "var(--sample-accent)"],
+    ["Plaster House", "Renovation · 2025", "var(--sample-accent-2)"],
+    ["Terracotta Edit", "Objects · 2024", "var(--sample-accent-3)"],
   ];
+  const materials: Array<[string, string]> = [
+    ["plaster", "var(--sample-surface)"],
+    ["linen", "var(--sample-accent-2)"],
+    ["clay", "var(--sample-accent-3)"],
+    ["terracotta", "var(--sample-accent)"],
+  ];
+  const linenWeave = "repeating-linear-gradient(0deg, transparent 0 3px, rgb(var(--st-text-rgb) / 0.035) 3px 4px)";
 
   return (
     <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <div className="flex h-full flex-col">
+      <div className="flex h-full min-h-0 flex-col">
         <SampleNav
-          align="center"
-          brand="Atelier Warm"
+          brand="Atelier Sol"
           compact={compact}
-          icons={[<span className="text-[10px] tracking-[0.1em] text-[var(--sample-muted)]" key="lang">PL · EN</span>]}
-          links={["Studio", "Portfolio", "Contact"]}
-          sub="Interior studio"
+          links={["Projects", "Contact"]}
+          sub="Interiors"
         />
 
-        <div className={cn("grid flex-1 gap-4", compact ? "grid-cols-[1.1fr_0.9fr] pt-4" : "grid-cols-1 md:grid-cols-[1.1fr_0.9fr] md:gap-6 md:pt-6")}>
-          <GeneratedStyleImageSurface className="rounded-[var(--st-radius)]" overlay="warm" position="40% 58%" slug="warm-minimal" style={{ boxShadow: "var(--st-shadow)" }}>
-            <div className="flex h-full flex-col justify-between p-4">
-              <span className="self-start bg-[rgb(var(--st-base-rgb)/0.74)] px-2 py-1 text-[10px] uppercase text-[var(--sample-text)]/70 backdrop-blur-[1px]">WARM STUDIO PORTFOLIO · selected works 01-16</span>
-              <div>
-                <h3
-                  className={cn("w-fit rounded-[var(--st-radius)] bg-[rgb(var(--st-base-rgb)/0.70)] p-2 font-display leading-[1.02] text-[var(--sample-text)] backdrop-blur-[1px]", compact ? "text-2xl" : "text-3xl md:text-[2.7rem]")}
-                  style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "0" }}
-                >
-                  Soft rooms,
-                  <br />
-                  clear decisions.
-                </h3>
-                <span className={cn("mt-4 inline-flex h-8 items-center gap-1.5 rounded-[var(--st-radius-pill)] bg-[var(--sample-accent)] px-4 text-[11px] font-medium text-[var(--sample-text)]", compact ? "hidden" : "")}>
-                  terracotta consultation CTA <IconArrow size={12} />
-                </span>
-              </div>
+        <div className={cn("grid min-h-0 flex-1", compact ? "grid-cols-[1.05fr_0.95fr] gap-4 pt-3" : "grid-cols-1 gap-5 pt-4 sm:grid-cols-[1.05fr_0.95fr] md:gap-7 md:pt-6")}>
+          {/* typographic hero + project stack */}
+          <div className="flex min-h-0 min-w-0 flex-col">
+            <p className={cn("uppercase tracking-[0.22em] text-[var(--sample-muted)]", compact ? "text-[7px]" : "text-[9px]")}>
+              WARM STUDIO PORTFOLIO · est. 2019
+            </p>
+            <h3
+              className={cn("mt-2 font-display leading-[1.06] text-[var(--sample-text)]", compact ? "text-xl" : "text-[1.55rem] md:text-[1.9rem]")}
+              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "0" }}
+            >
+              Rooms that keep
+              <br />
+              the morning&nbsp;light.
+            </h3>
+            <p className={cn("mt-2 max-w-[30ch] text-[11px] leading-5 text-[var(--sample-muted)]", compact ? "hidden" : "hidden md:block")}>
+              Interiors in plaster, linen and clay — quiet spaces with a warm centre.
+            </p>
+            <div className={cn("mt-3 flex items-center gap-3", compact ? "hidden" : "")}>
+              <span aria-label="terracotta consultation CTA" className="inline-flex h-8 items-center gap-1.5 whitespace-nowrap rounded-[var(--st-radius-pill)] bg-[var(--sample-accent)] px-4 text-[11px] font-medium text-[var(--sample-surface)]" style={{ boxShadow: "var(--st-shadow)" }}>
+                Book a consultation <IconArrow size={12} />
+              </span>
+              <span className="hidden whitespace-nowrap border-b border-[var(--sample-border)] pb-0.5 text-[10px] text-[var(--sample-muted)] sm:inline">View projects</span>
             </div>
-          </GeneratedStyleImageSurface>
 
-          <div className="grid min-w-0 grid-rows-[auto_1fr_auto] gap-2.5">
-            <div className="flex items-center justify-between rounded-[var(--st-radius)] bg-[rgb(var(--st-surface-rgb)/0.72)] px-3 py-2" style={{ boxShadow: "var(--st-shadow)" }}>
-              <span className="text-[10px] font-semibold text-[var(--sample-text)]">linen project stack</span>
-              <span className="text-[9px] text-[var(--sample-muted)]">studio / portfolio / contact</span>
-            </div>
-            <div className="grid min-h-0 grid-rows-3 gap-2.5">
-              {works.map(([name, meta, position], index) => (
+            <div aria-label="linen project stack" className={cn("mt-auto flex flex-col", compact ? "gap-1.5 pt-2" : "gap-2 pt-4")}>
+              {(compact ? projects.slice(0, 2) : projects).map(([name, meta, tone], index) => (
                 <div
-                  className="grid grid-cols-[3.6rem_1fr_auto] items-center gap-3 overflow-hidden rounded-[var(--st-radius)] bg-[var(--sample-surface)] p-2"
+                  className={cn("grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-[var(--st-radius)] px-2.5", compact ? "py-1" : "py-1.5", index === 0 ? "bg-[var(--sample-surface)]" : "")}
                   key={name}
-                  style={{
-                    borderRadius: index === 0 ? "9999px 22px 22px 9999px" : "var(--st-radius)",
-                    boxShadow: "var(--st-shadow)",
-                  }}
+                  style={index === 0 ? { boxShadow: "var(--st-shadow)" } : undefined}
                 >
-                  <GeneratedStyleImageSurface
-                    className="aspect-square"
-                    overlay="soft"
-                    position={position}
-                    slug="warm-minimal"
-                    style={{
-                      borderRadius: index === 0 ? "50%" : index === 1 ? "9999px 9999px 14px 14px" : "38% 62% 44% 56%",
-                    }}
-                  />
+                  <span aria-hidden="true" className={cn("block rounded-t-full", compact ? "h-5 w-4" : "h-7 w-5")} style={{ backgroundColor: tone, backgroundImage: linenWeave }} />
                   <span className="min-w-0">
-                    <span className="block truncate text-xs font-semibold text-[var(--sample-text)]">{name}</span>
-                    <span className="block truncate text-[10px] text-[var(--sample-muted)]">{meta}</span>
+                    <span className={cn("block truncate font-medium text-[var(--sample-text)]", compact ? "text-[9px]" : "text-xs")}>{name}</span>
+                    <span className={cn("block truncate text-[var(--sample-muted)]", compact ? "text-[7px]" : "text-[10px]")}>{meta}</span>
                   </span>
-                  <span className="pr-1 text-[10px] tabular-nums text-[var(--sample-muted)]">0{index + 1}</span>
+                  <span className={cn("tabular-nums text-[var(--sample-muted)]", compact ? "text-[8px]" : "text-[10px]")}>0{index + 1}</span>
                 </div>
               ))}
             </div>
-            <div className={cn("grid grid-cols-4 gap-1.5", compact ? "hidden" : "")}>
-              {["var(--sample-base)", "var(--sample-surface)", "var(--sample-accent)", "var(--sample-accent-2)"].map((color) => (
-                <span className="h-4 rounded-[var(--st-radius-pill)]" key={color} style={{ backgroundColor: color }} />
-              ))}
+          </div>
+
+          {/* arch niche triptych — the signature composition, photography-free */}
+          <div className="flex min-h-0 min-w-0 flex-col">
+            <div className={cn("grid grid-cols-3 items-end", compact ? "min-h-0 flex-1 gap-1.5" : "min-h-[9rem] flex-1 gap-2.5 sm:min-h-0 md:gap-3")}>
+              {/* plaster niche with linen weave */}
+              <span aria-hidden="true" className="relative block h-[78%] overflow-hidden rounded-t-full bg-[var(--sample-surface)]" style={{ boxShadow: "var(--st-shadow)", backgroundImage: linenWeave }}>
+                <span className="absolute inset-x-[22%] bottom-0 top-[30%] rounded-t-full bg-[rgb(var(--st-base-rgb)/0.75)]" />
+              </span>
+              {/* dawn arch with low sun */}
+              <span aria-hidden="true" className="relative block h-full overflow-hidden rounded-t-full" style={{ boxShadow: "var(--st-shadow)", backgroundImage: "linear-gradient(180deg, var(--sample-accent-2) 0%, rgb(var(--st-accent-2-rgb) / 0.45) 38%, var(--sample-accent) 100%)" }}>
+                <span className="absolute left-1/2 top-[56%] aspect-square w-[48%] -translate-x-1/2 rounded-full" style={{ backgroundImage: "radial-gradient(circle, rgb(255 247 236 / 0.95) 0%, rgb(255 247 236 / 0.35) 58%, transparent 72%)" }} />
+                <span className="absolute inset-x-0 top-[70%] h-px bg-[rgb(var(--st-text-rgb)/0.14)]" />
+              </span>
+              {/* clay niche with round window */}
+              <span aria-hidden="true" className="relative block h-[62%] overflow-hidden rounded-t-full bg-[var(--sample-accent-3)]" style={{ boxShadow: "var(--st-shadow)" }}>
+                <span className="absolute left-1/2 top-[18%] aspect-square w-[52%] -translate-x-1/2 rounded-full bg-[var(--sample-base)]" style={{ boxShadow: "inset 0 2px 6px rgb(var(--st-text-rgb) / 0.12)" }} />
+              </span>
+            </div>
+            <div className={cn("border-t border-[var(--sample-border)]", compact ? "mt-1.5 pt-1" : "mt-2.5 pt-1.5")}>
+              <p className={cn("truncate text-center text-[var(--sample-muted)]", compact ? "text-[7px]" : "text-[9px] tracking-[0.08em]")}>plaster · linen · clay — studio materials</p>
             </div>
           </div>
+        </div>
+
+        {/* material palette rail */}
+        <div className={cn("items-center justify-between gap-4 border-t border-[var(--sample-border)]", compact ? "hidden" : "mt-4 hidden pt-3 md:flex")}>
+          <div className="flex min-w-0 items-center gap-3">
+            {materials.map(([name, tone]) => (
+              <span className="flex items-center gap-1.5" key={name}>
+                <span className="h-4 w-7 rounded-[var(--st-radius-pill)] border border-[var(--sample-border)]" style={{ backgroundColor: tone }} />
+                <span className="text-[9px] text-[var(--sample-muted)]">{name}</span>
+              </span>
+            ))}
+          </div>
+          <span className="whitespace-nowrap text-[9px] text-[var(--sample-muted)]">Warsaw · by appointment · Mon–Fri</span>
         </div>
       </div>
     </SampleFrame>

@@ -12,7 +12,7 @@ This table is the working comparison sheet for keeping styles inside the same ca
 | international-style | Global system neutrality | standard panels, blue wayfinding, steel/acrylic | IBM-like repeatable portal panels and tables | swiss-design | poster tension 제거, corporate system rows | GLOBAL SYSTEM |
 | scandinavian | Bright Nordic practical commerce | birch, wool, ceramics, pale blue/sage | home product commerce, category and room modules | japandi, warm-minimal | cozy product density and practical shopping cards | NORDIC HOME |
 | japandi | Low quiet tactile space | shoji paper, ash wood, ceramic, stone | interior editorial flow, slow inquiry CTA | scandinavian, kinfolk | 낮은 수평 리듬, paper/wood material panels | LOW ROOM |
-| warm-minimal | Approachable warm premium | cream, terracotta, brass, clay | studio portfolio, project cards, consultation CTA | soft-minimal, japandi | terracotta CTA and warm project studio flow | WARM STUDIO |
+| warm-minimal | Approachable warm premium | cream, terracotta, plaster arch, linen weave, clay | typographic hero, arch niche triptych, linen project stack, consultation CTA | soft-minimal, japandi | photography-free arch/material forms with a terracotta CTA | WARM STUDIO |
 | soft-minimal | Reassuring low-contrast service | vellum, rounded cards, pale grey-blue | service cards, package choices, booking CTA | warm-minimal, neumorphism | rounded low-tension service panels, no terracotta | SOFT SERVICE |
 | high-end-minimal | Luxury by exact subtraction | ivory/black, marble, satin, crop marks | luxury product detail, quiet commerce | minimalism, luxury | severe product crop, tiny CTA, gallery spacing | QUIET COMMERCE |
 
