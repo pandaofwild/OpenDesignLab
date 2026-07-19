@@ -63,7 +63,7 @@ This table is the working comparison sheet for keeping styles inside the same ca
 | classic | Balanced heritage commerce | navy, ivory, leather, archive cards | heritage product grid and restrained nav | old-money, luxury | timeless catalog balance | HERITAGE COMMERCE |
 | neoclassic | Modern palace hospitality | marble, columns, champagne gold | hotel booking strip and suite cards | baroque, classic | symmetrical column rhythm and reservation strip | PALACE BOOKING |
 | luxury | Material-led premium retail | silk, leather, glass, cream/black | low-copy product detail and close-up image | high-end-minimal, classic | material close-up and silent CTA | MATERIAL CLOSEUP |
-| old-money | Understated club wardrobe | cashmere, leather, forest/navy | club shop, wardrobe cards, lifestyle rail | classic, streetwear | crest restraint and member shop | CLUB WARDROBE |
+| old-money | Understated club wardrobe | cashmere, leather, forest/navy | club shop, wardrobe cards, lifestyle rail | classic | crest restraint and member shop | CLUB WARDROBE |
 | art-deco | Geometric evening glamour | fan arcs, black lacquer, brass | hotel/lounge portal, marquee modules | baroque, retro-futurism | fan geometry and stepped vertical rhythm | DECO PORTAL |
 | art-nouveau | Botanical ornamental flow | vine lines, perfume card, green gold | framed product/story page with organic lines | botanical, rococo | whiplash line and botanical frame | BOTANICAL ORNAMENT |
 | baroque | Theatrical museum luxury | chiaroscuro, gilded frame, wine/black | gallery commerce, dramatic image staging | rococo, gothic | deep dark drama and ornate frame | GILDED GALLERY |
@@ -102,10 +102,8 @@ This table is the working comparison sheet for keeping styles inside the same ca
 
 | style slug | 핵심 정체성 | moodboard 시각 신호 | referenceSites 웹 UI 문법 | 겹치기 쉬운 스타일 | 반드시 다르게 보여야 하는 요소 | 샘플 고유 마커 |
 |---|---|---|---|---|---|---|
-| streetwear | Drop-commerce ledger | product wall, size tags, lookbook strip | release clock, SKU wall, size matrix | skate-culture, graffiti | fashion drop system, not poster wall | DROP LEDGER |
-| graffiti | Wall/tag archive | spray rack, mural photos, rough wall | wall scanner, crew tags, route map | streetwear, punk | mural map and spray inventory | WALL TAG INDEX |
+| graffiti | Wall/tag archive | spray rack, mural photos, rough wall | wall scanner, crew tags, route map | punk, hiphop-style | mural map and spray inventory | WALL TAG INDEX |
 | hiphop-style | Music release console | waveform, lyric cards, artist stack | tracklist index, annotation rail, beat grid | graffiti, rave-style | music metadata and waveform console | TRACKLIST INDEX |
-| skate-culture | Spot/deck hardgoods board | deck wall, stickers, trick map | spot checklist, clip sequence, parts shop | streetwear, graffiti | skate spot and deck grid | SPOT CHECKLIST |
 | punk | Zine protest dispatch | photocopy, ransom stack, patches | gig flyer rail, zine dispatch | grunge, graffiti | torn protest zine and patch grid | ZINE DISPATCH |
 | grunge | Distorted tape archive | torn photos, flannel, cassette | basement gig log, setlist rail | punk, lo-fi | muddy archive and cassette setlist | DISTORTED ARCHIVE |
 | indie-sleaze | Flash nightlife blog index | disposable photos, club stamps | bloghaus feed, outfit tags, club rail | grunge, rave-style | flash photo index and messy blog feed | FLASH PHOTO INDEX |

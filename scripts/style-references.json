@@ -819,21 +819,6 @@
     ]
   },
 
-  "streetwear": {
-    "sites": [
-      { "url": "https://supreme.com/", "title": "Supreme", "note": "Official streetwear drop reference for direct release navigation, scarce product rhythm, box-logo restraint, and blunt commerce hierarchy." },
-      { "url": "https://palaceskateboards.com/", "title": "Palace Skateboards", "note": "Official skate-streetwear reference for range drops, web shop links, brand-world pages, and loud graphic capsule energy." },
-      { "url": "https://www.stussy.com/", "title": "Stüssy", "note": "Official streetwear reference for new arrivals, archive/chapter links, compact shop categories, and surf-skate heritage commerce." },
-      { "url": "https://us.bape.com/", "title": "BAPE US", "note": "Official streetwear reference for camo collections, large product grids, bold new-arrival modules, and strong category merchandising." },
-      { "url": "https://kith.com/", "title": "Kith", "note": "Official streetwear retail reference for collection programs, editorial capsules, detailed megamenu hierarchy, and polished product-wall commerce." }
-    ],
-    "galleries": [
-      { "url": "https://dribbble.com/tags/streetwear", "title": "Dribbble - Streetwear", "note": "UI and campaign reference for product-drop cards, oversized typographic treatments, lookbook panels, and streetwear ecommerce composition." },
-      { "url": "https://www.pinterest.com/ideas/supreme-clothing-streetwear/930480009757/", "title": "Pinterest - Supreme / Streetwear", "note": "Moodboard reference for box-logo minimalism, drop posters, sticker-like product labels, and streetwear outfit/product wall pacing." },
-      { "url": "https://www.awwwards.com/websites/fashion/", "title": "Awwwards - Fashion Websites", "note": "Gallery fit: 거리감 있는 질감을 핵심 신호로 사용합니다, 겹친 포스터, 압축된 굵은 제목, 검정과 거친 종이색을 기본 배경으로 사용합니다 make this relevant to Streetwear; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from graffiti / hiphop-style; require streetwear, drop, fashion cues instead of broad polish." }
-    ]
-  },
-
   "graffiti": {
     "sites": [
       { "url": "https://www.montana-cans.com/Products/SPRAY-CANS/", "title": "Montana Cans - Spray Cans", "note": "Official spray-paint product reference for can-heavy merchandising, graffiti-specific tools, high-pressure labeling, color range density, and utility-first product grids." },
@@ -861,21 +846,6 @@
       { "url": "https://www.pinterest.com/search/pins/?q=hip%20hop%20website%20design", "title": "Pinterest - Hip Hop Website Design", "note": "Moodboard reference for mixtape covers, speaker stacks, tracklist panels, lyric posters, waveform stickers, and music-campaign color contrast." },
       { "url": "https://www.awwwards.com/websites/music-sound/", "title": "Awwwards - Music & Sound Websites", "note": "Professional music-site gallery for audio-player layouts, immersive artist pages, video grids, editorial transitions, and responsive music storytelling." },
       { "url": "https://dribbble.com/search/hip%20hop%20website", "title": "Dribbble - Hip Hop Website", "note": "UI reference for music dashboards, player cards, artist promo pages, playlist grids, and bold type systems adapted to hip-hop culture." }
-    ]
-  },
-
-  "skate-culture": {
-    "sites": [
-      { "url": "https://theberrics.com/", "title": "The Berrics", "note": "Skate media reference for clip-led home modules, canteen shop links, park-shot rhythm, and skateboarding video culture presented as a living feed." },
-      { "url": "https://www.nikesb.com/", "title": "Nike SB", "note": "Skateboarding brand reference for team/vault/skateshop navigation, video-first stories, city skate sessions, and polished skate editorial systems." },
-      { "url": "https://independenttrucks.com/", "title": "Independent Trucks", "note": "Skate hardware reference for truck-category grids, parts merchandising, rider credibility, and no-nonsense hardgoods commerce hierarchy." },
-      { "url": "https://santacruzskateboards.com/skate", "title": "Santa Cruz Skateboards", "note": "Deck and hardgoods reference for pro deck walls, team/reissue/VX categories, bold board graphics, and dense skateboard product indexing." },
-      { "url": "https://skateparkoftampa.com/", "title": "Skatepark of Tampa", "note": "Skate shop and event reference for shoes/decks/wheels/trucks category blocks, contest modules, skater shopping paths, and park-culture credibility." }
-    ],
-    "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=skate%20website%20design", "title": "Pinterest - Skate Website Design", "note": "Moodboard reference for deck walls, sticker slaps, skate shop menus, contest posters, fisheye frames, and worn concrete color systems." },
-      { "url": "https://www.awwwards.com/websites/sports/", "title": "Awwwards - Sports Websites", "note": "Professional sports-site gallery for turning motion, athlete stories, category navigation, and retail paths into responsive polished interfaces." },
-      { "url": "https://dribbble.com/search/skateboard%20website", "title": "Dribbble - Skateboard Website", "note": "UI reference for skate shop layouts, product deck grids, event cards, mobile category bars, and sticker-style labels without generic street posters." }
     ]
   },
 

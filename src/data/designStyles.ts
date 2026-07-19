@@ -1037,17 +1037,6 @@ const palettes: Record<string, DesignStylePalette> = {
     accent3: "#F2C94C",
     border: "#2A2118",
   },
-  streetwear: {
-    base: "#EDE9DC",
-    surface: "#F8F3E5",
-    text: "#111111",
-    mutedText: "#5E5A51",
-    primary: "#111111",
-    accent: "#F23827",
-    accent2: "#C7FF00",
-    accent3: "#2D5BFF",
-    border: "#111111",
-  },
   grunge: {
     // Distressed music archive: warm charcoal base, aged-paper text,
     // oxidized rust + muted moss + faded denim. Low saturation, worn.
@@ -1092,7 +1081,17 @@ const paletteBank: DesignStylePalette[] = [
   palettes.luxury,
   palettes["organic-design"],
   palettes.kawaii,
-  palettes.streetwear,
+  {
+    base: "#EDE9DC",
+    surface: "#F8F3E5",
+    text: "#111111",
+    mutedText: "#5E5A51",
+    primary: "#111111",
+    accent: "#F23827",
+    accent2: "#C7FF00",
+    accent3: "#2D5BFF",
+    border: "#111111",
+  },
   palettes["editorial-design"],
   palettes.glassmorphism,
   {
@@ -1198,10 +1197,8 @@ const styleSeedTuples: DesignStyleSeedTuple[] = [
   ["pastel-style", "파스텔 스타일", "Pastel Style", "귀여움 / 캐주얼", "낮은 채도의 밝은 색으로 부드럽고 친근한 화면을 만드는 스타일", ["pastel", "soft", "friendly"], "kawaii-app"],
   ["bubble-design", "버블 디자인", "Bubble Design", "귀여움 / 캐주얼", "둥근 볼륨과 말랑한 색 면으로 가벼운 즐거움을 주는 스타일", ["bubble", "round", "soft"], "kawaii-app"],
 
-  ["streetwear", "스트리트웨어", "Streetwear", "스트리트 / 서브컬처", "패션 드롭과 거리 문화를 웹 그래픽으로 옮긴 스타일", ["streetwear", "drop", "fashion"], "street-campaign"],
   ["graffiti", "그래피티", "Graffiti", "스트리트 / 서브컬처", "스프레이, 태그, 벽면 질감을 활용하는 거리 그래픽 스타일", ["graffiti", "spray", "tag"], "street-campaign"],
   ["hiphop-style", "힙합 스타일", "Hip-Hop Style", "스트리트 / 서브컬처", "리듬, 자신감, 강한 그래픽 언어를 보여주는 음악 문화 스타일", ["hiphop", "music", "bold"], "street-campaign"],
-  ["skate-culture", "스케이트 문화", "Skate Culture", "스트리트 / 서브컬처", "스티커, 보드 그래픽, 거친 촬영감을 활용하는 스타일", ["skate", "sticker", "youth"], "street-campaign"],
   ["punk", "펑크", "Punk", "스트리트 / 서브컬처", "저항적 메시지와 찢긴 그래픽을 앞세우는 반항적 스타일", ["punk", "rebellious", "raw"], "street-campaign"],
   ["grunge", "그런지", "Grunge", "스트리트 / 서브컬처", "낡고 거친 질감, 흐릿한 이미지, 어두운 색을 활용하는 스타일", ["grunge", "dirty", "texture"], "street-campaign"],
   ["indie-sleaze", "인디 슬리즈", "Indie Sleaze", "스트리트 / 서브컬처", "플래시 사진과 지저분한 클럽 감성을 섞은 서브컬처 스타일", ["indie", "sleaze", "flash"], "street-campaign"],
@@ -2698,24 +2695,6 @@ const cuteCasualResearch: Partial<Record<string, StyleResearchBrief>> = {
 };
 
 const streetSubcultureResearch: Partial<Record<string, StyleResearchBrief>> = {
-  streetwear: {
-    referenceSites: [
-      { title: "Supreme", url: "https://supreme.com/", note: "Official streetwear drop reference for direct release navigation, scarce product rhythm, box-logo restraint, and blunt commerce hierarchy." },
-      { title: "Palace Skateboards", url: "https://palaceskateboards.com/", note: "Official skate-streetwear reference for range drops, web shop links, brand-world pages, and loud graphic capsule energy." },
-      { title: "Stüssy", url: "https://www.stussy.com/", note: "Official streetwear reference for new arrivals, archive/chapter links, compact shop categories, and surf-skate heritage commerce." },
-      { title: "BAPE US", url: "https://us.bape.com/", note: "Official streetwear reference for camo collections, large product grids, bold new-arrival modules, and strong category merchandising." },
-      { title: "Kith", url: "https://kith.com/", note: "Official streetwear retail reference for collection programs, editorial capsules, detailed megamenu hierarchy, and polished product-wall commerce." },
-    ],
-    referenceGalleries: [
-      { title: "Dribbble - Streetwear", url: "https://dribbble.com/tags/streetwear", note: "UI and campaign reference for product-drop cards, oversized typographic treatments, lookbook panels, and streetwear ecommerce composition." },
-      { title: "Pinterest - Supreme / Streetwear", url: "https://www.pinterest.com/ideas/supreme-clothing-streetwear/930480009757/", note: "Moodboard reference for box-logo minimalism, drop posters, sticker-like product labels, and streetwear outfit/product wall pacing." },
-      { title: "Awwwards - Fashion Websites", url: "https://www.awwwards.com/websites/fashion/", note: "Gallery reference for professional fashion commerce, lookbook transitions, product-grid polish, and campaign-grade streetwear layouts." },
-    ],
-    representativeTraits: ["Drop ledger", "Size run matrix", "Lookbook strip", "Release clock", "Streetwear product wall"],
-    avoidTraits: ["Generic rotated street poster", "Graffiti spray wall", "Punk torn flyer", "Luxury fashion softness"],
-    tokenIntent:
-      "Use bone paper, black ink, warning red, acid green, royal blue, hard square modules, dense product grids, drop timers, SKU labels, and lookbook strips so streetwear reads as a real drop-commerce page.",
-  },
   graffiti: {
     referenceSites: [
       { title: "Montana Cans - Spray Cans", url: "https://www.montana-cans.com/Products/SPRAY-CANS/", note: "Official spray-paint product reference for can-heavy merchandising, graffiti-specific tools, high-pressure labeling, color range density, and utility-first product grids." },
@@ -2751,24 +2730,6 @@ const streetSubcultureResearch: Partial<Record<string, StyleResearchBrief>> = {
     avoidTraits: ["Graffiti wall scanner", "Streetwear product drop", "Skate sticker collage", "Punk torn protest flyer"],
     tokenIntent:
       "Use black studio base, warm paper and gold accents, signal red, electric blue, dense tracklist modules, waveform strips, artist cards, lyric annotation rails, and mixer pads so hip-hop style reads as a real music-culture interface.",
-  },
-  "skate-culture": {
-    referenceSites: [
-      { title: "The Berrics", url: "https://theberrics.com/", note: "Skate media reference for clip-led home modules, canteen shop links, park-shot rhythm, and skateboarding video culture presented as a living feed." },
-      { title: "Nike SB", url: "https://www.nikesb.com/", note: "Skateboarding brand reference for team/vault/skateshop navigation, video-first stories, city skate sessions, and polished skate editorial systems." },
-      { title: "Independent Trucks", url: "https://independenttrucks.com/", note: "Skate hardware reference for truck-category grids, parts merchandising, rider credibility, and no-nonsense hardgoods commerce hierarchy." },
-      { title: "Santa Cruz Skateboards", url: "https://santacruzskateboards.com/skate", note: "Deck and hardgoods reference for pro deck walls, team/reissue/VX categories, bold board graphics, and dense skateboard product indexing." },
-      { title: "Skatepark of Tampa", url: "https://skateparkoftampa.com/", note: "Skate shop and event reference for shoes/decks/wheels/trucks category blocks, contest modules, skater shopping paths, and park-culture credibility." },
-    ],
-    referenceGalleries: [
-      { title: "Pinterest - Skate Website Design", url: "https://www.pinterest.com/search/pins/?q=skate%20website%20design", note: "Moodboard reference for deck walls, sticker slaps, skate shop menus, contest posters, fisheye frames, and worn concrete color systems." },
-      { title: "Awwwards - Sports Websites", url: "https://www.awwwards.com/websites/sports/", note: "Professional sports-site gallery for turning motion, athlete stories, category navigation, and retail paths into responsive polished interfaces." },
-      { title: "Dribbble - Skateboard Website", url: "https://dribbble.com/search/skateboard%20website", note: "UI reference for skate shop layouts, product deck grids, event cards, mobile category bars, and sticker-style labels without generic street posters." },
-    ],
-    representativeTraits: ["Spot checklist", "Deck wall grid", "Trick line map", "Clip sequence rail", "Sticker slap index"],
-    avoidTraits: ["Streetwear product drop", "Graffiti wall scanner", "Hip-hop waveform console", "Punk protest flyer"],
-    tokenIntent:
-      "Use weathered concrete, black grip, safety orange, washed teal, deck wood, sticker labels, clip strips, deck-wall product grids, route lines, and spot checklists so skate culture reads as a skate shop and park-session interface.",
   },
   punk: {
     referenceSites: [
@@ -3272,12 +3233,6 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     space: { density: "airy", gap: "1.6rem", padScale: 1.55 },
     decoration: { shadow: "none", effect: "grain" },
     layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
-  },
-  "streetwear": {
-    typography: { weightDisplay: 900, tracking: "-0.04em", headingScale: 1.2 },
-    shape: { radius: "0px", borderWidth: "4px" },
-    space: { density: "tight", gap: "0.4rem", padScale: 0.8 },
-    decoration: { shadow: "5px 5px 0 var(--st-accent)", effect: "none" },
   },
   "graffiti": {
     typography: { weightDisplay: 900, weightBody: 600, tracking: "-0.05em", headingScale: 1.28 },
@@ -3870,15 +3825,6 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
     prompt:
       "Create a realistic editorial moodboard for Bubble Design in web design. Photograph a real designer's bubbly rounded interface and casual product web research board from above on a glossy pale aqua studio table. Include printed bubble-style website layout references made only of blank inflated cards and empty rounded bars, circular module studies, soft blob paper cutouts, translucent gel samples, glossy plastic and silicone swatches, soap-bubble reflection photo crops with no labels, round color chips, inflated button shape studies with no icons or text, soft shadow tests, and small physical objects like clear acrylic domes, smooth round tokens, and unmarked gel beads. The visual language should communicate buoyant volume, soft rounded depth, light reflections, and casual friendly UI structure for web pages, not pastel flat softness, toy-product blocks, or glassmorphism panels. Use tape corners, pin marks, slight paper curl, glossy highlights, gel reflections, soft shadows, varied paper thickness, subtle dust, and real surface texture. Palette: aqua, milky white, bubblegum pink, soft lavender, clear blue, mint, pearl, graphite accent. Absolutely no readable text, no micro text, no fake text, no letters, no numbers, no labels, no logos, no brand names, no watermarks, no faces, no characters, no fake UI gibberish, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
-  streetwear: {
-    alt: "Streetwear moodboard with blank fashion-drop web proofs, black garment swatches, nylon, denim, hang tags, reflective tape, sneaker crops, and safety-color chips.",
-    caption: "Drop-commerce attitude: use apparel material, blank hang tags, black product grids, reflective tape, and sharp accent chips rather than spray-wall graphics.",
-    directionKeywords: ["real fashion drop board", "black garment material", "limited ecommerce rhythm", "reflective tape accents", "urban product hierarchy"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/streetwear-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for Streetwear in web design. Photograph a real designer's fashion drop and streetwear ecommerce research board from above on a black rubberized studio table. Include printed streetwear product-drop website layouts made only of blank image blocks and empty bars, drop-calendar card studies with no text or numbers, black garment fabric swatches, nylon, denim, blank hang tags, sticker-shaped blanks, bold color chips, sneaker-detail photo crops with no logos, packaging tissue, reflective tape, and small physical objects like unmarked zipper pulls and blank woven labels. The visual language should communicate limited drops, urban fashion commerce, bold product hierarchy, and tactile apparel material, not graffiti wall art, punk photocopy, or skate sticker clutter. Use tape corners, pin marks, paper curl, fabric fibers, rubber texture, varied paper thickness, subtle dust, and real shadows. Palette: black, concrete grey, white, safety orange, cobalt, acid green, denim blue, silver. Absolutely no readable text, no micro text, no letters, no numbers, no labels, no logos, no brand names, no faces, no people, no fake UI gibberish, no floating cards. Landscape 16:10 realistic top-down editorial photography.",
-  },
   graffiti: {
     alt: "Graffiti moodboard with blank street campaign proofs, spray textures, wall crops, layered sticker blanks, paint swatches, stencil shapes, spray caps, and concrete chips.",
     caption: "Wall energy: make spray texture, overspray, concrete, sticker layers, and stencil blanks carry the campaign mood without readable tags or apparel cues.",
@@ -3896,15 +3842,6 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
     imageSrc: "/generated/moodboards/hiphop-style-realistic-v2.webp",
     prompt:
       "Create a realistic editorial moodboard for Hip-Hop Style in web design. Photograph a real designer's music culture and artist-commerce research board from above on a dark studio table with brushed metal and black paper. Include printed hip-hop website layout references made only of blank blocks and empty bars, album-cover grid studies without text, stage-light photo crops with no performers or labels, gold and chrome material swatches, black vinyl texture, speaker mesh, chain-like metal sample, bold red and gold color chips, high-contrast poster crop studies with no letters, and small physical objects like a blank vinyl center label, unmarked cassette shell, and metal rings. The visual language should communicate rhythm, confidence, music commerce, and bold cultural presence for web pages, not graffiti walls, streetwear product drops, or rave neon events. Use tape corners, pin marks, paper curl, metallic highlights, vinyl dust, varied paper thickness, subtle scratches, and real shadows. Palette: black, gold, chrome, deep red, cream, charcoal, royal blue, warm white. Absolutely no readable text, no micro text, no letters, no numbers, no labels, no logos, no brand names, no people, no faces, no fake UI gibberish, no floating cards. Landscape 16:10 realistic top-down editorial photography.",
-  },
-  "skate-culture": {
-    alt: "Skate Culture moodboard with blank skate-shop web proofs, sticker blanks, deck cutouts, grip tape, wheel chips, scuffed concrete crops, checker strips, and bearing parts.",
-    caption: "Board-surface movement: use grip tape, plywood, sticker blanks, wheel color, checker strips, and scuffed concrete for youth-commerce rhythm.",
-    directionKeywords: ["real skate shop board", "deck shape studies", "grip tape texture", "sticker sheet blanks", "scuffed youth commerce"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/skate-culture-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for Skate Culture in web design. Photograph a real designer's skate shop and youth-culture web research board from above on a scratched plywood ramp-like studio surface. Include printed skate website layout references made only of blank blocks and empty bars, sticker-sheet blanks, deck-shape paper cutouts, grip tape samples, wheel urethane color chips, scuffed concrete and asphalt photo crops with no labels, board graphic crop studies with no words or logos, bold product grid studies, checker strips, and small physical objects like unmarked wheel, bearing, blank deck tag, and torn tape. The visual language should communicate movement, stickers, board material, youth energy, and drop-commerce rhythm for web pages, not streetwear apparel, graffiti walls, or punk zine protest. Use tape corners, pin marks, paper curl, scratched plywood, grip texture, scuffed edges, varied paper thickness, subtle dust, and real shadows. Palette: plywood tan, black, white, asphalt grey, deck red, cobalt, urethane yellow, mint. Absolutely no readable text, no micro text, no letters, no numbers, no logos, no brand names, no people, no faces, no fake UI gibberish, no floating cards. Landscape 16:10 realistic top-down editorial photography.",
   },
   punk: {
     alt: "Punk moodboard with blank zine web proofs, torn xerox paper, cutout shapes, safety pins, black tape, ripped poster fragments, staples, and red-black chips.",

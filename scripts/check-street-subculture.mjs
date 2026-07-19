@@ -4,10 +4,8 @@ import { designStyles } from "../src/data/designStyles.ts";
 import references from "./style-references.json" with { type: "json" };
 
 const streetSubcultureSlugs = [
-  "streetwear",
   "graffiti",
   "hiphop-style",
-  "skate-culture",
   "punk",
   "grunge",
   "indie-sleaze",
@@ -17,16 +15,9 @@ const streetSubcultureSlugs = [
 
 // The user asked to proceed one by one. Expand this list only after a style
 // has been researched, implemented, and visually verified.
-const completedStreetSubcultureSlugs = ["streetwear", "graffiti", "hiphop-style", "skate-culture", "punk", "grunge", "indie-sleaze", "rave-style", "lo-fi"];
+const completedStreetSubcultureSlugs = ["graffiti", "hiphop-style", "punk", "grunge", "indie-sleaze", "rave-style", "lo-fi"];
 
 const requiredSites = {
-  streetwear: [
-    "https://supreme.com/",
-    "https://palaceskateboards.com/",
-    "https://www.stussy.com/",
-    "https://us.bape.com/",
-    "https://kith.com/",
-  ],
   graffiti: [
     "https://www.montana-cans.com/Products/SPRAY-CANS/",
     "https://brand.molotow.com/en/products/spray-cans/",
@@ -40,13 +31,6 @@ const requiredSites = {
     "https://genius.com/",
     "https://www.lyricallemonade.com/",
     "https://www.massappeal.com/",
-  ],
-  "skate-culture": [
-    "https://theberrics.com/",
-    "https://www.nikesb.com/",
-    "https://independenttrucks.com/",
-    "https://santacruzskateboards.com/skate",
-    "https://skateparkoftampa.com/",
   ],
   punk: [
     "https://www.punknews.org/",
@@ -87,10 +71,8 @@ const requiredSites = {
 };
 
 const sampleFunctions = {
-  streetwear: "StreetwearDropEditorial",
   graffiti: "GraffitiWallArchive",
   "hiphop-style": "HipHopAlbumStudio",
-  "skate-culture": "SkateCultureSpotBoard",
   punk: "PunkZineDispatch",
   grunge: "GrungeTapeArchive",
   "indie-sleaze": "IndieSleazeFlashFeed",
@@ -99,13 +81,6 @@ const sampleFunctions = {
 };
 
 const requiredSampleMarkers = {
-  streetwear: [
-    "DROP LEDGER",
-    "size run matrix",
-    "lookbook strip",
-    "release clock",
-    "streetwear product wall",
-  ],
   graffiti: [
     "Wall tag index",
     "Spray color rack",
@@ -119,13 +94,6 @@ const requiredSampleMarkers = {
     "Artist card stack",
     "Lyric annotation rail",
     "Release waveform",
-  ],
-  "skate-culture": [
-    "SPOT CHECKLIST",
-    "deck wall grid",
-    "trick line map",
-    "clip sequence rail",
-    "sticker slap index",
   ],
   punk: [
     "ZINE DISPATCH",
@@ -165,10 +133,8 @@ const requiredSampleMarkers = {
 };
 
 const forbiddenPrototypeMarkers = {
-  streetwear: ["drop</span>", "now</span>", "StreetCampaign"],
   graffiti: ["drop</span>", "now</span>", "StreetCampaign"],
   "hiphop-style": ["drop</span>", "now</span>", "StreetCampaign"],
-  "skate-culture": ["drop</span>", "now</span>", "StreetCampaign"],
   punk: ["drop</span>", "now</span>", "StreetCampaign"],
   grunge: ["drop</span>", "now</span>", "StreetCampaign"],
   "indie-sleaze": ["drop</span>", "now</span>", "StreetCampaign"],
@@ -180,7 +146,7 @@ const requiredStructureMarkers = {
   grunge: ["torn archive spine", "pl-12", "rotate-[-1deg]"],
   "indie-sleaze": ["strip-", "pl-14", "grid-cols-[1.36fr_0.64fr]"],
   "rave-style": ["set-block", "gridColumn", "grid-cols-[3.4rem_1fr]"],
-  "lo-fi": ["lofi-os-mixer", "aspect-square rounded-full", "/generated/lofi-listening-room.png"],
+  "lo-fi": ["lofi-os-mixer", "aspect-square place-items-center rounded-[2px]", "/generated/lofi-listening-room.png"],
 };
 
 const rendererSource = readFileSync(
