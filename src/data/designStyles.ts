@@ -2466,11 +2466,11 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
   "retro-futurism": {
     summary: "레트로 퓨처리즘은 과거가 상상한 미래를 Space Age 여행 광고, 원자/별burst 모티프, 낙관적인 기술 색감으로 재구성하는 스타일입니다.",
     description:
-      "레트로 퓨처리즘은 미래 콘솔을 어둡게 그리는 것보다, 1950-60년대 사람들이 꿈꾼 밝은 미래를 현대 웹으로 옮기는 쪽에 가깝습니다. NASA JPL의 Visions of the Future, Googie/Atomic Age, Paleofuture 아카이브처럼 행성 여행 포스터, 부메랑 형태, 원자 궤도, 별burst, 티켓형 일정표가 한 화면에서 실제 랜딩 페이지처럼 작동해야 합니다.",
-    visualFeatures: ["FLIGHT DECK처럼 Space Age 여행 포스터와 실제 예약 화면이 결합된 구조가 중심이 됩니다.", "destination poster rail, 별burst, 원자 궤도, 부메랑, 플라잉소서 같은 과거 미래 모티프가 식별자가 됩니다.", "chrome capsule timetable과 코랄, 터쿼이즈, 크림, 골드, 네이비가 낙관적인 여행 웹 팔레트를 만듭니다."],
-    colorPalette: ["크림과 옅은 골드를 밝은 포스터 배경처럼 사용합니다.", "코랄 오렌지와 터쿼이즈를 목적지, CTA, 궤도 표시색으로 씁니다.", "네이비는 밤하늘보다 인쇄 잉크와 정보 구조를 잡는 색으로 제한합니다."],
-    typography: ["굵고 둥근 미드센추리 산세리프 느낌의 제목이 잘 맞습니다.", "시간표와 좌석 정보는 모노스페이스보다 여행 티켓 라벨처럼 짧고 단정하게 둡니다.", "큰 포스터 헤드라인과 작은 일정표 라벨의 대비가 중요합니다."],
-    layoutTraits: ["행성 여행 랜딩, 엑스포/전시 페이지, 미래형 제품 티저에 어울립니다.", "상단은 travel bureau header와 FLIGHT DECK 포스터, 측면은 destination poster rail과 chrome capsule timetable로 구성합니다.", "모바일에서는 포스터, 목적지 카드, 출발 CTA 순서가 명확해야 합니다."],
+      "레트로 퓨처리즘은 미래 콘솔을 어둡게 그리는 것보다, 1950-60년대 사람들이 꿈꾼 밝은 미래를 현대 웹으로 옮기는 쪽에 가깝습니다. WORLD OF TOMORROW 샘플처럼 원자 궤도·스타버스트·부메랑·플라잉소서·로켓 같은 Space Age 모티프 자체를 전시하는 스페시멘 구성이 스타일을 한눈에 알아보게 만듭니다.",
+    visualFeatures: ["원자 궤도·스타버스트·부메랑·플라잉소서·로켓 모티프가 크래프티드 글리프로 전시됩니다.", "exhibit viewer가 선택 모티프를 크게 확대해 보여주는 것이 중심 구조입니다.", "플랫 미드센추리 Space Age 포스터 일러스트와 코랄·터쿼이즈·머스터드·네이비 팔레트가 시대감을 확정합니다."],
+    colorPalette: ["크림과 옅은 골드를 밝은 포스터 배경처럼 사용합니다.", "코랄 오렌지와 터쿼이즈를 모티프·CTA·궤도 표시색으로 씁니다.", "네이비는 밤하늘보다 인쇄 잉크와 정보 구조를 잡는 색으로 제한합니다."],
+    typography: ["굵고 둥근 미드센추리 산세리프 느낌의 제목이 잘 맞습니다.", "모티프 라벨과 plate 번호는 짧고 단정하게 둡니다.", "큰 포스터 헤드라인과 작은 스페시멘 라벨의 대비가 중요합니다."],
+    layoutTraits: ["스타일 스페시멘/전시 포스터, 엑스포 페이지, 미래형 제품 티저에 어울립니다.", "상단은 WORLD OF TOMORROW 포스터 마스트헤드, 본문은 exhibit viewer + 포스터 일러스트, 하단은 motif index + Space Age 팔레트 스트립으로 구성합니다.", "모바일에서는 exhibit viewer, motif index, 팔레트 스트립 순서가 명확해야 합니다."],
     useCases: ["테크 캠페인", "전시 랜딩", "게임/엔터테인먼트", "미래형 제품 티저"],
     goodFor: ["미래적이지만 따뜻하고 낙관적인 브랜드", "우주/교통/기술 은유가 필요한 랜딩", "아카이브와 현대 서비스를 연결하는 프로젝트", "레트로와 미래를 함께 보여줘야 하는 캠페인"],
     cautions: ["Cyberpunk처럼 어둡고 디스토피아적으로 가면 방향이 달라집니다.", "일반 Retro와 구분하려면 원자/우주/미래 교통 모티프가 보여야 합니다.", "장식적 행성만 있으면 실제 웹 화면처럼 보이지 않으므로 예약/목적지/CTA 모듈이 필요합니다."],
@@ -2488,10 +2488,10 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
         { title: "Awwwards - Retro Websites", url: "https://www.awwwards.com/websites/retro/", note: "Closest gallery reference for retro-futurist web execution, nostalgic future visuals, playful motion, and modern polish." },
         { title: "Dribbble - Retro Futurism Website", url: "https://dribbble.com/search/retro%20futurism%20website", note: "UI reference for space-age landing pages, rocket dashboards, rounded control panels, and future-nostalgia product screens." },
       ],
-      representativeTraits: ["FLIGHT DECK poster landing", "Destination poster rail", "Chrome capsule timetable", "Atomic starburst motifs", "Optimistic coral-turquoise palette"],
+      representativeTraits: ["WORLD OF TOMORROW poster specimen", "Motif exhibit viewer", "Atomic/starburst/boomerang glyph index", "Space Age poster illustration", "Named coral-turquoise palette strip"],
       avoidTraits: ["Cyberpunk dystopia", "Generic retro badges", "Y2K plastic gloss"],
       tokenIntent:
-        "Use a FLIGHT DECK poster landing, destination poster rail, chrome capsule timetable, bright cream poster surfaces, coral and turquoise accents, navy ink, atomic motifs, boomerang geometry, and travel-bureau modules so the style reads as retro futurism instead of dark sci-fi, Y2K gloss, or live futurist telemetry.",
+        "Use a WORLD OF TOMORROW poster masthead, an exhibit viewer that enlarges a selected atomic-age motif, a motif index of crafted glyphs (atomic orbit, starburst, boomerang, flying saucer, rocket), a flat Space Age poster illustration, cream poster surfaces, coral and turquoise accents, and navy ink so the style reads as a recognizable retro-futurism specimen rather than a specific travel site, dark sci-fi, or Y2K gloss.",
     },
   },
   "mid-century-modern": {

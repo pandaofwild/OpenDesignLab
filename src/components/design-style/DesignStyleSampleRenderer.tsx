@@ -17,6 +17,7 @@ import { NightMarketClinic } from "./NightMarketClinic";
 import { OrbitalTransitConsole } from "./OrbitalTransitConsole";
 import { RedRoomCaseDesk } from "./RedRoomCaseDesk";
 import { RolleramaRink } from "./RolleramaRink";
+import { WorldOfTomorrowSpecimen } from "./WorldOfTomorrowSpecimen";
 import { SunnysideDriveIn } from "./SunnysideDriveIn";
 
 type Props = {
@@ -2522,145 +2523,13 @@ function Y2KMediaPlayer({ className, compact = false, style }: Props) {
     </SampleFrame>
   );
 }
-function RetroFuturismFlightDeck({ className, compact = false, style }: Props) {
-  const destinations: Array<[string, string, string]> = compact
-    ? [
-        ["Moon", "Dome", "var(--sample-accent)"],
-        ["Mars", "Canyon", "var(--sample-accent-2)"],
-        ["Titan", "Sea", "var(--sample-accent-3)"],
-      ]
-    : [
-        ["Lunar resort", "Sea of Tranquility", "var(--sample-accent)"],
-        ["Mars canyons", "Dawn rail tour", "var(--sample-accent-2)"],
-        ["Titan seas", "Methane marina", "var(--sample-accent-3)"],
-      ];
-  const schedule: Array<[string, string]> = [
-    ["Gate", "A-12"],
-    ["Cabin", "Dome"],
-    ["Fuel", "Atom"],
-  ];
-
+function RetroFuturismSpecimen({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 opacity-55"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 18px 18px, rgb(var(--st-accent-3-rgb) / 0.38) 0 1.5px, transparent 2px), linear-gradient(135deg, rgb(var(--st-surface-rgb) / 0.72), rgb(var(--st-base-rgb) / 0.52))",
-          backgroundSize: "34px 34px, 100% 100%",
-        }}
-      />
-      <span aria-hidden="true" className="absolute right-[-4.5rem] top-12 h-24 w-72 rotate-[-10deg] rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)]" />
-      <span aria-hidden="true" className="absolute bottom-7 left-[-3.5rem] h-20 w-56 rotate-[14deg] rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent)]" />
-      <span
-        aria-hidden="true"
-        className="absolute bottom-12 right-8 h-24 w-24 rounded-full border-2 border-[var(--sample-border)]"
-        style={{ boxShadow: "inset 0 0 0 18px rgb(var(--st-accent-3-rgb) / 0.72)" }}
-      />
-
-      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <div className="flex min-w-0 items-center justify-between gap-3 rounded-[999px] border-2 border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.9)] px-3 py-2 text-[10px] font-black uppercase text-[var(--sample-text)]" style={{ boxShadow: "inset 0 1px 0 rgb(255 255 255 / 0.74), 0 10px 24px rgb(var(--st-text-rgb) / 0.12)" }}>
-          <span className="truncate">Worlds Fair Travel Bureau</span>
-          <span className="shrink-0 rounded-[999px] bg-[var(--sample-accent-3)] px-2 py-0.5">1962 / 2084</span>
-        </div>
-
-        <main className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1.08fr_0.92fr]" : "grid-cols-1 md:grid-cols-[1.08fr_0.92fr]")}>
-          <section className="relative min-w-0 overflow-hidden rounded-[18px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-3 text-[var(--sample-text)]" style={{ boxShadow: "inset 0 1px 0 rgb(255 255 255 / 0.68), 0 12px 28px rgb(var(--st-text-rgb) / 0.14)" }}>
-            <span
-              aria-hidden="true"
-              className="absolute right-5 top-6 h-16 w-16 bg-[var(--sample-accent-3)]"
-              style={{ clipPath: "polygon(50% 0, 58% 36%, 100% 50%, 58% 64%, 50% 100%, 42% 64%, 0 50%, 42% 36%)" }}
-            />
-            <span aria-hidden="true" className="absolute bottom-16 right-8 h-20 w-20 rounded-full border-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)]" />
-            <span aria-hidden="true" className="absolute bottom-20 right-2 h-8 w-36 rotate-[-16deg] rounded-full border-2 border-[var(--sample-border)]" />
-            <span aria-hidden="true" className="absolute bottom-7 right-16 h-10 w-10 rounded-full border-2 border-[var(--sample-border)] bg-[linear-gradient(135deg,#fff8,transparent_60%)]" />
-            <p className="relative w-max rounded-[999px] bg-[var(--sample-accent)] px-3 py-1 text-[10px] font-black uppercase text-[var(--sample-surface)]">FLIGHT DECK</p>
-            <h3
-              className={cn("relative mt-3 max-w-[17rem] font-display font-black leading-[0.88] text-[var(--sample-text)] [overflow-wrap:normal]", compact ? "text-3xl" : "text-5xl md:text-[3.45rem]")}
-              style={{ fontFamily: "var(--st-font-display)", fontWeight: "var(--st-weight-display)", letterSpacing: "var(--st-tracking)" }}
-            >
-              Future tours depart.
-            </h3>
-            <div className={cn("relative mt-4 grid gap-2", compact ? "grid-cols-1" : "grid-cols-3")}>
-              {destinations.map(([place, route, color]) => (
-                <div className="min-w-0 rounded-[10px] border-2 border-[var(--sample-border)] bg-[rgb(var(--st-base-rgb)_/_0.78)] p-2" key={place}>
-                  <span className="block h-9 rounded-[999px] border-2 border-[var(--sample-border)]" style={{ backgroundColor: color }} />
-                  <span className="mt-2 block truncate text-[10px] font-black uppercase">{place}</span>
-                  <span className={cn("block truncate text-[8px] font-bold uppercase text-[var(--sample-muted)]", compact ? "hidden" : "")}>{route}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="grid min-w-0 grid-rows-[auto_1fr_auto] gap-2">
-            <div className="relative overflow-hidden rounded-[18px] border-2 border-[var(--sample-border)] bg-[var(--sample-accent-2)] p-3 text-[var(--sample-text)]" style={{ boxShadow: "inset 0 1px 0 rgb(255 255 255 / 0.52)" }}>
-              <span aria-hidden="true" className="absolute right-[-1rem] top-[-1.5rem] h-16 w-24 rounded-full border-2 border-[var(--sample-border)] bg-[rgb(var(--st-base-rgb)_/_0.45)]" />
-              <p className="relative text-[10px] font-black uppercase">destination poster rail</p>
-              <div className={cn("relative mt-2 grid gap-2", compact ? "grid-cols-1" : "grid-cols-3")}>
-                {["Orbit hotel", "Rocket pier", "Moon cafe"].map((item, index) => (
-                  <span
-                    className="min-w-0 rounded-[8px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] px-2 py-1 text-[8px] font-black uppercase text-[var(--sample-text)]"
-                    key={item}
-                    style={{ transform: compact ? undefined : `translateY(${index % 2 ? 5 : 0}px)` }}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative min-h-0 overflow-hidden rounded-[18px] border-2 border-[var(--sample-border)] bg-[var(--sample-surface)] p-3" style={{ boxShadow: "0 12px 28px rgb(var(--st-text-rgb) / 0.12)" }}>
-              <span
-                aria-hidden="true"
-                className="absolute inset-x-3 top-3 h-10 rounded-[999px] border-2 border-[var(--sample-border)]"
-                style={{ backgroundImage: "linear-gradient(100deg, rgb(255 255 255 / 0.88), rgb(var(--st-accent-3-rgb) / 0.62), rgb(var(--st-surface-rgb) / 0.72))" }}
-              />
-              <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-2">
-                <div className="grid grid-cols-[1fr_auto] items-center gap-2 rounded-[999px] border-2 border-[var(--sample-border)] bg-[rgb(var(--st-base-rgb)_/_0.82)] px-3 py-2 text-[9px] font-black uppercase">
-                  <span className="truncate">chrome capsule timetable</span>
-                  <span>08:40</span>
-                </div>
-                <div className="grid min-h-0 grid-cols-[0.9fr_1.1fr] gap-2">
-                  <div className="relative min-h-0 rounded-[12px] border-2 border-[var(--sample-border)] bg-[var(--sample-text)]">
-                    <span aria-hidden="true" className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[var(--sample-accent-3)]" />
-                    <span aria-hidden="true" className="absolute left-1/2 top-1/2 h-8 w-28 -translate-x-1/2 -translate-y-1/2 rotate-[-24deg] rounded-full border border-[var(--sample-accent-2)]" />
-                    <span aria-hidden="true" className="absolute left-[56%] top-[44%] h-5 w-5 rounded-full bg-[var(--sample-accent)]" />
-                  </div>
-                  <div className="grid content-start gap-1.5">
-                    {schedule.map(([label, value]) => (
-                      <div className="grid grid-cols-[1fr_auto] rounded-[8px] border-2 border-[var(--sample-border)] bg-[rgb(var(--st-base-rgb)_/_0.72)] px-2 py-1 text-[9px] font-black uppercase" key={label}>
-                        <span className="text-[var(--sample-muted)]">{label}</span>
-                        <span>{value}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="rounded-[999px] border-2 border-[var(--sample-border)] bg-[var(--sample-text)] px-3 py-2 text-center text-[10px] font-black uppercase text-[var(--sample-base)]">
-                  Reserve future passage
-                </div>
-              </div>
-            </div>
-
-            <div className={cn("grid grid-cols-3 gap-2 text-[8px] font-black uppercase text-[var(--sample-text)]", compact ? "hidden" : "")}>
-              {["chrome", "aluminum", "acrylic"].map((material, index) => (
-                <span className="rounded-[999px] border-2 border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.82)] px-2 py-1 text-center" key={material} style={{ boxShadow: index === 0 ? "inset 0 1px 5px rgb(255 255 255 / 0.92)" : undefined }}>
-                  {material}
-                </span>
-              ))}
-            </div>
-          </section>
-        </main>
-
-        <footer className={cn("grid grid-cols-[1fr_auto] items-center gap-2 rounded-[999px] border-2 border-[var(--sample-border)] bg-[rgb(var(--st-surface-rgb)_/_0.82)] px-3 py-2 text-[8px] font-black uppercase", compact ? "hidden" : "")}>
-          <span className="truncate">JPL poster logic / paleofuture archive / atomic ticket CTA</span>
-          <span className="rounded-[999px] bg-[var(--sample-accent-3)] px-2 py-0.5">Tour open</span>
-        </footer>
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2" : "", className)} compact={compact} style={style}>
+      <WorldOfTomorrowSpecimen compact={compact} />
     </SampleFrame>
   );
 }
-
 function BauhausSchool({ className, compact = false, style }: Props) {
   const programs: Array<[string, string, string]> = [
     ["Visit", "program", "var(--sample-accent)"],
@@ -8016,7 +7885,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "retro-futurism") {
-    return <RetroFuturismFlightDeck {...props} />;
+    return <RetroFuturismSpecimen {...props} />;
   }
 
   if (style.slug === "bauhaus") {

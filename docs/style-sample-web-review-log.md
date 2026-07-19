@@ -54,7 +54,7 @@
 | 20 | 레트로 / 빈티지 | seventies-retro | retro-commerce | verified | ROLLERAMA '76 롤러 디스코 랜딩(재작업) — 수퍼그래픽 레인보우 아치·팻 라운드 타이포·아치형 링크 실사 창·session board(선택 연동)·skate hire·스트라이프 밴드, 스타일 가시성 우선 |
 | 21 | 레트로 / 빈티지 | eighties-retro | cyber-dashboard | verified | **정석적 synthwave 미디어 콘솔 폐기 → 'NEON NIGHTS VIDEO' 80s VHS 호러 비디오 렌탈점으로 전면 재설계**(Concept originality): 다크 네온 정체성(네이비+마젠타/시안/옐로)은 유지하되 신스웨이브 플레이어(SYNTH CONSOLE·VHS mix queue·arcade control strip)를 버리고 Be Kind Rewind식 심야 렌탈점 리테일로 재구성. 소유자 요청대로 80s 호러 소재. codex로 심야 네온 렌탈점 통로 실사(VHS 선반·네온 사인·CRT 정지화면·블러드레드 반사) 신규 생성해 GENERATED_STYLE_IMAGES 등록. 골격: 네온 스토어프론트 헤더(NEON NIGHTS VIDEO 마젠타 글로우·VHS horror·open till 2am·New/Horror/Members·● OPEN) + STAFF PICK 피처 패널(렌탈점 실사 위 The Midnight Tape·slasher 1986 98min·★4·rent $2, 하단 스크림만으로 이미지 드러냄) + new-release wall(VHS 테이프 케이스 6종 — Neon Slasher/Grave Shift/Prom Night Terror/Static Screams/Cassette from Hell/Chrome Nightmare, 장르 컬러 상단밴드·rental 상태 IN/OUT/DUE 글로우 도트) + rental desk(Neon Nights Video Club 멤버십 카드·Member 0286·since '86 + your rentals due date + be kind rewind·late fee $1/day) + 장르 네온 칩(Horror/Slasher/Sci-Fi/Cult/B-Movie) + 네온 퍼스펙티브 그리드/스캔라인. 비디오 렌탈 리테일 골격이라 이웃(방송숍/종이카탈로그/쿡북/데스크탑진/flight deck/스튜디오/워크숍)과 구조 차별화, Cyberpunk 도시/디스토피아와도 구분. 함수명 EightiesSynthConsole→EightiesVideoRental(라우팅+check-style-distinction 맵), family 마커 갱신(Neon Nights Video/new-release wall/be kind rewind), representativeTraits/tokenIntent 갱신(avoidTraits에 Cyberpunk city dystopia 추가). 장식은 inset-0 overflow-hidden 래퍼로 클리핑. full/compact QA(overflow 0)·lint·check:style-distinction(80s 통과) 통과 |
 | 22 | 레트로 / 빈티지 | y2k | retro-commerce | verified | CYBERSHOCK 크롬 미디어 플레이어 스킨(재디자인) — 홀로그래픽 데스크톱 위 크롬 윈도우, LCD now playing·spectrum visualizer·transport controls·playlist(선택 연동), OS 윈도우 스킨 골격 |
-| 23 | 레트로 / 빈티지 | y2k | cyber-dashboard | verified | GLOSS PORTAL, bubble widget stack, sparkle guestbook rail |
+| 23 | 레트로 / 빈티지 | retro-futurism | retro-commerce | verified | WORLD OF TOMORROW 모티프 스페시멘(재디자인) — 포스터 마스트헤드·exhibit viewer(선택 모티프 확대)·motif index(원자궤도/스타버스트/부메랑/소서/로켓)·Space Age 팔레트 스트립, 특정 사이트 아닌 스타일 어휘 전시 |
 | 24 | 레트로 / 빈티지 | retro-futurism | retro-commerce | verified | FLIGHT DECK, destination poster rail, chrome capsule timetable |
 | 25 | 레트로 / 빈티지 | mid-century-modern | minimal-editorial | verified | MIDCENTURY STUDIO, walnut slat product rail, Girard textile swatch wall |
 | 26 | 레트로 / 빈티지 | bauhaus | magazine-layout | verified | BAUHAUS SCHOOL, workshop method grid, circle square triangle lab |
@@ -517,4 +517,40 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - console: 상세 페이지 error 0. 목록 페이지 중복 key 경고(distortion rail 등, HMR로 반복 표기)는 기존 타 스타일 데이터 이슈로 y2k 범위 밖.
 - 명령: `check:data`(87)·`check:style-distinction`(87)·`npm run lint`·`next build`(577 pages) 통과.
 - screenshots: `y2k-full-v2.jpeg`, `y2k-mobile-v2.jpeg`, `y2k-compact-v1.jpeg`.
+- 남은 의심점: 없음.
+
+## 23. retro-futurism — 재디자인 (소유자 지시: "레이아웃 바꾸고, 특정 사이트가 아니라 레트로 퓨처리즘을 알아보기 쉽게")
+
+### 현재 판정
+
+- status: `reviewing` (verified 롤백).
+- 현재 `RetroFuturismFlightDeck`(Worlds Fair Travel Bureau / FLIGHT DECK)은 여행 예약 사이트 vehicle — 2열 랜딩(포스터 히어로 + destination rail + chrome capsule timetable)에 장식용 알약/궤도 도형이 콘텐츠를 대신함. 실이미지 없음.
+- 소유자 지시: (1) 레이아웃 자체 교체, (2) 특정 사이트 표현이 아니라 레트로 퓨처리즘을 한눈에 알아보게 하는 구성, (3) 필요시 무드보드·팔레트 교체.
+- 방향: 예약 플로우가 아닌 **스타일 스페시멘/전시(exhibit)** 골격 — Space Age 모티프 어휘(원자 궤도·스타버스트·부메랑·플라잉소서·레이건)를 크래프티드 SVG로 전시하고, 선택 시 중앙 뷰어에 크게 표시. [[style-visibility-over-vehicle]] 적용.
+
+### 목표
+
+- 컨셉: **"WORLD OF TOMORROW" — 레트로 퓨처리즘 모티프 스페시멘/전시 포스터**(특정 사이트가 아니라 스타일 어휘 전시).
+- 고유 마커(check-style-distinction): `WORLD OF TOMORROW` / `exhibit viewer` / `motif index` / `atomic orbit`. 구 마커(FLIGHT DECK/destination poster rail/chrome capsule timetable) 교체.
+- 정보 구조: 스타버스트 마크 + WORLD OF TOMORROW 포스터 마스트헤드(retro-futurist specimen · 1958→2001) → `exhibit viewer`(네이비 스타필드 스크린에 선택 모티프 대형 SVG + 궤도 링 + plate 캡션) | 새 포스터 일러스트 플레이트(레트로 퓨처리즘 실일러스트) → `motif index`(5모티프 선택 rail, `atomic orbit` 포함, 선택 → 뷰어 연동) → Space Age 팔레트 스페시멘 스트립(크림/코랄/틸/머스터드/네이비 명명 칩).
+- 팔레트: 기존 유지(크림 #F6E7B8·코랄 #F05B2F·틸 #2DB7B1·머스터드 #F2C84B·네이비 #17314A) — 이미 강한 Space Age 팔레트라 유지, 스페시멘 스트립으로 오히려 명시.
+- 무드보드: 기존 v2 유지(space-age 캡슐·크롬·궤도·스타필드 — 스타일 어휘 이미 표현).
+- 이미지: codex로 `public/generated/design-styles/retro-futurism.webp` 신규 — 플랫 미드센추리 Space Age 여행 포스터 일러스트(구지 로켓·돔 미래도시·모노레일·원자 스타버스트·궤도, 텍스트 없음, 사진 아님).
+
+### 검증 계획
+
+- RED/GREEN: distinction 구 마커 제거·신 마커 GREEN, `RetroFuturismSpecimen` 위임 등록. check:data·check:style-distinction·lint·build 통과.
+- browser QA: full·모바일·compact overflow 0, 모티프 선택 → exhibit viewer 연동(aria-pressed) 확인.
+
+### 구현 및 검증 결과 (2026-07-19)
+
+- status: `verified`.
+- 변경 요약: `RetroFuturismFlightDeck`(Worlds Fair Travel Bureau 예약 사이트) 삭제 → 위임 래퍼 `RetroFuturismSpecimen` + 분리 컴포넌트 `WorldOfTomorrowSpecimen.tsx`(use client, 모티프 선택 useState). codex로 플랫 미드센추리 Space Age 포스터 일러스트(`public/generated/design-styles/retro-futurism.webp` — 구지 로켓·돔 미래도시·모노레일·원자 스타버스트·플라잉소서·궤도, 사진 아님) 신규 생성. 골격(스타일 스페시멘): 스타버스트 마크 + WORLD OF TOMORROW 포스터 마스트헤드(a retro-futurist specimen · 1958→2001) → exhibit viewer(네이비 스타필드 스크린에 선택 모티프 대형 크래프티드 SVG + 궤도 링 + name/descriptor/plate 캡션) | 포스터 일러스트 플레이트 → motif index(원자궤도·스타버스트·부메랑·플라잉소서·로켓 5글리프 선택 rail) → Space Age 팔레트 스페시멘 스트립(크림/코랄/터쿼이즈/머스터드/네이비 명명 칩).
+- 소유자 지시 반영: (1) 레이아웃 교체 — 예약 랜딩 → 스페시멘/전시 골격, (2) 특정 사이트가 아니라 Space Age 모티프 어휘 자체를 전시해 한눈에 레트로 퓨처리즘으로 읽힘([[style-visibility-over-vehicle]] 적용), (3) 팔레트는 이미 강한 Space Age라 유지하되 명명 스트립으로 명시, 무드보드 v2 유지(space-age 어휘 이미 표현).
+- 인터랙션 QA: Rocket 클릭 시 `aria-pressed` 전환, exhibit viewer가 이름(Rocket)·plate 05·descriptor로 함께 갱신 확인.
+- RED/GREEN: distinction 구 마커(FLIGHT DECK/destination poster rail/chrome capsule timetable) 제거, 신 마커(WORLD OF TOMORROW/exhibit viewer/motif index/atomic orbit) GREEN. 위임 래퍼 등록(마커는 컴포넌트 파일이 워드마크 aria-label·aria-label로 보유, 래퍼 클린).
+- browser QA: 1280 full(614×540)·375 모바일(284×540)·compact 카드 모두 page overflow 0, 비의도 클리핑 0. 모바일은 exhibit viewer→poster plate 세로 스택(grid-rows), motif index 5칩·팔레트 칩(이름 lg↑에서만) 유지. compact는 exhibit viewer + motif 3글리프로 압축.
+- console: 상세 페이지 error 0. 목록 페이지 중복 key 경고(distortion rail 등, HMR로 반복 표기)는 기존 타 스타일 데이터 이슈로 retro-futurism 범위 밖.
+- 명령: `check:data`(87)·`check:style-distinction`(87)·`npm run lint`·`next build`(577 pages) 통과.
+- screenshots: `rf-full-v1.jpeg`, `rf-mobile-v1.jpeg`, `rf-compact-v1.jpeg`.
 - 남은 의심점: 없음.
