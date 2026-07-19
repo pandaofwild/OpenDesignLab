@@ -6,7 +6,7 @@ function assert(cond, msg) { if (!cond) errors.push(msg); }
 
 // Minimum counts guard against accidental mass-deletion.
 // Raise these if new styles / categories are intentionally added.
-assert(designStyles.length >= 82, `expected at least 82 styles, got ${designStyles.length}`);
+assert(designStyles.length >= 78, `expected at least 78 styles, got ${designStyles.length}`);
 const slugs = new Set(designStyles.map((s) => s.slug));
 assert(slugs.size === designStyles.length, "duplicate style slugs found");
 assert(designStyleCategories.length >= 10, `expected at least 10 categories, got ${designStyleCategories.length}`);

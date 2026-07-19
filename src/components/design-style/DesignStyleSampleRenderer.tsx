@@ -186,7 +186,6 @@ const GENERATED_STYLE_IMAGES = {
   "bubble-design": "/generated/design-styles/bubble-design.webp",
   classic: "/generated/design-styles/classic.webp",
   "comic-book-style": "/generated/design-styles/comic-book-style.webp",
-  craft: "/generated/design-styles/craft.webp",
   deconstructivism: "/generated/design-styles/deconstructivism.webp",
   "eighties-retro": "/generated/design-styles/eighties-retro.webp",
   "glitch-art": "/generated/design-styles/glitch-art.webp",
@@ -206,7 +205,6 @@ const GENERATED_STYLE_IMAGES = {
   "new-brutalism": "/generated/design-styles/new-brutalism.webp",
   neoclassic: "/generated/design-styles/neoclassic.webp",
   "old-money": "/generated/design-styles/old-money.webp",
-  "organic-design": "/generated/design-styles/organic-design.webp",
   "pastel-style": "/generated/design-styles/pastel-style.webp",
   postmodernism: "/generated/design-styles/postmodernism.webp",
   punk: "/generated/design-styles/punk.webp",
@@ -215,7 +213,6 @@ const GENERATED_STYLE_IMAGES = {
   scandinavian: "/generated/design-styles/scandinavian.webp",
   "seventies-retro": "/generated/design-styles/seventies-retro.webp",
   "soft-minimal": "/generated/design-styles/soft-minimal.webp",
-  "wabi-sabi": "/generated/design-styles/wabi-sabi.webp",
   "warm-minimal": "/generated/design-styles/warm-minimal.webp",
 } as const;
 
@@ -3319,41 +3316,6 @@ function NaturalHandmadeBottomStrip({ compact = false, items }: { compact?: bool
   );
 }
 
-function OrganicDesignApothecary({ className, compact = false, style }: Props) {
-  return (
-    <SampleFrame className={className} compact={compact} style={style}>
-      <span className="absolute left-[-12%] top-[14%] h-56 w-56 rounded-[52%_48%_42%_58%] bg-[var(--sample-accent)] opacity-25 blur-2xl" />
-      <span className="absolute bottom-[-16%] right-[-8%] h-64 w-64 rounded-[42%_58%_60%_40%] bg-[var(--sample-accent-2)] opacity-28 blur-2xl" />
-      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Root Form" compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />]} links={["Extracts", "Rituals", "Journal"]} sub="Organic lab" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.9fr_1.1fr]" : "grid-cols-[0.78fr_1.22fr]")}>
-          <div className="flex min-h-0 flex-col justify-between">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.22em] text-[var(--sample-muted)]">Natural forms</p>
-              <h3 className={cn("mt-3 font-display font-semibold leading-[0.94]", compact ? "text-2xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                Organic Design
-              </h3>
-            </div>
-            <div className="grid grid-cols-3 gap-2">
-              {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((color) => (
-                <span
-                  className="h-4 border border-[var(--sample-border-soft)]"
-                  key={color}
-                  style={{ backgroundColor: color }}
-                />
-              ))}
-            </div>
-          </div>
-          <GeneratedStyleImageSurface className="min-h-0 border border-[var(--sample-border-soft)]" overlay="soft" slug="organic-design">
-            <span className="absolute bottom-5 left-5 right-5 border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.82)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Root extract collection</span>
-          </GeneratedStyleImageSurface>
-        </div>
-        <NaturalHandmadeBottomStrip compact={compact} items={[["Shape", "Biomorphic"], ["Tone", "Earth"], ["Use", "Wellness"]]} />
-      </div>
-    </SampleFrame>
-  );
-}
-
 function NaturalMarketShelf({ className, compact = false, style }: Props) {
   return (
     <SampleFrame className={className} compact={compact} style={style}>
@@ -3419,49 +3381,6 @@ function BotanicalGlasshouse({ className, compact = false, style }: Props) {
           </GeneratedStyleImageSurface>
         </div>
         <NaturalHandmadeBottomStrip compact={compact} items={[["Motif", "Leaf"], ["Product", "Plant"], ["Rhythm", "Alive"]]} />
-      </div>
-    </SampleFrame>
-  );
-}
-
-function EcoImpactSystem({ className, compact = false, style }: Props) {
-  return (
-    <SampleFrame className={className} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Refill Works" compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />]} links={["Impact", "Refill", "Report"]} sub="Eco system" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1.08fr_0.92fr]" : "grid-cols-[1.18fr_0.82fr]")}>
-          <div className="grid min-h-0 grid-rows-[auto_1fr] gap-3">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--sample-muted)]">Measured impact</p>
-              <h3 className={cn("mt-2 font-display font-bold uppercase leading-[0.9]", compact ? "text-2xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                Eco Design
-              </h3>
-            </div>
-            <div className="grid grid-cols-3 gap-2">
-              {[
-                ["CO2", "42%"],
-                ["Reuse", "88"],
-                ["Water", "19L"],
-              ].map(([label, value]) => (
-                <div className="border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-3" key={label}>
-                  <span className="block text-[8px] uppercase tracking-[0.16em] text-[var(--sample-muted)]">{label}</span>
-                  <span className="mt-3 block font-display text-2xl font-bold">{value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="relative min-h-0 border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-3">
-            <div className="grid h-full grid-rows-[1fr_auto] gap-3">
-              <div className="relative grid place-items-center">
-                <span className="h-32 w-32 rounded-full border-[14px] border-[var(--sample-accent)]" />
-                <span className="absolute h-20 w-20 rounded-full border-[10px] border-[var(--sample-accent-2)]" />
-                <span className="absolute text-[10px] font-bold uppercase tracking-[0.18em]">Refill loop</span>
-              </div>
-              <span className="border border-[var(--sample-border)] bg-[var(--sample-accent-3)] px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--sample-text)]">Read impact report</span>
-            </div>
-          </div>
-        </div>
-        <NaturalHandmadeBottomStrip compact={compact} items={[["Signal", "Impact"], ["Tone", "Clear"], ["Action", "Refill"]]} />
       </div>
     </SampleFrame>
   );
@@ -3554,69 +3473,6 @@ function HandmadePatchMarket({ className, compact = false, style }: Props) {
           </div>
         </div>
         <NaturalHandmadeBottomStrip compact={compact} items={[["Edge", "Uneven"], ["Mark", "Stamped"], ["Batch", "Small"]]} />
-      </div>
-    </SampleFrame>
-  );
-}
-
-function CraftWorkshopLedger({ className, compact = false, style }: Props) {
-  return (
-    <SampleFrame className={className} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Kiln Ledger" compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />]} links={["Clay", "Process", "Shop"]} sub="Craft" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1fr_0.86fr]" : "grid-cols-[1.16fr_0.84fr]")}>
-          <div className="grid min-h-0 grid-rows-[auto_1fr] gap-3">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--sample-muted)]">Process catalog</p>
-              <h3 className={cn("mt-2 font-display font-bold uppercase leading-[0.9]", compact ? "text-3xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                Craft
-              </h3>
-            </div>
-            <div className="grid grid-cols-3 gap-2">
-              {[
-                ["01", "Form"],
-                ["02", "Fire"],
-                ["03", "Glaze"],
-              ].map(([step, label]) => (
-                <div className="border border-[var(--sample-border)] bg-[var(--sample-surface)] p-3" key={label}>
-                  <span className="text-[9px] uppercase tracking-[0.16em] text-[var(--sample-muted)]">{step}</span>
-                  <span className="mt-8 block text-[10px] font-bold uppercase tracking-[0.14em]">{label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <GeneratedStyleImageSurface className="min-h-0 border border-[var(--sample-border-soft)]" overlay="soft" position="center 35%" slug="craft">
-            <span className="absolute bottom-4 left-4 right-4 border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.84)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Thrown stoneware</span>
-          </GeneratedStyleImageSurface>
-        </div>
-        <NaturalHandmadeBottomStrip compact={compact} items={[["Material", "Clay"], ["Method", "Kiln"], ["Proof", "Process"]]} />
-      </div>
-    </SampleFrame>
-  );
-}
-
-function WabiSabiTeaGallery({ className, compact = false, style }: Props) {
-  return (
-    <SampleFrame className={className} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Stone Tea" bordered={false} compact={compact} links={["Bowls", "Room", "Notes"]} sub="Wabi-Sabi" />
-        <div className={cn("grid min-h-0 gap-4", compact ? "grid-cols-[0.9fr_1.1fr]" : "grid-cols-[0.72fr_1.28fr]")}>
-          <div className="flex min-h-0 flex-col justify-between">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--sample-muted)]">Quiet imperfection</p>
-              <h3 className={cn("mt-3 font-serif font-normal uppercase leading-[0.9]", compact ? "text-2xl" : "text-5xl")} style={{ letterSpacing: "0em" }}>
-                Wabi-Sabi
-              </h3>
-            </div>
-            <p className={cn("text-[11px] leading-5 text-[var(--sample-muted)]", compact ? "line-clamp-2" : "")}>Asymmetry, repaired surfaces, and a low, calm hierarchy.</p>
-          </div>
-          <div className="relative min-h-0 border border-dashed border-[var(--sample-border-soft)] overflow-hidden">
-            <GeneratedStyleImageSurface className="h-full w-full" overlay="soft" position="40% 50%" slug="wabi-sabi">
-              <span className="absolute bottom-5 left-5 right-5 border-t border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.80)] px-3 pt-3 pb-2 text-[10px] uppercase tracking-[0.18em] text-[var(--sample-muted)]">Repaired ceramic bowl</span>
-            </GeneratedStyleImageSurface>
-          </div>
-        </div>
-        <NaturalHandmadeBottomStrip compact={compact} items={[["Surface", "Patina"], ["Form", "Asymmetry"], ["Pace", "Quiet"]]} />
       </div>
     </SampleFrame>
   );
@@ -7188,20 +7044,12 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
     return <GothicCathedralArchive {...props} />;
   }
 
-  if (style.slug === "organic-design") {
-    return <OrganicDesignApothecary {...props} />;
-  }
-
   if (style.slug === "natural") {
     return <NaturalMarketShelf {...props} />;
   }
 
   if (style.slug === "botanical") {
     return <BotanicalGlasshouse {...props} />;
-  }
-
-  if (style.slug === "eco-design") {
-    return <EcoImpactSystem {...props} />;
   }
 
   if (style.slug === "rustic") {
@@ -7214,14 +7062,6 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
 
   if (style.slug === "handmade") {
     return <HandmadePatchMarket {...props} />;
-  }
-
-  if (style.slug === "craft") {
-    return <CraftWorkshopLedger {...props} />;
-  }
-
-  if (style.slug === "wabi-sabi") {
-    return <WabiSabiTeaGallery {...props} />;
   }
 
   if (style.slug === "kitsch") {

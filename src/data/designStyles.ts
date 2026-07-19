@@ -817,17 +817,6 @@ const palettes: Record<string, DesignStylePalette> = {
     accent3: "#C0A35A",
     border: "#8D806A",
   },
-  "organic-design": {
-    base: "#E8E5D8",
-    surface: "#F7F2E4",
-    text: "#263126",
-    mutedText: "#68715E",
-    primary: "#263126",
-    accent: "#6F8B52",
-    accent2: "#C89B63",
-    accent3: "#D7A6A0",
-    border: "#3A4536",
-  },
   natural: {
     base: "#E9E1D0",
     surface: "#F7F1E4",
@@ -849,17 +838,6 @@ const palettes: Record<string, DesignStylePalette> = {
     accent2: "#B7C96E",
     accent3: "#D29A8F",
     border: "#365039",
-  },
-  "eco-design": {
-    base: "#EEF0D8",
-    surface: "#FAF8E7",
-    text: "#152118",
-    mutedText: "#5E6859",
-    primary: "#152118",
-    accent: "#4F8E3F",
-    accent2: "#D8F36A",
-    accent3: "#7DB7B2",
-    border: "#263B2B",
   },
   rustic: {
     base: "#DCC6A4",
@@ -893,28 +871,6 @@ const palettes: Record<string, DesignStylePalette> = {
     accent2: "#3F6F8F",
     accent3: "#E2B64E",
     border: "#3A2B1D",
-  },
-  craft: {
-    base: "#E7DDCB",
-    surface: "#F7EEDC",
-    text: "#1F1B17",
-    mutedText: "#6F6558",
-    primary: "#1F1B17",
-    accent: "#9E6A3B",
-    accent2: "#2D5963",
-    accent3: "#C8A15A",
-    border: "#2C241B",
-  },
-  "wabi-sabi": {
-    base: "#D8D4C8",
-    surface: "#ECE8DA",
-    text: "#1F211D",
-    mutedText: "#6B6B62",
-    primary: "#1F211D",
-    accent: "#B6A37D",
-    accent2: "#6E7568",
-    accent3: "#9B6044",
-    border: "#777267",
   },
   kitsch: {
     base: "#FFF0D8",
@@ -1079,7 +1035,17 @@ const paletteBank: DesignStylePalette[] = [
   palettes.brutalism,
   palettes.cyberpunk,
   palettes.luxury,
-  palettes["organic-design"],
+  {
+    base: "#E8E5D8",
+    surface: "#F7F2E4",
+    text: "#263126",
+    mutedText: "#68715E",
+    primary: "#263126",
+    accent: "#6F8B52",
+    accent2: "#C89B63",
+    accent3: "#D7A6A0",
+    border: "#3A4536",
+  },
   palettes.kawaii,
   {
     base: "#EDE9DC",
@@ -1177,15 +1143,11 @@ const styleSeedTuples: DesignStyleSeedTuple[] = [
   ["rococo", "로코코", "Rococo", "럭셔리 / 클래식", "부드러운 장식과 밝은 색으로 섬세하고 화려한 분위기를 만드는 스타일", ["rococo", "delicate", "ornate"], "luxury-product"],
   ["gothic", "고딕", "Gothic", "럭셔리 / 클래식", "뾰족한 구조와 어두운 분위기로 장중함을 만드는 스타일", ["gothic", "dark", "dramatic"], "street-campaign"],
 
-  ["organic-design", "오가닉 디자인", "Organic Design", "자연 / 수공예", "자연 형태와 유기적 색감으로 편안한 인상을 만드는 디자인", ["organic", "natural", "soft"], "organic-brand"],
   ["natural", "내추럴", "Natural", "자연 / 수공예", "꾸미지 않은 색과 소재감으로 신뢰와 편안함을 만드는 스타일", ["natural", "plain", "calm"], "organic-brand"],
   ["botanical", "보태니컬", "Botanical", "자연 / 수공예", "식물 모티프와 그린 팔레트를 중심으로 한 생기 있는 스타일", ["botanical", "green", "plant"], "organic-brand"],
-  ["eco-design", "에코 디자인", "Eco Design", "자연 / 수공예", "지속가능성과 친환경 메시지를 명확히 전달하는 디자인", ["eco", "sustainable", "green"], "organic-brand"],
   ["rustic", "러스틱", "Rustic", "자연 / 수공예", "거친 나무와 흙빛 질감으로 소박한 온기를 만드는 스타일", ["rustic", "wood", "earth"], "organic-brand"],
   ["kinfolk", "킨포크", "Kinfolk", "자연 / 수공예", "느린 생활, 자연광, 절제된 구성을 강조하는 라이프스타일 스타일", ["kinfolk", "lifestyle", "slow"], "minimal-editorial"],
   ["handmade", "핸드메이드", "Handmade", "자연 / 수공예", "손으로 만든 흔적과 작은 불균형을 매력으로 쓰는 스타일", ["handmade", "craft", "human"], "organic-brand"],
-  ["craft", "크래프트", "Craft", "자연 / 수공예", "재료와 제작 과정을 전면에 드러내는 수공예 중심 스타일", ["craft", "material", "maker"], "organic-brand"],
-  ["wabi-sabi", "와비사비", "Wabi-Sabi", "자연 / 수공예", "불완전함과 시간의 흔적을 아름다움으로 받아들이는 스타일", ["wabi-sabi", "imperfect", "quiet"], "minimal-editorial"],
 
   ["kitsch", "키치", "Kitsch", "귀여움 / 캐주얼", "과장되고 통속적인 요소를 즐겁게 활용하는 스타일", ["kitsch", "fun", "bold"], "kawaii-app"],
   ["kawaii", "카와이", "Kawaii", "귀여움 / 캐주얼", "작고 둥근 형태와 밝은 색으로 귀여움을 극대화하는 스타일", ["kawaii", "cute", "pastel"], "kawaii-app"],
@@ -3169,12 +3131,6 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     decoration: { shadow: "0 20px 54px rgb(0 0 0 / 0.42)", effect: "grain" },
     layout: { heroVariant: "split", navStyle: "underline", alignment: "left" },
   },
-  "organic-design": {
-    typography: { displayFont: '"Satoshi", sans-serif', weightDisplay: 650, weightBody: 400, tracking: "0em", headingScale: 0.98 },
-    shape: { radius: "18px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
-    space: { density: "airy", gap: "1.25rem", padScale: 1.3 },
-    decoration: { shadow: "none", effect: "grain" },
-  },
   natural: {
     typography: { displayFont: '"Satoshi", sans-serif', weightDisplay: 650, weightBody: 400, tracking: "0em", headingScale: 0.95 },
     shape: { radius: "2px", radiusPill: "2px", borderWidth: "1px", borderStyle: "solid" },
@@ -3188,13 +3144,6 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     space: { density: "airy", gap: "1.2rem", padScale: 1.22 },
     decoration: { shadow: "0 12px 30px rgb(var(--st-text-rgb) / 0.06)", effect: "grain" },
     layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
-  },
-  "eco-design": {
-    typography: { displayFont: '"Satoshi", sans-serif', weightDisplay: 800, weightBody: 500, tracking: "0em", headingScale: 1.02 },
-    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "solid" },
-    space: { density: "normal", gap: "0.9rem", padScale: 1.05 },
-    decoration: { shadow: "none", effect: "none" },
-    layout: { heroVariant: "split", navStyle: "underline", alignment: "left" },
   },
   rustic: {
     typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 700, weightBody: 450, tracking: "0em", headingScale: 1.02 },
@@ -3216,20 +3165,6 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     space: { density: "normal", gap: "0.85rem", padScale: 1.0 },
     decoration: { shadow: "4px 4px 0 var(--st-accent-3)", effect: "grain" },
     layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
-  },
-  craft: {
-    typography: { displayFont: '"Satoshi", sans-serif', weightDisplay: 760, weightBody: 430, tracking: "0em", headingScale: 0.98 },
-    shape: { radius: "1px", radiusPill: "1px", borderWidth: "1px", borderStyle: "solid" },
-    space: { density: "normal", gap: "0.95rem", padScale: 1.08 },
-    decoration: { shadow: "3px 3px 0 var(--st-accent-3)", effect: "grain" },
-    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
-  },
-  "wabi-sabi": {
-    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, weightBody: 300, tracking: "0em", headingScale: 0.88 },
-    shape: { radius: "6px", radiusPill: "12px", borderWidth: "1px", borderStyle: "dashed" },
-    space: { density: "airy", gap: "1.6rem", padScale: 1.55 },
-    decoration: { shadow: "none", effect: "grain" },
-    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
   },
   "graffiti": {
     typography: { weightDisplay: 900, weightBody: 600, tracking: "-0.05em", headingScale: 1.28 },
@@ -3660,15 +3595,6 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
     prompt:
       "Create a realistic editorial moodboard for Gothic in web design. The board should look like a real designer's dark architectural editorial and music-culture web research board photographed from above on a charcoal stone studio table. Include printed gothic-inspired website layout references without readable text, tall vertical hero studies, pointed-arch layout cutouts, blackletter-like typography represented only as unreadable black blocks, cathedral stone and ironwork photo crops with no people or labels, black and bone paper samples, dark red color chips, smoked glass, oxidized metal swatches, rough parchment fragments, lace-like black textile, and small physical objects like a blank black wax seal, iron ring, and narrow stone tile. The visual language should communicate vertical drama, shadow, medieval architecture, solemn contrast, and dark editorial hierarchy for web pages, not cyberpunk neon, grunge dirt, or ornate Baroque theater. Use real-world imperfections: slight paper curl, tape corners, pin marks, rough paper fibers, stone dust, uneven crop edges, varied paper thickness, subtle dust, and moody realistic shadows. Palette: black, charcoal, bone white, dark crimson, oxidized silver, stone grey, parchment beige. No readable text, no tiny text, no letters, no numbers, no logos, no brand names, no watermarks, no fake interface text, no floating cards, no decorative clutter, no sterile AI mockup look. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
-  "organic-design": {
-    alt: "Organic Design moodboard with flowing blank web proofs, recycled papers, cork, linen, raw cotton, pebble, clay, botanical crops, earth chips, and natural form cutouts.",
-    caption: "Living-form warmth: use curved asymmetry, tactile natural samples, cork, clay, linen, and relaxed content rhythm to avoid generic beige minimalism.",
-    directionKeywords: ["real organic form board", "flowing asymmetry", "tactile natural materials", "wellness commerce warmth", "earth green palette"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/organic-design-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for Organic Design in web design. Photograph a real designer's organic form and wellness web research board from above on a warm clay studio table. Include printed website layout references made only of blank blocks, empty rounded bars, abstract image areas, and flowing shapes with absolutely no text marks. Include flowing asymmetrical content rhythm studies, rounded natural form cutouts, recycled paper samples, cork, linen, raw cotton, pebble and clay material swatches, botanical photography crops with no labels, muted green and earth color chips, soft product-card studies with empty bars only, and small physical objects like a smooth stone and unmarked seed pod. The visual language should communicate living forms, tactile natural materials, relaxed hierarchy, and wellness-commerce warmth for web pages, not rustic farmhouse, botanical illustration, or generic beige minimalism. Use tape corners, pin marks, slight paper curl, uneven crop edges, textile fibers, subtle dust, varied paper thickness, and soft natural shadows. Palette: warm clay, oat, moss green, sage, raw cotton, cork brown, stone grey, charcoal accent. Absolutely no readable text, no micro text, no fake text, no text-like marks, no letters, no numbers, no labels, no logos, no brand names, no watermarks, no fake UI gibberish, no floating cards, no decorative clutter. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
-  },
   natural: {
     alt: "Natural moodboard with blank lifestyle web proofs, landscape crops, uncoated cream paper, raw linen, pale wood, leaf shadows, river stone, sand texture, and green-blue chips.",
     caption: "Open-air calm: use landscape fragments, pale wood, linen, stone, sand, and breathable grids so the page feels natural without becoming botanical or rustic.",
@@ -3686,15 +3612,6 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
     imageSrc: "/generated/moodboards/botanical-realistic-v2.webp",
     prompt:
       "Create a realistic editorial moodboard for Botanical style in web design. Photograph a real designer's plant-focused editorial commerce research board from above on a soft white greenhouse worktable. Include printed botanical website layout references made only of blank cards and empty bars, close-up leaf and stem photography fragments with no labels, pressed plant samples, translucent tracing paper overlays, herbarium-like grid studies without any text, deep green and chlorophyll color chips, uncoated cream paper, glassine envelope blanks, linen swatches, pale terracotta, and small physical objects like unmarked plant tags turned blank-side up and a small clay pot shard. The visual language should communicate plant specificity, layered leaves, fresh growth, and curated botanical shopping or editorial structure for web pages, not broad natural landscape, eco campaign signage, or rustic craft texture. Use tape corners, pin marks, slight paper curl, leaf shadows, paper fibers, varied paper thickness, subtle dust, real plant texture, and soft natural greenhouse light. Palette: cream, chlorophyll green, deep leaf green, sage, pale terracotta, glassine white, soil brown, soft black. Absolutely no readable text, no micro text, no fake text, no letters, no numbers, no labels, no logos, no brand names, no watermarks, no fake UI gibberish, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
-  },
-  "eco-design": {
-    alt: "Eco Design moodboard with blank sustainable web proofs, recycled paper, corrugated cardboard, molded pulp, hemp, cork, bioplastic, circular diagram studies, and green earth chips.",
-    caption: "Practical sustainability: use recycled fibers, molded pulp, cork, bioplastic, and unlabeled circular-system studies so the interface feels responsible and concrete.",
-    directionKeywords: ["real sustainability board", "recycled material system", "molded pulp cork", "circular diagram shapes", "trustworthy eco hierarchy"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/eco-design-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for Eco Design in web design. Photograph a real designer's sustainable product and climate-conscious web research board from above on a recycled kraft-paper studio surface. Include printed eco website layout references made only of blank blocks and empty bars, sustainability dashboard-like modules with no text or numbers, recycled paper samples, corrugated cardboard, molded pulp, hemp fabric, cork, bioplastic translucent swatches, repair-label shapes turned blank, green and earth color chips, circular-system diagram studies made of unlabeled arrows and shapes, nature and product-material photo crops with no labels, and small physical objects like blank compostable packaging tabs. The visual language should communicate responsible systems, circular material thinking, practical sustainability, and trustworthy product hierarchy for web pages, not generic nature lifestyle, rustic nostalgia, or activist poster typography. Use tape corners, pin marks, slight paper curl, rough fiber texture, cardboard edges, subtle dust, varied paper thickness, and soft realistic shadows. Palette: kraft brown, recycled cream, forest green, algae green, muted blue, cardboard tan, charcoal, off white. Absolutely no readable text, no micro text, no fake text, no letters, no numbers, no labels, no logos, no brand names, no certifications, no watermarks, no fake UI gibberish, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
   rustic: {
     alt: "Rustic moodboard with blank local-brand web proofs, weathered wood, burlap, linen, kraft, torn cream paper, clay, leather, twine, ceramic shard, and faded earth chips.",
@@ -3722,24 +3639,6 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
     imageSrc: "/generated/moodboards/handmade-realistic-v2.webp",
     prompt:
       "Create a realistic editorial moodboard for Handmade style in web design. Photograph a real designer's handmade shop and maker-portfolio web research board from above on a warm neutral craft table. Include printed handmade ecommerce layout references made only of blank blocks and empty bars, product-grid studies with irregular crop edges, hand-torn paper, deckled stationery, cotton thread, linen and canvas swatches, clay and ceramic fragments, hand-stitched sample, pencil sketch marks as abstract non-letter lines, muted color chips, craft process photo crops with no people, no hands, and no labels, plus small physical objects like a blank wooden button, spool with no label, and unmarked clay bead. The visual language should communicate human touch, small-batch production, imperfect alignment, tactile materials, and approachable maker commerce for web pages, not polished craft-brand luxury, rustic hospitality, or childish DIY decoration. Use tape corners, pin marks, slight paper curl, torn fibers, stitch texture, pencil smudges, uneven crop edges, varied paper thickness, subtle dust, and real shadows. Palette: warm cream, raw canvas, clay, muted coral, olive, soft brown, charcoal, off white. Absolutely no readable text, no micro text, no fake text, no letters, no numbers, no labels, no logos, no brand names, no watermarks, no fake UI gibberish, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
-  },
-  craft: {
-    alt: "Craft moodboard with blank artisan web proofs, process grids, handmade paper, leather, wood, clay, brass, woven textile, canvas, tool crops, rivets, thread, and wood offcut.",
-    caption: "Material process: use durable workshop surfaces, leather, wood, clay, brass, woven samples, and unlabeled process grids for practical artisan storytelling.",
-    directionKeywords: ["real artisan process board", "workbench material studies", "leather wood clay brass", "durable product story", "tool detail crops"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/craft-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for Craft style in web design. Photograph a real designer's material-process and artisan web research board from above on a workbench surface. Include printed craft brand website layout references made only of blank image areas and empty bars, process-step grid studies with no text or numbers, heavy handmade paper, leather, wood, clay, brass, woven textile and canvas swatches, tool-detail photography crops with no brand marks, material test strips, earthy color chips, modular product-card studies with empty bars only, and small physical objects like an unmarked awl handle, blank brass rivets, thread, and a small wood offcut. The visual language should communicate material knowledge, maker process, durable craft, and practical product storytelling for web pages, not soft handmade charm, rustic hospitality, or eco-system diagrams. Use tape corners, pin marks, slight paper curl, scuffed edges, sawdust, fiber texture, leather grain, varied paper thickness, subtle dust, and real workshop shadows. Palette: walnut, raw canvas, leather tan, clay, brass, charcoal, cream, muted green. Absolutely no readable text, no micro text, no fake text, no letters, no numbers, no labels, no logos, no brand names, no watermarks, no fake UI gibberish, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
-  },
-  "wabi-sabi": {
-    alt: "Wabi-Sabi moodboard with blank quiet web proofs, low horizontal studies, irregular paper, cracked ceramic, weathered wood, stone, linen, ash paper, and muted earth chips.",
-    caption: "Time-worn restraint: use cracks, torn fibers, patina, ash neutrals, asymmetry, and soft shadow to guide a quiet page without becoming polished Japandi.",
-    directionKeywords: ["real imperfect quiet board", "low horizontal rhythm", "cracked ceramic patina", "torn ash paper", "muted asymmetry"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/wabi-sabi-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for Wabi-Sabi in web design. Photograph a real designer's imperfect quietness and contemplative web research board from above on a muted grey plaster studio table. Include printed wabi-sabi website layout references made only of blank image fields and empty bars, low horizontal composition studies, irregular handmade paper, torn deckled edges, cracked ceramic fragments, weathered wood, stone, linen, ash paper, muted earth color chips, soft shadow photography fragments with no people or labels, quiet product-detail modules with empty bars only, and small physical objects like an unmarked repaired ceramic shard, smooth stone, and folded raw cloth. The visual language should communicate imperfection, patina, silence, asymmetry, and time-worn restraint for web pages, not Japandi polish, rustic warmth, or minimal luxury precision. Use tape corners, pin marks, slight paper curl, torn fibers, cracks, stains, uneven crop edges, varied paper thickness, subtle dust, and soft natural shadows. Palette: ash grey, rice paper, clay beige, weathered wood, charcoal, stone, faded olive, warm off white. Absolutely no readable text, no micro text, no fake text, no letters, no numbers, no labels, no logos, no brand names, no watermarks, no fake UI gibberish, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
   kitsch: {
     alt: "Kitsch moodboard with blank novelty-commerce web proofs, mismatched cards, loud patterns, plastic flowers, candy acrylic, shiny vinyl, souvenir shapes, charms, and clashing chips.",

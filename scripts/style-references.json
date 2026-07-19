@@ -585,19 +585,6 @@
     ]
   },
 
-  "organic-design": {
-    "sites": [
-      { "url": "https://www.publicgoods.com/", "title": "Public Goods", "note": "Professional fit: rounded product blocks, plant-based packaging imagery, soft cream surfaces, and low-pressure commerce hierarchy make this organic design reference stronger than generic natural photography." },
-      { "url": "https://www.blueland.com/", "title": "Blueland", "note": "Professional fit: biomorphic color fields, friendly product cards, sustainability diagrams, and gentle illustration create an organic web system without becoming rustic craft or corporate eco reporting." },
-      { "url": "https://www.wildling.shoes/", "title": "Wildling Shoes", "note": "Professional fit: natural texture crops, irregular lifestyle imagery, earthy surfaces, and calm product storytelling give concrete organic layout cues distinct from polished high-end minimal retail." }
-    ],
-    "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Organic%20Design%20website%20design", "title": "Pinterest - Organic Design Website Design", "note": "Gallery fit: use this board search to compare rounded forms, botanical product imagery, earthy palettes, soft section transitions; it is useful for web moodboard clustering, not as proof of a single live site, and stays distinct from natural, which is broader outdoor imagery rather than biomorphic brand systems." },
-      { "url": "https://www.awwwards.com/websites/green/", "title": "Awwwards - Organic Design References", "note": "Gallery fit: filter award examples for rounded forms, botanical product imagery, earthy palettes, soft section transitions; use it to study responsive hero, navigation, and section pacing, while rejecting generic polished pages closer to natural, which is broader outdoor imagery rather than biomorphic brand systems." },
-      { "url": "https://dribbble.com/search/organic%20website%20design", "title": "Dribbble - Organic Design Website Design", "note": "Gallery fit: compare component-level treatments such as rounded forms, botanical product imagery, earthy palettes, soft section transitions; useful for buttons, cards, and landing sections, but less authoritative than the live sites for final style matching." }
-    ]
-  },
-
   "natural": {
     "sites": [
       { "url": "https://www.patagonia.com", "title": "Patagonia", "note": "Professional fit: documentary landscape crops, rugged product modules, earthy color restraint, and activism-led hierarchy make this natural web reference distinct from decorative botanical or handmade craft styles." },
@@ -621,19 +608,6 @@
       { "url": "https://www.pinterest.com/search/pins/?q=Botanical%20website%20design", "title": "Pinterest - Botanical Website Design", "note": "Gallery fit: use this board search to compare leaf closeups, plant product cards, herbarium spacing, green-on-cream palettes; it is useful for web moodboard clustering, not as proof of a single live site, and stays distinct from eco-design, which foregrounds sustainability systems over plant specificity." },
       { "url": "https://www.awwwards.com/websites/green/", "title": "Awwwards - Botanical References", "note": "Gallery fit: filter award examples for leaf closeups, plant product cards, herbarium spacing, green-on-cream palettes; use it to study responsive hero, navigation, and section pacing, while rejecting generic polished pages closer to eco-design, which foregrounds sustainability systems over plant specificity." },
       { "url": "https://dribbble.com/search/plant%20ecommerce%20website", "title": "Dribbble - Botanical Website Design", "note": "Gallery fit: compare component-level treatments such as leaf closeups, plant product cards, herbarium spacing, green-on-cream palettes; useful for buttons, cards, and landing sections, but less authoritative than the live sites for final style matching." }
-    ]
-  },
-
-  "eco-design": {
-    "sites": [
-      { "url": "https://www.allbirds.com/", "title": "Allbirds", "note": "Professional fit: carbon-footprint modules, natural-material product cards, muted green accents, and transparent sustainability copy make this eco-design reference more exact than simple nature imagery." },
-      { "url": "https://www.grove.co/", "title": "Grove Collaborative", "note": "Professional fit: refillable product hierarchy, household sustainability cues, soft green interface accents, and trust-building category cards show eco web design as practical commerce." },
-      { "url": "https://www.blueland.com/", "title": "Blueland", "note": "Professional fit: reusable-system diagrams, bright environmental palette, rounded product packs, and refill narrative sections make this eco reference distinct from handmade or botanical aesthetics." }
-    ],
-    "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Eco%20Design%20website%20design", "title": "Pinterest - Eco Design Website Design", "note": "Gallery fit: use this board search to compare sustainability diagrams, refill systems, recycled material cues, green trust hierarchy; it is useful for web moodboard clustering, not as proof of a single live site, and stays distinct from natural, which can be scenic without showing environmental systems." },
-      { "url": "https://www.awwwards.com/websites/green/", "title": "Awwwards - Eco Design References", "note": "Gallery fit: filter award examples for sustainability diagrams, refill systems, recycled material cues, green trust hierarchy; use it to study responsive hero, navigation, and section pacing, while rejecting generic polished pages closer to natural, which can be scenic without showing environmental systems." },
-      { "url": "https://dribbble.com/search/sustainable%20website%20design", "title": "Dribbble - Eco Design Website Design", "note": "Gallery fit: compare component-level treatments such as sustainability diagrams, refill systems, recycled material cues, green trust hierarchy; useful for buttons, cards, and landing sections, but less authoritative than the live sites for final style matching." }
     ]
   },
 
@@ -673,32 +647,6 @@
       { "url": "https://www.pinterest.com/search/pins/?q=Handmade%20website%20design", "title": "Pinterest - Handmade Website Design", "note": "Gallery fit: use this board search to compare irregular product crops, maker marketplace cards, soft tactile neutrals, personal shop hierarchy; it is useful for web moodboard clustering, not as proof of a single live site, and stays distinct from craft, which emphasizes process and durable material expertise." },
       { "url": "https://www.awwwards.com/websites/ecommerce/", "title": "Awwwards - Handmade References", "note": "Gallery fit: filter award examples for irregular product crops, maker marketplace cards, soft tactile neutrals, personal shop hierarchy; use it to study responsive hero, navigation, and section pacing, while rejecting generic polished pages closer to craft, which emphasizes process and durable material expertise." },
       { "url": "https://dribbble.com/search/handmade%20ecommerce%20website", "title": "Dribbble - Handmade Website Design", "note": "Gallery fit: compare component-level treatments such as irregular product crops, maker marketplace cards, soft tactile neutrals, personal shop hierarchy; useful for buttons, cards, and landing sections, but less authoritative than the live sites for final style matching." }
-    ]
-  },
-
-  "craft": {
-    "sites": [
-      { "url": "https://www.craftscouncil.org.uk/", "title": "Crafts Council", "note": "Professional fit: process-led objects, institutional maker taxonomy, exhibition grids, and material-focused article cards make this craft reference more exact than casual handmade marketplaces." },
-      { "url": "https://schoolhouse.com/", "title": "Schoolhouse", "note": "Professional fit: durable product photography, workshop-like material cues, restrained grid commerce, and utility-first room modules show craft as built quality rather than rustic decoration." },
-      { "url": "https://www.shinola.com/", "title": "Shinola", "note": "Professional fit: manufacturing storytelling, leather-and-metal product detail, precise commerce modules, and heritage workshop pacing make this a craft reference distinct from handmade softness." }
-    ],
-    "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Craft%20website%20design", "title": "Pinterest - Craft Website Design", "note": "Gallery fit: use this board search to compare process grids, material closeups, workshop surfaces, durable product modules; it is useful for web moodboard clustering, not as proof of a single live site, and stays distinct from handmade, which reads smaller and more personal." },
-      { "url": "https://www.awwwards.com/websites/ecommerce/", "title": "Awwwards - Craft References", "note": "Gallery fit: filter award examples for process grids, material closeups, workshop surfaces, durable product modules; use it to study responsive hero, navigation, and section pacing, while rejecting generic polished pages closer to handmade, which reads smaller and more personal." },
-      { "url": "https://dribbble.com/search/craft%20product%20website", "title": "Dribbble - Craft Website Design", "note": "Gallery fit: compare component-level treatments such as process grids, material closeups, workshop surfaces, durable product modules; useful for buttons, cards, and landing sections, but less authoritative than the live sites for final style matching." }
-    ]
-  },
-
-  "wabi-sabi": {
-    "sites": [
-      { "url": "https://casawabi.org/", "title": "Casa Wabi", "note": "Professional fit: quiet architecture photography, raw material surfaces, low-contrast earth tones, and contemplative page pacing make this wabi-sabi reference distinct from polished Japandi furniture." },
-      { "url": "https://bddw.com/", "title": "BDDW", "note": "Professional fit: imperfect wood grain, spare object staging, subdued room photography, and hand-finished product rhythm give web cues for wabi-sabi without becoming rustic commerce." },
-      { "url": "https://www.axel-vervoordt.com/", "title": "Axel Vervoordt", "note": "Professional fit: patinated interiors, stone-and-plaster neutrals, asymmetrical image calm, and restrained gallery navigation make this wabi-sabi reference stronger than luxury minimal precision." }
-    ],
-    "galleries": [
-      { "url": "https://www.pinterest.com/search/pins/?q=Wabi-Sabi%20website%20design", "title": "Pinterest - Wabi-Sabi Website Design", "note": "Gallery fit: use this board search to compare patina, asymmetry, raw surfaces, low-contrast contemplative spacing; it is useful for web moodboard clustering, not as proof of a single live site, and stays distinct from Japandi, which is smoother and more product-polished." },
-      { "url": "https://www.awwwards.com/websites/architecture/", "title": "Awwwards - Wabi-Sabi References", "note": "Gallery fit: filter award examples for patina, asymmetry, raw surfaces, low-contrast contemplative spacing; use it to study responsive hero, navigation, and section pacing, while rejecting generic polished pages closer to Japandi, which is smoother and more product-polished." },
-      { "url": "https://dribbble.com/search/wabi%20sabi%20website%20design", "title": "Dribbble - Wabi-Sabi Website Design", "note": "Gallery fit: compare component-level treatments such as patina, asymmetry, raw surfaces, low-contrast contemplative spacing; useful for buttons, cards, and landing sections, but less authoritative than the live sites for final style matching." }
     ]
   },
 

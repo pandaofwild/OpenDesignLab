@@ -11,7 +11,7 @@ This table is the working comparison sheet for keeping styles inside the same ca
 | swiss-design | Objective typographic order | baseline overlays, red signal bars | public-service/news grid, numbered modules | international-style, modernism | red marker plus strict asymmetric baseline grid | SWISS GRID |
 | international-style | Global system neutrality | standard panels, blue wayfinding, steel/acrylic | IBM-like repeatable portal panels and tables | swiss-design | poster tension 제거, corporate system rows | GLOBAL SYSTEM |
 | scandinavian | Bright Nordic practical commerce | birch, wool, ceramics, pale blue/sage | home product commerce, category and room modules | japandi, warm-minimal | cozy product density and practical shopping cards | NORDIC HOME |
-| japandi | Low quiet tactile space | shoji paper, ash wood, ceramic, stone | interior editorial flow, slow inquiry CTA | scandinavian, wabi-sabi | 낮은 수평 리듬, paper/wood material panels | LOW ROOM |
+| japandi | Low quiet tactile space | shoji paper, ash wood, ceramic, stone | interior editorial flow, slow inquiry CTA | scandinavian, kinfolk | 낮은 수평 리듬, paper/wood material panels | LOW ROOM |
 | warm-minimal | Approachable warm premium | cream, terracotta, brass, clay | studio portfolio, project cards, consultation CTA | soft-minimal, japandi | terracotta CTA and warm project studio flow | WARM STUDIO |
 | soft-minimal | Reassuring low-contrast service | vellum, rounded cards, pale grey-blue | service cards, package choices, booking CTA | warm-minimal, neumorphism | rounded low-tension service panels, no terracotta | SOFT SERVICE |
 | high-end-minimal | Luxury by exact subtraction | ivory/black, marble, satin, crop marks | luxury product detail, quiet commerce | minimalism, luxury | severe product crop, tiny CTA, gallery spacing | QUIET COMMERCE |
@@ -74,15 +74,11 @@ This table is the working comparison sheet for keeping styles inside the same ca
 
 | style slug | 핵심 정체성 | moodboard 시각 신호 | referenceSites 웹 UI 문법 | 겹치기 쉬운 스타일 | 반드시 다르게 보여야 하는 요소 | 샘플 고유 마커 |
 |---|---|---|---|---|---|---|
-| organic-design | Living-form wellness commerce | cork, clay, linen, flowing cutouts | curved apothecary/product modules | natural, botanical | flowing asymmetry and apothecary shelf | ORGANIC APOTHECARY |
-| natural | Open-air simple lifestyle | landscape crops, linen, pale wood | breathable market shelf and simple product rows | organic-design, eco-design | plain open-air shelf, no campaign signage | NATURAL MARKET |
+| natural | Open-air simple lifestyle | landscape crops, linen, pale wood | breathable market shelf and simple product rows | botanical, rustic | plain open-air shelf, no campaign signage | NATURAL MARKET |
 | botanical | Plant-specific commerce | pressed leaves, glassine, herbarium | plant shop, glasshouse filters, species cards | natural, art-nouveau | leaf structure and glasshouse taxonomy | BOTANICAL GLASSHOUSE |
-| eco-design | Sustainability impact system | recycled paper, impact chips, green seals | impact metrics, refill loops, certification rows | natural, organic-design | quantified eco actions and impact cards | ECO IMPACT |
-| rustic | Farmhouse/lodge texture | rough wood, burlap, iron, clay | lodge shop, rough material cards | vintage, craft | coarse wood and lodge commerce | RUSTIC LODGE |
-| kinfolk | Slow lifestyle journal | natural light, quiet paper, table stills | slow article journal and lifestyle essay | wabi-sabi, japandi | editorial calm with lifestyle pacing | SLOW JOURNAL |
-| handmade | Human-made marketplace | stitch, patch, uneven paper | maker cards, patch market, human labels | craft, kitsch | visible hand marks and irregular patches | PATCH MARKET |
-| craft | Process-led workshop | tools, material samples, ledger cards | workshop ledger, process cards, inventory rows | handmade, rustic | making process and tool ledger | WORKSHOP LEDGER |
-| wabi-sabi | Imperfect quiet aging | cracked ceramic, rough paper, shadow | tea gallery, sparse object cards | japandi, kinfolk | asymmetry, imperfection, quiet object spacing | TEA GALLERY |
+| rustic | Farmhouse/lodge texture | rough wood, burlap, iron, clay | lodge shop, rough material cards | vintage | coarse wood and lodge commerce | RUSTIC LODGE |
+| kinfolk | Slow lifestyle journal | natural light, quiet paper, table stills | slow article journal and lifestyle essay | japandi | editorial calm with lifestyle pacing | SLOW JOURNAL |
+| handmade | Human-made marketplace | stitch, patch, uneven paper | maker cards, patch market, human labels | kitsch | visible hand marks and irregular patches | PATCH MARKET |
 
 ## 귀여움 / 캐주얼
 
