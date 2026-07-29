@@ -761,3 +761,15 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - 명령: `check:data`(78)·`check:style-distinction`(78)·`check:style-refs`(78)·`npm run lint`(경고 0)·`tsc --noEmit`·`next build`(550 pages) 통과.
 - screenshots: `nouveau-before.jpeg`, `nouveau-final.jpeg`, `nouveau-selected.jpeg`, `nouveau-mobile.jpeg`, `nouveau-compact.jpeg`.
 - 남은 의심점: 무드보드 `art-nouveau-realistic-v2.webp`는 세이지/앰버 기조라 새 팔레트의 공작 청록·오베르진과 완전히 일치하지는 않음. baroque와 같은 사유로 이번 패스에서는 교체하지 않음.
+
+## 28. baroque / art-nouveau 무드보드 재생성 (소유자 지시: "무드보드도 새 팔레트로 다시 생성해줘")
+
+- 26·27번에서 남겨둔 의심점 해소. 두 무드보드 모두 재설계 이전 팔레트(baroque=버건디 벨벳, art-nouveau=세이지/앰버) 기조라 샘플·색상표와 어긋나 있었다.
+- 신규 스크립트 `scripts/gen-moodboard.mjs`. `gen-style-image.mjs`와 같은 `/responses` + `image_generation` 방식이되 출력이 `public/generated/moodboards/`이고 형제 파일에 맞춰 16:10 1600×1001로 리사이즈한다. `PROMPTS`를 export하고 CLI를 main-module 가드로 감싸서 데이터 갱신 스크립트가 프롬프트를 그대로 재사용할 수 있게 했다.
+- **엔드포인트 함정 3개 기록:** (1) 프록시 포트가 문서의 18632가 아니라 **10100**이었다 — opencodex 프록시라 `ocx status`로 확인해야 하고, 낡은 포트로는 curl이 000으로 죽는다. (2) `store: false` 없으면 400 `"Store must be set to false"`. (3) `stream: true` 없으면 400 `"Stream must be set to true"` — 응답이 SSE라 `response.output_item.done` / `response.completed`에서 base64를 꺼내는 파서가 필요하다. `AGENTS.md`의 엔드포인트 문단도 포트 하드코딩 대신 `ocx status`로 확인하도록 고쳤다.
+- baroque 결과: 니어블랙 래커 위 좌상단 단일 강한 광원(테네브리즘이 사진 조명 조건 자체가 됨), 아칸서스 스크롤워크 판화, 타원 카르투슈 스터디, 금박 프레임 모서리 파편, 크림슨 벨벳+금 브로케이드, 베르디그리 벨벳, 금박·월넛·대리석 샘플, 그리고 샘플의 `box tier plan`과 맞물리는 말굽형 객석 평면도. 수용 체크리스트 통과.
+- art-nouveau 결과: 양피지 위 주철 채찍선 장식 파편, 납선 앰버/피콕 스테인드글라스, **한 줄의 사인 곡선이 페이지를 조직하는** 레이아웃 프루프(샘플의 원칙과 동일), 자기 자신에게로 감기는 줄기 잉크 드로잉, 실제로 말려 있는 고사리 순(crozier), 세이지·오베르진 칩, 공작 깃털. 수용 체크리스트 통과.
+- 데이터: 두 `StyleMoodboard` 레코드의 `alt`·`caption`·`directionKeywords`·`imageSrc`·`prompt`를 전부 교체(`/generated/moodboards/{baroque,art-nouveau}.webp`). 구 `*-realistic-v2.webp`는 참조가 끊긴 채 남겨둠(`anti-design`도 두 형식이 공존하는 기존 관행).
+- `docs/style-category-distinction-table.md`의 baroque·art-nouveau 행이 재설계 이전 방향(gallery commerce / perfume card, green gold)을 그대로 담고 있어 새 정체성·마커로 갱신.
+- 명령: `check:data`(78)·`check:style-distinction`(78)·`check:style-refs`(78)·`lint`·`tsc --noEmit`·`build`(550 pages) 통과. 두 상세 페이지에서 무드보드 이미지·디렉션 키워드·프롬프트 렌더 확인, 390 모바일 page overflow 0.
+- 남은 의심점: 없음.
