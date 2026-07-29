@@ -74,7 +74,7 @@
 | 40 | 럭셔리 / 클래식 | art-nouveau | organic-brand | verified | MÉTROPOLITAIN 기마르 파리 메트로 — 리소그래프 프리즈 아피시 헤드(타이틀 밴드가 장식 위에 걸침), 팔레트 전면 교체(Mucha/Tiffany 보라–주황–초록 삼색조), 손으로 그린 비대칭 coup de fouet가 레이아웃 축이자 역 선택 UI, 주철 줄기 마스트헤드, 납선 유리 트랜섬, 역 기록·다음 열차·요금·노선 색인 |
 | 41 | 럭셔리 / 클래식 | baroque | luxury-product | verified | TEATRO SAN CASSIANO 바로크 오페라 극장 — 사진 0장, 팔레트 전면 교체(진짜 near-black + 진짜 금박 + 크림슨 레이크), 금박 스크롤워크 프로시니엄, 크림슨 발랑스, 말굽형 palchi 평면도(등급 선택), 배역표·아리아·레퍼토리 |
 | 42 | 럭셔리 / 클래식 | rococo | luxury-product | queued | pastel shell curves, playful ornament, salon delicacy |
-| 43 | 럭셔리 / 클래식 | gothic | street-campaign | queued | vertical stone, pointed arches, dark ecclesiastical rhythm |
+| 43 | 럭셔리 / 클래식 | gothic | street-campaign | verified | OPUS FABRICAE 대성당 조영국(fabric) — 팔레트 전면 교체(니어블랙 → 차가운 슬레이트 석재 + 샤르트르 유리), 랜싯 비례 실사 + 뾰족아치 7베이 입면(등급별 유리 충전, 선택 연동), bay record·fabric roll |
 | 44 | 자연 / 수공예 | natural | organic-brand | queued | landscape material, earth palette, broad outdoor calm |
 | 45 | 자연 / 수공예 | botanical | organic-brand | queued | leaf detail, herbarium structure, plant-specific grid |
 | 46 | 자연 / 수공예 | rustic | organic-brand | queued | rough local material, weathered wood, hospitality warmth |
@@ -822,3 +822,35 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - 부수 수정: 아피시 헤드 부제에서 `</span>` 뒤 공백이 JSX에 먹혀 "Vincennes· MCM"으로 붙어 있었다. `{" "}`로 명시해 해결(DOM 텍스트로 확인).
 - 검증(2026-07-30): 1440 full·390 모바일·compact 카드 모두 page overflow 0, 샘플 내부 overflow 0, console error 0. `check:data`(78)·`check:style-distinction`(78)·`lint`·`tsc --noEmit`·`build`(550 pages) 통과.
 - 남은 의심점: 없음.
+
+## 32. gothic — 재디자인 (소유자 지시: "Gothic도 수정 들어가자")
+
+### 현재 판정
+
+- 현재 `GothicCathedralArchive`(Stone Archive)는 앞선 스타일들과 정확히 같은 실패를 반복하고 있었다.
+  1. **뾰족아치가 없다.** `clipPath: polygon(50% 0, 100% 32%, ...)`로 만든 **오각형 도형 3개에 그라디언트**를 채웠을 뿐이고, 트레이서리·리브·수직 체계가 전무하다.
+  2. 좌측은 값 없는 빈 라벨 3개(POINTED ARCH / STAINED GLASS / STONE RIBS).
+  3. 배경이 `PhotoSurface scene="studio"` 플레이스홀더.
+  4. 팔레트가 자기 `avoidTraits`에 적힌 **"Generic black fashion page"** 그대로(base `#0D0F12`).
+- 웹 리서치의 결정적 문장: **"The entire Gothic structural system — pointed arches, ribbed vaults, flying buttresses — exists ultimately to free the wall for light."** 즉 어두운 화면에 탁한 색면을 얹는 것은 고딕의 정반대다. 수직 상승은 초월의 상징이므로 verticality도 장식이 아니라 구조다.
+
+### 목표
+
+- 컨셉: **"OPUS FABRICAE"** — 방문자 안내 페이지도 상점도 아닌 **대성당 조영국(fabric, 건축기금·작업소)**. 유리를 베이 단위로 시공·모금하는 실무 화면.
+- 팔레트 전면 교체: base `#22262E`(차가운 슬레이트) / surface `#2E333D` / text `#E9E7DF`(석회암) / muted `#9BA0AA` / primary `#2C6BA8`(코발트 유리) / accent `#A8202F`(루비) / accent2 `#D8B453`(금) / accent3 `#2F7A5E`(에메랄드) / border `#6E7480`. 바로크가 따뜻한 니어블랙+금박을 쓰므로 고딕은 **차갑고 한 단계 밝은 석재**로 분리한다.
+- 고유 마커: `Opus Fabricae` / `bay elevation` / `bay record` / `fabric roll` / `Ferramenta`.
+- 골격: **수직성 자체가 레이아웃**. 좌측을 랜싯 비례 실사가 전면 높이로 차지하고(머리를 뾰족아치로 클립), 우측 작업 모듈은 뾰족아치 7베이 입면이다.
+
+### 구현 및 검증 결과 (2026-07-30)
+
+- status: `verified`.
+- 변경 요약: 인라인 `GothicCathedralArchive` 삭제 → 위임 래퍼 `GothicGlazingFabric` + 신규 `OpusFabricae.tsx`(use client, 베이 선택 useState). `PhotoSurface` 제거.
+- 이미지: `scripts/gen-style-image.mjs`에 `gothic` 프롬프트와 **세로 사이즈 옵션(`SIZES`)** 추가 후 1024×1536 생성. 결과는 실제 애프스 — 코발트·루비 랜싯이 화면에서 가장 밝고, 차가운 석회암과 리브볼트 스프링잉, 석재에 떨어진 색광까지. "벽을 열어 빛을 들인다"는 판정 기준을 그대로 만족.
+- `BayElevation`: 두 중심 뾰족아치 7개를 리터럴 좌표로 그리고, 각 베이를 모금 상태(glazed / in the lodge / awaiting)에 따라 유리색으로 **아래에서부터 채운다**. 새들바(가로 철물)와 중앙 멀리언, 아치 머리의 트레포일 포함. 선택 시 금색 윤곽 + `bay record` 연동.
+- 조형 원칙: **아치는 구조라서 그렸고, 잔장식은 그리지 않았다.** 앞선 아르누보에서 얻은 교훈(선 장식을 벡터로 그리면 실패)을 구조/장식으로 나눠 적용.
+- 튜닝 2회: (1) viewBox 상단 33%가 빈 공간이라 아치가 화면을 못 채움 → 랜싯을 크게 높이고(BAY_BASE 122→210) viewBox를 내용에 맞춤. (2) 2열 dl에 점선 리더를 쓰니 "Lodge of the Fab…"가 잘림 → 라벨-값 세로 스택 + 좌측 굵은 괘선으로 교체(점선 리더는 classic의 서명이므로 중복도 해소).
+- 데이터: representativeTraits를 "Dark sacred mood" 중심에서 "Wall dissolved for light" 중심으로 교체, avoidTraits에 이번에 실제로 걸린 실패 모드("Dull colour blocks standing in for glass", "Near-black ground with no stone in it") 추가. 한국어 summary/description/visualFeatures/layoutTraits/imagePrompt도 빛·구조 기준으로 재작성. `docs/style-category-distinction-table.md`의 gothic 행도 갱신.
+- 인터랙션 QA: Bay VII 클릭 시 `bay record`가 The Last Judgement / Awaiting a benefactor / Not yet let / Missing / £ 60으로 갱신 확인.
+- browser QA: 1440 full(702×540)·390 모바일(330×540)·compact 카드(505×218) 모두 page overflow 0, 샘플 내부 overflow 0, 상세 페이지 console error 0. 잘린 dd 0건(DOM 측정).
+- 명령: `check:data`(78)·`check:style-distinction`(78)·`check:style-refs`(78)·`lint`·`tsc --noEmit`·`build`(550 pages) 통과.
+- 남은 의심점: 무드보드 `gothic-realistic-v2.webp`는 이전의 어두운 기조라 새 팔레트와 완전히 일치하지 않는다. baroque·art-nouveau와 같은 사유로 이번 패스에서는 두었다.

@@ -68,7 +68,7 @@ This table is the working comparison sheet for keeping styles inside the same ca
 | art-nouveau | Ornament integrated into the structure | coup de fouet line, cast iron, leaded amber/peacock glass, coiled fern crozier | one sinuous asymmetric line organising the page instead of a grid | botanical, rococo | the whiplash must carry the layout, not edge it; peacock/amber/aubergine, never olive eco green | MÉTROPOLITAIN / whiplash line / station record |
 | baroque | Tenebrist theatre, ornament as structure | one raking light on near-black, curved scrollwork, cartouche, crimson velvet, true gilt | ceremonial hierarchy, staged venue modules | rococo, gothic | real near-black pierced by one warm source, curved scrollwork; never an evenly lit maroon wash or rectangular borders | Teatro San Cassiano / gilded proscenium / box tier plan |
 | rococo | Light salon ornament | shell curves, porcelain, pastel | delicate product/salon market cards | baroque, pastel-style | pastel shell asymmetry, no darkness | PORCELAIN SALON |
-| gothic | Cathedral verticality | pointed arches, stained glass, stone | visitor/archive modules with vertical sacred mood | baroque | vaulted modules and stained-glass grid | CATHEDRAL ARCHIVE |
+| gothic | The wall opened for light | brilliant glass on cool limestone, lancet proportion, tracery, rib vault | bay-by-bay works modules, lancet columns instead of a grid | baroque | glass is the brightest thing and the stone is cool; never a near-black page with dull colour blocks | Opus Fabricae / bay elevation / bay record |
 
 ## 자연 / 수공예
 

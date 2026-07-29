@@ -817,15 +817,19 @@ const palettes: Record<string, DesignStylePalette> = {
     border: "#D8C4BA",
   },
   gothic: {
-    base: "#0D0F12",
-    surface: "#171A1F",
-    text: "#ECE5D0",
-    mutedText: "#A4A3A0",
-    primary: "#ECE5D0",
-    accent: "#7D1128",
-    accent2: "#1E4A70",
-    accent3: "#C0A35A",
-    border: "#8D806A",
+    // The whole Gothic structural system exists to free the wall for light, so
+    // a near-black page with dull colour blocks inverts the style. Cool slate
+    // stone — clearly cooler and lighter than Baroque's warm near-black — with
+    // brilliant Chartres glass carrying the light: cobalt, ruby, gold, emerald.
+    base: "#22262E",
+    surface: "#2E333D",
+    text: "#E9E7DF",
+    mutedText: "#9BA0AA",
+    primary: "#2C6BA8",
+    accent: "#A8202F",
+    accent2: "#D8B453",
+    accent3: "#2F7A5E",
+    border: "#6E7480",
   },
   natural: {
     base: "#E9E1D0",
@@ -1488,9 +1492,9 @@ const luxuryClassicResearch: Record<string, StyleResearchBrief> = {
       { title: "Awwwards - Dark Websites", url: "https://www.awwwards.com/websites/dark/", note: "Gallery reference for polished dark web execution, strong contrast, dramatic imagery, and immersive atmospheric pages." },
       { title: "Dribbble - Gothic Website", url: "https://dribbble.com/search/gothic%20website", note: "UI reference for Gothic landing pages, pointed-arch cards, dark fashion pages, and stained-glass interface motifs." },
     ],
-    representativeTraits: ["Pointed arch", "Stone verticality", "Stained glass color", "Dark sacred mood", "Vaulted modules"],
-    avoidTraits: ["Halloween novelty", "Cyberpunk dark neon", "Baroque candle palace", "Generic black fashion page"],
-    tokenIntent: "Use charcoal stone, wine, blue glass, aged gold, serif type, sharp arches, and vertical modules so Gothic reads as cathedral structure rather than generic dark style.",
+    representativeTraits: ["Wall dissolved for light", "Pointed arch and rib vault as structure", "Brilliant Chartres glass on cool stone", "Lancet verticality as the layout", "Tracery rhythm across bays"],
+    avoidTraits: ["Halloween novelty", "Cyberpunk dark neon", "Baroque warm candle palace", "Generic black fashion page", "Dull colour blocks standing in for glass", "Near-black ground with no stone in it"],
+    tokenIntent: "Use cool limestone and slate stone with brilliant cobalt, ruby, gold and emerald glass as the brightest thing on the page, pointed arches and lancet proportion as the layout itself, so Gothic reads as a wall opened for light rather than as a dark page.",
   },
 };
 
@@ -2240,13 +2244,13 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     research: luxuryClassicResearch.rococo,
   },
   gothic: {
-    summary: "고딕은 뾰족한 아치, 스테인드글라스, 석재의 수직 리듬, 어두운 색으로 장중하고 구조적인 웹 화면을 만드는 스타일입니다.",
+    summary: "고딕은 뾰족한 아치와 리브 볼트가 벽을 열어 빛을 들이는 구조이며, 그래서 화면에서 가장 밝은 것은 유리여야 합니다.",
     description:
-      "고딕은 단순히 검은 배경을 쓰는 것이 아니라 건축적 수직성과 빛의 구조가 보여야 합니다. Westminster Abbey, Notre-Dame, Cologne Cathedral, The Met, V&A처럼 포인티드 아치, 리브 구조, 스테인드글라스 색, 오래된 석재 질감이 실제 아카이브나 패션/문화 페이지의 모듈로 번역되어야 합니다.",
-    visualFeatures: ["뾰족한 아치와 높은 세로 분할이 핵심 형태입니다.", "와인, 딥 블루, 낡은 금색이 스테인드글라스처럼 어두운 배경 위에 뜹니다.", "장식은 성당 구조처럼 수직적이고 반복적이어야 합니다."],
-    layoutTraits: ["좌측 인덱스와 우측 아치형 비주얼 모듈이 잘 맞습니다.", "스테인드글라스 색은 카드 내부에만 제한적으로 사용합니다.", "모바일에서는 아치 장식을 줄이고 제목, 이미지, 링크 순서를 명확히 합니다."],
+      "고딕의 구조 체계 전체 — 뾰족한 아치, 리브 볼트, 플라잉 버트레스 — 는 결국 벽을 하중에서 해방시켜 유리로 바꾸기 위해 존재합니다. 그래서 검은 배경에 어두운 색면을 얹는 것은 고딕이 아니라 그 정반대입니다. 돌은 돌색(차가운 석회암과 슬레이트)이어야 하고, 코발트·루비·에메랄드·금색 유리가 화면에서 압도적으로 가장 밝아야 합니다. 수직성은 장식이 아니라 구조이며, 상승은 곧 초월을 뜻했습니다. Westminster Abbey, Notre-Dame, Cologne Cathedral의 신랑 사진에서 확인할 수 있습니다.",
+    visualFeatures: ["차가운 석재 위에서 스테인드글라스가 화면의 광원 역할을 합니다. 유리가 가장 밝지 않으면 고딕으로 읽히지 않습니다.", "뾰족한 아치, 리브, 트레이서리는 장식이 아니라 하중을 옮기는 구조로 쓰여야 합니다.", "랜싯 비례의 세로 분할이 레이아웃 골격 자체가 됩니다."],
+    layoutTraits: ["세로로 긴 랜싯 열이 그리드를 대신합니다. 아치를 카드 테두리 장식으로 쓰지 않습니다.", "베이 단위로 반복되는 트레이서리 리듬이 정보 구획을 만듭니다.", "모바일에서는 베이 수를 줄이되 수직 비례는 유지합니다."],
     imagePrompt:
-      "A Gothic cathedral archive website reference image with pointed arch modules, stained glass wine and deep blue accents, charcoal stone surface, sacred vertical rhythm, no logo, no watermark",
+      "A Gothic reference image of a cathedral interior where the wall has been opened for light: tall lancet windows of brilliant cobalt, ruby, emerald and gold stained glass blazing against cool pale limestone, ribbed vault springing, clustered colonnettes, coloured light thrown on the stone, no logo, no watermark",
     research: luxuryClassicResearch.gothic,
   },
   retro: {

@@ -16,6 +16,7 @@ import { MaximalistSalonWall } from "./MaximalistSalonWall";
 import { MetropolitainLine } from "./MetropolitainLine";
 import { MillikelvinControlPlane } from "./MillikelvinControlPlane";
 import { NightMarketClinic } from "./NightMarketClinic";
+import { OpusFabricae } from "./OpusFabricae";
 import { OrbitalTransitConsole } from "./OrbitalTransitConsole";
 import { RedRoomCaseDesk } from "./RedRoomCaseDesk";
 import { RolleramaRink } from "./RolleramaRink";
@@ -3016,48 +3017,13 @@ function RococoSalonMarket({ className, compact = false, style }: Props) {
   );
 }
 
-function GothicCathedralArchive({ className, compact = false, style }: Props) {
+function GothicGlazingFabric({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={className} compact={compact} style={style}>
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0_24%,rgb(var(--st-accent-2-rgb)_/_0.12)_24%_25%,transparent_25%_49%,rgb(var(--st-accent-rgb)_/_0.16)_49%_51%,transparent_51%_74%,rgb(var(--st-accent-2-rgb)_/_0.12)_74%_75%,transparent_75%)]" />
-      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Stone Archive" bordered={false} compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />]} links={["Vault", "Glass", "Shop"]} sub="Gothic" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.82fr_1.18fr]" : "grid-cols-[0.72fr_1.28fr]")}>
-          <div className="flex min-h-0 flex-col justify-between border-r border-[var(--sample-border-soft)] pr-3">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--sample-muted)]">Cathedral index</p>
-              <h3 className={cn("mt-3 font-display font-normal leading-[0.9] text-[var(--sample-primary)]", compact ? "text-3xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                Gothic
-              </h3>
-            </div>
-            <div className="grid gap-2">
-              {["Pointed arch", "Stained glass", "Stone ribs"].map((item) => (
-                <span className="border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.72)] px-3 py-2 text-[9px] uppercase tracking-[0.16em]" key={item}>
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-          <PhotoSurface className="min-h-0 border border-[var(--sample-border-soft)]" scene="studio" style={{ backgroundColor: "var(--sample-surface)" }}>
-            <div className="absolute inset-5 grid grid-cols-3 gap-3">
-              {[style.palette.accent, style.palette.accent2, style.palette.accent3].map((color, index) => (
-                <div className="relative overflow-hidden border border-[var(--sample-border-soft)] bg-[rgb(0_0_0_/_0.22)]" key={color} style={{ clipPath: "polygon(50% 0, 100% 32%, 100% 100%, 0 100%, 0 32%)" }}>
-                  <span className="absolute inset-x-1 top-8 h-px bg-[var(--sample-border-soft)]" />
-                  <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-[var(--sample-border-soft)]" />
-                  <span className="absolute inset-2 opacity-80" style={{ background: `linear-gradient(150deg, ${color}, transparent 72%)` }} />
-                  <span className="absolute bottom-2 left-2 text-[8px] uppercase tracking-[0.12em] text-[var(--sample-primary)]">0{index + 1}</span>
-                </div>
-              ))}
-            </div>
-            <span className="absolute bottom-4 left-4 right-4 border border-[var(--sample-border-soft)] bg-[rgb(var(--st-base-rgb)_/_0.86)] px-3 py-2 text-[10px] uppercase tracking-[0.18em] text-[var(--sample-primary)]">Vaulted collection</span>
-          </PhotoSurface>
-        </div>
-        <LuxuryClassicBottomStrip compact={compact} items={[["Form", "Arch"], ["Light", "Glass"], ["Tone", "Sacred"]]} />
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2.5" : "", className)} compact={compact} style={style}>
+      <OpusFabricae compact={compact} />
     </SampleFrame>
   );
 }
-
 function BrutalistPoster({ compact = false, style }: Props) {
   return (
     <SampleFrame compact={compact} className="bg-[var(--sample-base)]" style={style}>
@@ -6945,7 +6911,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "gothic") {
-    return <GothicCathedralArchive {...props} />;
+    return <GothicGlazingFabric {...props} />;
   }
 
   if (style.slug === "natural") {

@@ -8,6 +8,10 @@ import path from "node:path";
 import sharp from "sharp";
 import { generateImage } from "./lib/imagegen.mjs";
 
+const SIZES = {
+  gothic: "1024x1536",
+};
+
 // Scene (not flat-lay) prompts: domain product/interior photography that crops
 // cleanly into the sample image block. Palettes mirror src/data/designStyles.ts.
 const PROMPTS = {
@@ -27,6 +31,8 @@ const PROMPTS = {
     "A luminous generative-AI world-model render, no people and no text. A vast dreamlike atrium made of soft frosted-glass architecture bathed in bright airy daylight: pale translucent ribbed arches curve upward into a hazy pastel-lavender sky, gentle mist and soft mesh-like light particles drift through the air, a still reflective pool on the floor doubles the glow in blush-pink and powder-blue. The surfaces feel computationally smooth and impossibly soft, pastel gradients bleeding into one another the way a diffusion model renders light, with gentle iridescent fringing at the edges of forms. Palette: pearl white, pale lavender, powder blue, soft icy cyan, blush pink, warm cream highlights. Bright airy wide composition, shallow depth of field, soft luminous glow, high production render quality, low contrast and high-key exposure. No text, no letters, no numbers, no logos, no watermark, no people, no UI, no readable interface, no dark or saturated neon colors.",
   maximalism:
     "An opulent maximalist interior in the style of a high-end London pattern house, no people and no text. A moody drawing room wrapped floor-to-ceiling in dense dark botanical patterned wallpaper (deep aubergine-plum ground, trailing emerald vines, peony-pink blooms, small gold accents), a wall of salon-hung ornate gilt picture frames of different sizes, a deep emerald green velvet sofa in the centre stacked with clashing patterned cushions (leopard print, pink chintz, gold fringe) on the right side, an ornate brass table lamp with a patterned pleated shade glowing warmly on a dark marble side table at the left side, a layered antique rug, a trailing potted fern. Rich moody warm evening light, jewel tones, glossy brass highlights, dense but composed styling, shallow depth of field. Realistic high-end editorial interiors photography, wide composition, luxurious more-is-more abundance. Palette: deep plum-aubergine, bottle emerald green, peony pink, antique gold, warm cream. No text, no letters, no numbers, no logos, no watermark, no people, no UI.",
+  gothic:
+    "A tall vertical photograph looking up at a rank of Gothic cathedral lancet windows from inside the nave, no people and no text. Three slender pointed-arch windows rise the full height of the frame, filled with brilliant medieval stained glass in deep cobalt blue, ruby red, emerald green and warm gold, the leadwork reading as a fine dark web across the colour, and the glass blazing with daylight so it is by far the brightest thing in the picture. Around them the cool pale-grey limestone wall, slender colonnettes, moulded arch heads and the springing of a ribbed vault fall into calm shadow, with coloured light thrown softly onto the stone. Cool even interior light, no candles, no warm gilt, deep clear shadow rather than blackness. Realistic high-quality architectural interior photography, strong vertical composition, camera level and symmetrical, sharp detail in the tracery. Palette: cool slate and limestone grey, cobalt blue, ruby red, emerald green, warm gold glass, soft bone highlights. No text, no letters, no numbers, no logos, no watermark, no people, no faces, no religious figures with recognisable faces, no candles, no UI, no overlays, no orange candlelight, no gloom.",
   "art-nouveau-frieze":
     "A wide horizontal Art Nouveau decorative panel in the manner of a 1900 Parisian colour lithograph — a printed illustration, absolutely NOT a photograph, and no people and no text. A continuous band of tall iris and lily stems whose long sinuous stalks sweep and double back on themselves in whiplash curves across the full width, unfurling fern croziers coiled at two points, broad flat leaves overlapping, and a few open blooms held near the top of the band. Drawn with a confident dark olive-brown contour line of varying weight and filled with flat, chalky, low-saturation lithographic colour — no gradients, no gloss, no modern vector sheen. The band reads as an ornamental frieze with generous cream paper showing through between the stems, denser at the left and right ends and calmer through the middle. Subtle stone-litho paper grain and slight ink misregistration at a few edges. Palette: warm cream paper, muted sage green, dusty olive, soft muted gold, dusty rose, faded soft teal, olive-brown ink. All colours are muted and dusty like aged poster ink, never bright or saturated. Wide letterbox composition, decorative border proportion. No text, no letters, no numbers, no logos, no watermark, no signature, no people, no faces, no figures, no UI, no photographic realism, no 3D render.",
   "art-nouveau":
@@ -83,7 +89,7 @@ async function generate(slug) {
   const prompt = PROMPTS[slug];
   if (!prompt) throw new Error(`No prompt configured for slug: ${slug}`);
 
-  const png = await generateImage(prompt);
+  const png = await generateImage(prompt, SIZES[slug] ? { size: SIZES[slug] } : undefined);
   const outDir = path.join(process.cwd(), "public", "generated", "design-styles");
   await mkdir(outDir, { recursive: true });
   const outPath = path.join(outDir, `${slug}.webp`);
