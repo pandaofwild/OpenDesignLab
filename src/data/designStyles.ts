@@ -774,15 +774,19 @@ const palettes: Record<string, DesignStylePalette> = {
     border: "#D8A94B",
   },
   "art-nouveau": {
-    base: "#E8E2CE",
-    surface: "#F9F1DA",
-    text: "#253021",
-    mutedText: "#6A745E",
-    primary: "#253021",
-    accent: "#5F7F4F",
-    accent2: "#D3A75E",
-    accent3: "#9B5867",
-    border: "#58694C",
+    // The old olive-on-khaki set read as generic eco/natural and collided with
+    // the botanical styles. Art Nouveau's own colour is the purple-orange-green
+    // triad of Mucha and Tiffany over parchment: peacock iron patina, burnished
+    // amber glass, aubergine, sage stem.
+    base: "#F1E8D6",
+    surface: "#FBF4E4",
+    text: "#22302E",
+    mutedText: "#7C7059",
+    primary: "#12545C",
+    accent: "#C98A2E",
+    accent2: "#5B304A",
+    accent3: "#8CA06B",
+    border: "#A98B57",
   },
   baroque: {
     // Tenebrism needs a real near-black ground pierced by one warm light —
@@ -1431,9 +1435,9 @@ const luxuryClassicResearch: Record<string, StyleResearchBrief> = {
       { title: "Awwwards - Illustration Websites", url: "https://www.awwwards.com/websites/illustration/", note: "Gallery reference for illustrated web craft, ornamental interaction, organic imagery, and polished decorative storytelling." },
       { title: "Dribbble - Art Nouveau Website", url: "https://dribbble.com/search/art%20nouveau%20website", note: "UI reference for Art Nouveau cards, botanical frames, curved product panels, and decorative landing pages." },
     ],
-    representativeTraits: ["Whiplash line", "Botanical frame", "Perfume or poster object", "Warm green gold palette", "Organic internal shapes"],
-    avoidTraits: ["Generic organic minimalism", "Rococo shell pastel", "Baroque gold heaviness", "Flat botanical clipart"],
-    tokenIntent: "Use botanical greens, warm gold, serif type, vine-like internal frames, and curved product modules so Art Nouveau reads as plant-led ornament rather than generic nature style.",
+    representativeTraits: ["Coup de fouet whiplash line", "Ornament integrated into the structure", "Cast-iron and leaded-glass modules", "Peacock amber and aubergine triad", "Plant forms thrown off the stem"],
+    avoidTraits: ["Generic organic minimalism", "Rococo shell pastel", "Baroque gold heaviness", "Flat botanical clipart", "Olive eco palette shared with the botanical styles", "A regular sine wave standing in for the whiplash"],
+    tokenIntent: "Use the purple-orange-green triad of Mucha and Tiffany over parchment, peacock iron patina, amber lamp glass, and a sinuous asymmetric line that carries the layout itself so Art Nouveau reads as ornament made structural rather than as generic nature styling.",
   },
   baroque: {
     referenceSites: [
@@ -2204,13 +2208,13 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     research: luxuryClassicResearch["art-deco"],
   },
   "art-nouveau": {
-    summary: "아르누보는 식물적 곡선, 유리와 금속 공예, 장식적 선을 향수나 문화 페이지처럼 흐르는 웹 구조로 만드는 스타일입니다.",
+    summary: "아르누보는 채찍처럼 되꺾이는 비대칭 곡선이 장식이자 구조가 되어 화면 전체를 끌고 가는 스타일입니다.",
     description:
-      "아르누보는 단순한 꽃 장식이 아니라 선의 흐름이 레이아웃을 이끄는 스타일입니다. Mucha Foundation, Horta Museum, Casa Batllo, V&A, The Met 레퍼런스처럼 덩굴형 프레임, 유기적 내부 카드, 보태니컬 색, 공예적 소재가 실제 제품/전시 화면 안에서 보여야 합니다.",
-    visualFeatures: ["덩굴 같은 곡선과 비대칭 유기형 프레임이 핵심 신호입니다.", "세이지 그린, 금빛 베이지, 말린 꽃색이 장식성과 자연성을 연결합니다.", "향수병, 포스터, 식물 표본 같은 오브젝트가 잘 어울립니다."],
-    layoutTraits: ["좌측 설명과 우측 유기형 제품 히어로가 잘 맞습니다.", "곡선은 내부 요소에서 쓰고 전체 프레임은 읽기 쉽게 유지합니다.", "모바일에서는 곡선 장식을 배경화하고 제품 정보 순서를 유지합니다."],
+      "아르누보의 단 하나의 확실한 서명은 쿠 드 푸에(coup de fouet), 즉 채찍선입니다. 고사리 순이 풀리듯 길게 휘어 자기 자신에게로 되꺾이는 비대칭 곡선이고, 완급이 일정한 물결무늬는 이 스타일이 아닙니다. 더 중요한 원칙은 이 시대 디자이너들이 장식을 구조 자체에 통합했다는 점입니다. Horta는 철골을 감추지 않고 드러낸 채 그 위에 식물 스크롤을 입혔고, Guimard의 1900년 파리 메트로 입구는 주철 줄기가 그대로 구조이자 장식입니다. 곡선을 다 만든 레이아웃 위에 얹으면 아르누보가 되지 않습니다.",
+    visualFeatures: ["되꺾이는 비대칭 채찍선이 유일하고 확실한 서명입니다.", "Mucha와 Tiffany의 보라–주황–초록 삼색조를 양피지 바탕에 올립니다. 공작 청록, 호박 유리, 오베르진, 세이지 줄기.", "주철 곡선, 납선 유리, 식물이 줄기에서 갈라져 나오는 형태가 실제 부재로 쓰입니다."],
+    layoutTraits: ["곡선이 배경 장식이 아니라 정보를 배치하는 축이어야 합니다.", "장식과 구조를 나누지 않습니다. 프레임, 내비게이션, 구획선 자체가 식물 형태입니다.", "모바일에서는 곡선의 진폭을 줄이되 되꺾이는 성질은 유지합니다."],
     imagePrompt:
-      "An Art Nouveau botanical perfume website reference image with flowing vine frames, glass bottle, warm green and gold palette, organic line ornament, elegant serif typography, no logo, no watermark",
+      "An Art Nouveau reference image built on the coup de fouet whiplash line, cast-iron plant stems as structure, leaded amber and peacock glass, Mucha-Tiffany purple-orange-green triad over parchment, no logo, no watermark",
     research: luxuryClassicResearch["art-nouveau"],
   },
   baroque: {

@@ -13,6 +13,7 @@ import { HologramClinicalVolume } from "./HologramClinicalVolume";
 import { LatentStudioPanel } from "./LatentStudioPanel";
 import { AtomicInteriorsJournal } from "./AtomicInteriorsJournal";
 import { MaximalistSalonWall } from "./MaximalistSalonWall";
+import { MetropolitainLine } from "./MetropolitainLine";
 import { MillikelvinControlPlane } from "./MillikelvinControlPlane";
 import { NightMarketClinic } from "./NightMarketClinic";
 import { OrbitalTransitConsole } from "./OrbitalTransitConsole";
@@ -2968,41 +2969,13 @@ function ArtDecoLinerBooking({ className, compact = false, style }: Props) {
   );
 }
 
-function ArtNouveauBotanicalShop({ className, compact = false, style }: Props) {
+function ArtNouveauMetropolitain({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={className} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Flora Atelier" compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />, <IconBag key="bag" size={compact ? 11 : 13} />]} links={["Perfume", "Botanicals", "Journal"]} sub="Seasonal" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.85fr_1.15fr]" : "grid-cols-[0.78fr_1.22fr]")}>
-          <div className="flex min-h-0 flex-col justify-between">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.22em] text-[var(--sample-muted)]">Botanical line</p>
-              <h3 className={cn("mt-3 font-display font-normal leading-[0.96]", compact ? "text-3xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                Art Nouveau
-              </h3>
-            </div>
-            <div className="space-y-2">
-              {["Vine frame", "Glass bottle", "Pressed bloom"].map((item) => (
-                <div className="border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] px-3 py-2 text-[9px] uppercase tracking-[0.14em]" key={item}>
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-          <PhotoSurface className="min-h-0 border border-[var(--sample-border-soft)]" scene="material">
-            <span className="absolute left-[12%] top-[8%] h-[72%] w-[76%] rounded-[48%_52%_40%_60%] border border-[var(--sample-accent)]" />
-            <span className="absolute left-[23%] top-[17%] h-[54%] w-[54%] rounded-[58%_42%_64%_36%] border border-[var(--sample-accent)]" />
-            <span className="absolute left-[52%] top-[11%] h-[68%] w-[30%] border border-[var(--sample-accent)] bg-[rgb(var(--st-surface-rgb)_/_0.7)]" style={{ borderRadius: "44% 44% 18px 18px" }} />
-            <span className="absolute bottom-[18%] left-[18%] h-16 w-28 rounded-[60%_40%_52%_48%] bg-[var(--sample-accent-2)] opacity-70" />
-            <span className="absolute bottom-4 left-4 right-4 border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.86)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Botanical perfume</span>
-          </PhotoSurface>
-        </div>
-        <LuxuryClassicBottomStrip compact={compact} items={[["Line", "Organic"], ["Object", "Perfume"], ["Motif", "Vine"]]} />
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2.5" : "", className)} compact={compact} style={style}>
+      <MetropolitainLine compact={compact} />
     </SampleFrame>
   );
 }
-
 function BaroqueOperaHouse({ className, compact = false, style }: Props) {
   return (
     <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)] !p-0", className)} compact={compact} style={style}>
@@ -6960,7 +6933,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "art-nouveau") {
-    return <ArtNouveauBotanicalShop {...props} />;
+    return <ArtNouveauMetropolitain {...props} />;
   }
 
   if (style.slug === "baroque") {

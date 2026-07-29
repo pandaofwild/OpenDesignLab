@@ -71,7 +71,7 @@
 | 37 | 럭셔리 / 클래식 | luxury | luxury-product | queued | premium product reveal, rich material, controlled opulence |
 | 38 | 럭셔리 / 클래식 | old-money | luxury-product | queued | understated heritage, club tone, quiet affluence |
 | 39 | 럭셔리 / 클래식 | art-deco | luxury-product | verified | MERIDIAN LINE liner booking — S.S. Aurelia hero, sailings board with reserve/waitlist, stateroom class fare cards, grand salon strip |
-| 40 | 럭셔리 / 클래식 | art-nouveau | organic-brand | queued | flowing botanical line, ornamental frame, organic luxury |
+| 40 | 럭셔리 / 클래식 | art-nouveau | organic-brand | verified | MÉTROPOLITAIN 기마르 파리 메트로 — 사진 0장, 팔레트 전면 교체(Mucha/Tiffany 보라–주황–초록 삼색조), 손으로 그린 비대칭 coup de fouet가 레이아웃 축이자 역 선택 UI, 주철 줄기 마스트헤드, 납선 유리 트랜섬, 역 기록·다음 열차·요금·노선 색인 |
 | 41 | 럭셔리 / 클래식 | baroque | luxury-product | verified | TEATRO SAN CASSIANO 바로크 오페라 극장 — 사진 0장, 팔레트 전면 교체(진짜 near-black + 진짜 금박 + 크림슨 레이크), 금박 스크롤워크 프로시니엄, 크림슨 발랑스, 말굽형 palchi 평면도(등급 선택), 배역표·아리아·레퍼토리 |
 | 42 | 럭셔리 / 클래식 | rococo | luxury-product | queued | pastel shell curves, playful ornament, salon delicacy |
 | 43 | 럭셔리 / 클래식 | gothic | street-campaign | queued | vertical stone, pointed arches, dark ecclesiastical rhythm |
@@ -720,3 +720,44 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - 명령: `check:data`(78)·`check:style-distinction`(78)·`check:style-refs`(78)·`npm run lint`·`tsc --noEmit`·`next build`(550 pages) 통과.
 - screenshots: `baroque-before.jpeg`, `baroque-v4.jpeg`, `baroque-tier.jpeg`, `baroque-mobile.jpeg`, `baroque-compact.jpeg`, `baroque-palette.jpeg`.
 - 남은 의심점: 무드보드 `baroque-realistic-v2.webp`는 버건디 벨벳 기조라 새 팔레트의 니어블랙/베르디그리와 완전히 일치하지는 않음. 방향은 어긋나지 않아 이번 패스에서는 교체하지 않음.
+
+## 27. art-nouveau — 재디자인 (소유자 지시: "아르누보를 수정하자")
+
+### 현재 판정
+
+- status: `queued` → `reviewing`.
+- 현재 `ArtNouveauBotanicalShop`(Flora Atelier)은 baroque보다 상태가 나빴다.
+  1. **아르누보의 1번 서명인 채찍선이 한 줄도 없다.** 화면 어디에도 되꺾이는 곡선이 없고, 우측은 타원 2개와 블롭 1개.
+  2. **우측 히어로가 `PhotoSurface scene="material"` 그라디언트 플레이스홀더.** 베이지→골드 그라데이션 위에 클립아트 도형을 얹은 것이라 이미지의 이점이 전혀 없음.
+  3. **좌측은 값 없는 빈 라벨 3개**(VINE FRAME / GLASS BOTTLE / PRESSED BLOOM).
+  4. **팔레트가 올리브 카키**(base `#E8E2CE`, accent `#5F7F4F`)라 `natural`/`botanical`과 구분되지 않고 "generic eco"로 읽힘.
+  5. 레이아웃이 좌측 텍스트 / 우측 이미지 split — 라이브러리에서 가장 흔한 골격.
+- 웹 리서치 확인: coup de fouet은 "long sinuous curve that bends back on itself like an unfurling fern frond", 비대칭이며 완급이 변한다. 더 결정적인 원칙은 **"Art Nouveau designers integrated the ornament into the structural form"** — Horta는 철골을 드러낸 채 그 위에 식물 스크롤을 입혔고, Guimard의 1900년 메트로 입구는 주철 줄기가 곧 구조. 팔레트는 Mucha·Tiffany의 **보라–주황–초록 삼색조**(peacock `#0f4c5c`, burnished gold `#d8b26e`, plum `#5b304a`, parchment `#f4efe6`).
+- 참고: 소유자가 제시한 `bergside/awesome-design-skills`는 이번 작업에 쓰지 않음. 67개 슬러그 중 art-nouveau·ornamental·botanical 계열이 없고, 내용도 TypeUI CLI용 스타일 철학 문서라 장식/SVG 자원이 아님.
+
+### 목표
+
+- 컨셉: **"MÉTROPOLITAIN"** — 보태니컬 향수샵이라는 정석 경로 대신 **기마르의 파리 메트로(1900)**. 사진 0장.
+- 팔레트 전면 교체: base `#F1E8D6`(양피지) / surface `#FBF4E4` / text `#22302E` / muted `#7C7059` / primary `#12545C`(공작 청록 주철 파티나) / accent `#C98A2E`(호박 램프 유리) / accent2 `#5B304A`(오베르진) / accent3 `#8CA06B`(세이지 줄기) / border `#A98B57`.
+- 고유 마커: `MÉTROPOLITAIN` / `Guimard edicule masthead` / `whiplash line` / `station record` / `billets` / `ligne index`.
+- 핵심 원칙 적용: 채찍선을 장식으로 얹지 않고 **레이아웃 축 자체**로 쓴다. 독자가 따라가는 선이 곧 노선이고, 역 노드가 그 선의 on-curve 앵커이자 선택 UI다.
+
+### 검증 계획
+
+- RED/GREEN: `ArtNouveauBotanicalShop` → `ArtNouveauMetropolitain` 위임 래퍼 + `MetropolitainLine.tsx`, 마커 6개 GREEN. check:data·check:style-distinction·check:style-refs·lint·tsc·build 통과.
+- browser QA: 1440 full / 390 모바일 / compact 카드 — page overflow 0 + 샘플 내부 overflow 0, 역 선택 연동, console error 0.
+
+### 구현 및 검증 결과 (2026-07-29)
+
+- status: `verified`.
+- 변경 요약: 인라인 `ArtNouveauBotanicalShop` 삭제 → 위임 래퍼 `ArtNouveauMetropolitain` + 신규 `MetropolitainLine.tsx`(use client, 역 선택 useState). `PhotoSurface` 제거로 **사진 0장**.
+- 채찍선: 1차 구현은 역을 등간격으로 놓고 수평 탄젠트 큐빅으로 이었더니 **규칙적인 사인파**가 나와 "물결 장식"으로 읽혔다. 등간격·등진폭을 버리고 path를 손으로 작성해 완급을 비대칭으로 바꿈(타이트한 상승 vs 느린 하강, 진폭 22~94 가변). 종점 Nation에서 자기 자신에게로 되감기는 고사리 순 컬을 추가해 whip crack을 명시. 역 노드는 이 path의 on-curve 끝점 좌표와 일치.
+- 장식=구조: `IronStem`(주철 줄기가 올라가며 잎을 던지고 되감겨 호박 램프로 끝남, 좌우 미러) 마스트헤드, `LeadedTransom`(8분할 부채꼴 납선 유리 트랜섬, 호박/청록/오베르진/세이지 교대), 채찍선에서 갈라져 나오는 잎 3개.
+- 콘텐츠 밀도: 빈 라벨 3개 → `station record`(역명·개통연도·환승 노선 에나멜 디스크·첫차/막차·출입구 형식) + `프로chains départs` 3행 + `billets` 3요금 + `ligne index` 4노선.
+- 인터랙션 QA: Châtelet 노드 클릭 시 `aria-pressed` 전환, 노드 호박 채움+링, 역 기록이 Châtelet / 환승 4·7·11 / 5h42 / 0h29 / Entourage à écusson으로 갱신 확인.
+- compact 수정: 1차에서 요금 행 위로 CTA가 겹치고 역명이 잘림 → compact에서 dl 2항목·요금 2행·트랜섬 h-5로 축소, 두 컬럼에 `overflow-hidden` 추가. 모바일에서는 브랜드명이 "METROPOL…"로 잘려 md 미만 트래킹/크기 축소 + 부제 앞부분 md↑ 노출로 해소.
+- browser QA: 1440 full(702×540)·390 모바일(330×540)·compact 카드(505×218) 모두 page overflow 0, 샘플 내부 가로 overflow 0, 상세 페이지 console error 0. 목록 페이지의 중복 key 경고 3건은 `distortion rail`·`soft 3D modules`·`no-depth buttons` — experimental-type/claymorphism/flat-design의 기존 데이터 이슈로 art-nouveau 범위 밖.
+- 부수 수정: impeccable 프로젝트 설치 이후 `npm run lint`가 벤더 스킬 파일에서 경고 414건(오류 0)을 뱉었다. `eslint.config.mjs` globalIgnores에 `.claude/skills/**`, `.agents/skills/**`, `.github/skills/**` 추가해 프로젝트 소스만 검사하도록 복구.
+- 명령: `check:data`(78)·`check:style-distinction`(78)·`check:style-refs`(78)·`npm run lint`(경고 0)·`tsc --noEmit`·`next build`(550 pages) 통과.
+- screenshots: `nouveau-before.jpeg`, `nouveau-final.jpeg`, `nouveau-selected.jpeg`, `nouveau-mobile.jpeg`, `nouveau-compact.jpeg`.
+- 남은 의심점: 무드보드 `art-nouveau-realistic-v2.webp`는 세이지/앰버 기조라 새 팔레트의 공작 청록·오베르진과 완전히 일치하지는 않음. baroque와 같은 사유로 이번 패스에서는 교체하지 않음.
