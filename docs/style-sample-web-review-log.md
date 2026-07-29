@@ -66,7 +66,7 @@
 | 32 | 미래 / 디지털 | ai-aesthetic | saas-landing | verified | MODEL CANVAS generative studio — world-model preview with denoise sweep, prompt bar with style presets, latent queue job states, model index |
 | 33 | 미래 / 디지털 | hologram-style | cyber-dashboard | verified | LUMA VOLUME clinical anatomy viewer — four-plane volume chamber, tissue modes, slice control, orientation cube, scan series, pearl/cyan/violet clinical optics |
 | 34 | 미래 / 디지털 | chromecore | luxury-product | verified | CHROMEWORKS faceplate shop — chrome-type nameplate, shells standing on a chrome rail (carousel), fitment rail with stock states, order bar |
-| 35 | 럭셔리 / 클래식 | classic | luxury-product | queued | symmetrical heritage, serif restraint, traditional trust |
+| 35 | 럭셔리 / 클래식 | classic | luxury-product | verified | CLARENDON HOUSE 클래식 총서 표제지 — 사진 0장, 중심축 대칭 타이틀 페이지 + thick-thin 이중괘 + 플러런, cloth spine shelf(두께·높이 가변 책등 선택), volume record(드롭캡·점선 리더), standing order, colophon |
 | 36 | 럭셔리 / 클래식 | neoclassic | luxury-product | queued | columns, museum spacing, disciplined ornament |
 | 37 | 럭셔리 / 클래식 | luxury | luxury-product | queued | premium product reveal, rich material, controlled opulence |
 | 38 | 럭셔리 / 클래식 | old-money | luxury-product | queued | understated heritage, club tone, quiet affluence |
@@ -627,3 +627,47 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - 명령: `check:data`(87)·`check:style-distinction`(87)·`npm run lint`·`next build`(577 pages) 통과.
 - screenshots: `mcm-full-v1.jpeg`, `mcm-mobile-v1.jpeg`, `mcm-compact-v1.jpeg`.
 - 남은 의심점: 없음.
+
+## 25. classic — 재디자인 (소유자 지시: "제대로 다시 리디자인, 사진은 가능하면 적게, 클래식을 제대로 보여줄 것")
+
+### 현재 판정
+
+- status: `queued` → `reviewing`.
+- 현재 `ClassicHeritageCommerce`(Heritage Co. — 헤리티지 패션 커머스)는 referenceSites(Ralph Lauren/Brooks Brothers/Burberry)를 가장 문자 그대로 옮긴 **정석적 vehicle**. 좌측 컬럼은 라벨 2개(EDITORIAL/SHOP)뿐이라 사실상 비어 있고, 하단 상품 카드 4개는 이미지 대신 `bg-accent-2` 색면 + 라벨(BLAZER/OXFORD/LEATHER/ARCHIVE)이라 AGENTS.md의 "플레이스홀더 색면 금지" 위반.
+- 인접 style과의 구분 조건: neoclassic(호텔 예약·기둥/대리석), luxury(제품 리빌·소재 실사), old-money(클럽 숍) 모두 **사진 주도 커머스**. classic이 같은 골격을 쓰면 구분이 색상 차이로만 남음.
+- 방향: 사진을 빼고 **책 타이포그래피 자체를 레이아웃 골격으로** 삼는다. 클래식의 정체성(비례·대칭·세리프 위계·괘선·항구성)은 인쇄된 표제지에 가장 순수하게 남아 있음. [[style-visibility-over-vehicle]] 적용.
+
+### referenceSites에서 가져올 웹 문법
+
+- Ralph Lauren / Brooks Brothers: 중앙 정렬 마스트헤드 + 얇은 괘선으로 나눈 섹션 밴드, 스몰캡 라벨.
+- Hermes / Smythson: 조용한 내비게이션, 소재·제법을 값으로 명시하는 제품 레코드(스펙 테이블).
+- Burberry: 헤리티지 상품이 **동일 리듬으로 반복**되는 카탈로그 열(→ 책등 서가로 치환).
+- Awwwards Luxury: 절제된 CTA 1개 + 보조 링크 1개, 넓은 여백.
+
+### 목표
+
+- 컨셉: **"CLARENDON HOUSE" — 클래식 총서를 내는 출판사의 표제지형 웹 페이지**(패션 숍이 아님). 사진 0장.
+- 고유 마커(check-style-distinction): `Clarendon House` / `THE PERMANENT EDITION` / `cloth spine shelf` / `volume record` / `standing order` / `colophon`.
+- 정보 구조: 중앙 마스트헤드(Est. MDCCCXXXIV | CLARENDON HOUSE | London·Oxford) + thick-thin 이중괘 + 카탈로그 nav → 표제지 히어로(THE PERMANENT EDITION · SERIES XI / "Books bound to be kept." / 플러런 오너먼트 / CTA 1+1) → `cloth spine shelf`(11권, 판형 두께·높이 가변, 금박 밴드·번호 패널, 선택 인터랙션) → `volume record`(드롭캡 + 점선 리더 스펙 테이블) | `standing order`(3플랜 라디오 + 등록 CTA) → `colophon`(조판·용지·제본 표기).
+- 레이아웃 차별: 기존 샘플에 없는 **엄격한 좌우 대칭 수직 스택(표제지 축)**. 이미지 주도/비대칭 스플릿/OS UI 계열과 골격이 겹치지 않음.
+- 팔레트·무드보드: 기존 유지(아이보리 #F3EFE5·네이비 #10213F·옥스블러드 #7C1F2A·금 #C7A66A). 이미 정확한 클래식 팔레트라 색은 건드리지 않고 **형태로만** 재설계.
+
+### 검증 계획
+
+- RED/GREEN: `ClassicHeritageCommerce` → `ClassicPermanentLibrary` 위임 래퍼 + `ClarendonHouseLibrary.tsx`, 신규 마커 6개 GREEN(래퍼는 마커 미보유). check:data·check:style-distinction·lint·tsc·build 통과.
+- browser QA: 1440 full / 390 모바일 / compact 카드 — page overflow 0 + **샘플 내부 scrollWidth 초과 0**, 책등 선택 → volume record 연동 확인.
+
+### 구현 및 검증 결과 (2026-07-29)
+
+- status: `verified`.
+- 변경 요약: 인라인 `ClassicHeritageCommerce` 삭제 → 위임 래퍼 `ClassicPermanentLibrary` + 신규 `ClarendonHouseLibrary.tsx`(use client, 책등 선택·플랜 선택 useState 2개). `GeneratedStyleImageSurface` 제거로 **사진 0장**, 클래식 신호를 전부 인쇄 문법으로 구성: 중심축 대칭, thick-thin 이중괘(`DoubleRule`), 괘선-마름모-괘선 플러런(`Fleuron`), 스몰캡 레터스페이싱, 드롭캡(`first-letter:`), 점선 리더(dotted border), 로마숫자 권번호, 콜로폰.
+- 색면 플레이스홀더 제거: 상품 카드 4개(`bg-accent-2` 색면) → 실제 서가. 책등 11권은 분량(extent)에 따라 `flexGrow`로 **두께가 다르고**, 높이도 80~100%로 달라지며, `CLOTH_SHADING` 그라디언트로 클로스 곡률 음영을 넣어 납작한 색블록으로 읽히지 않게 함. 금박 헤드/풋 밴드 2줄 + 번호 패널.
+- representativeTraits 모듈 매핑: Balanced serif hierarchy→표제지 히어로, Heritage product rhythm→cloth spine shelf, Ivory and navy restraint→팔레트 운용, Archive catalog modules→volume record + Series XI 권번호, Material credibility→binding/extent/colophon.
+- 인터랙션 QA: Middlemarch 책등 클릭 시 `aria-pressed` 전환·책등 상승, volume record가 VOLUME XXXVI / £32 / 912 pp. / Oxblood cloth / 1891로 함께 갱신 확인. standing order 플랜 라디오 3종 동작.
+- RED/GREEN: 구 함수명 `ClassicHeritageCommerce` 제거, `styleSampleFunctions.classic` → `ClassicPermanentLibrary`, `delegatedSampleSources`에 `ClarendonHouseLibrary.tsx` 등록, `requiredFamilyMarkers.classic` 6개 신설 GREEN(래퍼 클린).
+- browser QA: 1440 full(702×540)·390 모바일(330×540)·compact 카드(503×218) 모두 page overflow 0, **샘플 내부 가로 overflow 0**. 1차 측정에서 모바일 내부 56px 넘침(히어로 CTA 가로 배치·nav 5항목·하단 2열) 발견 → md 미만에서 CTA 세로 스택 / nav 3항목 / 하단 1열(standing order는 md↑) 로 수정 후 0. compact는 이중괘+표제지+서가 9권(제목 숨김, 금박 패널만)으로 압축, contentH 198 < boxH 218.
+- console: 상세 페이지 error 0.
+- 명령: `check:data`(78)·`check:style-distinction`(78)·`npm run lint`·`tsc --noEmit` 통과.
+- screenshots: `classic-before.jpeg`, `classic-final-full.jpeg`, `classic-final-mobile.jpeg`, `classic-compact.jpeg`, `classic-selected.jpeg`.
+- 남은 의심점: `scripts/style-references.json`의 classic > galleries > Awwwards note가 한글 인코딩 깨짐(mojibake) 상태로 라이브 페이지에 노출됨. 이번 샘플 재설계 범위 밖이라 손대지 않음 — 별도 정리 필요.
+- 다음 style: No. 36 `neoclassic`.

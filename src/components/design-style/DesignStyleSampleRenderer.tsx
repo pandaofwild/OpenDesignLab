@@ -4,6 +4,7 @@ import type { DesignStyle } from "@/data/designStyles";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
 import { cn } from "@/lib/utils";
 import { ChromeworksFaceplateShop } from "./ChromeworksFaceplateShop";
+import { ClarendonHouseLibrary } from "./ClarendonHouseLibrary";
 import { CybershockPlayer } from "./CybershockPlayer";
 import { FlightOsdConsole } from "./FlightOsdConsole";
 import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
@@ -2735,47 +2736,10 @@ function LuxuryClassicBottomStrip({ compact = false, items }: { compact?: boolea
   );
 }
 
-function ClassicHeritageCommerce({ className, compact = false, style }: Props) {
-  const products = ["Blazer", "Oxford", "Leather", "Archive"];
-
+function ClassicPermanentLibrary({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={className} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Heritage Co." compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />, <IconBag key="bag" size={compact ? 11 : 13} />]} links={["Wardrobe", "Journal", "Stores"]} sub="Since 1887" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.8fr_1.2fr]" : "grid-cols-[0.72fr_1.28fr]")}>
-          <div className="flex min-h-0 flex-col justify-between border-r border-[var(--sample-border-soft)] pr-3">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--sample-muted)]">Permanent collection</p>
-              <h3 className={cn("mt-3 font-display font-normal leading-[0.92]", compact ? "text-3xl" : "text-5xl md:text-7xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                Classic
-              </h3>
-              <p className="mt-3 line-clamp-3 text-xs leading-5 text-[var(--sample-muted)]">Balanced serif type, navy tailoring, leather detail, and archive paced commerce.</p>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              {["Editorial", "Shop"].map((item) => (
-                <span className="border border-[var(--sample-border-soft)] px-2 py-2 text-[9px] uppercase tracking-[0.14em]" key={item}>
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="grid min-h-0 grid-rows-[1fr_auto] gap-2">
-            <GeneratedStyleImageSurface className="min-h-0 border border-[var(--sample-border-soft)]" overlay="soft" position="center" slug="classic">
-              <span className="absolute left-4 top-4 h-8 w-px bg-[var(--sample-accent)]" />
-              <span className="absolute bottom-4 left-4 border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.82)] px-3 py-2 text-[10px] uppercase tracking-[0.18em] text-[var(--sample-text)]">Archive 01</span>
-            </GeneratedStyleImageSurface>
-            <div className="grid grid-cols-4 gap-2">
-              {products.map((product, index) => (
-                <div className="border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-2" key={product}>
-                  <span className="block h-8 bg-[var(--sample-accent-2)]" style={{ opacity: 0.45 + index * 0.1 }} />
-                  <span className="mt-2 block truncate text-[9px] uppercase tracking-[0.12em] text-[var(--sample-muted)]">{product}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <LuxuryClassicBottomStrip compact={compact} items={[["Material", "Wool"], ["Fit", "Balanced"], ["Tone", "Timeless"]]} />
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2.5" : "", className)} compact={compact} style={style}>
+      <ClarendonHouseLibrary compact={compact} />
     </SampleFrame>
   );
 }
@@ -7035,7 +6999,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "classic") {
-    return <ClassicHeritageCommerce {...props} />;
+    return <ClassicPermanentLibrary {...props} />;
   }
 
   if (style.slug === "neoclassic") {
