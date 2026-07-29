@@ -71,7 +71,7 @@
 | 37 | 럭셔리 / 클래식 | luxury | luxury-product | queued | premium product reveal, rich material, controlled opulence |
 | 38 | 럭셔리 / 클래식 | old-money | luxury-product | queued | understated heritage, club tone, quiet affluence |
 | 39 | 럭셔리 / 클래식 | art-deco | luxury-product | verified | MERIDIAN LINE liner booking — S.S. Aurelia hero, sailings board with reserve/waitlist, stateroom class fare cards, grand salon strip |
-| 40 | 럭셔리 / 클래식 | art-nouveau | organic-brand | verified | MÉTROPOLITAIN 기마르 파리 메트로 — 사진 0장, 팔레트 전면 교체(Mucha/Tiffany 보라–주황–초록 삼색조), 손으로 그린 비대칭 coup de fouet가 레이아웃 축이자 역 선택 UI, 주철 줄기 마스트헤드, 납선 유리 트랜섬, 역 기록·다음 열차·요금·노선 색인 |
+| 40 | 럭셔리 / 클래식 | art-nouveau | organic-brand | verified | MÉTROPOLITAIN 기마르 파리 메트로 — 실사 마스트헤드 + 리소그래프 프리즈, 팔레트 전면 교체(Mucha/Tiffany 보라–주황–초록 삼색조), 손으로 그린 비대칭 coup de fouet가 레이아웃 축이자 역 선택 UI, 주철 줄기 마스트헤드, 납선 유리 트랜섬, 역 기록·다음 열차·요금·노선 색인 |
 | 41 | 럭셔리 / 클래식 | baroque | luxury-product | verified | TEATRO SAN CASSIANO 바로크 오페라 극장 — 사진 0장, 팔레트 전면 교체(진짜 near-black + 진짜 금박 + 크림슨 레이크), 금박 스크롤워크 프로시니엄, 크림슨 발랑스, 말굽형 palchi 평면도(등급 선택), 배역표·아리아·레퍼토리 |
 | 42 | 럭셔리 / 클래식 | rococo | luxury-product | queued | pastel shell curves, playful ornament, salon delicacy |
 | 43 | 럭셔리 / 클래식 | gothic | street-campaign | queued | vertical stone, pointed arches, dark ecclesiastical rhythm |
@@ -750,7 +750,7 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 ### 구현 및 검증 결과 (2026-07-29)
 
 - status: `verified`.
-- 변경 요약: 인라인 `ArtNouveauBotanicalShop` 삭제 → 위임 래퍼 `ArtNouveauMetropolitain` + 신규 `MetropolitainLine.tsx`(use client, 역 선택 useState). `PhotoSurface` 제거로 **사진 0장**.
+- 변경 요약: 인라인 `ArtNouveauBotanicalShop` 삭제 → 위임 래퍼 `ArtNouveauMetropolitain` + 신규 `MetropolitainLine.tsx`(use client, 역 선택 useState). `PhotoSurface`(그라디언트 플레이스홀더) 제거. 최초 구현은 사진 0장이었으나 후속 지시로 마스트헤드와 장식 밴드를 실사·리소그래프 이미지로 교체(29번 참조).
 - 채찍선: 1차 구현은 역을 등간격으로 놓고 수평 탄젠트 큐빅으로 이었더니 **규칙적인 사인파**가 나와 "물결 장식"으로 읽혔다. 등간격·등진폭을 버리고 path를 손으로 작성해 완급을 비대칭으로 바꿈(타이트한 상승 vs 느린 하강, 진폭 22~94 가변). 종점 Nation에서 자기 자신에게로 되감기는 고사리 순 컬을 추가해 whip crack을 명시. 역 노드는 이 path의 on-curve 끝점 좌표와 일치.
 - 장식=구조: `IronStem`(주철 줄기가 올라가며 잎을 던지고 되감겨 호박 램프로 끝남, 좌우 미러) 마스트헤드, `LeadedTransom`(8분할 부채꼴 납선 유리 트랜섬, 호박/청록/오베르진/세이지 교대), 채찍선에서 갈라져 나오는 잎 3개.
 - 콘텐츠 밀도: 빈 라벨 3개 → `station record`(역명·개통연도·환승 노선 에나멜 디스크·첫차/막차·출입구 형식) + `프로chains départs` 3행 + `billets` 3요금 + `ligne index` 4노선.
@@ -773,3 +773,29 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - `docs/style-category-distinction-table.md`의 baroque·art-nouveau 행이 재설계 이전 방향(gallery commerce / perfume card, green gold)을 그대로 담고 있어 새 정체성·마커로 갱신.
 - 명령: `check:data`(78)·`check:style-distinction`(78)·`check:style-refs`(78)·`lint`·`tsc --noEmit`·`build`(550 pages) 통과. 두 상세 페이지에서 무드보드 이미지·디렉션 키워드·프롬프트 렌더 확인, 390 모바일 page overflow 0.
 - 남은 의심점: 없음.
+
+## 29. art-nouveau — 벡터 장식을 이미지로, 팔레트를 무하 톤으로 (소유자 지시: "상단은 이미지를 써도 될 것 같다" → "그 위에 요상한 벡터를 이미지로 바꿔줘, 색상이 너무 강하고 아르누보 같지 않아")
+
+### 현재 판정
+
+- 27번 구현의 두 가지 실패가 실제 렌더에서 드러났다.
+  1. **마스트헤드의 `IronStem` SVG**가 기마르 철제 구조물이 아니라 **가느다란 곡선 두 개의 낙서**로 보였고 상단 띠가 거의 빈 양피지였다.
+  2. **채찍선을 stroke path로 그린 것**이 아르누보의 선이 아니라 **굵고 채도 높은 물결무늬**로 읽혔다. 주변에 흩뿌린 잎 스트로크도 정체불명의 색 조각으로 보였다.
+- 팔레트도 과했다. 무하·티파니의 보라–주황–초록 삼색조는 맞지만 **포스터 잉크 채도**여야 하는데 피콕 `#12545C` / 앰버 `#C98A2E` / 오베르진 `#5B304A`는 풀채도라 시대감이 사라졌다.
+
+### 조치
+
+- **팔레트 전면 완화**(색상표까지 반영): base `#F0E9DA` / surface `#FAF5E9` / text `#3B3A31`(부드러운 갈색 먹) / muted `#8A8071` / primary `#4F6B62`(무딘 청록) / accent `#C0A15E`(무딘 올리브골드) / accent2 `#A88490`(더스티 로즈) / accent3 `#A9B08C`(연한 세이지) / border `#BCA985`. primary는 CTA 채움색이라 대비 확보를 위해 `#5E7E76`보다 한 단계 어둡게 잡았다.
+- **마스트헤드**: `IronStem` 삭제 → 실사 밴드. `scripts/gen-style-image.mjs`에 `art-nouveau` 프롬프트 추가, 블루아워 기마르 입구 생성(공작 청록 파티나 줄기 → 호박 꽃봉오리 램프, 채찍선 난간, **글자 없는 빈 명판**). 크롭은 브라우저에서 12/20/28% 비교 후 `center 12%` 채택 — 램프와 감기는 줄기가 한눈에 들어온다.
+- **채찍선 → 리소그래프 프리즈**: `art-nouveau-frieze` 프롬프트 신규 생성. 1900년 파리 컬러 리소그래프풍 장식 띠 — 아이리스·백합 줄기가 되꺾이는 채찍 곡선, 말린 고사리 순 2개, 평평한 저채도 잉크와 석판 그레인, 사진 아님·인물 없음. 크롭은 40/50/58% 비교 후 `center 50%`(꽃·줄기·고사리 모두 프레임 안).
+- **역 선택 인터랙션 보존**: 선 위의 점이 사라졌으므로 프리즈 아래에 `station index`(역명 7개 + 마름모 구분자, 선택 시 앰버 밑줄) 행을 추가. `station record` 연동은 그대로.
+- 마커 갱신: `whiplash line` → `whiplash frieze`, `station index` 추가.
+
+### 검증 결과 (2026-07-30)
+
+- status: `verified`.
+- 인터랙션 QA: Bastille 클릭 시 `aria-pressed` 전환, 인덱스 밑줄 이동, 역 기록이 Bastille / 환승 5·8 / 5h46 / 0h25 / Édicule à marquise로 갱신 확인.
+- browser QA: 1440 full(702×540)·390 모바일(330×540)·compact 카드(505×218) 모두 page overflow 0, 샘플 내부 overflow 0, 상세 페이지 console error 0. compact는 이미지 밴드가 공간을 쓰므로 요금 행을 1개로 줄여 CTA 겹침 해소.
+- 명령: `check:data`(78)·`check:style-distinction`(78)·`check:style-refs`(78)·`lint`·`tsc --noEmit`·`build`(550 pages) 통과.
+- 배운 것: 아르누보에서 **채찍선을 stroke path로 그리면 물결무늬가 된다.** 이 스타일의 선은 굵기가 변하고 잎·꽃이 붙은 판화 선이라, 직접 그릴 바에는 리소그래프 이미지를 쓰는 편이 훨씬 설득력 있다. 같은 이유로 기마르 철물도 SVG로는 재현되지 않았다.
+- 남은 의심점: 모바일(330px 폭)에서는 마스트헤드 밴드가 낮아 램프가 상단 가장자리에 걸친다. 철제 곡선과 워드마크는 읽히므로 유지.

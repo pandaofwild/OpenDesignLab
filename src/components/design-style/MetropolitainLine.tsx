@@ -1,20 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 
 const DISPLAY: CSSProperties = { fontFamily: "var(--st-font-display)" };
 
+const EDICULE_IMAGE = "/generated/design-styles/art-nouveau.webp";
+const FRIEZE_IMAGE = "/generated/design-styles/art-nouveau-frieze.webp";
+
 const FOCUS =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--sample-primary)]" as const;
 
 /* Art Nouveau, taken to Guimard's Métro rather than to another botanical shop.
-   Photography-free. The style's own rule — ornament integrated into the
-   structural form — is applied literally: the coup de fouet is not decoration
-   laid over a layout, it IS the layout. The line the reader follows across the
-   page is the whiplash, and the stations are its anchor points. Cast-iron
-   peacock patina, amber lamp glass, aubergine and sage over parchment. */
+   The style's own rule — ornament integrated into the structural form — is
+   applied literally: the coup de fouet is not decoration laid over a layout,
+   it IS the layout. The line the reader follows across the page is the
+   whiplash, and the stations are its anchor points.
+
+   Both ornaments are printed rather than drawn, because the drawn versions
+   failed: the SVG stems in the masthead read as two thin squiggles, and the
+   whiplash rendered as a stroked path read as a wave, too heavy and too
+   saturated to pass for the period. So the masthead is a real Guimard
+   entrance and the band under it is a lithographic frieze; the interactive
+   parts below stay drawn. Muted poster ink on cream — dusty sage, soft gold,
+   dusty rose, faded teal — never at full saturation. */
 
 type Station = {
   readonly correspondances: readonly string[];
@@ -24,24 +34,16 @@ type Station = {
   readonly last: string;
   readonly name: string;
   readonly opened: string;
-  readonly x: number;
-  readonly y: number;
 };
 
-/* A coup de fouet is not a sine wave: it is asymmetric, and it changes speed —
-   tight snapping rises against long lazy falls. The path is written by hand for
-   that reason, and the station anchors are its on-curve endpoints. */
-const WHIPLASH =
-  "M16 94C34 94 40 30 58 30C84 30 96 88 132 88C160 88 164 22 186 22C214 22 218 80 252 80C296 80 300 28 330 28C352 28 360 64 384 64";
-
 const STATIONS: readonly Station[] = [
-  { correspondances: ["C"], entrance: "Édicule à marquise", first: "5h28", id: "maillot", last: "0h42", name: "Porte Maillot", opened: "1900", x: 16, y: 94 },
-  { correspondances: ["2", "6"], entrance: "Entourage à écusson", first: "5h31", id: "etoile", last: "0h39", name: "Étoile", opened: "1900", x: 58, y: 30 },
-  { correspondances: ["8", "12"], entrance: "Entourage à cartouche", first: "5h36", id: "concorde", last: "0h35", name: "Concorde", opened: "1900", x: 132, y: 88 },
-  { correspondances: ["7"], entrance: "Édicule Guimard", first: "5h39", id: "palais", last: "0h32", name: "Palais-Royal", opened: "1900", x: 186, y: 22 },
-  { correspondances: ["4", "7", "11"], entrance: "Entourage à écusson", first: "5h42", id: "chatelet", last: "0h29", name: "Châtelet", opened: "1900", x: 252, y: 80 },
-  { correspondances: ["5", "8"], entrance: "Édicule à marquise", first: "5h46", id: "bastille", last: "0h25", name: "Bastille", opened: "1900", x: 330, y: 28 },
-  { correspondances: ["2", "6", "9"], entrance: "Entourage à cartouche", first: "5h50", id: "nation", last: "0h21", name: "Nation", opened: "1900", x: 384, y: 64 },
+  { correspondances: ["C"], entrance: "Édicule à marquise", first: "5h28", id: "maillot", last: "0h42", name: "Porte Maillot", opened: "1900" },
+  { correspondances: ["2", "6"], entrance: "Entourage à écusson", first: "5h31", id: "etoile", last: "0h39", name: "Étoile", opened: "1900" },
+  { correspondances: ["8", "12"], entrance: "Entourage à cartouche", first: "5h36", id: "concorde", last: "0h35", name: "Concorde", opened: "1900" },
+  { correspondances: ["7"], entrance: "Édicule Guimard", first: "5h39", id: "palais", last: "0h32", name: "Palais-Royal", opened: "1900" },
+  { correspondances: ["4", "7", "11"], entrance: "Entourage à écusson", first: "5h42", id: "chatelet", last: "0h29", name: "Châtelet", opened: "1900" },
+  { correspondances: ["5", "8"], entrance: "Édicule à marquise", first: "5h46", id: "bastille", last: "0h25", name: "Bastille", opened: "1900" },
+  { correspondances: ["2", "6", "9"], entrance: "Entourage à cartouche", first: "5h50", id: "nation", last: "0h21", name: "Nation", opened: "1900" },
 ];
 
 const FARES: ReadonlyArray<readonly [string, string, string]> = [
@@ -62,21 +64,6 @@ const LIGNES: ReadonlyArray<readonly [string, string, string]> = [
   ["3", "Villiers — Père-Lachaise", "1904"],
   ["4", "Châtelet — Orléans", "1908"],
 ];
-
-/* Guimard's cast-iron stem: it rises, throws off a leaf, curls back on itself
-   as a fern frond and ends in an amber lamp. Mirrored to flank the cartouche. */
-function IronStem({ className }: { readonly className?: string }) {
-  return (
-    <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 64 60">
-      <path d="M62 58C44 55 33 44 32 30 31 17 39 7 50 7" stroke="var(--sample-primary)" strokeLinecap="round" strokeWidth="2.4" />
-      <path d="M46 44C36 41 30 33 28 24" stroke="var(--sample-accent-3)" strokeLinecap="round" strokeWidth="1.5" />
-      <path d="M44 52C33 52 24 46 19 37c-3-6 0-13 7-11 4 1 4 8 0 8" stroke="var(--sample-accent-3)" strokeLinecap="round" strokeWidth="1.5" />
-      <path d="M28 24c-5-3-6-9-3-13" stroke="var(--sample-accent-2)" strokeLinecap="round" strokeWidth="1.2" />
-      <circle cx="50" cy="7" fill="var(--sample-accent)" r="5.5" stroke="var(--sample-primary)" strokeWidth="1.4" />
-      <circle cx="48.4" cy="5.4" fill="var(--sample-surface)" r="1.4" opacity="0.85" />
-    </svg>
-  );
-}
 
 /* The station transom: a fan of leaded glass over the entrance. Wedge points
    are literal so the panel is identical on both sides of hydration. */
@@ -119,83 +106,76 @@ export function MetropolitainLine({ compact = false }: { readonly compact?: bool
 
   return (
     <div className="flex h-full min-h-0 flex-col text-[var(--sample-text)]" style={DISPLAY}>
-      {/* ── Guimard edicule masthead ── */}
-      <header aria-label="Guimard edicule masthead" className="flex shrink-0 items-end justify-center gap-1">
-        <IronStem className={cn("shrink-0", compact ? "h-7 w-7" : "h-9 w-9 md:h-12 md:w-12")} />
-        <div className={cn("min-w-0 text-center", compact ? "pb-0.5" : "pb-1.5")}>
-          <p
-            className={cn(
-              "truncate uppercase leading-none text-[var(--sample-primary)]",
-              compact ? "text-[0.66rem] tracking-[0.14em]" : "text-[0.8rem] tracking-[0.12em] md:text-[1.05rem] md:tracking-[0.24em]",
-            )}
-          >
-            MÉTROPOLITAIN
-          </p>
-          <p className={cn("truncate italic text-[var(--sample-muted)]", compact ? "text-[5.5px]" : "mt-1 text-[8px]")}>
-            <span className="hidden md:inline">Compagnie du chemin de fer de Paris &middot; </span>ligne n&deg; 1 &middot; MCM
-          </p>
+      {/* ── Guimard edicule masthead: the real ironwork, not a drawn stand-in ── */}
+      <header aria-label="Guimard edicule masthead" className="shrink-0">
+        <div
+          className={cn("relative w-full overflow-hidden border border-[var(--sample-border)]", compact ? "h-9" : "h-[5.5rem] md:h-[6.5rem]")}
+          style={{
+            backgroundImage: `url('${EDICULE_IMAGE}')`,
+            // Frame the amber lamps and the curling stems — the part of a
+            // Guimard entrance that reads as Art Nouveau at a glance.
+            backgroundPosition: "center 12%",
+            backgroundSize: "cover",
+          }}
+        >
+          <span className="absolute inset-x-0 bottom-0 flex justify-center">
+            <span
+              className={cn(
+                "max-w-full truncate border-y-2 border-[var(--sample-accent)] uppercase text-[var(--sample-primary)]",
+                compact ? "px-2 py-px text-[0.6rem] tracking-[0.12em]" : "px-5 py-1 text-[0.85rem] tracking-[0.16em] md:text-[1.05rem] md:tracking-[0.24em]",
+              )}
+              style={{ backgroundColor: "rgb(var(--st-base-rgb) / 0.92)" }}
+            >
+              MÉTROPOLITAIN
+            </span>
+          </span>
         </div>
-        <IronStem className={cn("shrink-0 -scale-x-100", compact ? "h-7 w-7" : "h-9 w-9 md:h-12 md:w-12")} />
+        <p className={cn("truncate text-center italic text-[var(--sample-muted)]", compact ? "mt-px text-[5px]" : "mt-1 text-[8px]")}>
+          <span className="hidden md:inline">Compagnie du chemin de fer de Paris &middot; </span>ligne n&deg; 1 &middot; MCM
+        </p>
       </header>
 
-      {/* ── the coup de fouet: the line is the ornament and the navigation ── */}
-      <section aria-label="whiplash line" className={cn("relative min-h-0 shrink-0", compact ? "mt-1 h-[3.6rem]" : "mt-2 h-[7rem]")}>
-        <svg className="h-full w-full" fill="none" preserveAspectRatio="none" viewBox="0 0 400 120">
-          {/* the sinuous stem, doubled with a thin patina highlight */}
-          <path d={WHIPLASH} stroke="var(--sample-primary)" strokeLinecap="round" strokeWidth="5" />
-          <path d={WHIPLASH} stroke="var(--sample-accent-3)" strokeLinecap="round" strokeOpacity="0.5" strokeWidth="1.4" />
-          {/* it bends back on itself at the terminus — the whip crack */}
-          <path
-            d="M386 66c14 6 22 18 16 30-5 10-20 9-22-2-1-8 8-12 12-5"
-            stroke="var(--sample-primary)"
-            strokeLinecap="round"
-            strokeWidth="2.6"
-          />
-          {/* leaves thrown off the stem where it turns */}
-          <path d="M95 59c-11-5-16-17-13-28" stroke="var(--sample-accent-3)" strokeLinecap="round" strokeWidth="1.6" />
-          <path d="M219 51c12-4 18-16 16-27" stroke="var(--sample-accent-3)" strokeLinecap="round" strokeWidth="1.6" />
-          <path d="M291 54c-10 5-14 16-11 26" stroke="var(--sample-accent-2)" strokeLinecap="round" strokeWidth="1.4" />
-        </svg>
-        {/* station anchors sit exactly on the curve */}
-        {STATIONS.map((station) => {
+      {/* ── the frieze: a printed Art Nouveau band, not a drawn line ── */}
+      <section aria-label="whiplash frieze" className={cn("shrink-0 overflow-hidden border-y border-[var(--sample-border)]", compact ? "mt-1 h-[3rem]" : "mt-2 h-[8.5rem]")}>
+        <span
+          aria-hidden="true"
+          className="block h-full w-full"
+          style={{
+            backgroundImage: `url('${FRIEZE_IMAGE}')`,
+            // Hold the blooms, the sweeping stems and the coiled croziers in frame.
+            backgroundPosition: "center 50%",
+            backgroundSize: "cover",
+          }}
+        />
+      </section>
+
+      {/* ── station index: the stops the frieze used to carry ── */}
+      <nav aria-label="station index" className={cn("flex shrink-0 items-center justify-between gap-1 border-b border-[var(--sample-border)]", compact ? "py-0.5" : "py-1.5")}>
+        {STATIONS.map((station, index) => {
           const active = station.id === stationId;
           return (
-            <button
-              aria-pressed={active}
-              className={cn("absolute -translate-x-1/2 -translate-y-1/2 rounded-full border transition-all", FOCUS, compact ? "h-2.5 w-2.5" : "h-3.5 w-3.5")}
-              key={station.id}
-              onClick={() => setStationId(station.id)}
-              style={{
-                backgroundColor: active ? "var(--sample-accent)" : "var(--sample-surface)",
-                borderColor: "var(--sample-primary)",
-                borderWidth: active ? 2.5 : 2,
-                boxShadow: active ? "0 0 0 4px rgb(201 138 46 / 0.28)" : undefined,
-                left: `${(station.x / 400) * 100}%`,
-                top: `${(station.y / 120) * 100}%`,
-              }}
-              title={station.name}
-              type="button"
-            />
+            <Fragment key={station.id}>
+              {index > 0 ? (
+                <span aria-hidden="true" className={cn("shrink-0 rotate-45 border border-[var(--sample-accent-3)]", compact ? "h-[3px] w-[3px]" : "h-1 w-1")} />
+              ) : null}
+              <button
+                aria-pressed={active}
+                className={cn(
+                  "min-w-0 truncate uppercase transition-colors",
+                  FOCUS,
+                  compact ? "text-[4.5px] tracking-[0.06em]" : "text-[7px] tracking-[0.14em]",
+                  active ? "text-[var(--sample-primary)] underline decoration-[var(--sample-accent)] decoration-2 underline-offset-4" : "text-[var(--sample-muted)] hover:text-[var(--sample-text)]",
+                )}
+                onClick={() => setStationId(station.id)}
+                title={station.name}
+                type="button"
+              >
+                {station.name}
+              </button>
+            </Fragment>
           );
         })}
-        {/* station names, set above or below according to which way the line turns */}
-        {STATIONS.map((station) => (
-          <span
-            className={cn(
-              "absolute -translate-x-1/2 whitespace-nowrap uppercase text-[var(--sample-muted)]",
-              compact ? "text-[4.5px] tracking-[0.06em]" : "text-[6.5px] tracking-[0.14em]",
-              station.id === stationId ? "text-[var(--sample-primary)]" : "",
-            )}
-            key={station.id}
-            style={{
-              left: `${(station.x / 400) * 100}%`,
-              top: station.y > 60 ? `${(station.y / 120) * 100 + 9}%` : `${(station.y / 120) * 100 - 16}%`,
-            }}
-          >
-            {station.name}
-          </span>
-        ))}
-      </section>
+      </nav>
 
       <div className={cn("grid min-h-0 flex-1", compact ? "grid-cols-[1.1fr_0.9fr] gap-2 pt-1" : "grid-cols-1 gap-4 pt-3 md:grid-cols-[1.06fr_0.94fr] md:gap-6")}>
         {/* ── station record ── */}
@@ -252,7 +232,7 @@ export function MetropolitainLine({ compact = false }: { readonly compact?: bool
           <p className={cn("shrink-0 uppercase tracking-[0.2em] text-[var(--sample-muted)]", compact ? "text-[5px]" : "text-[7px]")}>Billets</p>
           <LeadedTransom className={cn("mt-1 w-full shrink-0", compact ? "h-5" : "h-14")} />
           <div className="min-h-0 flex-1 overflow-hidden">
-            {(compact ? FARES.slice(0, 2) : FARES).map(([name, klass, price]) => (
+            {(compact ? FARES.slice(0, 1) : FARES).map(([name, klass, price]) => (
               <div
                 className={cn("flex min-w-0 items-baseline gap-2 border-b border-[rgb(var(--st-border-rgb)/0.45)]", compact ? "py-[3px]" : "py-1.5")}
                 key={name}

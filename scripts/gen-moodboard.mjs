@@ -11,12 +11,8 @@ import { mkdir } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import sharp from "sharp";
+import { generateImage } from "./lib/imagegen.mjs";
 
-const BASE = process.env.OPENAI_BASE_URL || "http://127.0.0.1:10100/v1";
-const KEY = process.env.OPENAI_API_KEY || "local";
-const MODEL = process.env.OPENAI_IMAGE_MODEL || "gpt-5.5";
-
-// Siblings in public/generated/moodboards are 1600x1001; keep the set uniform.
 const OUT_WIDTH = 1600;
 const OUT_HEIGHT = 1001;
 
@@ -27,70 +23,11 @@ export const PROMPTS = {
     "Create a realistic editorial moodboard for Art Nouveau in web design. The board should look like a real designer's ornament-and-ironwork research board photographed from above on a warm parchment studio table. The organising idea of the board is the coup de fouet, the whiplash line: a long sinuous asymmetric curve that changes speed and bends back on itself like an unfurling fern frond. Include printed website layout references without readable text in which one continuous sinuous line, not a grid, organises the page; blackened cast-iron ornament fragments with curling plant stems; a patinated bronze curl; leaded stained-glass fragments in amber and peacock blue-green held by lead came; a piece of amber lamp glass; ink line drawings of stems that curl back on themselves; a real pressed fern crozier still coiled; sage and aubergine colour chips; a peacock feather fragment; and parchment papers of varied thickness. The visual language should communicate ornament integrated into the structural form rather than applied on top of it, asymmetric growth, and hand-worked iron and glass for web pages. It should not look like Art Deco geometry, Rococo pastel shell ornament, a generic olive eco or plant-shop board, or evenly repeating wave trim. Use real-world imperfections: slight paper curl, tape corners, pin marks, uneven crop edges, paper fibres, iron patina, glass edge chips, soft natural shadows, and subtle dust. Palette: warm parchment, cream, deep green-black, peacock blue-green, burnished amber, aubergine, sage green, patinated bronze. No readable text, no tiny text, no letters, no numbers, no labels, no brand names, no logos, no watermarks, no people, no faces, no fake interface text, no floating cards, no sterile AI mockup look. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
 };
 
-// Pull the finished base64 image out of the SSE stream. The result can arrive
-// either on the completed output item or in the final response payload.
-async function readImageFromStream(res) {
-  let buffer = "";
-  let image = null;
-
-  for await (const chunk of res.body) {
-    buffer += Buffer.from(chunk).toString("utf8");
-    const lines = buffer.split("\n");
-    buffer = lines.pop() ?? "";
-
-    for (const line of lines) {
-      if (!line.startsWith("data:")) continue;
-      const payload = line.slice(5).trim();
-      if (!payload || payload === "[DONE]") continue;
-
-      let event;
-      try {
-        event = JSON.parse(payload);
-      } catch {
-        continue;
-      }
-
-      if (event.type === "response.output_item.done" && event.item?.type === "image_generation_call" && event.item.result) {
-        image = event.item.result;
-      }
-      if (event.type === "response.completed") {
-        const call = (event.response?.output || []).find((o) => o.type === "image_generation_call");
-        if (call?.result) image = call.result;
-      }
-      if (event.type === "error" || event.type === "response.failed") {
-        throw new Error(JSON.stringify(event).slice(0, 400));
-      }
-    }
-  }
-
-  return image;
-}
-
 async function generate(slug) {
   const prompt = PROMPTS[slug];
   if (!prompt) throw new Error(`No prompt configured for slug: ${slug}`);
 
-  const res = await fetch(`${BASE}/responses`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${KEY}` },
-    body: JSON.stringify({
-      model: MODEL,
-      input: [{ role: "user", content: `Generate a single high-quality photographic image. ${prompt}` }],
-      // The local proxy rejects stored responses and requires streaming.
-      store: false,
-      stream: true,
-      tools: [{ type: "image_generation", size: "1536x1024", quality: "high", output_format: "png" }],
-    }),
-  });
-
-  if (!res.ok) {
-    throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 400)}`);
-  }
-
-  const result = await readImageFromStream(res);
-  if (!result) throw new Error("No image_generation_call result in the stream");
-
-  const png = Buffer.from(result, "base64");
+  const png = await generateImage(prompt);
   const outDir = path.join(process.cwd(), "public", "generated", "moodboards");
   await mkdir(outDir, { recursive: true });
   const outPath = path.join(outDir, `${slug}.webp`);

@@ -776,17 +776,19 @@ const palettes: Record<string, DesignStylePalette> = {
   "art-nouveau": {
     // The old olive-on-khaki set read as generic eco/natural and collided with
     // the botanical styles. Art Nouveau's own colour is the purple-orange-green
-    // triad of Mucha and Tiffany over parchment: peacock iron patina, burnished
-    // amber glass, aubergine, sage stem.
-    base: "#F1E8D6",
-    surface: "#FBF4E4",
-    text: "#22302E",
-    mutedText: "#7C7059",
-    primary: "#12545C",
-    accent: "#C98A2E",
-    accent2: "#5B304A",
-    accent3: "#8CA06B",
-    border: "#A98B57",
+    // triad of Mucha and Tiffany — but at poster strength, not at full
+    // saturation: lithographic inks on cream, muted and dusty. A saturated
+    // peacock/amber/aubergine version of the same triad read as too strong and
+    // stopped looking like the period at all.
+    base: "#F0E9DA",
+    surface: "#FAF5E9",
+    text: "#3B3A31",
+    mutedText: "#8A8071",
+    primary: "#4F6B62",
+    accent: "#C0A15E",
+    accent2: "#A88490",
+    accent3: "#A9B08C",
+    border: "#BCA985",
   },
   baroque: {
     // Tenebrism needs a real near-black ground pierced by one warm light —

@@ -6,10 +6,7 @@
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
-
-const BASE = process.env.OPENAI_BASE_URL || "http://127.0.0.1:10632/v1";
-const KEY = process.env.OPENAI_API_KEY || "local";
-const MODEL = process.env.OPENAI_IMAGE_MODEL || "gpt-5.5";
+import { generateImage } from "./lib/imagegen.mjs";
 
 // Scene (not flat-lay) prompts: domain product/interior photography that crops
 // cleanly into the sample image block. Palettes mirror src/data/designStyles.ts.
@@ -30,6 +27,10 @@ const PROMPTS = {
     "A luminous generative-AI world-model render, no people and no text. A vast dreamlike atrium made of soft frosted-glass architecture bathed in bright airy daylight: pale translucent ribbed arches curve upward into a hazy pastel-lavender sky, gentle mist and soft mesh-like light particles drift through the air, a still reflective pool on the floor doubles the glow in blush-pink and powder-blue. The surfaces feel computationally smooth and impossibly soft, pastel gradients bleeding into one another the way a diffusion model renders light, with gentle iridescent fringing at the edges of forms. Palette: pearl white, pale lavender, powder blue, soft icy cyan, blush pink, warm cream highlights. Bright airy wide composition, shallow depth of field, soft luminous glow, high production render quality, low contrast and high-key exposure. No text, no letters, no numbers, no logos, no watermark, no people, no UI, no readable interface, no dark or saturated neon colors.",
   maximalism:
     "An opulent maximalist interior in the style of a high-end London pattern house, no people and no text. A moody drawing room wrapped floor-to-ceiling in dense dark botanical patterned wallpaper (deep aubergine-plum ground, trailing emerald vines, peony-pink blooms, small gold accents), a wall of salon-hung ornate gilt picture frames of different sizes, a deep emerald green velvet sofa in the centre stacked with clashing patterned cushions (leopard print, pink chintz, gold fringe) on the right side, an ornate brass table lamp with a patterned pleated shade glowing warmly on a dark marble side table at the left side, a layered antique rug, a trailing potted fern. Rich moody warm evening light, jewel tones, glossy brass highlights, dense but composed styling, shallow depth of field. Realistic high-end editorial interiors photography, wide composition, luxurious more-is-more abundance. Palette: deep plum-aubergine, bottle emerald green, peony pink, antique gold, warm cream. No text, no letters, no numbers, no logos, no watermark, no people, no UI.",
+  "art-nouveau-frieze":
+    "A wide horizontal Art Nouveau decorative panel in the manner of a 1900 Parisian colour lithograph — a printed illustration, absolutely NOT a photograph, and no people and no text. A continuous band of tall iris and lily stems whose long sinuous stalks sweep and double back on themselves in whiplash curves across the full width, unfurling fern croziers coiled at two points, broad flat leaves overlapping, and a few open blooms held near the top of the band. Drawn with a confident dark olive-brown contour line of varying weight and filled with flat, chalky, low-saturation lithographic colour — no gradients, no gloss, no modern vector sheen. The band reads as an ornamental frieze with generous cream paper showing through between the stems, denser at the left and right ends and calmer through the middle. Subtle stone-litho paper grain and slight ink misregistration at a few edges. Palette: warm cream paper, muted sage green, dusty olive, soft muted gold, dusty rose, faded soft teal, olive-brown ink. All colours are muted and dusty like aged poster ink, never bright or saturated. Wide letterbox composition, decorative border proportion. No text, no letters, no numbers, no logos, no watermark, no signature, no people, no faces, no figures, no UI, no photographic realism, no 3D render.",
+  "art-nouveau":
+    "A wide horizontal photograph of a Hector Guimard Paris Metro entrance surround at blue-hour dusk, no people and no text. Centered in the frame: two tall cast-iron stems of oxidised peacock-green patina rising and curling over like plant stalks, each ending in an amber glass lamp shaped like an opening flower bud and glowing warm honey-orange; between and below them a low sinuous cast-iron railing of whiplash curves and stylised leaf forms, and a completely blank unlettered enamel sign panel with no writing of any kind. Behind it a softly out-of-focus Haussmann stone facade and wet pavement catching the amber lamplight, cool deep blue-green dusk air, gentle mist. The ironwork is crisply lit and reads as a silhouette of asymmetric growing curves against the darker background. Realistic high-quality architectural photography, wide letterbox composition with the arch centered and calm space on both sides so the frame crops cleanly into a short horizontal band, shallow depth of field. Palette: peacock blue-green patina, burnished amber lamp glow, aubergine shadow, sage, warm parchment stone, deep green-black. No text, no letters, no numbers, no readable signs, no logos, no watermark, no people, no faces, no cars, no UI, no overlays, no daylight sky.",
   botanical:
     "A bright botanical plant shop interior. Lush green leafy potted plants and trailing foliage on pale wooden shelves, soft natural daylight from a window, fresh chlorophyll greens, terracotta pots, shallow depth of field. Calm editorial product photography, realistic, clean composition. Palette: cream, chlorophyll green, deep leaf green, sage, pale terracotta. No text, no letters, no logos, no watermark, no people, no UI.",
   natural:
@@ -82,25 +83,7 @@ async function generate(slug) {
   const prompt = PROMPTS[slug];
   if (!prompt) throw new Error(`No prompt configured for slug: ${slug}`);
 
-  const res = await fetch(`${BASE}/responses`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${KEY}` },
-    body: JSON.stringify({
-      model: MODEL,
-      input: [{ role: "user", content: `Generate a single high-quality photographic image. ${prompt}` }],
-      tools: [{ type: "image_generation", size: "1536x1024", quality: "high", output_format: "png" }],
-    }),
-  });
-
-  const json = await res.json();
-  if (!res.ok) throw new Error(`HTTP ${res.status}: ${JSON.stringify(json).slice(0, 400)}`);
-
-  const call = (json.output || []).find((o) => o.type === "image_generation_call");
-  if (!call?.result) {
-    throw new Error(`No image in response: ${JSON.stringify(json).slice(0, 400)}`);
-  }
-
-  const png = Buffer.from(call.result, "base64");
+  const png = await generateImage(prompt);
   const outDir = path.join(process.cwd(), "public", "generated", "design-styles");
   await mkdir(outDir, { recursive: true });
   const outPath = path.join(outDir, `${slug}.webp`);

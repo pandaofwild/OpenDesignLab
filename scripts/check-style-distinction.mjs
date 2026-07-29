@@ -271,7 +271,7 @@ const requiredFamilyMarkers = {
   bauhaus: ["BAUHAUS SCHOOL", "workshop method grid", "circle square triangle lab"],
   classic: ["Clarendon House", "THE PERMANENT EDITION", "cloth spine shelf", "volume record", "standing order", "colophon"],
   baroque: ["Teatro San Cassiano", "questa sera", "gilded proscenium", "cast table", "box tier plan", "repertory"],
-  "art-nouveau": ["MÉTROPOLITAIN", "Guimard edicule masthead", "whiplash line", "station record", "billets", "ligne index"],
+  "art-nouveau": ["MÉTROPOLITAIN", "Guimard edicule masthead", "whiplash frieze", "station index", "station record", "billets", "ligne index"],
   futurism: ["ORBITAL TRANSIT", "Mach corridor map", "Launch window board", "Live telemetry"],
   cyberpunk: ["Lucky Chrome Clinic", "Implant menu", "Install queue", "Checkout ledger"],
   "neon-noir": ["RED ROOM", "Case file rail", "rain index", "night desk"],
