@@ -72,7 +72,7 @@
 | 38 | 럭셔리 / 클래식 | old-money | luxury-product | queued | understated heritage, club tone, quiet affluence |
 | 39 | 럭셔리 / 클래식 | art-deco | luxury-product | verified | MERIDIAN LINE liner booking — S.S. Aurelia hero, sailings board with reserve/waitlist, stateroom class fare cards, grand salon strip |
 | 40 | 럭셔리 / 클래식 | art-nouveau | organic-brand | queued | flowing botanical line, ornamental frame, organic luxury |
-| 41 | 럭셔리 / 클래식 | baroque | luxury-product | queued | dramatic ornament, theatrical depth, heavy composition |
+| 41 | 럭셔리 / 클래식 | baroque | luxury-product | verified | TEATRO SAN CASSIANO 바로크 오페라 극장 — 사진 0장, 팔레트 전면 교체(진짜 near-black + 진짜 금박 + 크림슨 레이크), 금박 스크롤워크 프로시니엄, 크림슨 발랑스, 말굽형 palchi 평면도(등급 선택), 배역표·아리아·레퍼토리 |
 | 42 | 럭셔리 / 클래식 | rococo | luxury-product | queued | pastel shell curves, playful ornament, salon delicacy |
 | 43 | 럭셔리 / 클래식 | gothic | street-campaign | queued | vertical stone, pointed arches, dark ecclesiastical rhythm |
 | 44 | 자연 / 수공예 | natural | organic-brand | queued | landscape material, earth palette, broad outdoor calm |
@@ -680,3 +680,43 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - 좁은 폭은 책을 얇게 만들지 않고 **권수를 줄이는** 방식: `index >= 11`은 md 미만에서 숨김 → 모바일 11권(권당 ~30px), 데스크톱 17권. compact 카드는 13권.
 - 재검증: 1440 full(17권)·390 모바일(11권)·compact 카드(13권) 모두 page overflow 0 / 샘플 내부 가로 overflow 0. `check:data`·`check:style-distinction`·`lint`·`tsc --noEmit`·`next build`(550 pages) 통과.
 - 정정: 이전 기록의 "style-references.json classic Awwwards note 인코딩 깨짐"은 **오탐**이었다. JSON은 정상 UTF-8 한글이고 라이브 페이지에도 정상 렌더링되며, 터미널 출력 인코딩 아티팩트였다. 남은 의심점 없음.
+
+## 26. baroque — 재디자인 (소유자 지시: "이미지 줄이고 컬러팔레트도 바로크에 맞게, 지금은 바로크 같지 않다")
+
+### 현재 판정
+
+- status: `queued` → `reviewing`. 소유자 판단: "바로크하고는 다른 것 같다".
+- 현재 `BaroqueGalleryCommerce`(Caravaggio Hall)의 실제 문제 두 가지.
+  1. **팔레트가 바로크가 아니다.** base `#1F0E12` / surface `#32151B`로 진짜 검정이 없고, accent `#B9773B`는 금색이 아니라 탁한 주황갈색. 여기에 accent/accent2 라디얼 그라디언트를 화면 전체에 깔아서 명도 대비가 사라진 **균일한 마룬 뭉개짐**이 됨. 테네브리즘은 넓은 암부를 단일 광원이 뚫는 것인데, 암부도 광원도 없음.
+  2. **바로크 조형 언어가 하나도 없다.** 장식이 전부 직사각형(중첩 사각 테두리 3겹). 바로크 장식은 스크롤워크·볼류트·아칸서스·카르투슈 같은 **곡선**이고 구도는 대각·비대칭인데, 화면은 축 정렬 사각형뿐. 좌측 "01 VELVET SALON / 02 GILDED PORTRAIT / 03 CANDLE SERVICE"는 값 없는 라벨 행.
+  3. 이미지 1장이 우측을 지배하는데 오버레이·사각 프레임에 덮여 사진의 이점도 없음.
+- 웹 리서치 확인: 테네브리즘 = large areas of near-total darkness pierced by a sharp focused light source. 팔레트 예시 `#050304 / #2b1b15 / #8b5c2c / #d6a542 / #f7e8be`(니어블랙–엄버–브론즈–진짜 금–아이보리). 금 = 신적인 빛, 크림슨 = 수난/열정. 장식은 flowing acanthus, volutes, nested cartouches.
+- 인접 style 구분: neoclassic(밝은 대칭), luxury(소재 실사), art-deco(기하 대칭), rococo(파스텔 경쾌), gothic(수직 첨두). baroque는 **암부+단일광원+곡선 장식+의식적 위계**로 분리.
+
+### 목표
+
+- 컨셉: **"TEATRO SAN CASSIANO"**(1637 베네치아, 최초의 공공 오페라 극장) — 미술관이라는 정석 경로 대신 **바로크가 직접 만들어낸 극장**. 사진 0장.
+- 팔레트 전면 교체: base `#0A0705`(니어블랙) / surface `#191009`(엄버) / text `#F3E4C1`(촛불 아이보리) / muted `#A5875C` / primary `#C79430`(앤틱 골드) / accent `#8C1524`(크림슨 레이크) / accent2 `#EBC96F`(빛받은 금박) / accent3 `#2C3B31`(흐린 베르디그리) / border `#7B5C2D`.
+- 고유 마커: `Teatro San Cassiano` / `questa sera` / `gilded proscenium` / `cast table` / `box tier plan` / `repertory`.
+- 정보 구조: 크림슨 발랑스(스캘럽 헴+금박 프린지) + 금박 카르투슈 마스트헤드 → 오늘의 아피셰(제목·작곡가·리브레토) + S-스크롤 디바이더 + `cast table`(배역/가수/성종) + 아리아 목록 | `box tier plan`(말굽형 palchi 평면도 SVG, 등급 선택 연동) + 등급별 가격 행 + 크림슨 예약 CTA → `repertory` 시즌 스트립.
+- 조형: 페이지 테두리가 장식 자체(4모서리 아칸서스 볼류트), 테네브리즘은 좌상단 34%에서 떨어지는 단일 광원 + 우하단 크림슨 반사.
+
+### 검증 계획
+
+- RED/GREEN: `BaroqueGalleryCommerce` → `BaroqueOperaHouse` 위임 래퍼 + `TeatroSanCassiano.tsx`, 마커 6개 GREEN. check:data·check:style-distinction·check:style-refs·lint·tsc·build 통과.
+- browser QA: 1440 full / 390 모바일 / compact 카드 — page overflow 0 + 샘플 내부 가로 overflow 0, 등급 선택 → 평면도·가격·잔여 연동, console error 0.
+
+### 구현 및 검증 결과 (2026-07-29)
+
+- status: `verified`.
+- 변경 요약: 인라인 `BaroqueGalleryCommerce` 삭제 → 위임 래퍼 `BaroqueOperaHouse` + 신규 `TeatroSanCassiano.tsx`(use client, 등급 선택 useState). `GeneratedStyleImageSurface` 제거로 **사진 0장**.
+- 팔레트: 위 목표대로 9색 전부 교체. 색상표 스와치가 니어블랙/엄버/아이보리/금 · 크림슨/빛받은금/베르디그리/브론즈로 바뀌어 팔레트만 봐도 바로크로 읽힘. 토큰도 weightDisplay 500→600, headingScale 0.94→1.02, shadow를 `0 22px 64px rgb(0 0 0 / 0.72)`로 강화.
+- 곡선 장식 도입: `ScrollCorner`(아칸서스 볼류트 SVG, 4모서리 미러), `ScrollDivider`(괘선–S스크롤–원형 모티프), `Valance`(스캘럽 10개 + 금박 프린지 원). 전부 SVG path로 직접 그림.
+- `HousePlan`: 말굽형 극장 평면도 SVG. 무대(팔코셰니코) → 플라테아 → 4개 등급(palchi I~III + loggione)이 타원 호 위에 놓이고 각 박스는 무대를 향해 접선 회전. 등급 선택 시 해당 호와 박스가 금박으로 전환.
+- 하이드레이션 이슈: Node와 Chrome의 `Math.cos/atan2` 최하위 비트 차이로 SVG 좌표 문자열이 갈려 hydration mismatch 발생 → 좌표를 `toFixed`로 고정해 해소(console error 0 확인).
+- 인터랙션 QA: Loggione 클릭 시 `aria-pressed` 전환, 평면도 최외곽 열 금박 전환, 가격 행 하이라이트, 잔여 표기가 "sold at door"로 갱신 확인.
+- 데이터: representativeTraits를 Museum gallery rhythm 중심에서 Tenebrist single light / Gilded scrollwork frame / Curved ornament as structure 중심으로 교체. avoidTraits에 "Muddy maroon wash with no true black", "Rectangular borders standing in for ornament" 추가(이번에 실제로 걸린 실패 모드). 한국어 summary/description/visualFeatures/layoutTraits/imagePrompt도 테네브리즘·곡선 장식 기준으로 재작성. referenceSites(미술관 5곳)는 바로크 회화가 실제로 걸린 곳이라 유지.
+- browser QA: 1440 full(702×540)·390 모바일(330×540)·compact 카드(505×248) 모두 page overflow 0, 샘플 내부 가로/세로 overflow 0, console error 0.
+- 명령: `check:data`(78)·`check:style-distinction`(78)·`check:style-refs`(78)·`npm run lint`·`tsc --noEmit`·`next build`(550 pages) 통과.
+- screenshots: `baroque-before.jpeg`, `baroque-v4.jpeg`, `baroque-tier.jpeg`, `baroque-mobile.jpeg`, `baroque-compact.jpeg`, `baroque-palette.jpeg`.
+- 남은 의심점: 무드보드 `baroque-realistic-v2.webp`는 버건디 벨벳 기조라 새 팔레트의 니어블랙/베르디그리와 완전히 일치하지는 않음. 방향은 어긋나지 않아 이번 패스에서는 교체하지 않음.

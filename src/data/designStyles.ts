@@ -785,15 +785,19 @@ const palettes: Record<string, DesignStylePalette> = {
     border: "#58694C",
   },
   baroque: {
-    base: "#1F0E12",
-    surface: "#32151B",
-    text: "#F3DDB7",
-    mutedText: "#C49B82",
-    primary: "#F3DDB7",
-    accent: "#B9773B",
-    accent2: "#7C1828",
-    accent3: "#3F2016",
-    border: "#8E6042",
+    // Tenebrism needs a real near-black ground pierced by one warm light —
+    // the old maroon wash (#1F0E12 / #32151B) had no true dark and no true
+    // gilt, so it read as generic dark luxury. Ground, gilt, crimson lake and
+    // a veiled verdigris, after the 17th-century earth-pigment palette.
+    base: "#0A0705",
+    surface: "#191009",
+    text: "#F3E4C1",
+    mutedText: "#A5875C",
+    primary: "#C79430",
+    accent: "#8C1524",
+    accent2: "#EBC96F",
+    accent3: "#2C3B31",
+    border: "#7B5C2D",
   },
   rococo: {
     base: "#F4E9E8",
@@ -1444,9 +1448,9 @@ const luxuryClassicResearch: Record<string, StyleResearchBrief> = {
       { title: "Awwwards - Art Websites", url: "https://www.awwwards.com/websites/art-culture/", note: "Gallery reference for art and culture sites, exhibition pacing, dramatic imagery, and immersive cultural landing pages." },
       { title: "Dribbble - Baroque Website", url: "https://dribbble.com/search/baroque%20website", note: "UI reference for Baroque-inspired landing pages, dark gold interfaces, ornate cards, and theatrical product pages." },
     ],
-    representativeTraits: ["Chiaroscuro", "Gilded frame", "Deep wine and black", "Museum gallery rhythm", "Theatrical CTA"],
-    avoidTraits: ["Deco fan geometry", "Rococo lightness", "Fantasy castle UI", "Unreadable ornament density"],
-    tokenIntent: "Use deep shadows, wine, antique gold, serif display, framed hero imagery, and dramatic museum modules so Baroque reads as theatrical luxury.",
+    representativeTraits: ["Tenebrist single light", "Gilded scrollwork frame", "Crimson and antique gold on near-black", "Curved ornament as structure", "Ceremonial stage hierarchy"],
+    avoidTraits: ["Deco fan geometry", "Rococo pastel lightness", "Fantasy castle UI", "Muddy maroon wash with no true black", "Rectangular borders standing in for ornament"],
+    tokenIntent: "Use a near-black ground pierced by one warm light, true antique gold, crimson lake and a veiled verdigris, curved scrollwork and cartouche frames, and ceremonial modules so Baroque reads as theatrical drama rather than generic dark luxury.",
   },
   rococo: {
     referenceSites: [
@@ -2210,13 +2214,13 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     research: luxuryClassicResearch["art-nouveau"],
   },
   baroque: {
-    summary: "바로크는 극적인 명암, 깊은 색, 금박 프레임, 무대 같은 히어로로 감정 밀도가 높은 럭셔리 웹을 만드는 스타일입니다.",
+    summary: "바로크는 거의 검정에 가까운 화면을 단 하나의 따뜻한 광원이 뚫고, 금박 곡선 장식이 구조 자체가 되는 극장적인 스타일입니다.",
     description:
-      "바로크는 장식이 많다는 뜻보다 빛과 장면의 극적 통제가 중요합니다. Versailles, Louvre, Kunsthistorisches Museum, Rijksmuseum, Prado처럼 어두운 갤러리, 금박 프레임, 벨벳, 회화적 이미지가 실제 전시나 프라이빗 뷰 예약 화면으로 구성되어야 합니다.",
-    visualFeatures: ["키아로스쿠로처럼 밝고 어두운 영역의 대비가 스타일을 만듭니다.", "와인, 검정, 앤틱 골드, 벨벳 질감이 깊은 분위기를 만듭니다.", "프레임과 장식은 히어로 이미지 주변에서 통제해서 사용합니다."],
-    layoutTraits: ["중앙의 큰 이미지와 우측 전시/상품 리스트가 무대처럼 작동합니다.", "하단 정보는 조도, 소재, 장식처럼 분위기 단서로 구성합니다.", "모바일에서는 어두운 배경에서도 텍스트 대비를 높게 유지합니다."],
+      "바로크의 핵심은 장식의 양이 아니라 빛의 통제와 곡선입니다. 테네브리즘은 넓은 암부를 한 방향의 강한 빛이 관통하는 방식이라 진짜 검정과 진짜 금색이 동시에 필요하고, 어중간한 마룬 그라데이션으로는 절대 만들어지지 않습니다. 장식은 직사각 테두리가 아니라 스크롤워크, 볼류트, 아칸서스, 카르투슈 같은 곡선이며, 이 곡선이 프레임과 위계를 만드는 구조로 쓰여야 합니다. Versailles, Louvre, Prado의 회화가 걸린 어두운 전시장, 그리고 바로크가 직접 만들어낸 오페라 극장의 의식적인 화면 구성이 좋은 기준입니다.",
+    visualFeatures: ["거의 검정인 바탕을 하나의 따뜻한 광원이 뚫는 테네브리즘이 스타일을 결정합니다.", "앤틱 골드, 크림슨 레이크, 흐린 베르디그리, 촛불빛 아이보리가 17세기 안료 팔레트를 만듭니다.", "장식은 곡선입니다. 스크롤워크와 카르투슈가 프레임과 위계 자체가 됩니다."],
+    layoutTraits: ["금박 장식이 페이지의 테두리이자 구조가 되고, 그 안에서 빛이 강한 쪽에 핵심 정보를 둡니다.", "의식적인 순서, 배역표, 등급별 좌석처럼 격식 있는 목록 모듈이 잘 맞습니다.", "모바일에서는 장식을 줄이되 암부와 금색의 대비는 유지합니다."],
     imagePrompt:
-      "A Baroque luxury museum website reference image with candlelit chiaroscuro, deep wine velvet, antique gold frame, dark gallery hero, dramatic editorial cards, no logo, no watermark",
+      "A Baroque theatrical reference image with tenebrist near-black ground pierced by one warm light, true antique gold scrollwork and cartouche ornament, crimson velvet, veiled verdigris, candlelit ivory highlights, no logo, no watermark",
     research: luxuryClassicResearch.baroque,
   },
   rococo: {
@@ -3111,10 +3115,10 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
   },
   "baroque": {
-    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 500, weightBody: 350, tracking: "0.02em", headingScale: 0.94 },
+    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 600, weightBody: 350, tracking: "0.03em", headingScale: 1.02 },
     shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "double" },
     space: { density: "normal", gap: "0.9rem", padScale: 1.05 },
-    decoration: { shadow: "0 18px 52px rgb(0 0 0 / 0.38)", effect: "grain" },
+    decoration: { shadow: "0 22px 64px rgb(0 0 0 / 0.72)", effect: "grain" },
     layout: { heroVariant: "center", navStyle: "minimal", alignment: "center" },
   },
   "rococo": {

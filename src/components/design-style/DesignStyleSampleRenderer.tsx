@@ -20,6 +20,7 @@ import { RedRoomCaseDesk } from "./RedRoomCaseDesk";
 import { RolleramaRink } from "./RolleramaRink";
 import { WorldOfTomorrowSpecimen } from "./WorldOfTomorrowSpecimen";
 import { SunnysideDriveIn } from "./SunnysideDriveIn";
+import { TeatroSanCassiano } from "./TeatroSanCassiano";
 
 type Props = {
   className?: string;
@@ -3002,73 +3003,13 @@ function ArtNouveauBotanicalShop({ className, compact = false, style }: Props) {
   );
 }
 
-function BaroqueGalleryCommerce({ className, compact = false, style }: Props) {
+function BaroqueOperaHouse({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={cn("bg-[var(--sample-base)]", className)} compact={compact} style={style}>
-      <span
-        aria-hidden="true"
-        className="absolute inset-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(78% 64% at 28% 20%, rgb(var(--st-accent-rgb) / 0.34), transparent 58%), radial-gradient(60% 70% at 82% 72%, rgb(var(--st-accent-2-rgb) / 0.44), transparent 62%), linear-gradient(135deg, rgb(0 0 0 / 0.58), transparent 42%, rgb(0 0 0 / 0.38))",
-        }}
-      />
-      <div className="relative grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav align="left" brand="Caravaggio Hall" bordered={false} compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />]} links={["Paintings", "Rooms", "Patron"]} sub="Candle salon" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.78fr_1.22fr]" : "grid-cols-[0.68fr_1.32fr]")}>
-          <div className="grid min-h-0 grid-rows-[auto_1fr_auto] gap-3">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--sample-muted)]">Candle drama</p>
-              <h3 className={cn("mt-2 font-display font-normal leading-[0.92] text-[var(--sample-primary)]", compact ? "text-3xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0.01em" }}>
-                Baroque
-              </h3>
-            </div>
-            <div className="grid gap-2">
-              {[
-                ["01", "Velvet salon"],
-                ["02", "Gilded portrait"],
-                ["03", "Candle service"],
-              ].map(([index, item]) => (
-                <div className="grid grid-cols-[auto_1fr] items-center gap-3 border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.76)] px-3 py-2 text-[9px] uppercase tracking-[0.15em]" key={item}>
-                  <span className="font-serif text-sm text-[var(--sample-accent)]">{index}</span>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-            <span className="h-9 border border-[var(--sample-accent)] bg-[var(--sample-accent-2)] text-center text-[10px] uppercase leading-9 tracking-[0.2em] text-[var(--sample-primary)]">Private view</span>
-          </div>
-          <div
-            className="relative min-h-0 border border-[var(--sample-accent)] bg-[var(--sample-surface)] p-2"
-            style={{ boxShadow: "inset 0 0 0 7px rgb(var(--st-accent-rgb) / 0.18), 0 14px 30px rgb(0 0 0 / 0.28)" }}
-          >
-            <span className="pointer-events-none absolute inset-4 border border-[var(--sample-accent)] opacity-80" />
-            <span className="pointer-events-none absolute left-1/2 top-0 h-5 w-28 -translate-x-1/2 bg-[var(--sample-surface)]" style={{ clipPath: "polygon(12% 0, 88% 0, 100% 100%, 0 100%)" }} />
-            <span className="pointer-events-none absolute bottom-0 left-1/2 h-5 w-28 -translate-x-1/2 bg-[var(--sample-surface)]" style={{ clipPath: "polygon(0 0, 100% 0, 88% 100%, 12% 100%)" }} />
-            <GeneratedStyleImageSurface className="h-full min-h-0 border border-[var(--sample-border-soft)]" overlay="dark" position="center 18%" slug="baroque">
-              <span
-                className="absolute inset-0"
-                style={{
-                  backgroundImage:
-                    "radial-gradient(36% 56% at 44% 38%, transparent 0 42%, rgb(var(--st-base-rgb) / 0.1) 62%, rgb(var(--st-base-rgb) / 0.72) 100%), linear-gradient(90deg, rgb(var(--st-accent-2-rgb) / 0.42), transparent 32%, transparent 68%, rgb(var(--st-base-rgb) / 0.72))",
-                }}
-              />
-              <span className={cn("absolute left-[10%] top-[9%] h-[70%] w-[74%] border border-[var(--sample-accent)] opacity-75", compact ? "opacity-45" : "")} />
-              <span className={cn("absolute left-[16%] top-[15%] h-[58%] w-[62%] border border-[var(--sample-accent)] opacity-60", compact ? "hidden" : "")} />
-              <span className={cn("absolute left-5 top-5 border border-[var(--sample-accent)] bg-[rgb(var(--st-base-rgb)_/_0.82)] px-3 py-2 text-[9px] uppercase tracking-[0.2em] text-[var(--sample-primary)]", compact ? "hidden" : "")}>
-                Velvet house
-              </span>
-              <span className={cn("absolute border border-[var(--sample-accent)] bg-[rgb(var(--st-base-rgb)_/_0.88)] uppercase text-[var(--sample-primary)]", compact ? "bottom-2 left-2 right-2 px-2 py-1 text-[8px] tracking-[0.14em]" : "bottom-4 left-4 right-4 px-3 py-2 text-[10px] tracking-[0.18em]")}>
-                Chiaroscuro atelier
-              </span>
-            </GeneratedStyleImageSurface>
-          </div>
-        </div>
-        <LuxuryClassicBottomStrip compact={compact} items={[["Light", "Candle"], ["Surface", "Velvet"], ["Gesture", "Theatre"]]} />
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)] !p-0", className)} compact={compact} style={style}>
+      <TeatroSanCassiano compact={compact} />
     </SampleFrame>
   );
 }
-
 function RococoSalonMarket({ className, compact = false, style }: Props) {
   return (
     <SampleFrame className={className} compact={compact} style={style}>
@@ -7023,7 +6964,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "baroque") {
-    return <BaroqueGalleryCommerce {...props} />;
+    return <BaroqueOperaHouse {...props} />;
   }
 
   if (style.slug === "rococo") {
