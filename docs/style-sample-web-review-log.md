@@ -71,7 +71,7 @@
 | 37 | 럭셔리 / 클래식 | luxury | luxury-product | queued | premium product reveal, rich material, controlled opulence |
 | 38 | 럭셔리 / 클래식 | old-money | luxury-product | queued | understated heritage, club tone, quiet affluence |
 | 39 | 럭셔리 / 클래식 | art-deco | luxury-product | verified | MERIDIAN LINE liner booking — S.S. Aurelia hero, sailings board with reserve/waitlist, stateroom class fare cards, grand salon strip |
-| 40 | 럭셔리 / 클래식 | art-nouveau | organic-brand | verified | MÉTROPOLITAIN 기마르 파리 메트로 — 실사 마스트헤드 + 리소그래프 프리즈, 팔레트 전면 교체(Mucha/Tiffany 보라–주황–초록 삼색조), 손으로 그린 비대칭 coup de fouet가 레이아웃 축이자 역 선택 UI, 주철 줄기 마스트헤드, 납선 유리 트랜섬, 역 기록·다음 열차·요금·노선 색인 |
+| 40 | 럭셔리 / 클래식 | art-nouveau | organic-brand | verified | MÉTROPOLITAIN 기마르 파리 메트로 — 리소그래프 프리즈 아피시 헤드(타이틀 밴드가 장식 위에 걸침), 팔레트 전면 교체(Mucha/Tiffany 보라–주황–초록 삼색조), 손으로 그린 비대칭 coup de fouet가 레이아웃 축이자 역 선택 UI, 주철 줄기 마스트헤드, 납선 유리 트랜섬, 역 기록·다음 열차·요금·노선 색인 |
 | 41 | 럭셔리 / 클래식 | baroque | luxury-product | verified | TEATRO SAN CASSIANO 바로크 오페라 극장 — 사진 0장, 팔레트 전면 교체(진짜 near-black + 진짜 금박 + 크림슨 레이크), 금박 스크롤워크 프로시니엄, 크림슨 발랑스, 말굽형 palchi 평면도(등급 선택), 배역표·아리아·레퍼토리 |
 | 42 | 럭셔리 / 클래식 | rococo | luxury-product | queued | pastel shell curves, playful ornament, salon delicacy |
 | 43 | 럭셔리 / 클래식 | gothic | street-campaign | queued | vertical stone, pointed arches, dark ecclesiastical rhythm |
@@ -799,3 +799,16 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - 명령: `check:data`(78)·`check:style-distinction`(78)·`check:style-refs`(78)·`lint`·`tsc --noEmit`·`build`(550 pages) 통과.
 - 배운 것: 아르누보에서 **채찍선을 stroke path로 그리면 물결무늬가 된다.** 이 스타일의 선은 굵기가 변하고 잎·꽃이 붙은 판화 선이라, 직접 그릴 바에는 리소그래프 이미지를 쓰는 편이 훨씬 설득력 있다. 같은 이유로 기마르 철물도 SVG로는 재현되지 않았다.
 - 남은 의심점: 모바일(330px 폭)에서는 마스트헤드 밴드가 낮아 램프가 상단 가장자리에 걸친다. 철제 곡선과 워드마크는 읽히므로 유지.
+
+## 30. art-nouveau — 상단 실사 제거, 아피시 구성으로 재배치 (소유자 지시: "맨 위 상단 이미지도 빼고 레이아웃을 짜줘")
+
+- 배경: 29번에서 상단에 기마르 실사 밴드, 그 아래에 리소그래프 프리즈를 두었더니 **이미지 밴드 두 개가 쌓인 형태**가 됐다. 게다가 블루아워 실사는 채도·명도가 강해서, 같은 패스에서 무하 톤으로 낮춘 크림 팔레트와 정면으로 부딪혔다.
+- 조치: 기마르 실사를 빼고 **프리즈 하나를 마스트헤드로** 승격. 레이아웃을 아피시(affiche) 구성으로 재배치했다.
+  - 프리즈가 full-bleed로 상단을 차지하고(9~10rem), **타이틀 밴드가 그 장식 위에 가로로 걸친다.** 밴드는 좌우 15%/85%에서 크림 0.97 → 0으로 페더되어 양 끝에서 프리즈가 그대로 이어져 보인다. 아르누보 포스터에서 제목판이 장식을 끊고 지나가는 방식.
+  - 밴드 안: 상호(스몰캡) → MÉTROPOLITAIN → 괘선–마름모–괘선 → 노선 부제. 별도 마스트헤드 행과 부제 행이 사라져 약 120px이 아래 2열 콘텐츠로 넘어갔고, 이전의 빈 공간이 해소됐다.
+  - 1차 시도의 방사형 크림 베일은 너무 빨리 사라져 타입이 씻겨 보였다 → 전폭 수평 페이드 밴드로 교체. 괘선 장식도 accent 1px에서는 보이지 않아 primary 1.5px + accent 마름모로 강화.
+- 정리: 미사용이 된 `public/generated/design-styles/art-nouveau.webp`(기마르 실사)와 `GENERATED_STYLE_IMAGES`의 해당 항목 삭제. 필요하면 git 히스토리에서 복원 가능.
+- 마커: `Guimard edicule masthead` 제거(해당 요소 없음), `MÉTROPOLITAIN`/`whiplash frieze`/`station index`/`station record`/`billets`/`ligne index` 유지. 워드마크를 HTML 엔티티로 쓰면 마커 매칭이 깨져 리터럴 `MÉTROPOLITAIN`으로 되돌렸다.
+- 좁은 폭 대응: 390px에서 타이틀이 잘려 md 미만 크기·트래킹 축소, 부제는 노선 구간을 md↑에서만 노출, station index는 md 미만에서 5개 역만 표시(7개를 다 넣으면 전부 말줄임이 된다).
+- 검증(2026-07-30): 1440 full·390 모바일·compact 카드 모두 page overflow 0, 샘플 내부 overflow 0, 상세 페이지 console error 0. 역 선택 QA: Concorde 클릭 → `station record` 제목이 Concorde로 갱신 확인. `check:data`(78)·`check:style-distinction`(78)·`check:style-refs`(78)·`lint`·`tsc --noEmit`·`build`(550 pages) 통과.
+- 남은 의심점: 없음.

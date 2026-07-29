@@ -6,25 +6,22 @@ import { cn } from "@/lib/utils";
 
 const DISPLAY: CSSProperties = { fontFamily: "var(--st-font-display)" };
 
-const EDICULE_IMAGE = "/generated/design-styles/art-nouveau.webp";
 const FRIEZE_IMAGE = "/generated/design-styles/art-nouveau-frieze.webp";
 
 const FOCUS =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--sample-primary)]" as const;
 
 /* Art Nouveau, taken to Guimard's Métro rather than to another botanical shop.
-   The style's own rule — ornament integrated into the structural form — is
-   applied literally: the coup de fouet is not decoration laid over a layout,
-   it IS the layout. The line the reader follows across the page is the
-   whiplash, and the stations are its anchor points.
+   Laid out as an affiche: one lithographic frieze runs full-bleed as the
+   masthead and the title band lies across it, feathering out at both ends so
+   the ornament carries on behind the type. Ornament and structure are the
+   same object, which is the period's own rule.
 
-   Both ornaments are printed rather than drawn, because the drawn versions
-   failed: the SVG stems in the masthead read as two thin squiggles, and the
-   whiplash rendered as a stroked path read as a wave, too heavy and too
-   saturated to pass for the period. So the masthead is a real Guimard
-   entrance and the band under it is a lithographic frieze; the interactive
-   parts below stay drawn. Muted poster ink on cream — dusty sage, soft gold,
-   dusty rose, faded teal — never at full saturation. */
+   The ornament is printed rather than drawn because every drawn version
+   failed — SVG iron stems read as thin squiggles, and a whiplash rendered as
+   a stroked path read as a wave, too heavy and too even for the period. The
+   working modules below stay drawn. Muted poster ink on cream: dusty sage,
+   soft gold, dusty rose, faded teal, never at full saturation. */
 
 type Station = {
   readonly correspondances: readonly string[];
@@ -106,40 +103,11 @@ export function MetropolitainLine({ compact = false }: { readonly compact?: bool
 
   return (
     <div className="flex h-full min-h-0 flex-col text-[var(--sample-text)]" style={DISPLAY}>
-      {/* ── Guimard edicule masthead: the real ironwork, not a drawn stand-in ── */}
-      <header aria-label="Guimard edicule masthead" className="shrink-0">
-        <div
-          className={cn("relative w-full overflow-hidden border border-[var(--sample-border)]", compact ? "h-9" : "h-[5.5rem] md:h-[6.5rem]")}
-          style={{
-            backgroundImage: `url('${EDICULE_IMAGE}')`,
-            // Frame the amber lamps and the curling stems — the part of a
-            // Guimard entrance that reads as Art Nouveau at a glance.
-            backgroundPosition: "center 12%",
-            backgroundSize: "cover",
-          }}
-        >
-          <span className="absolute inset-x-0 bottom-0 flex justify-center">
-            <span
-              className={cn(
-                "max-w-full truncate border-y-2 border-[var(--sample-accent)] uppercase text-[var(--sample-primary)]",
-                compact ? "px-2 py-px text-[0.6rem] tracking-[0.12em]" : "px-5 py-1 text-[0.85rem] tracking-[0.16em] md:text-[1.05rem] md:tracking-[0.24em]",
-              )}
-              style={{ backgroundColor: "rgb(var(--st-base-rgb) / 0.92)" }}
-            >
-              MÉTROPOLITAIN
-            </span>
-          </span>
-        </div>
-        <p className={cn("truncate text-center italic text-[var(--sample-muted)]", compact ? "mt-px text-[5px]" : "mt-1 text-[8px]")}>
-          <span className="hidden md:inline">Compagnie du chemin de fer de Paris &middot; </span>ligne n&deg; 1 &middot; MCM
-        </p>
-      </header>
-
-      {/* ── the frieze: a printed Art Nouveau band, not a drawn line ── */}
-      <section aria-label="whiplash frieze" className={cn("shrink-0 overflow-hidden border-y border-[var(--sample-border)]", compact ? "mt-1 h-[3rem]" : "mt-2 h-[8.5rem]")}>
+      {/* ── affiche head: the frieze is the masthead, the type sits inside it ── */}
+      <header aria-label="whiplash frieze" className={cn("relative shrink-0 overflow-hidden border-y-2 border-[var(--sample-primary)]", compact ? "h-[4.5rem]" : "h-[9rem] md:h-[10rem]")}>
         <span
           aria-hidden="true"
-          className="block h-full w-full"
+          className="absolute inset-0 block"
           style={{
             backgroundImage: `url('${FRIEZE_IMAGE}')`,
             // Hold the blooms, the sweeping stems and the coiled croziers in frame.
@@ -147,7 +115,35 @@ export function MetropolitainLine({ compact = false }: { readonly compact?: bool
             backgroundSize: "cover",
           }}
         />
-      </section>
+        {/* the title band lies across the ornament and feathers out at both
+            ends, so the frieze runs on behind it */}
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2">
+          <div
+            className={cn("w-full text-center", compact ? "px-3 py-1" : "px-4 py-2.5 md:px-10")}
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, rgb(var(--st-base-rgb) / 0) 0%, rgb(var(--st-base-rgb) / 0.97) 15%, rgb(var(--st-base-rgb) / 0.97) 85%, rgb(var(--st-base-rgb) / 0) 100%)",
+            }}
+          >
+            <p className={cn("truncate uppercase text-[var(--sample-muted)]", compact ? "text-[4.5px] tracking-[0.16em]" : "text-[7px] tracking-[0.26em]")}>
+              Compagnie du chemin de fer de Paris
+            </p>
+            <h2
+              className={cn("truncate uppercase leading-none text-[var(--sample-primary)]", compact ? "mt-0.5 text-[0.7rem] tracking-[0.14em]" : "mt-1.5 text-[0.95rem] tracking-[0.1em] md:text-[1.5rem] md:tracking-[0.28em]")}
+            >
+              MÉTROPOLITAIN
+            </h2>
+            <span aria-hidden="true" className={cn("mx-auto flex items-center justify-center", compact ? "my-0.5 gap-1" : "my-1.5 gap-2")}>
+              <span className={cn("block bg-[var(--sample-primary)]", compact ? "h-px w-6" : "h-[1.5px] w-16")} />
+              <span className={cn("block rotate-45 bg-[var(--sample-accent)]", compact ? "h-1 w-1" : "h-1.5 w-1.5")} />
+              <span className={cn("block bg-[var(--sample-primary)]", compact ? "h-px w-6" : "h-[1.5px] w-16")} />
+            </span>
+            <p className={cn("truncate italic text-[var(--sample-text)]", compact ? "text-[5px]" : "text-[9px]")}>
+              ligne n&deg; 1<span className="hidden md:inline"> &middot; Porte Maillot &mdash; Porte de Vincennes</span> &middot; MCM
+            </p>
+          </div>
+        </div>
+      </header>
 
       {/* ── station index: the stops the frieze used to carry ── */}
       <nav aria-label="station index" className={cn("flex shrink-0 items-center justify-between gap-1 border-b border-[var(--sample-border)]", compact ? "py-0.5" : "py-1.5")}>
@@ -156,13 +152,14 @@ export function MetropolitainLine({ compact = false }: { readonly compact?: bool
           return (
             <Fragment key={station.id}>
               {index > 0 ? (
-                <span aria-hidden="true" className={cn("shrink-0 rotate-45 border border-[var(--sample-accent-3)]", compact ? "h-[3px] w-[3px]" : "h-1 w-1")} />
+                <span aria-hidden="true" className={cn("shrink-0 rotate-45 border border-[var(--sample-accent-3)]", compact ? "h-[3px] w-[3px]" : "h-1 w-1", !compact && index > 4 ? "hidden md:block" : "")} />
               ) : null}
               <button
                 aria-pressed={active}
                 className={cn(
                   "min-w-0 truncate uppercase transition-colors",
                   FOCUS,
+                  !compact && index > 4 ? "hidden md:block" : "",
                   compact ? "text-[4.5px] tracking-[0.06em]" : "text-[7px] tracking-[0.14em]",
                   active ? "text-[var(--sample-primary)] underline decoration-[var(--sample-accent)] decoration-2 underline-offset-4" : "text-[var(--sample-muted)] hover:text-[var(--sample-text)]",
                 )}

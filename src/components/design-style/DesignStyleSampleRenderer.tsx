@@ -182,7 +182,6 @@ export function PhotoSurface({
 const GENERATED_STYLE_IMAGES = {
   "anti-design": "/generated/design-styles/anti-design.webp",
   "art-deco": "/generated/design-styles/art-deco.webp",
-  "art-nouveau": "/generated/design-styles/art-nouveau.webp",
   "avant-garde": "/generated/design-styles/avant-garde.webp",
   baroque: "/generated/design-styles/baroque.webp",
   botanical: "/generated/design-styles/botanical.webp",
