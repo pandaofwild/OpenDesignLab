@@ -671,3 +671,12 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - screenshots: `classic-before.jpeg`, `classic-final-full.jpeg`, `classic-final-mobile.jpeg`, `classic-compact.jpeg`, `classic-selected.jpeg`.
 - 남은 의심점: `scripts/style-references.json`의 classic > galleries > Awwwards note가 한글 인코딩 깨짐(mojibake) 상태로 라이브 페이지에 노출됨. 이번 샘플 재설계 범위 밖이라 손대지 않음 — 별도 정리 필요.
 - 다음 style: No. 36 `neoclassic`.
+
+### 후속 (2026-07-29, 소유자 지시: "책을 좀더 촘촘하게 쌓아줘")
+
+- 서가 밀도 상향: 11권 → **17권**(No. XXVIII–XLIV), 책등 간격 `gap-[2px]` → `gap-0`으로 완전 밀착. 실제 서가처럼 책끼리 맞닿고, 두께는 여전히 분량 기반(0.70~1.95)이라 폭이 23~60px로 제각각.
+- 추가 권: On Liberty, Frankenstein, Walden, Don Quixote, The Aeneid, Jane Eyre. 클로스 색이 인접해서 겹치지 않도록 navy/olive/cream/oxblood/ink/ochre 순서를 배열에서 직접 조정.
+- 얇은 책등 대응: 권번호 패널을 `border`+`px-1` → `w-full outline` + 두께별 5~6px로 바꿔 좁은 책등에서 넘치지 않게 함. 풋 워드마크(CLARENDON)는 두께 1.45 이상 + md↑에서만 노출(좁은 폭에서 "CLARE…" 잘림 제거).
+- 좁은 폭은 책을 얇게 만들지 않고 **권수를 줄이는** 방식: `index >= 11`은 md 미만에서 숨김 → 모바일 11권(권당 ~30px), 데스크톱 17권. compact 카드는 13권.
+- 재검증: 1440 full(17권)·390 모바일(11권)·compact 카드(13권) 모두 page overflow 0 / 샘플 내부 가로 overflow 0. `check:data`·`check:style-distinction`·`lint`·`tsc --noEmit`·`next build`(550 pages) 통과.
+- 정정: 이전 기록의 "style-references.json classic Awwwards note 인코딩 깨짐"은 **오탐**이었다. JSON은 정상 UTF-8 한글이고 라이브 페이지에도 정상 렌더링되며, 터미널 출력 인코딩 아티팩트였다. 남은 의심점 없음.

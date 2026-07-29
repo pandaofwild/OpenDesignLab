@@ -47,12 +47,28 @@ const VOLUMES: readonly Volume[] = [
     id: "meditations",
     ink: "var(--sample-surface)",
     note: "Reset from the 1887 sheets and corrected against the Greek, with the emperor's night notes kept in their original order.",
-    numeral: "XXXIV",
+    numeral: "XXVIII",
     pages: "324 pp.",
     price: "£24",
     thickness: 1,
     title: "Meditations",
     translator: "M. R. Fenwick",
+  },
+  {
+    author: "John Stuart Mill",
+    binding: "Olive cloth",
+    cloth: "var(--sample-muted)",
+    firstIssued: "1889",
+    height: "83%",
+    id: "liberty",
+    ink: "var(--sample-surface)",
+    note: "The 1859 text entire, set wide enough that the long argumentative sentences are never broken across a turn of the page.",
+    numeral: "XXIX",
+    pages: "168 pp.",
+    price: "£18",
+    thickness: 0.7,
+    title: "On Liberty",
+    translator: "—",
   },
   {
     author: "Plato",
@@ -63,7 +79,7 @@ const VOLUMES: readonly Volume[] = [
     id: "republic",
     ink: "var(--sample-text)",
     note: "The ten books unabridged, with the Stephanus numbers set in the outer margin so a reader can still follow a lecture.",
-    numeral: "XXXV",
+    numeral: "XXX",
     pages: "480 pp.",
     price: "£27",
     thickness: 1.2,
@@ -71,52 +87,20 @@ const VOLUMES: readonly Volume[] = [
     translator: "C. Ayrton",
   },
   {
-    author: "George Eliot",
+    author: "Mary Shelley",
     binding: "Oxblood cloth",
     cloth: "var(--sample-accent)",
-    firstIssued: "1891",
-    height: "97%",
-    id: "middlemarch",
+    firstIssued: "1896",
+    height: "87%",
+    id: "frankenstein",
     ink: "var(--sample-surface)",
-    note: "The full eight books in one sewn volume, with the 1874 revisions restored and a fold-out map of the parish.",
-    numeral: "XXXVI",
-    pages: "912 pp.",
-    price: "£32",
-    thickness: 1.7,
-    title: "Middlemarch",
+    note: "The 1818 first text rather than the softened revision, with the author's own preface restored to the front of the book.",
+    numeral: "XXXI",
+    pages: "264 pp.",
+    price: "£21",
+    thickness: 0.9,
+    title: "Frankenstein",
     translator: "—",
-  },
-  {
-    author: "Emily Brontë",
-    binding: "Olive cloth",
-    cloth: "var(--sample-muted)",
-    firstIssued: "1905",
-    height: "84%",
-    id: "wuthering",
-    ink: "var(--sample-surface)",
-    note: "Printed from the 1847 text rather than her sister's edited reprint, with the dialect spellings left exactly as written.",
-    numeral: "XXXVII",
-    pages: "368 pp.",
-    price: "£23",
-    thickness: 1.05,
-    title: "Wuthering Heights",
-    translator: "—",
-  },
-  {
-    author: "Homer",
-    binding: "Ochre cloth, gilt",
-    cloth: "var(--sample-accent-2)",
-    firstIssued: "1902",
-    height: "100%",
-    id: "odyssey",
-    ink: "var(--sample-text)",
-    note: "A verse rendering set in long measure so the lines are never broken, with the Ithaca charts engraved on the endpapers.",
-    numeral: "XXXVIII",
-    pages: "544 pp.",
-    price: "£28",
-    thickness: 1.3,
-    title: "The Odyssey",
-    translator: "A. T. Ward",
   },
   {
     author: "Michel de Montaigne",
@@ -127,12 +111,44 @@ const VOLUMES: readonly Volume[] = [
     id: "essays",
     ink: "var(--sample-surface)",
     note: "All three books complete, printed on a laid stock light enough to carry a thousand pages without a second binding.",
-    numeral: "XXXIX",
+    numeral: "XXXII",
     pages: "1,024 pp.",
     price: "£34",
     thickness: 1.85,
     title: "Essays",
     translator: "J. Hale",
+  },
+  {
+    author: "Homer",
+    binding: "Ochre cloth, gilt",
+    cloth: "var(--sample-accent-2)",
+    firstIssued: "1902",
+    height: "100%",
+    id: "odyssey",
+    ink: "var(--sample-text)",
+    note: "A verse rendering set in long measure so the lines are never broken, with the Ithaca charts engraved on the endpapers.",
+    numeral: "XXXIII",
+    pages: "544 pp.",
+    price: "£28",
+    thickness: 1.3,
+    title: "The Odyssey",
+    translator: "A. T. Ward",
+  },
+  {
+    author: "George Eliot",
+    binding: "Oxblood cloth",
+    cloth: "var(--sample-accent)",
+    firstIssued: "1891",
+    height: "97%",
+    id: "middlemarch",
+    ink: "var(--sample-surface)",
+    note: "The full eight books in one sewn volume, with the 1874 revisions restored and a fold-out map of the parish.",
+    numeral: "XXXIV",
+    pages: "912 pp.",
+    price: "£32",
+    thickness: 1.7,
+    title: "Middlemarch",
+    translator: "—",
   },
   {
     author: "Jane Austen",
@@ -143,7 +159,7 @@ const VOLUMES: readonly Volume[] = [
     id: "persuasion",
     ink: "var(--sample-text)",
     note: "Set from the first edition of 1817, with the two cancelled chapters printed as an appendix rather than folded into the text.",
-    numeral: "XL",
+    numeral: "XXXV",
     pages: "288 pp.",
     price: "£22",
     thickness: 0.92,
@@ -151,15 +167,63 @@ const VOLUMES: readonly Volume[] = [
     translator: "—",
   },
   {
-    author: "Charles Dickens",
+    author: "Henry David Thoreau",
+    binding: "Olive cloth",
+    cloth: "var(--sample-muted)",
+    firstIssued: "1911",
+    height: "89%",
+    id: "walden",
+    ink: "var(--sample-surface)",
+    note: "The Concord text with the account of the year's expenses set as a table, exactly as it stood in the first printing.",
+    numeral: "XXXVI",
+    pages: "352 pp.",
+    price: "£23",
+    thickness: 1,
+    title: "Walden",
+    translator: "—",
+  },
+  {
+    author: "Miguel de Cervantes",
     binding: "Navy cloth, gilt",
     cloth: "var(--sample-primary)",
+    firstIssued: "1900",
+    height: "99%",
+    id: "quixote",
+    ink: "var(--sample-surface)",
+    note: "Both parts in one volume, on a thin laid stock, with the interpolated tales left where the author put them.",
+    numeral: "XXXVII",
+    pages: "1,072 pp.",
+    price: "£38",
+    thickness: 1.95,
+    title: "Don Quixote",
+    translator: "P. Ellery",
+  },
+  {
+    author: "Emily Brontë",
+    binding: "Cream buckram",
+    cloth: "var(--sample-accent-3)",
+    firstIssued: "1905",
+    height: "84%",
+    id: "wuthering",
+    ink: "var(--sample-text)",
+    note: "Printed from the 1847 text rather than her sister's edited reprint, with the dialect spellings left exactly as written.",
+    numeral: "XXXVIII",
+    pages: "368 pp.",
+    price: "£23",
+    thickness: 1.05,
+    title: "Wuthering Heights",
+    translator: "—",
+  },
+  {
+    author: "Charles Dickens",
+    binding: "Ink cloth, gilt",
+    cloth: "var(--sample-text)",
     firstIssued: "1917",
     height: "91%",
     id: "expectations",
     ink: "var(--sample-surface)",
     note: "The serial ending printed alongside the revised one, so both closes of the story stand in the same volume.",
-    numeral: "XLI",
+    numeral: "XXXIX",
     pages: "528 pp.",
     price: "£29",
     thickness: 1.28,
@@ -175,7 +239,7 @@ const VOLUMES: readonly Volume[] = [
     id: "leaves",
     ink: "var(--sample-surface)",
     note: "The deathbed edition, wide-margined so the long line runs unbroken, with the poet's own arrangement of the clusters kept.",
-    numeral: "XLII",
+    numeral: "XL",
     pages: "412 pp.",
     price: "£26",
     thickness: 1.12,
@@ -183,9 +247,41 @@ const VOLUMES: readonly Volume[] = [
     translator: "—",
   },
   {
-    author: "Dante Alighieri",
+    author: "Virgil",
+    binding: "Ochre cloth, gilt",
+    cloth: "var(--sample-accent-2)",
+    firstIssued: "1907",
+    height: "92%",
+    id: "aeneid",
+    ink: "var(--sample-text)",
+    note: "Twelve books in blank verse, the Latin line numbers carried in the margin for readers working from the original.",
+    numeral: "XLI",
+    pages: "432 pp.",
+    price: "£27",
+    thickness: 1.15,
+    title: "The Aeneid",
+    translator: "R. Calder",
+  },
+  {
+    author: "Charlotte Brontë",
     binding: "Oxblood cloth",
     cloth: "var(--sample-accent)",
+    firstIssued: "1909",
+    height: "95%",
+    id: "eyre",
+    ink: "var(--sample-surface)",
+    note: "The three-volume novel gathered into one, with the original chapter breaks kept rather than run together to save paper.",
+    numeral: "XLII",
+    pages: "624 pp.",
+    price: "£30",
+    thickness: 1.4,
+    title: "Jane Eyre",
+    translator: "—",
+  },
+  {
+    author: "Dante Alighieri",
+    binding: "Navy cloth, gilt",
+    cloth: "var(--sample-primary)",
     firstIssued: "1898",
     height: "88%",
     id: "commedia",
@@ -256,7 +352,7 @@ export function ClarendonHouseLibrary({ compact = false }: { readonly compact?: 
   const [selectedId, setSelectedId] = useState<string>("persuasion");
   const [planId, setPlanId] = useState<string>("quarterly");
   const selected = VOLUMES.find((volume) => volume.id === selectedId) ?? VOLUMES[0];
-  const spines = compact ? VOLUMES.slice(0, 9) : VOLUMES;
+  const spines = compact ? VOLUMES.slice(0, 13) : VOLUMES;
   const records: Array<[string, string]> = [
     ["Translated", selected.translator],
     ["Extent", selected.pages],
@@ -321,16 +417,19 @@ export function ClarendonHouseLibrary({ compact = false }: { readonly compact?: 
 
       {/* ── the shelf: cloth spines instead of product photography ── */}
       <section aria-label="cloth spine shelf" className={cn("flex min-h-0 flex-1 flex-col", compact ? "pt-1.5" : "pt-3.5")}>
-        <div className={cn("flex min-h-0 flex-1 items-end justify-center", compact ? "min-h-[3.5rem] gap-[2px]" : "min-h-[8.5rem] gap-[2px]")}>
-          {spines.map((volume) => {
+        {/* packed tight: real shelves have no air between spines */}
+        <div className={cn("flex min-h-0 flex-1 items-end justify-center gap-0", compact ? "min-h-[3.5rem]" : "min-h-[8.5rem]")}>
+          {spines.map((volume, index) => {
             const active = volume.id === selectedId;
             return (
               <button
                 aria-pressed={active}
                 className={cn(
-                  "relative flex min-w-0 flex-col items-center justify-between overflow-hidden border border-[rgb(var(--st-text-rgb)/0.25)] transition-transform",
+                  "relative min-w-0 flex-col items-center justify-between overflow-hidden border border-[rgb(var(--st-text-rgb)/0.25)] transition-transform",
                   FOCUS,
-                  compact ? "py-1" : "py-1.5",
+                  compact ? "flex py-1" : "py-1.5",
+                  /* a narrow shelf holds fewer books rather than thinner ones */
+                  !compact && index >= 11 ? "hidden md:flex" : "flex",
                 )}
                 key={volume.id}
                 onClick={() => setSelectedId(volume.id)}
@@ -347,13 +446,16 @@ export function ClarendonHouseLibrary({ compact = false }: { readonly compact?: 
                 type="button"
               >
                 {/* gilt head bands + label panel */}
-                <span aria-hidden="true" className="flex w-full shrink-0 flex-col items-center gap-[2px] px-1">
+                <span aria-hidden="true" className="flex w-full shrink-0 flex-col items-center gap-[2px] px-[3px]">
                   <span className="block h-px w-full bg-current opacity-55" />
                   <span className="block h-px w-full bg-current opacity-55" />
                   {compact ? (
                     <span className="mt-1 block h-1.5 w-full border border-current opacity-70" />
                   ) : (
-                    <span className="mt-0.5 block border border-current px-1 text-[6px] leading-[1.4] tracking-[0.06em] opacity-90">
+                    <span
+                      className="mt-0.5 block w-full overflow-hidden text-center leading-[1.5] tracking-[0.02em] opacity-90 outline outline-1 outline-current"
+                      style={{ fontSize: `${volume.thickness < 1.1 ? 5 : 6}px` }}
+                    >
                       {volume.numeral}
                     </span>
                   )}
@@ -369,7 +471,7 @@ export function ClarendonHouseLibrary({ compact = false }: { readonly compact?: 
                 <span aria-hidden="true" className="flex w-full shrink-0 flex-col items-center gap-[2px] px-1">
                   <span className="block h-px w-full bg-current opacity-55" />
                   <span className="block h-px w-full bg-current opacity-55" />
-                  <span className={cn("mt-0.5 block truncate uppercase tracking-[0.08em] opacity-75", compact || volume.thickness < 1.1 ? "hidden" : "max-w-full text-[5.5px]")}>
+                  <span className={cn("mt-0.5 truncate uppercase tracking-[0.08em] opacity-75", compact || volume.thickness < 1.45 ? "hidden" : "hidden max-w-full text-[5.5px] md:block")}>
                     Clarendon
                   </span>
                 </span>
@@ -381,7 +483,7 @@ export function ClarendonHouseLibrary({ compact = false }: { readonly compact?: 
         <span aria-hidden="true" className="mt-0 block h-[3px] shrink-0 bg-[var(--sample-border)]" />
         <span aria-hidden="true" className="mt-px block h-px shrink-0 bg-[var(--sample-border)] opacity-40" />
         <p className={cn("shrink-0 truncate text-center uppercase text-[var(--sample-muted)]", compact ? "pt-0.5 text-[5px] tracking-[0.1em]" : "pt-1.5 text-[7.5px] tracking-[0.2em]")}>
-          Series XI &middot; volumes XXXIV&ndash;XLIV &middot; select a spine
+          Series XI &middot; volumes XXVIII&ndash;XLIV &middot; select a spine
         </p>
       </section>
 
