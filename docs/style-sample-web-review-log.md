@@ -812,3 +812,13 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - 좁은 폭 대응: 390px에서 타이틀이 잘려 md 미만 크기·트래킹 축소, 부제는 노선 구간을 md↑에서만 노출, station index는 md 미만에서 5개 역만 표시(7개를 다 넣으면 전부 말줄임이 된다).
 - 검증(2026-07-30): 1440 full·390 모바일·compact 카드 모두 page overflow 0, 샘플 내부 overflow 0, 상세 페이지 console error 0. 역 선택 QA: Concorde 클릭 → `station record` 제목이 Concorde로 갱신 확인. `check:data`(78)·`check:style-distinction`(78)·`check:style-refs`(78)·`lint`·`tsc --noEmit`·`build`(550 pages) 통과.
 - 남은 의심점: 없음.
+
+## 31. art-nouveau — 납선 유리 트랜섬 정리 (소유자 지시: "이것도 좀 깔끔하게 바꿔줘")
+
+- 문제: `LeadedTransom`의 방사형 부채꼴이 어수선했다. (1) 납선이 중심에서 뻗는 직선이라 기계적이고 아르누보의 곡선 납선이 아니며, (2) 스프링잉 포인트의 원+꽃잎이 정체불명의 덩어리로 보였고, (3) 반원 비례라 컬럼 폭 대비 좌우에 빈 공간이 남았다.
+- 교체: 실제 출입구 트랜섬처럼 **낮고 넓은 납선 패널**로 재작성. 얕은 아치(300×50 viewBox, apex y=12.5), 큰 유리 셀 5개, 수직 멀리언 4개, 그리고 **셀들을 가로지르는 곡선 납선 하나**. 중앙 덩어리는 삭제하고 하단에 굵은 베이스 레일을 넣었다.
+- 색은 팔레트 변수 기반 3색(sage/gold/rose)만 낮은 알파로 대칭 배치해 이전의 탁한 파스텔 8색보다 정돈됐다. 멀리언 좌표는 아치 베지어에서 계산한 리터럴이라 하이드레이션 불일치가 없다.
+- 컨테이너 높이 h-14 → h-11(compact h-5 → h-4), `preserveAspectRatio="none"`으로 컬럼 폭을 꽉 채우게 해 좌우 빈 공간 제거.
+- 부수 수정: 아피시 헤드 부제에서 `</span>` 뒤 공백이 JSX에 먹혀 "Vincennes· MCM"으로 붙어 있었다. `{" "}`로 명시해 해결(DOM 텍스트로 확인).
+- 검증(2026-07-30): 1440 full·390 모바일·compact 카드 모두 page overflow 0, 샘플 내부 overflow 0, console error 0. `check:data`(78)·`check:style-distinction`(78)·`lint`·`tsc --noEmit`·`build`(550 pages) 통과.
+- 남은 의심점: 없음.

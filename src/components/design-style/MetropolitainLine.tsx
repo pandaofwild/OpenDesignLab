@@ -62,37 +62,51 @@ const LIGNES: ReadonlyArray<readonly [string, string, string]> = [
   ["4", "Châtelet — Orléans", "1908"],
 ];
 
-/* The station transom: a fan of leaded glass over the entrance. Wedge points
-   are literal so the panel is identical on both sides of hydration. */
-function LeadedTransom({ className }: { readonly className?: string }) {
-  const points = ["4 54", "12.8 35.6", "38 20.1", "75.6 9.7", "120 6", "164.4 9.7", "202 20.1", "227.2 35.6", "236 54"];
-  const glass = [
-    "rgb(201 138 46 / 0.34)",
-    "rgb(18 84 92 / 0.26)",
-    "rgb(91 48 74 / 0.28)",
-    "rgb(140 160 107 / 0.34)",
-    "rgb(140 160 107 / 0.34)",
-    "rgb(91 48 74 / 0.28)",
-    "rgb(18 84 92 / 0.26)",
-    "rgb(201 138 46 / 0.34)",
-  ];
+/* The transom over the entrance: a low, wide leaded panel. The radiating fan
+   this replaced was mechanical and left an awkward boss at the springing
+   point; a real transom is a shallow arch, a few large cells of glass, and one
+   lead line that curves across them. Geometry is literal so the panel is
+   identical on both sides of hydration. */
+const TRANSOM_PANEL = "M3 47V22Q150 3 297 22V47Z";
+const TRANSOM_MULLIONS = [
+  { top: 15.9, x: 62 },
+  { top: 12.9, x: 121 },
+  { top: 12.9, x: 179 },
+  { top: 15.9, x: 238 },
+];
+const TRANSOM_CELLS: ReadonlyArray<readonly [number, number, string]> = [
+  [3, 59, "rgb(var(--st-accent-3-rgb) / 0.42)"],
+  [62, 59, "rgb(var(--st-accent-rgb) / 0.36)"],
+  [121, 58, "rgb(var(--st-accent-2-rgb) / 0.32)"],
+  [179, 59, "rgb(var(--st-accent-rgb) / 0.36)"],
+  [238, 59, "rgb(var(--st-accent-3-rgb) / 0.42)"],
+];
 
+function LeadedTransom({ className }: { readonly className?: string }) {
   return (
-    <svg aria-hidden="true" className={className} fill="none" preserveAspectRatio="xMidYMid meet" viewBox="0 0 240 58">
-      {glass.map((fill, index) => (
+    <svg aria-hidden="true" className={className} fill="none" preserveAspectRatio="none" viewBox="0 0 300 50">
+      <defs>
+        <clipPath id="an-transom">
+          <path d={TRANSOM_PANEL} />
+        </clipPath>
+      </defs>
+      <g clipPath="url(#an-transom)">
+        {TRANSOM_CELLS.map(([x, width, fill]) => (
+          <rect fill={fill} height="46" key={x} width={width} x={x} y="2" />
+        ))}
+        {/* the one lead line that curves, crossing the cells */}
         <path
-          d={`M120 54L${points[index]}A116 48 0 0 1 ${points[index + 1]}Z`}
-          fill={fill}
-          key={points[index]}
+          d="M3 40C42 40 56 23 100 23C144 23 156 41 200 41C232 41 252 30 297 28"
           stroke="var(--sample-primary)"
-          strokeWidth="1.2"
+          strokeOpacity="0.75"
+          strokeWidth="1.6"
         />
+      </g>
+      {TRANSOM_MULLIONS.map(({ top, x }) => (
+        <path d={`M${x} ${top}V47`} key={x} stroke="var(--sample-border)" strokeWidth="1.1" />
       ))}
-      {/* came ribs and the flower at the springing point */}
-      <path d="M4 54A116 48 0 0 1 236 54" stroke="var(--sample-primary)" strokeWidth="2" />
-      <path d="M40 54A80 33 0 0 1 200 54" stroke="var(--sample-accent-3)" strokeWidth="1.1" />
-      <circle cx="120" cy="54" fill="var(--sample-accent)" r="5.5" stroke="var(--sample-primary)" strokeWidth="1.3" />
-      <path d="M120 48c-5-4-5-11 0-13 5 2 5 9 0 13" fill="var(--sample-accent-3)" opacity="0.9" />
+      <path d={TRANSOM_PANEL} stroke="var(--sample-primary)" strokeWidth="1.8" />
+      <path d="M3 47H297" stroke="var(--sample-primary)" strokeWidth="2.4" />
     </svg>
   );
 }
@@ -139,7 +153,8 @@ export function MetropolitainLine({ compact = false }: { readonly compact?: bool
               <span className={cn("block bg-[var(--sample-primary)]", compact ? "h-px w-6" : "h-[1.5px] w-16")} />
             </span>
             <p className={cn("truncate italic text-[var(--sample-text)]", compact ? "text-[5px]" : "text-[9px]")}>
-              ligne n&deg; 1<span className="hidden md:inline"> &middot; Porte Maillot &mdash; Porte de Vincennes</span> &middot; MCM
+              ligne n&deg; 1<span className="hidden md:inline"> &middot; Porte Maillot &mdash; Porte de Vincennes</span>{" "}
+              &middot; MCM
             </p>
           </div>
         </div>
@@ -227,7 +242,7 @@ export function MetropolitainLine({ compact = false }: { readonly compact?: bool
         {/* ── billets: leaded glass cells ── */}
         <section aria-label="billets" className="flex min-h-0 min-w-0 flex-col">
           <p className={cn("shrink-0 uppercase tracking-[0.2em] text-[var(--sample-muted)]", compact ? "text-[5px]" : "text-[7px]")}>Billets</p>
-          <LeadedTransom className={cn("mt-1 w-full shrink-0", compact ? "h-5" : "h-14")} />
+          <LeadedTransom className={cn("mt-1 w-full shrink-0", compact ? "h-4" : "h-11")} />
           <div className="min-h-0 flex-1 overflow-hidden">
             {(compact ? FARES.slice(0, 1) : FARES).map(([name, klass, price]) => (
               <div
