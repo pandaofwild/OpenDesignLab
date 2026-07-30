@@ -751,17 +751,6 @@ const palettes: Record<string, DesignStylePalette> = {
     accent3: "#4D1F24",
     border: "#2B241A",
   },
-  "old-money": {
-    base: "#EDE7D9",
-    surface: "#FBF5E8",
-    text: "#18251B",
-    mutedText: "#65705D",
-    primary: "#18251B",
-    accent: "#39533B",
-    accent2: "#C1A06D",
-    accent3: "#6D1F2A",
-    border: "#2D3B2B",
-  },
   "art-deco": {
     base: "#080806",
     surface: "#14120E",
@@ -1150,7 +1139,6 @@ const styleSeedTuples: DesignStyleSeedTuple[] = [
   ["classic", "클래식", "Classic", "럭셔리 / 클래식", "균형 잡힌 비례와 전통적 타이포그래피로 안정감을 주는 스타일", ["classic", "balanced", "timeless"], "luxury-product"],
   ["neoclassic", "네오클래식", "Neoclassic", "럭셔리 / 클래식", "고전적 장식과 현대적 여백을 절충한 우아한 스타일", ["neoclassic", "elegant", "modern"], "luxury-product"],
   ["luxury", "럭셔리", "Luxury", "럭셔리 / 클래식", "절제된 소재감과 고급 색감으로 프리미엄 이미지를 만드는 스타일", ["luxury", "premium", "gold"], "luxury-product"],
-  ["old-money", "올드머니", "Old Money", "럭셔리 / 클래식", "과시보다 전통과 품질을 강조하는 조용한 고급 스타일", ["old-money", "heritage", "quiet"], "luxury-product"],
   ["art-deco", "아르데코", "Art Deco", "럭셔리 / 클래식", "기하학 장식과 금속 포인트로 화려한 질서를 만드는 스타일", ["art-deco", "geometry", "gold"], "luxury-product"],
   ["art-nouveau", "아르누보", "Art Nouveau", "럭셔리 / 클래식", "식물적 곡선과 장식적 선으로 우아한 흐름을 만드는 스타일", ["art-nouveau", "ornamental", "curve"], "organic-brand"],
   ["baroque", "바로크", "Baroque", "럭셔리 / 클래식", "극적인 장식과 명암으로 풍부한 감정을 만드는 고전 스타일", ["baroque", "dramatic", "ornate"], "luxury-product"],
@@ -1393,23 +1381,6 @@ const luxuryClassicResearch: Record<string, StyleResearchBrief> = {
     representativeTraits: ["Material close-up", "Low-copy commerce", "Cream black restraint", "Polished product cards", "Silent CTA hierarchy"],
     avoidTraits: ["Generic gold badge luxury", "Busy magazine collage", "Casual lifestyle warmth", "Baroque ornament"],
     tokenIntent: "Use warm ivory, black ink, antique gold, thin rules, and spacious product imagery so Luxury reads as high-end ecommerce rather than decorative premium styling.",
-  },
-  "old-money": {
-    referenceSites: [
-      { title: "Loro Piana", url: "https://us.loropiana.com", note: "Quiet luxury reference for cashmere texture, understated product storytelling, neutral palette, and soft heritage pacing." },
-      { title: "Brunello Cucinelli", url: "https://shop.brunellocucinelli.com", note: "Heritage luxury reference for humanistic editorial sections, muted wardrobe cards, and refined material presentation." },
-      { title: "Ralph Lauren", url: "https://www.ralphlauren.com", note: "Old-money reference for club lifestyle imagery, equestrian and country cues, navy cream palette, and heritage commerce." },
-      { title: "Drake's", url: "https://www.drakes.com", note: "Classic menswear reference for relaxed tailoring, editorial lookbook rhythm, and understated product grids." },
-      { title: "The Rake", url: "https://therake.com", note: "Classic menswear editorial reference for heritage tone, gentleman wardrobe language, and magazine-commerce crossover." },
-    ],
-    referenceGalleries: [
-      { title: "Pinterest - Old Money Website Design", url: "https://www.pinterest.com/search/pins/?q=old%20money%20website%20design", note: "Moodboard reference for club palettes, quiet luxury wardrobes, heritage interiors, and understated editorial layouts." },
-      { title: "Awwwards - Fashion Websites", url: "https://www.awwwards.com/websites/fashion/", note: "Gallery reference for polished fashion web execution, lookbook flow, and premium apparel storytelling." },
-      { title: "Dribbble - Old Money Website", url: "https://dribbble.com/search/old%20money%20website", note: "UI reference for old-money landing pages, country club cues, classic fashion cards, and restrained navigation." },
-    ],
-    representativeTraits: ["Club lifestyle cues", "Cashmere and leather texture", "Forest green and navy", "Crest-like restraint", "Wardrobe cards"],
-    avoidTraits: ["Flashy gold luxury", "Streetwear drop language", "Generic preppy cartoon", "Overly polished tech minimalism"],
-    tokenIntent: "Use cream, forest green, navy, camel, leather accents, serif display, and calm product cards so Old Money reads as understated heritage.",
   },
   "art-deco": {
     referenceSites: [
@@ -2192,16 +2163,6 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     imagePrompt:
       "A restrained luxury fashion ecommerce website reference image with cream studio surface, leather product close-up, silk fabric, black ink typography, antique gold detail, sparse product cards, no logo, no watermark",
     research: luxuryClassicResearch.luxury,
-  },
-  "old-money": {
-    summary: "올드머니는 과시보다 전통, 소재, 장소성을 강조하며 클럽 라이프스타일과 조용한 워드로브를 웹 화면으로 옮기는 스타일입니다.",
-    description:
-      "올드머니는 화려한 럭셔리보다 더 낮은 톤이어야 합니다. Loro Piana, Brunello Cucinelli, Ralph Lauren, Drake's, The Rake처럼 캐시미어, 테일러링, 가죽, 잔디와 도서관 같은 장소 신호가 작고 단정한 상품 흐름과 함께 보여야 합니다.",
-    visualFeatures: ["크림, 포레스트 그린, 네이비, 카멜이 차분한 헤리티지 분위기를 만듭니다.", "클럽, 테라스, 라이브러리 같은 장소성이 상품보다 조용히 뒤를 받칩니다.", "크레스트나 모노그램은 작게만 써야 과시로 흐르지 않습니다."],
-    layoutTraits: ["큰 라이프스타일 히어로와 작은 워드로브 카드가 잘 맞습니다.", "정보 스트립은 소재, 장소, 시즌처럼 낮은 톤의 메타 정보로 구성합니다.", "모바일에서는 장식보다 상품과 컬렉션 흐름을 먼저 보이게 합니다."],
-    imagePrompt:
-      "An old-money wardrobe website reference image with country club terrace, cashmere knitwear, navy blazer, loafers, leather luggage, forest green cream camel palette, no logo, no watermark",
-    research: luxuryClassicResearch["old-money"],
   },
   "art-deco": {
     summary: "아르데코는 팬 모양 기하학, 스텝 구조, 검정과 금속색 대비로 호텔, 바, 극장 같은 화려한 질서를 만드는 스타일입니다.",
@@ -3103,13 +3064,6 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     decoration: { shadow: "none", effect: "none" },
     layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
   },
-  "old-money": {
-    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, weightBody: 300, tracking: "0.03em", headingScale: 0.9 },
-    shape: { radius: "2px", radiusPill: "2px", borderWidth: "1px" },
-    space: { density: "airy", gap: "1.8rem", padScale: 1.65 },
-    decoration: { shadow: "0 14px 36px rgb(var(--st-text-rgb) / 0.10)", effect: "none" },
-    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
-  },
   "art-deco": {
     typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 500, weightBody: 400, tracking: "0.08em", headingScale: 0.92 },
     shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "double" },
@@ -3554,15 +3508,6 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
     imageSrc: "/generated/moodboards/luxury-realistic-v2.webp",
     prompt:
       "Create a realistic editorial moodboard for Luxury in web design. The board should look like a real designer's premium product and brand research board photographed from above on a black lacquer studio table. Include printed luxury ecommerce and product-detail layout references without readable text, gallery-like product crop studies, black and ivory packaging blanks, glossy black card stock, fine cream paper, champagne metal and brushed gold swatches, polished stone and marble samples, satin or silk fabric crop, perfume-bottle and jewelry-detail photo fragments with no logos, restrained monochrome color chips, thin metallic rule strips, and product-card modules with empty bars only. The visual language should communicate premium material, disciplined spacing, sensual surface quality, and controlled exclusivity for web pages, not old-money heritage or ornate classic decoration. Use tape corners, pin marks, slight paper curl, mirror reflections, satin highlights, varied paper thickness, subtle dust, and real shadows. Palette: black, ivory, champagne gold, deep charcoal, pearl, marble grey, warm metal, soft beige. Absolutely no readable text, no tiny text, no letters, no numbers, no labels, no brand names, no logos, no watermarks, no people, no faces, no fashion model, no fake UI gibberish, no excessive ornament, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
-  },
-  "old-money": {
-    alt: "Old Money moodboard with quiet heritage web proofs, private library and estate crops, tweed, wool, green leather, walnut, brass patina, tortoiseshell, and stationery blanks.",
-    caption: "Quiet inherited quality: build from heritage architecture, library interiors, tweed, leather, walnut, brass patina, stationery, and restrained commerce modules.",
-    directionKeywords: ["real quiet heritage board", "private library atmosphere", "tweed wool leather", "walnut brass patina", "restrained old-money palette"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/old-money-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for Old Money in web design. The board should look like a real designer's quiet heritage and private-club brand research board photographed from above on a dark walnut studio table. Include printed old-money website and editorial commerce layout references without readable text, restrained product and archive page studies, heritage architecture and library interior photo crops with no people or labels, tweed and wool fabric swatches, dark green leather-like sample, cream stationery blanks, engraved-border paper samples with no letters, tortoiseshell and horn-like material chips, brass and walnut samples, muted color chips, black ribbon, and classic product-card modules with empty bars only. The visual language should communicate inherited quality, restraint, tradition, and quiet confidence for web pages, not flashy luxury or ornate palace decoration. Use tape corners, pin marks, slight paper curl, fabric fibers, wood grain, brass patina, varied paper thickness, subtle dust, and warm realistic shadows. Palette: dark walnut, cream, oxblood, forest green, navy, camel, brass, charcoal. Absolutely no readable text, no tiny text, no monograms, no crests, no letters, no numbers, no labels, no brand names, no logos, no watermarks, no people, no faces, no fashion model, no fake UI gibberish, no gold overload, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
   "art-deco": {
     alt: "Art Deco moodboard with symmetrical web proofs, stepped geometric borders, fan patterns, black lacquer, ivory card, champagne foil, brass, marble, and emerald chips.",

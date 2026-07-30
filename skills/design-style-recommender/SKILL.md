@@ -26,7 +26,7 @@ Ask a short clarification only when the brand or page goal is unclear. Otherwise
 
 ## Quick Heuristics
 
-- Quiet premium, portfolio, architecture, editorial brand: start with `minimalism`, `high-end-minimal`, `luxury`, or `old-money`.
+- Quiet premium, portfolio, architecture, editorial brand: start with `minimalism`, `high-end-minimal`, `luxury`, or `classic`.
 - Bold campaign, fashion, event, art direction: start with `brutalism`, `maximalism`, `posterism`, or `streetwear`.
 - Tech, AI, gaming, developer tools: start with `cyberpunk`, `high-tech`, `ai-aesthetic`, or `dark-mode-design`.
 - Wellness, craft, local, sustainability: start with `organic-design`, `botanical`, `wabi-sabi`, or `kinfolk`.

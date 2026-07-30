@@ -208,7 +208,6 @@ const GENERATED_STYLE_IMAGES = {
   "nineties-graphic": "/generated/design-styles/nineties-graphic.webp",
   "new-brutalism": "/generated/design-styles/new-brutalism.webp",
   neoclassic: "/generated/design-styles/neoclassic.webp",
-  "old-money": "/generated/design-styles/old-money.webp",
   "pastel-style": "/generated/design-styles/pastel-style.webp",
   postmodernism: "/generated/design-styles/postmodernism.webp",
   punk: "/generated/design-styles/punk.webp",
@@ -2826,41 +2825,6 @@ function LuxuryEditorialProduct({ className, compact = false, style }: Props) {
             </div>
           </div>
         </div>
-      </div>
-    </SampleFrame>
-  );
-}
-
-function OldMoneyClubShop({ className, compact = false, style }: Props) {
-  const wardrobe = ["Knit", "Blazer", "Loafer", "Case"];
-
-  return (
-    <SampleFrame className={className} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Club Reserve" compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />, <IconBag key="bag" size={compact ? 11 : 13} />]} links={["Wardrobe", "House", "Journal"]} sub="Members" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1.15fr_0.85fr]" : "grid-cols-[1.25fr_0.75fr]")}>
-          <GeneratedStyleImageSurface className="min-h-0 border border-[var(--sample-border-soft)]" overlay="warm" position="center" slug="old-money">
-            <span className="absolute left-4 top-4 grid h-11 w-11 place-items-center rounded-full border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.75)] font-serif text-sm">CR</span>
-            <span className="absolute bottom-4 left-4 right-4 border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.82)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Field wardrobe</span>
-          </GeneratedStyleImageSurface>
-          <div className="grid min-h-0 grid-rows-[auto_1fr] gap-3">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--sample-muted)]">Quiet heritage</p>
-              <h3 className={cn("mt-2 font-display font-normal leading-[0.96]", compact ? "text-3xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                Old Money
-              </h3>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              {wardrobe.map((item) => (
-                <div className="border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-2" key={item}>
-                  <span className="block aspect-square bg-[var(--sample-accent-2)]" />
-                  <span className="mt-2 block text-[9px] uppercase tracking-[0.12em] text-[var(--sample-muted)]">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <LuxuryClassicBottomStrip compact={compact} items={[["Signal", "Restraint"], ["Texture", "Cashmere"], ["Place", "Club"]]} />
       </div>
     </SampleFrame>
   );
@@ -6890,9 +6854,6 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
     return <LuxuryEditorialProduct {...props} />;
   }
 
-  if (style.slug === "old-money") {
-    return <OldMoneyClubShop {...props} />;
-  }
 
   if (style.slug === "art-deco") {
     return <ArtDecoLinerBooking {...props} />;
