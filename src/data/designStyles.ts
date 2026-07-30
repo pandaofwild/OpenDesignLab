@@ -795,15 +795,19 @@ const palettes: Record<string, DesignStylePalette> = {
     border: "#7B5C2D",
   },
   rococo: {
-    base: "#F4E9E8",
-    surface: "#FFF8F3",
-    text: "#3B2C2E",
-    mutedText: "#8A7476",
-    primary: "#3B2C2E",
-    accent: "#D4A7B4",
-    accent2: "#B7D0D4",
-    accent3: "#C8A45A",
-    border: "#D8C4BA",
+    // A rosy pastel set read as candy and collided with pastel-style and
+    // kawaii. The room itself is ivory boiserie with gilded carving; the
+    // pastels are the panel fields — pale rose, vert d'eau, bleu — and the
+    // gilt has to be a real brand colour, not a faint accent.
+    base: "#EDE7DA",
+    surface: "#F8F4E9",
+    text: "#4A3B33",
+    mutedText: "#948270",
+    primary: "#B08A3E",
+    accent: "#C98A9B",
+    accent2: "#9FB6AE",
+    accent3: "#8C93B8",
+    border: "#C9BBA3",
   },
   gothic: {
     // The whole Gothic structural system exists to free the wall for light, so
@@ -1446,9 +1450,9 @@ const luxuryClassicResearch: Record<string, StyleResearchBrief> = {
       { title: "Awwwards - Luxury Websites", url: "https://www.awwwards.com/websites/luxury/", note: "Gallery reference for polished premium web pacing, delicate product sections, and refined lifestyle landing pages." },
       { title: "Dribbble - Rococo Website", url: "https://dribbble.com/search/rococo%20website", note: "UI reference for Rococo-inspired beauty pages, pastel cards, ornamental panels, and elegant product grids." },
     ],
-    representativeTraits: ["Pastel salon", "Shell curve", "Porcelain product cards", "Light asymmetry", "Delicate gold"],
-    avoidTraits: ["Baroque heavy darkness", "Kawaii pastel childishness", "Minimal beige flatness", "Art Nouveau vine line"],
-    tokenIntent: "Use porcelain cream, blush, pale blue, delicate gold, serif type, and shell-like internal cards so Rococo reads as light ornamental luxury.",
+    representativeTraits: ["Contraste — no half repeats the other", "Rocaille shell and C/S scrolls", "Ivory boiserie with water gilding", "Pastel recessed fields", "Unequal panel composition"],
+    avoidTraits: ["Baroque heavy darkness", "Kawaii pastel childishness", "Candy pastel palette shared with pastel-style", "Minimal beige flatness", "Art Nouveau whiplash line", "Symmetrical grids of equal cards"],
+    tokenIntent: "Use ivory limewood and real water-gilt gold with pale rose, vert d'eau and bleu as recessed panel fields, rocaille carving rather than drawn curves, and deliberately unequal panels so Rococo reads as carved asymmetric ornament rather than as a pastel gift shop.",
   },
   gothic: {
     referenceSites: [
@@ -2195,13 +2199,13 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     research: luxuryClassicResearch.baroque,
   },
   rococo: {
-    summary: "로코코는 밝은 파스텔, 조개형 곡선, 도자기와 살롱 이미지를 섬세한 상품/뷰티 웹 구조로 옮기는 스타일입니다.",
+    summary: "로코코는 비대칭이 규칙인 스타일입니다. 조개와 C·S 스크롤이 뒤엉킨 로카유 조각을 아이보리 목재에 붙이고 금박을 입힙니다.",
     description:
-      "로코코는 바로크보다 가볍고 섬세해야 합니다. Wallace Collection, Frick, Getty, The Met, V&A처럼 셸 장식, 도자기, 파스텔 살롱, 비대칭 장식이 상품 카드와 부드러운 히어로 안에서 정리될 때 과하지 않고 고급스럽게 보입니다.",
-    visualFeatures: ["조개형 곡선과 밝은 비대칭 장식이 대표 신호입니다.", "블러시, 파우더 블루, 민트, 샴페인 골드가 가벼운 장식성을 만듭니다.", "도자기, 티, 뷰티 오브젝트처럼 작은 상품이 잘 맞습니다."],
-    layoutTraits: ["큰 살롱 히어로와 작은 2열 상품 카드가 잘 맞습니다.", "곡선 장식은 내부 상품 썸네일과 배지에 집중합니다.", "모바일에서는 파스텔 대비가 약해지지 않도록 텍스트와 CTA를 선명하게 둡니다."],
+      "18세기는 이 비대칭을 콩트라스트(contraste)라 불렀고, 로카유 도안은 좌우 어느 쪽도 반대쪽을 되풀이하지 않습니다. 그래서 같은 크기 카드를 나란히 놓은 대칭 그리드는 로코코가 될 수 없습니다. 표면은 보아즈리 — 조개, 바위 형태, 넝쿨과 엉킨 C·S 스크롤을 새긴 목재 패널 — 이고, 색은 아이보리와 금이 주인공이며 파스텔은 몰딩 안쪽으로 들어간 패널 바탕입니다. 파스텔을 화면 전체에 칠하면 pastel-style이나 kawaii와 구분되지 않습니다.",
+    visualFeatures: ["비대칭이 규칙입니다. 장식은 한쪽에서 자라 반대쪽으로 넘어가고, 좌우가 결코 같지 않습니다.", "로카유 — 조개, 바위, C·S 스크롤이 잎·꽃과 엉킨 조각 —가 표면의 언어입니다.", "아이보리 목재와 물금박이 주조색이고, 파스텔은 몰딩 안쪽 패널 바탕으로만 씁니다."],
+    layoutTraits: ["의도적으로 크기가 다른 패널 필드가 그리드를 대신합니다.", "몰딩과 금박 선이 구획을 만들고, 필드 안쪽은 오히려 비워 둡니다.", "모바일에서는 패널 수를 줄이되 크기 차이는 유지합니다."],
     imagePrompt:
-      "A Rococo salon beauty website reference image with porcelain cream, blush pink, powder blue, shell curves, gilt mirror, delicate product cards, no logo, no watermark",
+      "A Rococo boiserie panel with gilded rocaille ornament that is deliberately asymmetric — a shell at the crest, intertwined C and S scrolls with carved foliage running up one side only — carved ivory limewood, water-gilt matte gold, a pale rose recessed field with fine craquelure, no logo, no watermark",
     research: luxuryClassicResearch.rococo,
   },
   gothic: {

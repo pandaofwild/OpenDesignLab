@@ -11,6 +11,7 @@ import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
 import { HollowayApothecary } from "./HollowayApothecary";
 import { HologramClinicalVolume } from "./HologramClinicalVolume";
 import { LatentStudioPanel } from "./LatentStudioPanel";
+import { AtelierRocaille } from "./AtelierRocaille";
 import { AtomicInteriorsJournal } from "./AtomicInteriorsJournal";
 import { MaximalistSalonWall } from "./MaximalistSalonWall";
 import { MetropolitainLine } from "./MetropolitainLine";
@@ -212,7 +213,6 @@ const GENERATED_STYLE_IMAGES = {
   postmodernism: "/generated/design-styles/postmodernism.webp",
   punk: "/generated/design-styles/punk.webp",
   "rave-style": "/generated/design-styles/rave-style.webp",
-  rococo: "/generated/design-styles/rococo.webp",
   scandinavian: "/generated/design-styles/scandinavian.webp",
   "seventies-retro": "/generated/design-styles/seventies-retro.webp",
   "soft-minimal": "/generated/design-styles/soft-minimal.webp",
@@ -2948,39 +2948,13 @@ function BaroqueOperaHouse({ className, compact = false, style }: Props) {
     </SampleFrame>
   );
 }
-function RococoSalonMarket({ className, compact = false, style }: Props) {
+function RococoBoiserieAtelier({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={className} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Salon Pastel" compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />, <IconBag key="bag" size={compact ? 11 : 13} />]} links={["Tea", "Beauty", "Gifts"]} sub="Rococo edit" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1.05fr_0.95fr]" : "grid-cols-[1.18fr_0.82fr]")}>
-          <GeneratedStyleImageSurface className="min-h-0 border border-[var(--sample-border-soft)]" overlay="soft" position="center" slug="rococo">
-            <span className="absolute left-5 top-5 h-16 w-24 rounded-[50%_50%_18px_18px] border border-[var(--sample-accent-3)]" />
-            <span className="absolute bottom-5 right-5 h-16 w-24 rounded-[18px_18px_50%_50%] border border-[var(--sample-accent-3)]" />
-          </GeneratedStyleImageSurface>
-          <div className="grid min-h-0 grid-rows-[auto_1fr] gap-3">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--sample-muted)]">Shell salon</p>
-              <h3 className={cn("mt-2 font-display font-normal leading-[0.96]", compact ? "text-3xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                Rococo
-              </h3>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              {["Porcelain", "Pearl", "Ribbon", "Cream"].map((item, index) => (
-                <div className="border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-2" key={item}>
-                  <span className="block aspect-square rounded-[48%_52%_40%_60%]" style={{ backgroundColor: [style.palette.accent, style.palette.accent2, style.palette.accent3, style.palette.surface][index] }} />
-                  <span className="mt-2 block text-[8px] uppercase tracking-[0.14em] text-[var(--sample-muted)]">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <LuxuryClassicBottomStrip compact={compact} items={[["Curve", "Shell"], ["Color", "Pastel"], ["Mood", "Delicate"]]} />
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2.5" : "", className)} compact={compact} style={style}>
+      <AtelierRocaille compact={compact} />
     </SampleFrame>
   );
 }
-
 function GothicGlazingFabric({ className, compact = false, style }: Props) {
   return (
     <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2.5" : "", className)} compact={compact} style={style}>
@@ -6868,7 +6842,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "rococo") {
-    return <RococoSalonMarket {...props} />;
+    return <RococoBoiserieAtelier {...props} />;
   }
 
   if (style.slug === "gothic") {

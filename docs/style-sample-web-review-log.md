@@ -72,7 +72,7 @@
 | 39 | 럭셔리 / 클래식 | art-deco | luxury-product | verified | MERIDIAN LINE liner booking — S.S. Aurelia hero, sailings board with reserve/waitlist, stateroom class fare cards, grand salon strip |
 | 40 | 럭셔리 / 클래식 | art-nouveau | organic-brand | verified | MÉTROPOLITAIN 기마르 파리 메트로 — 리소그래프 프리즈 아피시 헤드(타이틀 밴드가 장식 위에 걸침), 팔레트 전면 교체(Mucha/Tiffany 보라–주황–초록 삼색조), 손으로 그린 비대칭 coup de fouet가 레이아웃 축이자 역 선택 UI, 주철 줄기 마스트헤드, 납선 유리 트랜섬, 역 기록·다음 열차·요금·노선 색인 |
 | 41 | 럭셔리 / 클래식 | baroque | luxury-product | verified | TEATRO SAN CASSIANO 바로크 오페라 극장 — 사진 0장, 팔레트 전면 교체(진짜 near-black + 진짜 금박 + 크림슨 레이크), 금박 스크롤워크 프로시니엄, 크림슨 발랑스, 말굽형 palchi 평면도(등급 선택), 배역표·아리아·레퍼토리 |
-| 42 | 럭셔리 / 클래식 | rococo | luxury-product | queued | pastel shell curves, playful ornament, salon delicacy |
+| 42 | 럭셔리 / 클래식 | rococo | luxury-product | verified | ATELIER DE LA ROCAILLE 보아즈리 조각·금박 공방 — 팔레트 교체(로지 파스텔 → 아이보리+물금박), 로카유 패널 실사, 크기가 다른 패널 필드(contraste), 오너먼트 스케줄·도르 공정 |
 | 43 | 럭셔리 / 클래식 | gothic | street-campaign | verified | OPUS FABRICAE 대성당 조영국(fabric) — 팔레트 전면 교체(니어블랙 → 차가운 슬레이트 석재 + 샤르트르 유리), 랜싯 비례 실사 + 뾰족아치 7베이 입면(등급별 유리 충전, 선택 연동), bay record·fabric roll |
 | 44 | 자연 / 수공예 | natural | organic-brand | queued | landscape material, earth palette, broad outdoor calm |
 | 45 | 자연 / 수공예 | botanical | organic-brand | queued | leaf detail, herbarium structure, plant-specific grid |
@@ -853,3 +853,31 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - browser QA: 1440 full(702×540)·390 모바일(330×540)·compact 카드(505×218) 모두 page overflow 0, 샘플 내부 overflow 0, 상세 페이지 console error 0. 잘린 dd 0건(DOM 측정).
 - 명령: `check:data`(78)·`check:style-distinction`(78)·`check:style-refs`(78)·`lint`·`tsc --noEmit`·`build`(550 pages) 통과.
 - 남은 의심점: 무드보드 `gothic-realistic-v2.webp`는 이전의 어두운 기조라 새 팔레트와 완전히 일치하지 않는다. baroque·art-nouveau와 같은 사유로 이번 패스에서는 두었다.
+
+## 33. rococo — 재디자인 (소유자 지시: "로코코를 다시 스타일 잡자")
+
+### 현재 판정
+
+- 현재 `RococoSalonMarket`(Salon Pastel · Tea/Beauty/Gifts)은 같은 실패 계열. 생성 이미지 1장 옆에 **팔레트 색으로 채운 블롭 4개**("Porcelain / Pearl / Ribbon / Cream")가 상품 카드 행세를 하고, 그 외에는 큰 "Rococo" 제목뿐이다. 로카유도 비대칭도 없다.
+- 팔레트도 문제. base `#F4E9E8` + accent `#D4A7B4`는 장밋빛 파스텔이라 `pastel-style`·`kawaii`와 구분되지 않는다. 실제 로코코 실내의 주조색은 **아이보리와 금**이고, 파스텔은 몰딩 안쪽으로 들어간 패널 바탕이다.
+- 웹 리서치 확인: rococo는 rocaille(조개로 덮인 인공 동굴 장식)에서 온 말이고, **"asymmetrical design was the rule"** — 당대 용어로 contraste, 좌우 어느 쪽도 반대쪽을 되풀이하지 않는다. 표면은 boiserie(조개·바위 형태·C/S 스크롤을 새긴 목재 패널). 색은 light pastels, ivory white, gold.
+
+### 목표
+
+- 컨셉: **"ATELIER DE LA ROCAILLE"** — 파스텔 선물가게라는 정석 경로 대신 **그 장식을 실제로 만든 조각·금박 공방**. 한 방의 패널을 하나씩 주문·조각·금박하는 실무 화면.
+- 팔레트 교체: base `#EDE7DA`(아이보리 보아즈리) / surface `#F8F4E9` / text `#4A3B33` / muted `#948270` / primary `#B08A3E`(물금박) / accent `#C98A9B`(로즈) / accent2 `#9FB6AE`(베르 도) / accent3 `#8C93B8`(블뢰) / border `#C9BBA3`.
+- 고유 마커: `Atelier de la Rocaille` / `rocaille motif` / `Commission` / `Dorure` / `Contraste`.
+- 골격: **비대칭이 규칙이므로 의도적으로 크기가 다른 패널 필드**. 같은 크기 카드 그리드를 쓰지 않는다.
+
+### 구현 및 검증 결과 (2026-07-30)
+
+- status: `verified`.
+- 변경 요약: 인라인 `RococoSalonMarket` 삭제 → 위임 래퍼 `RococoBoiserieAtelier` + 신규 `AtelierRocaille.tsx`(use client, 패널 선택 useState).
+- 이미지: `gen-style-image.mjs`에 `rococo` 세로 프롬프트 추가 후 생성. 결과는 교과서적 보아즈리 — 크레스트의 금박 조개, 엉킨 C·S 스크롤, 잎 장식과 늘어진 꽃, **한쪽에만 장식이 있는 의도적 비대칭**, 크라클뤼르가 있는 로즈 필드. 사진이 로카유를 담당하고 벡터로는 그리지 않았다(아르누보 교훈).
+- `PanelField`: 금박 비드 + 안쪽 몰딩 + 한쪽만 둥근 어깨(`borderRadius: 14px 4px 4px 4px`)로 보아즈리 필드를 만들고, 세 필드의 위아래를 `mb-5`/`mt-7`로 엇물려 contraste를 눈에 보이게 했다.
+- 콘텐츠: 패널 인덱스(트뤼모·드쉬드포르트·알레주·앙브라쥐르·랑브리) → `Commission` 기록(조각가·금박공·목재·바탕) → 오너먼트 스케줄(부재별 수량과 공정) → 견적(리브르·공수) → `Dorure` 공정 레일(Dessin→Brunissage 6단계, 선택 패널의 진행 위치 표시).
+- 튜닝 3회: (1) 가운데 필드가 크게 비어 오너먼트 스케줄과 견적 행 추가. (2) 패널 바탕이 풀채도라 무거워 `rgb(var(--st-*-rgb) / 0.3~0.36)` 워시로 변경. (3) 390px에서 브랜드명·탭·오너먼트명이 모두 잘려, md 미만에서 날짜 숨김·탭 3개·수량 열 숨김·패딩 축소·타이틀 축소로 해소(잘림 0건 DOM 측정).
+- 데이터: representativeTraits를 "Pastel salon" 중심에서 "Contraste — no half repeats the other" 중심으로 교체, avoidTraits에 "Candy pastel palette shared with pastel-style", "Symmetrical grids of equal cards" 추가. 한국어 설명과 imagePrompt도 비대칭·보아즈리 기준으로 재작성. 구분표 rococo 행 갱신.
+- browser QA: 1440 full(702×540)·390 모바일(330×540)·compact 카드(505×218) 모두 page overflow 0, 샘플 내부 overflow 0, console error 0.
+- 명령: `check:data`(77)·`check:style-distinction`(77)·`check:style-refs`(77)·`lint`·`tsc --noEmit`·`build`(547 pages) 통과.
+- 남은 의심점: 무드보드 `rococo-realistic-v2.webp`는 이전 로지 파스텔 기조라 새 팔레트와 어긋난다. baroque·art-nouveau·gothic과 함께 재생성 대상으로 남겨 둔다.
