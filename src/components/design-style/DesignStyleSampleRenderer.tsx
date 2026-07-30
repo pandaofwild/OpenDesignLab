@@ -22,6 +22,7 @@ import { OrbitalTransitConsole } from "./OrbitalTransitConsole";
 import { RedRoomCaseDesk } from "./RedRoomCaseDesk";
 import { RolleramaRink } from "./RolleramaRink";
 import { WorldOfTomorrowSpecimen } from "./WorldOfTomorrowSpecimen";
+import { SocietasAntiquaria } from "./SocietasAntiquaria";
 import { SunnysideDriveIn } from "./SunnysideDriveIn";
 import { TeatroSanCassiano } from "./TeatroSanCassiano";
 
@@ -208,7 +209,6 @@ const GENERATED_STYLE_IMAGES = {
   natural: "/generated/design-styles/natural.webp",
   "nineties-graphic": "/generated/design-styles/nineties-graphic.webp",
   "new-brutalism": "/generated/design-styles/new-brutalism.webp",
-  neoclassic: "/generated/design-styles/neoclassic.webp",
   "pastel-style": "/generated/design-styles/pastel-style.webp",
   postmodernism: "/generated/design-styles/postmodernism.webp",
   punk: "/generated/design-styles/punk.webp",
@@ -2725,19 +2725,6 @@ function ChromecoreFaceplateShop({ className, compact = false, style }: Props) {
   );
 }
 
-function LuxuryClassicBottomStrip({ compact = false, items }: { compact?: boolean; items: Array<[string, string]> }) {
-  return (
-    <div className={cn("grid border-t border-[var(--sample-border-soft)]", compact ? "grid-cols-3 text-[8px]" : "grid-cols-3 text-[10px]")}>
-      {items.map(([label, value]) => (
-        <div className="min-w-0 border-r border-[var(--sample-border-soft)] px-3 py-2 last:border-r-0" key={label}>
-          <p className="truncate uppercase tracking-[0.18em] text-[var(--sample-muted)]">{label}</p>
-          <p className="mt-1 truncate font-medium text-[var(--sample-text)]">{value}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 function ClassicPermanentLibrary({ className, compact = false, style }: Props) {
   return (
     <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2.5" : "", className)} compact={compact} style={style}>
@@ -2746,50 +2733,13 @@ function ClassicPermanentLibrary({ className, compact = false, style }: Props) {
   );
 }
 
-function NeoclassicHotelHome({ className, compact = false, style }: Props) {
+function NeoclassicMeasuredOrders({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={className} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav align="center" brand="Maison Palace" compact={compact} links={["Suites", "Dining", "Reserve"]} sub="Paris" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1fr_0.78fr]" : "grid-cols-[1.2fr_0.8fr]")}>
-          <GeneratedStyleImageSurface className="relative min-h-0 border border-[var(--sample-border-soft)]" overlay="soft" position="center" slug="neoclassic">
-            <div className="absolute inset-x-8 top-7 flex justify-between">
-              {[1, 2, 3, 4].map((item) => (
-                <span className="h-24 w-5 border-x border-[var(--sample-accent)] bg-[rgb(var(--st-surface-rgb)_/_0.38)]" key={item} />
-              ))}
-            </div>
-            <div className="absolute bottom-4 left-4 right-4 grid grid-cols-3 border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.9)] text-[9px] uppercase tracking-[0.16em]">
-              {["Arrival", "Nights", "Guests"].map((item) => (
-                <span className="border-r border-[var(--sample-border-soft)] px-3 py-2 last:border-r-0" key={item}>
-                  {item}
-                </span>
-              ))}
-            </div>
-          </GeneratedStyleImageSurface>
-          <div className="grid min-h-0 grid-rows-[auto_1fr_auto] gap-3">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--sample-muted)]">Grand reservation</p>
-              <h3 className={cn("mt-2 font-display font-normal leading-[0.95]", compact ? "text-3xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                Neoclassic
-              </h3>
-            </div>
-            <div className="grid gap-2">
-              {["Marble lobby", "Suite ritual", "Private dining"].map((item, index) => (
-                <div className="grid grid-cols-[auto_1fr] items-center gap-3 border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] p-2" key={item}>
-                  <span className="grid h-9 w-9 place-items-center border border-[var(--sample-accent)] text-[10px] text-[var(--sample-accent)]">0{index + 1}</span>
-                  <span className="truncate text-[10px] uppercase tracking-[0.14em]">{item}</span>
-                </div>
-              ))}
-            </div>
-            <span className="h-9 border border-[var(--sample-accent)] bg-[var(--sample-accent)] text-center text-[10px] uppercase leading-9 tracking-[0.18em] text-[var(--sample-base)]">Reserve</span>
-          </div>
-        </div>
-        <LuxuryClassicBottomStrip compact={compact} items={[["Order", "Symmetry"], ["Surface", "Marble"], ["Mood", "Stately"]]} />
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2.5" : "", className)} compact={compact} style={style}>
+      <SocietasAntiquaria compact={compact} />
     </SampleFrame>
   );
 }
-
 function LuxuryEditorialProduct({ className, compact = false, style }: Props) {
   return (
     <SampleFrame className={className} compact={compact} style={style}>
@@ -6821,7 +6771,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "neoclassic") {
-    return <NeoclassicHotelHome {...props} />;
+    return <NeoclassicMeasuredOrders {...props} />;
   }
 
   if (style.slug === "luxury") {

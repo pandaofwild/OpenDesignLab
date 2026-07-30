@@ -67,7 +67,7 @@
 | 33 | 미래 / 디지털 | hologram-style | cyber-dashboard | verified | LUMA VOLUME clinical anatomy viewer — four-plane volume chamber, tissue modes, slice control, orientation cube, scan series, pearl/cyan/violet clinical optics |
 | 34 | 미래 / 디지털 | chromecore | luxury-product | verified | CHROMEWORKS faceplate shop — chrome-type nameplate, shells standing on a chrome rail (carousel), fitment rail with stock states, order bar |
 | 35 | 럭셔리 / 클래식 | classic | luxury-product | verified | CLARENDON HOUSE 클래식 총서 표제지 — 사진 0장, 중심축 대칭 타이틀 페이지 + thick-thin 이중괘 + 플러런, cloth spine shelf(두께·높이 가변 책등 선택), volume record(드롭캡·점선 리더), standing order, colophon |
-| 36 | 럭셔리 / 클래식 | neoclassic | luxury-product | queued | columns, museum spacing, disciplined ornament |
+| 36 | 럭셔리 / 클래식 | neoclassic | luxury-product | verified | SOCIETAS ANTIQUARIA 측량 도판 — 팔레트 교체(샴페인 골드 팰리스 → 차가운 석재+잉크선, 재스퍼 블루·폼페이 레드), 동판 도판 실사 + 오더별 측량 입면(모듈 치수선), 오더 인덱스·측량 기록·모듈 척도 |
 | 37 | 럭셔리 / 클래식 | luxury | luxury-product | queued | premium product reveal, rich material, controlled opulence |
 | 39 | 럭셔리 / 클래식 | art-deco | luxury-product | verified | MERIDIAN LINE liner booking — S.S. Aurelia hero, sailings board with reserve/waitlist, stateroom class fare cards, grand salon strip |
 | 40 | 럭셔리 / 클래식 | art-nouveau | organic-brand | verified | MÉTROPOLITAIN 기마르 파리 메트로 — 리소그래프 프리즈 아피시 헤드(타이틀 밴드가 장식 위에 걸침), 팔레트 전면 교체(Mucha/Tiffany 보라–주황–초록 삼색조), 손으로 그린 비대칭 coup de fouet가 레이아웃 축이자 역 선택 UI, 주철 줄기 마스트헤드, 납선 유리 트랜섬, 역 기록·다음 열차·요금·노선 색인 |
@@ -881,3 +881,32 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - browser QA: 1440 full(702×540)·390 모바일(330×540)·compact 카드(505×218) 모두 page overflow 0, 샘플 내부 overflow 0, console error 0.
 - 명령: `check:data`(77)·`check:style-distinction`(77)·`check:style-refs`(77)·`lint`·`tsc --noEmit`·`build`(547 pages) 통과.
 - 남은 의심점: 무드보드 `rococo-realistic-v2.webp`는 이전 로지 파스텔 기조라 새 팔레트와 어긋난다. baroque·art-nouveau·gothic과 함께 재생성 대상으로 남겨 둔다.
+
+## 34. neoclassic — 재디자인 (소유자 지시: "Neoclassic도 스타일 다시 잡자")
+
+### 현재 판정
+
+- 현재 `NeoclassicHotelHome`(Maison Palace · Suites/Dining/Reserve)은 **샴페인 골드의 팰리스 호텔**이다. 좌측 이미지 위에 기둥 대용으로 세로 막대 4개를 얹고, 우측은 "Marble lobby / Suite ritual / Private dining" 라벨 카드 3개.
+- 웹 리서치가 이 vehicle 자체를 부정한다: **신고전주의는 바로크·로코코의 과잉에 대한 반작용으로 등장했고**, 로코코가 귀족의 사치를 섬긴 자리에 절제·규율·시민적 덕을 놓았다. 빙켈만의 요구는 "noble simplicity and calm grandeur", 원칙은 **색보다 선, 곡선보다 직선**, 그리고 폼페이·헤르쿨라네움 발굴 이후의 **고고학적 정확성**("After Pompeii, artists took pains to get the architecture, clothing, and furniture right"). 즉 럭셔리 호스피탈리티로 표현하면 이 양식이 거부한 대상으로 되돌아간다.
+- 팔레트도 같은 문제. 샴페인 골드 `#B79B68` + 웜 브라운은 `luxury`·`classic`과 겹치는 따뜻한 사치색이다.
+
+### 목표
+
+- 컨셉: **"SOCIETAS ANTIQUARIA"** — 팰리스 호텔 대신 **측량 도판을 발행하는 학회**. 다섯 오더를 현지에서 측량해 모듈로 환산한 plate.
+- 팔레트 교체: base `#E8E6DF`(차가운 석재) / surface `#F5F4EF` / text `#23262A`(잉크선) / muted `#767B82` / primary `#395A7A`(웨지우드 재스퍼 블루) / accent `#A8442F`(폼페이 레드) / accent2 `#8FA08A`(셀라돈) / accent3 `#1E1E1C`(바솔트) / border `#A9AAA4`.
+- 고유 마커: `Societas Antiquaria` / `order index` / `measured elevation` / `survey record` / `scale of modules`.
+- 골격: **괘선으로 나눈 균등한 필드가 하나의 기준선에 정렬**되는 도판 구성. 직전에 작업한 rococo의 의도적 불균등(contraste)과 정확히 대비되도록 잡았다.
+
+### 구현 및 검증 결과 (2026-07-30)
+
+- status: `verified`.
+- 변경 요약: 인라인 `NeoclassicHotelHome` 삭제 → 위임 래퍼 `NeoclassicMeasuredOrders` + 신규 `SocietasAntiquaria.tsx`(use client, 오더 선택 useState).
+- 이미지: `gen-style-image.mjs`에 `neoclassic` 세로 프롬프트 추가. 결과는 동판 선각 도판 — 이오니아식 오더, 치수선과 화살촉, 스케일바, 플레이트 마크, 레이드지 폭싱. 색·워시 없이 윤곽선과 평행 해칭만(line over colour).
+- `OrderElevation`: 선택 오더를 모듈 기준으로 다시 그린다. 기둥 높이는 오더별 직경 배수(투스칸 7 ~ 코린트/콤포지트 10), 엔타블러처는 기둥의 1/4, 샤프트에 모듈 눈금선, 우측에 모듈로 분할된 치수선과 "N D." 표기. **여기서는 그리기가 곧 양식이므로 SVG 작도가 맞다** — 앞선 스타일들에서 실패한 것은 잔장식 벡터였고, 측량 도면은 아니다.
+- 콘텐츠: 오더 인덱스(I~V) → 측량 기록(현지·캠페인 연도·직경 배수·플루트 수·엔타블러처·주간) → 부재별 모듈 표 → 모듈 척도 바.
+- 튜닝 3회: (1) 1차 입면의 코린트 캡티얼이 빈 깔때기로 보여 높이를 낮추고 볼류트·링을 추가, 샤프트에 모듈 눈금선을 넣어 "그림"이 아니라 "측량"으로 읽히게 함. (2) 우측 하단이 비어 부재별 모듈 표 추가. (3) 390px에서 6개 요소가 잘려, md 미만에서 3열 → 2열(도판·입면) + 기록이 아래 전폭으로 재배치, 타이틀 단계 축소, 플레이트 번호 숨김(잘림 0건 DOM 측정).
+- 부수: `LuxuryClassicBottomStrip` 헬퍼가 마지막 사용처(neoclassic)를 잃어 삭제.
+- 데이터: representativeTraits를 "Palace hotel booking strip" 중심에서 "Noble simplicity and calm grandeur" 중심으로 교체, avoidTraits에 "The aristocratic luxury Neoclassicism revolted against", "Ornament invented rather than measured" 추가. 한국어 설명·imagePrompt 재작성, 구분표 행 갱신.
+- browser QA: 1440 full(702×540)·390 모바일(330×540)·compact 카드(505×218) 모두 page overflow 0, 샘플 내부 overflow 0, console error 0, 잘림 0건.
+- 명령: `check:data`(77)·`check:style-distinction`(77)·`check:style-refs`(77)·`lint`·`tsc --noEmit`·`build`(547 pages) 통과.
+- 남은 의심점: 무드보드 `neoclassic-realistic-v2.webp`는 이전 대리석·샴페인 기조라 새 팔레트와 어긋난다. baroque·art-nouveau·gothic·rococo와 함께 재생성 대기(총 5건).

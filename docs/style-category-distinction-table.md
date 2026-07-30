@@ -61,7 +61,7 @@ This table is the working comparison sheet for keeping styles inside the same ca
 | style slug | 핵심 정체성 | moodboard 시각 신호 | referenceSites 웹 UI 문법 | 겹치기 쉬운 스타일 | 반드시 다르게 보여야 하는 요소 | 샘플 고유 마커 |
 |---|---|---|---|---|---|---|
 | classic | Balanced heritage commerce | navy, ivory, leather, archive cards | heritage product grid and restrained nav | neoclassic, luxury | timeless catalog balance | HERITAGE COMMERCE |
-| neoclassic | Modern palace hospitality | marble, columns, champagne gold | hotel booking strip and suite cards | baroque, classic | symmetrical column rhythm and reservation strip | PALACE BOOKING |
+| neoclassic | The measured revival | engraved line, cool stone, jasper blue, dimension lines and scale bars | a survey plate: order index, measured elevation, parts in modules | classic, luxury, rococo | line over colour and measurement over ornament; never champagne-gold hospitality | Societas Antiquaria / measured elevation / scale of modules |
 | luxury | Material-led premium retail | silk, leather, glass, cream/black | low-copy product detail and close-up image | high-end-minimal, classic | material close-up and silent CTA | MATERIAL CLOSEUP |
 | art-deco | Geometric evening glamour | fan arcs, black lacquer, brass | hotel/lounge portal, marquee modules | baroque, retro-futurism | fan geometry and stepped vertical rhythm | DECO PORTAL |
 | art-nouveau | Ornament integrated into the structure | coup de fouet line, cast iron, leaded amber/peacock glass, coiled fern crozier | one sinuous asymmetric line organising the page instead of a grid | botanical, rococo | the whiplash must carry the layout, not edge it; peacock/amber/aubergine, never olive eco green | MÉTROPOLITAIN / whiplash line / station record |

@@ -730,15 +730,19 @@ const palettes: Record<string, DesignStylePalette> = {
     border: "#232019",
   },
   neoclassic: {
-    base: "#EEE7DA",
-    surface: "#FFF9EE",
-    text: "#24211D",
-    mutedText: "#71695B",
-    primary: "#312820",
-    accent: "#B79B68",
-    accent2: "#D8D0BF",
-    accent3: "#6E7A68",
-    border: "#AFA089",
+    // Neoclassicism was a revolt against Baroque and Rococo luxury, so a warm
+    // champagne-gold set puts it back in the palace it rejected. Cool stone and
+    // ink line instead, with the colours archaeology actually produced:
+    // Wedgwood jasper blue, Pompeian red, celadon, basalt black.
+    base: "#E8E6DF",
+    surface: "#F5F4EF",
+    text: "#23262A",
+    mutedText: "#767B82",
+    primary: "#395A7A",
+    accent: "#A8442F",
+    accent2: "#8FA08A",
+    accent3: "#1E1E1C",
+    border: "#A9AAA4",
   },
   luxury: {
     base: "#F4EFE5",
@@ -1365,9 +1369,9 @@ const luxuryClassicResearch: Record<string, StyleResearchBrief> = {
       { title: "Awwwards - Hotel Websites", url: "https://www.awwwards.com/websites/hotel/", note: "Gallery reference for luxury hospitality interactions, reservation flows, room cards, and high-end editorial pacing." },
       { title: "Dribbble - Neoclassical Website", url: "https://dribbble.com/search/neoclassical%20website", note: "UI reference for neoclassical landing pages, column motifs, formal booking strips, and elegant serif hierarchy." },
     ],
-    representativeTraits: ["Column rhythm", "Marble symmetry", "Palace hotel booking strip", "Champagne accent", "Formal center alignment"],
-    avoidTraits: ["Baroque darkness", "Rococo pastel playfulness", "Generic real estate template", "Excessive gold ornament"],
-    tokenIntent: "Use marble ivory, champagne accents, centered serif type, symmetrical cards, and hotel reservation modules so Neoclassic reads as modern classical hospitality.",
+    representativeTraits: ["Noble simplicity and calm grandeur", "Line over colour, straight over curved", "Archaeological accuracy after Pompeii", "The order and its module as the measure", "Ruled fields on one baseline"],
+    avoidTraits: ["Baroque darkness", "Rococo pastel playfulness", "The aristocratic luxury Neoclassicism revolted against", "Champagne-gold palace hospitality", "Generic real estate template", "Ornament invented rather than measured"],
+    tokenIntent: "Use cool stone and ink line with Wedgwood jasper blue, Pompeian red and celadon, engraved and measured drawing rather than photography of luxury, and ruled equal fields on one baseline so Neoclassic reads as the disciplined revival it was rather than as a palace hotel.",
   },
   luxury: {
     referenceSites: [
@@ -2149,13 +2153,13 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
     research: luxuryClassicResearch.classic,
   },
   neoclassic: {
-    summary: "네오클래식은 고전 건축의 대칭, 기둥, 대리석 질감을 현대적인 호텔 예약 화면과 결합하는 우아한 웹 스타일입니다.",
+    summary: "신고전주의는 바로크·로코코의 과잉에 대한 반작용이며, 색보다 선·곡선보다 직선·측량된 정확성을 택한 절제의 양식입니다.",
     description:
-      "네오클래식은 Versailles식 웅장함을 그대로 복제하기보다 현대 호텔 웹처럼 절제된 예약 흐름과 결합해야 설득력이 생깁니다. Ritz Paris, Hotel de Crillon, Le Meurice, Le Bristol Paris처럼 대리석, 기둥 리듬, 중앙 정렬, 샴페인 골드가 조용한 고급감을 만듭니다.",
-    visualFeatures: ["기둥과 대리석 이미지가 구조적 중심 신호가 됩니다.", "예약 바, 객실 카드, 서비스 리스트는 대칭 축을 따라 정렬됩니다.", "샴페인 골드와 석재색이 과하지 않은 고전성을 만듭니다."],
-    layoutTraits: ["중앙 정렬 내비게이션과 큰 건축 히어로가 잘 맞습니다.", "호텔 예약 스트립, 객실 카드, 다이닝 카드가 실제 전환 흐름을 만듭니다.", "모바일에서는 기둥 장식을 줄이고 예약 행동을 우선합니다."],
+      "빙켈만이 요구한 것은 고귀한 단순함과 고요한 위대함이었습니다. 그래서 신고전주의는 화려함이 아니라 명료함·질서·논리·절제이고, 로코코가 귀족의 사치를 섬긴 자리에 시민적 덕과 규율을 놓습니다. 샴페인 골드의 팰리스 호텔로 표현하면 이 양식이 거부했던 바로 그 대상으로 되돌아갑니다. 폼페이와 헤르쿨라네움 발굴 이후 예술가들은 건축과 가구를 고증에 맞게 그리기 시작했고, 그 결과 신고전주의의 표면은 장식이 아니라 측량된 선입니다.",
+    visualFeatures: ["색보다 선이 앞섭니다. 판화 같은 윤곽선과 해칭이 표면을 만듭니다.", "곡선보다 직선, 발명된 장식보다 측량된 비례를 씁니다. 오더와 모듈이 곧 척도입니다.", "차가운 석재색 위에 웨지우드 재스퍼 블루, 폼페이 레드, 셀라돈 같은 고고학이 실제로 준 색을 절제해 씁니다."],
+    layoutTraits: ["괘선으로 나눈 균등한 필드가 하나의 기준선에 정렬됩니다. 로코코의 의도적 불균등과 정반대입니다.", "도판(plate)처럼 구성합니다. 번호, 치수선, 스케일바가 실제 정보 요소로 쓰입니다.", "모바일에서는 열을 줄이되 기준선 정렬과 괘선 체계는 유지합니다."],
     imagePrompt:
-      "A neoclassical luxury hotel website reference image with marble columns, symmetrical suite booking strip, champagne gold accents, refined serif type, modern hospitality cards, no logo, no watermark",
+      "A copperplate line engraving from an eighteenth-century archaeological survey: a single classical order drawn in fine black contour and parallel hatching on cool laid paper, with slender dimension lines and a plain scale bar, plate mark and light foxing, no colour and no wash, no logo, no watermark",
     research: luxuryClassicResearch.neoclassic,
   },
   luxury: {
