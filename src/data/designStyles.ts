@@ -829,15 +829,20 @@ const palettes: Record<string, DesignStylePalette> = {
     border: "#6E7480",
   },
   natural: {
-    base: "#E9E1D0",
-    surface: "#F7F1E4",
-    text: "#2B271F",
-    mutedText: "#746C5C",
-    primary: "#2B271F",
-    accent: "#A9874A",
-    accent2: "#C8B792",
-    accent3: "#6F7A5C",
-    border: "#5C5140",
+    // Four styles in this category shared the same cream ground and every one
+    // of them had primary equal to text, so the whole category read as a beige
+    // page with a near-black button. Natural takes the undyed colours of the
+    // fibres themselves — greyer than cream, which separates it from rustic and
+    // handmade — and gives the CTA a real hue: the green of the flax field.
+    base: "#DCD6C6",
+    surface: "#EAE5D8",
+    text: "#33302A",
+    mutedText: "#7E7869",
+    primary: "#4A5A44",
+    accent: "#B79C6E",
+    accent2: "#8E8A6E",
+    accent3: "#C9C0AA",
+    border: "#A79E88",
   },
   botanical: {
     base: "#E7EAD7",
@@ -1142,7 +1147,7 @@ const styleSeedTuples: DesignStyleSeedTuple[] = [
   ["rococo", "로코코", "Rococo", "럭셔리 / 클래식", "부드러운 장식과 밝은 색으로 섬세하고 화려한 분위기를 만드는 스타일", ["rococo", "delicate", "ornate"], "luxury-product"],
   ["gothic", "고딕", "Gothic", "럭셔리 / 클래식", "뾰족한 구조와 어두운 분위기로 장중함을 만드는 스타일", ["gothic", "dark", "dramatic"], "street-campaign"],
 
-  ["natural", "내추럴", "Natural", "자연 / 수공예", "꾸미지 않은 색과 소재감으로 신뢰와 편안함을 만드는 스타일", ["natural", "plain", "calm"], "organic-brand"],
+  ["natural", "내추럴", "Natural", "자연 / 수공예", "염색하지 않은 섬유 그자체의 색과 검증 가능한 출처로 신뢰를 만드는 스타일", ["natural", "undyed", "provenance"], "organic-brand"],
   ["botanical", "보태니컬", "Botanical", "자연 / 수공예", "식물 모티프와 그린 팔레트를 중심으로 한 생기 있는 스타일", ["botanical", "green", "plant"], "organic-brand"],
   ["rustic", "러스틱", "Rustic", "자연 / 수공예", "거친 나무와 흙빛 질감으로 소박한 온기를 만드는 스타일", ["rustic", "wood", "earth"], "organic-brand"],
   ["handmade", "핸드메이드", "Handmade", "자연 / 수공예", "손으로 만든 흔적과 작은 불균형을 매력으로 쓰는 스타일", ["handmade", "craft", "human"], "organic-brand"],

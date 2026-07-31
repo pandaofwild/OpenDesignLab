@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ChromeworksFaceplateShop } from "./ChromeworksFaceplateShop";
 import { ClarendonHouseLibrary } from "./ClarendonHouseLibrary";
 import { CybershockPlayer } from "./CybershockPlayer";
+import { FlaxProvenance } from "./FlaxProvenance";
 import { FlightOsdConsole } from "./FlightOsdConsole";
 import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
 import { HollowayApothecary } from "./HollowayApothecary";
@@ -206,7 +207,6 @@ const GENERATED_STYLE_IMAGES = {
   kitsch: "/generated/design-styles/kitsch.webp",
   luxury: "/generated/design-styles/luxury.webp",
   maximalism: "/generated/design-styles/maximalism.webp",
-  natural: "/generated/design-styles/natural.webp",
   "nineties-graphic": "/generated/design-styles/nineties-graphic.webp",
   "new-brutalism": "/generated/design-styles/new-brutalism.webp",
   "pastel-style": "/generated/design-styles/pastel-style.webp",
@@ -3074,39 +3074,13 @@ function NaturalHandmadeBottomStrip({ compact = false, items }: { compact?: bool
   );
 }
 
-function NaturalMarketShelf({ className, compact = false, style }: Props) {
+function NaturalFibreIndex({ className, compact = false, style }: Props) {
   return (
-    <SampleFrame className={className} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Plain Goods" compact={compact} icons={[<IconBag key="bag" size={compact ? 11 : 13} />]} links={["Pantry", "Home", "Notes"]} sub="Daily market" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[1fr_0.82fr]" : "grid-cols-[1.18fr_0.82fr]")}>
-          <GeneratedStyleImageSurface className="min-h-0 border border-[var(--sample-border-soft)]" overlay="soft" slug="natural">
-            <span className="absolute bottom-4 left-4 bg-[rgb(var(--st-surface-rgb)_/_0.84)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Undyed cotton {"//"} oat {"//"} clay</span>
-          </GeneratedStyleImageSurface>
-          <div className="grid min-h-0 grid-rows-[auto_1fr_auto] gap-3">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--sample-muted)]">Material first</p>
-              <h3 className={cn("mt-3 font-display font-semibold uppercase leading-[0.9]", compact ? "text-3xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                Natural
-              </h3>
-            </div>
-            <div className="grid gap-2">
-              {["Linen tote", "Raw honey", "Stone soap"].map((item) => (
-                <div className="flex items-center justify-between border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] px-3 py-2 text-[9px] uppercase tracking-[0.14em]" key={item}>
-                  <span>{item}</span>
-                  <span className="h-2 w-8 bg-[var(--sample-accent)]" />
-                </div>
-              ))}
-            </div>
-            <span className="h-9 border border-[var(--sample-border)] text-center text-[10px] uppercase leading-9 tracking-[0.18em]">Shop shelf</span>
-          </div>
-        </div>
-        <NaturalHandmadeBottomStrip compact={compact} items={[["Color", "Undyed"], ["Surface", "Plain"], ["Mood", "Trust"]]} />
-      </div>
+    <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2.5" : "", className)} compact={compact} style={style}>
+      <FlaxProvenance compact={compact} />
     </SampleFrame>
   );
 }
-
 function BotanicalGlasshouse({ className, compact = false, style }: Props) {
   return (
     <SampleFrame className={className} compact={compact} style={style}>
@@ -6768,7 +6742,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "natural") {
-    return <NaturalMarketShelf {...props} />;
+    return <NaturalFibreIndex {...props} />;
   }
 
   if (style.slug === "botanical") {

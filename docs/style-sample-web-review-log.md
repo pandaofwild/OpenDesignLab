@@ -74,7 +74,7 @@
 | 41 | 럭셔리 / 클래식 | baroque | luxury-product | verified | TEATRO SAN CASSIANO 바로크 오페라 극장 — 사진 0장, 팔레트 전면 교체(진짜 near-black + 진짜 금박 + 크림슨 레이크), 금박 스크롤워크 프로시니엄, 크림슨 발랑스, 말굽형 palchi 평면도(등급 선택), 배역표·아리아·레퍼토리 |
 | 42 | 럭셔리 / 클래식 | rococo | luxury-product | verified | ATELIER DE LA ROCAILLE 보아즈리 조각·금박 공방 — 팔레트 교체(로지 파스텔 → 아이보리+물금박), 로카유 패널 실사, 크기가 다른 패널 필드(contraste), 오너먼트 스케줄·도르 공정 |
 | 43 | 럭셔리 / 클래식 | gothic | street-campaign | verified | OPUS FABRICAE 대성당 조영국(fabric) — 팔레트 전면 교체(니어블랙 → 차가운 슬레이트 석재 + 샤르트르 유리), 랜싯 비례 실사 + 뾰족아치 7베이 입면(등급별 유리 충전, 선택 연동), bay record·fabric roll |
-| 44 | 자연 / 수공예 | natural | organic-brand | queued | landscape material, earth palette, broad outdoor calm |
+| 44 | 자연 / 수공예 | natural | organic-brand | verified | UNDYED 소재 이력 색인 — 팔레트 교체(크림 → 회색기 섬유색, primary를 아마밭 녹색으로 분리), 아마 섬유 실사, 스와치 선택 레일, 소재 기록, 산지→제직 provenance 체인 |
 | 45 | 자연 / 수공예 | botanical | organic-brand | queued | leaf detail, herbarium structure, plant-specific grid |
 | 46 | 자연 / 수공예 | rustic | organic-brand | queued | rough local material, weathered wood, hospitality warmth |
 | 48 | 자연 / 수공예 | handmade | organic-brand | queued | small-batch irregularity, thread, torn paper, maker shop |
@@ -922,3 +922,26 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - 검증: `check:data`(77)·`check:style-distinction`(77)·`check:style-refs`(77)·`lint`·`tsc --noEmit`·`build`(547 pages) 통과. 4개 상세 페이지에서 무드보드 이미지 1600×1001 로드 확인, 디렉션 키워드·프롬프트 렌더 확인, console error 0.
 - 판단 기록: neoclassic 보드의 웨지우드 메달리온에 고전 옆얼굴 부조가 들어갔다. 가이드라인의 "no faces"는 스톡사진식 인물을 막기 위한 조항이고 재스퍼웨어는 백색 부조 옆얼굴이 그 물건의 정의 자체라, 사물의 장식으로 보아 수용했다. 규정을 조용히 통과시키지 않고 여기 남긴다.
 - 남은 의심점: 없음. 이번 럭셔리/클래식 패스에서 재설계한 5개 스타일의 무드보드가 모두 현재 팔레트와 일치한다.
+
+## 36. 자연 / 수공예 카테고리 진입 + natural 재디자인 (소유자 지시: "자연/수공예로 가자")
+
+### 카테고리 판정 (개별 진입 전 전수 확인)
+
+- 다섯 스타일이 **전부 같은 템플릿**이었다: nav → 스타일 이름을 그대로 쓴 거대한 H1 → 미디어 블록 → 하단 3칸 스트립(라벨 + 한 단어). 스타일 이름을 H1으로 쓰는 것 자체가 미개선 샘플의 표식이다.
+- kinfolk는 미디어 블록이 빈 회색 그라디언트 플레이스홀더, rustic은 콘텐츠가 평면 색 덩어리 4개, natural은 상품 이미지 자리에 황토색 막대 3개, handmade는 좌측 절반이 공백, botanical은 썸네일 4개가 같은 사진의 반복에 다른 라벨(가짜 분류).
+- **팔레트의 구조적 결함 2건:** (1) 다섯 중 넷이 사실상 같은 크림·베이지 바탕(`#E9E1D0`/`#EDE6D8`/`#F0E0C8`/`#DCC6A4`)이라 한눈에 구분 불가. (2) **다섯 모두 `primary === text`** — 브랜드색이 본문 잉크와 같아 CTA가 전부 근사-검정 덩어리가 되고, 카테고리 전체가 "베이지 페이지에 까만 버튼"으로 읽힌다. 개별 재설계 때 스타일마다 진짜 브랜드색을 분리하기로 함.
+- 소유자 결정: **kinfolk 제거**(natural과 팔레트·전제가 겹치고 japandi와도 겹침), 나머지 4개는 스타일별로 팔레트+샘플을 한 번에 처리.
+
+### natural — 구현 및 검증 결과 (2026-07-31)
+
+- status: `verified`.
+- 리서치가 준 각: 지금의 natural을 다른 베이지 스타일과 가르는 것은 **검증 가능한 출처**다. 아마가 어느 밭에서 자라 어디서 침지·방적·제직되고 어떤 인증을 받았는지가 데이터로 제시되지 않으면 그린워싱과 구분되지 않는다. 그래서 vehicle을 "베이지 라이프스타일 진열"에서 **소재 기록 + 이력 체인**으로 옮겼다.
+- 팔레트: base `#DCD6C6`(회색기 아마) / surface `#EAE5D8` / text `#33302A` / muted `#7E7869` / **primary `#4A5A44`(아마밭 녹색 — 카테고리 최초로 text와 분리된 브랜드색)** / accent `#B79C6E`(무염색 낙타 양모) / accent2 `#8E8A6E`(헴프) / accent3 `#C9C0AA`(생면) / border `#A79E88`. 크림이 아니라 회색기를 띠므로 rustic·handmade와 바탕부터 갈린다.
+- 컴포넌트 `FlaxProvenance.tsx`: UNDYED 마스트헤드 → **스와치 선택 레일**(칩의 색이 곧 그 섬유의 색) → 아마 섬유 실사 + 소재 기록(직조·중량·폭·섬유·인증) → **provenance 체인**(재배→침지→스커칭→방적→제직, 각 단계에 지명과 시기) → 미터 판매 푸터.
+- **이미지 생성 캐시 함정 발견:** `natural` 슬러그로 프롬프트를 세 번 완전히 다르게 써서 생성했는데 2·3회차가 1회차와 거의 동일한 이미지(같은 비누·꿀단지·바구니)를 반환했다. 같은 프롬프트를 `natural-probe` 슬러그로 보내자 요청대로 아마 섬유 공장 사진이 나왔다 → 프롬프트 무시가 아니라 **캐시**였다. 재생성 후에는 반드시 눈으로 확인하고, 이전 것과 비슷해 보이면 실제로 같은 것일 수 있다. 프로브 결과를 정식 자산으로 채택하고 프로브 슬러그는 제거.
+- 튜닝 2회: (1) provenance 단계를 잇는 세로선이 `items-baseline` 때문에 `self-stretch`가 무력화돼 렌더되지 않음 → ol을 relative로 두고 절대 위치 세로선 + 점에 base색 ring으로 교체. (2) 390px에서 스와치 라벨 4개가 모두 잘림 → md 미만에서 2×2 그리드로 배치(잘림 0건 DOM 측정).
+- 데이터: natural은 럭셔리 계열과 구조가 달라 research 브리프·한국어 상세 엔트리가 없고 시드 행만 존재한다. 시드 설명을 "꾸미지 않은 색과 소재감" → "염색하지 않은 섬유 그 자체의 색과 검증 가능한 출처"로 교체하고 키워드를 undyed/provenance로 바꿈. 구분표 행도 갱신.
+- browser QA: 1440 full(702×540)·390 모바일(330×540)·compact 카드(505×218) 모두 page overflow 0, 샘플 내부 overflow 0, console error 0, 잘림 0건.
+- 명령: `check:data`(76)·`check:style-distinction`(76)·`check:style-refs`(76)·`lint`·`tsc --noEmit`·`build`(544 pages) 통과.
+- 남은 의심점: 무드보드 `natural-realistic-v2.webp`는 "landscape crops, pale wood, soft green blue" 기조라 새 팔레트·방향과 어긋난다. botanical·rustic·handmade 작업 후 카테고리 무드보드를 한 번에 재생성할 예정.
+- 다음 style: botanical.
