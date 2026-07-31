@@ -112,7 +112,7 @@ export function FlaxProvenance({ compact = false }: { readonly compact?: boolean
             style={{ backgroundImage: `url('${FIBRE_IMAGE}')`, backgroundPosition: "center 46%", backgroundSize: "cover" }}
           />
           <figcaption className={cn("absolute inset-x-0 bottom-0 truncate uppercase tracking-[0.14em]", compact ? "px-1 py-0.5 text-[4px]" : "px-2 py-1 text-[6px]")} style={{ backgroundColor: "rgb(var(--st-base-rgb) / 0.86)" }}>
-            Hackled line flax, before spinning
+            Undyed cloth, loom state, three weights
           </figcaption>
         </figure>
 

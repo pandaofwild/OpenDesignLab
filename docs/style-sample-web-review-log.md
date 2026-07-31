@@ -945,3 +945,14 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - 명령: `check:data`(76)·`check:style-distinction`(76)·`check:style-refs`(76)·`lint`·`tsc --noEmit`·`build`(544 pages) 통과.
 - 남은 의심점: 무드보드 `natural-realistic-v2.webp`는 "landscape crops, pale wood, soft green blue" 기조라 새 팔레트·방향과 어긋난다. botanical·rustic·handmade 작업 후 카테고리 무드보드를 한 번에 재생성할 예정.
 - 다음 style: botanical.
+
+### natural 후속 (2026-07-31, 소유자 지시: "내추럴 이미지 좀 무섭다, 내추럴이 정말 저런 스타일이야?")
+
+- 두 지적 모두 타당했고 둘 다 내 판단 착오다.
+  1. **이미지가 무섭다**: 어두운 공장에서 매달린 창백한 아마 다발이 머리카락처럼 읽혔다.
+  2. **방향이 틀렸다** — 이쪽이 더 중요하다. 비누·꿀단지 클리셰를 피하려다 반대편으로 과교정해서, 아마 방적 공장 다큐멘터리가 되어 버렸다. 그건 "산업 유산"으로 읽히지 **내추럴이라는 디자인 스타일로는 읽히지 않는다**. 이 스타일의 정체성은 소박함·차분함·재료의 정직함이지 공정 기록이 아니다. [[style-visibility-over-vehicle]] 위반.
+- 조치: provenance 콘텐츠(실질을 주는 부분)는 유지하고 톤만 스타일 쪽으로 되돌렸다.
+  - 이미지 교체: 밝은 자연광 아래 무염색 원단 3장이 겹쳐 놓인 평면 사진. 슬럽, 올 풀린 재단면, 부드러운 접힘 그림자, 실오라기 몇 가닥. 프롬프트에 매달린 섬유·공장 내부·어두운 배경·극적 그림자를 명시적으로 금지하고, 동시에 바구니·꿀·비누도 계속 금지해 반대편으로 되돌아가지 않게 했다. 캐시를 피하려 별도 슬러그로 생성 후 정식 자산으로 이동.
+  - 팔레트 온도 조정: 회색기가 지나쳐 차갑고 금욕적이었다. base `#DCD6C6`→`#E3DCCB`, surface `#EAE5D8`→`#F1ECE0`, text `#33302A`→`#3A352C`, muted·accent·border도 한 단계씩 덥힘. rustic·handmade의 크림과는 여전히 구분되되 차갑지 않다.
+  - 캡션을 새 사진에 맞게 "Undyed cloth, loom state, three weights"로 교체.
+- 재검증: 1440·390·compact 모두 overflow 0, 잘림 0건, console error 0. `check:data`(76)·`check:style-distinction`(76)·`build`(544 pages) 통과.

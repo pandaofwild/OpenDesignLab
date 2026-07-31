@@ -834,15 +834,15 @@ const palettes: Record<string, DesignStylePalette> = {
     // page with a near-black button. Natural takes the undyed colours of the
     // fibres themselves — greyer than cream, which separates it from rustic and
     // handmade — and gives the CTA a real hue: the green of the flax field.
-    base: "#DCD6C6",
-    surface: "#EAE5D8",
-    text: "#33302A",
-    mutedText: "#7E7869",
-    primary: "#4A5A44",
-    accent: "#B79C6E",
-    accent2: "#8E8A6E",
-    accent3: "#C9C0AA",
-    border: "#A79E88",
+    base: "#E3DCCB",
+    surface: "#F1ECE0",
+    text: "#3A352C",
+    mutedText: "#857E6D",
+    primary: "#4E5C45",
+    accent: "#BCA277",
+    accent2: "#96917A",
+    accent3: "#D2CAB4",
+    border: "#B3AA95",
   },
   botanical: {
     base: "#E7EAD7",
