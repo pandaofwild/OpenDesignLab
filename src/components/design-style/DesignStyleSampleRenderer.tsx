@@ -3177,38 +3177,6 @@ function RusticLodgeCommerce({ className, compact = false, style }: Props) {
   );
 }
 
-function KinfolkSlowJournal({ className, compact = false, style }: Props) {
-  return (
-    <SampleFrame className={className} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Quiet Table" compact={compact} links={["Essays", "Homes", "Meals"]} sub="Issue 04" />
-        <div className={cn("grid min-h-0 gap-4", compact ? "grid-cols-[1.2fr_0.8fr]" : "grid-cols-[1.28fr_0.72fr]")}>
-          <div className="grid min-h-0 grid-rows-[1fr_auto] gap-3">
-            <PhotoSurface className="min-h-0 border border-[var(--sample-border-soft)]" grain scene="interior">
-              <span className="absolute bottom-4 left-4 max-w-[14rem] bg-[rgb(var(--st-surface-rgb)_/_0.78)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Sunlit table story</span>
-            </PhotoSurface>
-            <div className="grid grid-cols-3 gap-2">
-              {["Home", "Food", "Ritual"].map((item) => (
-                <span className="border-t border-[var(--sample-border-soft)] pt-2 text-[9px] uppercase tracking-[0.16em] text-[var(--sample-muted)]" key={item}>{item}</span>
-              ))}
-            </div>
-          </div>
-          <div className="flex min-h-0 flex-col justify-between border-l border-[var(--sample-border-soft)] pl-4">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--sample-muted)]">Slow living</p>
-              <h3 className={cn("mt-3 font-display font-semibold uppercase leading-[0.9]", compact ? "text-3xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                Kinfolk
-              </h3>
-            </div>
-            <p className={cn("text-[11px] leading-5 text-[var(--sample-muted)]", compact ? "line-clamp-3" : "")}>Editorial spacing, quiet photography, and a domestic rhythm.</p>
-          </div>
-        </div>
-        <NaturalHandmadeBottomStrip compact={compact} items={[["Pace", "Slow"], ["Light", "Window"], ["Voice", "Editorial"]]} />
-      </div>
-    </SampleFrame>
-  );
-}
-
 function HandmadePatchMarket({ className, compact = false, style }: Props) {
   return (
     <SampleFrame className={className} compact={compact} style={style}>
@@ -6811,9 +6779,6 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
     return <RusticLodgeCommerce {...props} />;
   }
 
-  if (style.slug === "kinfolk") {
-    return <KinfolkSlowJournal {...props} />;
-  }
 
   if (style.slug === "handmade") {
     return <HandmadePatchMarket {...props} />;

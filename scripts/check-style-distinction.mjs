@@ -117,7 +117,6 @@ const categorySlugOrder = {
     "natural",
     "botanical",
     "rustic",
-    "kinfolk",
     "handmade",
   ],
   "귀여움 / 캐주얼": [
@@ -206,7 +205,6 @@ const styleSampleFunctions = {
   natural: "NaturalMarketShelf",
   botanical: "BotanicalGlasshouse",
   rustic: "RusticLodgeCommerce",
-  kinfolk: "KinfolkSlowJournal",
   handmade: "HandmadePatchMarket",
   kitsch: "KitschNoveltyDrop",
   kawaii: "KawaiiCharacterClub",

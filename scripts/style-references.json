@@ -1735,42 +1735,6 @@
       }
     ]
   },
-  "kinfolk": {
-    "sites": [
-      {
-        "url": "https://www.kinfolk.com/",
-        "title": "Kinfolk",
-        "note": "Professional fit: slow-lifestyle photography, generous magazine spacing, muted oatmeal palette, and quiet article hierarchy make this the direct Kinfolk reference, not generic Scandinavian retail."
-      },
-      {
-        "url": "https://www.cereal.co/",
-        "title": "Cereal",
-        "note": "Professional fit: restrained travel imagery, wide editorial whitespace, delicate serif rhythm, and slow navigation pacing make this useful for Kinfolk-style web layouts rather than luxury minimal commerce."
-      },
-      {
-        "url": "https://theslowdown.com/",
-        "title": "The Slowdown",
-        "note": "Professional fit: contemplative editorial cadence, understated image crops, soft neutral surfaces, and interview-led content hierarchy give Kinfolk-adjacent web patterns distinct from rustic craft texture."
-      }
-    ],
-    "galleries": [
-      {
-        "url": "https://www.pinterest.com/search/pins/?q=Kinfolk%20website%20design",
-        "title": "Pinterest - Kinfolk Website Design",
-        "note": "Gallery fit: use this board search to compare slow lifestyle photography, oatmeal neutrals, magazine whitespace, quiet serif hierarchy; it is useful for web moodboard clustering, not as proof of a single live site, and stays distinct from scandinavian, which is more product-systematic and functional."
-      },
-      {
-        "url": "https://www.awwwards.com/websites/magazine/",
-        "title": "Awwwards - Kinfolk References",
-        "note": "Gallery fit: filter award examples for slow lifestyle photography, oatmeal neutrals, magazine whitespace, quiet serif hierarchy; use it to study responsive hero, navigation, and section pacing, while rejecting generic polished pages closer to scandinavian, which is more product-systematic and functional."
-      },
-      {
-        "url": "https://dribbble.com/search/kinfolk%20website%20design",
-        "title": "Dribbble - Kinfolk Website Design",
-        "note": "Gallery fit: compare component-level treatments such as slow lifestyle photography, oatmeal neutrals, magazine whitespace, quiet serif hierarchy; useful for buttons, cards, and landing sections, but less authoritative than the live sites for final style matching."
-      }
-    ]
-  },
   "handmade": {
     "sites": [
       {

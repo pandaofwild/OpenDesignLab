@@ -29,7 +29,7 @@ Ask a short clarification only when the brand or page goal is unclear. Otherwise
 - Quiet premium, portfolio, architecture, editorial brand: start with `minimalism`, `high-end-minimal`, `luxury`, or `classic`.
 - Bold campaign, fashion, event, art direction: start with `brutalism`, `maximalism`, `posterism`, or `streetwear`.
 - Tech, AI, gaming, developer tools: start with `cyberpunk`, `high-tech`, `ai-aesthetic`, or `dark-mode-design`.
-- Wellness, craft, local, sustainability: start with `organic-design`, `botanical`, `wabi-sabi`, or `kinfolk`.
+- Wellness, craft, local, sustainability: start with `botanical`, `natural`, `handmade`, or `japandi`.
 - Youthful, casual, app, community, goods: start with `kawaii`, `dopamine-design`, `toy-design`, or `playful-design`.
 - Content, report, magazine, archive: start with `editorial-design`, `magazine-style`, `grid-system`, or `typography-focused`.
 - Product UI, SaaS, startup landing: start with `saas-style`, `flat-design`, `material-design`, or `glassmorphism`.

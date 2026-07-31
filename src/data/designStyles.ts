@@ -861,17 +861,6 @@ const palettes: Record<string, DesignStylePalette> = {
     accent3: "#556744",
     border: "#3E2819",
   },
-  kinfolk: {
-    base: "#EDE6D8",
-    surface: "#F8F2E7",
-    text: "#22201B",
-    mutedText: "#777064",
-    primary: "#22201B",
-    accent: "#A98B4C",
-    accent2: "#D9D0B8",
-    accent3: "#6D755D",
-    border: "#BBB09B",
-  },
   handmade: {
     base: "#F0E0C8",
     surface: "#FFF1D6",
@@ -1156,7 +1145,6 @@ const styleSeedTuples: DesignStyleSeedTuple[] = [
   ["natural", "내추럴", "Natural", "자연 / 수공예", "꾸미지 않은 색과 소재감으로 신뢰와 편안함을 만드는 스타일", ["natural", "plain", "calm"], "organic-brand"],
   ["botanical", "보태니컬", "Botanical", "자연 / 수공예", "식물 모티프와 그린 팔레트를 중심으로 한 생기 있는 스타일", ["botanical", "green", "plant"], "organic-brand"],
   ["rustic", "러스틱", "Rustic", "자연 / 수공예", "거친 나무와 흙빛 질감으로 소박한 온기를 만드는 스타일", ["rustic", "wood", "earth"], "organic-brand"],
-  ["kinfolk", "킨포크", "Kinfolk", "자연 / 수공예", "느린 생활, 자연광, 절제된 구성을 강조하는 라이프스타일 스타일", ["kinfolk", "lifestyle", "slow"], "minimal-editorial"],
   ["handmade", "핸드메이드", "Handmade", "자연 / 수공예", "손으로 만든 흔적과 작은 불균형을 매력으로 쓰는 스타일", ["handmade", "craft", "human"], "organic-brand"],
 
   ["kitsch", "키치", "Kitsch", "귀여움 / 캐주얼", "과장되고 통속적인 요소를 즐겁게 활용하는 스타일", ["kitsch", "fun", "bold"], "kawaii-app"],
@@ -3128,13 +3116,6 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     decoration: { shadow: "5px 5px 0 var(--st-accent-2)", effect: "grain" },
     layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
   },
-  kinfolk: {
-    typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 400, weightBody: 300, tracking: "0em", headingScale: 0.88 },
-    shape: { radius: "0px", radiusPill: "0px", borderWidth: "1px", borderStyle: "solid" },
-    space: { density: "airy", gap: "1.55rem", padScale: 1.55 },
-    decoration: { shadow: "none", effect: "grain" },
-    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
-  },
   handmade: {
     typography: { displayFont: '"Satoshi", sans-serif', weightDisplay: 800, weightBody: 500, tracking: "0em", headingScale: 1.08 },
     shape: { radius: "3px", radiusPill: "3px", borderWidth: "1px", borderStyle: "dashed" },
@@ -3588,15 +3569,6 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
     imageSrc: "/generated/moodboards/rustic-realistic-v2.webp",
     prompt:
       "Create a realistic editorial moodboard for Rustic style in web design. Photograph a real designer's rustic local-brand and hospitality web research board from above on a weathered wood studio table. Include printed rustic website layout references made only of blank image blocks and empty bars, rough product grid studies, reclaimed wood samples, burlap and linen swatches, kraft paper, torn cream paper, clay and leather fragments, warm brown and faded green color chips, countryside interior and handmade product photo crops with no labels, rough border studies, and small physical objects like a blank wooden tag, twine, and an unmarked ceramic shard. The visual language should communicate honest material warmth, rough edges, local craft, and approachable hospitality or food-commerce hierarchy for web pages, not polished organic wellness, modern eco systems, or vintage poster nostalgia. Use tape corners, pin marks, slight paper curl, torn edges, wood grain, fabric fibers, scuffs, varied paper thickness, subtle dust, and warm realistic shadows. Palette: weathered wood, kraft brown, cream, clay, faded olive, charcoal, leather tan, warm grey. Absolutely no readable text, no micro text, no fake text, no letters, no numbers, no labels, no logos, no brand names, no watermarks, no fake UI gibberish, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
-  },
-  kinfolk: {
-    alt: "Kinfolk moodboard with blank slow-lifestyle web proofs, magazine grids, soft interior crops, matte cream paper, oatmeal chips, linen, pale wood, ceramic, and blank stationery.",
-    caption: "Slow editorial living: use natural light, matte neutrals, linen, pale wood, ceramics, and generous magazine rhythm for quiet lifestyle commerce.",
-    directionKeywords: ["real slow lifestyle board", "soft natural light", "quiet magazine grids", "linen ceramic wood", "oatmeal neutrals"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/kinfolk-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for Kinfolk style in web design. Photograph a real designer's slow-lifestyle editorial web research board from above on an off-white linen-covered studio table. Include printed Kinfolk-inspired website layout references made only of blank image blocks and empty bars, quiet magazine-style grid studies, soft natural-light interior and table-scene photo crops with no people or labels, matte cream paper, oatmeal and beige color chips, linen and cotton fabric swatches, pale wood, ceramic fragments, negative-space product layout studies, blank stationery cards, and small physical objects like an unmarked ceramic cup, folded linen napkin, and smooth pebble. The visual language should communicate slow living, editorial calm, soft natural light, and curated lifestyle commerce for web pages, not rustic roughness, minimal luxury, or generic Scandinavian product design. Use tape corners, pin marks, slight paper curl, fabric fibers, soft shadows, uneven crop edges, varied paper thickness, subtle dust, and quiet material texture. Palette: oatmeal, warm white, cream, beige, pale wood, soft grey, muted olive, charcoal accent. Absolutely no readable text, no micro text, no fake text, no letters, no numbers, no labels, no logos, no brand names, no watermarks, no fake UI gibberish, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
   handmade: {
     alt: "Handmade moodboard with blank maker-shop web proofs, torn papers, deckled stationery, cotton thread, linen, canvas, clay, stitched samples, buttons, spool, and muted chips.",
