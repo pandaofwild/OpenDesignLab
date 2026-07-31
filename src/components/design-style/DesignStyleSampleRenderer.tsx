@@ -3,10 +3,10 @@ import type { CSSProperties, ReactNode } from "react";
 import type { DesignStyle } from "@/data/designStyles";
 import { styleTokenVars } from "@/components/style-preset/styleTokenVars";
 import { cn } from "@/lib/utils";
+import { CairnWayConditions } from "./CairnWayConditions";
 import { ChromeworksFaceplateShop } from "./ChromeworksFaceplateShop";
 import { ClarendonHouseLibrary } from "./ClarendonHouseLibrary";
 import { CybershockPlayer } from "./CybershockPlayer";
-import { FlaxProvenance } from "./FlaxProvenance";
 import { FlightOsdConsole } from "./FlightOsdConsole";
 import { GlitchArtEditionsGallery } from "./GlitchArtEditionsGallery";
 import { HollowayApothecary } from "./HollowayApothecary";
@@ -3074,10 +3074,10 @@ function NaturalHandmadeBottomStrip({ compact = false, items }: { compact?: bool
   );
 }
 
-function NaturalFibreIndex({ className, compact = false, style }: Props) {
+function NaturalTerrainConditions({ className, compact = false, style }: Props) {
   return (
     <SampleFrame className={cn("overflow-hidden bg-[var(--sample-base)]", compact ? "!min-h-0 !p-2.5" : "", className)} compact={compact} style={style}>
-      <FlaxProvenance compact={compact} />
+      <CairnWayConditions compact={compact} />
     </SampleFrame>
   );
 }
@@ -6742,7 +6742,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "natural") {
-    return <NaturalFibreIndex {...props} />;
+    return <NaturalTerrainConditions {...props} />;
   }
 
   if (style.slug === "botanical") {

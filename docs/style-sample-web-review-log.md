@@ -74,7 +74,7 @@
 | 41 | 럭셔리 / 클래식 | baroque | luxury-product | verified | TEATRO SAN CASSIANO 바로크 오페라 극장 — 사진 0장, 팔레트 전면 교체(진짜 near-black + 진짜 금박 + 크림슨 레이크), 금박 스크롤워크 프로시니엄, 크림슨 발랑스, 말굽형 palchi 평면도(등급 선택), 배역표·아리아·레퍼토리 |
 | 42 | 럭셔리 / 클래식 | rococo | luxury-product | verified | ATELIER DE LA ROCAILLE 보아즈리 조각·금박 공방 — 팔레트 교체(로지 파스텔 → 아이보리+물금박), 로카유 패널 실사, 크기가 다른 패널 필드(contraste), 오너먼트 스케줄·도르 공정 |
 | 43 | 럭셔리 / 클래식 | gothic | street-campaign | verified | OPUS FABRICAE 대성당 조영국(fabric) — 팔레트 전면 교체(니어블랙 → 차가운 슬레이트 석재 + 샤르트르 유리), 랜싯 비례 실사 + 뾰족아치 7베이 입면(등급별 유리 충전, 선택 연동), bay record·fabric roll |
-| 44 | 자연 / 수공예 | natural | organic-brand | verified | UNDYED 소재 이력 색인 — 팔레트 교체(크림 → 회색기 섬유색, primary를 아마밭 녹색으로 분리), 아마 섬유 실사, 스와치 선택 레일, 소재 기록, 산지→제직 provenance 체인 |
+| 44 | 자연 / 수공예 | natural | organic-brand | verified | THE CAIRN WAY 고지대 경로 상태 — 팔레트를 지형에서 재도출(이끼돌·침엽수·마른풀·비 하늘·녹슨 고사리), 다큐멘터리 풍경이 페이지를 지배, 구간 인덱스·구간 기록·오늘의 지면 상태, 무드보드 동시 교체 |
 | 45 | 자연 / 수공예 | botanical | organic-brand | queued | leaf detail, herbarium structure, plant-specific grid |
 | 46 | 자연 / 수공예 | rustic | organic-brand | queued | rough local material, weathered wood, hospitality warmth |
 | 48 | 자연 / 수공예 | handmade | organic-brand | queued | small-batch irregularity, thread, torn paper, maker shop |
@@ -956,3 +956,16 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
   - 팔레트 온도 조정: 회색기가 지나쳐 차갑고 금욕적이었다. base `#DCD6C6`→`#E3DCCB`, surface `#EAE5D8`→`#F1ECE0`, text `#33302A`→`#3A352C`, muted·accent·border도 한 단계씩 덥힘. rustic·handmade의 크림과는 여전히 구분되되 차갑지 않다.
   - 캡션을 새 사진에 맞게 "Undyed cloth, loom state, three weights"로 교체.
 - 재검증: 1440·390·compact 모두 overflow 0, 잘림 0건, console error 0. `check:data`(76)·`check:style-distinction`(76)·`build`(544 pages) 통과.
+
+### natural 재조준 (2026-07-31, 소유자 지시: "내추럴이 정말 섬유와 관련이 있어? 정의를 제대로 조사해줘" → "그걸 웹 분위기로 구현하고 무드보드와 팔레트도 조정")
+
+- **조사 결과 1 — 웹디자인에서 natural의 정의:** natural/organic 계열은 자연에서 형태·색·질감을 가져오는 스타일군이다. 강·잎·구름에서 온 유동적 비대칭 형태와 부드러운 곡선(경직된 기하학의 반대), 점토·돌·모래·바랜 초록의 흙빛 뮤트 바탕에 노을 주황 같은 자연의 선명한 색이 포인트, 나뭇결·돌·종이·잎사귀 질감, 자연 사진, 과밀하지 않은 균형. 목적은 바이오필리아 — 디지털에서 자연의 안정·연결·평온을 재현하는 것. **섬유는 "자연 질감"의 여러 후보 중 하나일 뿐 정의의 중심이 아니다.**
+- **조사 결과 2 — 이 저장소 자체의 근거:** `natural`의 referenceSites가 **Patagonia · REI · Mountain Hardwear**이고 노트가 "documentary landscape crops, terrain-driven color cues, gear comparison surfaces, activism-led hierarchy"다. 무드보드 기록도 "landscape crops, leaf shadows, soft green blue". 즉 저장소가 의도한 natural은 **야외·풍경·지형**이다.
+- **내 절차상 잘못:** referenceSites를 읽지 않고 설계에 들어갔다. 럭셔리 계열에서는 매번 확인했는데 이번엔 건너뛰었고, 그래서 저장소 근거와 반대 방향(섬유 이력)으로 갔다. 직전 "무섭다" 지적으로 이미지만 고쳤을 때도 근본 방향은 그대로였다. **재설계 전 referenceSites 확인은 생략 불가 단계로 취급할 것.**
+- 카테고리 내 축 정리: botanical=종(種), rustic=거친 재료, handmade=만든 사람의 손, **natural=장소 그 자체**. 넷 중 natural만 재료나 만듦이 아니라 장소에 관한 스타일이며, 섬유 버전은 이 축을 rustic/handmade 쪽으로 밀어버린 셈이었다.
+- 팔레트 재도출(지형에서): base `#E2E1D8`(옅은 이끼돌) / surface `#F0EFE8` / text `#232A22` / muted `#6E7466` / **primary `#3F5D46`(침엽수)** / accent `#B4552E`(녹슨 고사리 — 조사가 명시한 "자연의 선명한 포인트색") / accent2 `#7C93A3`(비 갠 하늘) / accent3 `#A8A98F`(마른 풀) / border `#A9AC9C`.
+- 컴포넌트 `CairnWayConditions.tsx`(구 `FlaxProvenance.tsx` 삭제): THE CAIRN WAY 74km 고지대 경로. **다큐멘터리 풍경이 페이지를 지배**하고(Patagonia 문법) 타입이 그 아래 조용히 놓인다. 구간 인덱스(알약형) → 구간 기록(거리·상승·노면·노출·물·소요) → **오늘의 지면 상태**(지면·계류·시야·바람, 상태별 색점) → 접근 원칙 푸터. 조사가 말한 organic = 부드러운 모서리·여유로운 간격이므로 딱딱한 괘선 그리드를 쓰지 않았다.
+- 이미지·무드보드 동시 교체: 샘플 이미지는 비 안개 속 고지대 돌길(이끼 바위, 바랜 터석, 녹슨 고사리, 구름 틈 빛 한 줄기), 무드보드는 슬레이트 위 지형 리서치 보드(등고선 지도 조각, 이끼돌, 마른 풀 다발, 히스, 고사리, 왁스면, 그리고 새 팔레트 그대로의 색칩). 무드보드 프루프가 "큰 풍경 사진이 지배하고 타입은 아래 조용히"라는 이 스타일의 레이아웃 문법을 그대로 보여준다.
+- 튜닝: 하단이 크게 비어 사진을 `flex-1`로 바꿔 여백을 흡수하게 했다(스타일 문법상으로도 사진이 지배하는 게 맞다). 캡션의 `&middot;` 앞 공백이 JSX에 먹혀 `{" "}`로 명시.
+- 검증: 1440·390·compact 모두 page overflow 0, 샘플 내부 overflow 0, 잘림 0건, console error 0. `check:data`(76)·`check:style-distinction`(76)·`check:style-refs`(76)·`lint`·`tsc`·`build`(544 pages) 통과.
+- 남은 의심점: 없음. 다음 style: botanical.

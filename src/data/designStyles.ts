@@ -829,20 +829,21 @@ const palettes: Record<string, DesignStylePalette> = {
     border: "#6E7480",
   },
   natural: {
-    // Four styles in this category shared the same cream ground and every one
-    // of them had primary equal to text, so the whole category read as a beige
-    // page with a near-black button. Natural takes the undyed colours of the
-    // fibres themselves — greyer than cream, which separates it from rustic and
-    // handmade — and gives the CTA a real hue: the green of the flax field.
-    base: "#E3DCCB",
-    surface: "#F1ECE0",
-    text: "#3A352C",
-    mutedText: "#857E6D",
-    primary: "#4E5C45",
-    accent: "#BCA277",
-    accent2: "#96917A",
-    accent3: "#D2CAB4",
-    border: "#B3AA95",
+    // Re-derived from the style's own reference sites — Patagonia, REI,
+    // Mountain Hardwear — which are terrain and landscape, not fabric. So the
+    // palette is a place rather than a material: pale lichen stone, conifer,
+    // dry grass, weathered sky, and the one vivid accent the style actually
+    // allows, a rust sunset. primary stays separate from text, which was the
+    // category-wide fault.
+    base: "#E2E1D8",
+    surface: "#F0EFE8",
+    text: "#232A22",
+    mutedText: "#6E7466",
+    primary: "#3F5D46",
+    accent: "#B4552E",
+    accent2: "#7C93A3",
+    accent3: "#A8A98F",
+    border: "#A9AC9C",
   },
   botanical: {
     base: "#E7EAD7",
@@ -1147,7 +1148,7 @@ const styleSeedTuples: DesignStyleSeedTuple[] = [
   ["rococo", "로코코", "Rococo", "럭셔리 / 클래식", "부드러운 장식과 밝은 색으로 섬세하고 화려한 분위기를 만드는 스타일", ["rococo", "delicate", "ornate"], "luxury-product"],
   ["gothic", "고딕", "Gothic", "럭셔리 / 클래식", "뾰족한 구조와 어두운 분위기로 장중함을 만드는 스타일", ["gothic", "dark", "dramatic"], "street-campaign"],
 
-  ["natural", "내추럴", "Natural", "자연 / 수공예", "염색하지 않은 섬유 그자체의 색과 검증 가능한 출처로 신뢰를 만드는 스타일", ["natural", "undyed", "provenance"], "organic-brand"],
+  ["natural", "내추럴", "Natural", "자연 / 수공예", "땅과 날씨 그 자체를 담은 다큐멘터리 풍경과 흙빛 절제로 평온함을 만드는 야외적 스타일", ["natural", "terrain", "outdoor"], "organic-brand"],
   ["botanical", "보태니컬", "Botanical", "자연 / 수공예", "식물 모티프와 그린 팔레트를 중심으로 한 생기 있는 스타일", ["botanical", "green", "plant"], "organic-brand"],
   ["rustic", "러스틱", "Rustic", "자연 / 수공예", "거친 나무와 흙빛 질감으로 소박한 온기를 만드는 스타일", ["rustic", "wood", "earth"], "organic-brand"],
   ["handmade", "핸드메이드", "Handmade", "자연 / 수공예", "손으로 만든 흔적과 작은 불균형을 매력으로 쓰는 스타일", ["handmade", "craft", "human"], "organic-brand"],
@@ -3549,13 +3550,13 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
       "Create a realistic editorial moodboard for Gothic in web design. The board should look like a real designer's cathedral-works research board photographed from above on a slab of cool pale limestone. One thing must be true of the photograph: the coloured glass is by far the brightest thing on the board, lit from beneath as if the slab were a light table, while the stone and paper around it stay cool and calm - because the whole Gothic structural system exists to free the wall for light. Include offcuts of medieval-style stained glass in brilliant cobalt, ruby, emerald and warm gold, some still held in H-section lead came; a coil of spare lead came; printed layout proofs without readable text in which tall narrow lancet columns replace a grid; ink tracery studies of pointed arches, trefoils and quatrefoils drawn on gridded paper; a mason's setting-out drawing of a rib vault; a small carved limestone boss and a scatter of stone dust; a steel setting-out square and a pair of dividers; cool grey and bone paper samples of varied thickness. The visual language should communicate structure that carries load - pointed arch, rib, tracery - and verticality as proportion rather than as decoration. It should not look like Baroque warm gilt gloom, a Halloween novelty board, a dark neon page, or a black fashion moodboard. Use real-world imperfections: stone dust, chipped glass edges, solder blobs, pencil setting-out lines, pin marks, tape corners, uneven crop edges, and cool directional shadows. Palette: cool limestone grey, bone white, cobalt blue, ruby red, emerald green, warm gold glass, lead grey, ink black. No readable text, no tiny text, no letters, no numbers, no labels, no brand names, no logos, no watermarks, no people, no faces, no religious figures, no candles, no fake interface text, no floating cards, no sterile AI mockup look. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
   natural: {
-    alt: "Natural moodboard with blank lifestyle web proofs, landscape crops, uncoated cream paper, raw linen, pale wood, leaf shadows, river stone, sand texture, and green-blue chips.",
-    caption: "Open-air calm: use landscape fragments, pale wood, linen, stone, sand, and breathable grids so the page feels natural without becoming botanical or rustic.",
-    directionKeywords: ["real nature lifestyle board", "open air hierarchy", "leaf shadow studies", "pale wood linen", "soft green blue"],
+    alt: "Natural moodboard on grey slate: layout proofs where one large documentary landscape carries the page, terrain crops of a ridge in rain, a stony path and a lichen boulder, a torn contour map fragment, lichen rock, dried tussock and heather, a rust bracken frond, waxed cotton, and stone, olive, fawn, lichen, rust and rain-grey chips.",
+    caption: "Natural is a place, not a material: let one documentary landscape carry the page with the type quiet beneath it, and take the palette off the ground itself rather than off cream and linen.",
+    directionKeywords: ["place not material", "documentary landscape carries the page", "terrain-driven palette", "contour map and lichen rock", "weathered and unpeopled"],
     generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/natural-realistic-v2.webp",
+    imageSrc: "/generated/moodboards/natural.webp",
     prompt:
-      "Create a realistic editorial moodboard for Natural style in web design. Photograph a real designer's nature-led lifestyle and brand web research board from above on a light stone studio table. Include printed website layout references made only of blank image blocks and empty bars, landscape photography fragments with no labels, uncoated cream paper, raw linen, pale wood veneer, leaf shadow studies, river-stone and sand-texture samples, muted green and sky color chips, breathable editorial grid studies, simple product modules with no text, and small physical objects like a smooth twig, unmarked seed packet blank, and stone. The visual language should communicate open air, quiet natural light, simple ecology, and relaxed lifestyle hierarchy for web pages, not dense botanical pattern, eco campaign signage, or rustic farmhouse texture. Use tape corners, pin marks, slight paper curl, soft outdoor-like shadows, uneven crop edges, paper grain, varied paper thickness, subtle dust, and tactile surface texture. Palette: cream, pale stone, leaf green, soft sky blue, sand beige, warm wood, moss, charcoal accent. Absolutely no readable text, no micro text, no fake text, no letters, no numbers, no labels, no logos, no brand names, no watermarks, no fake UI gibberish, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
+      "Create a realistic editorial moodboard for Natural style in web design. The board should look like a real designer's landscape and terrain research board photographed from above on a pale grey slate slab. This style is about place rather than material or making, so the board is built from open country: include printed website layout proofs without readable text in which one large documentary landscape photograph dominates and the type sits quietly under it; several loose terrain photograph crops - a ridge fading into rain haze, a stony path, dark wet stones in a shallow burn, a lichen-covered boulder; a torn fragment of a contour survey map showing only unlabelled contour lines and a watercourse; a real lichen-crusted rock fragment; a bundle of bleached tussock grass and a sprig of dry heather; one rust-brown dead bracken frond; a weathered scrap of waxed cotton; and colour chips in cool stone grey, muted olive, bleached fawn, pale lichen green, rust and rain grey. The mood is calm, weathered and honest - open air and long distance, the quiet of real country. It should not look like a linen and cream lifestyle board, a plant-shop or herbarium board, a rough farmhouse timber board, or a craft-market board of handmade goods. Use real-world imperfections: grit and dust on the slate, damp marks, torn map edges, pin marks, tape corners, slight paper curl, and soft overcast shadows. Palette: cool stone grey, muted olive-green, bleached fawn, pale lichen, rust bracken, rain grey. No readable text, no tiny text, no letters, no numbers, no map labels, no grid references, no brand names, no logos, no watermarks, no people, no animals, no tents, no gear, no fake interface text, no floating cards, no golden hour glow, no sterile AI mockup look. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
   botanical: {
     alt: "Botanical moodboard with blank plant-commerce web proofs, leaf and stem crops, pressed plants, tracing paper, herbarium grid studies, glassine blanks, terracotta, and green chips.",

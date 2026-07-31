@@ -73,7 +73,7 @@ This table is the working comparison sheet for keeping styles inside the same ca
 
 | style slug | 핵심 정체성 | moodboard 시각 신호 | referenceSites 웹 UI 문법 | 겹치기 쉬운 스타일 | 반드시 다르게 보여야 하는 요소 | 샘플 고유 마커 |
 |---|---|---|---|---|---|---|
-| natural | Verifiable origin, undyed | raw fibre in production, greyed straw and hemp, no styling props | material index, specification record, provenance chain with places and dates | botanical, rustic, handmade | greyed fibre colour rather than cream, origin data rather than lifestyle mood | Undyed / material record / provenance chain |
+| natural | A place, not a material | documentary landscape, lichen rock, contour map, terrain-driven palette | one large landscape carrying the page, section index, ground conditions | botanical, rustic, handmade | the only one of the four about place rather than material or making; terrain colour, soft edges, no ruled grid | The Cairn Way / section record / ground conditions |
 | botanical | Plant-specific commerce | pressed leaves, glassine, herbarium | plant shop, glasshouse filters, species cards | natural, art-nouveau | leaf structure and glasshouse taxonomy | BOTANICAL GLASSHOUSE |
 | rustic | Farmhouse/lodge texture | rough wood, burlap, iron, clay | lodge shop, rough material cards | vintage | coarse wood and lodge commerce | RUSTIC LODGE |
 | handmade | Human-made marketplace | stitch, patch, uneven paper | maker cards, patch market, human labels | kitsch | visible hand marks and irregular patches | PATCH MARKET |
