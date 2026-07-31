@@ -910,3 +910,16 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - browser QA: 1440 full(702×540)·390 모바일(330×540)·compact 카드(505×218) 모두 page overflow 0, 샘플 내부 overflow 0, console error 0, 잘림 0건.
 - 명령: `check:data`(77)·`check:style-distinction`(77)·`check:style-refs`(77)·`lint`·`tsc --noEmit`·`build`(547 pages) 통과.
 - 남은 의심점: 무드보드 `neoclassic-realistic-v2.webp`는 이전 대리석·샴페인 기조라 새 팔레트와 어긋난다. baroque·art-nouveau·gothic·rococo와 함께 재생성 대기(총 5건).
+
+## 35. art-nouveau / gothic / rococo / neoclassic 무드보드 재생성 (소유자 지시: "좋아 부탁해")
+
+- 범위 정정: 직전 메시지에서 "5건"이라 했으나 **baroque는 이미 26번 패스에서 새 팔레트로 재생성돼 있었고 그 뒤 팔레트가 바뀌지 않았다.** 실제 대상은 4건이다. art-nouveau는 한 번 재생성했지만(28번) 그 뒤 팔레트를 무하 톤으로 낮춰(29번) 다시 어긋난 상태였다.
+- 엔드포인트: opencodex 프록시 포트가 **10100 → 12410**으로 또 바뀌어 첫 실행이 `fetch failed`로 죽었다. `ocx status`로 확인 후 재실행. 포트를 가정하지 말라는 기존 기록이 다시 확인됨. art-nouveau는 1회 `No image_generation_call result in the stream`로 실패했다가 재시도에서 성공(간헐적).
+- art-nouveau: 프롬프트를 **저채도 지시 중심**으로 다시 씀("aged poster ink on cream, never bright, never candy"). 결과는 채찍선 잉크 드로잉이 좌측을 지배하고, 주철 장식 파편·파티나 브론즈 컬·납선 앰버/페이디드 틸 유리·실제로 말린 고사리 순·아이리스 리소그래프 조각·더스티 로즈/세이지 칩·공작 깃털. 29번에서 낮춘 팔레트와 일치.
+- gothic: "유리가 보드에서 압도적으로 가장 밝고, 슬래브를 라이트테이블처럼 아래에서 비춘다"를 조명 조건으로 못박음. 결과는 코발트·루비·에메랄드·금 납선 유리 조각, 여분 납 카메 코일, 트레이서리·리브볼트 정렬 도면, 석회암 보스와 석분, 강철 직각자와 디바이더, 랜싯 열 레이아웃 프루프.
+- rococo: **의도적 불균형 구도**를 명시적으로 요구("material gathered heavily toward one side and one corner left almost bare, no arrangement mirrors another"). 결과가 실제로 좌측에 몰리고 우측이 비어 contraste가 사진 구도 자체로 읽힌다. 반쯤 금박 입힌 로카유 조각, 금박 책, 팁 브러시와 마노 브루니셔, 붉은 볼 접시, 비대칭 스크롤 도안, 파스텔 페인트아웃.
+- neoclassic: "선이지 색이 아니고, 발명이 아니라 측량"을 원칙으로. 오더 동판 도판, 방안지 위 연필 입면, 황동 디바이더와 회양목 축척자, 에그앤다트 석고 캐스트, 재스퍼 블루 메달리온, 바솔트 조각, 폼페이 레드 회벽 파편, 셀라돈 칩.
+- 데이터: 4개 `StyleMoodboard` 레코드의 alt·caption·directionKeywords·imageSrc·prompt 전면 교체. 구 `*-realistic-v2.webp` 4개 삭제(참조 끊김).
+- 검증: `check:data`(77)·`check:style-distinction`(77)·`check:style-refs`(77)·`lint`·`tsc --noEmit`·`build`(547 pages) 통과. 4개 상세 페이지에서 무드보드 이미지 1600×1001 로드 확인, 디렉션 키워드·프롬프트 렌더 확인, console error 0.
+- 판단 기록: neoclassic 보드의 웨지우드 메달리온에 고전 옆얼굴 부조가 들어갔다. 가이드라인의 "no faces"는 스톡사진식 인물을 막기 위한 조항이고 재스퍼웨어는 백색 부조 옆얼굴이 그 물건의 정의 자체라, 사물의 장식으로 보아 수용했다. 규정을 조용히 통과시키지 않고 여기 남긴다.
+- 남은 의심점: 없음. 이번 럭셔리/클래식 패스에서 재설계한 5개 스타일의 무드보드가 모두 현재 팔레트와 일치한다.
