@@ -203,7 +203,6 @@ const GENERATED_STYLE_IMAGES = {
   "high-end-minimal": "/generated/design-styles/high-end-minimal.webp",
   "indie-sleaze": "/generated/design-styles/indie-sleaze.webp",
   japandi: "/generated/design-styles/japandi.webp",
-  kawaii: "/generated/design-styles/kawaii.webp",
   kitsch: "/generated/design-styles/kitsch.webp",
   luxury: "/generated/design-styles/luxury.webp",
   maximalism: "/generated/design-styles/maximalism.webp",
@@ -3802,8 +3801,7 @@ function KitschNoveltyDrop({ compact = false, style }: Props) {
   // cards, closed by a drop countdown. Boldness is spent on the sunburst price
   // stickers and the clashing print swatches; everything else stays white,
   // hairline and disciplined. The storefront skeleton keeps it distinct from
-  // its neighbours kawaii (collection-grid membership) and dopamine-design
-  // (circular reward dashboard).
+  // its neighbour dopamine-design (circular reward dashboard).
   const ink = "#2c2442";
   const cardShadow: CSSProperties = { boxShadow: "0 8px 20px -12px rgba(44,36,66,0.42), inset 0 1px 1px rgba(255,255,255,0.7)" };
   const products: Array<{ name: string; price: string; pos: string; size: string; tag?: string; burst: string; dots: string[] }> = [
@@ -3954,184 +3952,12 @@ function KitschNoveltyDrop({ compact = false, style }: Props) {
   );
 }
 
-function KawaiiHeart({ className, filled = true }: { className?: string; filled?: boolean }) {
-  return (
-    <svg aria-hidden="true" className={className} fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-      <path d="M12 21C6.6 16.4 4 13.4 4 10a3.6 3.6 0 0 1 6-2.6A3.6 3.6 0 0 1 20 10c0 3.4-2.6 6.4-8 11Z" />
-    </svg>
-  );
-}
-
-function KawaiiCharacterClub({ compact = false, style }: Props) {
-  // "Character club dashboard": a Sanrio / Pusheen membership screen — a mascot
-  // collection grid with a member banner, a small character mood ring, heart
-  // badges, a stamp-reward card and a tiny-treats shop. The collection-grid
-  // membership skeleton keeps it distinct from its neighbours kitsch (bordered
-  // novelty shop split) and dopamine-design (circular reward dashboard).
-  const softShadow: CSSProperties = { boxShadow: "0 10px 22px -14px rgba(91,74,87,0.42), inset 0 1px 1px rgba(255,255,255,0.85)" };
-  const mascots: Array<[string, string, boolean]> = [
-    ["bun", "18% 54%", true],
-    ["sky", "42% 40%", true],
-    ["star", "60% 56%", true],
-    ["puff", "80% 46%", false],
-    ["milk", "30% 72%", true],
-    ["berry", "72% 70%", false],
-  ];
-  const treats: Array<[string, string, string]> = [
-    ["mini plush", "$16", "24% 52%"],
-    ["sticker set", "$8", "50% 44%"],
-    ["charm", "$12", "66% 60%"],
-    ["tote", "$22", "82% 50%"],
-  ];
-  return (
-    <SampleFrame compact={compact} style={style}>
-      <div
-        className={cn("absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
-        style={{
-          "--sample-accent": "#ff9ec4",
-          "--sample-accent-2": "#9ecbff",
-          "--sample-accent-3": "#ffe08a",
-          "--sample-base": "#fff3f8",
-          "--sample-border": "#5b4a57",
-          "--sample-border-soft": "#5b4a571c",
-          "--sample-muted": "#a892a0",
-          "--sample-primary": "#ff77b0",
-          "--sample-surface": "#ffffff",
-          "--sample-text": "#5b4a57",
-          "--st-base-rgb": "255 243 248",
-          "--st-surface-rgb": "255 255 255",
-          "--st-text-rgb": "91 74 87",
-          "--st-primary-rgb": "255 119 176",
-          "--st-accent-rgb": "255 158 196",
-          "--st-accent-2-rgb": "158 203 255",
-          "--st-accent-3-rgb": "255 224 138",
-          "--st-border-rgb": "91 74 87",
-          background:
-            "radial-gradient(48% 40% at 10% 6%, rgb(255 158 196 / 0.24), transparent 60%), radial-gradient(44% 40% at 94% 10%, rgb(158 203 255 / 0.22), transparent 60%), radial-gradient(52% 44% at 84% 100%, rgb(255 224 138 / 0.22), transparent 62%), linear-gradient(180deg, #fff7fb, #fff1f6)",
-        } as SampleVariables}
-      >
-        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_1fr_auto] gap-2.5">
-          {/* ── Member banner ── */}
-          <header aria-label="FRIEND CLUB DASHBOARD" className="flex items-center gap-2.5 rounded-[20px] bg-white px-2.5 py-2" style={softShadow}>
-            <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 border-[var(--sample-accent)]">
-              <GeneratedStyleImageSurface className="absolute inset-0 h-full w-full" overlay="none" position="42% 46%" slug="kawaii" />
-            </span>
-            <div className="min-w-0">
-              <span className="inline-block rounded-full bg-[var(--sample-accent)] px-2 py-0.5 text-[7px] font-black uppercase tracking-[0.12em] text-white">CHARACTER CLUB</span>
-              <p className="mt-0.5 truncate font-black lowercase leading-none" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "12px" : "15px" }}>hi, mochi member!</p>
-            </div>
-            <div className="ml-auto flex shrink-0 items-center gap-2.5">
-              <span className="flex items-center gap-1 text-[var(--sample-primary)]">
-                <KawaiiHeart className="h-3 w-3" />
-                <span className="text-[10px] font-black tabular-nums text-[var(--sample-text)]">128</span>
-              </span>
-              <div aria-label="character mood ring" className="flex flex-col items-center gap-0.5">
-                <span className="relative grid h-8 w-8 place-items-center rounded-full" style={{ background: "conic-gradient(from -90deg, #ff9ec4, #ffe08a, #a8ecc9, #9ecbff, #ff9ec4)" }}>
-                  <span className="grid h-[1.35rem] w-[1.35rem] place-items-center rounded-full bg-white text-[8px]">
-                    <span className="flex items-center gap-[2px]">
-                      <span className="h-[3px] w-[3px] rounded-full bg-[var(--sample-text)]" />
-                      <span className="h-[3px] w-[3px] rounded-full bg-[var(--sample-text)]" />
-                    </span>
-                  </span>
-                </span>
-                {!compact && <span className="text-[6px] font-black lowercase text-[var(--sample-muted)]">mood: happy</span>}
-              </div>
-            </div>
-          </header>
-
-          {/* ── Mascot collection + right rail ── */}
-          <div className={cn("grid min-h-0 min-w-0 gap-2.5", compact ? "grid-cols-1" : "sm:grid-cols-[1.34fr_0.66fr]")}>
-            <section aria-label="mascot tiles" className="flex min-h-0 min-w-0 flex-col gap-1.5">
-              <div className="flex items-center justify-between">
-                <span className="text-[8px] font-black lowercase tracking-[0.08em] text-[var(--sample-text)]">mascot tiles · your friends</span>
-                <span className="rounded-full bg-[var(--sample-accent-2)] px-2 py-0.5 text-[7px] font-black lowercase text-[var(--sample-text)]">4 / 6 collected</span>
-              </div>
-              <div className="grid min-h-0 flex-1 grid-cols-3 grid-rows-2 gap-2">
-                {mascots.map(([name, pos, got]) => (
-                  <div className="relative flex min-h-0 flex-col overflow-hidden rounded-[16px] bg-white p-1" style={softShadow} key={name}>
-                    <div className="relative min-h-0 flex-1 overflow-hidden rounded-[12px] bg-[var(--sample-base)]">
-                      <span aria-hidden="true" className="absolute inset-0">
-                        <GeneratedStyleImageSurface className="h-full w-full" overlay="none" position={pos} slug="kawaii" style={{ backgroundSize: "230%", filter: got ? "none" : "grayscale(0.7) opacity(0.55)" }} />
-                      </span>
-                      {got ? (
-                        <span className="absolute right-1 top-1 text-[var(--sample-primary)]"><KawaiiHeart className="h-3 w-3 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]" /></span>
-                      ) : (
-                        <span className="absolute right-1 top-1 rounded-full bg-[var(--sample-accent-3)] px-1 text-[6px] font-black lowercase text-[var(--sample-text)]">new</span>
-                      )}
-                    </div>
-                    <span className="truncate px-0.5 pt-0.5 text-center text-[7.5px] font-black lowercase text-[var(--sample-text)]">{name}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className={cn("flex min-h-0 min-w-0 flex-col gap-2.5", compact && "hidden")}>
-              <div aria-label="heart badges" className="rounded-[16px] bg-white p-2.5" style={softShadow}>
-                <div className="mb-1.5 flex items-center justify-between">
-                  <span className="text-[8px] font-black lowercase tracking-[0.08em] text-[var(--sample-text)]">heart badges</span>
-                  <span className="text-[7px] font-black tabular-nums text-[var(--sample-muted)]">12 / 20</span>
-                </div>
-                <div className="grid grid-cols-5 gap-1.5 text-[var(--sample-accent)]">
-                  {Array.from({ length: 10 }).map((_, index) => (
-                    <span className={cn("grid aspect-square place-items-center rounded-full", index < 6 ? "bg-[rgb(255_158_196/0.18)]" : "bg-[var(--sample-base)]")} key={index}>
-                      <KawaiiHeart className={cn("h-3 w-3", index < 6 ? "text-[var(--sample-primary)]" : "text-[var(--sample-border-soft)]")} filled={index < 6} />
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div aria-label="stamp rewards" className="min-h-0 flex-1 rounded-[16px] bg-white p-2.5" style={softShadow}>
-                <div className="mb-1.5 flex items-center justify-between">
-                  <span className="text-[8px] font-black lowercase tracking-[0.08em] text-[var(--sample-text)]">stamp rewards</span>
-                  <span className="rounded-full bg-[var(--sample-accent-3)] px-1.5 py-0.5 text-[7px] font-black lowercase text-[var(--sample-text)]">3 to go</span>
-                </div>
-                <div className="grid grid-cols-4 gap-1.5">
-                  {Array.from({ length: 8 }).map((_, index) => (
-                    <span
-                      className={cn("grid aspect-square place-items-center rounded-full text-[8px]", index < 5 ? "bg-[var(--sample-accent)] text-white" : "border-2 border-dashed border-[var(--sample-border-soft)] text-[var(--sample-border-soft)]")}
-                      key={index}
-                    >
-                      {index < 5 ? <KawaiiHeart className="h-2.5 w-2.5" /> : <span className="text-[7px] font-black text-[var(--sample-muted)]">{index + 1}</span>}
-                    </span>
-                  ))}
-                </div>
-                <p className="mt-1.5 text-[6.5px] font-black lowercase tracking-[0.04em] text-[var(--sample-muted)]">collect 8 stamps for a tiny treat ♡</p>
-              </div>
-            </section>
-          </div>
-
-          {/* ── Tiny treats shop ── */}
-          <div aria-label="shop tiny treats" className={cn(compact && "hidden")}>
-            <div className="mb-1 flex items-center justify-between">
-              <span className="text-[8px] font-black lowercase tracking-[0.08em] text-[var(--sample-text)]">shop tiny treats</span>
-              <span className="text-[7px] font-black lowercase text-[var(--sample-primary)]">see all →</span>
-            </div>
-            <div className="grid grid-cols-4 gap-2">
-              {treats.map(([name, price, pos]) => (
-                <div className="flex items-center gap-1.5 rounded-[14px] bg-white p-1 pr-2" style={softShadow} key={name}>
-                  <span className="relative h-7 w-7 shrink-0 overflow-hidden rounded-[10px] bg-[var(--sample-base)]">
-                    <GeneratedStyleImageSurface className="absolute inset-0 h-full w-full" overlay="none" position={pos} slug="kawaii" style={{ backgroundSize: "240%" }} />
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block truncate text-[7.5px] font-black lowercase text-[var(--sample-text)]">{name}</span>
-                    <span className="block text-[7.5px] font-black text-[var(--sample-primary)]">{price}</span>
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </SampleFrame>
-  );
-}
-
 function DopamineRewardLoop({ compact = false, style }: Props) {
   // "Habit streak engine": a gamified reward dashboard (Duolingo / Habitica /
   // Happy Socks energy). A big circular reward loop with orbiting habit icons,
   // an XP reward meter, color-pulse habit cards, a reward ladder and a dopamine
   // spectrum. The circular-progress dashboard skeleton keeps it distinct from
-  // its neighbours kawaii (image cards) and pop-art (edition grid).
+  // its neighbour pop-art (edition grid).
   const softShadow: CSSProperties = { boxShadow: "0 10px 24px -14px rgba(26,20,54,0.5), inset 0 1px 1px rgba(255,255,255,0.7)" };
   const orbit: Array<[string, string, string]> = [
     ["move", "#ff3d81", "left-[38%] top-[-7%]"],
@@ -4311,8 +4137,8 @@ function PopArtObjectArchive({ compact = false, style }: Props) {
   // A silkscreen wall repeats one flower object across a colour-permuted edition
   // grid (with one Ben-Day halftone tile) above a museum-shop edition rail and a
   // halftone caption rail. The gallery-wall skeleton keeps it distinct from its
-  // cute/casual neighbours kawaii (product collection grid), kitsch (novelty
-  // storefront) and comic-book-style (paneled cover shelf).
+  // cute/casual neighbours kitsch (novelty storefront) and comic-book-style
+  // (paneled cover shelf).
   const ink = "#17151a";
   const halftone = `radial-gradient(circle, ${ink} 0 30%, transparent 34%)`;
   const flowers: Array<{ petal: string; center: string; bg: string }> = [
@@ -4573,9 +4399,8 @@ function ToyPlaysetBuilder({ compact = false, style }: Props) {
   // a ghost next-slot) is flanked by a block-parts bin and a build-pattern
   // chooser, and closed by a numbered instruction rail. The configurator-
   // workspace skeleton keeps it distinct from every cute/casual neighbour —
-  // storefront (kitsch), collection grid (kawaii), reward dashboard (dopamine),
-  // vertical showcase (bubble), editorial bands (pastel), onboarding feed
-  // (playful) and gallery wall (pop-art).
+  // storefront (kitsch), reward dashboard (dopamine), vertical showcase
+  // (bubble), editorial bands (pastel) and gallery wall (pop-art).
   const cardShadow: CSSProperties = { boxShadow: "0 10px 24px -16px rgba(15,23,60,0.4), inset 0 1px 1px rgba(255,255,255,0.8)" };
   const parts: Array<[string, string, string]> = [
     ["var(--sample-primary)", "2×2", "×6"],
@@ -4739,178 +4564,13 @@ function ToyPlaysetBuilder({ compact = false, style }: Props) {
   );
 }
 
-function PlayfulMascot({ className }: { className?: string }) {
-  // A friendly Guide Garden sprout character — the one signature illustration,
-  // drawn with care so it reads as an intentional mascot, not a clip-art circle.
-  return (
-    <svg aria-hidden="true" className={className} viewBox="0 0 64 64">
-      <defs>
-        <linearGradient id="playful-mascot-body" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="var(--sample-accent-3)" />
-          <stop offset="1" stopColor="var(--sample-primary)" />
-        </linearGradient>
-      </defs>
-      <path d="M32 15c0-5 4-7.5 8.5-6.5-1 4.5-3.5 7.5-8.5 8.5Z" fill="var(--sample-accent-2)" />
-      <path d="M32 16c0-4.2-3-6.4-7.2-5.4 1 3.4 3.2 6 7.2 6Z" fill="var(--sample-accent-2)" opacity="0.82" />
-      <rect fill="url(#playful-mascot-body)" height="40" rx="20" width="40" x="12" y="15" />
-      <circle cx="21" cy="39" fill="var(--sample-accent)" opacity="0.5" r="4" />
-      <circle cx="43" cy="39" fill="var(--sample-accent)" opacity="0.5" r="4" />
-      <circle cx="25" cy="33" fill="#3b3945" r="3.4" />
-      <circle cx="39" cy="33" fill="#3b3945" r="3.4" />
-      <circle cx="26.2" cy="31.8" fill="#fff" r="1.1" />
-      <circle cx="40.2" cy="31.8" fill="#fff" r="1.1" />
-      <path d="M27 41c2.6 2.6 7.4 2.6 10 0" fill="none" stroke="#3b3945" strokeLinecap="round" strokeWidth="2.2" />
-    </svg>
-  );
-}
-
-function PlayfulOnboardFlow({ compact = false, style }: Props) {
-  // "Guided joy flow": a Duolingo / Headspace / Mailchimp friendly onboarding
-  // app — a mascot coach card with a speech bubble and a soft progress path over
-  // a vertical stack of gentle task cards with real completion states. The
-  // app-onboarding feed skeleton keeps it distinct from its cute/casual
-  // neighbours kawaii (collection grid), pastel-style (editorial image bands)
-  // and dopamine-design (circular reward dashboard).
-  const cardShadow: CSSProperties = { boxShadow: "0 12px 28px -18px rgba(67,65,79,0.42), inset 0 1px 1px rgba(255,255,255,0.75)" };
-  const tasks: Array<{ label: string; note: string; state: "done" | "active" | "todo" }> = [
-    { label: "pick your focus", note: "calm mornings", state: "done" },
-    { label: "meet your guide", note: "say hi to sprout", state: "done" },
-    { label: "try a 2-min step", note: "breathe, then plant one seed", state: "active" },
-    { label: "set a gentle reminder", note: "we'll nudge you softly", state: "todo" },
-  ];
-  const steps: Array<"done" | "active" | "todo"> = ["done", "done", "active", "todo"];
-
-  return (
-    <SampleFrame compact={compact} style={style}>
-      <div
-        className={cn("absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
-        style={{
-          "--sample-accent": "#8ea6ff",
-          "--sample-accent-2": "#5fc9a6",
-          "--sample-accent-3": "#ffd166",
-          "--sample-base": "#fff6ee",
-          "--sample-border": "#43414f",
-          "--sample-border-soft": "rgba(67,65,79,0.1)",
-          "--sample-muted": "#9a97a8",
-          "--sample-primary": "#ff8a5c",
-          "--sample-surface": "#ffffff",
-          "--sample-text": "#43414f",
-          "--st-base-rgb": "255 246 238",
-          "--st-surface-rgb": "255 255 255",
-          "--st-text-rgb": "67 65 79",
-          "--st-primary-rgb": "255 138 92",
-          "--st-accent-rgb": "142 166 255",
-          "--st-accent-2-rgb": "95 201 166",
-          "--st-accent-3-rgb": "255 209 102",
-          "--st-border-rgb": "67 65 79",
-          background:
-            "radial-gradient(44% 40% at 4% 2%, rgb(255 209 102 / 0.22), transparent 60%), radial-gradient(42% 40% at 98% 6%, rgb(142 166 255 / 0.18), transparent 60%), radial-gradient(52% 46% at 92% 100%, rgb(95 201 166 / 0.18), transparent 62%), linear-gradient(180deg, #fff9f3, #fff4ea)",
-        } as SampleVariables}
-      >
-        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_auto_1fr_auto] gap-2.5">
-          {/* ── app header ── */}
-          <header className="flex items-center gap-2">
-            <span className="grid h-6 w-6 place-items-center rounded-[9px] bg-[var(--sample-accent-2)] text-[10px]">🌱</span>
-            <div className="min-w-0 leading-none">
-              <span className="block text-[10px] font-black lowercase text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)" }}>guide garden</span>
-              <span className="block text-[6.5px] font-bold uppercase tracking-[0.16em] text-[var(--sample-muted)]">playful UX</span>
-            </div>
-            <span className="ml-auto flex items-center gap-1 rounded-full bg-[var(--sample-surface)] px-2 py-1 text-[7.5px] font-black text-[var(--sample-text)]" style={cardShadow}>
-              <span className="text-[var(--sample-accent-3)]">✦</span> day 3 · +40 xp
-            </span>
-          </header>
-
-          {/* ── mascot coach card + soft progress path ── */}
-          <div aria-label="mascot helper" className="rounded-[20px] bg-white p-2.5" style={cardShadow}>
-            <p className="text-[6.5px] font-black uppercase tracking-[0.2em] text-[var(--sample-primary)]">PLAYFUL ONBOARD</p>
-            <div className="mt-1 flex items-center gap-2.5">
-              <PlayfulMascot className={cn("shrink-0 drop-shadow-[0_4px_8px_rgba(255,138,92,0.3)]", compact ? "h-10 w-10" : "h-12 w-12")} />
-              <div className="min-w-0">
-                <h3 aria-label="GUIDED JOY FLOW" className="font-black lowercase leading-none text-[var(--sample-text)]" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "15px" : "19px" }}>guided joy flow</h3>
-                <div aria-label="mascot walkthrough" className="mt-1 w-max max-w-full rounded-[12px] rounded-tl-[3px] bg-[var(--sample-base)] px-2 py-1">
-                  <span className="text-[7.5px] font-bold lowercase text-[var(--sample-text)]">nice start! let&apos;s plant one tiny goal together 🌱</span>
-                </div>
-              </div>
-            </div>
-            <div aria-label="soft progress path" className="mt-2.5 flex items-center gap-1">
-              {steps.map((state, index) => (
-                <Fragment key={index}>
-                  <span
-                    className={cn(
-                      "grid h-4 w-4 shrink-0 place-items-center rounded-full text-[7px] font-black",
-                      state === "done" && "bg-[var(--sample-accent-2)] text-white",
-                      state === "active" && "bg-white text-[var(--sample-primary)] ring-2 ring-[var(--sample-primary)]",
-                      state === "todo" && "bg-[var(--sample-base)] text-[var(--sample-muted)] ring-1 ring-[var(--sample-border-soft)]",
-                    )}
-                  >
-                    {state === "done" ? "✓" : index + 1}
-                  </span>
-                  {index < steps.length - 1 && (
-                    <span className={cn("h-[3px] flex-1 rounded-full", index < 2 ? "bg-[var(--sample-accent-2)]" : "bg-[var(--sample-border-soft)]")} />
-                  )}
-                </Fragment>
-              ))}
-            </div>
-          </div>
-
-          {/* ── gentle task cards / task completion stack ── */}
-          <section aria-label="gentle task cards" className="flex min-h-0 min-w-0 flex-col gap-1.5">
-            <div className="flex items-center justify-between">
-              <span className="text-[8px] font-black lowercase tracking-[0.06em] text-[var(--sample-text)]">today&apos;s gentle steps</span>
-              <span className="rounded-full bg-[var(--sample-accent)] px-1.5 py-0.5 text-[7px] font-black lowercase text-white">2 / 4 done</span>
-            </div>
-            <div aria-label="task completion stack" className="flex min-h-0 flex-1 flex-col justify-between gap-1.5">
-              {tasks.map(({ label, note, state }) => (
-                <div className={cn("flex items-center gap-2 rounded-[13px] bg-white px-2 py-1.5", state === "active" && "ring-1 ring-[var(--sample-primary)]")} style={cardShadow} key={label}>
-                  <span
-                    className={cn(
-                      "grid h-5 w-5 shrink-0 place-items-center rounded-full text-[9px] font-black",
-                      state === "done" && "bg-[var(--sample-accent-2)] text-white",
-                      state === "active" && "bg-[var(--sample-primary)] text-white",
-                      state === "todo" && "bg-[var(--sample-base)] text-[var(--sample-muted)]",
-                    )}
-                  >
-                    {state === "done" ? "✓" : state === "active" ? "▶" : "○"}
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className={cn("block truncate text-[8.5px] font-black lowercase", state === "done" ? "text-[var(--sample-muted)] line-through" : "text-[var(--sample-text)]")}>{label}</span>
-                    <span className="block truncate text-[6.5px] font-bold lowercase text-[var(--sample-muted)]">{note}</span>
-                  </span>
-                  <span
-                    className={cn(
-                      "shrink-0 rounded-full px-1.5 py-0.5 text-[6.5px] font-black lowercase",
-                      state === "done" && "bg-[var(--sample-base)] text-[var(--sample-muted)]",
-                      state === "active" && "bg-[var(--sample-primary)] text-white",
-                      state === "todo" && "bg-[var(--sample-base)] text-[var(--sample-muted)]",
-                    )}
-                  >
-                    {state === "done" ? "done" : state === "active" ? "resume" : "+15 xp"}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ── continue CTA / soft progress path ── */}
-          <div className={cn("items-center gap-2", compact ? "hidden" : "flex")}>
-            <span className="text-[7px] font-bold lowercase text-[var(--sample-muted)]">soft progress path · no streak pressure</span>
-            <span className="ml-auto flex items-center gap-1 rounded-full bg-[var(--sample-primary)] px-3 py-1.5 text-[8px] font-black lowercase text-white shadow-[0_6px_14px_-6px_rgba(255,138,92,0.7)]">
-              continue <IconArrow size={9} />
-            </span>
-          </div>
-        </div>
-      </div>
-    </SampleFrame>
-  );
-}
-
 function PastelSoftEdit({ compact = false, style }: Props) {
   // "Pastel beauty editorial": a Glossier / Bubble Skincare / Starface soft-tint
   // magazine — a wide low-contrast product-photo hero above a shade story swatch
   // rail, an editorial product shelf of skin-tint cards, and a skin tint planner.
   // The image-dominant horizontal-band editorial skeleton keeps it distinct from
-  // its cute/casual neighbours kitsch (dense novelty storefront), kawaii
-  // (collection grid) and bubble-design (vertical can showcase).
+  // its cute/casual neighbours kitsch (dense novelty storefront) and
+  // bubble-design (vertical can showcase).
   const cardShadow: CSSProperties = { boxShadow: "0 12px 30px -20px rgba(120,92,110,0.5), inset 0 1px 1px rgba(255,255,255,0.8)" };
   const products: Array<{ name: string; shade: string; price: string; pos: string; size: string; dot: string }> = [
     { name: "tint serum", shade: "lilac 02", price: "$32", pos: "18% 44%", size: "260%", dot: "var(--sample-accent-2)" },
@@ -5038,7 +4698,7 @@ function BubbleFlowCapsules({ compact = false, style }: Props) {
   // desktop for a fictional water OS. A translucent menu bar, floating glossy
   // glass windows and a reflective aqua dock of inflated gel icons sit over a
   // real macro-water wallpaper — an OS/window-UI skeleton that shares no shape
-  // with any neighbour (playful onboarding, pastel editorial, kitsch store).
+  // with any neighbour (pastel editorial, kitsch store, toy configurator).
   // The five bubble traits survive as aqua modules: inflated gel dock capsules,
   // a liquid gel slider, a circular droplet widget, a sparkling glass surface
   // and floating window cards.
@@ -6812,10 +6472,6 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
     return <KitschNoveltyDrop {...props} />;
   }
 
-  if (style.slug === "kawaii") {
-    return <KawaiiCharacterClub {...props} />;
-  }
-
   if (style.slug === "dopamine-design") {
     return <DopamineRewardLoop {...props} />;
   }
@@ -6830,10 +6486,6 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
 
   if (style.slug === "toy-design") {
     return <ToyPlaysetBuilder {...props} />;
-  }
-
-  if (style.slug === "playful-design") {
-    return <PlayfulOnboardFlow {...props} />;
   }
 
   if (style.slug === "pastel-style") {

@@ -889,17 +889,6 @@ const palettes: Record<string, DesignStylePalette> = {
     accent3: "#FFE44D",
     border: "#261A22",
   },
-  kawaii: {
-    base: "#FFF4F8",
-    surface: "#FFFFFF",
-    text: "#2A2135",
-    mutedText: "#786F87",
-    primary: "#FF5FA2",
-    accent: "#FF7AB8",
-    accent2: "#8EDAFF",
-    accent3: "#FFE66B",
-    border: "#2A2135",
-  },
   "dopamine-design": {
     base: "#FFF7D6",
     surface: "#FFFFFF",
@@ -943,17 +932,6 @@ const palettes: Record<string, DesignStylePalette> = {
     accent2: "#0FAF5A",
     accent3: "#FFD23A",
     border: "#182432",
-  },
-  "playful-design": {
-    base: "#F8F4FF",
-    surface: "#FFFFFF",
-    text: "#221F33",
-    mutedText: "#69627D",
-    primary: "#4A3AFF",
-    accent: "#FF7A1A",
-    accent2: "#36C48F",
-    accent3: "#F7D84A",
-    border: "#221F33",
   },
   "pastel-style": {
     base: "#F7EAF1",
@@ -1052,7 +1030,19 @@ const paletteBank: DesignStylePalette[] = [
     accent3: "#D7A6A0",
     border: "#3A4536",
   },
-  palettes.kawaii,
+  // Kept inline after the kawaii style was retired: paletteBank is indexed by
+  // hash % length, so dropping an entry would reshuffle every fallback palette.
+  {
+    base: "#FFF4F8",
+    surface: "#FFFFFF",
+    text: "#2A2135",
+    mutedText: "#786F87",
+    primary: "#FF5FA2",
+    accent: "#FF7AB8",
+    accent2: "#8EDAFF",
+    accent3: "#FFE66B",
+    border: "#2A2135",
+  },
   {
     base: "#EDE9DC",
     surface: "#F8F3E5",
@@ -1154,12 +1144,10 @@ const styleSeedTuples: DesignStyleSeedTuple[] = [
   ["handmade", "핸드메이드", "Handmade", "자연 / 수공예", "손으로 만든 흔적과 작은 불균형을 매력으로 쓰는 스타일", ["handmade", "craft", "human"], "organic-brand"],
 
   ["kitsch", "키치", "Kitsch", "귀여움 / 캐주얼", "과장되고 통속적인 요소를 즐겁게 활용하는 스타일", ["kitsch", "fun", "bold"], "kawaii-app"],
-  ["kawaii", "카와이", "Kawaii", "귀여움 / 캐주얼", "작고 둥근 형태와 밝은 색으로 귀여움을 극대화하는 스타일", ["kawaii", "cute", "pastel"], "kawaii-app"],
   ["dopamine-design", "도파민 디자인", "Dopamine Design", "귀여움 / 캐주얼", "강한 색과 즉각적 즐거움으로 긍정적 반응을 만드는 스타일", ["dopamine", "bright", "joy"], "kawaii-app"],
   ["pop-art", "팝아트", "Pop Art", "귀여움 / 캐주얼", "대중문화 이미지와 선명한 색을 그래픽하게 활용하는 스타일", ["pop-art", "bold", "comic"], "street-campaign"],
   ["comic-book-style", "코믹북 스타일", "Comic Book Style", "귀여움 / 캐주얼", "말풍선, 굵은 선, 컷 구성을 활용한 만화적 스타일", ["comic", "panel", "bold"], "kawaii-app"],
   ["toy-design", "토이 디자인", "Toy Design", "귀여움 / 캐주얼", "장난감 같은 형태와 촉감 있는 색으로 즐거움을 만드는 스타일", ["toy", "play", "soft"], "kawaii-app"],
-  ["playful-design", "플레이풀 디자인", "Playful Design", "귀여움 / 캐주얼", "가벼운 상호작용과 유쾌한 형태로 접근성을 높이는 스타일", ["playful", "friendly", "motion"], "kawaii-app"],
   ["pastel-style", "파스텔 스타일", "Pastel Style", "귀여움 / 캐주얼", "낮은 채도의 밝은 색으로 부드럽고 친근한 화면을 만드는 스타일", ["pastel", "soft", "friendly"], "kawaii-app"],
   ["bubble-design", "버블 디자인", "Bubble Design", "귀여움 / 캐주얼", "둥근 볼륨과 말랑한 색 면으로 가벼운 즐거움을 주는 스타일", ["bubble", "round", "soft"], "kawaii-app"],
 
@@ -1449,7 +1437,7 @@ const luxuryClassicResearch: Record<string, StyleResearchBrief> = {
       { title: "Dribbble - Rococo Website", url: "https://dribbble.com/search/rococo%20website", note: "UI reference for Rococo-inspired beauty pages, pastel cards, ornamental panels, and elegant product grids." },
     ],
     representativeTraits: ["Contraste — no half repeats the other", "Rocaille shell and C/S scrolls", "Ivory boiserie with water gilding", "Pastel recessed fields", "Unequal panel composition"],
-    avoidTraits: ["Baroque heavy darkness", "Kawaii pastel childishness", "Candy pastel palette shared with pastel-style", "Minimal beige flatness", "Art Nouveau whiplash line", "Symmetrical grids of equal cards"],
+    avoidTraits: ["Baroque heavy darkness", "Candy pastel palette shared with pastel-style", "Minimal beige flatness", "Art Nouveau whiplash line", "Symmetrical grids of equal cards"],
     tokenIntent: "Use ivory limewood and real water-gilt gold with pale rose, vert d'eau and bleu as recessed panel fields, rocaille carving rather than drawn curves, and deliberately unequal panels so Rococo reads as carved asymmetric ornament rather than as a pastel gift shop.",
   },
   gothic: {
@@ -2199,7 +2187,7 @@ const styleContentOverrides: Record<string, StyleContentOverride> = {
   rococo: {
     summary: "로코코는 비대칭이 규칙인 스타일입니다. 조개와 C·S 스크롤이 뒤엉킨 로카유 조각을 아이보리 목재에 붙이고 금박을 입힙니다.",
     description:
-      "18세기는 이 비대칭을 콩트라스트(contraste)라 불렀고, 로카유 도안은 좌우 어느 쪽도 반대쪽을 되풀이하지 않습니다. 그래서 같은 크기 카드를 나란히 놓은 대칭 그리드는 로코코가 될 수 없습니다. 표면은 보아즈리 — 조개, 바위 형태, 넝쿨과 엉킨 C·S 스크롤을 새긴 목재 패널 — 이고, 색은 아이보리와 금이 주인공이며 파스텔은 몰딩 안쪽으로 들어간 패널 바탕입니다. 파스텔을 화면 전체에 칠하면 pastel-style이나 kawaii와 구분되지 않습니다.",
+      "18세기는 이 비대칭을 콩트라스트(contraste)라 불렀고, 로카유 도안은 좌우 어느 쪽도 반대쪽을 되풀이하지 않습니다. 그래서 같은 크기 카드를 나란히 놓은 대칭 그리드는 로코코가 될 수 없습니다. 표면은 보아즈리 — 조개, 바위 형태, 넝쿨과 엉킨 C·S 스크롤을 새긴 목재 패널 — 이고, 색은 아이보리와 금이 주인공이며 파스텔은 몰딩 안쪽으로 들어간 패널 바탕입니다. 파스텔을 화면 전체에 칠하면 pastel-style과 구분되지 않습니다.",
     visualFeatures: ["비대칭이 규칙입니다. 장식은 한쪽에서 자라 반대쪽으로 넘어가고, 좌우가 결코 같지 않습니다.", "로카유 — 조개, 바위, C·S 스크롤이 잎·꽃과 엉킨 조각 —가 표면의 언어입니다.", "아이보리 목재와 물금박이 주조색이고, 파스텔은 몰딩 안쪽 패널 바탕으로만 씁니다."],
     layoutTraits: ["의도적으로 크기가 다른 패널 필드가 그리드를 대신합니다.", "몰딩과 금박 선이 구획을 만들고, 필드 안쪽은 오히려 비워 둡니다.", "모바일에서는 패널 수를 줄이되 크기 차이는 유지합니다."],
     imagePrompt:
@@ -2496,25 +2484,9 @@ const cuteCasualResearch: Partial<Record<string, StyleResearchBrief>> = {
       { title: "Dribbble - Kitsch Website", url: "https://dribbble.com/search/kitsch%20website", note: "UI reference for kitsch ecommerce cards, novelty stickers, cheerful packaging motifs, and controlled visual clutter in web components." },
     ],
     representativeTraits: ["Novelty shop drops", "Sticker price bursts", "Clashing pattern strips", "Odd object cards", "Boutique humor"],
-    avoidTraits: ["Clean dopamine reward system", "Mascot-led kawaii dashboard", "Soft beauty pastel", "Generic colorful ecommerce"],
+    avoidTraits: ["Clean dopamine reward system", "Soft beauty pastel", "Generic colorful ecommerce"],
     tokenIntent:
       "Use warm cream, hot orange, magenta, violet, yellow, thick borders, offset stickers, pattern strips, and compact novelty product cards so kitsch reads as deliberate quirky retail rather than generic cute color.",
-  },
-  kawaii: {
-    referenceSites: [
-      { title: "Sanrio", url: "https://www.sanrio.com/", note: "Character-first retail reference for mascot worlds, soft pink surfaces, rounded product rhythm, stickers, and immediately legible cuteness." },
-      { title: "Pusheen", url: "https://pusheen.com/", note: "Mascot content reference for simple cute navigation, comics and quizzes, soft character framing, and approachable community content." },
-      { title: "tokidoki", url: "https://www.tokidoki.it/", note: "Collectibles reference for candy color, character universes, blind-box retail modules, and dense but friendly cute product cards." },
-    ],
-    referenceGalleries: [
-      { title: "Pinterest - Kawaii Japanese Websites", url: "https://www.pinterest.com/wixcom/kawaii-japanese-websites/", note: "Moodboard reference for mascot-led pages, pink rounded UI, sticker details, cute shop modules, and Japanese kawaii web pacing." },
-      { title: "Awwwards - Colorful Websites", url: "https://www.awwwards.com/websites/colorful/", note: "Gallery reference for professional colorful websites that preserve polish while using cheerful palettes and playful content." },
-      { title: "Dribbble - Kawaii Website", url: "https://dribbble.com/tags/kawaii-website", note: "UI reference for kawaii dashboards, rounded buttons, character cards, heart badges, and soft app-like composition." },
-    ],
-    representativeTraits: ["Mascot tiles", "Heart badges", "Sticker navigation", "Rounded room modules", "Soft character community"],
-    avoidTraits: ["Kitsch novelty clutter", "Pastel beauty editorial", "Dopamine color rewards", "Comic-book panels"],
-    tokenIntent:
-      "Use white and blush surfaces, pink primary actions, sky and yellow accents, large radius, soft shadows, mascot tiles, and sticker-like badges so kawaii reads as a character-world interface.",
   },
   "dopamine-design": {
     referenceSites: [
@@ -2580,22 +2552,6 @@ const cuteCasualResearch: Partial<Record<string, StyleResearchBrief>> = {
     tokenIntent:
       "Use bright primary toy colors, blue base, chunky borders, modular block parts, age filters, and an assembly tray so toy design reads as physical play construction.",
   },
-  "playful-design": {
-    referenceSites: [
-      { title: "Duolingo", url: "https://www.duolingo.com/", note: "Playful product reference for onboarding confidence, friendly mascot cues, lesson progress, and clear action hierarchy." },
-      { title: "Mailchimp", url: "https://mailchimp.com/", note: "Business tool reference for friendly illustration, approachable SaaS copy, warm utility, and playful brand personality without childishness." },
-      { title: "Headspace", url: "https://www.headspace.com/", note: "Wellness app reference for warm character illustration, calm playful surfaces, human-centered flows, and friendly task framing." },
-    ],
-    referenceGalleries: [
-      { title: "Pinterest - Playful Design Website Design", url: "https://www.pinterest.com/search/pins/?q=Playful%20Design%20website%20design", note: "Moodboard reference for friendly product flows, soft illustrations, approachable task cards, and optimistic onboarding pages." },
-      { title: "Awwwards - Playful Websites", url: "https://www.awwwards.com/websites/playful/", note: "Gallery reference for polished playful websites with interaction, personality, strong hierarchy, and professional craft." },
-      { title: "Dribbble - Playful Website", url: "https://dribbble.com/search/playful%20website", note: "UI reference for playful SaaS/product cards, friendly helper states, warm illustration, and lightweight motion cues." },
-    ],
-    representativeTraits: ["Friendly onboarding", "Mascot helper", "Gentle task cards", "Success states", "Approachable product flow"],
-    avoidTraits: ["Kawaii character shop", "Toy playset builder", "Bubble product capsules", "Loud kitsch retail"],
-    tokenIntent:
-      "Use light lavender, orange and green accents, friendly rounded controls, clear onboarding cards, helper illustrations, and success states so playful design reads as product UX rather than childish decoration.",
-  },
   "pastel-style": {
     referenceSites: [
       { title: "Glossier", url: "https://www.glossier.com/", note: "Soft beauty ecommerce reference for airy whitespace, pale pink neutrals, editorial product rows, and low-contrast polish." },
@@ -2608,7 +2564,7 @@ const cuteCasualResearch: Partial<Record<string, StyleResearchBrief>> = {
       { title: "Dribbble - Pastel Website", url: "https://dribbble.com/search/pastel%20website", note: "UI reference for pastel product pages, soft cards, low-contrast palettes, and elegant rounded component systems." },
     ],
     representativeTraits: ["Airy product rows", "Low-contrast set", "Soft beauty editorial", "Pale product modules", "Gentle whitespace"],
-    avoidTraits: ["Mascot-heavy kawaii", "Saturated dopamine modules", "Inflated bubble UI", "Kitsch novelty clutter"],
+    avoidTraits: ["Saturated dopamine modules", "Inflated bubble UI", "Kitsch novelty clutter"],
     tokenIntent:
       "Use blush base, white surfaces, muted mauve text, pale blue and sage accents, airy spacing, subtle borders, and soft editorial product rows so pastel style reads as refined beauty rather than cute mascot design.",
   },
@@ -2624,7 +2580,7 @@ const cuteCasualResearch: Partial<Record<string, StyleResearchBrief>> = {
       { title: "Dribbble - Bubble Website", url: "https://dribbble.com/search/bubble%20website", note: "UI reference for bubble-shaped cards, circular navigation, inflated panels, and soft liquid progress patterns." },
     ],
     representativeTraits: ["Inflated capsules", "Liquid progress", "Circular product modules", "Sparkling surface", "Floating flavor cards"],
-    avoidTraits: ["LEGO block parts", "Flat pastel editorial", "Kawaii sticker dashboard", "Comic issue panels"],
+    avoidTraits: ["LEGO block parts", "Flat pastel editorial", "Comic issue panels"],
     tokenIntent:
       "Use aqua base, white surfaces, cyan, pink, and lime accents, large inflated radii, circular product modules, and liquid progress shapes so bubble design reads as buoyant product UI.",
   },
@@ -2989,13 +2945,6 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     decoration: { shadow: "5px 5px 0 var(--st-accent-3)", effect: "grain" },
     layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
   },
-  kawaii: {
-    typography: { displayFont: '"Trebuchet MS", "Arial", sans-serif', weightDisplay: 800, weightBody: 500, tracking: "0em", headingScale: 1.06 },
-    shape: { radius: "24px", radiusPill: "9999px", borderWidth: "2px", borderStyle: "solid" },
-    space: { density: "normal", gap: "0.82rem", padScale: 1.06 },
-    decoration: { shadow: "4px 4px 0 var(--st-accent)", effect: "none" },
-    layout: { heroVariant: "center", navStyle: "boxed", alignment: "center" },
-  },
   "dopamine-design": {
     typography: { displayFont: '"Trebuchet MS", "Arial", sans-serif', weightDisplay: 850, weightBody: 600, tracking: "0em", headingScale: 1.14 },
     shape: { radius: "22px", radiusPill: "9999px", borderWidth: "2px", borderStyle: "solid" },
@@ -3023,13 +2972,6 @@ const styleTokenOverrides: Record<string, DeepPartial<Omit<StyleTokens, "color">
     space: { density: "normal", gap: "0.7rem", padScale: 0.96 },
     decoration: { shadow: "0 10px 0 rgb(var(--st-text-rgb) / 0.08)", effect: "none" },
     layout: { heroVariant: "split", navStyle: "boxed", alignment: "left" },
-  },
-  "playful-design": {
-    typography: { displayFont: '"Trebuchet MS", "Arial", sans-serif', weightDisplay: 760, weightBody: 500, tracking: "0em", headingScale: 1.0 },
-    shape: { radius: "18px", radiusPill: "9999px", borderWidth: "1px", borderStyle: "solid" },
-    space: { density: "normal", gap: "0.9rem", padScale: 1.06 },
-    decoration: { shadow: "0 16px 34px rgb(var(--st-text-rgb) / 0.09)", effect: "none" },
-    layout: { heroVariant: "split", navStyle: "minimal", alignment: "left" },
   },
   "pastel-style": {
     typography: { displayFont: '"Georgia", "Times New Roman", serif', weightDisplay: 500, weightBody: 350, tracking: "0em", headingScale: 0.94 },
@@ -3594,15 +3536,6 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
     prompt:
       "Create a realistic editorial moodboard for Kitsch in web design. Photograph a real designer's kitsch campaign and novelty-commerce research board from above on a glossy white studio table. Include printed kitsch website layout references made only of blank image blocks and empty bars, mismatched product-card studies, loud pattern paper, fake souvenir shapes with no text, plastic floral fragments, candy-colored acrylic chips, shiny vinyl swatches, clashing color chips, retro novelty photo crops with no labels or people, wavy badge silhouettes with no letters, and small physical objects like blank novelty magnets, plastic charms, and a tiny unmarked ceramic figurine. The visual language should communicate joyful bad taste, intentional excess, novelty, and playful commerce hierarchy for web pages, not clean kawaii softness, pop-art comic graphics, or maximalist luxury density. Use tape corners, pin marks, slight paper curl, glossy reflections, uneven crop edges, plastic scuffs, varied paper thickness, subtle dust, and real shadows. Palette: candy red, banana yellow, turquoise, bubblegum pink, white, lime, glossy black, lavender. Absolutely no readable text, no micro text, no fake text, no letters, no numbers, no labels, no logos, no brand names, no watermarks, no fake UI gibberish, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
-  kawaii: {
-    alt: "Kawaii moodboard with blank rounded app proofs, pastel chips, soft foam, silicone, puffy blank shapes, plush fabric, translucent plastic, rounded charms, and tiny product crops.",
-    caption: "Small-scale cuteness: rely on pastel softness, plush fibers, puffy blank shapes, and rounded controls without drifting into kitsch clutter or toy blocks.",
-    directionKeywords: ["real cute app board", "soft rounded controls", "pastel plush silicone", "small scale cuteness", "gentle friendly hierarchy"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/kawaii-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for Kawaii in web design. Photograph a real designer's cute mobile app and soft commerce research board from above on a clean pastel pink studio table. Include printed kawaii website and app layout references made only of blank rounded cards and empty pill bars, small rounded UI control studies, pastel color chips, soft foam and silicone swatches, puffy sticker-like blank shapes with no icons or faces, rounded paper cutouts, soft plush fabric samples, translucent candy-colored plastic, tiny product photography crops with no labels, and small physical objects like blank star beads, smooth capsules, and rounded charms with no characters. The visual language should communicate small-scale cuteness, soft rounded forms, gentle friendliness, and approachable app hierarchy for web pages, not chaotic kitsch, dopamine color shock, or toy-store 3D plastic. Use tape corners, pin marks, slight paper curl, soft shadows, rounded cut edges, plush fibers, varied paper thickness, subtle dust, and real surface texture. Palette: pastel pink, cream, baby blue, butter yellow, mint, lavender, soft coral, warm grey. Absolutely no readable text, no micro text, no fake text, no letters, no numbers, no labels, no logos, no brand names, no watermarks, no faces, no characters, no fake UI gibberish, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
-  },
   "dopamine-design": {
     alt: "Dopamine Design moodboard with blank color-block web proofs, oversized CTA shapes, glossy acrylic, neon strips, saturated chips, candy plastic, and high-contrast crops.",
     caption: "Instant color joy: use saturated blocks, glossy acrylic, neon paper, and oversized blank action shapes to make hierarchy energetic without becoming pastel or kitsch.",
@@ -3638,15 +3571,6 @@ const styleMoodboards: Partial<Record<string, StyleMoodboard>> = {
     imageSrc: "/generated/moodboards/toy-design-realistic-v2.webp",
     prompt:
       "Create a realistic editorial moodboard for Toy Design in web design. Photograph a real designer's tactile toy-product and playful ecommerce research board from above on a pale blue studio table. Include printed toy-inspired website layout references made only of blank rounded cards and empty bars, chunky product grid studies, soft 3D shape paper cutouts, matte plastic samples, rubber and foam swatches, primary and pastel color chips, toy-block photography fragments with no labels or characters, molded packaging blanks, simple interaction control studies with no icons, and small physical objects like unmarked building blocks, smooth wooden beads, rounded plastic capsules, and a blank toy tag. The visual language should communicate tactile play, chunky proportions, safe rounded forms, and product-commerce joy for web pages, not kawaii plush softness, kitsch novelty clutter, or claymorphism UI-only cards. Use tape corners, pin marks, slight paper curl, molded plastic highlights, foam texture, soft shadows, varied paper thickness, subtle dust, and real surface texture. Palette: sky blue, butter yellow, tomato red, mint, soft pink, cream, warm wood, graphite accent. Absolutely no readable text, no micro text, no fake text, no letters, no numbers, no labels, no logos, no brand names, no watermarks, no faces, no characters, no fake UI gibberish, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
-  },
-  "playful-design": {
-    alt: "Playful Design moodboard with blank friendly web proofs, interaction state studies, motion-arc strips, rounded cards, sticker-like blanks, foam, rubber, and colorful tokens.",
-    caption: "Friendly interaction: use motion arcs, blank controls, rounded forms, paper tabs, and light color to signal play through behavior rather than toy objects.",
-    directionKeywords: ["real interaction board", "motion arc studies", "friendly blank controls", "clear user flow", "light playful palette"],
-    generatedWith: "imagegen",
-    imageSrc: "/generated/moodboards/playful-design-realistic-v2.webp",
-    prompt:
-      "Create a realistic editorial moodboard for Playful Design in web design. Photograph a real designer's playful interaction and friendly web research board from above on a warm white studio table. Include printed playful website layout references made only of blank blocks and empty bars, interactive state studies with no icons or text, bouncing path and motion-arc paper strips, rounded cards, modular color chips, soft sticker-like blank shapes, paper tabs, lightweight illustration crops with no characters or letters, foam and rubber swatches, cheerful product detail fragments with no labels, and small physical objects like colorful blank push pins, curved paper sliders, and smooth tokens. The visual language should communicate approachable interaction, light motion, friendly surprise, and clear user flow for web pages, not kawaii cuteness, toy product styling, or dopamine color overload. Use tape corners, pin marks, slight paper curl, cut-paper edges, soft shadows, varied paper thickness, subtle dust, and real surface texture. Palette: warm white, coral, sky blue, leaf green, sunny yellow, lavender, soft black, light grey. Absolutely no readable text, no micro text, no fake text, no letters, no numbers, no labels, no logos, no brand names, no watermarks, no faces, no characters, no fake UI gibberish, no floating cards. Landscape 16:10 composition, high-resolution editorial photography, realistic top-down flat lay.",
   },
   "pastel-style": {
     alt: "Pastel Style moodboard with blank soft brand web proofs, low-contrast content studies, pastel paper, vellum, frosted acrylic, cotton, felt, pale gradients, and translucent tiles.",

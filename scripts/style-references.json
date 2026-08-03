@@ -1798,48 +1798,12 @@
       {
         "url": "https://www.awwwards.com/websites/colorful/",
         "title": "Awwwards - Colorful Websites",
-        "note": "Gallery fit: 밝은 에너지을 핵심 신호로 사용합니다, 반복 카드, 둥근 제목, 밝은 파스텔을 기본 배경으로 사용합니다 make this relevant to Kitsch; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from kawaii / dopamine-design; require kitsch, fun, bold cues instead of broad polish."
+        "note": "Gallery fit: 밝은 에너지을 핵심 신호로 사용합니다, 반복 카드, 둥근 제목, 밝은 파스텔을 기본 배경으로 사용합니다 make this relevant to Kitsch; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from pop-art / dopamine-design; require kitsch, fun, bold cues instead of broad polish."
       },
       {
         "url": "https://dribbble.com/search/kitsch%20website",
         "title": "Dribbble - Kitsch Website",
         "note": "UI reference for kitsch ecommerce cards, novelty stickers, cheerful packaging motifs, and controlled visual clutter in web components."
-      }
-    ]
-  },
-  "kawaii": {
-    "sites": [
-      {
-        "url": "https://www.sanrio.com/",
-        "title": "Sanrio",
-        "note": "Character-first retail reference for mascot worlds, soft pink surfaces, rounded product rhythm, stickers, and immediately legible cuteness."
-      },
-      {
-        "url": "https://pusheen.com/",
-        "title": "Pusheen",
-        "note": "Mascot content reference for simple cute navigation, comics and quizzes, soft character framing, and approachable community content."
-      },
-      {
-        "url": "https://www.tokidoki.it/",
-        "title": "tokidoki",
-        "note": "Collectibles reference for candy color, character universes, blind-box retail modules, and dense but friendly cute product cards."
-      }
-    ],
-    "galleries": [
-      {
-        "url": "https://www.pinterest.com/wixcom/kawaii-japanese-websites/",
-        "title": "Pinterest - Kawaii Japanese Websites",
-        "note": "Moodboard reference for mascot-led pages, pink rounded UI, sticker details, cute shop modules, and Japanese kawaii web pacing."
-      },
-      {
-        "url": "https://www.awwwards.com/websites/colorful/",
-        "title": "Awwwards - Colorful Websites",
-        "note": "Gallery fit: 밝은 에너지을 핵심 신호로 사용합니다, 반복 카드, 둥근 제목, 밝은 파스텔을 기본 배경으로 사용합니다 make this relevant to Kawaii; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from dopamine-design / pop-art; require kawaii, cute, pastel cues instead of broad polish."
-      },
-      {
-        "url": "https://dribbble.com/tags/kawaii-website",
-        "title": "Dribbble - Kawaii Website",
-        "note": "UI reference for kawaii dashboards, rounded buttons, character cards, heart badges, and soft app-like composition."
       }
     ]
   },
@@ -1942,7 +1906,7 @@
       {
         "url": "https://www.awwwards.com/websites/entertainment/",
         "title": "Awwwards - Entertainment Websites",
-        "note": "Gallery fit: 밝은 에너지을 핵심 신호로 사용합니다, 반복 카드, 둥근 제목, 밝은 파스텔을 기본 배경으로 사용합니다 make this relevant to Comic Book Style; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from toy-design / playful-design; require comic, panel, bold cues instead of broad polish."
+        "note": "Gallery fit: 밝은 에너지을 핵심 신호로 사용합니다, 반복 카드, 둥근 제목, 밝은 파스텔을 기본 배경으로 사용합니다 make this relevant to Comic Book Style; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from toy-design / pop-art; require comic, panel, bold cues instead of broad polish."
       },
       {
         "url": "https://dribbble.com/search/comic%20book%20website",
@@ -1978,48 +1942,12 @@
       {
         "url": "https://www.awwwards.com/websites/colorful/",
         "title": "Awwwards - Colorful Websites",
-        "note": "Gallery fit: 밝은 에너지을 핵심 신호로 사용합니다, 반복 카드, 둥근 제목, 밝은 파스텔을 기본 배경으로 사용합니다 make this relevant to Toy Design; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from playful-design / pastel-style; require toy, play, soft cues instead of broad polish."
+        "note": "Gallery fit: 밝은 에너지을 핵심 신호로 사용합니다, 반복 카드, 둥근 제목, 밝은 파스텔을 기본 배경으로 사용합니다 make this relevant to Toy Design; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from kitsch / pastel-style; require toy, play, soft cues instead of broad polish."
       },
       {
         "url": "https://dribbble.com/search/toy%20website",
         "title": "Dribbble - Toy Website",
         "note": "UI reference for toy product cards, chunky controls, playset builders, and bright modular interface components."
-      }
-    ]
-  },
-  "playful-design": {
-    "sites": [
-      {
-        "url": "https://www.duolingo.com/",
-        "title": "Duolingo",
-        "note": "Playful product reference for onboarding confidence, friendly mascot cues, lesson progress, and clear action hierarchy."
-      },
-      {
-        "url": "https://mailchimp.com/",
-        "title": "Mailchimp",
-        "note": "Business tool reference for friendly illustration, approachable SaaS copy, warm utility, and playful brand personality without childishness."
-      },
-      {
-        "url": "https://www.headspace.com/",
-        "title": "Headspace",
-        "note": "Wellness app reference for warm character illustration, calm playful surfaces, human-centered flows, and friendly task framing."
-      }
-    ],
-    "galleries": [
-      {
-        "url": "https://www.pinterest.com/search/pins/?q=Playful%20Design%20website%20design",
-        "title": "Pinterest - Playful Design Website Design",
-        "note": "Moodboard reference for friendly product flows, soft illustrations, approachable task cards, and optimistic onboarding pages."
-      },
-      {
-        "url": "https://www.awwwards.com/websites/playful/",
-        "title": "Awwwards - Playful Websites",
-        "note": "Gallery fit: 밝은 에너지을 핵심 신호로 사용합니다, 반복 카드, 둥근 제목, 밝은 파스텔을 기본 배경으로 사용합니다 make this relevant to Playful Design; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from pastel-style / bubble-design; require playful, friendly, motion cues instead of broad polish."
-      },
-      {
-        "url": "https://dribbble.com/search/playful%20website",
-        "title": "Dribbble - Playful Website",
-        "note": "UI reference for playful SaaS/product cards, friendly helper states, warm illustration, and lightweight motion cues."
       }
     ]
   },
@@ -2086,7 +2014,7 @@
       {
         "url": "https://www.awwwards.com/websites/colorful/",
         "title": "Awwwards - Colorful Websites",
-        "note": "Gallery fit: 밝은 에너지을 핵심 신호로 사용합니다, 반복 카드, 둥근 제목, 밝은 파스텔을 기본 배경으로 사용합니다 make this relevant to Bubble Design; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from kitsch / kawaii; require bubble, round, soft cues instead of broad polish."
+        "note": "Gallery fit: 밝은 에너지을 핵심 신호로 사용합니다, 반복 카드, 둥근 제목, 밝은 파스텔을 기본 배경으로 사용합니다 make this relevant to Bubble Design; Use it to compare hero sections, card systems, navigation, and component details before selecting live-site references. Distinguish it from kitsch / pastel-style; require bubble, round, soft cues instead of broad polish."
       },
       {
         "url": "https://dribbble.com/search/bubble%20website",

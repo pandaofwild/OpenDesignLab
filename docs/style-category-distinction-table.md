@@ -66,7 +66,7 @@ This table is the working comparison sheet for keeping styles inside the same ca
 | art-deco | Geometric evening glamour | fan arcs, black lacquer, brass | hotel/lounge portal, marquee modules | baroque, retro-futurism | fan geometry and stepped vertical rhythm | DECO PORTAL |
 | art-nouveau | Ornament integrated into the structure | coup de fouet line, cast iron, leaded amber/peacock glass, coiled fern crozier | one sinuous asymmetric line organising the page instead of a grid | botanical, rococo | the whiplash must carry the layout, not edge it; peacock/amber/aubergine, never olive eco green | MÉTROPOLITAIN / whiplash line / station record |
 | baroque | Tenebrist theatre, ornament as structure | one raking light on near-black, curved scrollwork, cartouche, crimson velvet, true gilt | ceremonial hierarchy, staged venue modules | rococo, gothic | real near-black pierced by one warm source, curved scrollwork; never an evenly lit maroon wash or rectangular borders | Teatro San Cassiano / gilded proscenium / box tier plan |
-| rococo | Contraste — carved asymmetry | rocaille shell and C/S scrolls, ivory boiserie, water gilding | unequal panel fields with a workshop record, not equal cards | baroque, pastel-style, kawaii | ivory and real gilt lead, pastels only inside the mouldings; no half of the composition repeats the other | Atelier de la Rocaille / Commission / Dorure |
+| rococo | Contraste — carved asymmetry | rocaille shell and C/S scrolls, ivory boiserie, water gilding | unequal panel fields with a workshop record, not equal cards | baroque, pastel-style | ivory and real gilt lead, pastels only inside the mouldings; no half of the composition repeats the other | Atelier de la Rocaille / Commission / Dorure |
 | gothic | The wall opened for light | brilliant glass on cool limestone, lancet proportion, tracery, rib vault | bay-by-bay works modules, lancet columns instead of a grid | baroque | glass is the brightest thing and the stone is cool; never a near-black page with dull colour blocks | Opus Fabricae / bay elevation / bay record |
 
 ## 자연 / 수공예
@@ -82,14 +82,12 @@ This table is the working comparison sheet for keeping styles inside the same ca
 
 | style slug | 핵심 정체성 | moodboard 시각 신호 | referenceSites 웹 UI 문법 | 겹치기 쉬운 스타일 | 반드시 다르게 보여야 하는 요소 | 샘플 고유 마커 |
 |---|---|---|---|---|---|---|
-| kitsch | Novelty retail excess | odd objects, clashing pattern, sticker bursts | boutique drop, sale rail, product finder | dopamine-design, kawaii | humorous object shop, not clean rewards | ODD SHOP DROP |
-| kawaii | Mascot-led soft community | heart badges, character tiles, stickers | mascot dashboard, stamps, tiny shop | kitsch, pastel-style | character club and collectible warmth | CHARACTER CLUB |
-| dopamine-design | Reward-driven color energy | saturated chips, progress objects | streaks, reward ladder, conversion path | kitsch, playful-design | clean reward loop, not novelty clutter | COLOR REWARD LOOP |
+| kitsch | Novelty retail excess | odd objects, clashing pattern, sticker bursts | boutique drop, sale rail, product finder | dopamine-design, pop-art | humorous object shop, not clean rewards | ODD SHOP DROP |
+| dopamine-design | Reward-driven color energy | saturated chips, progress objects | streaks, reward ladder, conversion path | kitsch, pastel-style | clean reward loop, not novelty clutter | COLOR REWARD LOOP |
 | pop-art | Serial consumer icon archive | halftone, repeated object, primary chips | museum shop wall, object edition grid | comic-book-style, posterism | repeated object archive, no panels | POP OBJECT ARCHIVE |
-| comic-book-style | Sequential issue browsing | speech balloons, ink borders, panels | issue grid, episode metadata, panel preview | pop-art, kawaii | narrative panel system and cover shelf | ISSUE DROP |
+| comic-book-style | Sequential issue browsing | speech balloons, ink borders, panels | issue grid, episode metadata, panel preview | pop-art, toy-design | narrative panel system and cover shelf | ISSUE DROP |
 | toy-design | Modular playset builder | blocks, trays, chunky parts | age tabs, builder controls, instruction rail | claymorphism, bubble-design | assembly tray and toy parts | PLAYSET BUILDER |
-| playful-design | Friendly product onboarding | mascot helper, soft progress, task cards | guided flow, completion states | kawaii, dopamine-design | onboarding path, not character shop | PLAYFUL ONBOARD |
-| pastel-style | Airy beauty editorial | pale product rows, soft tint chips | shade story, low-contrast beauty shelf | kawaii, bubble-design | quiet beauty product edit | SOFT EDIT |
+| pastel-style | Airy beauty editorial | pale product rows, soft tint chips | shade story, low-contrast beauty shelf | bubble-design, dopamine-design | quiet beauty product edit | SOFT EDIT |
 | bubble-design | Effervescent liquid product UI | inflated capsules, gel, circles | flavor carousel, nutrition bubbles | claymorphism, toy-design | liquid capsules and sparkling surface | BUBBLE FLOW |
 
 ## 스트리트 / 서브컬처
