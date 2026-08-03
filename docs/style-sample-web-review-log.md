@@ -75,7 +75,7 @@
 | 42 | 럭셔리 / 클래식 | rococo | luxury-product | verified | ATELIER DE LA ROCAILLE 보아즈리 조각·금박 공방 — 팔레트 교체(로지 파스텔 → 아이보리+물금박), 로카유 패널 실사, 크기가 다른 패널 필드(contraste), 오너먼트 스케줄·도르 공정 |
 | 43 | 럭셔리 / 클래식 | gothic | street-campaign | verified | OPUS FABRICAE 대성당 조영국(fabric) — 팔레트 전면 교체(니어블랙 → 차가운 슬레이트 석재 + 샤르트르 유리), 랜싯 비례 실사 + 뾰족아치 7베이 입면(등급별 유리 충전, 선택 연동), bay record·fabric roll |
 | 44 | 자연 / 수공예 | natural | organic-brand | verified | THE CAIRN WAY 고지대 경로 상태 — 팔레트를 지형에서 재도출(이끼돌·침엽수·마른풀·비 하늘·녹슨 고사리), 다큐멘터리 풍경이 페이지를 지배, 구간 인덱스·구간 기록·오늘의 지면 상태, 무드보드 동시 교체 |
-| 45 | 자연 / 수공예 | botanical | organic-brand | queued | leaf detail, herbarium structure, plant-specific grid |
+| 45 | 자연 / 수공예 | botanical | organic-brand | verified | GLASSHOUSE 특수 원예종 상 — 무드보드(허바리움/압화)는 이미 재작업돼 있었으나 샘플·이미지가 구 '식물샵 인테리어' 클리셰로 남아 있던 것을 완성. 종(species) 축을 실제로 구현: 같은 사진 4장 반복 + 가짜 분류를 제거하고, 라틴 이명(이탤릭 세리프)·PL. 번호·과(family) 태그·간호 노트로 된 표본 원장(ledger) 4행, 잎 구조를 나타내는 종별 SVG 선화 아이콘, 이미지는 1장(압화 몬스테라 마크로 사진)만 사용 |
 | 46 | 자연 / 수공예 | rustic | organic-brand | queued | rough local material, weathered wood, hospitality warmth |
 | 48 | 자연 / 수공예 | handmade | organic-brand | queued | small-batch irregularity, thread, torn paper, maker shop |
 | 49 | 귀여움 / 캐주얼 | kitsch | kawaii-app | verified | ban.do/Lisa Says Gah/Lazy Oaf식 '노벨티 부티크 스토어프론트' 재설계: 마퀴+Clash Cart 내비, 히어로(실사 크롭+★ODD SHOP DROP 뱃지·LIMITED ODDITIES 헤드라인·SHOP THE DROP) · giftable product finder(for/vibe/budget 칩·find my oddity·18 matches) 분할, odd object cards 상품 월(스마일머그·체커토트·디스코볼·하트선글라스 실사 + 선버스트 sticker price bursts·NEW/HOT·컬러웨이 도트), clashing pattern strips/pattern clash rail(checker/dots/wavy/flame/gingham/zigzag CSS 프린트 스와치), drop countdown 바. 두꺼운 검정 테두리·하드 오프셋 그림자·남발 회전(촌스러움) 전부 제거하고 화이트 카드·헤어라인·정제 타입으로 규율, 시그니처는 선버스트 스티커+프린트 스와치 한 곳에 집중. 스토어프론트 골격으로 이웃 kawaii(수집 그리드)·dopamine(원형 대시보드)·bubble(수직 쇼)과 구조 차별화. 필수(ODD SHOP DROP/sticker price bursts/clashing pattern strips)+경험 마커(LIMITED ODDITIES/pattern clash rail/giftable product finder/drop countdown) 전부 충족. KitschPriceBurst 모듈 스코프 헬퍼로 lint 통과, 히어로 오버레이는 GeneratedStyleImageSurface children(z-10)로 전달해 surface gotcha 회피. full/compact QA(overflow 0)·lint·**check:cute-casual 카테고리 전체 통과(9/9)** |
@@ -969,3 +969,15 @@ Status: `verified` (2026-07-07) — 상세는 `docs/review-log-archive/retro-vin
 - 튜닝: 하단이 크게 비어 사진을 `flex-1`로 바꿔 여백을 흡수하게 했다(스타일 문법상으로도 사진이 지배하는 게 맞다). 캡션의 `&middot;` 앞 공백이 JSX에 먹혀 `{" "}`로 명시.
 - 검증: 1440·390·compact 모두 page overflow 0, 샘플 내부 overflow 0, 잘림 0건, console error 0. `check:data`(76)·`check:style-distinction`(76)·`check:style-refs`(76)·`lint`·`tsc`·`build`(544 pages) 통과.
 - 남은 의심점: 없음. 다음 style: botanical.
+
+### botanical — 구현 및 검증 결과 (2026-08-03, 소유자 지시: "저번에 botanical 바꾸다가 만거같은데. 이미지는 최소화. 한눈에 봐도 보태니컬이 적용된 웹디자인이라는걸 알 수 있도록")
+
+- status: `verified`.
+- 발견: 소유자 지적이 정확했다. 무드보드(`botanical-realistic-v2.webp`)는 이미 허바리움/압화 방향으로 재작업이 끝나 있었는데, **샘플 컴포넌트와 샘플 배경 이미지(`gen-style-image.mjs`의 `botanical` 프롬프트)는 구버전 그대로**였다 — "밝은 식물샵 인테리어" 사진 한 장을 4번 재사용해 Fern/Moss/Stem/Bloom이라는 가짜 라벨을 붙인 것으로, 이 카테고리 진입 시점 리뷰(931줄)에서 이미 "같은 사진의 반복에 다른 라벨(가짜 분류)"로 지적됐던 바로 그 결함이 방치돼 있었다.
+- 구분표 재확인(77줄): botanical의 핵심 정체성은 "Plant-specific commerce"이고 반드시 다르게 보여야 하는 요소는 "leaf structure and glasshouse taxonomy"다. natural=장소, rustic=거친 재료, handmade=만든 사람의 손 축과 나란히 **botanical=종(種)** 축이 이미 정해져 있었으므로, vehicle 자체(glasshouse 원예 커머스)는 유지하고 실행만 진짜 종 특정성으로 바꾸는 방향을 택했다(장르 교체가 아니라 장르를 제대로 실행).
+- 컴포넌트 `BotanicalGlasshouse`(인라인, `DesignStyleSampleRenderer.tsx`): "Botanical"이라는 스타일명을 그대로 H1으로 쓰던 걸 제거하고, 대표 표본의 **라틴 이명학명(이탤릭 세리프, `Monstera deliciosa`)을 히어로 텍스트로 승격**. 헤더 스트립(PL. 014 · Araceae · 학명 · 통칭 · 관리 노트 · Add·$68, 이미지 1장) 아래 **표본 원장(ledger) 3행**(Ficus lyrata 'Bambino', Asplenium nidus, Peperomia caperata — 각각 accession 번호·잎-구조 SVG 아이콘·과 태그·가격)을 순수 타이포그래피로 구성해 사진 없이 "잎 구조와 종 태그" 요구를 충족. 이미지 개수 5장 → 1장.
+- 잎 구조 아이콘 4종(`BOTANICAL_LEAF_ICONS`: fenestrate/lobed/frond/ripple)을 종별로 다르게 그려 "leaf structure" 차별화 요소를 시각적으로 성립시킴.
+- 이미지 교체: `scripts/gen-style-image.mjs`의 `botanical` 프롬프트를 "식물샵 인테리어"에서 **압화 몬스테라 잎 매크로 사진**(크림 허바리움지 위, 글라신 시트, 잎맥·폭싱 자국)으로 전면 교체 후 재생성. 새 이미지는 카드 라이브러리 그리드에서 즉시 몬스테라 잎의 펜네스트레이션(구멍)이 식별되어 "무드보드 방향과 샘플 이미지가 일치"하는 상태를 확정.
+- 튜닝(모바일 390px 오버플로 발견 및 수정): SampleNav의 `sub`가 길어("Verified species, not category") CSS Grid 항목의 기본 `min-width:auto` 때문에 헤더 전체가 297px 컨테이너에서 390px로 넘침(`.st-border` scrollWidth 410 vs clientWidth 297). `SampleNav`에 `min-w-0` 전달, `sub`를 "Est. 1994"로 축약, 링크 3개→2개(Species/Care), 대표 표본 썸네일을 `h-20 w-20`→`h-14 w-14 sm:h-20 sm:w-20`, 학명 헤드라인을 `text-3xl`→`text-lg sm:text-3xl`로 반응형화해 해결. 재측정 결과 1440(700×700)·390(297×297) 모두 overflow 0.
+- 검증: 1440 full·390 mobile·compact 카드(라이브러리 그리드) 모두 page/샘플 overflow 0, console error 0(무관한 다른 스타일들의 React key 경고 3건은 이번 변경과 무관해 그대로 둠). `check:data`(76)·`check:style-distinction`(76)·`check:style-refs`(76)·`lint`·`tsc --noEmit`·`build`(544+ pages) 통과.
+- 남은 의심점: 없음.

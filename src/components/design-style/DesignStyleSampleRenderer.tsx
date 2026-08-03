@@ -3081,38 +3081,111 @@ function NaturalTerrainConditions({ className, compact = false, style }: Props) 
     </SampleFrame>
   );
 }
+const BOTANICAL_LEAF_ICONS = {
+  fenestrate: (props: { size?: number; className?: string }) => (
+    <GlyphIcon {...props}>
+      <path d="M12 3c4 2.5 6 6.4 6 10.2 0 4.6-2.9 7.3-6 7.8-3.1-.5-6-3.2-6-7.8C6 9.4 8 5.5 12 3Z" />
+      <path d="M9.4 9.5c1 .9 1 2.4 0 3.6M14.6 9.5c-1 .9-1 2.4 0 3.6M9.8 15c.9.7.9 2 0 2.9M14.2 15c-.9.7-.9 2 0 2.9" />
+    </GlyphIcon>
+  ),
+  lobed: (props: { size?: number; className?: string }) => (
+    <GlyphIcon {...props}>
+      <path d="M12 3.2c1.6 1.6 2.6 2.9 4.6 3.4 2.6.7 3.9 2.7 3.6 5-.3 2.5-2.3 3.7-4 3.6.6 1.6.2 3.5-1.2 4.9-1 1-2 1.5-3 1.7-1-.2-2-.7-3-1.7-1.4-1.4-1.8-3.3-1.2-4.9-1.7.1-3.7-1.1-4-3.6-.3-2.3 1-4.3 3.6-5 2-.5 3-1.8 4.6-3.4Z" />
+    </GlyphIcon>
+  ),
+  frond: (props: { size?: number; className?: string }) => (
+    <GlyphIcon {...props}>
+      <path d="M12 21V4" />
+      <path d="M12 6 6.5 8.4M12 6l5.5 2.4M12 9.4 6.8 11.6M12 9.4l5.2 2.2M12 12.8 7.1 14.8M12 12.8l4.9 2M12 16.2 7.4 18M12 16.2l4.6 1.8" />
+    </GlyphIcon>
+  ),
+  ripple: (props: { size?: number; className?: string }) => (
+    <GlyphIcon {...props}>
+      <path d="M12 4.2c3.6 1.3 6.2 4.4 6.2 8.3 0 4-2.7 6.7-6.2 7.3-3.5-.6-6.2-3.3-6.2-7.3 0-3.9 2.6-7 6.2-8.3Z" />
+      <path d="M8.6 9.6c2.2 1.4 4.6 1.4 6.8 0M8.2 13.2c2.5 1.5 5.1 1.5 7.6 0" />
+    </GlyphIcon>
+  ),
+} as const;
+
+const BOTANICAL_SPECIMENS = [
+  {
+    accession: "Pl. 014",
+    binomial: "Monstera deliciosa",
+    common: "Swiss cheese vine",
+    family: "Araceae",
+    care: "Bright indirect · weekly",
+    leaf: "fenestrate" as const,
+    price: "$68",
+    featured: true,
+  },
+  {
+    accession: "Pl. 015",
+    binomial: "Ficus lyrata ‘Bambino’",
+    common: "Dwarf fiddle-leaf",
+    family: "Moraceae",
+    care: "Medium light · biweekly",
+    leaf: "lobed" as const,
+    price: "$54",
+  },
+  {
+    accession: "Pl. 016",
+    binomial: "Asplenium nidus",
+    common: "Bird’s nest fern",
+    family: "Aspleniaceae",
+    care: "Humid shade · misted",
+    leaf: "frond" as const,
+    price: "$32",
+  },
+  {
+    accession: "Pl. 017",
+    binomial: "Peperomia caperata",
+    common: "Ripple peperomia",
+    family: "Piperaceae",
+    care: "Low light · sparing",
+    leaf: "ripple" as const,
+    price: "$24",
+  },
+];
+
 function BotanicalGlasshouse({ className, compact = false, style }: Props) {
+  const [featured, ...rest] = BOTANICAL_SPECIMENS;
+  const tiny = compact ? "text-[7px]" : "text-[9px]";
   return (
     <SampleFrame className={className} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-        <SampleNav brand="Glasshouse" compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />, <IconBag key="bag" size={compact ? 11 : 13} />]} links={["Plants", "Seeds", "Care"]} sub="Botanical" />
-        <div className={cn("grid min-h-0 gap-3", compact ? "grid-cols-[0.84fr_1.16fr]" : "grid-cols-[0.72fr_1.28fr]")}>
-          <div className="grid min-h-0 grid-rows-[auto_1fr] gap-3">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--sample-muted)]">Living catalog</p>
-              <h3 className={cn("mt-2 font-display font-semibold leading-[0.92]", compact ? "text-3xl" : "text-5xl")} style={{ fontFamily: "var(--st-font-display)", letterSpacing: "0em" }}>
-                Botanical
-              </h3>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              {["Fern", "Moss", "Stem", "Bloom"].map((item, index) => (
-                <div className="grid min-h-0 grid-rows-[1fr_auto] overflow-hidden border border-[var(--sample-border-soft)]" key={item}>
-                  <GeneratedStyleImageSurface
-                    className="min-h-[2.5rem]"
-                    overlay="soft"
-                    position={["30% 40%", "60% 30%", "40% 70%", "70% 50%"][index]}
-                    slug="botanical"
-                  />
-                  <span className="block bg-[var(--sample-surface)] px-1.5 py-1 text-[8px] uppercase tracking-[0.14em] text-[var(--sample-muted)]">{item}</span>
-                </div>
-              ))}
-            </div>
+      <div className="grid h-full grid-rows-[auto_auto_1fr_auto] gap-3">
+        <SampleNav brand="Glasshouse" className="min-w-0" compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />, <IconBag key="bag" size={compact ? 11 : 13} />]} links={["Species", "Care"]} sub="Est. 1994" />
+
+        <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 border-b border-[var(--sample-border-soft)] pb-3">
+          <GeneratedStyleImageSurface className={cn("shrink-0 border border-[var(--sample-border-soft)]", compact ? "h-12 w-12" : "h-14 w-14 sm:h-20 sm:w-20")} overlay="soft" position="center 38%" slug="botanical" />
+          <div className="min-w-0">
+            <p className={cn("truncate uppercase tracking-[0.2em] text-[var(--sample-muted)]", tiny)}>{featured.accession} · {featured.family}</p>
+            <h3 className={cn("mt-1 truncate font-serif italic leading-none text-[var(--sample-text)]", compact ? "text-lg" : "text-lg sm:text-3xl")} style={{ fontFamily: "var(--st-font-display)" }}>
+              {featured.binomial}
+            </h3>
+            <p className={cn("mt-1 truncate text-[var(--sample-muted)]", tiny)}>{featured.common} · {featured.care}</p>
           </div>
-          <GeneratedStyleImageSurface className="min-h-0 border border-[var(--sample-border-soft)]" overlay="soft" position="center 40%" slug="botanical">
-            <span className="absolute bottom-4 left-4 right-4 border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.86)] px-3 py-2 text-[10px] uppercase tracking-[0.18em]">Seasonal plant care</span>
-          </GeneratedStyleImageSurface>
+          <span className={cn("shrink-0 bg-[var(--sample-accent)] px-2 py-1.5 font-semibold uppercase tracking-[0.14em] text-[var(--sample-base)] sm:px-3", tiny)}>Add · {featured.price}</span>
         </div>
-        <NaturalHandmadeBottomStrip compact={compact} items={[["Motif", "Leaf"], ["Product", "Plant"], ["Rhythm", "Alive"]]} />
+
+        <div className="grid min-h-0 grid-rows-3 gap-1.5">
+          {rest.map((item) => {
+            const LeafIcon = BOTANICAL_LEAF_ICONS[item.leaf];
+            return (
+              <div className="grid min-w-0 grid-cols-[auto_auto_1fr_auto_auto] items-center gap-2.5 border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] px-2.5" key={item.binomial}>
+                <span className={cn("uppercase tracking-[0.16em] text-[var(--sample-muted)]", tiny)}>{item.accession}</span>
+                <LeafIcon className="text-[var(--sample-accent)]" size={compact ? 13 : 16} />
+                <span className="min-w-0 truncate">
+                  <span className={cn("font-serif italic text-[var(--sample-text)]", compact ? "text-[10px]" : "text-[12px]")} style={{ fontFamily: "var(--st-font-display)" }}>{item.binomial}</span>
+                  <span className={cn("ml-1.5 text-[var(--sample-muted)]", tiny)}>{item.common}</span>
+                </span>
+                <span className={cn("hidden truncate rounded-full border border-[var(--sample-border-soft)] px-2 py-0.5 uppercase tracking-[0.12em] text-[var(--sample-muted)] sm:inline-block", tiny)}>{item.family}</span>
+                <span className={cn("font-semibold text-[var(--sample-text)]", tiny)}>{item.price}</span>
+              </div>
+            );
+          })}
+        </div>
+
+        <NaturalHandmadeBottomStrip compact={compact} items={[["Sold by", "Species"], ["Tag", "Accession"], ["Leaf", "Verified"]]} />
       </div>
     </SampleFrame>
   );
