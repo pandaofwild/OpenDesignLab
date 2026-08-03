@@ -66,7 +66,11 @@ function SampleFrame({
   return (
     <div
       className={cn(
-        "st-border relative h-full min-h-[250px] overflow-hidden bg-[var(--sample-base)] text-[var(--sample-text)]",
+        // No min-height here: `cn` is a plain join, so a base min-h would sit in
+        // the same cascade as the branch values below and win by source order,
+        // forcing every compact sample to 250px inside a 222px preview box and
+        // clipping the bottom ~28px of all of them.
+        "st-border relative h-full overflow-hidden bg-[var(--sample-base)] text-[var(--sample-text)]",
         compact ? "min-h-[210px] p-3" : "st-pad min-h-[540px]",
         className,
       )}
@@ -305,11 +309,6 @@ const IconArrow = ({ size, className }: { size?: number; className?: string }) =
     <path d="M4 12h15" />
     <path d="m13 6 6 6-6 6" />
   </GlyphIcon>
-);
-const IconStar = ({ size, className }: { size?: number; className?: string }) => (
-  <svg aria-hidden="true" className={className} fill="currentColor" height={size ?? 12} viewBox="0 0 24 24" width={size ?? 12}>
-    <path d="m12 2 2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4Z" />
-  </svg>
 );
 
 type NavProps = {
@@ -3801,7 +3800,7 @@ function KitschNoveltyDrop({ compact = false, style }: Props) {
   // cards, closed by a drop countdown. Boldness is spent on the sunburst price
   // stickers and the clashing print swatches; everything else stays white,
   // hairline and disciplined. The storefront skeleton keeps it distinct from
-  // its neighbour dopamine-design (circular reward dashboard).
+  // its neighbour dopamine-design (spectrum-filtered swatch catalogue).
   const ink = "#2c2442";
   const cardShadow: CSSProperties = { boxShadow: "0 8px 20px -12px rgba(44,36,66,0.42), inset 0 1px 1px rgba(255,255,255,0.7)" };
   const products: Array<{ name: string; price: string; pos: string; size: string; tag?: string; burst: string; dots: string[] }> = [
@@ -3952,164 +3951,201 @@ function KitschNoveltyDrop({ compact = false, style }: Props) {
   );
 }
 
-function DopamineRewardLoop({ compact = false, style }: Props) {
-  // "Habit streak engine": a gamified reward dashboard (Duolingo / Habitica /
-  // Happy Socks energy). A big circular reward loop with orbiting habit icons,
-  // an XP reward meter, color-pulse habit cards, a reward ladder and a dopamine
-  // spectrum. The circular-progress dashboard skeleton keeps it distinct from
-  // its neighbour pop-art (edition grid).
-  const softShadow: CSSProperties = { boxShadow: "0 10px 24px -14px rgba(26,20,54,0.5), inset 0 1px 1px rgba(255,255,255,0.7)" };
-  const orbit: Array<[string, string, string]> = [
-    ["move", "#ff3d81", "left-[38%] top-[-7%]"],
-    ["read", "#12d0b8", "right-[-7%] top-[26%]"],
-    ["water", "#ffd23e", "right-[6%] bottom-[4%]"],
-    ["focus", "#7b5cff", "left-[6%] bottom-[4%]"],
-    ["sleep", "#ff7a3d", "left-[-7%] top-[26%]"],
-  ];
-  const pulse: Array<[string, string, number, string]> = [
-    ["morning move", "12", 80, "#ff3d81"],
-    ["deep focus", "6", 55, "#7b5cff"],
-  ];
-  const ladder: Array<[string, string, string]> = [
-    ["bronze", "#ff7a3d", "claimed"],
-    ["silver", "#12d0b8", "claimed"],
-    ["gold", "#ffd23e", "active"],
-    ["platinum", "#7b5cff", "locked"],
-  ];
-  const loopBg =
-    "conic-gradient(from -90deg, #ff3d81 0turn, #ffd23e 0.22turn, #12d0b8 0.44turn, #7b5cff 0.66turn, rgb(26 20 54 / 0.09) 0.72turn 1turn)";
+const DOPAMINE_FAMILIES: Array<[string, string]> = [
+  ["#FF2E93", "magenta"],
+  ["#FF4D2E", "vermilion"],
+  ["#FF7A1A", "orange"],
+  ["#FFB300", "amber"],
+  ["#FFD814", "yellow"],
+  ["#B6E01F", "lime"],
+  ["#22C55E", "green"],
+  ["#00B39F", "teal"],
+  ["#00A3E0", "cyan"],
+  ["#2563EB", "blue"],
+  ["#6C3BD1", "violet"],
+  ["#C026D3", "purple"],
+];
+
+const DOPAMINE_PIGMENTS = [
+  { code: "PR122", name: "Quinacridone Magenta", hex: "#E5197F", body: "Opaque", lf: "LF I", price: "$9" },
+  { code: "PO73", name: "Pyrrole Orange", hex: "#FF5A1F", body: "Semi-opaque", lf: "LF I", price: "$9" },
+  { code: "PY74", name: "Hansa Yellow", hex: "#FFC61E", body: "Opaque", lf: "LF II", price: "$8" },
+  { code: "PG7", name: "Phthalo Green", hex: "#00A878", body: "Transparent", lf: "LF I", price: "$8" },
+  { code: "PB15", name: "Phthalo Blue", hex: "#1B6DE0", body: "Transparent", lf: "LF I", price: "$8" },
+  { code: "PV23", name: "Dioxazine Violet", hex: "#6C3BD1", body: "Transparent", lf: "LF II", price: "$10" },
+];
+
+const DOPAMINE_SETS: Array<[string, string, string, string[]]> = [
+  ["Primary triad", "· 3 pans", "$24", ["#E5197F", "#FFC61E", "#1B6DE0"]],
+  ["Warm spectrum", "· 6 pans", "$46", ["#E5197F", "#FF5A1F", "#FFC61E"]],
+  ["Full spectrum", "· 12 pans", "$86", ["#E5197F", "#FFC61E", "#00A878", "#6C3BD1"]],
+];
+
+const DOPAMINE_CART: Array<[string, string, string, string]> = [
+  ["PR122", "Quinacridone Magenta", "#E5197F", "$9"],
+  ["PY74", "Hansa Yellow", "#FFC61E", "$8"],
+  ["PG7", "Phthalo Green", "#00A878", "$8"],
+];
+
+function DopamineSpectrumShop({ compact = false, style }: Props) {
+  // "SPECTRUM SHOP": a single-pigment gouache house where the colour spectrum
+  // itself is the navigation. Every saturated field on this page is an actual
+  // SKU — a pigment chip, a swatch card, a cart dot — so the colour is content
+  // rather than decoration, which is what the reward dashboard it replaced got
+  // wrong. Boldness is spent on the filter spine alone; the catalogue below it
+  // stays white, hairline and disciplined. The spectrum-filtered catalogue
+  // skeleton keeps it distinct from its cute/casual neighbours kitsch (novelty
+  // storefront), pastel-style (airy editorial bands) and pop-art (gallery wall).
+  const selected = 0;
+  const families = compact ? DOPAMINE_FAMILIES.slice(0, 8) : DOPAMINE_FAMILIES;
+  const pigments = DOPAMINE_PIGMENTS.slice(0, compact ? 3 : 6);
+  const cardShadow: CSSProperties = { boxShadow: "0 10px 24px -18px rgba(26,20,54,0.45), inset 0 0 0 1px rgba(26,20,54,0.06)" };
+  const tiny = compact ? "text-[7px]" : "text-[8px]";
 
   return (
     <SampleFrame compact={compact} style={style}>
       <div
         className={cn("absolute inset-0 min-w-0 overflow-hidden text-[var(--sample-text)]", compact ? "p-3" : "p-4 sm:p-5")}
         style={{
-          "--sample-accent": "#ff3d81",
-          "--sample-accent-2": "#12d0b8",
-          "--sample-accent-3": "#ffd23e",
-          "--sample-base": "#fdfbff",
+          "--sample-accent": "#ff2e93",
+          "--sample-accent-2": "#00b39f",
+          "--sample-accent-3": "#ffd814",
+          "--sample-base": "#ffffff",
           "--sample-border": "#1a1436",
-          "--sample-border-soft": "#1a14361f",
+          "--sample-border-soft": "#1a143618",
           "--sample-muted": "#6b6494",
-          "--sample-primary": "#ff3d81",
+          "--sample-primary": "#ff2e93",
           "--sample-surface": "#ffffff",
           "--sample-text": "#1a1436",
-          "--st-base-rgb": "253 251 255",
+          "--st-base-rgb": "255 255 255",
           "--st-surface-rgb": "255 255 255",
           "--st-text-rgb": "26 20 54",
-          "--st-primary-rgb": "255 61 129",
-          "--st-accent-rgb": "255 61 129",
-          "--st-accent-2-rgb": "18 208 184",
-          "--st-accent-3-rgb": "255 210 62",
+          "--st-primary-rgb": "255 46 147",
+          "--st-accent-rgb": "255 46 147",
+          "--st-accent-2-rgb": "0 179 159",
+          "--st-accent-3-rgb": "255 216 20",
           "--st-border-rgb": "26 20 54",
-          background:
-            "radial-gradient(50% 40% at 12% 6%, rgb(255 61 129 / 0.14), transparent 60%), radial-gradient(46% 44% at 96% 10%, rgb(18 208 184 / 0.14), transparent 60%), radial-gradient(54% 46% at 88% 102%, rgb(123 92 255 / 0.14), transparent 62%), linear-gradient(180deg, #fefcff, #fbf7ff)",
+          background: "#ffffff",
         } as SampleVariables}
       >
-        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_1fr_auto] gap-2.5">
-          {/* app bar */}
-          <header className="flex items-center justify-between gap-2">
-            <div className="flex min-w-0 items-center gap-2">
-              <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full text-white" style={{ background: "linear-gradient(140deg, var(--sample-accent), #7b5cff)" }}>
-                <IconStar size={12} />
+        <div className="relative grid h-full min-h-0 min-w-0 grid-rows-[auto_auto_minmax(0,1fr)] gap-2.5">
+          <header aria-label="SINGLE PIGMENT HOUSE" className="flex min-w-0 items-center justify-between gap-2">
+            <div className="flex min-w-0 flex-col leading-none">
+              <span className="truncate font-black uppercase tracking-[-0.01em]" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "13px" : "17px" }}>
+                Saturate
               </span>
-              <span className="font-black uppercase tracking-[0.02em]" style={{ fontFamily: "var(--st-font-display)", fontSize: compact ? "12px" : "15px" }}>Pulse</span>
+              <span className={cn("mt-1 truncate uppercase tracking-[0.18em] text-[var(--sample-muted)]", tiny)}>Single pigment gouache</span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <span className="flex items-center gap-1 rounded-full bg-[var(--sample-accent)] px-2 py-0.5 text-[9px] font-black uppercase text-white">
-                <span className="h-1.5 w-1.5 rounded-full bg-[var(--sample-accent-3)]" /> 12 day streak
+            <div className={cn("flex shrink-0 items-center gap-3 text-[var(--sample-muted)]", compact ? "text-[8px]" : "text-[10px]")}>
+              <span className="hidden sm:inline">Pigments</span>
+              <span className="hidden sm:inline">Sets</span>
+              <span className="flex items-center gap-1 rounded-full bg-[var(--sample-text)] px-2 py-1 font-black text-white">
+                <IconBag size={compact ? 9 : 11} />3
               </span>
-              <span className="rounded-full bg-[var(--sample-text)] px-2 py-0.5 text-[9px] font-black uppercase text-white">lv 7</span>
             </div>
           </header>
 
-          <div className={cn("grid min-h-0 min-w-0 gap-3", compact ? "grid-cols-[0.95fr_1.05fr]" : "sm:grid-cols-[0.92fr_1.08fr]")}>
-            {/* reward loop + habit orbit */}
-            <section className="relative grid min-h-0 min-w-0 place-items-center">
-              <div className={cn("relative aspect-square", compact ? "w-[86%] max-w-[9rem]" : "w-[82%] max-w-[13rem]")}>
-                <div aria-label="COLOR REWARD LOOP" className="absolute inset-0 rounded-full" style={{ background: loopBg }}>
-                  <div className="absolute inset-[15%] grid place-items-center rounded-full bg-white text-center" style={softShadow}>
-                    <div className="flex flex-col items-center leading-none">
-                      <span className={cn("font-black uppercase tracking-[0.08em] text-[var(--sample-muted)]", compact ? "text-[5.5px]" : "text-[7px]")}>STREAK ENERGY ENGINE</span>
-                      <span className={cn("font-black tabular-nums text-[var(--sample-text)]", compact ? "text-[1.7rem]" : "text-[2.6rem]")} style={{ fontFamily: "var(--st-font-display)" }}>12</span>
-                      <span className={cn("font-black uppercase tracking-[0.14em] text-[var(--sample-primary)]", compact ? "text-[6px]" : "text-[8px]")}>day streak</span>
+          {/* The one bold place: the spectrum is the filter, not a gradient bar. */}
+          <section aria-label="color filter spine" className="min-w-0">
+            <div className="flex min-w-0 items-baseline justify-between gap-2">
+              <p className={cn("truncate font-black uppercase tracking-[0.16em]", tiny)}>Shop the spectrum</p>
+              <p aria-label="family result count" className={cn("shrink-0 truncate text-[var(--sample-muted)]", tiny)}>
+                <span className="font-black text-[var(--sample-text)]">38</span> pigments · magenta
+              </p>
+            </div>
+            <div className="mt-1.5 flex min-w-0 items-end gap-[3px]">
+              {families.map(([hex, name], index) => (
+                <span
+                  className={cn("min-w-0 flex-1 rounded-[5px] transition-[height]", index === selected ? "ring-2 ring-[var(--sample-text)] ring-offset-2" : "")}
+                  key={name}
+                  style={{ background: hex, height: index === selected ? (compact ? 22 : 30) : compact ? 13 : 18 }}
+                />
+              ))}
+            </div>
+          </section>
+
+          <main aria-label="SPECTRUM SHOP" className={cn("grid min-h-0 min-w-0 gap-2.5", compact ? "" : "sm:grid-cols-[1fr_10.5rem]")}>
+            <div aria-label="saturated swatch grid" className={cn("grid min-h-0 min-w-0 gap-2", compact ? "grid-cols-3" : "grid-cols-2 sm:grid-cols-3")}>
+              {pigments.map((pigment) => (
+                <article
+                  aria-label="pigment record"
+                  className="grid min-h-0 min-w-0 grid-rows-[minmax(0,1fr)_auto] overflow-hidden rounded-[13px] bg-white"
+                  key={pigment.code}
+                  style={cardShadow}
+                >
+                  <span className="relative block min-h-[1.5rem]" style={{ background: pigment.hex }}>
+                    <span className={cn("absolute left-1.5 top-1.5 rounded-full bg-white/92 px-1.5 py-0.5 font-black tracking-[0.06em]", tiny)}>{pigment.code}</span>
+                  </span>
+                  <div className={cn("min-w-0", compact ? "p-1.5" : "p-2")}>
+                    <p className={cn("truncate font-bold leading-tight", compact ? "text-[8px]" : "text-[10px]")}>{pigment.name}</p>
+                    <p className={cn("mt-0.5 truncate text-[var(--sample-muted)]", tiny)}>{pigment.body} · {pigment.lf}</p>
+                    <div className="mt-1.5 flex min-w-0 items-center justify-between gap-1">
+                      <span className={cn("font-black", compact ? "text-[9px]" : "text-[11px]")}>{pigment.price}</span>
+                      <span className={cn("shrink-0 rounded-full px-2 py-0.5 font-black uppercase tracking-[0.08em] text-white", tiny)} style={{ background: pigment.hex }}>
+                        add
+                      </span>
                     </div>
                   </div>
-                </div>
-                <div aria-label="habit orbit" className="pointer-events-none absolute inset-0">
-                  {orbit.map(([label, color, pos]) => (
-                    <span
-                      className={cn("absolute grid place-items-center rounded-full text-[6px] font-black uppercase text-white", compact ? "h-7 w-7" : "h-9 w-9", pos)}
-                      key={label}
-                      style={{ background: `radial-gradient(circle at 34% 28%, rgba(255,255,255,0.9) 0%, ${color} 46%, color-mix(in srgb, ${color} 66%, #1a1436) 100%)`, boxShadow: `0 6px 12px -6px ${color}` }}
-                    >
-                      {label}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* right rail */}
-            <section className="flex min-h-0 min-w-0 flex-col gap-2.5">
-              <div aria-label="reward meter" className="rounded-[16px] bg-white p-2.5" style={softShadow}>
-                <div className="mb-1.5 flex items-center justify-between text-[8px] font-black uppercase tracking-[0.08em]">
-                  <span className="text-[var(--sample-text)]">reward meter · lv 7</span>
-                  <span className="tabular-nums text-[var(--sample-muted)]">720 / 1000 xp</span>
-                </div>
-                <div className="relative h-2.5 overflow-hidden rounded-full bg-[var(--sample-base)]">
-                  <span className="absolute inset-y-0 left-0 w-[72%] rounded-full" style={{ background: "linear-gradient(90deg, var(--sample-accent-2), var(--sample-accent))" }} />
-                  <span aria-hidden="true" className="absolute left-[30%] top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-white/80" />
-                  <span aria-hidden="true" className="absolute left-[55%] top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-white/70" />
-                </div>
-              </div>
-
-              <div aria-label="color pulse cards" className="grid min-h-0 flex-1 grid-cols-2 gap-2.5">
-                {pulse.map(([name, streak, pct, color]) => (
-                  <div className="relative flex min-h-0 flex-col justify-between overflow-hidden rounded-[16px] p-2.5 text-white" key={name} style={{ background: `linear-gradient(150deg, ${color}, color-mix(in srgb, ${color} 66%, #1a1436))` }}>
-                    <span aria-hidden="true" className="absolute -right-3 -top-3 h-12 w-12 rounded-full bg-white/20" />
-                    <div className="relative">
-                      <p className="text-[9px] font-black uppercase leading-tight">{name}</p>
-                      <p className="mt-0.5 text-[7px] font-bold uppercase tracking-[0.06em] text-white/80">{streak} day streak</p>
-                    </div>
-                    <div className="relative mt-2">
-                      <div className="h-1.5 overflow-hidden rounded-full bg-black/20">
-                        <span className="block h-full rounded-full bg-white" style={{ width: `${pct}%` }} />
-                      </div>
-                      <span className="mt-1 block text-right text-[7px] font-black tabular-nums">{pct}%</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div aria-label="reward ladder" className={cn("rounded-[16px] bg-white p-2.5", compact && "hidden")} style={softShadow}>
-                <div className="mb-1 flex items-center justify-between">
-                  <span className="text-[8px] font-black uppercase tracking-[0.1em] text-[var(--sample-text)]">reward ladder</span>
-                  <span className="text-[7px] font-black uppercase text-[var(--sample-muted)]">4 tiers</span>
-                </div>
-                <div className="grid grid-cols-4 gap-1.5">
-                  {ladder.map(([tier, color, status]) => (
-                    <div className={cn("flex flex-col items-center gap-1 rounded-[10px] px-1 py-1.5", status === "active" ? "bg-[var(--sample-base)]" : "")} key={tier}>
-                      <span className="h-4 w-4 rounded-full" style={{ background: status === "locked" ? "rgb(26 20 54 / 0.14)" : color, boxShadow: status === "locked" ? "none" : `0 4px 8px -5px ${color}` }} />
-                      <span className="truncate text-[6.5px] font-black uppercase text-[var(--sample-text)]">{tier}</span>
-                      <span className={cn("text-[5.5px] font-black uppercase tracking-[0.04em]", status === "active" ? "text-[var(--sample-primary)]" : "text-[var(--sample-muted)]")}>{status}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-          </div>
-
-          {/* dopamine spectrum */}
-          <div aria-label="dopamine spectrum" className={cn(compact && "hidden")}>
-            <div className="mb-1 flex items-center justify-between text-[8px] font-black uppercase tracking-[0.1em]">
-              <span className="text-[var(--sample-text)]">dopamine spectrum</span>
-              <span className="text-[var(--sample-muted)]">today&apos;s energy · high</span>
+                </article>
+              ))}
             </div>
-            <div className="relative h-3 rounded-full" style={{ background: "linear-gradient(90deg, #7b5cff, #12d0b8, #ffd23e, #ff7a3d, #ff3d81)" }}>
-              <span aria-hidden="true" className="absolute left-[74%] top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-[3px] border-white bg-[var(--sample-accent)] shadow-[0_4px_10px_-3px_rgba(26,20,54,0.6)]" />
+
+            <div className={cn("min-h-0 min-w-0 grid-rows-[auto_minmax(0,1fr)] gap-2.5", compact ? "hidden" : "hidden sm:grid")}>
+              <aside aria-label="colorway cart" className="flex min-w-0 flex-col rounded-[13px] bg-white p-2.5" style={cardShadow}>
+                <p className={cn("shrink-0 truncate font-black uppercase tracking-[0.16em]", tiny)}>Your colorway</p>
+                <ul className="mt-1.5 min-w-0">
+                  {DOPAMINE_CART.map(([code, name, hex, price]) => (
+                    <li className="flex min-w-0 items-center gap-1.5 border-t border-[var(--sample-border-soft)] py-1.5" key={code}>
+                      <span className="h-3 w-3 shrink-0 rounded-full" style={{ background: hex }} />
+                      <span className="min-w-0 flex-1 truncate">
+                        <span className={cn("block truncate font-bold leading-tight", tiny)}>{name}</span>
+                        <span className={cn("block truncate text-[var(--sample-muted)]", tiny)}>{code}</span>
+                      </span>
+                      <span className={cn("shrink-0 font-black", tiny)}>{price}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-2 min-w-0">
+                  <p className={cn("truncate uppercase tracking-[0.14em] text-[var(--sample-muted)]", tiny)}>Mixes to</p>
+                  <span className="mt-1 flex h-5 overflow-hidden rounded-[5px]">
+                    {DOPAMINE_CART.map(([code, , hex]) => (
+                      <span className="flex-1" key={`mix-${code}`} style={{ background: hex }} />
+                    ))}
+                    <span className="flex-1" style={{ background: "linear-gradient(90deg, #E5197F, #FFC61E, #00A878)" }} />
+                  </span>
+                </div>
+                <div className="mt-2 flex items-baseline justify-between gap-2 border-t border-[var(--sample-border-soft)] pt-1.5">
+                  <span className={cn("uppercase tracking-[0.14em] text-[var(--sample-muted)]", tiny)}>Subtotal</span>
+                  <span className="text-[13px] font-black">$25</span>
+                </div>
+                <span className="mt-1.5 block rounded-full bg-[var(--sample-accent)] px-2 py-1.5 text-center text-[9px] font-black uppercase tracking-[0.12em] text-white">
+                  Checkout
+                </span>
+              </aside>
+
+              <section aria-label="ready set shelf" className="flex min-h-0 min-w-0 flex-col rounded-[13px] bg-white p-2.5" style={cardShadow}>
+                <p className={cn("shrink-0 truncate font-black uppercase tracking-[0.16em]", tiny)}>Ready sets</p>
+                <ul className="mt-1 min-w-0 flex-1">
+                  {DOPAMINE_SETS.map(([name, pans, price, ramp]) => (
+                    <li className="min-w-0 border-t border-[var(--sample-border-soft)] py-1.5" key={name}>
+                      <span className="flex min-w-0 items-baseline justify-between gap-2">
+                        <span className={cn("min-w-0 truncate font-bold", tiny)}>
+                          {name}
+                          <span className="ml-1 font-normal text-[var(--sample-muted)]">{pans}</span>
+                        </span>
+                        <span className={cn("shrink-0 font-black", tiny)}>{price}</span>
+                      </span>
+                      <span className="mt-1 flex h-2 overflow-hidden rounded-full">
+                        {ramp.map((hex) => (
+                          <span className="flex-1" key={`${name}-${hex}`} style={{ background: hex }} />
+                        ))}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             </div>
-          </div>
+          </main>
         </div>
       </div>
     </SampleFrame>
@@ -4399,7 +4435,7 @@ function ToyPlaysetBuilder({ compact = false, style }: Props) {
   // a ghost next-slot) is flanked by a block-parts bin and a build-pattern
   // chooser, and closed by a numbered instruction rail. The configurator-
   // workspace skeleton keeps it distinct from every cute/casual neighbour —
-  // storefront (kitsch), reward dashboard (dopamine), vertical showcase
+  // storefront (kitsch), swatch catalogue (dopamine), vertical showcase
   // (bubble), editorial bands (pastel) and gallery wall (pop-art).
   const cardShadow: CSSProperties = { boxShadow: "0 10px 24px -16px rgba(15,23,60,0.4), inset 0 1px 1px rgba(255,255,255,0.8)" };
   const parts: Array<[string, string, string]> = [
@@ -6473,7 +6509,7 @@ export function DesignStyleSampleRenderer({ compact = false, style, className }:
   }
 
   if (style.slug === "dopamine-design") {
-    return <DopamineRewardLoop {...props} />;
+    return <DopamineSpectrumShop {...props} />;
   }
 
   if (style.slug === "pop-art") {

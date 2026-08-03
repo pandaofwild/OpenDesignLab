@@ -15,7 +15,7 @@ const cuteCasualSlugs = [
 
 const sampleFunctions = {
   kitsch: "KitschNoveltyDrop",
-  "dopamine-design": "DopamineRewardLoop",
+  "dopamine-design": "DopamineSpectrumShop",
   "pop-art": "PopArtObjectArchive",
   "comic-book-style": "ComicIssueDrop",
   "toy-design": "ToyPlaysetBuilder",
@@ -25,7 +25,7 @@ const sampleFunctions = {
 
 const requiredSampleMarkers = {
   kitsch: ["ODD SHOP DROP", "sticker price bursts", "clashing pattern strips"],
-  "dopamine-design": ["COLOR REWARD LOOP", "reward meter", "dopamine spectrum"],
+  "dopamine-design": ["SPECTRUM SHOP", "color filter spine", "saturated swatch grid"],
   "pop-art": ["POP OBJECT ARCHIVE", "halftone block", "repeated object"],
   "comic-book-style": ["ISSUE DROP", "speech balloon", "episode metadata"],
   "toy-design": ["PLAYSET BUILDER", "block parts", "assembly tray"],
@@ -35,7 +35,7 @@ const requiredSampleMarkers = {
 
 const requiredExperienceMarkers = {
   kitsch: ["LIMITED ODDITIES", "pattern clash rail", "giftable product finder", "drop countdown"],
-  "dopamine-design": ["STREAK ENERGY ENGINE", "reward ladder", "color pulse cards", "habit orbit"],
+  "dopamine-design": ["SINGLE PIGMENT HOUSE", "colorway cart", "pigment record", "family result count"],
   "pop-art": ["SERIAL POP WALL", "museum shop wall", "halftone caption rail", "object edition grid"],
   "comic-book-style": ["COVER READER SHELF", "panel preview", "creator credit line", "series queue"],
   "toy-design": ["MODULAR PLAYSET SHOP", "age range selector", "instruction rail", "build pattern chooser"],
@@ -44,18 +44,18 @@ const requiredExperienceMarkers = {
 };
 
 const forbiddenSampleMarkers = {
-  kitsch: ["COLOR REWARD LOOP", "SOFT EDIT"],
+  kitsch: ["SPECTRUM SHOP", "SOFT EDIT"],
   "dopamine-design": ["ODD SHOP DROP", "SOFT EDIT"],
   "pop-art": ["ISSUE DROP", "speech balloon", "episode metadata"],
   "comic-book-style": ["POP OBJECT ARCHIVE", "museum poster", "halftone archive"],
   "toy-design": ["BUBBLE FLOW", "liquid progress", "SOFT EDIT"],
-  "pastel-style": ["COLOR REWARD LOOP", "BUBBLE FLOW"],
+  "pastel-style": ["SPECTRUM SHOP", "BUBBLE FLOW"],
   "bubble-design": ["PLAYSET BUILDER", "block parts", "SOFT EDIT"],
 };
 
 const forbiddenPrototypeCopy = {
   kitsch: ["Odd Goods", "Gloss", "Gift"],
-  "dopamine-design": ["Joy Habit", "Bright wins", "Claim color"],
+  "dopamine-design": ["Joy Habit", "Bright wins", "Claim color", "STREAK ENERGY ENGINE", "habit orbit", "reward ladder"],
   "pop-art": ["Pop Index", "1963"],
   "comic-book-style": ["Panel Rack", "Chapter 24"],
   "toy-design": ["Brick Lab", "Build kit"],

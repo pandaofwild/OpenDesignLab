@@ -890,15 +890,15 @@ const palettes: Record<string, DesignStylePalette> = {
     border: "#261A22",
   },
   "dopamine-design": {
-    base: "#FFF7D6",
+    base: "#FDFCFF",
     surface: "#FFFFFF",
-    text: "#152214",
-    mutedText: "#5F6A44",
-    primary: "#1F7A36",
-    accent: "#FF3B7F",
-    accent2: "#2DDB6F",
-    accent3: "#FFD22E",
-    border: "#162316",
+    text: "#1A1436",
+    mutedText: "#6B6494",
+    primary: "#FF2E93",
+    accent: "#FF5A1F",
+    accent2: "#00A878",
+    accent3: "#FFC61E",
+    border: "#1A1436",
   },
   "pop-art": {
     base: "#FFF2C2",
@@ -2499,10 +2499,10 @@ const cuteCasualResearch: Partial<Record<string, StyleResearchBrief>> = {
       { title: "Awwwards - Colorful Websites", url: "https://www.awwwards.com/websites/colorful/", note: "Gallery reference for professional colorful execution, motion pacing, and bright designs that retain strong information hierarchy." },
       { title: "Dribbble - Dopamine Design Website", url: "https://dribbble.com/search/dopamine%20design%20website", note: "UI reference for reward meters, bright modules, color-block progress, and upbeat product dashboards." },
     ],
-    representativeTraits: ["Reward meter", "High-saturation modules", "Clean color hits", "Progress feedback", "Joyful conversion path"],
-    avoidTraits: ["Retro kitsch irony", "Mascot collectible shop", "Soft pastel beauty page", "Random color clutter"],
+    representativeTraits: ["Color filter spine", "Saturated swatch grid", "Single-pigment record", "Colorway cart", "Ready set shelf"],
+    avoidTraits: ["Gamified streak dashboard", "Retro kitsch irony", "Soft pastel beauty page", "Color used as decoration rather than as the product"],
     tokenIntent:
-      "Use bright yellow base, green primary, hot pink rewards, crisp white surfaces, rounded modules, progress meters, and clean high-saturation rhythm so dopamine design reads as joyful product UX.",
+      "Use crisp white surfaces, a magenta primary action, and full-spectrum accents on rounded modules so every saturated field on the page is an actual product swatch — dopamine design reads as joyful colour commerce, not as decoration.",
   },
   "pop-art": {
     referenceSites: [

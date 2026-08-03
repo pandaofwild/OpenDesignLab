@@ -83,7 +83,7 @@ This table is the working comparison sheet for keeping styles inside the same ca
 | style slug | 핵심 정체성 | moodboard 시각 신호 | referenceSites 웹 UI 문법 | 겹치기 쉬운 스타일 | 반드시 다르게 보여야 하는 요소 | 샘플 고유 마커 |
 |---|---|---|---|---|---|---|
 | kitsch | Novelty retail excess | odd objects, clashing pattern, sticker bursts | boutique drop, sale rail, product finder | dopamine-design, pop-art | humorous object shop, not clean rewards | ODD SHOP DROP |
-| dopamine-design | Reward-driven color energy | saturated chips, progress objects | streaks, reward ladder, conversion path | kitsch, pastel-style | clean reward loop, not novelty clutter | COLOR REWARD LOOP |
+| dopamine-design | Colour sold as the product | saturated pigment chips, spectrum ramps | spectrum filter, swatch catalogue, colourway cart | kitsch, pastel-style | every colour field is an actual SKU, never decoration; systematic saturation, not novelty clutter | SPECTRUM SHOP |
 | pop-art | Serial consumer icon archive | halftone, repeated object, primary chips | museum shop wall, object edition grid | comic-book-style, posterism | repeated object archive, no panels | POP OBJECT ARCHIVE |
 | comic-book-style | Sequential issue browsing | speech balloons, ink borders, panels | issue grid, episode metadata, panel preview | pop-art, toy-design | narrative panel system and cover shelf | ISSUE DROP |
 | toy-design | Modular playset builder | blocks, trays, chunky parts | age tabs, builder controls, instruction rail | claymorphism, bubble-design | assembly tray and toy parts | PLAYSET BUILDER |

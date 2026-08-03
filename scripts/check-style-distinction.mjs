@@ -206,7 +206,7 @@ const styleSampleFunctions = {
   rustic: "RusticLodgeCommerce",
   handmade: "HandmadePatchMarket",
   kitsch: "KitschNoveltyDrop",
-  "dopamine-design": "DopamineRewardLoop",
+  "dopamine-design": "DopamineSpectrumShop",
   "pop-art": "PopArtObjectArchive",
   "comic-book-style": "ComicIssueDrop",
   "toy-design": "ToyPlaysetBuilder",
