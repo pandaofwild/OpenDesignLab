@@ -3081,111 +3081,88 @@ function NaturalTerrainConditions({ className, compact = false, style }: Props) 
     </SampleFrame>
   );
 }
-const BOTANICAL_LEAF_ICONS = {
-  fenestrate: (props: { size?: number; className?: string }) => (
-    <GlyphIcon {...props}>
-      <path d="M12 3c4 2.5 6 6.4 6 10.2 0 4.6-2.9 7.3-6 7.8-3.1-.5-6-3.2-6-7.8C6 9.4 8 5.5 12 3Z" />
-      <path d="M9.4 9.5c1 .9 1 2.4 0 3.6M14.6 9.5c-1 .9-1 2.4 0 3.6M9.8 15c.9.7.9 2 0 2.9M14.2 15c-.9.7-.9 2 0 2.9" />
-    </GlyphIcon>
-  ),
-  lobed: (props: { size?: number; className?: string }) => (
-    <GlyphIcon {...props}>
-      <path d="M12 3.2c1.6 1.6 2.6 2.9 4.6 3.4 2.6.7 3.9 2.7 3.6 5-.3 2.5-2.3 3.7-4 3.6.6 1.6.2 3.5-1.2 4.9-1 1-2 1.5-3 1.7-1-.2-2-.7-3-1.7-1.4-1.4-1.8-3.3-1.2-4.9-1.7.1-3.7-1.1-4-3.6-.3-2.3 1-4.3 3.6-5 2-.5 3-1.8 4.6-3.4Z" />
-    </GlyphIcon>
-  ),
-  frond: (props: { size?: number; className?: string }) => (
-    <GlyphIcon {...props}>
-      <path d="M12 21V4" />
-      <path d="M12 6 6.5 8.4M12 6l5.5 2.4M12 9.4 6.8 11.6M12 9.4l5.2 2.2M12 12.8 7.1 14.8M12 12.8l4.9 2M12 16.2 7.4 18M12 16.2l4.6 1.8" />
-    </GlyphIcon>
-  ),
-  ripple: (props: { size?: number; className?: string }) => (
-    <GlyphIcon {...props}>
-      <path d="M12 4.2c3.6 1.3 6.2 4.4 6.2 8.3 0 4-2.7 6.7-6.2 7.3-3.5-.6-6.2-3.3-6.2-7.3 0-3.9 2.6-7 6.2-8.3Z" />
-      <path d="M8.6 9.6c2.2 1.4 4.6 1.4 6.8 0M8.2 13.2c2.5 1.5 5.1 1.5 7.6 0" />
-    </GlyphIcon>
-  ),
-} as const;
+const BOTANICAL_CARE = [
+  ["Light", "Bright indirect"],
+  ["Water", "When top 3 cm dry"],
+  ["Habit", "Climbing, aerial roots"],
+  ["Supplied", "70 cm · 19 cm pot"],
+];
 
 const BOTANICAL_SPECIMENS = [
-  {
-    accession: "Pl. 014",
-    binomial: "Monstera deliciosa",
-    common: "Swiss cheese vine",
-    family: "Araceae",
-    care: "Bright indirect · weekly",
-    leaf: "fenestrate" as const,
-    price: "$68",
-    featured: true,
-  },
-  {
-    accession: "Pl. 015",
-    binomial: "Ficus lyrata ‘Bambino’",
-    common: "Dwarf fiddle-leaf",
-    family: "Moraceae",
-    care: "Medium light · biweekly",
-    leaf: "lobed" as const,
-    price: "$54",
-  },
-  {
-    accession: "Pl. 016",
-    binomial: "Asplenium nidus",
-    common: "Bird’s nest fern",
-    family: "Aspleniaceae",
-    care: "Humid shade · misted",
-    leaf: "frond" as const,
-    price: "$32",
-  },
-  {
-    accession: "Pl. 017",
-    binomial: "Peperomia caperata",
-    common: "Ripple peperomia",
-    family: "Piperaceae",
-    care: "Low light · sparing",
-    leaf: "ripple" as const,
-    price: "$24",
-  },
+  { accession: "Pl. 015", binomial: "Ficus lyrata ‘Bambino’", family: "Moraceae", price: "$54" },
+  { accession: "Pl. 016", binomial: "Asplenium nidus", family: "Aspleniaceae", price: "$32" },
+  { accession: "Pl. 017", binomial: "Peperomia caperata", family: "Piperaceae", price: "$24" },
 ];
 
 function BotanicalGlasshouse({ className, compact = false, style }: Props) {
-  const [featured, ...rest] = BOTANICAL_SPECIMENS;
   const tiny = compact ? "text-[7px]" : "text-[9px]";
+  const micro = compact ? "text-[6px]" : "text-[8px]";
+  const serif = { fontFamily: "var(--st-font-display)" };
+
   return (
     <SampleFrame className={className} compact={compact} style={style}>
-      <div className="grid h-full grid-rows-[auto_auto_1fr_auto] gap-3">
+      <div className="grid h-full grid-rows-[auto_minmax(0,1fr)] gap-3">
         <SampleNav brand="Glasshouse" className="min-w-0" compact={compact} icons={[<IconSearch key="search" size={compact ? 11 : 13} />, <IconBag key="bag" size={compact ? 11 : 13} />]} links={["Species", "Care"]} sub="Est. 1994" />
 
-        <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 border-b border-[var(--sample-border-soft)] pb-3">
-          <GeneratedStyleImageSurface className={cn("shrink-0 border border-[var(--sample-border-soft)]", compact ? "h-12 w-12" : "h-14 w-14 sm:h-20 sm:w-20")} overlay="soft" position="center 38%" slug="botanical" />
-          <div className="min-w-0">
-            <p className={cn("truncate uppercase tracking-[0.2em] text-[var(--sample-muted)]", tiny)}>{featured.accession} · {featured.family}</p>
-            <h3 className={cn("mt-1 truncate font-serif italic leading-none text-[var(--sample-text)]", compact ? "text-lg" : "text-lg sm:text-3xl")} style={{ fontFamily: "var(--st-font-display)" }}>
-              {featured.binomial}
-            </h3>
-            <p className={cn("mt-1 truncate text-[var(--sample-muted)]", tiny)}>{featured.common} · {featured.care}</p>
-          </div>
-          <span className={cn("shrink-0 bg-[var(--sample-accent)] px-2 py-1.5 font-semibold uppercase tracking-[0.14em] text-[var(--sample-base)] sm:px-3", tiny)}>Add · {featured.price}</span>
-        </div>
-
-        <div className="grid min-h-0 grid-rows-3 gap-1.5">
-          {rest.map((item) => {
-            const LeafIcon = BOTANICAL_LEAF_ICONS[item.leaf];
-            return (
-              <div className="grid min-w-0 grid-cols-[auto_auto_1fr_auto_auto] items-center gap-2.5 border border-[var(--sample-border-soft)] bg-[var(--sample-surface)] px-2.5" key={item.binomial}>
-                <span className={cn("uppercase tracking-[0.16em] text-[var(--sample-muted)]", tiny)}>{item.accession}</span>
-                <LeafIcon className="text-[var(--sample-accent)]" size={compact ? 13 : 16} />
-                <span className="min-w-0 truncate">
-                  <span className={cn("font-serif italic text-[var(--sample-text)]", compact ? "text-[10px]" : "text-[12px]")} style={{ fontFamily: "var(--st-font-display)" }}>{item.binomial}</span>
-                  <span className={cn("ml-1.5 text-[var(--sample-muted)]", tiny)}>{item.common}</span>
+        <div className={cn("grid min-h-0 gap-4", compact ? "grid-cols-[1fr_1fr]" : "grid-rows-[minmax(0,1fr)_auto] sm:grid-cols-[1.2fr_0.8fr] sm:grid-rows-1")}>
+          {/* The mounted specimen sheet — the pressed leaf carries the page. */}
+          <figure className="relative min-h-0 min-w-0">
+            <GeneratedStyleImageSurface className="h-full w-full border border-[var(--sample-border-soft)]" overlay="none" position="center" slug="botanical">
+              <figcaption className={cn("absolute border border-[var(--sample-border-soft)] bg-[rgb(var(--st-surface-rgb)_/_0.94)]", compact ? "bottom-2 right-2 max-w-[86%] px-2 py-1.5" : "bottom-2 right-2 max-w-[70%] px-2.5 py-2 sm:bottom-3 sm:right-3 sm:max-w-[76%] sm:px-3 sm:py-2.5")}>
+                <span className={cn("block uppercase tracking-[0.22em] text-[var(--sample-muted)]", micro)}>Glasshouse herbarium</span>
+                <span className={cn("mt-1 block truncate font-serif italic text-[var(--sample-text)]", compact ? "text-[11px]" : "text-[12px] sm:text-[14px]")} style={serif}>
+                  Monstera deliciosa
                 </span>
-                <span className={cn("hidden truncate rounded-full border border-[var(--sample-border-soft)] px-2 py-0.5 uppercase tracking-[0.12em] text-[var(--sample-muted)] sm:inline-block", tiny)}>{item.family}</span>
-                <span className={cn("font-semibold text-[var(--sample-text)]", tiny)}>{item.price}</span>
-              </div>
-            );
-          })}
-        </div>
+                <span className={cn("mt-1.5 grid grid-cols-2 gap-x-4 gap-y-0.5 text-[var(--sample-muted)]", micro)}>
+                  <span>Araceae</span>
+                  <span className="text-right">Pl. 014</span>
+                  <span>Pressed vi.1994</span>
+                  <span className="text-right">Sheet a/3</span>
+                </span>
+              </figcaption>
+            </GeneratedStyleImageSurface>
+          </figure>
 
-        <NaturalHandmadeBottomStrip compact={compact} items={[["Sold by", "Species"], ["Tag", "Accession"], ["Leaf", "Verified"]]} />
+          {/* The species record beside it — hairline rules, no boxes. */}
+          <div className="flex min-h-0 min-w-0 flex-col">
+            <p className={cn("truncate uppercase tracking-[0.22em] text-[var(--sample-muted)]", tiny)}>Araceae · Pl. 014</p>
+            <h3 className={cn("mt-1.5 font-serif italic leading-[0.92] text-[var(--sample-text)]", compact ? "text-[1.15rem]" : "text-[1.5rem] sm:text-[1.9rem]")} style={serif}>
+              Monstera
+              <br />
+              deliciosa
+            </h3>
+            <p className={cn("mt-2 truncate text-[var(--sample-muted)]", tiny)}>Swiss cheese vine</p>
+
+            <dl className="mt-3 min-w-0">
+              {BOTANICAL_CARE.slice(0, compact ? 2 : 4).map(([term, value]) => (
+                <div className="grid min-w-0 grid-cols-[auto_1fr] items-baseline gap-3 border-t border-[var(--sample-border-soft)] py-1.5" key={term}>
+                  <dt className={cn("uppercase tracking-[0.16em] text-[var(--sample-muted)]", micro)}>{term}</dt>
+                  <dd className={cn("truncate text-right text-[var(--sample-text)]", tiny)}>{value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="mt-3 flex min-w-0 items-center gap-2.5">
+              <span className={cn("shrink-0 font-serif text-[var(--sample-text)]", compact ? "text-[13px]" : "text-[17px]")} style={serif}>$68</span>
+              <span className={cn("min-w-0 flex-1 truncate bg-[var(--sample-accent)] px-2 py-2 text-center font-semibold uppercase tracking-[0.16em] text-[var(--sample-base)]", tiny)}>Add to order</span>
+            </div>
+
+            <div className={cn("mt-auto min-w-0 pt-3", compact ? "hidden" : "hidden sm:block")}>
+              <p className={cn("uppercase tracking-[0.22em] text-[var(--sample-muted)]", micro)}>Also under glass</p>
+              <ul className="mt-1">
+                {BOTANICAL_SPECIMENS.map((item) => (
+                  <li className="flex min-w-0 items-baseline justify-between gap-2 border-t border-[var(--sample-border-soft)] py-1.5" key={item.binomial}>
+                    <span className="min-w-0 truncate">
+                      <span className={cn("font-serif italic text-[var(--sample-text)]", tiny)} style={serif}>{item.binomial}</span>
+                      <span className={cn("ml-1.5 text-[var(--sample-muted)]", micro)}>{item.family}</span>
+                    </span>
+                    <span className={cn("shrink-0 text-[var(--sample-muted)]", micro)}>{item.price}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </SampleFrame>
   );
